@@ -18,14 +18,14 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
     public static final GetUserHierarchyGroupArgs Empty = new GetUserHierarchyGroupArgs();
 
     /**
-     * Returns information on a specific hierarchy group by hierarchy group id
+     * Returns information on a specific hierarchy group by hierarchy group ID
      * 
      */
     @Import(name="hierarchyGroupId")
     private @Nullable Output<String> hierarchyGroupId;
 
     /**
-     * @return Returns information on a specific hierarchy group by hierarchy group id
+     * @return Returns information on a specific hierarchy group by hierarchy group ID
      * 
      */
     public Optional<Output<String>> hierarchyGroupId() {
@@ -125,7 +125,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param hierarchyGroupId Returns information on a specific hierarchy group by hierarchy group id
+         * @param hierarchyGroupId Returns information on a specific hierarchy group by hierarchy group ID
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param hierarchyGroupId Returns information on a specific hierarchy group by hierarchy group id
+         * @param hierarchyGroupId Returns information on a specific hierarchy group by hierarchy group ID
          * 
          * @return builder
          * 

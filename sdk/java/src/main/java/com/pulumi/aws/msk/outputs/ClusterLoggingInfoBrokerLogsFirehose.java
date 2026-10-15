@@ -18,6 +18,10 @@ public final class ClusterLoggingInfoBrokerLogsFirehose {
      * 
      */
     private @Nullable String deliveryStream;
+    /**
+     * @return Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+     * 
+     */
     private Boolean enabled;
 
     private ClusterLoggingInfoBrokerLogsFirehose() {}
@@ -28,6 +32,10 @@ public final class ClusterLoggingInfoBrokerLogsFirehose {
     public Optional<String> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }
+    /**
+     * @return Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }

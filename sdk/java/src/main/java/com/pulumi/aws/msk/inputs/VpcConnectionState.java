@@ -33,14 +33,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+     * Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      * 
      */
     @Import(name="authentication")
     private @Nullable Output<String> authentication;
 
     /**
-     * @return The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+     * @return Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      * 
      */
     public Optional<Output<String>> authentication() {
@@ -48,14 +48,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The list of subnets in the client VPC to connect to.
+     * List of subnets in the client VPC to connect to.
      * 
      */
     @Import(name="clientSubnets")
     private @Nullable Output<List<String>> clientSubnets;
 
     /**
-     * @return The list of subnets in the client VPC to connect to.
+     * @return List of subnets in the client VPC to connect to.
      * 
      */
     public Optional<Output<List<String>>> clientSubnets() {
@@ -78,14 +78,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The security groups to attach to the ENIs for the broker nodes.
+     * Security groups to attach to the ENIs for the broker nodes.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return The security groups to attach to the ENIs for the broker nodes.
+     * @return Security groups to attach to the ENIs for the broker nodes.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -93,14 +93,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -108,14 +108,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -138,14 +138,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The VPC ID of the remote client.
+     * VPC ID of the remote client.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The VPC ID of the remote client.
+     * @return VPC ID of the remote client.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -206,7 +206,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authentication The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+         * @param authentication Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authentication The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+         * @param authentication Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clientSubnets The list of subnets in the client VPC to connect to.
+         * @param clientSubnets List of subnets in the client VPC to connect to.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clientSubnets The list of subnets in the client VPC to connect to.
+         * @param clientSubnets List of subnets in the client VPC to connect to.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clientSubnets The list of subnets in the client VPC to connect to.
+         * @param clientSubnets List of subnets in the client VPC to connect to.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param securityGroups The security groups to attach to the ENIs for the broker nodes.
+         * @param securityGroups Security groups to attach to the ENIs for the broker nodes.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param securityGroups The security groups to attach to the ENIs for the broker nodes.
+         * @param securityGroups Security groups to attach to the ENIs for the broker nodes.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param securityGroups The security groups to attach to the ENIs for the broker nodes.
+         * @param securityGroups Security groups to attach to the ENIs for the broker nodes.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vpcId The VPC ID of the remote client.
+         * @param vpcId VPC ID of the remote client.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vpcId The VPC ID of the remote client.
+         * @param vpcId VPC ID of the remote client.
          * 
          * @return builder
          * 

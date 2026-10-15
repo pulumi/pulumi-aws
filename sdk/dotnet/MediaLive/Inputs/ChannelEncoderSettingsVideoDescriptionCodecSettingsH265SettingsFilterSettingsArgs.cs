@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Temporal filter settings. See `TemporalFilterSettings` Block for details.
+        /// </summary>
         [Input("temporalFilterSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs>? TemporalFilterSettings { get; set; }
 

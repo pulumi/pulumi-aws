@@ -225,11 +225,11 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tunnel1Address: pulumi.Output<string>;
     /**
-     * Bgp asn number of the first VPN tunnel.
+     * BGP ASN number of the first VPN tunnel.
      */
     declare public /*out*/ readonly tunnel1BgpAsn: pulumi.Output<string>;
     /**
-     * Bgp holdtime of the first VPN tunnel.
+     * BGP holdtime of the first VPN tunnel.
      */
     declare public /*out*/ readonly tunnel1BgpHoldtime: pulumi.Output<number>;
     /**
@@ -325,11 +325,11 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tunnel2Address: pulumi.Output<string>;
     /**
-     * Bgp asn number of the second VPN tunnel.
+     * BGP ASN number of the second VPN tunnel.
      */
     declare public /*out*/ readonly tunnel2BgpAsn: pulumi.Output<string>;
     /**
-     * Bgp holdtime of the second VPN tunnel.
+     * BGP holdtime of the second VPN tunnel.
      */
     declare public /*out*/ readonly tunnel2BgpHoldtime: pulumi.Output<number>;
     /**
@@ -721,11 +721,11 @@ export interface VpnConnectionState {
      */
     tunnel1Address?: pulumi.Input<string | undefined>;
     /**
-     * Bgp asn number of the first VPN tunnel.
+     * BGP ASN number of the first VPN tunnel.
      */
     tunnel1BgpAsn?: pulumi.Input<string | undefined>;
     /**
-     * Bgp holdtime of the first VPN tunnel.
+     * BGP holdtime of the first VPN tunnel.
      */
     tunnel1BgpHoldtime?: pulumi.Input<number | undefined>;
     /**
@@ -821,11 +821,11 @@ export interface VpnConnectionState {
      */
     tunnel2Address?: pulumi.Input<string | undefined>;
     /**
-     * Bgp asn number of the second VPN tunnel.
+     * BGP ASN number of the second VPN tunnel.
      */
     tunnel2BgpAsn?: pulumi.Input<string | undefined>;
     /**
-     * Bgp holdtime of the second VPN tunnel.
+     * BGP holdtime of the second VPN tunnel.
      */
     tunnel2BgpHoldtime?: pulumi.Input<number | undefined>;
     /**

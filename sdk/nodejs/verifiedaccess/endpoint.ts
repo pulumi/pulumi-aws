@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Cidr Example
+ * ### CIDR Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

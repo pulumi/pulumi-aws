@@ -16,7 +16,7 @@ public final class DomainSamlOptionsSamlOptionsIdp {
      */
     private String entityId;
     /**
-     * @return Metadata of the SAML application in xml format.
+     * @return Metadata of the SAML application in XML format.
      * 
      */
     private String metadataContent;
@@ -30,7 +30,7 @@ public final class DomainSamlOptionsSamlOptionsIdp {
         return this.entityId;
     }
     /**
-     * @return Metadata of the SAML application in xml format.
+     * @return Metadata of the SAML application in XML format.
      * 
      */
     public String metadataContent() {

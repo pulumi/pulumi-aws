@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Rds
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the db subnet group.
+        /// ARN of the DB subnet group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Network type of the db subnet group.
+        /// Network type of the DB subnet group.
         /// </summary>
         [Output("supportedNetworkTypes")]
         public Output<ImmutableArray<string>> SupportedNetworkTypes { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Rds
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the db subnet group.
+        /// ARN of the DB subnet group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _supportedNetworkTypes;
 
         /// <summary>
-        /// Network type of the db subnet group.
+        /// Network type of the DB subnet group.
         /// </summary>
         public InputList<string> SupportedNetworkTypes
         {

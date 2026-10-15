@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Elasticache Cluster in Outpost
+ * ### ElastiCache Cluster in Outpost
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

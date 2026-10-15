@@ -18,6 +18,10 @@ public final class ClusterLoggingInfoBrokerLogsS3 {
      * 
      */
     private @Nullable String bucket;
+    /**
+     * @return Whether to enable or disable streaming broker logs to S3.
+     * 
+     */
     private Boolean enabled;
     /**
      * @return Prefix to append to the folder name.
@@ -33,6 +37,10 @@ public final class ClusterLoggingInfoBrokerLogsS3 {
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
+    /**
+     * @return Whether to enable or disable streaming broker logs to S3.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }

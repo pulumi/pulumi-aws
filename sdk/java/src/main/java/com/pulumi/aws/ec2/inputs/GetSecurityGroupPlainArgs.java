@@ -33,14 +33,14 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Id of the specific security group to retrieve.
+     * ID of the specific security group to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Id of the specific security group to retrieve.
+     * @return ID of the specific security group to retrieve.
      * 
      */
     public Optional<String> id() {
@@ -97,7 +97,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Id of the VPC that the desired security group belongs to.
+     * ID of the VPC that the desired security group belongs to.
      * 
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -107,7 +107,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     private @Nullable String vpcId;
 
     /**
-     * @return Id of the VPC that the desired security group belongs to.
+     * @return ID of the VPC that the desired security group belongs to.
      * 
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -168,7 +168,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param id Id of the specific security group to retrieve.
+         * @param id ID of the specific security group to retrieve.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param vpcId Id of the VPC that the desired security group belongs to.
+         * @param vpcId ID of the VPC that the desired security group belongs to.
          * 
          * More complex filters can be expressed using one or more `filter` sub-blocks,
          * which take the following arguments:

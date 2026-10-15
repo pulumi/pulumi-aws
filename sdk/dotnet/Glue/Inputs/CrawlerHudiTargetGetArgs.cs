@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerHudiTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection to use to connect to the Hudi target.
+        /// Name of the connection to use to connect to the Hudi target.
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _exclusions;
 
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
+        /// List of glob patterns used to exclude from the crawl.
         /// </summary>
         public InputList<string> Exclusions
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        /// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
         /// </summary>
         [Input("maximumTraversalDepth", required: true)]
         public Input<int> MaximumTraversalDepth { get; set; } = null!;

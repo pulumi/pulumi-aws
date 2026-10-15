@@ -15,14 +15,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs();
 
     /**
-     * Destination is a multiplex. See Destination for more details.
+     * Multiplex destination. See `destination` Block for details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination;
 
     /**
-     * @return Destination is a multiplex. See Destination for more details.
+     * @return Multiplex destination. See `destination` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination() {
@@ -54,7 +54,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
         }
 
         /**
-         * @param destination Destination is a multiplex. See Destination for more details.
+         * @param destination Multiplex destination. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
         }
 
         /**
-         * @param destination Destination is a multiplex. See Destination for more details.
+         * @param destination Multiplex destination. See `destination` Block for details.
          * 
          * @return builder
          * 

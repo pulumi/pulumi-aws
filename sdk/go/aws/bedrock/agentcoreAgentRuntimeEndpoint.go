@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreAgentRuntimeEndpoint(ctx, "example", &bedrock.AgentcoreAgentRuntimeEndpointArgs{
-//				Name:           pulumi.String("example-endpoint"),
+//				Name:           pulumi.String("example_endpoint"),
 //				AgentRuntimeId: pulumi.Any(exampleAwsBedrockagentcoreAgentRuntime.AgentRuntimeId),
 //				Description:    pulumi.String("Endpoint for agent runtime communication"),
 //			})
@@ -49,7 +49,7 @@ import (
 // Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agentRuntimeId` and `name` separated by a comma. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
+// $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example_endpoint
 // ```
 type AgentcoreAgentRuntimeEndpoint struct {
 	pulumi.CustomResourceState

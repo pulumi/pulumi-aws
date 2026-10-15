@@ -25,13 +25,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int> ProgramNumber { get; set; } = null!;
 
         /// <summary>
-        /// Service Descriptor. See Service Descriptor for more details.
+        /// Service Descriptor. See `ServiceDescriptor` Block for more details.
         /// </summary>
         [Input("serviceDescriptor")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>? ServiceDescriptor { get; set; }
 
         /// <summary>
-        /// Video settings. See Video Settings for more details.
+        /// Video settings. See `VideoSettings` Block for more details.
         /// </summary>
         [Input("videoSettings")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs>? VideoSettings { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The height of the FEC protection matrix.
+        /// Height of the FEC protection matrix.
         /// </summary>
         [Input("columnDepth")]
         public Input<int>? ColumnDepth { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? IncludeFec { get; set; }
 
         /// <summary>
-        /// The width of the FEC protection matrix.
+        /// Width of the FEC protection matrix.
         /// </summary>
         [Input("rowLength")]
         public Input<int>? RowLength { get; set; }

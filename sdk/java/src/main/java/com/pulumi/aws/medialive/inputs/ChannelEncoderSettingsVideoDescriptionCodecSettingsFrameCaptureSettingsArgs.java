@@ -17,14 +17,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs();
 
     /**
-     * The frequency at which to capture frames for inclusion in the output.
+     * Frequency at which to capture frames for inclusion in the output.
      * 
      */
     @Import(name="captureInterval")
     private @Nullable Output<Integer> captureInterval;
 
     /**
-     * @return The frequency at which to capture frames for inclusion in the output.
+     * @return Frequency at which to capture frames for inclusion in the output.
      * 
      */
     public Optional<Output<Integer>> captureInterval() {
@@ -72,7 +72,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
         }
 
         /**
-         * @param captureInterval The frequency at which to capture frames for inclusion in the output.
+         * @param captureInterval Frequency at which to capture frames for inclusion in the output.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
         }
 
         /**
-         * @param captureInterval The frequency at which to capture frames for inclusion in the output.
+         * @param captureInterval Frequency at which to capture frames for inclusion in the output.
          * 
          * @return builder
          * 

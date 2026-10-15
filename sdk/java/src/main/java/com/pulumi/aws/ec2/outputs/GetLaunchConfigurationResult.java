@@ -93,7 +93,7 @@ public final class GetLaunchConfigurationResult {
      */
     private List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
     /**
-     * @return List of associated Security Group IDS.
+     * @return List of associated Security Group IDs.
      * 
      */
     private List<String> securityGroups;
@@ -218,7 +218,7 @@ public final class GetLaunchConfigurationResult {
         return this.rootBlockDevices;
     }
     /**
-     * @return List of associated Security Group IDS.
+     * @return List of associated Security Group IDs.
      * 
      */
     public List<String> securityGroups() {

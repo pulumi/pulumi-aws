@@ -20,14 +20,14 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
     public static final AcceleratorArgs Empty = new AcceleratorArgs();
 
     /**
-     * The attributes of the accelerator. Fields documented below.
+     * Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     @Import(name="attributes")
     private @Nullable Output<AcceleratorAttributesArgs> attributes;
 
     /**
-     * @return The attributes of the accelerator. Fields documented below.
+     * @return Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     public Optional<Output<AcceleratorAttributesArgs>> attributes() {
@@ -35,14 +35,14 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * @return Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -50,14 +50,14 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+     * Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+     * @return Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -65,14 +65,14 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
     /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * @return IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     public Optional<Output<List<String>>> ipAddresses() {
@@ -80,14 +80,14 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the accelerator.
+     * Name of the accelerator.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the accelerator.
+     * @return Name of the accelerator.
      * 
      */
     public Optional<Output<String>> name() {
@@ -95,14 +95,14 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -139,7 +139,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes The attributes of the accelerator. Fields documented below.
+         * @param attributes Configuration block with accelerator attributes. See `attributes` below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes The attributes of the accelerator. Fields documented below.
+         * @param attributes Configuration block with accelerator attributes. See `attributes` below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+         * @param enabled Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+         * @param enabled Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+         * @param ipAddressType Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+         * @param ipAddressType Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the accelerator.
+         * @param name Name of the accelerator.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the accelerator.
+         * @param name Name of the accelerator.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

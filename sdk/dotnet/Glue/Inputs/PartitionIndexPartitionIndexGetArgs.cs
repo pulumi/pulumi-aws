@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
+        /// <summary>
+        /// Status of the partition index.
+        /// </summary>
         [Input("indexStatus")]
         public Input<string>? IndexStatus { get; set; }
 

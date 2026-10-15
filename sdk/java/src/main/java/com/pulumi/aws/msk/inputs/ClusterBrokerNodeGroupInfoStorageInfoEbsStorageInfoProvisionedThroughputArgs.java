@@ -16,22 +16,30 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisione
 
     public static final ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs Empty = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs();
 
+    /**
+     * Whether provisioned throughput is enabled or not. Default value: `false`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether provisioned throughput is enabled or not. Default value: `false`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
     /**
-     * Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+     * Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
      * 
      */
     @Import(name="volumeThroughput")
     private @Nullable Output<Integer> volumeThroughput;
 
     /**
-     * @return Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+     * @return Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
      * 
      */
     public Optional<Output<Integer>> volumeThroughput() {
@@ -63,17 +71,29 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisione
             $ = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether provisioned throughput is enabled or not. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether provisioned throughput is enabled or not. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
         /**
-         * @param volumeThroughput Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+         * @param volumeThroughput Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
          * 
          * @return builder
          * 
@@ -84,7 +104,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisione
         }
 
         /**
-         * @param volumeThroughput Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+         * @param volumeThroughput Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
          * 
          * @return builder
          * 

@@ -46,14 +46,13 @@ import (
 type MainRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// Used internally, see **Notes** below
+	// Original route table ID, used internally; see __Notes__ below
 	OriginalRouteTableId pulumi.StringOutput `pulumi:"originalRouteTableId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the Route Table to set as the new
-	// main route table for the target VPC
+	// ID of the Route Table to set as the new main route table for the target VPC
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
-	// The ID of the VPC whose main route table should be set
+	// ID of the VPC whose main route table should be set
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -93,26 +92,24 @@ func GetMainRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MainRouteTableAssociation resources.
 type mainRouteTableAssociationState struct {
-	// Used internally, see **Notes** below
+	// Original route table ID, used internally; see __Notes__ below
 	OriginalRouteTableId *string `pulumi:"originalRouteTableId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the Route Table to set as the new
-	// main route table for the target VPC
+	// ID of the Route Table to set as the new main route table for the target VPC
 	RouteTableId *string `pulumi:"routeTableId"`
-	// The ID of the VPC whose main route table should be set
+	// ID of the VPC whose main route table should be set
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type MainRouteTableAssociationState struct {
-	// Used internally, see **Notes** below
+	// Original route table ID, used internally; see __Notes__ below
 	OriginalRouteTableId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the Route Table to set as the new
-	// main route table for the target VPC
+	// ID of the Route Table to set as the new main route table for the target VPC
 	RouteTableId pulumi.StringPtrInput
-	// The ID of the VPC whose main route table should be set
+	// ID of the VPC whose main route table should be set
 	VpcId pulumi.StringPtrInput
 }
 
@@ -123,10 +120,9 @@ func (MainRouteTableAssociationState) ElementType() reflect.Type {
 type mainRouteTableAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the Route Table to set as the new
-	// main route table for the target VPC
+	// ID of the Route Table to set as the new main route table for the target VPC
 	RouteTableId string `pulumi:"routeTableId"`
-	// The ID of the VPC whose main route table should be set
+	// ID of the VPC whose main route table should be set
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -134,10 +130,9 @@ type mainRouteTableAssociationArgs struct {
 type MainRouteTableAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the Route Table to set as the new
-	// main route table for the target VPC
+	// ID of the Route Table to set as the new main route table for the target VPC
 	RouteTableId pulumi.StringInput
-	// The ID of the VPC whose main route table should be set
+	// ID of the VPC whose main route table should be set
 	VpcId pulumi.StringInput
 }
 
@@ -228,7 +223,7 @@ func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationOutputWithCo
 	return o
 }
 
-// Used internally, see **Notes** below
+// Original route table ID, used internally; see __Notes__ below
 func (o MainRouteTableAssociationOutput) OriginalRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.OriginalRouteTableId }).(pulumi.StringOutput)
 }
@@ -238,13 +233,12 @@ func (o MainRouteTableAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the Route Table to set as the new
-// main route table for the target VPC
+// ID of the Route Table to set as the new main route table for the target VPC
 func (o MainRouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC whose main route table should be set
+// ID of the VPC whose main route table should be set
 func (o MainRouteTableAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

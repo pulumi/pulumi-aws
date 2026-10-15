@@ -378,7 +378,7 @@ class IdcApplicationServiceIntegrationLakeFormation(dict):
     def __init__(__self__, *,
                  lake_formation_query: Optional['outputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery'] = None):
         """
-        :param 'IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs' lake_formation_query: Lake formation scope.
+        :param 'IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs' lake_formation_query: Lake Formation scope.
         """
         if lake_formation_query is not None:
             pulumi.set(__self__, "lake_formation_query", lake_formation_query)
@@ -387,7 +387,7 @@ class IdcApplicationServiceIntegrationLakeFormation(dict):
     @pulumi.getter(name="lakeFormationQuery")
     def lake_formation_query(self) -> Optional['outputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery']:
         """
-        Lake formation scope.
+        Lake Formation scope.
         """
         return pulumi.get(self, "lake_formation_query")
 

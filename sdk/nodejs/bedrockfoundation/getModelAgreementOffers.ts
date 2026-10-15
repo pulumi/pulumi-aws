@@ -18,9 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.bedrockfoundation.getModelAgreementOffers({
- *     modelId: exampleAwsBedrockFoundationModels.modelSummaries[0].modelId,
- * });
+ * const example = aws.bedrockfoundation.getModels({});
+ * const exampleGetModelAgreementOffers = example.then(example => aws.bedrockfoundation.getModelAgreementOffers({
+ *     modelId: example.modelSummaries?.[0]?.modelId,
+ * }));
  * ```
  */
 export function getModelAgreementOffers(args: GetModelAgreementOffersArgs, opts?: pulumi.InvokeOptions): Promise<GetModelAgreementOffersResult> {
@@ -37,7 +38,7 @@ export function getModelAgreementOffers(args: GetModelAgreementOffersArgs, opts?
  */
 export interface GetModelAgreementOffersArgs {
     /**
-     * Model ID of the foundation model
+     * Model ID of the foundation model.
      *
      * The following arguments are optional:
      */
@@ -75,9 +76,10 @@ export interface GetModelAgreementOffersResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.bedrockfoundation.getModelAgreementOffers({
- *     modelId: exampleAwsBedrockFoundationModels.modelSummaries[0].modelId,
- * });
+ * const example = aws.bedrockfoundation.getModels({});
+ * const exampleGetModelAgreementOffers = example.then(example => aws.bedrockfoundation.getModelAgreementOffers({
+ *     modelId: example.modelSummaries?.[0]?.modelId,
+ * }));
  * ```
  */
 export function getModelAgreementOffersOutput(args: GetModelAgreementOffersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModelAgreementOffersResult> {
@@ -94,7 +96,7 @@ export function getModelAgreementOffersOutput(args: GetModelAgreementOffersOutpu
  */
 export interface GetModelAgreementOffersOutputArgs {
     /**
-     * Model ID of the foundation model
+     * Model ID of the foundation model.
      *
      * The following arguments are optional:
      */

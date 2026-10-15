@@ -13,14 +13,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings {
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     private @Nullable Integer connectionRetryInterval;
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     private @Nullable Integer filecacheDuration;
+    /**
+     * @return MediaStore storage class to use.
+     * 
+     */
     private @Nullable String mediaStoreStorageClass;
     /**
-     * @return Number of retry attempts.
+     * @return Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     private @Nullable Integer numRetries;
@@ -32,20 +40,28 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings() {}
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     public Optional<Integer> filecacheDuration() {
         return Optional.ofNullable(this.filecacheDuration);
     }
+    /**
+     * @return MediaStore storage class to use.
+     * 
+     */
     public Optional<String> mediaStoreStorageClass() {
         return Optional.ofNullable(this.mediaStoreStorageClass);
     }
     /**
-     * @return Number of retry attempts.
+     * @return Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     public Optional<Integer> numRetries() {

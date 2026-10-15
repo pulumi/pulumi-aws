@@ -48,9 +48,9 @@ class AgentAgentActionGroupArgs:
         :param pulumi.Input[_builtins.str] description: Description of the action group.
         :param pulumi.Input['AgentAgentActionGroupFunctionSchemaArgs'] function_schema: Function schema for the action group. Each function represents an action in an action group. See `function_schema` Block for details.
         :param pulumi.Input[_builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the action group. Defaults to `false`.
         """
         pulumi.set(__self__, "action_group_name", action_group_name)
         pulumi.set(__self__, "agent_id", agent_id)
@@ -190,7 +190,7 @@ class AgentAgentActionGroupArgs:
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        Whether to prepare the agent after creation or modification. Defaults to `true`.
         """
         return pulumi.get(self, "prepare_agent")
 
@@ -214,7 +214,7 @@ class AgentAgentActionGroupArgs:
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether the in-use check is skipped when deleting the action group.
+        Whether to skip the in-use check when deleting the action group. Defaults to `false`.
         """
         return pulumi.get(self, "skip_resource_in_use_check")
 
@@ -264,9 +264,9 @@ class _AgentAgentActionGroupState:
         :param pulumi.Input[_builtins.str] description: Description of the action group.
         :param pulumi.Input['AgentAgentActionGroupFunctionSchemaArgs'] function_schema: Function schema for the action group. Each function represents an action in an action group. See `function_schema` Block for details.
         :param pulumi.Input[_builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the action group. Defaults to `false`.
         """
         if action_group_executor is not None:
             pulumi.set(__self__, "action_group_executor", action_group_executor)
@@ -423,7 +423,7 @@ class _AgentAgentActionGroupState:
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        Whether to prepare the agent after creation or modification. Defaults to `true`.
         """
         return pulumi.get(self, "prepare_agent")
 
@@ -447,7 +447,7 @@ class _AgentAgentActionGroupState:
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether the in-use check is skipped when deleting the action group.
+        Whether to skip the in-use check when deleting the action group. Defaults to `false`.
         """
         return pulumi.get(self, "skip_resource_in_use_check")
 
@@ -486,7 +486,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict', 'outputs.AgentAgentActionGroupTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Action Group.
+        Manages an AWS Agents for Amazon Bedrock Agent Action Group.
 
         ## Example Usage
 
@@ -592,7 +592,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
+        Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the action group ID, the agent ID, and the agent version separated by `,`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
@@ -612,9 +612,9 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the action group.
         :param pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict', 'outputs.AgentAgentActionGroupFunctionSchema']] function_schema: Function schema for the action group. Each function represents an action in an action group. See `function_schema` Block for details.
         :param pulumi.Input[_builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the action group. Defaults to `false`.
         """
         ...
     @overload
@@ -623,7 +623,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                  args: AgentAgentActionGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Action Group.
+        Manages an AWS Agents for Amazon Bedrock Agent Action Group.
 
         ## Example Usage
 
@@ -729,7 +729,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
+        Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the action group ID, the agent ID, and the agent version separated by `,`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
@@ -836,9 +836,9 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the action group.
         :param pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict', 'outputs.AgentAgentActionGroupFunctionSchema']] function_schema: Function schema for the action group. Each function represents an action in an action group. See `function_schema` Block for details.
         :param pulumi.Input[_builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the action group. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -946,7 +946,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        Whether to prepare the agent after creation or modification. Defaults to `true`.
         """
         return pulumi.get(self, "prepare_agent")
 
@@ -962,7 +962,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether the in-use check is skipped when deleting the action group.
+        Whether to skip the in-use check when deleting the action group. Defaults to `false`.
         """
         return pulumi.get(self, "skip_resource_in_use_check")
 

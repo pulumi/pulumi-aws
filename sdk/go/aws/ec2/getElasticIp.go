@@ -166,7 +166,7 @@ type GetElasticIpResult struct {
 	CustomerOwnedIp string `pulumi:"customerOwnedIp"`
 	// The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
 	CustomerOwnedIpv4Pool string `pulumi:"customerOwnedIpv4Pool"`
-	// Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+	// Whether the address is for use in EC2-Classic (`standard`) or in a VPC (`vpc`).
 	Domain  string               `pulumi:"domain"`
 	Filters []GetElasticIpFilter `pulumi:"filters"`
 	// If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
@@ -262,7 +262,7 @@ func (o GetElasticIpResultOutput) CustomerOwnedIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.CustomerOwnedIpv4Pool }).(pulumi.StringOutput)
 }
 
-// Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+// Whether the address is for use in EC2-Classic (`standard`) or in a VPC (`vpc`).
 func (o GetElasticIpResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.Domain }).(pulumi.StringOutput)
 }

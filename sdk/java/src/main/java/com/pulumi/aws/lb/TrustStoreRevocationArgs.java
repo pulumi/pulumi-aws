@@ -62,14 +62,14 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
     @Import(name="revocationsS3ObjectVersion")
     private @Nullable Output<String> revocationsS3ObjectVersion;
 
     /**
-     * @return Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * @return Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
     public Optional<Output<String>> revocationsS3ObjectVersion() {
@@ -183,7 +183,7 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param revocationsS3ObjectVersion Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+         * @param revocationsS3ObjectVersion Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param revocationsS3ObjectVersion Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+         * @param revocationsS3ObjectVersion Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
          * 
          * @return builder
          * 

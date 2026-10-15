@@ -49,7 +49,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// Appsync domain name.
+        /// AppSync domain name.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Appsync domain name.
+        /// AppSync domain name.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// Appsync domain name.
+        /// AppSync domain name.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

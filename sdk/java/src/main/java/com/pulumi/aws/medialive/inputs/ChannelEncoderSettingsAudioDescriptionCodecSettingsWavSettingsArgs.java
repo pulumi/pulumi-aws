@@ -16,16 +16,32 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSetting
 
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs();
 
+    /**
+     * Bits per sample.
+     * 
+     */
     @Import(name="bitDepth")
     private @Nullable Output<Double> bitDepth;
 
+    /**
+     * @return Bits per sample.
+     * 
+     */
     public Optional<Output<Double>> bitDepth() {
         return Optional.ofNullable(this.bitDepth);
     }
 
+    /**
+     * WAV coding mode.
+     * 
+     */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
+    /**
+     * @return WAV coding mode.
+     * 
+     */
     public Optional<Output<String>> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
@@ -71,20 +87,44 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSetting
             $ = new ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bitDepth Bits per sample.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitDepth(@Nullable Output<Double> bitDepth) {
             $.bitDepth = bitDepth;
             return this;
         }
 
+        /**
+         * @param bitDepth Bits per sample.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitDepth(Double bitDepth) {
             return bitDepth(Output.of(bitDepth));
         }
 
+        /**
+         * @param codingMode WAV coding mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codingMode(@Nullable Output<String> codingMode) {
             $.codingMode = codingMode;
             return this;
         }
 
+        /**
+         * @param codingMode WAV coding mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codingMode(String codingMode) {
             return codingMode(Output.of(codingMode));
         }

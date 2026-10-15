@@ -39,14 +39,14 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block of properties for the catalog. See `catalogProperties` below.
+     * Configuration block of properties for the catalog. See `catalogProperties` Block below.
      * 
      */
     @Import(name="catalogProperties")
     private @Nullable Output<CatalogCatalogPropertiesArgs> catalogProperties;
 
     /**
-     * @return Configuration block of properties for the catalog. See `catalogProperties` below.
+     * @return Configuration block of properties for the catalog. See `catalogProperties` Block below.
      * 
      */
     public Optional<Output<CatalogCatalogPropertiesArgs>> catalogProperties() {
@@ -54,14 +54,14 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      * 
      */
     @Import(name="createDatabaseDefaultPermissions")
     private @Nullable Output<List<CatalogCreateDatabaseDefaultPermissionArgs>> createDatabaseDefaultPermissions;
 
     /**
-     * @return List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * @return List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      * 
      */
     public Optional<Output<List<CatalogCreateDatabaseDefaultPermissionArgs>>> createDatabaseDefaultPermissions() {
@@ -69,14 +69,14 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      * 
      */
     @Import(name="createTableDefaultPermissions")
     private @Nullable Output<List<CatalogCreateTableDefaultPermissionArgs>> createTableDefaultPermissions;
 
     /**
-     * @return List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * @return List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      * 
      */
     public Optional<Output<List<CatalogCreateTableDefaultPermissionArgs>>> createTableDefaultPermissions() {
@@ -99,14 +99,14 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for a federated catalog. See `federatedCatalog` below.
+     * Configuration block for a federated catalog. See `federatedCatalog` Block below.
      * 
      */
     @Import(name="federatedCatalog")
     private @Nullable Output<CatalogFederatedCatalogArgs> federatedCatalog;
 
     /**
-     * @return Configuration block for a federated catalog. See `federatedCatalog` below.
+     * @return Configuration block for a federated catalog. See `federatedCatalog` Block below.
      * 
      */
     public Optional<Output<CatalogFederatedCatalogArgs>> federatedCatalog() {
@@ -189,14 +189,14 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
      * 
      */
     @Import(name="targetRedshiftCatalog")
     private @Nullable Output<CatalogTargetRedshiftCatalogArgs> targetRedshiftCatalog;
 
     /**
-     * @return Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+     * @return Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
      * 
      */
     public Optional<Output<CatalogTargetRedshiftCatalogArgs>> targetRedshiftCatalog() {
@@ -268,7 +268,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogProperties Configuration block of properties for the catalog. See `catalogProperties` below.
+         * @param catalogProperties Configuration block of properties for the catalog. See `catalogProperties` Block below.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogProperties Configuration block of properties for the catalog. See `catalogProperties` below.
+         * @param catalogProperties Configuration block of properties for the catalog. See `catalogProperties` Block below.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createDatabaseDefaultPermissions List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+         * @param createDatabaseDefaultPermissions List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createDatabaseDefaultPermissions List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+         * @param createDatabaseDefaultPermissions List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createDatabaseDefaultPermissions List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+         * @param createDatabaseDefaultPermissions List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTableDefaultPermissions List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+         * @param createTableDefaultPermissions List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTableDefaultPermissions List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+         * @param createTableDefaultPermissions List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTableDefaultPermissions List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+         * @param createTableDefaultPermissions List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param federatedCatalog Configuration block for a federated catalog. See `federatedCatalog` below.
+         * @param federatedCatalog Configuration block for a federated catalog. See `federatedCatalog` Block below.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param federatedCatalog Configuration block for a federated catalog. See `federatedCatalog` below.
+         * @param federatedCatalog Configuration block for a federated catalog. See `federatedCatalog` Block below.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetRedshiftCatalog Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+         * @param targetRedshiftCatalog Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class CatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetRedshiftCatalog Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+         * @param targetRedshiftCatalog Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
          * 
          * @return builder
          * 

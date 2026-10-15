@@ -91,14 +91,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Quicksight namespace to create the user in. Defaults to `default`.
+     * Amazon QuickSight namespace to create the user in. Defaults to `default`.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return Amazon Quicksight namespace to create the user in. Defaults to `default`.
+     * @return Amazon QuickSight namespace to create the user in. Defaults to `default`.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -324,7 +324,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Amazon Quicksight namespace to create the user in. Defaults to `default`.
+         * @param namespace Amazon QuickSight namespace to create the user in. Defaults to `default`.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Amazon Quicksight namespace to create the user in. Defaults to `default`.
+         * @param namespace Amazon QuickSight namespace to create the user in. Defaults to `default`.
          * 
          * @return builder
          * 

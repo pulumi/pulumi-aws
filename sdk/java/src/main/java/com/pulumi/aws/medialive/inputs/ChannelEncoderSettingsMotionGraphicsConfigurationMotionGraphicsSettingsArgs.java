@@ -16,14 +16,14 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
     public static final ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs Empty = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs();
 
     /**
-     * Html Motion Graphics Settings.
+     * HTML motion graphics settings. Can be set as an empty block.
      * 
      */
     @Import(name="htmlMotionGraphicsSettings")
     private @Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs> htmlMotionGraphicsSettings;
 
     /**
-     * @return Html Motion Graphics Settings.
+     * @return HTML motion graphics settings. Can be set as an empty block.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs>> htmlMotionGraphicsSettings() {
@@ -55,7 +55,7 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
         }
 
         /**
-         * @param htmlMotionGraphicsSettings Html Motion Graphics Settings.
+         * @param htmlMotionGraphicsSettings HTML motion graphics settings. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
         }
 
         /**
-         * @param htmlMotionGraphicsSettings Html Motion Graphics Settings.
+         * @param htmlMotionGraphicsSettings HTML motion graphics settings. Can be set as an empty block.
          * 
          * @return builder
          * 

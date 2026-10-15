@@ -9202,7 +9202,7 @@ type DataQualityJobDefinitionDataQualityAppSpecification struct {
 	ImageUri string `pulumi:"imageUri"`
 	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri *string `pulumi:"postAnalyticsProcessorSourceUri"`
-	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
 	RecordPreprocessorSourceUri *string `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -9224,7 +9224,7 @@ type DataQualityJobDefinitionDataQualityAppSpecificationArgs struct {
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri pulumi.StringPtrInput `pulumi:"postAnalyticsProcessorSourceUri"`
-	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
 	RecordPreprocessorSourceUri pulumi.StringPtrInput `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -9322,7 +9322,7 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) PostAnalytics
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) *string {
 		return v.RecordPreprocessorSourceUri
@@ -9383,7 +9383,7 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) PostAnalyt
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *string {
 		if v == nil {
@@ -10506,7 +10506,7 @@ func (o DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFor
 }
 
 type DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson struct {
-	// Indicates if the file should be read as a json object per line.
+	// Indicates if the file should be read as a JSON object per line.
 	Line *bool `pulumi:"line"`
 }
 
@@ -10522,7 +10522,7 @@ type DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat
 }
 
 type DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs struct {
-	// Indicates if the file should be read as a json object per line.
+	// Indicates if the file should be read as a JSON object per line.
 	Line pulumi.BoolPtrInput `pulumi:"line"`
 }
 
@@ -10603,7 +10603,7 @@ func (o DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFor
 	}).(DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonPtrOutput)
 }
 
-// Indicates if the file should be read as a json object per line.
+// Indicates if the file should be read as a JSON object per line.
 func (o DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonOutput) Line() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson) *bool {
 		return v.Line
@@ -10634,7 +10634,7 @@ func (o DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFor
 	}).(DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonOutput)
 }
 
-// Indicates if the file should be read as a json object per line.
+// Indicates if the file should be read as a JSON object per line.
 func (o DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonPtrOutput) Line() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson) *bool {
 		if v == nil {
@@ -29600,7 +29600,7 @@ type FeatureGroupOnlineStoreConfig struct {
 	SecurityConfig *FeatureGroupOnlineStoreConfigSecurityConfig `pulumi:"securityConfig"`
 	// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
 	StorageType *string `pulumi:"storageType"`
-	// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+	// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
 	TtlDuration *FeatureGroupOnlineStoreConfigTtlDuration `pulumi:"ttlDuration"`
 }
 
@@ -29622,7 +29622,7 @@ type FeatureGroupOnlineStoreConfigArgs struct {
 	SecurityConfig FeatureGroupOnlineStoreConfigSecurityConfigPtrInput `pulumi:"securityConfig"`
 	// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
-	// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+	// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
 	TtlDuration FeatureGroupOnlineStoreConfigTtlDurationPtrInput `pulumi:"ttlDuration"`
 }
 
@@ -29720,7 +29720,7 @@ func (o FeatureGroupOnlineStoreConfigOutput) StorageType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
 func (o FeatureGroupOnlineStoreConfigOutput) TtlDuration() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigTtlDuration { return v.TtlDuration }).(FeatureGroupOnlineStoreConfigTtlDurationPtrOutput)
 }
@@ -29779,7 +29779,7 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) StorageType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
 func (o FeatureGroupOnlineStoreConfigPtrOutput) TtlDuration() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigTtlDuration {
 		if v == nil {
@@ -43072,7 +43072,7 @@ func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrO
 type ModelContainerImageConfig struct {
 	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
-	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig *ModelContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
 }
 
@@ -43090,7 +43090,7 @@ type ModelContainerImageConfigInput interface {
 type ModelContainerImageConfigArgs struct {
 	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
-	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig ModelContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
 }
 
@@ -43176,7 +43176,7 @@ func (o ModelContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOut
 	return o.ApplyT(func(v ModelContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
 
-// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelContainerImageConfigOutput) RepositoryAuthConfig() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainerImageConfig) *ModelContainerImageConfigRepositoryAuthConfig {
 		return v.RepositoryAuthConfig
@@ -43217,7 +43217,7 @@ func (o ModelContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v *ModelContainerImageConfig) *ModelContainerImageConfigRepositoryAuthConfig {
 		if v == nil {
@@ -44747,7 +44747,7 @@ func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessCon
 type ModelPrimaryContainerImageConfig struct {
 	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
-	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig *ModelPrimaryContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
 }
 
@@ -44765,7 +44765,7 @@ type ModelPrimaryContainerImageConfigInput interface {
 type ModelPrimaryContainerImageConfigArgs struct {
 	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
-	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
 }
 
@@ -44851,7 +44851,7 @@ func (o ModelPrimaryContainerImageConfigOutput) RepositoryAccessMode() pulumi.St
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
 
-// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelPrimaryContainerImageConfigOutput) RepositoryAuthConfig() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfigRepositoryAuthConfig {
 		return v.RepositoryAuthConfig
@@ -44892,7 +44892,7 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfigRepositoryAuthConfig {
 		if v == nil {
@@ -49905,7 +49905,7 @@ type PipelinePipelineDefinitionS3Location struct {
 	Bucket string `pulumi:"bucket"`
 	// The object key (or key name) uniquely identifies the object in an S3 bucket.
 	ObjectKey string `pulumi:"objectKey"`
-	// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
+	// Version ID of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
 	VersionId *string `pulumi:"versionId"`
 }
 
@@ -49925,7 +49925,7 @@ type PipelinePipelineDefinitionS3LocationArgs struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The object key (or key name) uniquely identifies the object in an S3 bucket.
 	ObjectKey pulumi.StringInput `pulumi:"objectKey"`
-	// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
+	// Version ID of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
 	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
 }
 
@@ -50016,7 +50016,7 @@ func (o PipelinePipelineDefinitionS3LocationOutput) ObjectKey() pulumi.StringOut
 	return o.ApplyT(func(v PipelinePipelineDefinitionS3Location) string { return v.ObjectKey }).(pulumi.StringOutput)
 }
 
-// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
+// Version ID of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
 func (o PipelinePipelineDefinitionS3LocationOutput) VersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelinePipelineDefinitionS3Location) *string { return v.VersionId }).(pulumi.StringPtrOutput)
 }
@@ -50065,7 +50065,7 @@ func (o PipelinePipelineDefinitionS3LocationPtrOutput) ObjectKey() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
+// Version ID of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
 func (o PipelinePipelineDefinitionS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelinePipelineDefinitionS3Location) *string {
 		if v == nil {
@@ -59408,7 +59408,7 @@ type UserProfileUserSettings struct {
 	CodeEditorAppSettings *UserProfileUserSettingsCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
 	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
 	CustomFileSystemConfigs []UserProfileUserSettingsCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
-	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	// Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
 	CustomPosixUserConfig *UserProfileUserSettingsCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
 	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
 	DefaultLandingUri *string `pulumi:"defaultLandingUri"`
@@ -59458,7 +59458,7 @@ type UserProfileUserSettingsArgs struct {
 	CodeEditorAppSettings UserProfileUserSettingsCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
 	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
 	CustomFileSystemConfigs UserProfileUserSettingsCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
-	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	// Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
 	CustomPosixUserConfig UserProfileUserSettingsCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
 	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
 	DefaultLandingUri pulumi.StringPtrInput `pulumi:"defaultLandingUri"`
@@ -59589,7 +59589,7 @@ func (o UserProfileUserSettingsOutput) CustomFileSystemConfigs() UserProfileUser
 	}).(UserProfileUserSettingsCustomFileSystemConfigArrayOutput)
 }
 
-// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+// Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
 func (o UserProfileUserSettingsOutput) CustomPosixUserConfig() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsCustomPosixUserConfig {
 		return v.CustomPosixUserConfig
@@ -59741,7 +59741,7 @@ func (o UserProfileUserSettingsPtrOutput) CustomFileSystemConfigs() UserProfileU
 	}).(UserProfileUserSettingsCustomFileSystemConfigArrayOutput)
 }
 
-// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+// Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
 func (o UserProfileUserSettingsPtrOutput) CustomPosixUserConfig() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsCustomPosixUserConfig {
 		if v == nil {

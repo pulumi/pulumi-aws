@@ -19,14 +19,14 @@ public final class TriggerPredicateArgs extends com.pulumi.resources.ResourceArg
     public static final TriggerPredicateArgs Empty = new TriggerPredicateArgs();
 
     /**
-     * A list of the conditions that determine when the trigger will fire. See Conditions.
+     * List of the conditions that determine when the trigger will fire. See `conditions`.
      * 
      */
     @Import(name="conditions", required=true)
     private Output<List<TriggerPredicateConditionArgs>> conditions;
 
     /**
-     * @return A list of the conditions that determine when the trigger will fire. See Conditions.
+     * @return List of the conditions that determine when the trigger will fire. See `conditions`.
      * 
      */
     public Output<List<TriggerPredicateConditionArgs>> conditions() {
@@ -74,7 +74,7 @@ public final class TriggerPredicateArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param conditions A list of the conditions that determine when the trigger will fire. See Conditions.
+         * @param conditions List of the conditions that determine when the trigger will fire. See `conditions`.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class TriggerPredicateArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param conditions A list of the conditions that determine when the trigger will fire. See Conditions.
+         * @param conditions List of the conditions that determine when the trigger will fire. See `conditions`.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class TriggerPredicateArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param conditions A list of the conditions that determine when the trigger will fire. See Conditions.
+         * @param conditions List of the conditions that determine when the trigger will fire. See `conditions`.
          * 
          * @return builder
          * 

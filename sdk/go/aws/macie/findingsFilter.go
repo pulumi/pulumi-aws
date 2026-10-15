@@ -62,7 +62,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `macie.FindingsFilter` using the id. For example:
+// Using `pulumi import`, import `macie.FindingsFilter` using the ID. For example:
 //
 // ```sh
 // $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
@@ -70,25 +70,25 @@ import (
 type FindingsFilter struct {
 	pulumi.CustomResourceState
 
-	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+	// Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
 	Action pulumi.StringOutput `pulumi:"action"`
 	// ARN of the Findings Filter.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A custom description of the filter. The description can contain as many as 512 characters.
+	// Custom description of the filter. Can contain as many as 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The criteria to use to filter findings.
+	// Criteria to use to filter findings. See `findingCriteria` Block for details.
 	FindingCriteria FindingsFilterFindingCriteriaOutput `pulumi:"findingCriteria"`
-	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+	// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntOutput `pulumi:"position"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -128,48 +128,48 @@ func GetFindingsFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FindingsFilter resources.
 type findingsFilterState struct {
-	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+	// Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
 	Action *string `pulumi:"action"`
 	// ARN of the Findings Filter.
 	Arn *string `pulumi:"arn"`
-	// A custom description of the filter. The description can contain as many as 512 characters.
+	// Custom description of the filter. Can contain as many as 512 characters.
 	Description *string `pulumi:"description"`
-	// The criteria to use to filter findings.
+	// Criteria to use to filter findings. See `findingCriteria` Block for details.
 	FindingCriteria *FindingsFilterFindingCriteria `pulumi:"findingCriteria"`
-	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+	// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position *int `pulumi:"position"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type FindingsFilterState struct {
-	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+	// Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
 	Action pulumi.StringPtrInput
 	// ARN of the Findings Filter.
 	Arn pulumi.StringPtrInput
-	// A custom description of the filter. The description can contain as many as 512 characters.
+	// Custom description of the filter. Can contain as many as 512 characters.
 	Description pulumi.StringPtrInput
-	// The criteria to use to filter findings.
+	// Criteria to use to filter findings. See `findingCriteria` Block for details.
 	FindingCriteria FindingsFilterFindingCriteriaPtrInput
-	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+	// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -178,17 +178,17 @@ func (FindingsFilterState) ElementType() reflect.Type {
 }
 
 type findingsFilterArgs struct {
-	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+	// Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
 	Action string `pulumi:"action"`
-	// A custom description of the filter. The description can contain as many as 512 characters.
+	// Custom description of the filter. Can contain as many as 512 characters.
 	Description *string `pulumi:"description"`
-	// The criteria to use to filter findings.
+	// Criteria to use to filter findings. See `findingCriteria` Block for details.
 	FindingCriteria FindingsFilterFindingCriteria `pulumi:"findingCriteria"`
-	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+	// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position *int `pulumi:"position"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -198,17 +198,17 @@ type findingsFilterArgs struct {
 
 // The set of arguments for constructing a FindingsFilter resource.
 type FindingsFilterArgs struct {
-	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+	// Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
 	Action pulumi.StringInput
-	// A custom description of the filter. The description can contain as many as 512 characters.
+	// Custom description of the filter. Can contain as many as 512 characters.
 	Description pulumi.StringPtrInput
-	// The criteria to use to filter findings.
+	// Criteria to use to filter findings. See `findingCriteria` Block for details.
 	FindingCriteria FindingsFilterFindingCriteriaInput
-	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+	// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -303,7 +303,7 @@ func (o FindingsFilterOutput) ToFindingsFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+// Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
 func (o FindingsFilterOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
@@ -313,17 +313,17 @@ func (o FindingsFilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A custom description of the filter. The description can contain as many as 512 characters.
+// Custom description of the filter. Can contain as many as 512 characters.
 func (o FindingsFilterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The criteria to use to filter findings.
+// Criteria to use to filter findings. See `findingCriteria` Block for details.
 func (o FindingsFilterOutput) FindingCriteria() FindingsFilterFindingCriteriaOutput {
 	return o.ApplyT(func(v *FindingsFilter) FindingsFilterFindingCriteriaOutput { return v.FindingCriteria }).(FindingsFilterFindingCriteriaOutput)
 }
 
-// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
 func (o FindingsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -333,7 +333,7 @@ func (o FindingsFilterOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 func (o FindingsFilterOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.IntOutput { return v.Position }).(pulumi.IntOutput)
 }
@@ -348,7 +348,7 @@ func (o FindingsFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FindingsFilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

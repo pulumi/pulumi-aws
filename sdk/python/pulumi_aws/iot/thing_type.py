@@ -254,7 +254,7 @@ class ThingType(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import IOT Thing Types using the name. For example:
+        Using `pulumi import`, import IoT Thing Types using the name. For example:
 
         ```sh
         $ pulumi import aws:iot/thingType:ThingType example example
@@ -289,7 +289,7 @@ class ThingType(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import IOT Thing Types using the name. For example:
+        Using `pulumi import`, import IoT Thing Types using the name. For example:
 
         ```sh
         $ pulumi import aws:iot/thingType:ThingType example example

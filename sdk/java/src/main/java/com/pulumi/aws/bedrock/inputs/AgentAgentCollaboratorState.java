@@ -18,22 +18,30 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
 
     public static final AgentAgentCollaboratorState Empty = new AgentAgentCollaboratorState();
 
+    /**
+     * Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     * 
+     */
     @Import(name="agentDescriptor")
     private @Nullable Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor;
 
+    /**
+     * @return Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     * 
+     */
     public Optional<Output<AgentAgentCollaboratorAgentDescriptorArgs>> agentDescriptor() {
         return Optional.ofNullable(this.agentDescriptor);
     }
 
     /**
-     * ID if the agent to associate the collaborator.
+     * ID of the agent to associate the collaborator with.
      * 
      */
     @Import(name="agentId")
     private @Nullable Output<String> agentId;
 
     /**
-     * @return ID if the agent to associate the collaborator.
+     * @return ID of the agent to associate the collaborator with.
      * 
      */
     public Optional<Output<String>> agentId() {
@@ -41,14 +49,14 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      * 
      */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
     /**
-     * @return Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * @return Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      * 
      */
     public Optional<Output<String>> agentVersion() {
@@ -189,17 +197,29 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
             $ = new AgentAgentCollaboratorState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param agentDescriptor Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentDescriptor(@Nullable Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor) {
             $.agentDescriptor = agentDescriptor;
             return this;
         }
 
+        /**
+         * @param agentDescriptor Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentDescriptor(AgentAgentCollaboratorAgentDescriptorArgs agentDescriptor) {
             return agentDescriptor(Output.of(agentDescriptor));
         }
 
         /**
-         * @param agentId ID if the agent to associate the collaborator.
+         * @param agentId ID of the agent to associate the collaborator with.
          * 
          * @return builder
          * 
@@ -210,7 +230,7 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param agentId ID if the agent to associate the collaborator.
+         * @param agentId ID of the agent to associate the collaborator with.
          * 
          * @return builder
          * 
@@ -220,7 +240,7 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param agentVersion Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+         * @param agentVersion Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
          * 
          * @return builder
          * 
@@ -231,7 +251,7 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param agentVersion Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+         * @param agentVersion Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
          * 
          * @return builder
          * 

@@ -705,7 +705,7 @@ func (o IdcApplicationServiceIntegrationPtrOutput) S3AccessGrants() IdcApplicati
 }
 
 type IdcApplicationServiceIntegrationLakeFormation struct {
-	// Lake formation scope.
+	// Lake Formation scope.
 	LakeFormationQuery *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery `pulumi:"lakeFormationQuery"`
 }
 
@@ -721,7 +721,7 @@ type IdcApplicationServiceIntegrationLakeFormationInput interface {
 }
 
 type IdcApplicationServiceIntegrationLakeFormationArgs struct {
-	// Lake formation scope.
+	// Lake Formation scope.
 	LakeFormationQuery IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput `pulumi:"lakeFormationQuery"`
 }
 
@@ -802,7 +802,7 @@ func (o IdcApplicationServiceIntegrationLakeFormationOutput) ToIdcApplicationSer
 	}).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
 }
 
-// Lake formation scope.
+// Lake Formation scope.
 func (o IdcApplicationServiceIntegrationLakeFormationOutput) LakeFormationQuery() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegrationLakeFormation) *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
 		return v.LakeFormationQuery
@@ -833,7 +833,7 @@ func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) Elem() IdcApplic
 	}).(IdcApplicationServiceIntegrationLakeFormationOutput)
 }
 
-// Lake formation scope.
+// Lake Formation scope.
 func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) LakeFormationQuery() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegrationLakeFormation) *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
 		if v == nil {

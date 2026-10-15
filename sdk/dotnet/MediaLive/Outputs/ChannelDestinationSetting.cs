@@ -18,15 +18,15 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? PasswordParam;
         /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
+        /// Stream name for RTMP destinations (URLs of type `rtmp://`).
         /// </summary>
         public readonly string? StreamName;
         /// <summary>
-        /// A URL specifying a destination.
+        /// URL for the destination.
         /// </summary>
         public readonly string? Url;
         /// <summary>
-        /// Username for destination.
+        /// Username for the destination.
         /// </summary>
         public readonly string? Username;
 

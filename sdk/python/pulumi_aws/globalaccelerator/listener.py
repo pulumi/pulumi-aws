@@ -29,8 +29,8 @@ class ListenerArgs:
         The set of arguments for constructing a Listener resource.
 
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of your accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         :param pulumi.Input[_builtins.str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         """
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
@@ -55,7 +55,7 @@ class ListenerArgs:
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]:
         """
-        The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -67,7 +67,7 @@ class ListenerArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[_builtins.str]:
         """
-        The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         return pulumi.get(self, "protocol")
 
@@ -102,8 +102,8 @@ class _ListenerState:
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of your accelerator.
         :param pulumi.Input[_builtins.str] arn: ARN of the listener.
         :param pulumi.Input[_builtins.str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         if accelerator_arn is not None:
             pulumi.set(__self__, "accelerator_arn", accelerator_arn)
@@ -156,7 +156,7 @@ class _ListenerState:
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListenerPortRangeArgs']]]]:
         """
-        The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -168,7 +168,7 @@ class _ListenerState:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         return pulumi.get(self, "protocol")
 
@@ -235,8 +235,8 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of your accelerator.
         :param pulumi.Input[_builtins.str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         ...
     @overload
@@ -351,8 +351,8 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of your accelerator.
         :param pulumi.Input[_builtins.str] arn: ARN of the listener.
         :param pulumi.Input[_builtins.str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,7 +393,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Sequence['outputs.ListenerPortRange']]:
         """
-        The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -401,7 +401,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[_builtins.str]:
         """
-        The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         return pulumi.get(self, "protocol")
 

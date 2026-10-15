@@ -16,14 +16,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs();
 
     /**
-     * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * String concatenated to the end of the destination filename.
      * 
      */
     @Import(name="nameModifier")
     private @Nullable Output<String> nameModifier;
 
     /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * @return String concatenated to the end of the destination filename.
      * 
      */
     public Optional<Output<String>> nameModifier() {
@@ -55,7 +55,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
         }
 
         /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         * @param nameModifier String concatenated to the end of the destination filename.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
         }
 
         /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         * @param nameModifier String concatenated to the end of the destination filename.
          * 
          * @return builder
          * 

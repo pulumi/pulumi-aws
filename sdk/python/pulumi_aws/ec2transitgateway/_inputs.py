@@ -373,7 +373,7 @@ class MeteringPolicyTimeoutsArgs:
 class PeeringAttachmentOptionsArgsDict(TypedDict):
     dynamic_routing: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+    Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
     """
 
 @pulumi.input_type
@@ -381,7 +381,7 @@ class PeeringAttachmentOptionsArgs:
     def __init__(__self__, *,
                  dynamic_routing: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] dynamic_routing: Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        :param pulumi.Input[_builtins.str] dynamic_routing: Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
         """
         if dynamic_routing is not None:
             pulumi.set(__self__, "dynamic_routing", dynamic_routing)
@@ -390,7 +390,7 @@ class PeeringAttachmentOptionsArgs:
     @pulumi.getter(name="dynamicRouting")
     def dynamic_routing(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
         """
         return pulumi.get(self, "dynamic_routing")
 

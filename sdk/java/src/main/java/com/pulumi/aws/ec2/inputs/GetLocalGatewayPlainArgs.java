@@ -33,14 +33,14 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Id of the specific Local Gateway to retrieve.
+     * ID of the specific Local Gateway to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Id of the specific Local Gateway to retrieve.
+     * @return ID of the specific Local Gateway to retrieve.
      * 
      */
     public Optional<String> id() {
@@ -154,7 +154,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param id Id of the specific Local Gateway to retrieve.
+         * @param id ID of the specific Local Gateway to retrieve.
          * 
          * @return builder
          * 

@@ -252,23 +252,23 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly bootstrapBrokersTlsIpv6: pulumi.Output<string>;
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     declare public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslIam: pulumi.Output<string>;
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     declare public /*out*/ readonly bootstrapBrokersVpcConnectivitySaslScram: pulumi.Output<string>;
     /**
-     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     declare public /*out*/ readonly bootstrapBrokersVpcConnectivityTls: pulumi.Output<string>;
     /**
-     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      */
     declare public readonly brokerNodeGroupInfo: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      */
     declare public readonly clientAuthentication: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
     /**
@@ -280,7 +280,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly clusterUuid: pulumi.Output<string>;
     /**
-     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      */
     declare public readonly configurationInfo: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
@@ -292,31 +292,31 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly customerActionStatus: pulumi.Output<string>;
     /**
-     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * Configuration block for specifying encryption. See `encryptionInfo` Block below.
      */
     declare public readonly encryptionInfo: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
     /**
-     * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      */
     declare public readonly enhancedMonitoring: pulumi.Output<string | undefined>;
     /**
-     * Specify the desired Kafka software version.
+     * Desired Kafka software version.
      */
     declare public readonly kafkaVersion: pulumi.Output<string>;
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      */
     declare public readonly loggingInfo: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
     /**
-     * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      */
     declare public readonly numberOfBrokerNodes: pulumi.Output<number>;
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      */
     declare public readonly openMonitoring: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
-     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      */
     declare public readonly rebalancing: pulumi.Output<outputs.msk.ClusterRebalancing>;
     /**
@@ -328,19 +328,19 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly storageMode: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     declare public /*out*/ readonly zookeeperConnectString: pulumi.Output<string>;
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     declare public /*out*/ readonly zookeeperConnectStringTls: pulumi.Output<string>;
 
@@ -497,23 +497,23 @@ export interface ClusterState {
      */
     bootstrapBrokersTlsIpv6?: pulumi.Input<string | undefined>;
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     bootstrapBrokersVpcConnectivitySaslIam?: pulumi.Input<string | undefined>;
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     bootstrapBrokersVpcConnectivitySaslScram?: pulumi.Input<string | undefined>;
     /**
-     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
     bootstrapBrokersVpcConnectivityTls?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      */
     brokerNodeGroupInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo | undefined>;
     /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication | undefined>;
     /**
@@ -525,7 +525,7 @@ export interface ClusterState {
      */
     clusterUuid?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo | undefined>;
     /**
@@ -537,31 +537,31 @@ export interface ClusterState {
      */
     customerActionStatus?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * Configuration block for specifying encryption. See `encryptionInfo` Block below.
      */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo | undefined>;
     /**
-     * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      */
     enhancedMonitoring?: pulumi.Input<string | undefined>;
     /**
-     * Specify the desired Kafka software version.
+     * Desired Kafka software version.
      */
     kafkaVersion?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      */
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo | undefined>;
     /**
-     * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      */
     numberOfBrokerNodes?: pulumi.Input<number | undefined>;
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring | undefined>;
     /**
-     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      */
     rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing | undefined>;
     /**
@@ -573,19 +573,19 @@ export interface ClusterState {
      */
     storageMode?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     zookeeperConnectString?: pulumi.Input<string | undefined>;
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     zookeeperConnectStringTls?: pulumi.Input<string | undefined>;
 }
@@ -595,11 +595,11 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      */
     brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication | undefined>;
     /**
@@ -607,35 +607,35 @@ export interface ClusterArgs {
      */
     clusterName?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo | undefined>;
     /**
-     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * Configuration block for specifying encryption. See `encryptionInfo` Block below.
      */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo | undefined>;
     /**
-     * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      */
     enhancedMonitoring?: pulumi.Input<string | undefined>;
     /**
-     * Specify the desired Kafka software version.
+     * Desired Kafka software version.
      */
     kafkaVersion: pulumi.Input<string>;
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      */
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo | undefined>;
     /**
-     * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      */
     numberOfBrokerNodes: pulumi.Input<number>;
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring | undefined>;
     /**
-     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      */
     rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing | undefined>;
     /**
@@ -647,7 +647,7 @@ export interface ClusterArgs {
      */
     storageMode?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -15,16 +15,32 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
 
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs();
 
+    /**
+     * Whether to enable IAM client authentication. Defaults to `false`.
+     * 
+     */
     @Import(name="iam")
     private @Nullable Output<Boolean> iam;
 
+    /**
+     * @return Whether to enable IAM client authentication. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> iam() {
         return Optional.ofNullable(this.iam);
     }
 
+    /**
+     * Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+     * 
+     */
     @Import(name="scram")
     private @Nullable Output<Boolean> scram;
 
+    /**
+     * @return Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> scram() {
         return Optional.ofNullable(this.scram);
     }
@@ -54,20 +70,44 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
             $ = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param iam Whether to enable IAM client authentication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iam(@Nullable Output<Boolean> iam) {
             $.iam = iam;
             return this;
         }
 
+        /**
+         * @param iam Whether to enable IAM client authentication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iam(Boolean iam) {
             return iam(Output.of(iam));
         }
 
+        /**
+         * @param scram Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scram(@Nullable Output<Boolean> scram) {
             $.scram = scram;
             return this;
         }
 
+        /**
+         * @param scram Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scram(Boolean scram) {
             return scram(Output.of(scram));
         }

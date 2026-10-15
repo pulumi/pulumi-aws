@@ -13,7 +13,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
     public sealed class CustomRoutingEndpointGroupDestinationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+        /// First port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+        /// Protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         }
 
         /// <summary>
-        /// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+        /// Last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

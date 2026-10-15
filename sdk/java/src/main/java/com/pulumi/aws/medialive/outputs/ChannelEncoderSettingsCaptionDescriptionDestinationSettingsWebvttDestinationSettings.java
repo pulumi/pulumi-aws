@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
     /**
-     * @return Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+     * @return Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
      * 
      */
     private String styleControl;
 
     private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings() {}
     /**
-     * @return Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+     * @return Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
      * 
      */
     public String styleControl() {

@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings {
+    /**
+     * @return Static key settings. See `staticKeySettings` Block for details.
+     * 
+     */
     private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting> staticKeySettings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings() {}
+    /**
+     * @return Static key settings. See `staticKeySettings` Block for details.
+     * 
+     */
     public List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting> staticKeySettings() {
         return this.staticKeySettings == null ? List.of() : this.staticKeySettings;
     }

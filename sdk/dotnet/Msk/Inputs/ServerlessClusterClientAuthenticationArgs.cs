@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ServerlessClusterClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details for client authentication using SASL. See below.
+        /// Details for client authentication using SASL. See `Sasl` Block below.
         /// </summary>
         [Input("sasl", required: true)]
         public Input<Inputs.ServerlessClusterClientAuthenticationSaslArgs> Sasl { get; set; } = null!;

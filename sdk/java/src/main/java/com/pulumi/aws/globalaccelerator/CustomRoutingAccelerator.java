@@ -96,144 +96,140 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
         return this.arn;
     }
     /**
-     * The attributes of the accelerator. Fields documented below.
+     * Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     @Export(name="attributes", refs={CustomRoutingAcceleratorAttributes.class}, tree="[0]")
     private Output</* @Nullable */ CustomRoutingAcceleratorAttributes> attributes;
 
     /**
-     * @return The attributes of the accelerator. Fields documented below.
+     * @return Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     public Output<Optional<CustomRoutingAcceleratorAttributes>> attributes() {
         return Codegen.optional(this.attributes);
     }
     /**
-     * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
-     * @return The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * @return DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
     public Output<String> dnsName() {
         return this.dnsName;
     }
     /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * @return Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * -  The Global Accelerator Route 53 zone ID that can be used to
-     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
-     * @return -  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * @return Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
     /**
-     * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
+     * IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
+     * @return IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
      * 
      */
     public Output<Optional<String>> ipAddressType() {
         return Codegen.optional(this.ipAddressType);
     }
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     @Export(name="ipAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipAddresses;
 
     /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * @return IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     public Output<Optional<List<String>>> ipAddresses() {
         return Codegen.optional(this.ipAddresses);
     }
     /**
-     * IP address set associated with the accelerator.
+     * IP address set associated with the accelerator. See `ipSets` below.
      * 
      */
     @Export(name="ipSets", refs={List.class,CustomRoutingAcceleratorIpSet.class}, tree="[0,1]")
     private Output<List<CustomRoutingAcceleratorIpSet>> ipSets;
 
     /**
-     * @return IP address set associated with the accelerator.
+     * @return IP address set associated with the accelerator. See `ipSets` below.
      * 
      */
     public Output<List<CustomRoutingAcceleratorIpSet>> ipSets() {
         return this.ipSets;
     }
     /**
-     * The name of a custom routing accelerator.
+     * Name of a custom routing accelerator.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of a custom routing accelerator.
+     * @return Name of a custom routing accelerator.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

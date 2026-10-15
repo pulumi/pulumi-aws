@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import IOT Things using the name. For example:
+// Using `pulumi import`, import IoT Things using the name. For example:
 //
 // ```sh
 // $ pulumi import aws:iot/thing:Thing example example

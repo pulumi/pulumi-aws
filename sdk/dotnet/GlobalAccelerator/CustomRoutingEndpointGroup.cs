@@ -73,19 +73,19 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+        /// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `DestinationConfiguration` below.
         /// </summary>
         [Output("destinationConfigurations")]
         public Output<ImmutableArray<Outputs.CustomRoutingEndpointGroupDestinationConfiguration>> DestinationConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The list of endpoint objects. Fields documented below.
+        /// Endpoint objects. See `EndpointConfiguration` below.
         /// </summary>
         [Output("endpointConfigurations")]
         public Output<ImmutableArray<Outputs.CustomRoutingEndpointGroupEndpointConfiguration>> EndpointConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the AWS Region where the custom routing endpoint group is located.
+        /// AWS Region where the custom routing endpoint group is located.
         /// </summary>
         [Output("endpointGroupRegion")]
         public Output<string> EndpointGroupRegion { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs>? _destinationConfigurations;
 
         /// <summary>
-        /// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+        /// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `DestinationConfiguration` below.
         /// </summary>
         public InputList<Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs> DestinationConfigurations
         {
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs>? _endpointConfigurations;
 
         /// <summary>
-        /// The list of endpoint objects. Fields documented below.
+        /// Endpoint objects. See `EndpointConfiguration` below.
         /// </summary>
         public InputList<Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs> EndpointConfigurations
         {
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         }
 
         /// <summary>
-        /// The name of the AWS Region where the custom routing endpoint group is located.
+        /// AWS Region where the custom routing endpoint group is located.
         /// </summary>
         [Input("endpointGroupRegion")]
         public Input<string>? EndpointGroupRegion { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CustomRoutingEndpointGroupDestinationConfigurationGetArgs>? _destinationConfigurations;
 
         /// <summary>
-        /// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+        /// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `DestinationConfiguration` below.
         /// </summary>
         public InputList<Inputs.CustomRoutingEndpointGroupDestinationConfigurationGetArgs> DestinationConfigurations
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CustomRoutingEndpointGroupEndpointConfigurationGetArgs>? _endpointConfigurations;
 
         /// <summary>
-        /// The list of endpoint objects. Fields documented below.
+        /// Endpoint objects. See `EndpointConfiguration` below.
         /// </summary>
         public InputList<Inputs.CustomRoutingEndpointGroupEndpointConfigurationGetArgs> EndpointConfigurations
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         }
 
         /// <summary>
-        /// The name of the AWS Region where the custom routing endpoint group is located.
+        /// AWS Region where the custom routing endpoint group is located.
         /// </summary>
         [Input("endpointGroupRegion")]
         public Input<string>? EndpointGroupRegion { get; set; }

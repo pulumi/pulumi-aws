@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Remixing value, from -60 to 6 decibels.
+        /// </summary>
         [Input("gain", required: true)]
         public Input<int> Gain { get; set; } = null!;
 
+        /// <summary>
+        /// Index of the input channel used as a source.
+        /// </summary>
         [Input("inputChannel", required: true)]
         public Input<int> InputChannel { get; set; } = null!;
 

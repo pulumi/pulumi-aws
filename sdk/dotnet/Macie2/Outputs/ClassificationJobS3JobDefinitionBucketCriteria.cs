@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Macie2.Outputs
     public sealed class ClassificationJobS3JobDefinitionBucketCriteria
     {
         /// <summary>
-        /// The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+        /// Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
         /// </summary>
         public readonly Outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludes? Excludes;
         /// <summary>
-        /// The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+        /// Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
         /// </summary>
         public readonly Outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludes? Includes;
 

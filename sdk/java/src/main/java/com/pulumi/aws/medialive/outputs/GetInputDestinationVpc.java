@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInputDestinationVpc {
+    /**
+     * @return Availability Zone.
+     * 
+     */
     private String availabilityZone;
+    /**
+     * @return Network interface ID.
+     * 
+     */
     private String networkInterfaceId;
 
     private GetInputDestinationVpc() {}
+    /**
+     * @return Availability Zone.
+     * 
+     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
+    /**
+     * @return Network interface ID.
+     * 
+     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }

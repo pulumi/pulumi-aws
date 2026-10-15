@@ -315,7 +315,7 @@ type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configu
 	BucketName *string `pulumi:"bucketName"`
 	// Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
 	EncryptionOption *string `pulumi:"encryptionOption"`
-	// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+	// KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Object key prefix for the customer S3 location.
 	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
@@ -337,7 +337,7 @@ type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configu
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
 	// Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
 	EncryptionOption pulumi.StringPtrInput `pulumi:"encryptionOption"`
-	// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+	// KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Object key prefix for the customer S3 location.
 	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
@@ -434,7 +434,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	}).(pulumi.StringPtrOutput)
 }
 
-// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+// KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		return v.KmsKeyId
@@ -492,7 +492,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	}).(pulumi.StringPtrOutput)
 }
 
-// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+// KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		if v == nil {

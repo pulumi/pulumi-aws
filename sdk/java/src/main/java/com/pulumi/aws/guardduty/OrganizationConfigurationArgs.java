@@ -18,16 +18,14 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     public static final OrganizationConfigurationArgs Empty = new OrganizationConfigurationArgs();
 
     /**
-     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-     * Valid values are `ALL`, `NEW`, `NONE`.
+     * Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
     @Import(name="autoEnableOrganizationMembers", required=true)
     private Output<String> autoEnableOrganizationMembers;
 
     /**
-     * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-     * Valid values are `ALL`, `NEW`, `NONE`.
+     * @return Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
     public Output<String> autoEnableOrganizationMembers() {
@@ -35,9 +33,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-     * 
-     * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     * Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
      * @deprecated
      * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
@@ -48,9 +44,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     private @Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources;
 
     /**
-     * @return Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-     * 
-     * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     * @return Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
      * @deprecated
      * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
@@ -62,14 +56,14 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The detector ID of the GuardDuty account.
+     * Detector ID of the GuardDuty account.
      * 
      */
     @Import(name="detectorId", required=true)
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty account.
+     * @return Detector ID of the GuardDuty account.
      * 
      */
     public Output<String> detectorId() {
@@ -79,12 +73,16 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
+     * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
      * 
      */
     public Optional<Output<String>> region() {
@@ -119,8 +117,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-         * Valid values are `ALL`, `NEW`, `NONE`.
+         * @param autoEnableOrganizationMembers Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
          * 
          * @return builder
          * 
@@ -131,8 +128,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-         * Valid values are `ALL`, `NEW`, `NONE`.
+         * @param autoEnableOrganizationMembers Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
          * 
          * @return builder
          * 
@@ -142,9 +138,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-         * 
-         * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+         * @param datasources Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
          * 
          * @return builder
          * 
@@ -159,9 +153,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-         * 
-         * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+         * @param datasources Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
          * 
          * @return builder
          * 
@@ -175,7 +167,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty account.
+         * @param detectorId Detector ID of the GuardDuty account.
          * 
          * @return builder
          * 
@@ -186,7 +178,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty account.
+         * @param detectorId Detector ID of the GuardDuty account.
          * 
          * @return builder
          * 
@@ -198,6 +190,8 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
+         * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -208,6 +202,8 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
          * 
          * @return builder
          * 

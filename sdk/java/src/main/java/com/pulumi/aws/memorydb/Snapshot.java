@@ -68,28 +68,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:memorydb/snapshot:Snapshot")
 public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the snapshot.
+     * ARN of the snapshot.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The configuration of the cluster from which the snapshot was taken.
+     * Configuration of the cluster from which the snapshot was taken.
      * 
      */
     @Export(name="clusterConfigurations", refs={List.class,SnapshotClusterConfiguration.class}, tree="[0,1]")
     private Output<List<SnapshotClusterConfiguration>> clusterConfigurations;
 
     /**
-     * @return The configuration of the cluster from which the snapshot was taken.
+     * @return Configuration of the cluster from which the snapshot was taken.
      * 
      */
     public Output<List<SnapshotClusterConfiguration>> clusterConfigurations() {
@@ -166,42 +166,42 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
-     * @return Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * @return Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
      */
     public Output<String> source() {
         return this.source;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -16,14 +16,14 @@ public final class ConnectorKafkaClusterClientAuthenticationArgs extends com.pul
     public static final ConnectorKafkaClusterClientAuthenticationArgs Empty = new ConnectorKafkaClusterClientAuthenticationArgs();
 
     /**
-     * The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+     * Type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
      * 
      */
     @Import(name="authenticationType")
     private @Nullable Output<String> authenticationType;
 
     /**
-     * @return The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+     * @return Type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
      * 
      */
     public Optional<Output<String>> authenticationType() {
@@ -55,7 +55,7 @@ public final class ConnectorKafkaClusterClientAuthenticationArgs extends com.pul
         }
 
         /**
-         * @param authenticationType The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+         * @param authenticationType Type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ConnectorKafkaClusterClientAuthenticationArgs extends com.pul
         }
 
         /**
-         * @param authenticationType The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+         * @param authenticationType Type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CloudWatch
     public static class GetLogGroup
     {
         /// <summary>
-        /// Use this data source to get information about an AWS Cloudwatch Log Group
+        /// Use this data source to get information about an AWS CloudWatch Log Group
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudWatch
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about an AWS Cloudwatch Log Group
+        /// Use this data source to get information about an AWS CloudWatch Log Group
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.CloudWatch
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about an AWS Cloudwatch Log Group
+        /// Use this data source to get information about an AWS CloudWatch Log Group
         /// 
         /// ## Example Usage
         /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Cloudwatch log group
+        /// Name of the CloudWatch log group
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Cloudwatch log group
+        /// Name of the CloudWatch log group
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupResult
     {
         /// <summary>
-        /// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+        /// ARN of the CloudWatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         /// </summary>
         public readonly string Arn;
         /// <summary>

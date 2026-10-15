@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+ * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
  *
  * ## Example Usage
  *
@@ -70,14 +70,14 @@ export interface GetManagedPrefixListsResult {
      */
     readonly id: string;
     /**
-     * List of all the managed prefix list ids found.
+     * List of all the managed prefix list IDs found.
      */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
- * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+ * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
  *
  * ## Example Usage
  *

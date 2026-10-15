@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
     /// 
-    /// &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `MinSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+    /// &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling group will automatically add the `AmazonECSManaged` tag to the Auto Scaling group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent Terraform from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling group if `MinSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
     /// 
     /// &gt; **NOTE:** You must specify exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider`. When using `ManagedInstancesProvider`, the `Cluster` parameter is required. When using `AutoScalingGroupProvider`, the `Cluster` parameter must not be set.
     /// 
@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
-    /// ### Auto Scaling Group Provider
+    /// ### Auto Scaling group Provider
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
+        /// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider?> AutoScalingGroupProvider { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
+        /// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs>? AutoScalingGroupProvider { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
+        /// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider` must be specified.
         /// </summary>
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderGetArgs>? AutoScalingGroupProvider { get; set; }

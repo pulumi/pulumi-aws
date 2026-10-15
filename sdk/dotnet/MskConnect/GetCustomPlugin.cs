@@ -103,7 +103,7 @@ namespace Pulumi.Aws.MskConnect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

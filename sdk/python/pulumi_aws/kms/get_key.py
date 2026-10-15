@@ -326,7 +326,7 @@ def get_key(grant_tokens: Optional[Sequence[_builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     Use this data source to get detailed information about
-    the specified KMS Key with flexible key id input.
+    the specified KMS Key with flexible key ID input.
     This can be useful to reference key alias
     without having to hard code the ARN as input.
 
@@ -385,7 +385,7 @@ def get_key_output(grant_tokens: pulumi.Input[Optional[Optional[Sequence[_builti
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Use this data source to get detailed information about
-    the specified KMS Key with flexible key id input.
+    the specified KMS Key with flexible key ID input.
     This can be useful to reference key alias
     without having to hard code the ARN as input.
 

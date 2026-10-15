@@ -13,9 +13,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting
     {
+        /// <summary>
+        /// Check digit string for the watermark.
+        /// </summary>
         public readonly string CheckDigitString;
         /// <summary>
-        /// The Nielsen Source ID to include in the watermark.
+        /// Nielsen source ID to include in the watermark.
         /// </summary>
         public readonly double Sid;
 

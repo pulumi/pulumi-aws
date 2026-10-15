@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOptimizerConfigurationCompactionConfiguration
     {
         /// <summary>
-        /// The configuration for an Iceberg compaction optimizer.
+        /// Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
         /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration? IcebergConfiguration;
 

@@ -30,12 +30,12 @@ class UserArgs:
         The set of arguments for constructing a User resource.
 
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
-        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Authentication properties for the user. Detailed below.
         :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_string", access_string)
         pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -61,7 +61,7 @@ class UserArgs:
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Input['UserAuthenticationModeArgs']:
         """
-        Denotes the user's authentication properties. Detailed below.
+        Authentication properties for the user. Detailed below.
         """
         return pulumi.get(self, "authentication_mode")
 
@@ -99,7 +99,7 @@ class UserArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -124,11 +124,12 @@ class _UserState:
 
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
         :param pulumi.Input[_builtins.str] arn: ARN of the user.
-        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
+               * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
+        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Authentication properties for the user. Detailed below.
         :param pulumi.Input[_builtins.str] minimum_engine_version: Minimum engine version supported for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
                
                The following arguments are optional:
@@ -167,6 +168,7 @@ class _UserState:
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the user.
+        * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
         """
         return pulumi.get(self, "arn")
 
@@ -178,7 +180,7 @@ class _UserState:
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Input[Optional['UserAuthenticationModeArgs']]:
         """
-        Denotes the user's authentication properties. Detailed below.
+        Authentication properties for the user. Detailed below.
         """
         return pulumi.get(self, "authentication_mode")
 
@@ -214,7 +216,7 @@ class _UserState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -226,7 +228,7 @@ class _UserState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -298,9 +300,9 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']] authentication_mode: Authentication properties for the user. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
                
                The following arguments are optional:
@@ -415,11 +417,12 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
         :param pulumi.Input[_builtins.str] arn: ARN of the user.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+               * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']] authentication_mode: Authentication properties for the user. Detailed below.
         :param pulumi.Input[_builtins.str] minimum_engine_version: Minimum engine version supported for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
                
                The following arguments are optional:
@@ -451,6 +454,7 @@ class User(pulumi.CustomResource):
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
         ARN of the user.
+        * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
         """
         return pulumi.get(self, "arn")
 
@@ -458,7 +462,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output['outputs.UserAuthenticationMode']:
         """
-        Denotes the user's authentication properties. Detailed below.
+        Authentication properties for the user. Detailed below.
         """
         return pulumi.get(self, "authentication_mode")
 
@@ -482,7 +486,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -490,7 +494,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

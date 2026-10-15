@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion {
     /**
-     * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+     * @return Operator to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
      * 
      */
     private @Nullable String comparator;
     /**
-     * @return The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+     * @return Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
      * 
      */
     private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues;
 
     private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion() {}
     /**
-     * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+     * @return Operator to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
      * 
      */
     public Optional<String> comparator() {
         return Optional.ofNullable(this.comparator);
     }
     /**
-     * @return The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+     * @return Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
      * 
      */
     public List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues() {

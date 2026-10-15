@@ -659,7 +659,7 @@ class DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs:
 class DirectoryWorkspaceCreationPropertiesArgsDict(TypedDict):
     custom_security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+    The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
     """
     default_ou: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -687,7 +687,7 @@ class DirectoryWorkspaceCreationPropertiesArgs:
                  enable_maintenance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_enabled_as_local_administrator: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        :param pulumi.Input[_builtins.str] custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         :param pulumi.Input[_builtins.str] default_ou: The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
         :param pulumi.Input[_builtins.bool] enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
         :param pulumi.Input[_builtins.bool] enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
@@ -708,7 +708,7 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @pulumi.getter(name="customSecurityGroupId")
     def custom_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         """
         return pulumi.get(self, "custom_security_group_id")
 

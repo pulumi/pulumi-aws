@@ -14,32 +14,40 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
     /**
-     * @return Frame capture settings. See Frame Capture Settings for more details.
+     * @return Frame capture settings. See `frameCaptureSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings frameCaptureSettings;
     /**
-     * @return H264 settings. See H264 Settings for more details.
+     * @return H264 settings. See `h264Settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings h264Settings;
+    /**
+     * @return H265 settings. See `h265Settings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings h265Settings;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettings() {}
     /**
-     * @return Frame capture settings. See Frame Capture Settings for more details.
+     * @return Frame capture settings. See `frameCaptureSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings> frameCaptureSettings() {
         return Optional.ofNullable(this.frameCaptureSettings);
     }
     /**
-     * @return H264 settings. See H264 Settings for more details.
+     * @return H264 settings. See `h264Settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings> h264Settings() {
         return Optional.ofNullable(this.h264Settings);
     }
+    /**
+     * @return H265 settings. See `h265Settings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings> h265Settings() {
         return Optional.ofNullable(this.h265Settings);
     }

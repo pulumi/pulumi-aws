@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Rds
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the db parameter group.
+        /// ARN of the DB parameter group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the db parameter group.
+        /// ARN of the DB parameter group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -33,6 +33,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionCount? Count;
+        /// <summary>
+        /// Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `MonetizationConfig`. See Monetize below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleActionMonetize? Monetize;
 
         [OutputConstructor]
         private RuleGroupRuleAction(
@@ -44,13 +48,16 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleActionChallenge? challenge,
 
-            Outputs.RuleGroupRuleActionCount? count)
+            Outputs.RuleGroupRuleActionCount? count,
+
+            Outputs.RuleGroupRuleActionMonetize? monetize)
         {
             Allow = allow;
             Block = block;
             Captcha = captcha;
             Challenge = challenge;
             Count = count;
+            Monetize = monetize;
         }
     }
 }

@@ -52,14 +52,14 @@ public final class ModelAgreementArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -147,7 +147,7 @@ public final class ModelAgreementArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param region Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ModelAgreementArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param region Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

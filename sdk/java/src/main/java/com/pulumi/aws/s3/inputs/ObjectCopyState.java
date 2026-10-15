@@ -366,14 +366,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * @return Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -381,14 +381,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     @Import(name="expectedSourceBucketOwner")
     private @Nullable Output<String> expectedSourceBucketOwner;
 
     /**
-     * @return Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * @return Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     public Optional<Output<String>> expectedSourceBucketOwner() {
@@ -1387,7 +1387,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedBucketOwner Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+         * @param expectedBucketOwner Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
          * 
          * @return builder
          * 
@@ -1398,7 +1398,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedBucketOwner Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+         * @param expectedBucketOwner Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
          * 
          * @return builder
          * 
@@ -1408,7 +1408,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedSourceBucketOwner Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+         * @param expectedSourceBucketOwner Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
          * 
          * @return builder
          * 
@@ -1419,7 +1419,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedSourceBucketOwner Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+         * @param expectedSourceBucketOwner Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
          * 
          * @return builder
          * 

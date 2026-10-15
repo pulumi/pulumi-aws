@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// instances to be requested on the Spot market.
     /// 
     /// &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
-    /// We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+    /// We recommend using the EC2 Fleet or Auto Scaling group resources instead.
     /// 
     /// ## Example Usage
     /// 
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// &gt; In this example, we use a `Dynamic` block to define zero or more `LaunchSpecification` blocks, producing one for each element in the list of subnet ids.
+    /// &gt; In this example, we use a `Dynamic` block to define zero or more `LaunchSpecification` blocks, producing one for each element in the list of subnet IDs.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

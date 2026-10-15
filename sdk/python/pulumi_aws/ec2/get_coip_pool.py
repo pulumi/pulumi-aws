@@ -58,7 +58,7 @@ class GetCoipPoolResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the COIP pool
+        ARN of the CoIP pool
         """
         return pulumi.get(self, "arn")
 
@@ -129,20 +129,20 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
     """
     Provides details about a specific EC2 Customer-Owned IP Pool.
 
-    This data source can prove useful when a module accepts a coip pool id as
+    This data source can prove useful when a module accepts a CoIP pool ID as
     an input variable and needs to, for example, determine the CIDR block of that
-    COIP Pool.
+    CoIP Pool.
 
     ## Example Usage
 
-    The following example returns a specific coip pool ID
+    The following example returns a specific CoIP pool ID
 
 
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
-    :param _builtins.str pool_id: ID of the specific COIP Pool to retrieve.
+    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table ID assigned to desired CoIP Pool
+    :param _builtins.str pool_id: ID of the specific CoIP Pool to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired COIP Pool.
+           a pair on the desired CoIP Pool.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -174,20 +174,20 @@ def get_coip_pool_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
     """
     Provides details about a specific EC2 Customer-Owned IP Pool.
 
-    This data source can prove useful when a module accepts a coip pool id as
+    This data source can prove useful when a module accepts a CoIP pool ID as
     an input variable and needs to, for example, determine the CIDR block of that
-    COIP Pool.
+    CoIP Pool.
 
     ## Example Usage
 
-    The following example returns a specific coip pool ID
+    The following example returns a specific CoIP pool ID
 
 
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
-    :param _builtins.str pool_id: ID of the specific COIP Pool to retrieve.
+    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table ID assigned to desired CoIP Pool
+    :param _builtins.str pool_id: ID of the specific CoIP Pool to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired COIP Pool.
+           a pair on the desired CoIP Pool.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

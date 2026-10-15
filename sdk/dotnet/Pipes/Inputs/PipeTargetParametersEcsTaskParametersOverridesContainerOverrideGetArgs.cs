@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }

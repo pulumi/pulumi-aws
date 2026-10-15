@@ -19,14 +19,14 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
     public static final FilterState Empty = new FilterState();
 
     /**
-     * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+     * Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+     * @return Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -34,14 +34,14 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the GuardDuty filter.
+     * ARN of the GuardDuty filter.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the GuardDuty filter.
+     * @return ARN of the GuardDuty filter.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -79,14 +79,14 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+     * Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      * 
      */
     @Import(name="findingCriteria")
     private @Nullable Output<FilterFindingCriteriaArgs> findingCriteria;
 
     /**
-     * @return Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+     * @return Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      * 
      */
     public Optional<Output<FilterFindingCriteriaArgs>> findingCriteria() {
@@ -94,14 +94,14 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of your filter.
+     * Name of your filter.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of your filter.
+     * @return Name of your filter.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+     * Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      * 
      */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
     /**
-     * @return Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+     * @return Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      * 
      */
     public Optional<Output<Integer>> rank() {
@@ -139,14 +139,14 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -154,14 +154,14 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -202,7 +202,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+         * @param action Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+         * @param action Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the GuardDuty filter.
+         * @param arn ARN of the GuardDuty filter.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the GuardDuty filter.
+         * @param arn ARN of the GuardDuty filter.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param findingCriteria Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+         * @param findingCriteria Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param findingCriteria Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+         * @param findingCriteria Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of your filter.
+         * @param name Name of your filter.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of your filter.
+         * @param name Name of your filter.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rank Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+         * @param rank Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rank Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+         * @param rank Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class FilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

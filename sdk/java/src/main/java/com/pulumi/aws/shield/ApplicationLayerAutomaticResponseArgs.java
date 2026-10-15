@@ -33,14 +33,14 @@ public final class ApplicationLayerAutomaticResponseArgs extends com.pulumi.reso
     }
 
     /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+     * ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+     * @return ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
      * 
      */
     public Output<String> resourceArn() {
@@ -102,7 +102,7 @@ public final class ApplicationLayerAutomaticResponseArgs extends com.pulumi.reso
         }
 
         /**
-         * @param resourceArn ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+         * @param resourceArn ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ApplicationLayerAutomaticResponseArgs extends com.pulumi.reso
         }
 
         /**
-         * @param resourceArn ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+         * @param resourceArn ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
          * 
          * @return builder
          * 

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A summary description of the worker configuration.
+        /// Summary description of the worker configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<int> LatestRevision { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the worker configuration.
+        /// Name of the worker configuration.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -85,13 +85,13 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -143,13 +143,13 @@ namespace Pulumi.Aws.MskConnect
     public sealed class WorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A summary description of the worker configuration.
+        /// Summary description of the worker configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the worker configuration.
+        /// Name of the worker configuration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A summary description of the worker configuration.
+        /// Summary description of the worker configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<int>? LatestRevision { get; set; }
 
         /// <summary>
-        /// The name of the worker configuration.
+        /// Name of the worker configuration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -62,7 +62,7 @@ type LookupSnapshotArgs struct {
 type LookupSnapshotResult struct {
 	// ARN of the snapshot.
 	Arn string `pulumi:"arn"`
-	// The configuration of the cluster from which the snapshot was taken.
+	// Configuration of the cluster from which the snapshot was taken.
 	ClusterConfigurations []GetSnapshotClusterConfiguration `pulumi:"clusterConfigurations"`
 	// Name of the MemoryDB cluster that this snapshot was taken from.
 	ClusterName string `pulumi:"clusterName"`
@@ -118,7 +118,7 @@ func (o LookupSnapshotResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration of the cluster from which the snapshot was taken.
+// Configuration of the cluster from which the snapshot was taken.
 func (o LookupSnapshotResultOutput) ClusterConfigurations() GetSnapshotClusterConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) []GetSnapshotClusterConfiguration { return v.ClusterConfigurations }).(GetSnapshotClusterConfigurationArrayOutput)
 }

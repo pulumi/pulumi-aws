@@ -16,14 +16,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs();
 
     /**
-     * Set a prefix on the burned in timecode.
+     * Prefix on the burned-in timecode.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Set a prefix on the burned in timecode.
+     * @return Prefix on the burned-in timecode.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -31,14 +31,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Sets the size of the burned in timecode.
+     * Size of the burned-in timecode.
      * 
      */
     @Import(name="timecodeBurninFontSize")
     private @Nullable Output<String> timecodeBurninFontSize;
 
     /**
-     * @return Sets the size of the burned in timecode.
+     * @return Size of the burned-in timecode.
      * 
      */
     public Optional<Output<String>> timecodeBurninFontSize() {
@@ -46,14 +46,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Sets the position of the burned in timecode.
+     * Position of the burned-in timecode.
      * 
      */
     @Import(name="timecodeBurninPosition")
     private @Nullable Output<String> timecodeBurninPosition;
 
     /**
-     * @return Sets the position of the burned in timecode.
+     * @return Position of the burned-in timecode.
      * 
      */
     public Optional<Output<String>> timecodeBurninPosition() {
@@ -87,7 +87,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param prefix Set a prefix on the burned in timecode.
+         * @param prefix Prefix on the burned-in timecode.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param prefix Set a prefix on the burned in timecode.
+         * @param prefix Prefix on the burned-in timecode.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeBurninFontSize Sets the size of the burned in timecode.
+         * @param timecodeBurninFontSize Size of the burned-in timecode.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeBurninFontSize Sets the size of the burned in timecode.
+         * @param timecodeBurninFontSize Size of the burned-in timecode.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeBurninPosition Sets the position of the burned in timecode.
+         * @param timecodeBurninPosition Position of the burned-in timecode.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeBurninPosition Sets the position of the burned in timecode.
+         * @param timecodeBurninPosition Position of the burned-in timecode.
          * 
          * @return builder
          * 

@@ -117,9 +117,6 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * kernel in created instances.
      */
     declare public /*out*/ readonly kernelId: pulumi.Output<string>;
-    /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     */
     declare public /*out*/ readonly lastLaunchedTime: pulumi.Output<string>;
     declare public /*out*/ readonly manageEbsSnapshots: pulumi.Output<boolean>;
     /**
@@ -328,9 +325,6 @@ export interface AmiFromInstanceState {
      * kernel in created instances.
      */
     kernelId?: pulumi.Input<string | undefined>;
-    /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     */
     lastLaunchedTime?: pulumi.Input<string | undefined>;
     manageEbsSnapshots?: pulumi.Input<boolean | undefined>;
     /**

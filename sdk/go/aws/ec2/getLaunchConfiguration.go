@@ -89,7 +89,7 @@ type LookupLaunchConfigurationResult struct {
 	Region           string `pulumi:"region"`
 	// Root Block Device of the instance.
 	RootBlockDevices []GetLaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevices"`
-	// List of associated Security Group IDS.
+	// List of associated Security Group IDs.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Price to use for reserving Spot instances.
 	SpotPrice string `pulumi:"spotPrice"`
@@ -216,7 +216,7 @@ func (o LookupLaunchConfigurationResultOutput) RootBlockDevices() GetLaunchConfi
 	}).(GetLaunchConfigurationRootBlockDeviceArrayOutput)
 }
 
-// List of associated Security Group IDS.
+// List of associated Security Group IDs.
 func (o LookupLaunchConfigurationResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchConfigurationResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

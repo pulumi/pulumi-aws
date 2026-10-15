@@ -13,23 +13,26 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// UDP output buffering in milliseconds.
+        /// UDP output buffering, in milliseconds.
         /// </summary>
         [Input("bufferMsec")]
         public Input<int>? BufferMsec { get; set; }
 
         /// <summary>
-        /// UDP container settings. See Container Settings for more details.
+        /// UDP container settings. See `udp_output_settings.container_settings` Block for details.
         /// </summary>
         [Input("containerSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsGetArgs> ContainerSettings { get; set; } = null!;
 
         /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
+        /// Destination address and port number for RTP or UDP packets. See `Destination` Block for details.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationGetArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// Settings for enabling and adjusting Forward Error Correction on UDP outputs. See `FecOutputSettings` Block for details.
+        /// </summary>
         [Input("fecOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsGetArgs>? FecOutputSettings { get; set; }
 

@@ -191,7 +191,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, to  to import VPC Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
+        Using `pulumi import`, to  to import VPC Route Server Association using the associated resource ID and VPC ID separated by a comma (,). For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
@@ -230,7 +230,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, to  to import VPC Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
+        Using `pulumi import`, to  to import VPC Route Server Association using the associated resource ID and VPC ID separated by a comma (,). For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1

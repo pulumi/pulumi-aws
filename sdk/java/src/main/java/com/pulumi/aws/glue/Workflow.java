@@ -109,14 +109,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
     @Export(name="defaultRunProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> defaultRunProperties;
 
     /**
-     * @return A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * @return Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
     public Output<Optional<Map<String,String>>> defaultRunProperties() {
@@ -151,14 +151,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxConcurrentRuns);
     }
     /**
-     * The name you assign to this workflow.
+     * Name you assign to this workflow.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name you assign to this workflow.
+     * @return Name you assign to this workflow.
      * 
      */
     public Output<String> name() {
@@ -193,14 +193,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

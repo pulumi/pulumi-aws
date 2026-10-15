@@ -74,11 +74,14 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the custom routing listener.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// Port ranges for the connections from clients to the accelerator. See `PortRange` below.
         /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.CustomRoutingListenerPortRange>> PortRanges { get; private set; } = null!;
@@ -139,7 +142,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CustomRoutingListenerPortRangeArgs>? _portRanges;
 
         /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// Port ranges for the connections from clients to the accelerator. See `PortRange` below.
         /// </summary>
         public InputList<Inputs.CustomRoutingListenerPortRangeArgs> PortRanges
         {
@@ -161,6 +164,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("acceleratorArn")]
         public Input<string>? AcceleratorArn { get; set; }
 
+        /// <summary>
+        /// ARN of the custom routing listener.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -168,7 +174,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CustomRoutingListenerPortRangeGetArgs>? _portRanges;
 
         /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// Port ranges for the connections from clients to the accelerator. See `PortRange` below.
         /// </summary>
         public InputList<Inputs.CustomRoutingListenerPortRangeGetArgs> PortRanges
         {

@@ -3438,17 +3438,17 @@ func (o ChannelTopicConfigurationRecordSchemaPtrOutput) GsrArn() pulumi.StringPt
 }
 
 type ClusterBrokerNodeGroupInfo struct {
-	// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+	// Distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
 	AzDistribution *string `pulumi:"azDistribution"`
-	// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+	// List of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 	ClientSubnets []string `pulumi:"clientSubnets"`
-	// Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+	// Information about the cluster access configuration. See `connectivityInfo` Block below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 	ConnectivityInfo *ClusterBrokerNodeGroupInfoConnectivityInfo `pulumi:"connectivityInfo"`
-	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+	// Instance type to use for the kafka brokers. For example, `kafka.m5.large`. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType string `pulumi:"instanceType"`
-	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+	// List of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
+	// Configuration block that contains information about storage volumes attached to MSK broker nodes. See `storageInfo` Block below. This block must not be specified when an Express instance type is specified for `instanceType`.
 	StorageInfo *ClusterBrokerNodeGroupInfoStorageInfo `pulumi:"storageInfo"`
 }
 
@@ -3464,17 +3464,17 @@ type ClusterBrokerNodeGroupInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoArgs struct {
-	// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+	// Distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
 	AzDistribution pulumi.StringPtrInput `pulumi:"azDistribution"`
-	// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+	// List of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
-	// Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+	// Information about the cluster access configuration. See `connectivityInfo` Block below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 	ConnectivityInfo ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
-	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+	// Instance type to use for the kafka brokers. For example, `kafka.m5.large`. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+	// List of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
+	// Configuration block that contains information about storage volumes attached to MSK broker nodes. See `storageInfo` Block below. This block must not be specified when an Express instance type is specified for `instanceType`.
 	StorageInfo ClusterBrokerNodeGroupInfoStorageInfoPtrInput `pulumi:"storageInfo"`
 }
 
@@ -3555,34 +3555,34 @@ func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoPtrOutputW
 	}).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
 
-// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+// Distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
 func (o ClusterBrokerNodeGroupInfoOutput) AzDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *string { return v.AzDistribution }).(pulumi.StringPtrOutput)
 }
 
-// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+// List of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
-// Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+// Information about the cluster access configuration. See `connectivityInfo` Block below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoConnectivityInfo {
 		return v.ConnectivityInfo
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
 }
 
-// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+// Instance type to use for the kafka brokers. For example, `kafka.m5.large`. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+// List of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
+// Configuration block that contains information about storage volumes attached to MSK broker nodes. See `storageInfo` Block below. This block must not be specified when an Express instance type is specified for `instanceType`.
 func (o ClusterBrokerNodeGroupInfoOutput) StorageInfo() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoStorageInfo { return v.StorageInfo }).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
@@ -3611,7 +3611,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOu
 	}).(ClusterBrokerNodeGroupInfoOutput)
 }
 
-// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+// Distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) AzDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
 		if v == nil {
@@ -3621,7 +3621,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) AzDistribution() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+// List of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
 		if v == nil {
@@ -3631,7 +3631,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+// Information about the cluster access configuration. See `connectivityInfo` Block below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoConnectivityInfo {
 		if v == nil {
@@ -3641,7 +3641,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterBrokerNod
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
 }
 
-// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+// Instance type to use for the kafka brokers. For example, `kafka.m5.large`. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
 		if v == nil {
@@ -3651,7 +3651,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+// List of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
 		if v == nil {
@@ -3661,7 +3661,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
+// Configuration block that contains information about storage volumes attached to MSK broker nodes. See `storageInfo` Block below. This block must not be specified when an Express instance type is specified for `instanceType`.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoStorageInfo {
 		if v == nil {
@@ -3674,9 +3674,9 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterBrokerNodeGrou
 type ClusterBrokerNodeGroupInfoConnectivityInfo struct {
 	// Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
 	NetworkType *string `pulumi:"networkType"`
-	// Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
+	// Access control settings for brokers. See `publicAccess` Block below.
 	PublicAccess *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess `pulumi:"publicAccess"`
-	// VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
+	// VPC connectivity access control for brokers. See `vpcConnectivity` Block below.
 	VpcConnectivity *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity `pulumi:"vpcConnectivity"`
 }
 
@@ -3694,9 +3694,9 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
 type ClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
 	// Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
 	NetworkType pulumi.StringPtrInput `pulumi:"networkType"`
-	// Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
+	// Access control settings for brokers. See `publicAccess` Block below.
 	PublicAccess ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput `pulumi:"publicAccess"`
-	// VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
+	// VPC connectivity access control for brokers. See `vpcConnectivity` Block below.
 	VpcConnectivity ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput `pulumi:"vpcConnectivity"`
 }
 
@@ -3782,14 +3782,14 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) NetworkType() pulumi.S
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *string { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
-// Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
+// Access control settings for brokers. See `publicAccess` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
 		return v.PublicAccess
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
-// VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
+// VPC connectivity access control for brokers. See `vpcConnectivity` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) VpcConnectivity() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
 		return v.VpcConnectivity
@@ -3830,7 +3830,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) NetworkType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
+// Access control settings for brokers. See `publicAccess` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
 		if v == nil {
@@ -3840,7 +3840,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) PublicAccess() Clus
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
-// VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
+// VPC connectivity access control for brokers. See `vpcConnectivity` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) VpcConnectivity() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
 		if v == nil {
@@ -3988,7 +3988,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Type() 
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity struct {
-	// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+	// Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
 	ClientAuthentication *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication `pulumi:"clientAuthentication"`
 }
 
@@ -4004,7 +4004,7 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs struct {
-	// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+	// Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
 	ClientAuthentication ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
 }
 
@@ -4085,7 +4085,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToClust
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput)
 }
 
-// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+// Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ClientAuthentication() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
 		return v.ClientAuthentication
@@ -4116,7 +4116,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) Elem
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput)
 }
 
-// Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+// Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) ClientAuthentication() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
 		if v == nil {
@@ -4127,9 +4127,9 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) Clie
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication struct {
-	// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+	// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 	Sasl *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl `pulumi:"sasl"`
-	// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+	// Configuration block for specifying TLS client authentication. See `tls` Block below.
 	Tls *bool `pulumi:"tls"`
 }
 
@@ -4145,9 +4145,9 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticati
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs struct {
-	// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+	// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 	Sasl ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrInput `pulumi:"sasl"`
-	// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+	// Configuration block for specifying TLS client authentication. See `tls` Block below.
 	Tls pulumi.BoolPtrInput `pulumi:"tls"`
 }
 
@@ -4228,14 +4228,14 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput)
 }
 
-// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Sasl() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
 		return v.Sasl
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput)
 }
 
-// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+// Configuration block for specifying TLS client authentication. See `tls` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Tls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *bool {
 		return v.Tls
@@ -4266,7 +4266,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput)
 }
 
-// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) Sasl() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
 		if v == nil {
@@ -4276,7 +4276,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput)
 }
 
-// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+// Configuration block for specifying TLS client authentication. See `tls` Block below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) Tls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *bool {
 		if v == nil {
@@ -4287,7 +4287,9 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl struct {
-	Iam   *bool `pulumi:"iam"`
+	// Whether to enable IAM client authentication. Defaults to `false`.
+	Iam *bool `pulumi:"iam"`
+	// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram *bool `pulumi:"scram"`
 }
 
@@ -4303,7 +4305,9 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticati
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs struct {
-	Iam   pulumi.BoolPtrInput `pulumi:"iam"`
+	// Whether to enable IAM client authentication. Defaults to `false`.
+	Iam pulumi.BoolPtrInput `pulumi:"iam"`
+	// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram pulumi.BoolPtrInput `pulumi:"scram"`
 }
 
@@ -4384,12 +4388,14 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput)
 }
 
+// Whether to enable IAM client authentication. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		return v.Iam
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		return v.Scram
@@ -4420,6 +4426,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput)
 }
 
+// Whether to enable IAM client authentication. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -4429,6 +4436,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -4439,7 +4447,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfo struct {
-	// A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
+	// Configuration block that contains EBS volume information. See `ebsStorageInfo` Block below.
 	EbsStorageInfo *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo `pulumi:"ebsStorageInfo"`
 }
 
@@ -4455,7 +4463,7 @@ type ClusterBrokerNodeGroupInfoStorageInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoArgs struct {
-	// A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
+	// Configuration block that contains EBS volume information. See `ebsStorageInfo` Block below.
 	EbsStorageInfo ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput `pulumi:"ebsStorageInfo"`
 }
 
@@ -4536,7 +4544,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToClusterBrokerNodeGroupInf
 	}).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
 
-// A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
+// Configuration block that contains EBS volume information. See `ebsStorageInfo` Block below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) EbsStorageInfo() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 		return v.EbsStorageInfo
@@ -4567,7 +4575,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) Elem() ClusterBrokerNode
 	}).(ClusterBrokerNodeGroupInfoStorageInfoOutput)
 }
 
-// A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
+// Configuration block that contains EBS volume information. See `ebsStorageInfo` Block below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) EbsStorageInfo() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 		if v == nil {
@@ -4578,9 +4586,9 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) EbsStorageInfo() Cluster
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo struct {
-	// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+	// Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
 	ProvisionedThroughput *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput `pulumi:"provisionedThroughput"`
-	// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+	// Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
 	VolumeSize *int `pulumi:"volumeSize"`
 }
 
@@ -4596,9 +4604,9 @@ type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs struct {
-	// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+	// Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
 	ProvisionedThroughput ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
-	// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+	// Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 }
 
@@ -4679,14 +4687,14 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToClusterBrok
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
 }
 
-// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+// Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ProvisionedThroughput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
 		return v.ProvisionedThroughput
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
 }
 
-// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+// Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
@@ -4715,7 +4723,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) Elem() Clu
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput)
 }
 
-// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+// Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ProvisionedThroughput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
 		if v == nil {
@@ -4725,7 +4733,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) Provisione
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
 }
 
-// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+// Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *int {
 		if v == nil {
@@ -4736,8 +4744,9 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) VolumeSize
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput struct {
+	// Whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
 	VolumeThroughput *int `pulumi:"volumeThroughput"`
 }
 
@@ -4753,8 +4762,9 @@ type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInp
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs struct {
+	// Whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
 	VolumeThroughput pulumi.IntPtrInput `pulumi:"volumeThroughput"`
 }
 
@@ -4835,13 +4845,14 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
 }
 
+// Whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *bool {
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) VolumeThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *int {
 		return v.VolumeThroughput
@@ -4872,6 +4883,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput)
 }
 
+// Whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *bool {
 		if v == nil {
@@ -4881,7 +4893,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) VolumeThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *int {
 		if v == nil {
@@ -4892,11 +4904,11 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 }
 
 type ClusterClientAuthentication struct {
-	// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+	// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 	Sasl *ClusterClientAuthenticationSasl `pulumi:"sasl"`
-	// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+	// Configuration block for specifying TLS client authentication. See `tls` Block below.
 	Tls *ClusterClientAuthenticationTls `pulumi:"tls"`
-	// Enables unauthenticated access.
+	// Whether to enable unauthenticated access.
 	Unauthenticated *bool `pulumi:"unauthenticated"`
 }
 
@@ -4912,11 +4924,11 @@ type ClusterClientAuthenticationInput interface {
 }
 
 type ClusterClientAuthenticationArgs struct {
-	// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+	// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 	Sasl ClusterClientAuthenticationSaslPtrInput `pulumi:"sasl"`
-	// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+	// Configuration block for specifying TLS client authentication. See `tls` Block below.
 	Tls ClusterClientAuthenticationTlsPtrInput `pulumi:"tls"`
-	// Enables unauthenticated access.
+	// Whether to enable unauthenticated access.
 	Unauthenticated pulumi.BoolPtrInput `pulumi:"unauthenticated"`
 }
 
@@ -4997,17 +5009,17 @@ func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationPtrOutpu
 	}).(ClusterClientAuthenticationPtrOutput)
 }
 
-// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 func (o ClusterClientAuthenticationOutput) Sasl() ClusterClientAuthenticationSaslPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthenticationSasl { return v.Sasl }).(ClusterClientAuthenticationSaslPtrOutput)
 }
 
-// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+// Configuration block for specifying TLS client authentication. See `tls` Block below.
 func (o ClusterClientAuthenticationOutput) Tls() ClusterClientAuthenticationTlsPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthenticationTls { return v.Tls }).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
-// Enables unauthenticated access.
+// Whether to enable unauthenticated access.
 func (o ClusterClientAuthenticationOutput) Unauthenticated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *bool { return v.Unauthenticated }).(pulumi.BoolPtrOutput)
 }
@@ -5036,7 +5048,7 @@ func (o ClusterClientAuthenticationPtrOutput) Elem() ClusterClientAuthentication
 	}).(ClusterClientAuthenticationOutput)
 }
 
-// Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+// Configuration block for specifying SASL client authentication. See `sasl` Block below.
 func (o ClusterClientAuthenticationPtrOutput) Sasl() ClusterClientAuthenticationSaslPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterClientAuthenticationSasl {
 		if v == nil {
@@ -5046,7 +5058,7 @@ func (o ClusterClientAuthenticationPtrOutput) Sasl() ClusterClientAuthentication
 	}).(ClusterClientAuthenticationSaslPtrOutput)
 }
 
-// Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+// Configuration block for specifying TLS client authentication. See `tls` Block below.
 func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterClientAuthenticationTlsPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterClientAuthenticationTls {
 		if v == nil {
@@ -5056,7 +5068,7 @@ func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterClientAuthenticationT
 	}).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
-// Enables unauthenticated access.
+// Whether to enable unauthenticated access.
 func (o ClusterClientAuthenticationPtrOutput) Unauthenticated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthentication) *bool {
 		if v == nil {
@@ -5067,7 +5079,9 @@ func (o ClusterClientAuthenticationPtrOutput) Unauthenticated() pulumi.BoolPtrOu
 }
 
 type ClusterClientAuthenticationSasl struct {
-	Iam   *bool `pulumi:"iam"`
+	// Whether to enable IAM client authentication. Defaults to `false`.
+	Iam *bool `pulumi:"iam"`
+	// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram *bool `pulumi:"scram"`
 }
 
@@ -5083,7 +5097,9 @@ type ClusterClientAuthenticationSaslInput interface {
 }
 
 type ClusterClientAuthenticationSaslArgs struct {
-	Iam   pulumi.BoolPtrInput `pulumi:"iam"`
+	// Whether to enable IAM client authentication. Defaults to `false`.
+	Iam pulumi.BoolPtrInput `pulumi:"iam"`
+	// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram pulumi.BoolPtrInput `pulumi:"scram"`
 }
 
@@ -5164,10 +5180,12 @@ func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSasl
 	}).(ClusterClientAuthenticationSaslPtrOutput)
 }
 
+// Whether to enable IAM client authentication. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Iam }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Scram }).(pulumi.BoolPtrOutput)
 }
@@ -5196,6 +5214,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Elem() ClusterClientAuthentica
 	}).(ClusterClientAuthenticationSaslOutput)
 }
 
+// Whether to enable IAM client authentication. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -5205,6 +5224,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -5508,9 +5528,9 @@ func (o ClusterConfigurationInfoPtrOutput) Revision() pulumi.IntPtrOutput {
 }
 
 type ClusterEncryptionInfo struct {
-	// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+	// KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
 	EncryptionAtRestKmsKeyArn *string `pulumi:"encryptionAtRestKmsKeyArn"`
-	// Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+	// Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
 	EncryptionInTransit *ClusterEncryptionInfoEncryptionInTransit `pulumi:"encryptionInTransit"`
 }
 
@@ -5526,9 +5546,9 @@ type ClusterEncryptionInfoInput interface {
 }
 
 type ClusterEncryptionInfoArgs struct {
-	// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+	// KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
 	EncryptionAtRestKmsKeyArn pulumi.StringPtrInput `pulumi:"encryptionAtRestKmsKeyArn"`
-	// Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+	// Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
 	EncryptionInTransit ClusterEncryptionInfoEncryptionInTransitPtrInput `pulumi:"encryptionInTransit"`
 }
 
@@ -5609,12 +5629,12 @@ func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoPtrOutputWithContext
 	}).(ClusterEncryptionInfoPtrOutput)
 }
 
-// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+// KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
 func (o ClusterEncryptionInfoOutput) EncryptionAtRestKmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfo) *string { return v.EncryptionAtRestKmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+// Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
 func (o ClusterEncryptionInfoOutput) EncryptionInTransit() ClusterEncryptionInfoEncryptionInTransitPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionInfoEncryptionInTransit { return v.EncryptionInTransit }).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
@@ -5643,7 +5663,7 @@ func (o ClusterEncryptionInfoPtrOutput) Elem() ClusterEncryptionInfoOutput {
 	}).(ClusterEncryptionInfoOutput)
 }
 
-// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+// KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
 func (o ClusterEncryptionInfoPtrOutput) EncryptionAtRestKmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInfo) *string {
 		if v == nil {
@@ -5653,7 +5673,7 @@ func (o ClusterEncryptionInfoPtrOutput) EncryptionAtRestKmsKeyArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+// Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
 func (o ClusterEncryptionInfoPtrOutput) EncryptionInTransit() ClusterEncryptionInfoEncryptionInTransitPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInfo) *ClusterEncryptionInfoEncryptionInTransit {
 		if v == nil {
@@ -5820,7 +5840,7 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) InCluster() pulumi.Bo
 }
 
 type ClusterLoggingInfo struct {
-	// Configuration block for Broker Logs settings for logging info. See loggingInfo broker_logs Argument Reference below.
+	// Configuration block for Broker Logs settings for logging info. See `brokerLogs` Block below.
 	BrokerLogs ClusterLoggingInfoBrokerLogs `pulumi:"brokerLogs"`
 }
 
@@ -5836,7 +5856,7 @@ type ClusterLoggingInfoInput interface {
 }
 
 type ClusterLoggingInfoArgs struct {
-	// Configuration block for Broker Logs settings for logging info. See loggingInfo broker_logs Argument Reference below.
+	// Configuration block for Broker Logs settings for logging info. See `brokerLogs` Block below.
 	BrokerLogs ClusterLoggingInfoBrokerLogsInput `pulumi:"brokerLogs"`
 }
 
@@ -5917,7 +5937,7 @@ func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx c
 	}).(ClusterLoggingInfoPtrOutput)
 }
 
-// Configuration block for Broker Logs settings for logging info. See loggingInfo broker_logs Argument Reference below.
+// Configuration block for Broker Logs settings for logging info. See `brokerLogs` Block below.
 func (o ClusterLoggingInfoOutput) BrokerLogs() ClusterLoggingInfoBrokerLogsOutput {
 	return o.ApplyT(func(v ClusterLoggingInfo) ClusterLoggingInfoBrokerLogs { return v.BrokerLogs }).(ClusterLoggingInfoBrokerLogsOutput)
 }
@@ -5946,7 +5966,7 @@ func (o ClusterLoggingInfoPtrOutput) Elem() ClusterLoggingInfoOutput {
 	}).(ClusterLoggingInfoOutput)
 }
 
-// Configuration block for Broker Logs settings for logging info. See loggingInfo broker_logs Argument Reference below.
+// Configuration block for Broker Logs settings for logging info. See `brokerLogs` Block below.
 func (o ClusterLoggingInfoPtrOutput) BrokerLogs() ClusterLoggingInfoBrokerLogsPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfo) *ClusterLoggingInfoBrokerLogs {
 		if v == nil {
@@ -5957,11 +5977,11 @@ func (o ClusterLoggingInfoPtrOutput) BrokerLogs() ClusterLoggingInfoBrokerLogsPt
 }
 
 type ClusterLoggingInfoBrokerLogs struct {
-	// Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+	// Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
 	CloudwatchLogs *ClusterLoggingInfoBrokerLogsCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+	// Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
 	Firehose *ClusterLoggingInfoBrokerLogsFirehose `pulumi:"firehose"`
-	// Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+	// Configuration block for S3 settings. See `s3` Block below.
 	S3 *ClusterLoggingInfoBrokerLogsS3 `pulumi:"s3"`
 }
 
@@ -5977,11 +5997,11 @@ type ClusterLoggingInfoBrokerLogsInput interface {
 }
 
 type ClusterLoggingInfoBrokerLogsArgs struct {
-	// Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+	// Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
 	CloudwatchLogs ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	// Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+	// Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
 	Firehose ClusterLoggingInfoBrokerLogsFirehosePtrInput `pulumi:"firehose"`
-	// Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+	// Configuration block for S3 settings. See `s3` Block below.
 	S3 ClusterLoggingInfoBrokerLogsS3PtrInput `pulumi:"s3"`
 }
 
@@ -6062,19 +6082,19 @@ func (o ClusterLoggingInfoBrokerLogsOutput) ToClusterLoggingInfoBrokerLogsPtrOut
 	}).(ClusterLoggingInfoBrokerLogsPtrOutput)
 }
 
-// Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+// Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
 func (o ClusterLoggingInfoBrokerLogsOutput) CloudwatchLogs() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
 }
 
-// Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+// Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
 func (o ClusterLoggingInfoBrokerLogsOutput) Firehose() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsFirehose { return v.Firehose }).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
 }
 
-// Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+// Configuration block for S3 settings. See `s3` Block below.
 func (o ClusterLoggingInfoBrokerLogsOutput) S3() ClusterLoggingInfoBrokerLogsS3PtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsS3 { return v.S3 }).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
 }
@@ -6103,7 +6123,7 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) Elem() ClusterLoggingInfoBrokerLo
 	}).(ClusterLoggingInfoBrokerLogsOutput)
 }
 
-// Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+// Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
 func (o ClusterLoggingInfoBrokerLogsPtrOutput) CloudwatchLogs() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsCloudwatchLogs {
 		if v == nil {
@@ -6113,7 +6133,7 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) CloudwatchLogs() ClusterLoggingIn
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
 }
 
-// Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+// Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
 func (o ClusterLoggingInfoBrokerLogsPtrOutput) Firehose() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsFirehose {
 		if v == nil {
@@ -6123,7 +6143,7 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) Firehose() ClusterLoggingInfoBrok
 	}).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
 }
 
-// Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+// Configuration block for S3 settings. See `s3` Block below.
 func (o ClusterLoggingInfoBrokerLogsPtrOutput) S3() ClusterLoggingInfoBrokerLogsS3PtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsS3 {
 		if v == nil {
@@ -6134,8 +6154,9 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) S3() ClusterLoggingInfoBrokerLogs
 }
 
 type ClusterLoggingInfoBrokerLogsCloudwatchLogs struct {
+	// Whether to enable or disable streaming broker logs to CloudWatch Logs.
 	Enabled bool `pulumi:"enabled"`
-	// Name of the Cloudwatch Log Group to deliver logs to.
+	// Name of the CloudWatch Log Group to deliver logs to.
 	LogGroup *string `pulumi:"logGroup"`
 }
 
@@ -6151,8 +6172,9 @@ type ClusterLoggingInfoBrokerLogsCloudwatchLogsInput interface {
 }
 
 type ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs struct {
+	// Whether to enable or disable streaming broker logs to CloudWatch Logs.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Name of the Cloudwatch Log Group to deliver logs to.
+	// Name of the CloudWatch Log Group to deliver logs to.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
 }
 
@@ -6233,11 +6255,12 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBr
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
 }
 
+// Whether to enable or disable streaming broker logs to CloudWatch Logs.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Name of the Cloudwatch Log Group to deliver logs to.
+// Name of the CloudWatch Log Group to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -6266,6 +6289,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Elem() ClusterLoggi
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput)
 }
 
+// Whether to enable or disable streaming broker logs to CloudWatch Logs.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsCloudwatchLogs) *bool {
 		if v == nil {
@@ -6275,7 +6299,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the Cloudwatch Log Group to deliver logs to.
+// Name of the CloudWatch Log Group to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsCloudwatchLogs) *string {
 		if v == nil {
@@ -6288,7 +6312,8 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.S
 type ClusterLoggingInfoBrokerLogsFirehose struct {
 	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 	DeliveryStream *string `pulumi:"deliveryStream"`
-	Enabled        bool    `pulumi:"enabled"`
+	// Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+	Enabled bool `pulumi:"enabled"`
 }
 
 // ClusterLoggingInfoBrokerLogsFirehoseInput is an input type that accepts ClusterLoggingInfoBrokerLogsFirehoseArgs and ClusterLoggingInfoBrokerLogsFirehoseOutput values.
@@ -6305,7 +6330,8 @@ type ClusterLoggingInfoBrokerLogsFirehoseInput interface {
 type ClusterLoggingInfoBrokerLogsFirehoseArgs struct {
 	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
-	Enabled        pulumi.BoolInput      `pulumi:"enabled"`
+	// Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
 func (ClusterLoggingInfoBrokerLogsFirehoseArgs) ElementType() reflect.Type {
@@ -6390,6 +6416,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) DeliveryStream() pulumi.Stri
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
 func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -6428,6 +6455,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) DeliveryStream() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
 func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsFirehose) *bool {
 		if v == nil {
@@ -6439,8 +6467,9 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Enabled() pulumi.BoolPtrO
 
 type ClusterLoggingInfoBrokerLogsS3 struct {
 	// Name of the S3 bucket to deliver logs to.
-	Bucket  *string `pulumi:"bucket"`
-	Enabled bool    `pulumi:"enabled"`
+	Bucket *string `pulumi:"bucket"`
+	// Whether to enable or disable streaming broker logs to S3.
+	Enabled bool `pulumi:"enabled"`
 	// Prefix to append to the folder name.
 	Prefix *string `pulumi:"prefix"`
 }
@@ -6458,8 +6487,9 @@ type ClusterLoggingInfoBrokerLogsS3Input interface {
 
 type ClusterLoggingInfoBrokerLogsS3Args struct {
 	// Name of the S3 bucket to deliver logs to.
-	Bucket  pulumi.StringPtrInput `pulumi:"bucket"`
-	Enabled pulumi.BoolInput      `pulumi:"enabled"`
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// Whether to enable or disable streaming broker logs to S3.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Prefix to append to the folder name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
@@ -6546,6 +6576,7 @@ func (o ClusterLoggingInfoBrokerLogsS3Output) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable or disable streaming broker logs to S3.
 func (o ClusterLoggingInfoBrokerLogsS3Output) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -6589,6 +6620,7 @@ func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Bucket() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable or disable streaming broker logs to S3.
 func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsS3) *bool {
 		if v == nil {
@@ -6609,7 +6641,7 @@ func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Prefix() pulumi.StringPtrOutput
 }
 
 type ClusterOpenMonitoring struct {
-	// Configuration block for Prometheus settings for open monitoring. See openMonitoring prometheus Argument Reference below.
+	// Configuration block for Prometheus settings for open monitoring. See `prometheus` Block below.
 	Prometheus ClusterOpenMonitoringPrometheus `pulumi:"prometheus"`
 }
 
@@ -6625,7 +6657,7 @@ type ClusterOpenMonitoringInput interface {
 }
 
 type ClusterOpenMonitoringArgs struct {
-	// Configuration block for Prometheus settings for open monitoring. See openMonitoring prometheus Argument Reference below.
+	// Configuration block for Prometheus settings for open monitoring. See `prometheus` Block below.
 	Prometheus ClusterOpenMonitoringPrometheusInput `pulumi:"prometheus"`
 }
 
@@ -6706,7 +6738,7 @@ func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutputWithContext
 	}).(ClusterOpenMonitoringPtrOutput)
 }
 
-// Configuration block for Prometheus settings for open monitoring. See openMonitoring prometheus Argument Reference below.
+// Configuration block for Prometheus settings for open monitoring. See `prometheus` Block below.
 func (o ClusterOpenMonitoringOutput) Prometheus() ClusterOpenMonitoringPrometheusOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
 }
@@ -6735,7 +6767,7 @@ func (o ClusterOpenMonitoringPtrOutput) Elem() ClusterOpenMonitoringOutput {
 	}).(ClusterOpenMonitoringOutput)
 }
 
-// Configuration block for Prometheus settings for open monitoring. See openMonitoring prometheus Argument Reference below.
+// Configuration block for Prometheus settings for open monitoring. See `prometheus` Block below.
 func (o ClusterOpenMonitoringPtrOutput) Prometheus() ClusterOpenMonitoringPrometheusPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoring) *ClusterOpenMonitoringPrometheus {
 		if v == nil {
@@ -6746,9 +6778,9 @@ func (o ClusterOpenMonitoringPtrOutput) Prometheus() ClusterOpenMonitoringPromet
 }
 
 type ClusterOpenMonitoringPrometheus struct {
-	// Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
+	// Configuration block for JMX Exporter. See `jmxExporter` Block below.
 	JmxExporter *ClusterOpenMonitoringPrometheusJmxExporter `pulumi:"jmxExporter"`
-	// Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
+	// Configuration block for Node Exporter. See `nodeExporter` Block below.
 	NodeExporter *ClusterOpenMonitoringPrometheusNodeExporter `pulumi:"nodeExporter"`
 }
 
@@ -6764,9 +6796,9 @@ type ClusterOpenMonitoringPrometheusInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusArgs struct {
-	// Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
+	// Configuration block for JMX Exporter. See `jmxExporter` Block below.
 	JmxExporter ClusterOpenMonitoringPrometheusJmxExporterPtrInput `pulumi:"jmxExporter"`
-	// Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
+	// Configuration block for Node Exporter. See `nodeExporter` Block below.
 	NodeExporter ClusterOpenMonitoringPrometheusNodeExporterPtrInput `pulumi:"nodeExporter"`
 }
 
@@ -6847,14 +6879,14 @@ func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheus
 	}).(ClusterOpenMonitoringPrometheusPtrOutput)
 }
 
-// Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
+// Configuration block for JMX Exporter. See `jmxExporter` Block below.
 func (o ClusterOpenMonitoringPrometheusOutput) JmxExporter() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusJmxExporter {
 		return v.JmxExporter
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
-// Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
+// Configuration block for Node Exporter. See `nodeExporter` Block below.
 func (o ClusterOpenMonitoringPrometheusOutput) NodeExporter() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusNodeExporter {
 		return v.NodeExporter
@@ -6885,7 +6917,7 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) Elem() ClusterOpenMonitoringPr
 	}).(ClusterOpenMonitoringPrometheusOutput)
 }
 
-// Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
+// Configuration block for JMX Exporter. See `jmxExporter` Block below.
 func (o ClusterOpenMonitoringPrometheusPtrOutput) JmxExporter() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusJmxExporter {
 		if v == nil {
@@ -6895,7 +6927,7 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) JmxExporter() ClusterOpenMonit
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
-// Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
+// Configuration block for Node Exporter. See `nodeExporter` Block below.
 func (o ClusterOpenMonitoringPrometheusPtrOutput) NodeExporter() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusNodeExporter {
 		if v == nil {
@@ -6906,7 +6938,7 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) NodeExporter() ClusterOpenMoni
 }
 
 type ClusterOpenMonitoringPrometheusJmxExporter struct {
-	// Indicates whether you want to enable or disable the Node Exporter.
+	// Whether to enable or disable the JMX Exporter.
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
@@ -6922,7 +6954,7 @@ type ClusterOpenMonitoringPrometheusJmxExporterInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusJmxExporterArgs struct {
-	// Indicates whether you want to enable or disable the Node Exporter.
+	// Whether to enable or disable the JMX Exporter.
 	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
 }
 
@@ -7003,7 +7035,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitorin
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
-// Indicates whether you want to enable or disable the Node Exporter.
+// Whether to enable or disable the JMX Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
@@ -7032,7 +7064,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) Elem() ClusterOpenM
 	}).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
 }
 
-// Indicates whether you want to enable or disable the Node Exporter.
+// Whether to enable or disable the JMX Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusJmxExporter) *bool {
 		if v == nil {
@@ -7043,7 +7075,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() p
 }
 
 type ClusterOpenMonitoringPrometheusNodeExporter struct {
-	// Indicates whether you want to enable or disable the Node Exporter.
+	// Whether to enable or disable the Node Exporter.
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
@@ -7059,7 +7091,7 @@ type ClusterOpenMonitoringPrometheusNodeExporterInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusNodeExporterArgs struct {
-	// Indicates whether you want to enable or disable the Node Exporter.
+	// Whether to enable or disable the Node Exporter.
 	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
 }
 
@@ -7140,7 +7172,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitori
 	}).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
 
-// Indicates whether you want to enable or disable the Node Exporter.
+// Whether to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
@@ -7169,7 +7201,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) Elem() ClusterOpen
 	}).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
 }
 
-// Indicates whether you want to enable or disable the Node Exporter.
+// Whether to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusNodeExporter) *bool {
 		if v == nil {
@@ -7180,7 +7212,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() 
 }
 
 type ClusterRebalancing struct {
-	// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+	// Status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
 	//
 	// > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
 	Status string `pulumi:"status"`
@@ -7198,7 +7230,7 @@ type ClusterRebalancingInput interface {
 }
 
 type ClusterRebalancingArgs struct {
-	// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+	// Status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
 	//
 	// > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -7281,7 +7313,7 @@ func (o ClusterRebalancingOutput) ToClusterRebalancingPtrOutputWithContext(ctx c
 	}).(ClusterRebalancingPtrOutput)
 }
 
-// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+// Status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
 //
 // > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
 func (o ClusterRebalancingOutput) Status() pulumi.StringOutput {
@@ -7312,7 +7344,7 @@ func (o ClusterRebalancingPtrOutput) Elem() ClusterRebalancingOutput {
 	}).(ClusterRebalancingOutput)
 }
 
-// The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+// Status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
 //
 // > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
 func (o ClusterRebalancingPtrOutput) Status() pulumi.StringPtrOutput {
@@ -7325,15 +7357,15 @@ func (o ClusterRebalancingPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type ReplicatorKafkaCluster struct {
-	// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
 	AmazonMskCluster *ReplicatorKafkaClusterAmazonMskCluster `pulumi:"amazonMskCluster"`
-	// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
 	ApacheKafkaCluster *ReplicatorKafkaClusterApacheKafkaCluster `pulumi:"apacheKafkaCluster"`
-	// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+	// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
 	ClientAuthentication *ReplicatorKafkaClusterClientAuthentication `pulumi:"clientAuthentication"`
-	// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+	// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
 	EncryptionInTransit *ReplicatorKafkaClusterEncryptionInTransit `pulumi:"encryptionInTransit"`
-	// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+	// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
 	VpcConfig *ReplicatorKafkaClusterVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -7349,15 +7381,15 @@ type ReplicatorKafkaClusterInput interface {
 }
 
 type ReplicatorKafkaClusterArgs struct {
-	// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
 	AmazonMskCluster ReplicatorKafkaClusterAmazonMskClusterPtrInput `pulumi:"amazonMskCluster"`
-	// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
 	ApacheKafkaCluster ReplicatorKafkaClusterApacheKafkaClusterPtrInput `pulumi:"apacheKafkaCluster"`
-	// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+	// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
 	ClientAuthentication ReplicatorKafkaClusterClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
-	// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+	// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
 	EncryptionInTransit ReplicatorKafkaClusterEncryptionInTransitPtrInput `pulumi:"encryptionInTransit"`
-	// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+	// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
 	VpcConfig ReplicatorKafkaClusterVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -7412,31 +7444,31 @@ func (o ReplicatorKafkaClusterOutput) ToReplicatorKafkaClusterOutputWithContext(
 	return o
 }
 
-// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
 func (o ReplicatorKafkaClusterOutput) AmazonMskCluster() ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterAmazonMskCluster { return v.AmazonMskCluster }).(ReplicatorKafkaClusterAmazonMskClusterPtrOutput)
 }
 
-// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
 func (o ReplicatorKafkaClusterOutput) ApacheKafkaCluster() ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterApacheKafkaCluster { return v.ApacheKafkaCluster }).(ReplicatorKafkaClusterApacheKafkaClusterPtrOutput)
 }
 
-// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
 func (o ReplicatorKafkaClusterOutput) ClientAuthentication() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterClientAuthentication {
 		return v.ClientAuthentication
 	}).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
 }
 
-// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
 func (o ReplicatorKafkaClusterOutput) EncryptionInTransit() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterEncryptionInTransit {
 		return v.EncryptionInTransit
 	}).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
 }
 
-// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
 func (o ReplicatorKafkaClusterOutput) VpcConfig() ReplicatorKafkaClusterVpcConfigPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterVpcConfig { return v.VpcConfig }).(ReplicatorKafkaClusterVpcConfigPtrOutput)
 }
@@ -7462,7 +7494,7 @@ func (o ReplicatorKafkaClusterArrayOutput) Index(i pulumi.IntInput) ReplicatorKa
 }
 
 type ReplicatorKafkaClusterAmazonMskCluster struct {
-	// The ARN of an Amazon MSK cluster.
+	// ARN of an Amazon MSK cluster.
 	MskClusterArn string `pulumi:"mskClusterArn"`
 }
 
@@ -7478,7 +7510,7 @@ type ReplicatorKafkaClusterAmazonMskClusterInput interface {
 }
 
 type ReplicatorKafkaClusterAmazonMskClusterArgs struct {
-	// The ARN of an Amazon MSK cluster.
+	// ARN of an Amazon MSK cluster.
 	MskClusterArn pulumi.StringInput `pulumi:"mskClusterArn"`
 }
 
@@ -7559,7 +7591,7 @@ func (o ReplicatorKafkaClusterAmazonMskClusterOutput) ToReplicatorKafkaClusterAm
 	}).(ReplicatorKafkaClusterAmazonMskClusterPtrOutput)
 }
 
-// The ARN of an Amazon MSK cluster.
+// ARN of an Amazon MSK cluster.
 func (o ReplicatorKafkaClusterAmazonMskClusterOutput) MskClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterAmazonMskCluster) string { return v.MskClusterArn }).(pulumi.StringOutput)
 }
@@ -7588,7 +7620,7 @@ func (o ReplicatorKafkaClusterAmazonMskClusterPtrOutput) Elem() ReplicatorKafkaC
 	}).(ReplicatorKafkaClusterAmazonMskClusterOutput)
 }
 
-// The ARN of an Amazon MSK cluster.
+// ARN of an Amazon MSK cluster.
 func (o ReplicatorKafkaClusterAmazonMskClusterPtrOutput) MskClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterAmazonMskCluster) *string {
 		if v == nil {
@@ -7599,9 +7631,9 @@ func (o ReplicatorKafkaClusterAmazonMskClusterPtrOutput) MskClusterArn() pulumi.
 }
 
 type ReplicatorKafkaClusterApacheKafkaCluster struct {
-	// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+	// Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
 	ApacheKafkaClusterId string `pulumi:"apacheKafkaClusterId"`
-	// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+	// Bootstrap broker connection string used to connect to the Apache Kafka cluster.
 	BootstrapBrokerString string `pulumi:"bootstrapBrokerString"`
 }
 
@@ -7617,9 +7649,9 @@ type ReplicatorKafkaClusterApacheKafkaClusterInput interface {
 }
 
 type ReplicatorKafkaClusterApacheKafkaClusterArgs struct {
-	// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+	// Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
 	ApacheKafkaClusterId pulumi.StringInput `pulumi:"apacheKafkaClusterId"`
-	// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+	// Bootstrap broker connection string used to connect to the Apache Kafka cluster.
 	BootstrapBrokerString pulumi.StringInput `pulumi:"bootstrapBrokerString"`
 }
 
@@ -7700,12 +7732,12 @@ func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) ToReplicatorKafkaCluster
 	}).(ReplicatorKafkaClusterApacheKafkaClusterPtrOutput)
 }
 
-// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+// Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
 func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) ApacheKafkaClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterApacheKafkaCluster) string { return v.ApacheKafkaClusterId }).(pulumi.StringOutput)
 }
 
-// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+// Bootstrap broker connection string used to connect to the Apache Kafka cluster.
 func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) BootstrapBrokerString() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterApacheKafkaCluster) string { return v.BootstrapBrokerString }).(pulumi.StringOutput)
 }
@@ -7734,7 +7766,7 @@ func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) Elem() ReplicatorKafk
 	}).(ReplicatorKafkaClusterApacheKafkaClusterOutput)
 }
 
-// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+// Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
 func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) ApacheKafkaClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterApacheKafkaCluster) *string {
 		if v == nil {
@@ -7744,7 +7776,7 @@ func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) ApacheKafkaClusterId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+// Bootstrap broker connection string used to connect to the Apache Kafka cluster.
 func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) BootstrapBrokerString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterApacheKafkaCluster) *string {
 		if v == nil {
@@ -7755,9 +7787,9 @@ func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) BootstrapBrokerString
 }
 
 type ReplicatorKafkaClusterClientAuthentication struct {
-	// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+	// Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
 	Mtls *ReplicatorKafkaClusterClientAuthenticationMtls `pulumi:"mtls"`
-	// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+	// Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
 	SaslScram *ReplicatorKafkaClusterClientAuthenticationSaslScram `pulumi:"saslScram"`
 }
 
@@ -7773,9 +7805,9 @@ type ReplicatorKafkaClusterClientAuthenticationInput interface {
 }
 
 type ReplicatorKafkaClusterClientAuthenticationArgs struct {
-	// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+	// Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
 	Mtls ReplicatorKafkaClusterClientAuthenticationMtlsPtrInput `pulumi:"mtls"`
-	// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+	// Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
 	SaslScram ReplicatorKafkaClusterClientAuthenticationSaslScramPtrInput `pulumi:"saslScram"`
 }
 
@@ -7856,14 +7888,14 @@ func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClust
 	}).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
 }
 
-// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+// Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
 func (o ReplicatorKafkaClusterClientAuthenticationOutput) Mtls() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationMtls {
 		return v.Mtls
 	}).(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput)
 }
 
-// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+// Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
 func (o ReplicatorKafkaClusterClientAuthenticationOutput) SaslScram() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationSaslScram {
 		return v.SaslScram
@@ -7894,7 +7926,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Elem() ReplicatorKa
 	}).(ReplicatorKafkaClusterClientAuthenticationOutput)
 }
 
-// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+// Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
 func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Mtls() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationMtls {
 		if v == nil {
@@ -7904,7 +7936,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Mtls() ReplicatorKa
 	}).(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput)
 }
 
-// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+// Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
 func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) SaslScram() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationSaslScram {
 		if v == nil {
@@ -7915,7 +7947,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) SaslScram() Replica
 }
 
 type ReplicatorKafkaClusterClientAuthenticationMtls struct {
-	// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	// ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -7931,7 +7963,7 @@ type ReplicatorKafkaClusterClientAuthenticationMtlsInput interface {
 }
 
 type ReplicatorKafkaClusterClientAuthenticationMtlsArgs struct {
-	// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	// ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 }
 
@@ -8012,7 +8044,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationMtlsOutput) ToReplicatorKafkaC
 	}).(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+// ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 func (o ReplicatorKafkaClusterClientAuthenticationMtlsOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthenticationMtls) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -8041,7 +8073,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) Elem() Replicat
 	}).(ReplicatorKafkaClusterClientAuthenticationMtlsOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+// ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 func (o ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationMtls) *string {
 		if v == nil {
@@ -8052,9 +8084,9 @@ func (o ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) SecretArn() pul
 }
 
 type ReplicatorKafkaClusterClientAuthenticationSaslScram struct {
-	// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+	// SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
 	Mechanism string `pulumi:"mechanism"`
-	// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	// ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -8070,9 +8102,9 @@ type ReplicatorKafkaClusterClientAuthenticationSaslScramInput interface {
 }
 
 type ReplicatorKafkaClusterClientAuthenticationSaslScramArgs struct {
-	// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+	// SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
 	Mechanism pulumi.StringInput `pulumi:"mechanism"`
-	// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	// ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 }
 
@@ -8153,12 +8185,12 @@ func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) ToReplicatorK
 	}).(ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput)
 }
 
-// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+// SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
 func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) Mechanism() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthenticationSaslScram) string { return v.Mechanism }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+// ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthenticationSaslScram) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -8187,7 +8219,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) Elem() Rep
 	}).(ReplicatorKafkaClusterClientAuthenticationSaslScramOutput)
 }
 
-// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+// SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
 func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) Mechanism() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationSaslScram) *string {
 		if v == nil {
@@ -8197,7 +8229,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) Mechanism(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+// ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationSaslScram) *string {
 		if v == nil {
@@ -8208,7 +8240,7 @@ func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) SecretArn(
 }
 
 type ReplicatorKafkaClusterEncryptionInTransit struct {
-	// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	// ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 	RootCaCertificate string `pulumi:"rootCaCertificate"`
 }
 
@@ -8224,7 +8256,7 @@ type ReplicatorKafkaClusterEncryptionInTransitInput interface {
 }
 
 type ReplicatorKafkaClusterEncryptionInTransitArgs struct {
-	// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	// ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 	RootCaCertificate pulumi.StringInput `pulumi:"rootCaCertificate"`
 }
 
@@ -8305,7 +8337,7 @@ func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaCluste
 	}).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+// ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 func (o ReplicatorKafkaClusterEncryptionInTransitOutput) RootCaCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterEncryptionInTransit) string { return v.RootCaCertificate }).(pulumi.StringOutput)
 }
@@ -8334,7 +8366,7 @@ func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) Elem() ReplicatorKaf
 	}).(ReplicatorKafkaClusterEncryptionInTransitOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+// ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
 func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) RootCaCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterEncryptionInTransit) *string {
 		if v == nil {
@@ -8345,11 +8377,11 @@ func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) RootCaCertificate() 
 }
 
 type ReplicatorKafkaClusterVpcConfig struct {
-	// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-	//
-	// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+	// AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
 	SecurityGroupsIds []string `pulumi:"securityGroupsIds"`
 	// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+	//
+	// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -8365,11 +8397,11 @@ type ReplicatorKafkaClusterVpcConfigInput interface {
 }
 
 type ReplicatorKafkaClusterVpcConfigArgs struct {
-	// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-	//
-	// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+	// AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
 	SecurityGroupsIds pulumi.StringArrayInput `pulumi:"securityGroupsIds"`
 	// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+	//
+	// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -8450,14 +8482,14 @@ func (o ReplicatorKafkaClusterVpcConfigOutput) ToReplicatorKafkaClusterVpcConfig
 	}).(ReplicatorKafkaClusterVpcConfigPtrOutput)
 }
 
-// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-//
-// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+// AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
 func (o ReplicatorKafkaClusterVpcConfigOutput) SecurityGroupsIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterVpcConfig) []string { return v.SecurityGroupsIds }).(pulumi.StringArrayOutput)
 }
 
 // List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+//
+// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
 func (o ReplicatorKafkaClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -8486,9 +8518,7 @@ func (o ReplicatorKafkaClusterVpcConfigPtrOutput) Elem() ReplicatorKafkaClusterV
 	}).(ReplicatorKafkaClusterVpcConfigOutput)
 }
 
-// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-//
-// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+// AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
 func (o ReplicatorKafkaClusterVpcConfigPtrOutput) SecurityGroupsIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterVpcConfig) []string {
 		if v == nil {
@@ -8499,6 +8529,8 @@ func (o ReplicatorKafkaClusterVpcConfigPtrOutput) SecurityGroupsIds() pulumi.Str
 }
 
 // List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+//
+// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
 func (o ReplicatorKafkaClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterVpcConfig) []string {
 		if v == nil {
@@ -8509,7 +8541,7 @@ func (o ReplicatorKafkaClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArray
 }
 
 type ReplicatorLogDelivery struct {
-	// Configuration block for replicator log delivery. Detailed below.
+	// Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
 	ReplicatorLogDelivery *ReplicatorLogDeliveryReplicatorLogDelivery `pulumi:"replicatorLogDelivery"`
 }
 
@@ -8525,7 +8557,7 @@ type ReplicatorLogDeliveryInput interface {
 }
 
 type ReplicatorLogDeliveryArgs struct {
-	// Configuration block for replicator log delivery. Detailed below.
+	// Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
 	ReplicatorLogDelivery ReplicatorLogDeliveryReplicatorLogDeliveryPtrInput `pulumi:"replicatorLogDelivery"`
 }
 
@@ -8606,7 +8638,7 @@ func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryPtrOutputWithContext
 	}).(ReplicatorLogDeliveryPtrOutput)
 }
 
-// Configuration block for replicator log delivery. Detailed below.
+// Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
 func (o ReplicatorLogDeliveryOutput) ReplicatorLogDelivery() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
 	return o.ApplyT(func(v ReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDelivery {
 		return v.ReplicatorLogDelivery
@@ -8637,7 +8669,7 @@ func (o ReplicatorLogDeliveryPtrOutput) Elem() ReplicatorLogDeliveryOutput {
 	}).(ReplicatorLogDeliveryOutput)
 }
 
-// Configuration block for replicator log delivery. Detailed below.
+// Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
 func (o ReplicatorLogDeliveryPtrOutput) ReplicatorLogDelivery() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *ReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDelivery {
 		if v == nil {
@@ -8648,11 +8680,11 @@ func (o ReplicatorLogDeliveryPtrOutput) ReplicatorLogDelivery() ReplicatorLogDel
 }
 
 type ReplicatorLogDeliveryReplicatorLogDelivery struct {
-	// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+	// Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
 	CloudwatchLogs *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+	// Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
 	Firehose *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose `pulumi:"firehose"`
-	// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+	// Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
 	S3 *ReplicatorLogDeliveryReplicatorLogDeliveryS3 `pulumi:"s3"`
 }
 
@@ -8668,11 +8700,11 @@ type ReplicatorLogDeliveryReplicatorLogDeliveryInput interface {
 }
 
 type ReplicatorLogDeliveryReplicatorLogDeliveryArgs struct {
-	// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+	// Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
 	CloudwatchLogs ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+	// Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
 	Firehose ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrInput `pulumi:"firehose"`
-	// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+	// Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
 	S3 ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrInput `pulumi:"s3"`
 }
 
@@ -8753,21 +8785,21 @@ func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) ToReplicatorLogDeliver
 	}).(ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput)
 }
 
-// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+// Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
 func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) CloudwatchLogs() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput)
 }
 
-// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+// Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
 func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) Firehose() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
 	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose {
 		return v.Firehose
 	}).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput)
 }
 
-// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+// Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
 func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) S3() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
 	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryS3 {
 		return v.S3
@@ -8798,7 +8830,7 @@ func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) Elem() ReplicatorLo
 	}).(ReplicatorLogDeliveryReplicatorLogDeliveryOutput)
 }
 
-// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+// Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
 func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) CloudwatchLogs() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs {
 		if v == nil {
@@ -8808,7 +8840,7 @@ func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) CloudwatchLogs() Re
 	}).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput)
 }
 
-// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+// Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
 func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) Firehose() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
 	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose {
 		if v == nil {
@@ -8818,7 +8850,7 @@ func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) Firehose() Replicat
 	}).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput)
 }
 
-// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+// Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
 func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) S3() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
 	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryS3 {
 		if v == nil {
@@ -9316,21 +9348,23 @@ func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) Prefix() pulumi.S
 }
 
 type ReplicatorReplicationInfoList struct {
-	// Configuration relating to consumer group replication.
+	// Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
 	ConsumerGroupReplications []ReplicatorReplicationInfoListConsumerGroupReplication `pulumi:"consumerGroupReplications"`
-	SourceKafkaClusterAlias   *string                                                 `pulumi:"sourceKafkaClusterAlias"`
-	// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	// Alias of the source Kafka cluster.
+	SourceKafkaClusterAlias *string `pulumi:"sourceKafkaClusterAlias"`
+	// ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 	SourceKafkaClusterArn *string `pulumi:"sourceKafkaClusterArn"`
-	// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	// Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 	SourceKafkaClusterId *string `pulumi:"sourceKafkaClusterId"`
-	// The type of compression to use writing records to target Kafka cluster.
-	TargetCompressionType   string  `pulumi:"targetCompressionType"`
+	// Type of compression to use writing records to target Kafka cluster.
+	TargetCompressionType string `pulumi:"targetCompressionType"`
+	// Alias of the target Kafka cluster.
 	TargetKafkaClusterAlias *string `pulumi:"targetKafkaClusterAlias"`
-	// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	// ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 	TargetKafkaClusterArn *string `pulumi:"targetKafkaClusterArn"`
-	// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	// Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 	TargetKafkaClusterId *string `pulumi:"targetKafkaClusterId"`
-	// Configuration relating to topic replication.
+	// Configuration relating to topic replication. See `topicReplication` Block below.
 	TopicReplications []ReplicatorReplicationInfoListTopicReplication `pulumi:"topicReplications"`
 }
 
@@ -9346,21 +9380,23 @@ type ReplicatorReplicationInfoListInput interface {
 }
 
 type ReplicatorReplicationInfoListArgs struct {
-	// Configuration relating to consumer group replication.
+	// Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
 	ConsumerGroupReplications ReplicatorReplicationInfoListConsumerGroupReplicationArrayInput `pulumi:"consumerGroupReplications"`
-	SourceKafkaClusterAlias   pulumi.StringPtrInput                                           `pulumi:"sourceKafkaClusterAlias"`
-	// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	// Alias of the source Kafka cluster.
+	SourceKafkaClusterAlias pulumi.StringPtrInput `pulumi:"sourceKafkaClusterAlias"`
+	// ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 	SourceKafkaClusterArn pulumi.StringPtrInput `pulumi:"sourceKafkaClusterArn"`
-	// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	// Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 	SourceKafkaClusterId pulumi.StringPtrInput `pulumi:"sourceKafkaClusterId"`
-	// The type of compression to use writing records to target Kafka cluster.
-	TargetCompressionType   pulumi.StringInput    `pulumi:"targetCompressionType"`
+	// Type of compression to use writing records to target Kafka cluster.
+	TargetCompressionType pulumi.StringInput `pulumi:"targetCompressionType"`
+	// Alias of the target Kafka cluster.
 	TargetKafkaClusterAlias pulumi.StringPtrInput `pulumi:"targetKafkaClusterAlias"`
-	// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	// ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 	TargetKafkaClusterArn pulumi.StringPtrInput `pulumi:"targetKafkaClusterArn"`
-	// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	// Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 	TargetKafkaClusterId pulumi.StringPtrInput `pulumi:"targetKafkaClusterId"`
-	// Configuration relating to topic replication.
+	// Configuration relating to topic replication. See `topicReplication` Block below.
 	TopicReplications ReplicatorReplicationInfoListTopicReplicationArrayInput `pulumi:"topicReplications"`
 }
 
@@ -9441,47 +9477,49 @@ func (o ReplicatorReplicationInfoListOutput) ToReplicatorReplicationInfoListPtrO
 	}).(ReplicatorReplicationInfoListPtrOutput)
 }
 
-// Configuration relating to consumer group replication.
+// Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
 func (o ReplicatorReplicationInfoListOutput) ConsumerGroupReplications() ReplicatorReplicationInfoListConsumerGroupReplicationArrayOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) []ReplicatorReplicationInfoListConsumerGroupReplication {
 		return v.ConsumerGroupReplications
 	}).(ReplicatorReplicationInfoListConsumerGroupReplicationArrayOutput)
 }
 
+// Alias of the source Kafka cluster.
 func (o ReplicatorReplicationInfoListOutput) SourceKafkaClusterAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.SourceKafkaClusterAlias }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+// ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListOutput) SourceKafkaClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.SourceKafkaClusterArn }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+// Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListOutput) SourceKafkaClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.SourceKafkaClusterId }).(pulumi.StringPtrOutput)
 }
 
-// The type of compression to use writing records to target Kafka cluster.
+// Type of compression to use writing records to target Kafka cluster.
 func (o ReplicatorReplicationInfoListOutput) TargetCompressionType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) string { return v.TargetCompressionType }).(pulumi.StringOutput)
 }
 
+// Alias of the target Kafka cluster.
 func (o ReplicatorReplicationInfoListOutput) TargetKafkaClusterAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.TargetKafkaClusterAlias }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+// ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListOutput) TargetKafkaClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.TargetKafkaClusterArn }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+// Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListOutput) TargetKafkaClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.TargetKafkaClusterId }).(pulumi.StringPtrOutput)
 }
 
-// Configuration relating to topic replication.
+// Configuration relating to topic replication. See `topicReplication` Block below.
 func (o ReplicatorReplicationInfoListOutput) TopicReplications() ReplicatorReplicationInfoListTopicReplicationArrayOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) []ReplicatorReplicationInfoListTopicReplication {
 		return v.TopicReplications
@@ -9512,7 +9550,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) Elem() ReplicatorReplicationInfo
 	}).(ReplicatorReplicationInfoListOutput)
 }
 
-// Configuration relating to consumer group replication.
+// Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
 func (o ReplicatorReplicationInfoListPtrOutput) ConsumerGroupReplications() ReplicatorReplicationInfoListConsumerGroupReplicationArrayOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) []ReplicatorReplicationInfoListConsumerGroupReplication {
 		if v == nil {
@@ -9522,6 +9560,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) ConsumerGroupReplications() Repl
 	}).(ReplicatorReplicationInfoListConsumerGroupReplicationArrayOutput)
 }
 
+// Alias of the source Kafka cluster.
 func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
@@ -9531,7 +9570,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterAlias() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+// ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
@@ -9541,7 +9580,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+// Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
@@ -9551,7 +9590,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of compression to use writing records to target Kafka cluster.
+// Type of compression to use writing records to target Kafka cluster.
 func (o ReplicatorReplicationInfoListPtrOutput) TargetCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
@@ -9561,6 +9600,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) TargetCompressionType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// Alias of the target Kafka cluster.
 func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
@@ -9570,7 +9610,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterAlias() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+// ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
@@ -9580,7 +9620,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+// Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
@@ -9590,7 +9630,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration relating to topic replication.
+// Configuration relating to topic replication. See `topicReplication` Block below.
 func (o ReplicatorReplicationInfoListPtrOutput) TopicReplications() ReplicatorReplicationInfoListTopicReplicationArrayOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) []ReplicatorReplicationInfoListTopicReplication {
 		if v == nil {
@@ -9750,9 +9790,9 @@ type ReplicatorReplicationInfoListTopicReplication struct {
 	CopyTopicConfigurations *bool `pulumi:"copyTopicConfigurations"`
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics *bool `pulumi:"detectAndCopyNewTopics"`
-	// Configuration for specifying the position in the topics to start replicating from.
+	// Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
 	StartingPosition *ReplicatorReplicationInfoListTopicReplicationStartingPosition `pulumi:"startingPosition"`
-	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
 	TopicNameConfiguration *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes []string `pulumi:"topicsToExcludes"`
@@ -9778,9 +9818,9 @@ type ReplicatorReplicationInfoListTopicReplicationArgs struct {
 	CopyTopicConfigurations pulumi.BoolPtrInput `pulumi:"copyTopicConfigurations"`
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics pulumi.BoolPtrInput `pulumi:"detectAndCopyNewTopics"`
-	// Configuration for specifying the position in the topics to start replicating from.
+	// Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
 	StartingPosition ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput `pulumi:"startingPosition"`
-	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
 	TopicNameConfiguration ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes pulumi.StringArrayInput `pulumi:"topicsToExcludes"`
@@ -9854,14 +9894,14 @@ func (o ReplicatorReplicationInfoListTopicReplicationOutput) DetectAndCopyNewTop
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *bool { return v.DetectAndCopyNewTopics }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration for specifying the position in the topics to start replicating from.
+// Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
 func (o ReplicatorReplicationInfoListTopicReplicationOutput) StartingPosition() ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *ReplicatorReplicationInfoListTopicReplicationStartingPosition {
 		return v.StartingPosition
 	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput)
 }
 
-// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
 func (o ReplicatorReplicationInfoListTopicReplicationOutput) TopicNameConfiguration() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration {
 		return v.TopicNameConfiguration
@@ -9899,7 +9939,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationArrayOutput) Index(i pulumi
 }
 
 type ReplicatorReplicationInfoListTopicReplicationStartingPosition struct {
-	// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+	// Type of replication starting position. Supports `LATEST` and `EARLIEST`.
 	Type *string `pulumi:"type"`
 }
 
@@ -9915,7 +9955,7 @@ type ReplicatorReplicationInfoListTopicReplicationStartingPositionInput interfac
 }
 
 type ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs struct {
-	// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+	// Type of replication starting position. Supports `LATEST` and `EARLIEST`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -9996,7 +10036,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) ToR
 	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput)
 }
 
-// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+// Type of replication starting position. Supports `LATEST` and `EARLIEST`.
 func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplicationStartingPosition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -10025,7 +10065,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) 
 	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput)
 }
 
-// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+// Type of replication starting position. Supports `LATEST` and `EARLIEST`.
 func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationStartingPosition) *string {
 		if v == nil {
@@ -10036,7 +10076,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) 
 }
 
 type ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration struct {
-	// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+	// Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 	Type *string `pulumi:"type"`
 }
 
@@ -10052,7 +10092,7 @@ type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationInput in
 }
 
 type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs struct {
-	// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+	// Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -10133,7 +10173,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutpu
 	}).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput)
 }
 
-// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+// Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -10162,7 +10202,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOu
 	}).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput)
 }
 
-// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+// Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) *string {
 		if v == nil {
@@ -10173,7 +10213,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOu
 }
 
 type ServerlessClusterClientAuthentication struct {
-	// Details for client authentication using SASL. See below.
+	// Details for client authentication using SASL. See `sasl` Block below.
 	Sasl ServerlessClusterClientAuthenticationSasl `pulumi:"sasl"`
 }
 
@@ -10189,7 +10229,7 @@ type ServerlessClusterClientAuthenticationInput interface {
 }
 
 type ServerlessClusterClientAuthenticationArgs struct {
-	// Details for client authentication using SASL. See below.
+	// Details for client authentication using SASL. See `sasl` Block below.
 	Sasl ServerlessClusterClientAuthenticationSaslInput `pulumi:"sasl"`
 }
 
@@ -10270,7 +10310,7 @@ func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAu
 	}).(ServerlessClusterClientAuthenticationPtrOutput)
 }
 
-// Details for client authentication using SASL. See below.
+// Details for client authentication using SASL. See `sasl` Block below.
 func (o ServerlessClusterClientAuthenticationOutput) Sasl() ServerlessClusterClientAuthenticationSaslOutput {
 	return o.ApplyT(func(v ServerlessClusterClientAuthentication) ServerlessClusterClientAuthenticationSasl { return v.Sasl }).(ServerlessClusterClientAuthenticationSaslOutput)
 }
@@ -10299,7 +10339,7 @@ func (o ServerlessClusterClientAuthenticationPtrOutput) Elem() ServerlessCluster
 	}).(ServerlessClusterClientAuthenticationOutput)
 }
 
-// Details for client authentication using SASL. See below.
+// Details for client authentication using SASL. See `sasl` Block below.
 func (o ServerlessClusterClientAuthenticationPtrOutput) Sasl() ServerlessClusterClientAuthenticationSaslPtrOutput {
 	return o.ApplyT(func(v *ServerlessClusterClientAuthentication) *ServerlessClusterClientAuthenticationSasl {
 		if v == nil {
@@ -10310,7 +10350,7 @@ func (o ServerlessClusterClientAuthenticationPtrOutput) Sasl() ServerlessCluster
 }
 
 type ServerlessClusterClientAuthenticationSasl struct {
-	// Details for client authentication using IAM. See below.
+	// Details for client authentication using IAM. See `iam` Block below.
 	Iam ServerlessClusterClientAuthenticationSaslIam `pulumi:"iam"`
 }
 
@@ -10326,7 +10366,7 @@ type ServerlessClusterClientAuthenticationSaslInput interface {
 }
 
 type ServerlessClusterClientAuthenticationSaslArgs struct {
-	// Details for client authentication using IAM. See below.
+	// Details for client authentication using IAM. See `iam` Block below.
 	Iam ServerlessClusterClientAuthenticationSaslIamInput `pulumi:"iam"`
 }
 
@@ -10407,7 +10447,7 @@ func (o ServerlessClusterClientAuthenticationSaslOutput) ToServerlessClusterClie
 	}).(ServerlessClusterClientAuthenticationSaslPtrOutput)
 }
 
-// Details for client authentication using IAM. See below.
+// Details for client authentication using IAM. See `iam` Block below.
 func (o ServerlessClusterClientAuthenticationSaslOutput) Iam() ServerlessClusterClientAuthenticationSaslIamOutput {
 	return o.ApplyT(func(v ServerlessClusterClientAuthenticationSasl) ServerlessClusterClientAuthenticationSaslIam {
 		return v.Iam
@@ -10438,7 +10478,7 @@ func (o ServerlessClusterClientAuthenticationSaslPtrOutput) Elem() ServerlessClu
 	}).(ServerlessClusterClientAuthenticationSaslOutput)
 }
 
-// Details for client authentication using IAM. See below.
+// Details for client authentication using IAM. See `iam` Block below.
 func (o ServerlessClusterClientAuthenticationSaslPtrOutput) Iam() ServerlessClusterClientAuthenticationSaslIamPtrOutput {
 	return o.ApplyT(func(v *ServerlessClusterClientAuthenticationSasl) *ServerlessClusterClientAuthenticationSaslIam {
 		if v == nil {
@@ -10586,9 +10626,9 @@ func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) Enabled() pulumi.
 }
 
 type ServerlessClusterVpcConfig struct {
-	// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+	// Up to five security groups that control inbound and outbound traffic for the serverless cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnets in at least two different Availability Zones that host your client applications.
+	// List of subnets in at least two different Availability Zones that host your client applications.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -10604,9 +10644,9 @@ type ServerlessClusterVpcConfigInput interface {
 }
 
 type ServerlessClusterVpcConfigArgs struct {
-	// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+	// Up to five security groups that control inbound and outbound traffic for the serverless cluster.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of subnets in at least two different Availability Zones that host your client applications.
+	// List of subnets in at least two different Availability Zones that host your client applications.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -10661,12 +10701,12 @@ func (o ServerlessClusterVpcConfigOutput) ToServerlessClusterVpcConfigOutputWith
 	return o
 }
 
-// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+// Up to five security groups that control inbound and outbound traffic for the serverless cluster.
 func (o ServerlessClusterVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerlessClusterVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of subnets in at least two different Availability Zones that host your client applications.
+// List of subnets in at least two different Availability Zones that host your client applications.
 func (o ServerlessClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerlessClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -10867,17 +10907,17 @@ func (o TopicTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type GetBrokerNodesNodeInfoList struct {
-	// Attached elastic network interface of the broker
+	// Attached elastic network interface of the broker.
 	AttachedEniId string `pulumi:"attachedEniId"`
-	// ID of the broker
+	// ID of the broker.
 	BrokerId float64 `pulumi:"brokerId"`
-	// Client subnet to which this broker node belongs
+	// Client subnet to which this broker node belongs.
 	ClientSubnet string `pulumi:"clientSubnet"`
-	// Client VPC IP address
+	// Client VPC IP address.
 	ClientVpcIpAddress string `pulumi:"clientVpcIpAddress"`
-	// Set of endpoints for accessing the broker. This does not include ports
+	// Set of endpoints for accessing the broker. This does not include ports.
 	Endpoints []string `pulumi:"endpoints"`
-	// ARN of the node
+	// ARN of the node.
 	NodeArn string `pulumi:"nodeArn"`
 }
 
@@ -10893,17 +10933,17 @@ type GetBrokerNodesNodeInfoListInput interface {
 }
 
 type GetBrokerNodesNodeInfoListArgs struct {
-	// Attached elastic network interface of the broker
+	// Attached elastic network interface of the broker.
 	AttachedEniId pulumi.StringInput `pulumi:"attachedEniId"`
-	// ID of the broker
+	// ID of the broker.
 	BrokerId pulumi.Float64Input `pulumi:"brokerId"`
-	// Client subnet to which this broker node belongs
+	// Client subnet to which this broker node belongs.
 	ClientSubnet pulumi.StringInput `pulumi:"clientSubnet"`
-	// Client VPC IP address
+	// Client VPC IP address.
 	ClientVpcIpAddress pulumi.StringInput `pulumi:"clientVpcIpAddress"`
-	// Set of endpoints for accessing the broker. This does not include ports
+	// Set of endpoints for accessing the broker. This does not include ports.
 	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
-	// ARN of the node
+	// ARN of the node.
 	NodeArn pulumi.StringInput `pulumi:"nodeArn"`
 }
 
@@ -10958,32 +10998,32 @@ func (o GetBrokerNodesNodeInfoListOutput) ToGetBrokerNodesNodeInfoListOutputWith
 	return o
 }
 
-// Attached elastic network interface of the broker
+// Attached elastic network interface of the broker.
 func (o GetBrokerNodesNodeInfoListOutput) AttachedEniId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.AttachedEniId }).(pulumi.StringOutput)
 }
 
-// ID of the broker
+// ID of the broker.
 func (o GetBrokerNodesNodeInfoListOutput) BrokerId() pulumi.Float64Output {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) float64 { return v.BrokerId }).(pulumi.Float64Output)
 }
 
-// Client subnet to which this broker node belongs
+// Client subnet to which this broker node belongs.
 func (o GetBrokerNodesNodeInfoListOutput) ClientSubnet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientSubnet }).(pulumi.StringOutput)
 }
 
-// Client VPC IP address
+// Client VPC IP address.
 func (o GetBrokerNodesNodeInfoListOutput) ClientVpcIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientVpcIpAddress }).(pulumi.StringOutput)
 }
 
-// Set of endpoints for accessing the broker. This does not include ports
+// Set of endpoints for accessing the broker. This does not include ports.
 func (o GetBrokerNodesNodeInfoListOutput) Endpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the node
+// ARN of the node.
 func (o GetBrokerNodesNodeInfoListOutput) NodeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.NodeArn }).(pulumi.StringOutput)
 }
@@ -11009,12 +11049,18 @@ func (o GetBrokerNodesNodeInfoListArrayOutput) Index(i pulumi.IntInput) GetBroke
 }
 
 type GetClusterBrokerNodeGroupInfo struct {
-	AzDistribution    string                                          `pulumi:"azDistribution"`
-	ClientSubnets     []string                                        `pulumi:"clientSubnets"`
+	// Distribution of broker nodes across Availability Zones.
+	AzDistribution string `pulumi:"azDistribution"`
+	// List of subnets to connect to in the client VPC.
+	ClientSubnets []string `pulumi:"clientSubnets"`
+	// Information about the cluster access configuration. See `connectivityInfo` Block for details.
 	ConnectivityInfos []GetClusterBrokerNodeGroupInfoConnectivityInfo `pulumi:"connectivityInfos"`
-	InstanceType      string                                          `pulumi:"instanceType"`
-	SecurityGroups    []string                                        `pulumi:"securityGroups"`
-	StorageInfos      []GetClusterBrokerNodeGroupInfoStorageInfo      `pulumi:"storageInfos"`
+	// Instance type used for the broker nodes.
+	InstanceType string `pulumi:"instanceType"`
+	// List of security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Storage information for the broker nodes. See `storageInfo` Block for details.
+	StorageInfos []GetClusterBrokerNodeGroupInfoStorageInfo `pulumi:"storageInfos"`
 }
 
 // GetClusterBrokerNodeGroupInfoInput is an input type that accepts GetClusterBrokerNodeGroupInfoArgs and GetClusterBrokerNodeGroupInfoOutput values.
@@ -11029,12 +11075,18 @@ type GetClusterBrokerNodeGroupInfoInput interface {
 }
 
 type GetClusterBrokerNodeGroupInfoArgs struct {
-	AzDistribution    pulumi.StringInput                                      `pulumi:"azDistribution"`
-	ClientSubnets     pulumi.StringArrayInput                                 `pulumi:"clientSubnets"`
+	// Distribution of broker nodes across Availability Zones.
+	AzDistribution pulumi.StringInput `pulumi:"azDistribution"`
+	// List of subnets to connect to in the client VPC.
+	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
+	// Information about the cluster access configuration. See `connectivityInfo` Block for details.
 	ConnectivityInfos GetClusterBrokerNodeGroupInfoConnectivityInfoArrayInput `pulumi:"connectivityInfos"`
-	InstanceType      pulumi.StringInput                                      `pulumi:"instanceType"`
-	SecurityGroups    pulumi.StringArrayInput                                 `pulumi:"securityGroups"`
-	StorageInfos      GetClusterBrokerNodeGroupInfoStorageInfoArrayInput      `pulumi:"storageInfos"`
+	// Instance type used for the broker nodes.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// List of security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Storage information for the broker nodes. See `storageInfo` Block for details.
+	StorageInfos GetClusterBrokerNodeGroupInfoStorageInfoArrayInput `pulumi:"storageInfos"`
 }
 
 func (GetClusterBrokerNodeGroupInfoArgs) ElementType() reflect.Type {
@@ -11088,28 +11140,34 @@ func (o GetClusterBrokerNodeGroupInfoOutput) ToGetClusterBrokerNodeGroupInfoOutp
 	return o
 }
 
+// Distribution of broker nodes across Availability Zones.
 func (o GetClusterBrokerNodeGroupInfoOutput) AzDistribution() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) string { return v.AzDistribution }).(pulumi.StringOutput)
 }
 
+// List of subnets to connect to in the client VPC.
 func (o GetClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
+// Information about the cluster access configuration. See `connectivityInfo` Block for details.
 func (o GetClusterBrokerNodeGroupInfoOutput) ConnectivityInfos() GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []GetClusterBrokerNodeGroupInfoConnectivityInfo {
 		return v.ConnectivityInfos
 	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput)
 }
 
+// Instance type used for the broker nodes.
 func (o GetClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// List of security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 func (o GetClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// Storage information for the broker nodes. See `storageInfo` Block for details.
 func (o GetClusterBrokerNodeGroupInfoOutput) StorageInfos() GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []GetClusterBrokerNodeGroupInfoStorageInfo {
 		return v.StorageInfos
@@ -11137,8 +11195,11 @@ func (o GetClusterBrokerNodeGroupInfoArrayOutput) Index(i pulumi.IntInput) GetCl
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfo struct {
-	NetworkType       string                                                         `pulumi:"networkType"`
-	PublicAccesses    []GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess    `pulumi:"publicAccesses"`
+	// Network type of the cluster.
+	NetworkType string `pulumi:"networkType"`
+	// Public access configuration. See `publicAccess` Block for details.
+	PublicAccesses []GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess `pulumi:"publicAccesses"`
+	// VPC connectivity configuration. See `vpcConnectivity` Block for details.
 	VpcConnectivities []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity `pulumi:"vpcConnectivities"`
 }
 
@@ -11154,8 +11215,11 @@ type GetClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
-	NetworkType       pulumi.StringInput                                                     `pulumi:"networkType"`
-	PublicAccesses    GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput    `pulumi:"publicAccesses"`
+	// Network type of the cluster.
+	NetworkType pulumi.StringInput `pulumi:"networkType"`
+	// Public access configuration. See `publicAccess` Block for details.
+	PublicAccesses GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput `pulumi:"publicAccesses"`
+	// VPC connectivity configuration. See `vpcConnectivity` Block for details.
 	VpcConnectivities GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayInput `pulumi:"vpcConnectivities"`
 }
 
@@ -11210,16 +11274,19 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToGetClusterBrokerN
 	return o
 }
 
+// Network type of the cluster.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfo) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
+// Public access configuration. See `publicAccess` Block for details.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccesses() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfo) []GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
 		return v.PublicAccesses
 	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput)
 }
 
+// VPC connectivity configuration. See `vpcConnectivity` Block for details.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) VpcConnectivities() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfo) []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
 		return v.VpcConnectivities
@@ -11247,6 +11314,7 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput) Index(i pulumi
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess struct {
+	// Public access type.
 	Type string `pulumi:"type"`
 }
 
@@ -11262,6 +11330,7 @@ type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput interface {
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs struct {
+	// Public access type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11316,6 +11385,7 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToGetCl
 	return o
 }
 
+// Public access type.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11341,6 +11411,7 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput) In
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity struct {
+	// Client authentication configuration for VPC connectivity. See `clientAuthentication` Block for details.
 	ClientAuthentications []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication `pulumi:"clientAuthentications"`
 }
 
@@ -11356,6 +11427,7 @@ type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput interface
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs struct {
+	// Client authentication configuration for VPC connectivity. See `clientAuthentication` Block for details.
 	ClientAuthentications GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayInput `pulumi:"clientAuthentications"`
 }
 
@@ -11410,6 +11482,7 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToGe
 	return o
 }
 
+// Client authentication configuration for VPC connectivity. See `clientAuthentication` Block for details.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ClientAuthentications() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
 		return v.ClientAuthentications
@@ -11437,8 +11510,10 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput)
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication struct {
+	// SASL authentication configuration for VPC connectivity. See `sasl` Block for details.
 	Sasls []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl `pulumi:"sasls"`
-	Tls   bool                                                                                   `pulumi:"tls"`
+	// Whether TLS authentication is enabled for VPC connectivity.
+	Tls bool `pulumi:"tls"`
 }
 
 // GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs and GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput values.
@@ -11453,8 +11528,10 @@ type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs struct {
+	// SASL authentication configuration for VPC connectivity. See `sasl` Block for details.
 	Sasls GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayInput `pulumi:"sasls"`
-	Tls   pulumi.BoolInput                                                                               `pulumi:"tls"`
+	// Whether TLS authentication is enabled for VPC connectivity.
+	Tls pulumi.BoolInput `pulumi:"tls"`
 }
 
 func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ElementType() reflect.Type {
@@ -11508,12 +11585,14 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthen
 	return o
 }
 
+// SASL authentication configuration for VPC connectivity. See `sasl` Block for details.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Sasls() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
 		return v.Sasls
 	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput)
 }
 
+// Whether TLS authentication is enabled for VPC connectivity.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Tls() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) bool {
 		return v.Tls
@@ -11541,7 +11620,9 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthen
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl struct {
-	Iam   bool `pulumi:"iam"`
+	// Whether SASL IAM authentication is enabled for VPC connectivity.
+	Iam bool `pulumi:"iam"`
+	// Whether SASL SCRAM authentication is enabled for VPC connectivity.
 	Scram bool `pulumi:"scram"`
 }
 
@@ -11557,7 +11638,9 @@ type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs struct {
-	Iam   pulumi.BoolInput `pulumi:"iam"`
+	// Whether SASL IAM authentication is enabled for VPC connectivity.
+	Iam pulumi.BoolInput `pulumi:"iam"`
+	// Whether SASL SCRAM authentication is enabled for VPC connectivity.
 	Scram pulumi.BoolInput `pulumi:"scram"`
 }
 
@@ -11612,12 +11695,14 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthen
 	return o
 }
 
+// Whether SASL IAM authentication is enabled for VPC connectivity.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Iam() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) bool {
 		return v.Iam
 	}).(pulumi.BoolOutput)
 }
 
+// Whether SASL SCRAM authentication is enabled for VPC connectivity.
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Scram() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) bool {
 		return v.Scram
@@ -11645,6 +11730,7 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthen
 }
 
 type GetClusterBrokerNodeGroupInfoStorageInfo struct {
+	// EBS storage information. See `ebsStorageInfo` Block for details.
 	EbsStorageInfos []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo `pulumi:"ebsStorageInfos"`
 }
 
@@ -11660,6 +11746,7 @@ type GetClusterBrokerNodeGroupInfoStorageInfoInput interface {
 }
 
 type GetClusterBrokerNodeGroupInfoStorageInfoArgs struct {
+	// EBS storage information. See `ebsStorageInfo` Block for details.
 	EbsStorageInfos GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayInput `pulumi:"ebsStorageInfos"`
 }
 
@@ -11714,6 +11801,7 @@ func (o GetClusterBrokerNodeGroupInfoStorageInfoOutput) ToGetClusterBrokerNodeGr
 	return o
 }
 
+// EBS storage information. See `ebsStorageInfo` Block for details.
 func (o GetClusterBrokerNodeGroupInfoStorageInfoOutput) EbsStorageInfos() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfo) []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 		return v.EbsStorageInfos
@@ -11741,8 +11829,10 @@ func (o GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput) Index(i pulumi.IntI
 }
 
 type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo struct {
+	// Provisioned throughput configuration. See `provisionedThroughput` Block for details.
 	ProvisionedThroughputs []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput `pulumi:"provisionedThroughputs"`
-	VolumeSize             int                                                                           `pulumi:"volumeSize"`
+	// Size in GiB of the EBS volume for the data drive on each broker node.
+	VolumeSize int `pulumi:"volumeSize"`
 }
 
 // GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs and GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput values.
@@ -11757,8 +11847,10 @@ type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput interface {
 }
 
 type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs struct {
+	// Provisioned throughput configuration. See `provisionedThroughput` Block for details.
 	ProvisionedThroughputs GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayInput `pulumi:"provisionedThroughputs"`
-	VolumeSize             pulumi.IntInput                                                                       `pulumi:"volumeSize"`
+	// Size in GiB of the EBS volume for the data drive on each broker node.
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 }
 
 func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ElementType() reflect.Type {
@@ -11812,12 +11904,14 @@ func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToGetClust
 	return o
 }
 
+// Provisioned throughput configuration. See `provisionedThroughput` Block for details.
 func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ProvisionedThroughputs() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
 		return v.ProvisionedThroughputs
 	}).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput)
 }
 
+// Size in GiB of the EBS volume for the data drive on each broker node.
 func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
@@ -11843,8 +11937,10 @@ func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput) Index
 }
 
 type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput struct {
-	Enabled          bool `pulumi:"enabled"`
-	VolumeThroughput int  `pulumi:"volumeThroughput"`
+	// Whether provisioned throughput is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+	VolumeThroughput int `pulumi:"volumeThroughput"`
 }
 
 // GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs and GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput values.
@@ -11859,8 +11955,10 @@ type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 }
 
 type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs struct {
-	Enabled          pulumi.BoolInput `pulumi:"enabled"`
-	VolumeThroughput pulumi.IntInput  `pulumi:"volumeThroughput"`
+	// Whether provisioned throughput is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+	VolumeThroughput pulumi.IntInput `pulumi:"volumeThroughput"`
 }
 
 func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ElementType() reflect.Type {
@@ -11914,12 +12012,14 @@ func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThrough
 	return o
 }
 
+// Whether provisioned throughput is enabled.
 func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) bool {
 		return v.Enabled
 	}).(pulumi.BoolOutput)
 }
 
+// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
 func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) VolumeThroughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) int {
 		return v.VolumeThroughput

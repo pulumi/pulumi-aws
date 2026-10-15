@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationCriteriaArgs;
+import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationWindowArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmWarmUpConfigurationArgs;
 import com.pulumi.core.Output;
@@ -192,6 +193,21 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> evaluationPeriods() {
         return Optional.ofNullable(this.evaluationPeriods);
+    }
+
+    /**
+     * Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+     * 
+     */
+    @Import(name="evaluationWindow")
+    private @Nullable Output<MetricAlarmEvaluationWindowArgs> evaluationWindow;
+
+    /**
+     * @return Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+     * 
+     */
+    public Optional<Output<MetricAlarmEvaluationWindowArgs>> evaluationWindow() {
+        return Optional.ofNullable(this.evaluationWindow);
     }
 
     /**
@@ -481,6 +497,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
         this.evaluationCriteria = $.evaluationCriteria;
         this.evaluationInterval = $.evaluationInterval;
         this.evaluationPeriods = $.evaluationPeriods;
+        this.evaluationWindow = $.evaluationWindow;
         this.extendedStatistic = $.extendedStatistic;
         this.insufficientDataActions = $.insufficientDataActions;
         this.metricName = $.metricName;
@@ -763,6 +780,27 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder evaluationPeriods(Integer evaluationPeriods) {
             return evaluationPeriods(Output.of(evaluationPeriods));
+        }
+
+        /**
+         * @param evaluationWindow Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationWindow(@Nullable Output<MetricAlarmEvaluationWindowArgs> evaluationWindow) {
+            $.evaluationWindow = evaluationWindow;
+            return this;
+        }
+
+        /**
+         * @param evaluationWindow Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationWindow(MetricAlarmEvaluationWindowArgs evaluationWindow) {
+            return evaluationWindow(Output.of(evaluationWindow));
         }
 
         /**

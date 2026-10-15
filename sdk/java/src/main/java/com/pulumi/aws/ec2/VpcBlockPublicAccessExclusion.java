@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Usage with subnet id
+ * ### Usage with subnet ID
  * 
  * <pre>
  * {@code

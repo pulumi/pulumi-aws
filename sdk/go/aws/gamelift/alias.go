@@ -63,11 +63,11 @@ type Alias struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the fleet and/or routing type to use for the alias.
+	// Fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyOutput `pulumi:"routingStrategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -112,11 +112,11 @@ type aliasState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the fleet and/or routing type to use for the alias.
+	// Fleet and/or routing type to use for the alias.
 	RoutingStrategy *AliasRoutingStrategy `pulumi:"routingStrategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -129,11 +129,11 @@ type AliasState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the fleet and/or routing type to use for the alias.
+	// Fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -148,7 +148,7 @@ type aliasArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the fleet and/or routing type to use for the alias.
+	// Fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategy `pulumi:"routingStrategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -162,7 +162,7 @@ type AliasArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the fleet and/or routing type to use for the alias.
+	// Fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -275,7 +275,7 @@ func (o AliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the fleet and/or routing type to use for the alias.
+// Fleet and/or routing type to use for the alias.
 func (o AliasOutput) RoutingStrategy() AliasRoutingStrategyOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingStrategyOutput { return v.RoutingStrategy }).(AliasRoutingStrategyOutput)
 }
@@ -285,7 +285,7 @@ func (o AliasOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AliasOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

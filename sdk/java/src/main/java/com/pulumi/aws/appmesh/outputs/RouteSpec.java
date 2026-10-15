@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpec {
     /**
-     * @return GRPC routing information for the route. See `spec.grpc_route` Block for details.
+     * @return gRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRoute grpcRoute;
@@ -43,7 +43,7 @@ public final class RouteSpec {
 
     private RouteSpec() {}
     /**
-     * @return GRPC routing information for the route. See `spec.grpc_route` Block for details.
+     * @return gRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRoute> grpcRoute() {

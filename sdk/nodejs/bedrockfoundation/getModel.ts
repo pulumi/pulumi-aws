@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing an AWS Bedrock Foundation Model.
+ * Provides details about an AWS Bedrock Foundation Model.
  *
  * ## Example Usage
  *
@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrockfoundation.getModels({});
- * const testGetModel = test.then(test => aws.bedrockfoundation.getModel({
- *     modelId: test.modelSummaries?.[0]?.modelId,
+ * const example = aws.bedrockfoundation.getModels({});
+ * const exampleGetModel = example.then(example => aws.bedrockfoundation.getModel({
+ *     modelId: example.modelSummaries?.[0]?.modelId,
  * }));
  * ```
  */
@@ -84,7 +84,7 @@ export interface GetModelResult {
     readonly responseStreamingSupported: boolean;
 }
 /**
- * Data source for managing an AWS Bedrock Foundation Model.
+ * Provides details about an AWS Bedrock Foundation Model.
  *
  * ## Example Usage
  *
@@ -94,9 +94,9 @@ export interface GetModelResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrockfoundation.getModels({});
- * const testGetModel = test.then(test => aws.bedrockfoundation.getModel({
- *     modelId: test.modelSummaries?.[0]?.modelId,
+ * const example = aws.bedrockfoundation.getModels({});
+ * const exampleGetModel = example.then(example => aws.bedrockfoundation.getModel({
+ *     modelId: example.modelSummaries?.[0]?.modelId,
  * }));
  * ```
  */

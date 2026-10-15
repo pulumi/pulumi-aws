@@ -152,35 +152,35 @@ type MLTransform struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the ML Transform.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	// List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
 	InputRecordTables MLTransformInputRecordTableArrayOutput `pulumi:"inputRecordTables"`
-	// The number of labels available for this transform.
+	// Number of labels available for this transform.
 	LabelCount pulumi.IntOutput `pulumi:"labelCount"`
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+	// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
 	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
-	// The maximum number of times to retry this ML Transform if it fails.
+	// Maximum number of times to retry this ML Transform if it fails.
 	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
-	// The name you assign to this ML Transform. It must be unique in your account.
+	// Name you assign to this ML Transform. It must be unique in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+	// Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
 	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+	// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
 	Parameters MLTransformParametersOutput `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ARN of the IAM role associated with this ML Transform.
+	// ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The object that represents the schema that this transform accepts. see Schema.
+	// Object that represents the schema that this transform accepts. See `schema`.
 	Schemas MLTransformSchemaArrayOutput `pulumi:"schemas"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+	// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+	// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
 	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
 }
 
@@ -227,35 +227,35 @@ type mltransformState struct {
 	Arn *string `pulumi:"arn"`
 	// Description of the ML Transform.
 	Description *string `pulumi:"description"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	// List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
 	InputRecordTables []MLTransformInputRecordTable `pulumi:"inputRecordTables"`
-	// The number of labels available for this transform.
+	// Number of labels available for this transform.
 	LabelCount *int `pulumi:"labelCount"`
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+	// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The maximum number of times to retry this ML Transform if it fails.
+	// Maximum number of times to retry this ML Transform if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
-	// The name you assign to this ML Transform. It must be unique in your account.
+	// Name you assign to this ML Transform. It must be unique in your account.
 	Name *string `pulumi:"name"`
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+	// Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+	// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
 	Parameters *MLTransformParameters `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ARN of the IAM role associated with this ML Transform.
+	// ARN of the IAM role associated with this ML Transform.
 	RoleArn *string `pulumi:"roleArn"`
-	// The object that represents the schema that this transform accepts. see Schema.
+	// Object that represents the schema that this transform accepts. See `schema`.
 	Schemas []MLTransformSchema `pulumi:"schemas"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+	// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+	// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
 	WorkerType *string `pulumi:"workerType"`
 }
 
@@ -264,35 +264,35 @@ type MLTransformState struct {
 	Arn pulumi.StringPtrInput
 	// Description of the ML Transform.
 	Description pulumi.StringPtrInput
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	// List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
 	InputRecordTables MLTransformInputRecordTableArrayInput
-	// The number of labels available for this transform.
+	// Number of labels available for this transform.
 	LabelCount pulumi.IntPtrInput
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+	// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
 	MaxCapacity pulumi.Float64PtrInput
-	// The maximum number of times to retry this ML Transform if it fails.
+	// Maximum number of times to retry this ML Transform if it fails.
 	MaxRetries pulumi.IntPtrInput
-	// The name you assign to this ML Transform. It must be unique in your account.
+	// Name you assign to this ML Transform. It must be unique in your account.
 	Name pulumi.StringPtrInput
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+	// Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
 	NumberOfWorkers pulumi.IntPtrInput
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+	// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
 	Parameters MLTransformParametersPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ARN of the IAM role associated with this ML Transform.
+	// ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringPtrInput
-	// The object that represents the schema that this transform accepts. see Schema.
+	// Object that represents the schema that this transform accepts. See `schema`.
 	Schemas MLTransformSchemaArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+	// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+	// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
 	WorkerType pulumi.StringPtrInput
 }
 
@@ -303,29 +303,29 @@ func (MLTransformState) ElementType() reflect.Type {
 type mltransformArgs struct {
 	// Description of the ML Transform.
 	Description *string `pulumi:"description"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	// List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
 	InputRecordTables []MLTransformInputRecordTable `pulumi:"inputRecordTables"`
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+	// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The maximum number of times to retry this ML Transform if it fails.
+	// Maximum number of times to retry this ML Transform if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
-	// The name you assign to this ML Transform. It must be unique in your account.
+	// Name you assign to this ML Transform. It must be unique in your account.
 	Name *string `pulumi:"name"`
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+	// Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+	// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
 	Parameters MLTransformParameters `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ARN of the IAM role associated with this ML Transform.
+	// ARN of the IAM role associated with this ML Transform.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+	// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+	// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
 	WorkerType *string `pulumi:"workerType"`
 }
 
@@ -333,29 +333,29 @@ type mltransformArgs struct {
 type MLTransformArgs struct {
 	// Description of the ML Transform.
 	Description pulumi.StringPtrInput
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	// List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
 	InputRecordTables MLTransformInputRecordTableArrayInput
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+	// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
 	MaxCapacity pulumi.Float64PtrInput
-	// The maximum number of times to retry this ML Transform if it fails.
+	// Maximum number of times to retry this ML Transform if it fails.
 	MaxRetries pulumi.IntPtrInput
-	// The name you assign to this ML Transform. It must be unique in your account.
+	// Name you assign to this ML Transform. It must be unique in your account.
 	Name pulumi.StringPtrInput
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+	// Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
 	NumberOfWorkers pulumi.IntPtrInput
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+	// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
 	Parameters MLTransformParametersInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ARN of the IAM role associated with this ML Transform.
+	// ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+	// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+	// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
 	WorkerType pulumi.StringPtrInput
 }
 
@@ -456,42 +456,42 @@ func (o MLTransformOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 func (o MLTransformOutput) GlueVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
 }
 
-// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+// List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
 func (o MLTransformOutput) InputRecordTables() MLTransformInputRecordTableArrayOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformInputRecordTableArrayOutput { return v.InputRecordTables }).(MLTransformInputRecordTableArrayOutput)
 }
 
-// The number of labels available for this transform.
+// Number of labels available for this transform.
 func (o MLTransformOutput) LabelCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntOutput { return v.LabelCount }).(pulumi.IntOutput)
 }
 
-// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
 func (o MLTransformOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v *MLTransform) pulumi.Float64Output { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
-// The maximum number of times to retry this ML Transform if it fails.
+// Maximum number of times to retry this ML Transform if it fails.
 func (o MLTransformOutput) MaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.MaxRetries }).(pulumi.IntPtrOutput)
 }
 
-// The name you assign to this ML Transform. It must be unique in your account.
+// Name you assign to this ML Transform. It must be unique in your account.
 func (o MLTransformOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+// Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
 func (o MLTransformOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
 func (o MLTransformOutput) Parameters() MLTransformParametersOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformParametersOutput { return v.Parameters }).(MLTransformParametersOutput)
 }
@@ -501,12 +501,12 @@ func (o MLTransformOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role associated with this ML Transform.
+// ARN of the IAM role associated with this ML Transform.
 func (o MLTransformOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The object that represents the schema that this transform accepts. see Schema.
+// Object that represents the schema that this transform accepts. See `schema`.
 func (o MLTransformOutput) Schemas() MLTransformSchemaArrayOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformSchemaArrayOutput { return v.Schemas }).(MLTransformSchemaArrayOutput)
 }
@@ -516,17 +516,17 @@ func (o MLTransformOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MLTransformOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 func (o MLTransformOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
 func (o MLTransformOutput) WorkerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.WorkerType }).(pulumi.StringPtrOutput)
 }

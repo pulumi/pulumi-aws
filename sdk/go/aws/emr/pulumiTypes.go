@@ -1799,11 +1799,11 @@ type ClusterEc2Attributes struct {
 	EmrManagedSlaveSecurityGroup *string `pulumi:"emrManagedSlaveSecurityGroup"`
 	// Instance Profile for EC2 instances of the cluster assume this role.
 	InstanceProfile string `pulumi:"instanceProfile"`
-	// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+	// Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
 	KeyName *string `pulumi:"keyName"`
 	// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
 	ServiceAccessSecurityGroup *string `pulumi:"serviceAccessSecurityGroup"`
-	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+	// VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 	SubnetId *string `pulumi:"subnetId"`
 	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
 	//
@@ -1833,11 +1833,11 @@ type ClusterEc2AttributesArgs struct {
 	EmrManagedSlaveSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedSlaveSecurityGroup"`
 	// Instance Profile for EC2 instances of the cluster assume this role.
 	InstanceProfile pulumi.StringInput `pulumi:"instanceProfile"`
-	// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+	// Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
 	ServiceAccessSecurityGroup pulumi.StringPtrInput `pulumi:"serviceAccessSecurityGroup"`
-	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+	// VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
 	//
@@ -1947,7 +1947,7 @@ func (o ClusterEc2AttributesOutput) InstanceProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) string { return v.InstanceProfile }).(pulumi.StringOutput)
 }
 
-// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+// Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
 func (o ClusterEc2AttributesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
@@ -1957,7 +1957,7 @@ func (o ClusterEc2AttributesOutput) ServiceAccessSecurityGroup() pulumi.StringPt
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.ServiceAccessSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
-// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+// VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 func (o ClusterEc2AttributesOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2043,7 +2043,7 @@ func (o ClusterEc2AttributesPtrOutput) InstanceProfile() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+// Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
 func (o ClusterEc2AttributesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -2063,7 +2063,7 @@ func (o ClusterEc2AttributesPtrOutput) ServiceAccessSecurityGroup() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+// VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 func (o ClusterEc2AttributesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {

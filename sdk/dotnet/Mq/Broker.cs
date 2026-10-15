@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Mq
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MQ Brokers using their broker id. For example:
+    /// Using `pulumi import`, import MQ Brokers using their broker ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> HostInstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// List of information about allocated brokers (both active &amp; standby).
+        /// List of information about allocated brokers (both active &amp; standby). See `Instances` Block for details.
         /// </summary>
         [Output("instances")]
         public Output<ImmutableArray<Outputs.BrokerInstance>> Instances { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Mq
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`.
+        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`. See `SharedResources` Block for details.
         /// </summary>
         [Output("sharedResources")]
         public Output<ImmutableArray<Outputs.BrokerSharedResource>> SharedResources { get; private set; } = null!;
@@ -661,7 +661,7 @@ namespace Pulumi.Aws.Mq
         private InputList<Inputs.BrokerInstanceGetArgs>? _instances;
 
         /// <summary>
-        /// List of information about allocated brokers (both active &amp; standby).
+        /// List of information about allocated brokers (both active &amp; standby). See `Instances` Block for details.
         /// </summary>
         public InputList<Inputs.BrokerInstanceGetArgs> Instances
         {
@@ -733,7 +733,7 @@ namespace Pulumi.Aws.Mq
         private InputList<Inputs.BrokerSharedResourceGetArgs>? _sharedResources;
 
         /// <summary>
-        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`.
+        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`. See `SharedResources` Block for details.
         /// </summary>
         public InputList<Inputs.BrokerSharedResourceGetArgs> SharedResources
         {

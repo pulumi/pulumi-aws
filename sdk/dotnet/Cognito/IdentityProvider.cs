@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The user pool id
+        /// The user pool ID
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The user pool id
+        /// The user pool ID
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The user pool id
+        /// The user pool ID
         /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }

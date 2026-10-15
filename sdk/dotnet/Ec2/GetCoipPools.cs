@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all COIP Pool Ids.
+        /// The following shows outputting all CoIP Pool IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all COIP Pool Ids.
+        /// The following shows outputting all CoIP Pool IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all COIP Pool Ids.
+        /// The following shows outputting all CoIP Pool IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Set of COIP Pool Identifiers
+        /// Set of CoIP Pool Identifiers
         /// </summary>
         public readonly ImmutableArray<string> PoolIds;
         public readonly string Region;

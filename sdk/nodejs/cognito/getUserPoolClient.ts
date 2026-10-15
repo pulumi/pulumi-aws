@@ -36,7 +36,7 @@ export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.Inv
  */
 export interface GetUserPoolClientArgs {
     /**
-     * Client Id of the user pool.
+     * Client ID of the user pool.
      */
     clientId: string;
     /**
@@ -172,7 +172,7 @@ export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?
  */
 export interface GetUserPoolClientOutputArgs {
     /**
-     * Client Id of the user pool.
+     * Client ID of the user pool.
      */
     clientId: pulumi.Input<string>;
     /**

@@ -26,9 +26,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.BedrockFoundation.GetModelAgreementOffers.Invoke(new()
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
+        /// 
+        ///     var exampleGetModelAgreementOffers = Aws.BedrockFoundation.GetModelAgreementOffers.Invoke(new()
         ///     {
-        ///         ModelId = exampleAwsBedrockFoundationModels.ModelSummaries[0].ModelId,
+        ///         ModelId = example.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });
@@ -52,9 +54,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.BedrockFoundation.GetModelAgreementOffers.Invoke(new()
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
+        /// 
+        ///     var exampleGetModelAgreementOffers = Aws.BedrockFoundation.GetModelAgreementOffers.Invoke(new()
         ///     {
-        ///         ModelId = exampleAwsBedrockFoundationModels.ModelSummaries[0].ModelId,
+        ///         ModelId = example.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });
@@ -78,9 +82,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.BedrockFoundation.GetModelAgreementOffers.Invoke(new()
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
+        /// 
+        ///     var exampleGetModelAgreementOffers = Aws.BedrockFoundation.GetModelAgreementOffers.Invoke(new()
         ///     {
-        ///         ModelId = exampleAwsBedrockFoundationModels.ModelSummaries[0].ModelId,
+        ///         ModelId = example.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });
@@ -94,7 +100,7 @@ namespace Pulumi.Aws.BedrockFoundation
     public sealed class GetModelAgreementOffersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Model ID of the foundation model
+        /// Model ID of the foundation model.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +128,7 @@ namespace Pulumi.Aws.BedrockFoundation
     public sealed class GetModelAgreementOffersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Model ID of the foundation model
+        /// Model ID of the foundation model.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -29,6 +29,7 @@ class V2PolicyArgs:
                  multi_region: pulumi.Input[Optional['V2PolicyMultiRegionArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a V2Policy resource.
@@ -43,6 +44,7 @@ class V2PolicyArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if availability_slo is not None:
@@ -61,6 +63,8 @@ class V2PolicyArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if sharing_enabled is not None:
+            pulumi.set(__self__, "sharing_enabled", sharing_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -163,6 +167,18 @@ class V2PolicyArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+        """
+        return pulumi.get(self, "sharing_enabled")
+
+    @sharing_enabled.setter
+    def sharing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sharing_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -187,6 +203,7 @@ class _V2PolicyState:
                  multi_region: pulumi.Input[Optional['V2PolicyMultiRegionArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -203,6 +220,7 @@ class _V2PolicyState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -224,6 +242,8 @@ class _V2PolicyState:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if sharing_enabled is not None:
+            pulumi.set(__self__, "sharing_enabled", sharing_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -340,6 +360,18 @@ class _V2PolicyState:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+        """
+        return pulumi.get(self, "sharing_enabled")
+
+    @sharing_enabled.setter
+    def sharing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sharing_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -378,6 +410,7 @@ class V2Policy(pulumi.CustomResource):
                  multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -443,6 +476,23 @@ class V2Policy(pulumi.CustomResource):
             name="example-multi-region-policy")
         ```
 
+        ### With Organization Sharing Enabled
+
+        Sharing is only available when the policy owner is the organization's management account or a delegated administrator.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.V2Policy("example",
+            availability_slo={
+                "target": 99.9,
+            },
+            name="example-shared-policy",
+            description="Baseline policy shared with member accounts",
+            sharing_enabled=True)
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -470,6 +520,7 @@ class V2Policy(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -541,6 +592,23 @@ class V2Policy(pulumi.CustomResource):
             name="example-multi-region-policy")
         ```
 
+        ### With Organization Sharing Enabled
+
+        Sharing is only available when the policy owner is the organization's management account or a delegated administrator.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.V2Policy("example",
+            availability_slo={
+                "target": 99.9,
+            },
+            name="example-shared-policy",
+            description="Baseline policy shared with member accounts",
+            sharing_enabled=True)
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -579,6 +647,7 @@ class V2Policy(pulumi.CustomResource):
                  multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -597,6 +666,7 @@ class V2Policy(pulumi.CustomResource):
             __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            __props__.__dict__["sharing_enabled"] = sharing_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -619,6 +689,7 @@ class V2Policy(pulumi.CustomResource):
             multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'V2Policy':
         """
@@ -639,6 +710,7 @@ class V2Policy(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -655,6 +727,7 @@ class V2Policy(pulumi.CustomResource):
         __props__.__dict__["multi_region"] = multi_region
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
+        __props__.__dict__["sharing_enabled"] = sharing_enabled
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return V2Policy(resource_name, opts=opts, __props__=__props__)
@@ -732,6 +805,14 @@ class V2Policy(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+        """
+        return pulumi.get(self, "sharing_enabled")
 
     @_builtins.property
     @pulumi.getter

@@ -16,16 +16,32 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs();
 
+    /**
+     * Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+     * 
+     */
     @Import(name="ocrLanguage")
     private @Nullable Output<String> ocrLanguage;
 
+    /**
+     * @return Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+     * 
+     */
     public Optional<Output<String>> ocrLanguage() {
         return Optional.ofNullable(this.ocrLanguage);
     }
 
+    /**
+     * PID field used with the caption selector `languageCode` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+     * 
+     */
     @Import(name="pid")
     private @Nullable Output<Integer> pid;
 
+    /**
+     * @return PID field used with the caption selector `languageCode` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+     * 
+     */
     public Optional<Output<Integer>> pid() {
         return Optional.ofNullable(this.pid);
     }
@@ -55,20 +71,44 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ocrLanguage Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ocrLanguage(@Nullable Output<String> ocrLanguage) {
             $.ocrLanguage = ocrLanguage;
             return this;
         }
 
+        /**
+         * @param ocrLanguage Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ocrLanguage(String ocrLanguage) {
             return ocrLanguage(Output.of(ocrLanguage));
         }
 
+        /**
+         * @param pid PID field used with the caption selector `languageCode` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pid(@Nullable Output<Integer> pid) {
             $.pid = pid;
             return this;
         }
 
+        /**
+         * @param pid PID field used with the caption selector `languageCode` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pid(Integer pid) {
             return pid(Output.of(pid));
         }

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CloudWatch
     public static class GetLogGroups
     {
         /// <summary>
-        /// Use this data source to get a list of AWS Cloudwatch Log Groups
+        /// Use this data source to get a list of AWS CloudWatch Log Groups
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudWatch
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get a list of AWS Cloudwatch Log Groups
+        /// Use this data source to get a list of AWS CloudWatch Log Groups
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.CloudWatch
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get a list of AWS Cloudwatch Log Groups
+        /// Use this data source to get a list of AWS CloudWatch Log Groups
         /// 
         /// ## Example Usage
         /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Group prefix of the Cloudwatch log groups to list
+        /// Group prefix of the CloudWatch log groups to list
         /// </summary>
         [Input("logGroupNamePrefix")]
         public string? LogGroupNamePrefix { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Group prefix of the Cloudwatch log groups to list
+        /// Group prefix of the CloudWatch log groups to list
         /// </summary>
         [Input("logGroupNamePrefix")]
         public Input<string>? LogGroupNamePrefix { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupsResult
     {
         /// <summary>
-        /// Set of ARNs of the Cloudwatch log groups
+        /// Set of ARNs of the CloudWatch log groups
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.CloudWatch
         public readonly string Id;
         public readonly string? LogGroupNamePrefix;
         /// <summary>
-        /// Set of names of the Cloudwatch log groups
+        /// Set of names of the CloudWatch log groups
         /// </summary>
         public readonly ImmutableArray<string> LogGroupNames;
         public readonly string Region;

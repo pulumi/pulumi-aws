@@ -16,14 +16,14 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
     public static final ClassificationJobS3JobDefinitionBucketDefinitionArgs Empty = new ClassificationJobS3JobDefinitionBucketDefinitionArgs();
 
     /**
-     * The unique identifier for the AWS account that owns the buckets.
+     * Unique identifier for the AWS account that owns the buckets.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return The unique identifier for the AWS account that owns the buckets.
+     * @return Unique identifier for the AWS account that owns the buckets.
      * 
      */
     public Output<String> accountId() {
@@ -31,14 +31,14 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
     }
 
     /**
-     * An array that lists the names of the buckets.
+     * Array that lists the names of the buckets.
      * 
      */
     @Import(name="buckets", required=true)
     private Output<List<String>> buckets;
 
     /**
-     * @return An array that lists the names of the buckets.
+     * @return Array that lists the names of the buckets.
      * 
      */
     public Output<List<String>> buckets() {
@@ -71,7 +71,7 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
         }
 
         /**
-         * @param accountId The unique identifier for the AWS account that owns the buckets.
+         * @param accountId Unique identifier for the AWS account that owns the buckets.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
         }
 
         /**
-         * @param accountId The unique identifier for the AWS account that owns the buckets.
+         * @param accountId Unique identifier for the AWS account that owns the buckets.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
         }
 
         /**
-         * @param buckets An array that lists the names of the buckets.
+         * @param buckets Array that lists the names of the buckets.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
         }
 
         /**
-         * @param buckets An array that lists the names of the buckets.
+         * @param buckets Array that lists the names of the buckets.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
         }
 
         /**
-         * @param buckets An array that lists the names of the buckets.
+         * @param buckets Array that lists the names of the buckets.
          * 
          * @return builder
          * 

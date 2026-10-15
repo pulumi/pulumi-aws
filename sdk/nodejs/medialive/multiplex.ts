@@ -92,11 +92,11 @@ export class Multiplex extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A list of availability zones. You must specify exactly two.
+     * List of availability zones. You must specify exactly two.
      */
     declare public readonly availabilityZones: pulumi.Output<string[]>;
     /**
-     * Multiplex settings. See Multiplex Settings for more details.
+     * Multiplex settings. See `multiplexSettings` Block for more details.
      */
     declare public readonly multiplexSettings: pulumi.Output<outputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
@@ -114,7 +114,7 @@ export class Multiplex extends pulumi.CustomResource {
      */
     declare public readonly startMultiplex: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -168,11 +168,11 @@ export interface MultiplexState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A list of availability zones. You must specify exactly two.
+     * List of availability zones. You must specify exactly two.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Multiplex settings. See Multiplex Settings for more details.
+     * Multiplex settings. See `multiplexSettings` Block for more details.
      */
     multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface MultiplexState {
      */
     startMultiplex?: pulumi.Input<boolean | undefined>;
     /**
-     * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -201,11 +201,11 @@ export interface MultiplexState {
  */
 export interface MultiplexArgs {
     /**
-     * A list of availability zones. You must specify exactly two.
+     * List of availability zones. You must specify exactly two.
      */
     availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Multiplex settings. See Multiplex Settings for more details.
+     * Multiplex settings. See `multiplexSettings` Block for more details.
      */
     multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface MultiplexArgs {
      */
     startMultiplex?: pulumi.Input<boolean | undefined>;
     /**
-     * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

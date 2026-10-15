@@ -30,7 +30,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class BedrockFunctions {
     /**
-     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * Provides details about AWS Bedrock Agents Agent Versions.
      * 
      * ## Example Usage
      * 
@@ -58,8 +58,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(exampleAwsBedrockagentAgent.agentId())
      *             .build());
      * 
      *     }
@@ -72,7 +72,7 @@ public final class BedrockFunctions {
         return getAgentAgentVersions(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * Provides details about AWS Bedrock Agents Agent Versions.
      * 
      * ## Example Usage
      * 
@@ -100,8 +100,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(exampleAwsBedrockagentAgent.agentId())
      *             .build());
      * 
      *     }
@@ -114,7 +114,7 @@ public final class BedrockFunctions {
         return getAgentAgentVersionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * Provides details about AWS Bedrock Agents Agent Versions.
      * 
      * ## Example Usage
      * 
@@ -142,8 +142,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(exampleAwsBedrockagentAgent.agentId())
      *             .build());
      * 
      *     }
@@ -156,7 +156,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", TypeShape.of(GetAgentAgentVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * Provides details about AWS Bedrock Agents Agent Versions.
      * 
      * ## Example Usage
      * 
@@ -184,8 +184,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(exampleAwsBedrockagentAgent.agentId())
      *             .build());
      * 
      *     }
@@ -198,7 +198,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", TypeShape.of(GetAgentAgentVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * Provides details about AWS Bedrock Agents Agent Versions.
      * 
      * ## Example Usage
      * 
@@ -226,8 +226,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(exampleAwsBedrockagentAgent.agentId())
      *             .build());
      * 
      *     }
@@ -240,7 +240,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", TypeShape.of(GetAgentAgentVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Returns properties of a specific Amazon Bedrock custom model.
+     * Provides details about a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
      * 
@@ -266,8 +266,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
+     *         final var example = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
+     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4")
      *             .build());
      * 
      *     }
@@ -280,7 +280,7 @@ public final class BedrockFunctions {
         return getCustomModel(args, InvokeOptions.Empty);
     }
     /**
-     * Returns properties of a specific Amazon Bedrock custom model.
+     * Provides details about a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
      * 
@@ -306,8 +306,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
+     *         final var example = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
+     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4")
      *             .build());
      * 
      *     }
@@ -320,7 +320,7 @@ public final class BedrockFunctions {
         return getCustomModelPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Returns properties of a specific Amazon Bedrock custom model.
+     * Provides details about a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
      * 
@@ -346,8 +346,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
+     *         final var example = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
+     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4")
      *             .build());
      * 
      *     }
@@ -360,7 +360,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModel:getCustomModel", TypeShape.of(GetCustomModelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Returns properties of a specific Amazon Bedrock custom model.
+     * Provides details about a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
      * 
@@ -386,8 +386,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
+     *         final var example = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
+     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4")
      *             .build());
      * 
      *     }
@@ -400,7 +400,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModel:getCustomModel", TypeShape.of(GetCustomModelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Returns properties of a specific Amazon Bedrock custom model.
+     * Provides details about a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
      * 
@@ -426,8 +426,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
+     *         final var example = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
+     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4")
      *             .build());
      * 
      *     }
@@ -440,7 +440,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getCustomModel:getCustomModel", TypeShape.of(GetCustomModelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Returns a list of Amazon Bedrock custom models.
+     * Provides details about Amazon Bedrock custom models.
      * 
      * ## Example Usage
      * 
@@ -466,7 +466,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *         final var example = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -479,7 +479,7 @@ public final class BedrockFunctions {
         return getCustomModels(GetCustomModelsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Returns a list of Amazon Bedrock custom models.
+     * Provides details about Amazon Bedrock custom models.
      * 
      * ## Example Usage
      * 
@@ -505,7 +505,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *         final var example = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -518,7 +518,7 @@ public final class BedrockFunctions {
         return getCustomModelsPlain(GetCustomModelsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Returns a list of Amazon Bedrock custom models.
+     * Provides details about Amazon Bedrock custom models.
      * 
      * ## Example Usage
      * 
@@ -544,7 +544,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *         final var example = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -557,7 +557,7 @@ public final class BedrockFunctions {
         return getCustomModels(args, InvokeOptions.Empty);
     }
     /**
-     * Returns a list of Amazon Bedrock custom models.
+     * Provides details about Amazon Bedrock custom models.
      * 
      * ## Example Usage
      * 
@@ -583,7 +583,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *         final var example = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -596,7 +596,7 @@ public final class BedrockFunctions {
         return getCustomModelsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Returns a list of Amazon Bedrock custom models.
+     * Provides details about Amazon Bedrock custom models.
      * 
      * ## Example Usage
      * 
@@ -622,7 +622,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *         final var example = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -635,7 +635,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Returns a list of Amazon Bedrock custom models.
+     * Provides details about Amazon Bedrock custom models.
      * 
      * ## Example Usage
      * 
@@ -661,7 +661,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *         final var example = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -674,7 +674,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Returns a list of Amazon Bedrock custom models.
+     * Provides details about Amazon Bedrock custom models.
      * 
      * ## Example Usage
      * 
@@ -700,7 +700,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *         final var example = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -713,7 +713,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Bedrock Inference Profile.
+     * Provides details about an AWS Bedrock Inference Profile.
      * 
      * ## Example Usage
      * 
@@ -742,11 +742,11 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
-     *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
+     *         final var exampleGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
+     *             .inferenceProfileId(example.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -759,7 +759,7 @@ public final class BedrockFunctions {
         return getInferenceProfile(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Bedrock Inference Profile.
+     * Provides details about an AWS Bedrock Inference Profile.
      * 
      * ## Example Usage
      * 
@@ -788,11 +788,11 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
-     *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
+     *         final var exampleGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
+     *             .inferenceProfileId(example.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -805,7 +805,7 @@ public final class BedrockFunctions {
         return getInferenceProfilePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Bedrock Inference Profile.
+     * Provides details about an AWS Bedrock Inference Profile.
      * 
      * ## Example Usage
      * 
@@ -834,11 +834,11 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
-     *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
+     *         final var exampleGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
+     *             .inferenceProfileId(example.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -851,7 +851,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfile:getInferenceProfile", TypeShape.of(GetInferenceProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Bedrock Inference Profile.
+     * Provides details about an AWS Bedrock Inference Profile.
      * 
      * ## Example Usage
      * 
@@ -880,11 +880,11 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
-     *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
+     *         final var exampleGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
+     *             .inferenceProfileId(example.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -897,7 +897,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfile:getInferenceProfile", TypeShape.of(GetInferenceProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Bedrock Inference Profile.
+     * Provides details about an AWS Bedrock Inference Profile.
      * 
      * ## Example Usage
      * 
@@ -926,11 +926,11 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
-     *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
+     *         final var exampleGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
+     *             .inferenceProfileId(example.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -943,7 +943,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getInferenceProfile:getInferenceProfile", TypeShape.of(GetInferenceProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock Inference Profiles.
+     * Provides details about AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -971,7 +971,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
      *     }
@@ -1003,7 +1003,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .type("APPLICATION")
      *             .build());
      * 
@@ -1017,7 +1017,7 @@ public final class BedrockFunctions {
         return getInferenceProfiles(GetInferenceProfilesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Inference Profiles.
+     * Provides details about AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1045,7 +1045,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
      *     }
@@ -1077,7 +1077,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .type("APPLICATION")
      *             .build());
      * 
@@ -1091,7 +1091,7 @@ public final class BedrockFunctions {
         return getInferenceProfilesPlain(GetInferenceProfilesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Inference Profiles.
+     * Provides details about AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1119,7 +1119,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
      *     }
@@ -1151,7 +1151,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .type("APPLICATION")
      *             .build());
      * 
@@ -1165,7 +1165,7 @@ public final class BedrockFunctions {
         return getInferenceProfiles(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Inference Profiles.
+     * Provides details about AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1193,7 +1193,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
      *     }
@@ -1225,7 +1225,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .type("APPLICATION")
      *             .build());
      * 
@@ -1239,7 +1239,7 @@ public final class BedrockFunctions {
         return getInferenceProfilesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Inference Profiles.
+     * Provides details about AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1267,7 +1267,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
      *     }
@@ -1299,7 +1299,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .type("APPLICATION")
      *             .build());
      * 
@@ -1313,7 +1313,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock Inference Profiles.
+     * Provides details about AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1341,7 +1341,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
      *     }
@@ -1373,7 +1373,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .type("APPLICATION")
      *             .build());
      * 
@@ -1387,7 +1387,7 @@ public final class BedrockFunctions {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock Inference Profiles.
+     * Provides details about AWS Bedrock Inference Profiles.
      * 
      * ## Example Usage
      * 
@@ -1415,7 +1415,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .build());
      * 
      *     }
@@ -1447,7 +1447,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *         final var example = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
      *             .type("APPLICATION")
      *             .build());
      * 

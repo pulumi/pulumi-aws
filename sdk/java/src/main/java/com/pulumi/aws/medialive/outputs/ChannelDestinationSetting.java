@@ -17,17 +17,17 @@ public final class ChannelDestinationSetting {
      */
     private @Nullable String passwordParam;
     /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * @return Stream name for RTMP destinations (URLs of type `rtmp://`).
      * 
      */
     private @Nullable String streamName;
     /**
-     * @return A URL specifying a destination.
+     * @return URL for the destination.
      * 
      */
     private @Nullable String url;
     /**
-     * @return Username for destination.
+     * @return Username for the destination.
      * 
      */
     private @Nullable String username;
@@ -41,21 +41,21 @@ public final class ChannelDestinationSetting {
         return Optional.ofNullable(this.passwordParam);
     }
     /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * @return Stream name for RTMP destinations (URLs of type `rtmp://`).
      * 
      */
     public Optional<String> streamName() {
         return Optional.ofNullable(this.streamName);
     }
     /**
-     * @return A URL specifying a destination.
+     * @return URL for the destination.
      * 
      */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }
     /**
-     * @return Username for destination.
+     * @return Username for the destination.
      * 
      */
     public Optional<String> username() {

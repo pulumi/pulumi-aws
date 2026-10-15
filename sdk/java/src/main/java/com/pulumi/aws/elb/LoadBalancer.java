@@ -270,14 +270,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.idleTimeout);
     }
     /**
-     * A list of instance ids to place in the ELB pool.
+     * A list of instance IDs to place in the ELB pool.
      * 
      */
     @Export(name="instances", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> instances;
 
     /**
-     * @return A list of instance ids to place in the ELB pool.
+     * @return A list of instance IDs to place in the ELB pool.
      * 
      */
     public Output<List<String>> instances() {

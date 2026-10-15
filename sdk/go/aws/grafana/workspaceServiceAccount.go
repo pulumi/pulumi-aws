@@ -57,15 +57,15 @@ import (
 type WorkspaceServiceAccount struct {
 	pulumi.CustomResourceState
 
-	// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+	// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
 	GrafanaRole pulumi.StringOutput `pulumi:"grafanaRole"`
-	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+	// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the service account in the given Grafana workspace
 	ServiceAccountId pulumi.StringOutput `pulumi:"serviceAccountId"`
-	// The Grafana workspace with which the service account is associated.
+	// Grafana workspace with which the service account is associated.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -105,28 +105,28 @@ func GetWorkspaceServiceAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceServiceAccount resources.
 type workspaceServiceAccountState struct {
-	// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+	// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
 	GrafanaRole *string `pulumi:"grafanaRole"`
-	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+	// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the service account in the given Grafana workspace
 	ServiceAccountId *string `pulumi:"serviceAccountId"`
-	// The Grafana workspace with which the service account is associated.
+	// Grafana workspace with which the service account is associated.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceServiceAccountState struct {
-	// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+	// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
 	GrafanaRole pulumi.StringPtrInput
-	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+	// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the service account in the given Grafana workspace
 	ServiceAccountId pulumi.StringPtrInput
-	// The Grafana workspace with which the service account is associated.
+	// Grafana workspace with which the service account is associated.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -135,25 +135,25 @@ func (WorkspaceServiceAccountState) ElementType() reflect.Type {
 }
 
 type workspaceServiceAccountArgs struct {
-	// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+	// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
 	GrafanaRole string `pulumi:"grafanaRole"`
-	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+	// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Grafana workspace with which the service account is associated.
+	// Grafana workspace with which the service account is associated.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceServiceAccount resource.
 type WorkspaceServiceAccountArgs struct {
-	// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+	// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
 	GrafanaRole pulumi.StringInput
-	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+	// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Grafana workspace with which the service account is associated.
+	// Grafana workspace with which the service account is associated.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -244,12 +244,12 @@ func (o WorkspaceServiceAccountOutput) ToWorkspaceServiceAccountOutputWithContex
 	return o
 }
 
-// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
 func (o WorkspaceServiceAccountOutput) GrafanaRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccount) pulumi.StringOutput { return v.GrafanaRole }).(pulumi.StringOutput)
 }
 
-// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 func (o WorkspaceServiceAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -264,7 +264,7 @@ func (o WorkspaceServiceAccountOutput) ServiceAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccount) pulumi.StringOutput { return v.ServiceAccountId }).(pulumi.StringOutput)
 }
 
-// The Grafana workspace with which the service account is associated.
+// Grafana workspace with which the service account is associated.
 func (o WorkspaceServiceAccountOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccount) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

@@ -31,6 +31,7 @@ class MetricAlarmArgs:
                  evaluation_criteria: pulumi.Input[Optional['MetricAlarmEvaluationCriteriaArgs']] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_window: pulumi.Input[Optional['MetricAlarmEvaluationWindowArgs']] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -63,6 +64,7 @@ class MetricAlarmArgs:
         :param pulumi.Input['MetricAlarmEvaluationCriteriaArgs'] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+        :param pulumi.Input['MetricAlarmEvaluationWindowArgs'] evaluation_window: Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluation_criteria`. See `evaluation_window` below.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -109,6 +111,8 @@ class MetricAlarmArgs:
             pulumi.set(__self__, "evaluation_interval", evaluation_interval)
         if evaluation_periods is not None:
             pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if evaluation_window is not None:
+            pulumi.set(__self__, "evaluation_window", evaluation_window)
         if extended_statistic is not None:
             pulumi.set(__self__, "extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
@@ -264,6 +268,18 @@ class MetricAlarmArgs:
     @evaluation_periods.setter
     def evaluation_periods(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "evaluation_periods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> pulumi.Input[Optional['MetricAlarmEvaluationWindowArgs']]:
+        """
+        Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluation_criteria`. See `evaluation_window` below.
+        """
+        return pulumi.get(self, "evaluation_window")
+
+    @evaluation_window.setter
+    def evaluation_window(self, value: pulumi.Input[Optional['MetricAlarmEvaluationWindowArgs']]):
+        pulumi.set(self, "evaluation_window", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")
@@ -481,6 +497,7 @@ class _MetricAlarmState:
                  evaluation_criteria: pulumi.Input[Optional['MetricAlarmEvaluationCriteriaArgs']] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_window: pulumi.Input[Optional['MetricAlarmEvaluationWindowArgs']] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -515,6 +532,7 @@ class _MetricAlarmState:
         :param pulumi.Input['MetricAlarmEvaluationCriteriaArgs'] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+        :param pulumi.Input['MetricAlarmEvaluationWindowArgs'] evaluation_window: Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluation_criteria`. See `evaluation_window` below.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -564,6 +582,8 @@ class _MetricAlarmState:
             pulumi.set(__self__, "evaluation_interval", evaluation_interval)
         if evaluation_periods is not None:
             pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if evaluation_window is not None:
+            pulumi.set(__self__, "evaluation_window", evaluation_window)
         if extended_statistic is not None:
             pulumi.set(__self__, "extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
@@ -733,6 +753,18 @@ class _MetricAlarmState:
     @evaluation_periods.setter
     def evaluation_periods(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "evaluation_periods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> pulumi.Input[Optional['MetricAlarmEvaluationWindowArgs']]:
+        """
+        Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluation_criteria`. See `evaluation_window` below.
+        """
+        return pulumi.get(self, "evaluation_window")
+
+    @evaluation_window.setter
+    def evaluation_window(self, value: pulumi.Input[Optional['MetricAlarmEvaluationWindowArgs']]):
+        pulumi.set(self, "evaluation_window", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")
@@ -964,6 +996,7 @@ class MetricAlarm(pulumi.CustomResource):
                  evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']]] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_window: pulumi.Input[Optional[Union['MetricAlarmEvaluationWindowArgs', 'MetricAlarmEvaluationWindowArgsDict', 'outputs.MetricAlarmEvaluationWindow']]] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1213,6 +1246,29 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_actions=[example_aws_sns_topic["arn"]])
         ```
 
+        ### With a Wall Clock Evaluation Window
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.MetricAlarm("example",
+            evaluation_window={
+                "wall_clock_window": {
+                    "timezone": "America/New_York",
+                },
+            },
+            name="example-daily-errors",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            metric_name="Errors",
+            namespace="ExampleApp",
+            period=86400,
+            statistic="Sum",
+            threshold=float(0),
+            alarm_actions=[example_aws_sns_topic["arn"]])
+        ```
+
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other.
 
@@ -1251,6 +1307,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+        :param pulumi.Input[Union['MetricAlarmEvaluationWindowArgs', 'MetricAlarmEvaluationWindowArgsDict', 'outputs.MetricAlarmEvaluationWindow']] evaluation_window: Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluation_criteria`. See `evaluation_window` below.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -1515,6 +1572,29 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_actions=[example_aws_sns_topic["arn"]])
         ```
 
+        ### With a Wall Clock Evaluation Window
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.MetricAlarm("example",
+            evaluation_window={
+                "wall_clock_window": {
+                    "timezone": "America/New_York",
+                },
+            },
+            name="example-daily-errors",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            metric_name="Errors",
+            namespace="ExampleApp",
+            period=86400,
+            statistic="Sum",
+            threshold=float(0),
+            alarm_actions=[example_aws_sns_topic["arn"]])
+        ```
+
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other.
 
@@ -1563,6 +1643,7 @@ class MetricAlarm(pulumi.CustomResource):
                  evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']]] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_window: pulumi.Input[Optional[Union['MetricAlarmEvaluationWindowArgs', 'MetricAlarmEvaluationWindowArgsDict', 'outputs.MetricAlarmEvaluationWindow']]] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1598,6 +1679,7 @@ class MetricAlarm(pulumi.CustomResource):
             __props__.__dict__["evaluation_criteria"] = evaluation_criteria
             __props__.__dict__["evaluation_interval"] = evaluation_interval
             __props__.__dict__["evaluation_periods"] = evaluation_periods
+            __props__.__dict__["evaluation_window"] = evaluation_window
             __props__.__dict__["extended_statistic"] = extended_statistic
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
             __props__.__dict__["metric_name"] = metric_name
@@ -1637,6 +1719,7 @@ class MetricAlarm(pulumi.CustomResource):
             evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']]] = None,
             evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
             evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+            evaluation_window: pulumi.Input[Optional[Union['MetricAlarmEvaluationWindowArgs', 'MetricAlarmEvaluationWindowArgsDict', 'outputs.MetricAlarmEvaluationWindow']]] = None,
             extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
             insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1675,6 +1758,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+        :param pulumi.Input[Union['MetricAlarmEvaluationWindowArgs', 'MetricAlarmEvaluationWindowArgsDict', 'outputs.MetricAlarmEvaluationWindow']] evaluation_window: Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluation_criteria`. See `evaluation_window` below.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -1717,6 +1801,7 @@ class MetricAlarm(pulumi.CustomResource):
         __props__.__dict__["evaluation_criteria"] = evaluation_criteria
         __props__.__dict__["evaluation_interval"] = evaluation_interval
         __props__.__dict__["evaluation_periods"] = evaluation_periods
+        __props__.__dict__["evaluation_window"] = evaluation_window
         __props__.__dict__["extended_statistic"] = extended_statistic
         __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
         __props__.__dict__["metric_name"] = metric_name
@@ -1826,6 +1911,14 @@ class MetricAlarm(pulumi.CustomResource):
         The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         """
         return pulumi.get(self, "evaluation_periods")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> pulumi.Output[Optional['outputs.MetricAlarmEvaluationWindow']]:
+        """
+        Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluation_criteria`. See `evaluation_window` below.
+        """
+        return pulumi.get(self, "evaluation_window")
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")

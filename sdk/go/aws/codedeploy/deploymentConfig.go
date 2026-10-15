@@ -151,7 +151,7 @@ type DeploymentConfig struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
-	// The AWS Assigned deployment config id
+	// The AWS Assigned deployment config ID
 	DeploymentConfigId pulumi.StringOutput `pulumi:"deploymentConfigId"`
 	// The name of the deployment config.
 	DeploymentConfigName pulumi.StringOutput `pulumi:"deploymentConfigName"`
@@ -199,7 +199,7 @@ type deploymentConfigState struct {
 	Arn *string `pulumi:"arn"`
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
-	// The AWS Assigned deployment config id
+	// The AWS Assigned deployment config ID
 	DeploymentConfigId *string `pulumi:"deploymentConfigId"`
 	// The name of the deployment config.
 	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
@@ -218,7 +218,7 @@ type DeploymentConfigState struct {
 	Arn pulumi.StringPtrInput
 	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
-	// The AWS Assigned deployment config id
+	// The AWS Assigned deployment config ID
 	DeploymentConfigId pulumi.StringPtrInput
 	// The name of the deployment config.
 	DeploymentConfigName pulumi.StringPtrInput
@@ -364,7 +364,7 @@ func (o DeploymentConfigOutput) ComputePlatform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringPtrOutput { return v.ComputePlatform }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Assigned deployment config id
+// The AWS Assigned deployment config ID
 func (o DeploymentConfigOutput) DeploymentConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.DeploymentConfigId }).(pulumi.StringOutput)
 }

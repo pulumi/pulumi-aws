@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoResult
     {
+        /// <summary>
+        /// Distribution of broker nodes across Availability Zones.
+        /// </summary>
         public readonly string AzDistribution;
+        /// <summary>
+        /// List of subnets to connect to in the client VPC.
+        /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
+        /// <summary>
+        /// Information about the cluster access configuration. See `ConnectivityInfo` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoResult> ConnectivityInfos;
+        /// <summary>
+        /// Instance type used for the broker nodes.
+        /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// List of security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// Storage information for the broker nodes. See `StorageInfo` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoResult> StorageInfos;
 
         [OutputConstructor]

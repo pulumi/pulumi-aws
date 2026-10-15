@@ -20,14 +20,14 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
     public static final WebAclLoggingConfigurationArgs Empty = new WebAclLoggingConfigurationArgs();
 
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, CloudWatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
     @Import(name="logDestinationConfigs", required=true)
     private Output<List<String>> logDestinationConfigs;
 
     /**
-     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, CloudWatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
     public Output<List<String>> logDestinationConfigs() {
@@ -123,7 +123,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, CloudWatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, CloudWatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, CloudWatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
          * 
          * @return builder
          * 

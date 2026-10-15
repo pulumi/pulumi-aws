@@ -69,12 +69,9 @@ class DetectorDatasources(dict):
                  malware_protection: Optional['outputs.DetectorDatasourcesMalwareProtection'] = None,
                  s3_logs: Optional['outputs.DetectorDatasourcesS3Logs'] = None):
         """
-        :param 'DetectorDatasourcesKubernetesArgs' kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-               See Kubernetes and Kubernetes Audit Logs below for more details.
-        :param 'DetectorDatasourcesMalwareProtectionArgs' malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-               See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-        :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-               See S3 Logs below for more details.
+        :param 'DetectorDatasourcesKubernetesArgs' kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `kubernetes` below for more details.
+        :param 'DetectorDatasourcesMalwareProtectionArgs' malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html). See `malware_protection` below for more details.
+        :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). See `s3_logs` below for more details.
         """
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
@@ -87,8 +84,7 @@ class DetectorDatasources(dict):
     @pulumi.getter
     def kubernetes(self) -> Optional['outputs.DetectorDatasourcesKubernetes']:
         """
-        Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        See Kubernetes and Kubernetes Audit Logs below for more details.
+        Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `kubernetes` below for more details.
         """
         return pulumi.get(self, "kubernetes")
 
@@ -96,8 +92,7 @@ class DetectorDatasources(dict):
     @pulumi.getter(name="malwareProtection")
     def malware_protection(self) -> Optional['outputs.DetectorDatasourcesMalwareProtection']:
         """
-        Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-        See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+        Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html). See `malware_protection` below for more details.
         """
         return pulumi.get(self, "malware_protection")
 
@@ -105,8 +100,7 @@ class DetectorDatasources(dict):
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional['outputs.DetectorDatasourcesS3Logs']:
         """
-        Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-        See S3 Logs below for more details.
+        Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). See `s3_logs` below for more details.
         """
         return pulumi.get(self, "s3_logs")
 
@@ -133,8 +127,7 @@ class DetectorDatasourcesKubernetes(dict):
     def __init__(__self__, *,
                  audit_logs: 'outputs.DetectorDatasourcesKubernetesAuditLogs'):
         """
-        :param 'DetectorDatasourcesKubernetesAuditLogsArgs' audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-               See Kubernetes Audit Logs below for more details.
+        :param 'DetectorDatasourcesKubernetesAuditLogsArgs' audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `audit_logs` below for more details.
         """
         pulumi.set(__self__, "audit_logs", audit_logs)
 
@@ -142,8 +135,7 @@ class DetectorDatasourcesKubernetes(dict):
     @pulumi.getter(name="auditLogs")
     def audit_logs(self) -> 'outputs.DetectorDatasourcesKubernetesAuditLogs':
         """
-        Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        See Kubernetes Audit Logs below for more details.
+        Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `audit_logs` below for more details.
         """
         return pulumi.get(self, "audit_logs")
 
@@ -153,8 +145,7 @@ class DetectorDatasourcesKubernetesAuditLogs(dict):
     def __init__(__self__, *,
                  enable: _builtins.bool):
         """
-        :param _builtins.bool enable: If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-               Defaults to `true`.
+        :param _builtins.bool enable: If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). Defaults to `true`.
         """
         pulumi.set(__self__, "enable", enable)
 
@@ -162,8 +153,7 @@ class DetectorDatasourcesKubernetesAuditLogs(dict):
     @pulumi.getter
     def enable(self) -> _builtins.bool:
         """
-        If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        Defaults to `true`.
+        If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -190,8 +180,7 @@ class DetectorDatasourcesMalwareProtection(dict):
     def __init__(__self__, *,
                  scan_ec2_instance_with_findings: 'outputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings'):
         """
-        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
-               See Scan EC2 instance with findings below for more details.
+        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector. See `scan_ec2_instance_with_findings` below for more details.
         """
         pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
@@ -199,8 +188,7 @@ class DetectorDatasourcesMalwareProtection(dict):
     @pulumi.getter(name="scanEc2InstanceWithFindings")
     def scan_ec2_instance_with_findings(self) -> 'outputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings':
         """
-        Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
-        See Scan EC2 instance with findings below for more details.
+        Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector. See `scan_ec2_instance_with_findings` below for more details.
         """
         return pulumi.get(self, "scan_ec2_instance_with_findings")
 
@@ -227,8 +215,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
     def __init__(__self__, *,
                  ebs_volumes: 'outputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes'):
         """
-        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs' ebs_volumes: Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
-               See EBS volumes below for more details.
+        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs' ebs_volumes: Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings. See `ebs_volumes` below for more details.
         """
         pulumi.set(__self__, "ebs_volumes", ebs_volumes)
 
@@ -236,8 +223,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> 'outputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes':
         """
-        Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
-        See EBS volumes below for more details.
+        Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings. See `ebs_volumes` below for more details.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -247,8 +233,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes(
     def __init__(__self__, *,
                  enable: _builtins.bool):
         """
-        :param _builtins.bool enable: If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
-               Defaults to `true`.
+        :param _builtins.bool enable: If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector. Defaults to `true`.
         """
         pulumi.set(__self__, "enable", enable)
 
@@ -256,8 +241,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes(
     @pulumi.getter
     def enable(self) -> _builtins.bool:
         """
-        If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
-        Defaults to `true`.
+        If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector. Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -267,8 +251,7 @@ class DetectorDatasourcesS3Logs(dict):
     def __init__(__self__, *,
                  enable: _builtins.bool):
         """
-        :param _builtins.bool enable: If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-               Defaults to `true`.
+        :param _builtins.bool enable: If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). Defaults to `true`.
         """
         pulumi.set(__self__, "enable", enable)
 
@@ -276,8 +259,7 @@ class DetectorDatasourcesS3Logs(dict):
     @pulumi.getter
     def enable(self) -> _builtins.bool:
         """
-        If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-        Defaults to `true`.
+        If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -288,8 +270,8 @@ class DetectorFeatureAdditionalConfiguration(dict):
                  name: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str name: The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-        :param _builtins.str status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        :param _builtins.str name: Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        :param _builtins.str status: Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "status", status)
@@ -298,7 +280,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 
@@ -306,7 +288,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -363,12 +345,12 @@ class FilterFindingCriteriaCriterion(dict):
                  not_equals: Optional[Sequence[_builtins.str]] = None,
                  not_matches: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str field: The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
+        :param _builtins.str field: Name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         :param Sequence[_builtins.str] equals: List of string values to be evaluated.
-        :param _builtins.str greater_than: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param _builtins.str greater_than_or_equal: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param _builtins.str less_than: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param _builtins.str less_than_or_equal: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str greater_than: Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str greater_than_or_equal: Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str less_than: Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str less_than_or_equal: Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param Sequence[_builtins.str] matches: List of string values to be evaluated as matching conditions.
         :param Sequence[_builtins.str] not_equals: List of string values to be evaluated.
         :param Sequence[_builtins.str] not_matches: List of string values to be evaluated as non-matching conditions.
@@ -395,7 +377,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def field(self) -> _builtins.str:
         """
-        The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
+        Name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         """
         return pulumi.get(self, "field")
 
@@ -411,7 +393,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="greaterThan")
     def greater_than(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "greater_than")
 
@@ -419,7 +401,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="greaterThanOrEqual")
     def greater_than_or_equal(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "greater_than_or_equal")
 
@@ -427,7 +409,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="lessThan")
     def less_than(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "less_than")
 
@@ -435,7 +417,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="lessThanOrEqual")
     def less_than_or_equal(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "less_than_or_equal")
 
@@ -469,7 +451,7 @@ class MalwareProtectionPlanAction(dict):
     def __init__(__self__, *,
                  taggings: Sequence['outputs.MalwareProtectionPlanActionTagging']):
         """
-        :param Sequence['MalwareProtectionPlanActionTaggingArgs'] taggings: Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+        :param Sequence['MalwareProtectionPlanActionTaggingArgs'] taggings: Whether the scanned S3 object will have tags about the scan result. See `tagging` below.
         """
         pulumi.set(__self__, "taggings", taggings)
 
@@ -477,7 +459,7 @@ class MalwareProtectionPlanAction(dict):
     @pulumi.getter
     def taggings(self) -> Sequence['outputs.MalwareProtectionPlanActionTagging']:
         """
-        Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+        Whether the scanned S3 object will have tags about the scan result. See `tagging` below.
         """
         return pulumi.get(self, "taggings")
 
@@ -487,7 +469,7 @@ class MalwareProtectionPlanActionTagging(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
         """
-        :param _builtins.str status: Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+        :param _builtins.str status: Whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
         """
         pulumi.set(__self__, "status", status)
 
@@ -495,7 +477,7 @@ class MalwareProtectionPlanActionTagging(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+        Whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
         """
         return pulumi.get(self, "status")
 
@@ -561,7 +543,7 @@ class MalwareProtectionPlanProtectedResourceS3Bucket(dict):
                  object_prefixes: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str bucket_name: Name of the S3 bucket.
-        :param Sequence[_builtins.str] object_prefixes: The list of object prefixes that specify the S3 objects that will be scanned.
+        :param Sequence[_builtins.str] object_prefixes: List of object prefixes that specify the S3 objects that will be scanned.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if object_prefixes is not None:
@@ -579,7 +561,7 @@ class MalwareProtectionPlanProtectedResourceS3Bucket(dict):
     @pulumi.getter(name="objectPrefixes")
     def object_prefixes(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The list of object prefixes that specify the S3 objects that will be scanned.
+        List of object prefixes that specify the S3 objects that will be scanned.
         """
         return pulumi.get(self, "object_prefixes")
 
@@ -590,8 +572,8 @@ class MemberDetectorFeatureAdditionalConfiguration(dict):
                  name: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
-        :param _builtins.str status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        :param _builtins.str name: Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        :param _builtins.str status: Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "status", status)
@@ -600,7 +582,7 @@ class MemberDetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
         """
         return pulumi.get(self, "name")
 
@@ -608,7 +590,7 @@ class MemberDetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -697,8 +679,7 @@ class OrganizationConfigurationDatasourcesKubernetes(dict):
     def __init__(__self__, *,
                  audit_logs: 'outputs.OrganizationConfigurationDatasourcesKubernetesAuditLogs'):
         """
-        :param 'OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs' audit_logs: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-               See Kubernetes Audit Logs below for more details.
+        :param 'OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs' audit_logs: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `audit_logs` below for more details.
         """
         pulumi.set(__self__, "audit_logs", audit_logs)
 
@@ -706,8 +687,7 @@ class OrganizationConfigurationDatasourcesKubernetes(dict):
     @pulumi.getter(name="auditLogs")
     def audit_logs(self) -> 'outputs.OrganizationConfigurationDatasourcesKubernetesAuditLogs':
         """
-        Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        See Kubernetes Audit Logs below for more details.
+        Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `audit_logs` below for more details.
         """
         return pulumi.get(self, "audit_logs")
 
@@ -717,8 +697,7 @@ class OrganizationConfigurationDatasourcesKubernetesAuditLogs(dict):
     def __init__(__self__, *,
                  enable: _builtins.bool):
         """
-        :param _builtins.bool enable: If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-               Defaults to `true`.
+        :param _builtins.bool enable: If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). Defaults to `true`.
         """
         pulumi.set(__self__, "enable", enable)
 
@@ -726,8 +705,7 @@ class OrganizationConfigurationDatasourcesKubernetesAuditLogs(dict):
     @pulumi.getter
     def enable(self) -> _builtins.bool:
         """
-        If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        Defaults to `true`.
+        If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -754,8 +732,7 @@ class OrganizationConfigurationDatasourcesMalwareProtection(dict):
     def __init__(__self__, *,
                  scan_ec2_instance_with_findings: 'outputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings'):
         """
-        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
-               See Scan EC2 instance with findings below for more details.
+        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization. See `scan_ec2_instance_with_findings` below for more details.
         """
         pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
@@ -763,8 +740,7 @@ class OrganizationConfigurationDatasourcesMalwareProtection(dict):
     @pulumi.getter(name="scanEc2InstanceWithFindings")
     def scan_ec2_instance_with_findings(self) -> 'outputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings':
         """
-        Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
-        See Scan EC2 instance with findings below for more details.
+        Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization. See `scan_ec2_instance_with_findings` below for more details.
         """
         return pulumi.get(self, "scan_ec2_instance_with_findings")
 
@@ -791,8 +767,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
     def __init__(__self__, *,
                  ebs_volumes: 'outputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes'):
         """
-        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs' ebs_volumes: Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
-               See EBS volumes below for more details.
+        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs' ebs_volumes: Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization. See `ebs_volumes` below for more details.
         """
         pulumi.set(__self__, "ebs_volumes", ebs_volumes)
 
@@ -800,8 +775,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> 'outputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes':
         """
-        Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
-        See EBS volumes below for more details.
+        Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization. See `ebs_volumes` below for more details.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -828,8 +802,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
     def __init__(__self__, *,
                  auto_enable: _builtins.bool):
         """
-        :param _builtins.bool auto_enable: If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
-               Defaults to `true`.
+        :param _builtins.bool auto_enable: If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization. Defaults to `true`.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
 
@@ -837,8 +810,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> _builtins.bool:
         """
-        If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
-        Defaults to `true`.
+        If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization. Defaults to `true`.
         """
         return pulumi.get(self, "auto_enable")
 
@@ -901,8 +873,8 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
                  auto_enable: _builtins.str,
                  name: _builtins.str):
         """
-        :param _builtins.str auto_enable: The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        :param _builtins.str name: The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        :param _builtins.str auto_enable: Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+        :param _builtins.str name: Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
         pulumi.set(__self__, "name", name)
@@ -911,7 +883,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> _builtins.str:
         """
-        The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+        Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
         """
         return pulumi.get(self, "auto_enable")
 
@@ -919,7 +891,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 
@@ -932,7 +904,7 @@ class GetDetectorFeatureResult(dict):
                  status: _builtins.str):
         """
         :param Sequence['GetDetectorFeatureAdditionalConfigurationArgs'] additional_configurations: Additional feature configuration.
-        :param _builtins.str name: The name of the detector feature.
+        :param _builtins.str name: Name of the detector feature.
         :param _builtins.str status: Current status of the detector.
         """
         pulumi.set(__self__, "additional_configurations", additional_configurations)
@@ -951,7 +923,7 @@ class GetDetectorFeatureResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the detector feature.
+        Name of the detector feature.
         """
         return pulumi.get(self, "name")
 
@@ -970,7 +942,7 @@ class GetDetectorFeatureAdditionalConfigurationResult(dict):
                  name: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str name: The name of the detector feature.
+        :param _builtins.str name: Name of the detector feature.
         :param _builtins.str status: Current status of the detector.
         """
         pulumi.set(__self__, "name", name)
@@ -980,7 +952,7 @@ class GetDetectorFeatureAdditionalConfigurationResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the detector feature.
+        Name of the detector feature.
         """
         return pulumi.get(self, "name")
 

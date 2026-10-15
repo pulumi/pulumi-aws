@@ -123,15 +123,15 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
     }
 
     /**
-     * The Catalog ID of the table.
+     * Catalog ID of the table.
      */
     declare public readonly catalogId: pulumi.Output<string>;
     /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
+     * Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
      */
     declare public readonly configuration: pulumi.Output<outputs.glue.CatalogTableOptimizerConfiguration>;
     /**
-     * The name of the database in the catalog in which the table resides.
+     * Name of the database in the catalog in which the table resides.
      */
     declare public readonly databaseName: pulumi.Output<string>;
     /**
@@ -139,11 +139,11 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The name of the table.
+     * Name of the table.
      */
     declare public readonly tableName: pulumi.Output<string>;
     /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+     * Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -200,15 +200,15 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
  */
 export interface CatalogTableOptimizerState {
     /**
-     * The Catalog ID of the table.
+     * Catalog ID of the table.
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
+     * Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
      */
     configuration?: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration | undefined>;
     /**
-     * The name of the database in the catalog in which the table resides.
+     * Name of the database in the catalog in which the table resides.
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
@@ -216,11 +216,11 @@ export interface CatalogTableOptimizerState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the table.
+     * Name of the table.
      */
     tableName?: pulumi.Input<string | undefined>;
     /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+     * Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -230,15 +230,15 @@ export interface CatalogTableOptimizerState {
  */
 export interface CatalogTableOptimizerArgs {
     /**
-     * The Catalog ID of the table.
+     * Catalog ID of the table.
      */
     catalogId: pulumi.Input<string>;
     /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
+     * Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
      */
     configuration: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration>;
     /**
-     * The name of the database in the catalog in which the table resides.
+     * Name of the database in the catalog in which the table resides.
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -246,11 +246,11 @@ export interface CatalogTableOptimizerArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the table.
+     * Name of the table.
      */
     tableName: pulumi.Input<string>;
     /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+     * Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      */
     type: pulumi.Input<string>;
 }

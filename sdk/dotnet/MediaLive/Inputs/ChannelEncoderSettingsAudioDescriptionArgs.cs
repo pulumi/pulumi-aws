@@ -13,58 +13,67 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsAudioDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Advanced audio normalization settings. See Audio Normalization Settings for more details.
+        /// Advanced audio normalization settings. See `AudioNormalizationSettings` Block for details.
         /// </summary>
         [Input("audioNormalizationSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs>? AudioNormalizationSettings { get; set; }
 
         /// <summary>
-        /// The name of the audio selector used as the source for this AudioDescription.
+        /// Name of the audio selector used as the source for this audio description.
         /// </summary>
         [Input("audioSelectorName", required: true)]
         public Input<string> AudioSelectorName { get; set; } = null!;
 
         /// <summary>
-        /// Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+        /// Applies only if `AudioTypeControl` is `useConfigured`. Values for `AudioType` are defined in ISO-IEC 13818-1.
         /// </summary>
         [Input("audioType")]
         public Input<string>? AudioType { get; set; }
 
         /// <summary>
-        /// Determined how audio type is determined.
+        /// How audio type is determined.
         /// </summary>
         [Input("audioTypeControl")]
         public Input<string>? AudioTypeControl { get; set; }
 
         /// <summary>
-        /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `AudioWatermarkSettings` Block for details.
         /// </summary>
         [Input("audioWatermarkSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs>? AudioWatermarkSettings { get; set; }
 
         /// <summary>
-        /// Audio codec settings. See Audio Codec Settings for more details.
+        /// Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
         /// </summary>
         [Input("codecSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs>? CodecSettings { get; set; }
 
+        /// <summary>
+        /// ISO 639-2 three-digit code for the language of this audio description.
+        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
+        /// <summary>
+        /// How to handle the audio language code.
+        /// </summary>
         [Input("languageCodeControl")]
         public Input<string>? LanguageCodeControl { get; set; }
 
         /// <summary>
-        /// The name of this audio description.
+        /// Name of this audio description.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Settings to remix the audio. See `RemixSettings` Block for details.
+        /// </summary>
         [Input("remixSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs>? RemixSettings { get; set; }
 
         /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
+        /// Stream name used to identify the audio description.
         /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }

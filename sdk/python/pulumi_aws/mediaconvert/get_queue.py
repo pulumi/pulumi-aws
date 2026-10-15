@@ -50,7 +50,7 @@ class GetQueueResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Arn of the queue.
+        ARN of the queue.
         """
         return pulumi.get(self, "arn")
 
@@ -63,7 +63,7 @@ class GetQueueResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The same as `id`.
+        Same as `id`.
         """
         return pulumi.get(self, "name")
 
@@ -76,7 +76,7 @@ class GetQueueResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the queue.
+        Status of the queue.
         """
         return pulumi.get(self, "status")
 
@@ -84,7 +84,7 @@ class GetQueueResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags")
 
@@ -122,7 +122,7 @@ def get_queue(id: Optional[_builtins.str] = None,
 
     :param _builtins.str id: Unique identifier of the queue. The same as `name`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -157,7 +157,7 @@ def get_queue_output(id: pulumi.Input[Optional[_builtins.str]] = None,
 
     :param _builtins.str id: Unique identifier of the queue. The same as `name`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['id'] = id

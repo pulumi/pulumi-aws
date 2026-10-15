@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     public static class GetNatGateways
     {
         /// <summary>
-        /// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewaysResult>("aws:ec2/getNatGateways:getNatGateways", args ?? new GetNatGatewaysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewaysResult>("aws:ec2/getNatGateways:getNatGateways", args ?? new GetNatGatewaysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the NAT gateway ids found.
+        /// List of all the NAT gateway IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

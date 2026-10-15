@@ -92,28 +92,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/filter:Filter")
 public class Filter extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+     * Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+     * @return Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      * 
      */
     public Output<String> action() {
         return this.action;
     }
     /**
-     * The ARN of the GuardDuty filter.
+     * ARN of the GuardDuty filter.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the GuardDuty filter.
+     * @return ARN of the GuardDuty filter.
      * 
      */
     public Output<String> arn() {
@@ -148,42 +148,42 @@ public class Filter extends com.pulumi.resources.CustomResource {
         return this.detectorId;
     }
     /**
-     * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+     * Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      * 
      */
     @Export(name="findingCriteria", refs={FilterFindingCriteria.class}, tree="[0]")
     private Output<FilterFindingCriteria> findingCriteria;
 
     /**
-     * @return Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+     * @return Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      * 
      */
     public Output<FilterFindingCriteria> findingCriteria() {
         return this.findingCriteria;
     }
     /**
-     * The name of your filter.
+     * Name of your filter.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of your filter.
+     * @return Name of your filter.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+     * Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      * 
      */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output<Integer> rank;
 
     /**
-     * @return Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+     * @return Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      * 
      */
     public Output<Integer> rank() {
@@ -204,28 +204,28 @@ public class Filter extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

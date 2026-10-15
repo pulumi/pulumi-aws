@@ -19,14 +19,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs();
 
     /**
-     * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+     * Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolbyEDecode` Block for details.
      * 
      */
     @Import(name="dolbyEDecode")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs> dolbyEDecode;
 
     /**
-     * @return Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+     * @return Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolbyEDecode` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs>> dolbyEDecode() {
@@ -34,14 +34,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
 
     /**
-     * Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+     * One or more unique audio tracks from within a source. See `tracks` Block for details.
      * 
      */
     @Import(name="tracks", required=true)
     private Output<List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>> tracks;
 
     /**
-     * @return Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+     * @return One or more unique audio tracks from within a source. See `tracks` Block for details.
      * 
      */
     public Output<List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>> tracks() {
@@ -74,7 +74,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param dolbyEDecode Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+         * @param dolbyEDecode Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolbyEDecode` Block for details.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param dolbyEDecode Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+         * @param dolbyEDecode Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolbyEDecode` Block for details.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param tracks Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+         * @param tracks One or more unique audio tracks from within a source. See `tracks` Block for details.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param tracks Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+         * @param tracks One or more unique audio tracks from within a source. See `tracks` Block for details.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param tracks Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+         * @param tracks One or more unique audio tracks from within a source. See `tracks` Block for details.
          * 
          * @return builder
          * 

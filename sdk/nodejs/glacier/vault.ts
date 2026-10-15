@@ -87,24 +87,23 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     * Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
     declare public readonly accessPolicy: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The URI of the vault that was created.
+     * URI of the vault that was created.
      */
     declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+     * Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The notifications for the Vault. Fields documented below.
+     * Notifications for the Vault. See below.
      */
     declare public readonly notification: pulumi.Output<outputs.glacier.VaultNotification | undefined>;
     /**
@@ -112,11 +111,11 @@ export class Vault extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -162,24 +161,23 @@ export class Vault extends pulumi.CustomResource {
  */
 export interface VaultState {
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     * Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
     accessPolicy?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The URI of the vault that was created.
+     * URI of the vault that was created.
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+     * Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The notifications for the Vault. Fields documented below.
+     * Notifications for the Vault. See below.
      */
     notification?: pulumi.Input<inputs.glacier.VaultNotification | undefined>;
     /**
@@ -187,11 +185,11 @@ export interface VaultState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -201,16 +199,15 @@ export interface VaultState {
  */
 export interface VaultArgs {
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     * Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
     accessPolicy?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+     * Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The notifications for the Vault. Fields documented below.
+     * Notifications for the Vault. See below.
      */
     notification?: pulumi.Input<inputs.glacier.VaultNotification | undefined>;
     /**
@@ -218,7 +215,7 @@ export interface VaultArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Usage with subnet id
+ * ### Usage with subnet ID
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

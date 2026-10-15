@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsNielsenConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enter the Distributor ID assigned to your organization by Nielsen.
+        /// Distributor ID assigned to your organization by Nielsen.
         /// </summary>
         [Input("distributorId")]
         public Input<string>? DistributorId { get; set; }

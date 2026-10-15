@@ -19,37 +19,77 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs();
 
+    /**
+     * Akamai settings. See `hlsAkamaiSettings` Block for details.
+     * 
+     */
     @Import(name="hlsAkamaiSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs> hlsAkamaiSettings;
 
+    /**
+     * @return Akamai settings. See `hlsAkamaiSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs>> hlsAkamaiSettings() {
         return Optional.ofNullable(this.hlsAkamaiSettings);
     }
 
+    /**
+     * Basic put settings. See `hlsBasicPutSettings` Block for details.
+     * 
+     */
     @Import(name="hlsBasicPutSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs> hlsBasicPutSettings;
 
+    /**
+     * @return Basic put settings. See `hlsBasicPutSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs>> hlsBasicPutSettings() {
         return Optional.ofNullable(this.hlsBasicPutSettings);
     }
 
+    /**
+     * Media store settings. See `hlsMediaStoreSettings` Block for details.
+     * 
+     */
     @Import(name="hlsMediaStoreSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs> hlsMediaStoreSettings;
 
+    /**
+     * @return Media store settings. See `hlsMediaStoreSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs>> hlsMediaStoreSettings() {
         return Optional.ofNullable(this.hlsMediaStoreSettings);
     }
 
+    /**
+     * S3 settings. See `hlsS3Settings` Block for details.
+     * 
+     */
     @Import(name="hlsS3Settings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs> hlsS3Settings;
 
+    /**
+     * @return S3 settings. See `hlsS3Settings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs>> hlsS3Settings() {
         return Optional.ofNullable(this.hlsS3Settings);
     }
 
+    /**
+     * WebDAV settings. See `hlsWebdavSettings` Block for details.
+     * 
+     */
     @Import(name="hlsWebdavSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs> hlsWebdavSettings;
 
+    /**
+     * @return WebDAV settings. See `hlsWebdavSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs>> hlsWebdavSettings() {
         return Optional.ofNullable(this.hlsWebdavSettings);
     }
@@ -82,47 +122,107 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hlsAkamaiSettings Akamai settings. See `hlsAkamaiSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsAkamaiSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs> hlsAkamaiSettings) {
             $.hlsAkamaiSettings = hlsAkamaiSettings;
             return this;
         }
 
+        /**
+         * @param hlsAkamaiSettings Akamai settings. See `hlsAkamaiSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsAkamaiSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs hlsAkamaiSettings) {
             return hlsAkamaiSettings(Output.of(hlsAkamaiSettings));
         }
 
+        /**
+         * @param hlsBasicPutSettings Basic put settings. See `hlsBasicPutSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsBasicPutSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs> hlsBasicPutSettings) {
             $.hlsBasicPutSettings = hlsBasicPutSettings;
             return this;
         }
 
+        /**
+         * @param hlsBasicPutSettings Basic put settings. See `hlsBasicPutSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsBasicPutSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs hlsBasicPutSettings) {
             return hlsBasicPutSettings(Output.of(hlsBasicPutSettings));
         }
 
+        /**
+         * @param hlsMediaStoreSettings Media store settings. See `hlsMediaStoreSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsMediaStoreSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs> hlsMediaStoreSettings) {
             $.hlsMediaStoreSettings = hlsMediaStoreSettings;
             return this;
         }
 
+        /**
+         * @param hlsMediaStoreSettings Media store settings. See `hlsMediaStoreSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsMediaStoreSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs hlsMediaStoreSettings) {
             return hlsMediaStoreSettings(Output.of(hlsMediaStoreSettings));
         }
 
+        /**
+         * @param hlsS3Settings S3 settings. See `hlsS3Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsS3Settings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs> hlsS3Settings) {
             $.hlsS3Settings = hlsS3Settings;
             return this;
         }
 
+        /**
+         * @param hlsS3Settings S3 settings. See `hlsS3Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsS3Settings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs hlsS3Settings) {
             return hlsS3Settings(Output.of(hlsS3Settings));
         }
 
+        /**
+         * @param hlsWebdavSettings WebDAV settings. See `hlsWebdavSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsWebdavSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs> hlsWebdavSettings) {
             $.hlsWebdavSettings = hlsWebdavSettings;
             return this;
         }
 
+        /**
+         * @param hlsWebdavSettings WebDAV settings. See `hlsWebdavSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsWebdavSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs hlsWebdavSettings) {
             return hlsWebdavSettings(Output.of(hlsWebdavSettings));
         }

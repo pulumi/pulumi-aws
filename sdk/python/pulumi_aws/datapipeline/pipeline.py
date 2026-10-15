@@ -203,7 +203,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `datapipeline.Pipeline` using the id (Pipeline ID). For example:
+        Using `pulumi import`, import `datapipeline.Pipeline` using the ID (Pipeline ID). For example:
 
         ```sh
         $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
@@ -237,7 +237,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `datapipeline.Pipeline` using the id (Pipeline ID). For example:
+        Using `pulumi import`, import `datapipeline.Pipeline` using the ID (Pipeline ID). For example:
 
         ```sh
         $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890

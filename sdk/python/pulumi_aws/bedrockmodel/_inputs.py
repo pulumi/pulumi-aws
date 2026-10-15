@@ -332,11 +332,11 @@ class InvocationLoggingConfigurationLoggingConfigArgsDict(TypedDict):
     """
     embedding_data_delivery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Set to include embeddings data in the log delivery. Defaults to `true`.
+    Whether to include embeddings data in the log delivery. Defaults to `true`.
     """
     image_data_delivery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Set to include image data in the log delivery. Defaults to `true`.
+    Whether to include image data in the log delivery. Defaults to `true`.
     """
     s3_config: NotRequired[pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict']]]
     """
@@ -344,11 +344,11 @@ class InvocationLoggingConfigurationLoggingConfigArgsDict(TypedDict):
     """
     text_data_delivery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Set to include text data in the log delivery. Defaults to `true`.
+    Whether to include text data in the log delivery. Defaults to `true`.
     """
     video_data_delivery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Set to include text data in the log delivery. Defaults to `true`.
+    Whether to include video data in the log delivery. Defaults to `true`.
     """
 
 @pulumi.input_type
@@ -362,11 +362,11 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
                  video_data_delivery_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs'] cloudwatch_config: CloudWatch logging configuration. See `cloudwatch_config` Block for details.
-        :param pulumi.Input[_builtins.bool] embedding_data_delivery_enabled: Set to include embeddings data in the log delivery. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] image_data_delivery_enabled: Set to include image data in the log delivery. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] embedding_data_delivery_enabled: Whether to include embeddings data in the log delivery. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] image_data_delivery_enabled: Whether to include image data in the log delivery. Defaults to `true`.
         :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigS3ConfigArgs'] s3_config: S3 configuration for storing log data. See `s3_config` Block for details.
-        :param pulumi.Input[_builtins.bool] text_data_delivery_enabled: Set to include text data in the log delivery. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] video_data_delivery_enabled: Set to include text data in the log delivery. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] text_data_delivery_enabled: Whether to include text data in the log delivery. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] video_data_delivery_enabled: Whether to include video data in the log delivery. Defaults to `true`.
         """
         if cloudwatch_config is not None:
             pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
@@ -397,7 +397,7 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
     @pulumi.getter(name="embeddingDataDeliveryEnabled")
     def embedding_data_delivery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to include embeddings data in the log delivery. Defaults to `true`.
+        Whether to include embeddings data in the log delivery. Defaults to `true`.
         """
         return pulumi.get(self, "embedding_data_delivery_enabled")
 
@@ -409,7 +409,7 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
     @pulumi.getter(name="imageDataDeliveryEnabled")
     def image_data_delivery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to include image data in the log delivery. Defaults to `true`.
+        Whether to include image data in the log delivery. Defaults to `true`.
         """
         return pulumi.get(self, "image_data_delivery_enabled")
 
@@ -433,7 +433,7 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
     @pulumi.getter(name="textDataDeliveryEnabled")
     def text_data_delivery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to include text data in the log delivery. Defaults to `true`.
+        Whether to include text data in the log delivery. Defaults to `true`.
         """
         return pulumi.get(self, "text_data_delivery_enabled")
 
@@ -445,7 +445,7 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
     @pulumi.getter(name="videoDataDeliveryEnabled")
     def video_data_delivery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to include text data in the log delivery. Defaults to `true`.
+        Whether to include video data in the log delivery. Defaults to `true`.
         """
         return pulumi.get(self, "video_data_delivery_enabled")
 

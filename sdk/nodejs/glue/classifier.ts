@@ -117,19 +117,19 @@ export class Classifier extends pulumi.CustomResource {
     }
 
     /**
-     * A classifier for CSV content. Defined below.
+     * Classifier for CSV content. Defined below.
      */
     declare public readonly csvClassifier: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
     /**
-     * A classifier that uses grok patterns. Defined below.
+     * Classifier that uses grok patterns. Defined below.
      */
     declare public readonly grokClassifier: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
     /**
-     * A classifier for JSON content. Defined below.
+     * Classifier for JSON content. Defined below.
      */
     declare public readonly jsonClassifier: pulumi.Output<outputs.glue.ClassifierJsonClassifier | undefined>;
     /**
-     * The name of the classifier.
+     * Name of the classifier.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export class Classifier extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A classifier for XML content. Defined below.
+     * Classifier for XML content. Defined below.
      */
     declare public readonly xmlClassifier: pulumi.Output<outputs.glue.ClassifierXmlClassifier | undefined>;
 
@@ -179,19 +179,19 @@ export class Classifier extends pulumi.CustomResource {
  */
 export interface ClassifierState {
     /**
-     * A classifier for CSV content. Defined below.
+     * Classifier for CSV content. Defined below.
      */
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier | undefined>;
     /**
-     * A classifier that uses grok patterns. Defined below.
+     * Classifier that uses grok patterns. Defined below.
      */
     grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier | undefined>;
     /**
-     * A classifier for JSON content. Defined below.
+     * Classifier for JSON content. Defined below.
      */
     jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier | undefined>;
     /**
-     * The name of the classifier.
+     * Name of the classifier.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface ClassifierState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A classifier for XML content. Defined below.
+     * Classifier for XML content. Defined below.
      */
     xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier | undefined>;
 }
@@ -209,19 +209,19 @@ export interface ClassifierState {
  */
 export interface ClassifierArgs {
     /**
-     * A classifier for CSV content. Defined below.
+     * Classifier for CSV content. Defined below.
      */
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier | undefined>;
     /**
-     * A classifier that uses grok patterns. Defined below.
+     * Classifier that uses grok patterns. Defined below.
      */
     grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier | undefined>;
     /**
-     * A classifier for JSON content. Defined below.
+     * Classifier for JSON content. Defined below.
      */
     jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier | undefined>;
     /**
-     * The name of the classifier.
+     * Name of the classifier.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface ClassifierArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A classifier for XML content. Defined below.
+     * Classifier for XML content. Defined below.
      */
     xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier | undefined>;
 }

@@ -49,14 +49,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
-     * Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
      * 
      */
     @Import(name="parsingStrategy", required=true)
     private Output<String> parsingStrategy;
 
     /**
-     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
      * 
      */
     public Output<String> parsingStrategy() {
@@ -132,7 +132,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingStrategy Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+         * @param parsingStrategy Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingStrategy Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+         * @param parsingStrategy Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
          * 
          * @return builder
          * 

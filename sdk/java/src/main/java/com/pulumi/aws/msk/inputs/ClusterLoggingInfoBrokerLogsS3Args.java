@@ -32,9 +32,17 @@ public final class ClusterLoggingInfoBrokerLogsS3Args extends com.pulumi.resourc
         return Optional.ofNullable(this.bucket);
     }
 
+    /**
+     * Whether to enable or disable streaming broker logs to S3.
+     * 
+     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
+    /**
+     * @return Whether to enable or disable streaming broker logs to S3.
+     * 
+     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -101,11 +109,23 @@ public final class ClusterLoggingInfoBrokerLogsS3Args extends com.pulumi.resourc
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param enabled Whether to enable or disable streaming broker logs to S3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether to enable or disable streaming broker logs to S3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

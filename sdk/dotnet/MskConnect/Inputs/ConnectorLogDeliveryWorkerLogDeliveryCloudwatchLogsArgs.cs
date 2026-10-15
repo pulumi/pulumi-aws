@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The name of the CloudWatch log group that is the destination for log delivery.
+        /// Name of the CloudWatch log group that is the destination for log delivery.
         /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }

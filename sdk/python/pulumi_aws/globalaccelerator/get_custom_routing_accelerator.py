@@ -67,21 +67,33 @@ class GetCustomRoutingAcceleratorResult:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Sequence['outputs.GetCustomRoutingAcceleratorAttributeResult']:
+        """
+        Attributes of the accelerator. See `attributes` below.
+        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
+        """
+        DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
+        """
+        Whether the accelerator is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
+        """
+        Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @_builtins.property
@@ -95,11 +107,17 @@ class GetCustomRoutingAcceleratorResult:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> _builtins.str:
+        """
+        Value for the address type.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="ipSets")
     def ip_sets(self) -> Sequence['outputs.GetCustomRoutingAcceleratorIpSetResult']:
+        """
+        IP address set associated with the accelerator. See `ip_sets` below.
+        """
         return pulumi.get(self, "ip_sets")
 
     @_builtins.property
@@ -110,6 +128,9 @@ class GetCustomRoutingAcceleratorResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -160,6 +181,7 @@ def get_custom_routing_accelerator(arn: Optional[_builtins.str] = None,
     :param _builtins.str name: Unique name of the custom routing accelerator.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -208,6 +230,7 @@ def get_custom_routing_accelerator_output(arn: pulumi.Input[Optional[Optional[_b
     :param _builtins.str name: Unique name of the custom routing accelerator.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

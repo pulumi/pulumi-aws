@@ -14,24 +14,60 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
+    /**
+     * @return Identifier used to associate the segments between the output and the ingest server.
+     * 
+     */
     private @Nullable String acquisitionPointId;
+    /**
+     * @return Whether to put a timecode in the single video track of an audio-only output.
+     * 
+     */
     private @Nullable String audioOnlyTimecodeControl;
     /**
-     * @return Setting to allow self signed or verified RTMP certificates.
+     * @return When set to `selfSigned`, accepts self-signed certificates from the destination server.
      * 
      */
     private @Nullable String certificateMode;
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the server if the connection is lost.
      * 
      */
     private @Nullable Integer connectionRetryInterval;
+    /**
+     * @return Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+     * 
+     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
+    /**
+     * @return Microsoft Smooth channel ID that is sent to the IIS server.
+     * 
+     */
     private @Nullable String eventId;
+    /**
+     * @return How the event ID is generated.
+     * 
+     */
     private @Nullable String eventIdMode;
+    /**
+     * @return When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+     * 
+     */
     private @Nullable String eventStopBehavior;
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     private @Nullable Integer filecacheDuration;
+    /**
+     * @return Length, in seconds, of mp4 fragments to generate.
+     * 
+     */
     private @Nullable Integer fragmentLength;
+    /**
+     * @return Parameter that controls output group behavior on an input loss.
+     * 
+     */
     private @Nullable String inputLossAction;
     /**
      * @return Number of retry attempts.
@@ -43,52 +79,112 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
      * 
      */
     private @Nullable Integer restartDelay;
+    /**
+     * @return When set to `useInputSegmentation`, segmentation markers from the input are used.
+     * 
+     */
     private @Nullable String segmentationMode;
+    /**
+     * @return Number of milliseconds to delay the output from the second pipeline.
+     * 
+     */
     private @Nullable Integer sendDelayMs;
+    /**
+     * @return Type of the sparse track that carries timed metadata.
+     * 
+     */
     private @Nullable String sparseTrackType;
+    /**
+     * @return When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+     * 
+     */
     private @Nullable String streamManifestBehavior;
+    /**
+     * @return Timestamp offset for the event.
+     * 
+     */
     private @Nullable String timestampOffset;
+    /**
+     * @return Type of timestamp date offset to use.
+     * 
+     */
     private @Nullable String timestampOffsetMode;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings() {}
+    /**
+     * @return Identifier used to associate the segments between the output and the ingest server.
+     * 
+     */
     public Optional<String> acquisitionPointId() {
         return Optional.ofNullable(this.acquisitionPointId);
     }
+    /**
+     * @return Whether to put a timecode in the single video track of an audio-only output.
+     * 
+     */
     public Optional<String> audioOnlyTimecodeControl() {
         return Optional.ofNullable(this.audioOnlyTimecodeControl);
     }
     /**
-     * @return Setting to allow self signed or verified RTMP certificates.
+     * @return When set to `selfSigned`, accepts self-signed certificates from the destination server.
      * 
      */
     public Optional<String> certificateMode() {
         return Optional.ofNullable(this.certificateMode);
     }
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the server if the connection is lost.
      * 
      */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
+    /**
+     * @return Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+     * 
+     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination() {
         return this.destination;
     }
+    /**
+     * @return Microsoft Smooth channel ID that is sent to the IIS server.
+     * 
+     */
     public Optional<String> eventId() {
         return Optional.ofNullable(this.eventId);
     }
+    /**
+     * @return How the event ID is generated.
+     * 
+     */
     public Optional<String> eventIdMode() {
         return Optional.ofNullable(this.eventIdMode);
     }
+    /**
+     * @return When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+     * 
+     */
     public Optional<String> eventStopBehavior() {
         return Optional.ofNullable(this.eventStopBehavior);
     }
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     public Optional<Integer> filecacheDuration() {
         return Optional.ofNullable(this.filecacheDuration);
     }
+    /**
+     * @return Length, in seconds, of mp4 fragments to generate.
+     * 
+     */
     public Optional<Integer> fragmentLength() {
         return Optional.ofNullable(this.fragmentLength);
     }
+    /**
+     * @return Parameter that controls output group behavior on an input loss.
+     * 
+     */
     public Optional<String> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
@@ -106,21 +202,45 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public Optional<Integer> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }
+    /**
+     * @return When set to `useInputSegmentation`, segmentation markers from the input are used.
+     * 
+     */
     public Optional<String> segmentationMode() {
         return Optional.ofNullable(this.segmentationMode);
     }
+    /**
+     * @return Number of milliseconds to delay the output from the second pipeline.
+     * 
+     */
     public Optional<Integer> sendDelayMs() {
         return Optional.ofNullable(this.sendDelayMs);
     }
+    /**
+     * @return Type of the sparse track that carries timed metadata.
+     * 
+     */
     public Optional<String> sparseTrackType() {
         return Optional.ofNullable(this.sparseTrackType);
     }
+    /**
+     * @return When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+     * 
+     */
     public Optional<String> streamManifestBehavior() {
         return Optional.ofNullable(this.streamManifestBehavior);
     }
+    /**
+     * @return Timestamp offset for the event.
+     * 
+     */
     public Optional<String> timestampOffset() {
         return Optional.ofNullable(this.timestampOffset);
     }
+    /**
+     * @return Type of timestamp date offset to use.
+     * 
+     */
     public Optional<String> timestampOffsetMode() {
         return Optional.ofNullable(this.timestampOffsetMode);
     }

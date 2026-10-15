@@ -77,14 +77,14 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
     @Import(name="caCertificatesBundleS3ObjectVersion")
     private @Nullable Output<String> caCertificatesBundleS3ObjectVersion;
 
     /**
-     * @return Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * @return Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
     public Optional<Output<String>> caCertificatesBundleS3ObjectVersion() {
@@ -284,7 +284,7 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param caCertificatesBundleS3ObjectVersion Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+         * @param caCertificatesBundleS3ObjectVersion Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param caCertificatesBundleS3ObjectVersion Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+         * @param caCertificatesBundleS3ObjectVersion Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
          * 
          * @return builder
          * 

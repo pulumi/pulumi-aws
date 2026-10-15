@@ -508,6 +508,12 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
+        /// Monetization configuration for the rule group. Required when any rule uses the `Monetize` action. See `MonetizationConfig` below for details.
+        /// </summary>
+        [Output("monetizationConfig")]
+        public Output<Outputs.RuleGroupMonetizationConfig?> MonetizationConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Friendly name of the rule group.
         /// </summary>
         [Output("name")]
@@ -632,6 +638,12 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Monetization configuration for the rule group. Required when any rule uses the `Monetize` action. See `MonetizationConfig` below for details.
+        /// </summary>
+        [Input("monetizationConfig")]
+        public Input<Inputs.RuleGroupMonetizationConfigArgs>? MonetizationConfig { get; set; }
+
+        /// <summary>
         /// Friendly name of the rule group.
         /// </summary>
         [Input("name")]
@@ -731,6 +743,12 @@ namespace Pulumi.Aws.WafV2
 
         [Input("lockToken")]
         public Input<string>? LockToken { get; set; }
+
+        /// <summary>
+        /// Monetization configuration for the rule group. Required when any rule uses the `Monetize` action. See `MonetizationConfig` below for details.
+        /// </summary>
+        [Input("monetizationConfig")]
+        public Input<Inputs.RuleGroupMonetizationConfigGetArgs>? MonetizationConfig { get; set; }
 
         /// <summary>
         /// Friendly name of the rule group.

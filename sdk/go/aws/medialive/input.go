@@ -87,36 +87,36 @@ type Input struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Channels attached to Input.
 	AttachedChannels pulumi.StringArrayOutput `pulumi:"attachedChannels"`
-	// Destination settings for PUSH type inputs. See Destinations for more details.
+	// Destination settings for PUSH type inputs. See `destinations` Block for more details.
 	Destinations InputDestinationArrayOutput `pulumi:"destinations"`
-	// The input class.
+	// Input class.
 	InputClass pulumi.StringOutput `pulumi:"inputClass"`
-	// Settings for the devices. See Input Devices for more details.
+	// Settings for the devices. See `inputDevices` Block for more details.
 	InputDevices InputInputDeviceArrayOutput `pulumi:"inputDevices"`
-	// A list of IDs for all Inputs which are partners of this one.
+	// IDs for all Inputs which are partners of this one.
 	InputPartnerIds pulumi.StringArrayOutput `pulumi:"inputPartnerIds"`
 	// List of input security groups.
 	InputSecurityGroups pulumi.StringArrayOutput `pulumi:"inputSecurityGroups"`
 	// Source type of the input.
 	InputSourceType pulumi.StringOutput `pulumi:"inputSourceType"`
-	// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+	// MediaConnect Flows. See `mediaConnectFlows` Block for more details.
 	MediaConnectFlows InputMediaConnectFlowArrayOutput `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ARN of the role this input assumes during and after creation.
+	// ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The source URLs for a PULL-type input. See Sources for more details.
+	// Source URLs for a PULL-type input. See `sources` Block for more details.
 	Sources InputSourceArrayOutput `pulumi:"sources"`
-	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The different types of inputs that AWS Elemental MediaLive supports.
+	// Type of input that AWS Elemental MediaLive supports.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Settings for a private VPC Input. See VPC for more details.
+	// Settings for a private VPC Input. See `vpc` Block for more details.
 	Vpc InputVpcPtrOutput `pulumi:"vpc"`
 }
 
@@ -157,36 +157,36 @@ type inputState struct {
 	Arn *string `pulumi:"arn"`
 	// Channels attached to Input.
 	AttachedChannels []string `pulumi:"attachedChannels"`
-	// Destination settings for PUSH type inputs. See Destinations for more details.
+	// Destination settings for PUSH type inputs. See `destinations` Block for more details.
 	Destinations []InputDestination `pulumi:"destinations"`
-	// The input class.
+	// Input class.
 	InputClass *string `pulumi:"inputClass"`
-	// Settings for the devices. See Input Devices for more details.
+	// Settings for the devices. See `inputDevices` Block for more details.
 	InputDevices []InputInputDevice `pulumi:"inputDevices"`
-	// A list of IDs for all Inputs which are partners of this one.
+	// IDs for all Inputs which are partners of this one.
 	InputPartnerIds []string `pulumi:"inputPartnerIds"`
 	// List of input security groups.
 	InputSecurityGroups []string `pulumi:"inputSecurityGroups"`
 	// Source type of the input.
 	InputSourceType *string `pulumi:"inputSourceType"`
-	// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+	// MediaConnect Flows. See `mediaConnectFlows` Block for more details.
 	MediaConnectFlows []InputMediaConnectFlow `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ARN of the role this input assumes during and after creation.
+	// ARN of the role this input assumes during and after creation.
 	RoleArn *string `pulumi:"roleArn"`
-	// The source URLs for a PULL-type input. See Sources for more details.
+	// Source URLs for a PULL-type input. See `sources` Block for more details.
 	Sources []InputSource `pulumi:"sources"`
-	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The different types of inputs that AWS Elemental MediaLive supports.
+	// Type of input that AWS Elemental MediaLive supports.
 	//
 	// The following arguments are optional:
 	Type *string `pulumi:"type"`
-	// Settings for a private VPC Input. See VPC for more details.
+	// Settings for a private VPC Input. See `vpc` Block for more details.
 	Vpc *InputVpc `pulumi:"vpc"`
 }
 
@@ -195,36 +195,36 @@ type InputState struct {
 	Arn pulumi.StringPtrInput
 	// Channels attached to Input.
 	AttachedChannels pulumi.StringArrayInput
-	// Destination settings for PUSH type inputs. See Destinations for more details.
+	// Destination settings for PUSH type inputs. See `destinations` Block for more details.
 	Destinations InputDestinationArrayInput
-	// The input class.
+	// Input class.
 	InputClass pulumi.StringPtrInput
-	// Settings for the devices. See Input Devices for more details.
+	// Settings for the devices. See `inputDevices` Block for more details.
 	InputDevices InputInputDeviceArrayInput
-	// A list of IDs for all Inputs which are partners of this one.
+	// IDs for all Inputs which are partners of this one.
 	InputPartnerIds pulumi.StringArrayInput
 	// List of input security groups.
 	InputSecurityGroups pulumi.StringArrayInput
 	// Source type of the input.
 	InputSourceType pulumi.StringPtrInput
-	// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+	// MediaConnect Flows. See `mediaConnectFlows` Block for more details.
 	MediaConnectFlows InputMediaConnectFlowArrayInput
 	// Name of the input.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ARN of the role this input assumes during and after creation.
+	// ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringPtrInput
-	// The source URLs for a PULL-type input. See Sources for more details.
+	// Source URLs for a PULL-type input. See `sources` Block for more details.
 	Sources InputSourceArrayInput
-	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// The different types of inputs that AWS Elemental MediaLive supports.
+	// Type of input that AWS Elemental MediaLive supports.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringPtrInput
-	// Settings for a private VPC Input. See VPC for more details.
+	// Settings for a private VPC Input. See `vpc` Block for more details.
 	Vpc InputVpcPtrInput
 }
 
@@ -233,57 +233,57 @@ func (InputState) ElementType() reflect.Type {
 }
 
 type inputArgs struct {
-	// Destination settings for PUSH type inputs. See Destinations for more details.
+	// Destination settings for PUSH type inputs. See `destinations` Block for more details.
 	Destinations []InputDestination `pulumi:"destinations"`
-	// Settings for the devices. See Input Devices for more details.
+	// Settings for the devices. See `inputDevices` Block for more details.
 	InputDevices []InputInputDevice `pulumi:"inputDevices"`
 	// List of input security groups.
 	InputSecurityGroups []string `pulumi:"inputSecurityGroups"`
-	// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+	// MediaConnect Flows. See `mediaConnectFlows` Block for more details.
 	MediaConnectFlows []InputMediaConnectFlow `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ARN of the role this input assumes during and after creation.
+	// ARN of the role this input assumes during and after creation.
 	RoleArn *string `pulumi:"roleArn"`
-	// The source URLs for a PULL-type input. See Sources for more details.
+	// Source URLs for a PULL-type input. See `sources` Block for more details.
 	Sources []InputSource `pulumi:"sources"`
-	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The different types of inputs that AWS Elemental MediaLive supports.
+	// Type of input that AWS Elemental MediaLive supports.
 	//
 	// The following arguments are optional:
 	Type string `pulumi:"type"`
-	// Settings for a private VPC Input. See VPC for more details.
+	// Settings for a private VPC Input. See `vpc` Block for more details.
 	Vpc *InputVpc `pulumi:"vpc"`
 }
 
 // The set of arguments for constructing a Input resource.
 type InputArgs struct {
-	// Destination settings for PUSH type inputs. See Destinations for more details.
+	// Destination settings for PUSH type inputs. See `destinations` Block for more details.
 	Destinations InputDestinationArrayInput
-	// Settings for the devices. See Input Devices for more details.
+	// Settings for the devices. See `inputDevices` Block for more details.
 	InputDevices InputInputDeviceArrayInput
 	// List of input security groups.
 	InputSecurityGroups pulumi.StringArrayInput
-	// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+	// MediaConnect Flows. See `mediaConnectFlows` Block for more details.
 	MediaConnectFlows InputMediaConnectFlowArrayInput
 	// Name of the input.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ARN of the role this input assumes during and after creation.
+	// ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringPtrInput
-	// The source URLs for a PULL-type input. See Sources for more details.
+	// Source URLs for a PULL-type input. See `sources` Block for more details.
 	Sources InputSourceArrayInput
-	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The different types of inputs that AWS Elemental MediaLive supports.
+	// Type of input that AWS Elemental MediaLive supports.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringInput
-	// Settings for a private VPC Input. See VPC for more details.
+	// Settings for a private VPC Input. See `vpc` Block for more details.
 	Vpc InputVpcPtrInput
 }
 
@@ -384,22 +384,22 @@ func (o InputOutput) AttachedChannels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringArrayOutput { return v.AttachedChannels }).(pulumi.StringArrayOutput)
 }
 
-// Destination settings for PUSH type inputs. See Destinations for more details.
+// Destination settings for PUSH type inputs. See `destinations` Block for more details.
 func (o InputOutput) Destinations() InputDestinationArrayOutput {
 	return o.ApplyT(func(v *Input) InputDestinationArrayOutput { return v.Destinations }).(InputDestinationArrayOutput)
 }
 
-// The input class.
+// Input class.
 func (o InputOutput) InputClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.InputClass }).(pulumi.StringOutput)
 }
 
-// Settings for the devices. See Input Devices for more details.
+// Settings for the devices. See `inputDevices` Block for more details.
 func (o InputOutput) InputDevices() InputInputDeviceArrayOutput {
 	return o.ApplyT(func(v *Input) InputInputDeviceArrayOutput { return v.InputDevices }).(InputInputDeviceArrayOutput)
 }
 
-// A list of IDs for all Inputs which are partners of this one.
+// IDs for all Inputs which are partners of this one.
 func (o InputOutput) InputPartnerIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringArrayOutput { return v.InputPartnerIds }).(pulumi.StringArrayOutput)
 }
@@ -414,7 +414,7 @@ func (o InputOutput) InputSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.InputSourceType }).(pulumi.StringOutput)
 }
 
-// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+// MediaConnect Flows. See `mediaConnectFlows` Block for more details.
 func (o InputOutput) MediaConnectFlows() InputMediaConnectFlowArrayOutput {
 	return o.ApplyT(func(v *Input) InputMediaConnectFlowArrayOutput { return v.MediaConnectFlows }).(InputMediaConnectFlowArrayOutput)
 }
@@ -429,17 +429,17 @@ func (o InputOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the role this input assumes during and after creation.
+// ARN of the role this input assumes during and after creation.
 func (o InputOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The source URLs for a PULL-type input. See Sources for more details.
+// Source URLs for a PULL-type input. See `sources` Block for more details.
 func (o InputOutput) Sources() InputSourceArrayOutput {
 	return o.ApplyT(func(v *Input) InputSourceArrayOutput { return v.Sources }).(InputSourceArrayOutput)
 }
 
-// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InputOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -448,14 +448,14 @@ func (o InputOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The different types of inputs that AWS Elemental MediaLive supports.
+// Type of input that AWS Elemental MediaLive supports.
 //
 // The following arguments are optional:
 func (o InputOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Settings for a private VPC Input. See VPC for more details.
+// Settings for a private VPC Input. See `vpc` Block for more details.
 func (o InputOutput) Vpc() InputVpcPtrOutput {
 	return o.ApplyT(func(v *Input) InputVpcPtrOutput { return v.Vpc }).(InputVpcPtrOutput)
 }

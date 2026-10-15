@@ -69,23 +69,23 @@ export class Schema extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+     * Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      */
     declare public readonly compatibility: pulumi.Output<string>;
     /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+     * Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      */
     declare public readonly dataFormat: pulumi.Output<string>;
     /**
-     * A description of the schema.
+     * Description of the schema.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The latest version of the schema associated with the returned schema definition.
+     * Latest version of the schema associated with the returned schema definition.
      */
     declare public /*out*/ readonly latestSchemaVersion: pulumi.Output<number>;
     /**
-     * The next version of the schema associated with the returned schema definition.
+     * Next version of the schema associated with the returned schema definition.
      */
     declare public /*out*/ readonly nextSchemaVersion: pulumi.Output<number>;
     /**
@@ -93,23 +93,23 @@ export class Schema extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ARN of the Glue Registry to create the schema in.
+     * ARN of the Glue Registry to create the schema in.
      */
     declare public readonly registryArn: pulumi.Output<string>;
     /**
-     * The name of the Glue Registry.
+     * Name of the Glue Registry.
      */
     declare public /*out*/ readonly registryName: pulumi.Output<string>;
     /**
-     * The version number of the checkpoint (the last time the compatibility mode was changed).
+     * Version number of the checkpoint (the last time the compatibility mode was changed).
      */
     declare public /*out*/ readonly schemaCheckpoint: pulumi.Output<number>;
     /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
+     * Schema definition using the `dataFormat` setting for `schemaName`.
      */
     declare public readonly schemaDefinition: pulumi.Output<string>;
     /**
-     * The Name of the schema.
+     * Name of the schema.
      */
     declare public readonly schemaName: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class Schema extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -191,23 +191,23 @@ export interface SchemaState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+     * Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      */
     compatibility?: pulumi.Input<string | undefined>;
     /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+     * Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      */
     dataFormat?: pulumi.Input<string | undefined>;
     /**
-     * A description of the schema.
+     * Description of the schema.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The latest version of the schema associated with the returned schema definition.
+     * Latest version of the schema associated with the returned schema definition.
      */
     latestSchemaVersion?: pulumi.Input<number | undefined>;
     /**
-     * The next version of the schema associated with the returned schema definition.
+     * Next version of the schema associated with the returned schema definition.
      */
     nextSchemaVersion?: pulumi.Input<number | undefined>;
     /**
@@ -215,23 +215,23 @@ export interface SchemaState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the Glue Registry to create the schema in.
+     * ARN of the Glue Registry to create the schema in.
      */
     registryArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Glue Registry.
+     * Name of the Glue Registry.
      */
     registryName?: pulumi.Input<string | undefined>;
     /**
-     * The version number of the checkpoint (the last time the compatibility mode was changed).
+     * Version number of the checkpoint (the last time the compatibility mode was changed).
      */
     schemaCheckpoint?: pulumi.Input<number | undefined>;
     /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
+     * Schema definition using the `dataFormat` setting for `schemaName`.
      */
     schemaDefinition?: pulumi.Input<string | undefined>;
     /**
-     * The Name of the schema.
+     * Name of the schema.
      */
     schemaName?: pulumi.Input<string | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface SchemaState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -249,15 +249,15 @@ export interface SchemaState {
  */
 export interface SchemaArgs {
     /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+     * Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      */
     compatibility: pulumi.Input<string>;
     /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+     * Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      */
     dataFormat: pulumi.Input<string>;
     /**
-     * A description of the schema.
+     * Description of the schema.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -265,15 +265,15 @@ export interface SchemaArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the Glue Registry to create the schema in.
+     * ARN of the Glue Registry to create the schema in.
      */
     registryArn?: pulumi.Input<string | undefined>;
     /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
+     * Schema definition using the `dataFormat` setting for `schemaName`.
      */
     schemaDefinition: pulumi.Input<string>;
     /**
-     * The Name of the schema.
+     * Name of the schema.
      */
     schemaName: pulumi.Input<string>;
     /**

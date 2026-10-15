@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+// `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
 //
 // ## Example Usage
 //

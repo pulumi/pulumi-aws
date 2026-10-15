@@ -16,14 +16,14 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
     public static final MainRouteTableAssociationState Empty = new MainRouteTableAssociationState();
 
     /**
-     * Used internally, see **Notes** below
+     * Original route table ID, used internally; see __Notes__ below
      * 
      */
     @Import(name="originalRouteTableId")
     private @Nullable Output<String> originalRouteTableId;
 
     /**
-     * @return Used internally, see **Notes** below
+     * @return Original route table ID, used internally; see __Notes__ below
      * 
      */
     public Optional<Output<String>> originalRouteTableId() {
@@ -46,16 +46,14 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * ID of the Route Table to set as the new main route table for the target VPC
      * 
      */
     @Import(name="routeTableId")
     private @Nullable Output<String> routeTableId;
 
     /**
-     * @return The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * @return ID of the Route Table to set as the new main route table for the target VPC
      * 
      */
     public Optional<Output<String>> routeTableId() {
@@ -63,14 +61,14 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the VPC whose main route table should be set
+     * ID of the VPC whose main route table should be set
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC whose main route table should be set
+     * @return ID of the VPC whose main route table should be set
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -105,7 +103,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param originalRouteTableId Used internally, see **Notes** below
+         * @param originalRouteTableId Original route table ID, used internally; see __Notes__ below
          * 
          * @return builder
          * 
@@ -116,7 +114,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param originalRouteTableId Used internally, see **Notes** below
+         * @param originalRouteTableId Original route table ID, used internally; see __Notes__ below
          * 
          * @return builder
          * 
@@ -147,8 +145,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeTableId The ID of the Route Table to set as the new
-         * main route table for the target VPC
+         * @param routeTableId ID of the Route Table to set as the new main route table for the target VPC
          * 
          * @return builder
          * 
@@ -159,8 +156,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeTableId The ID of the Route Table to set as the new
-         * main route table for the target VPC
+         * @param routeTableId ID of the Route Table to set as the new main route table for the target VPC
          * 
          * @return builder
          * 
@@ -170,7 +166,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpcId The ID of the VPC whose main route table should be set
+         * @param vpcId ID of the VPC whose main route table should be set
          * 
          * @return builder
          * 
@@ -181,7 +177,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpcId The ID of the VPC whose main route table should be set
+         * @param vpcId ID of the VPC whose main route table should be set
          * 
          * @return builder
          * 

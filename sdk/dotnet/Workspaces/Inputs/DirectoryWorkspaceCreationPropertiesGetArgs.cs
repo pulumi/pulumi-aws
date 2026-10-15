@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Workspaces.Inputs
     public sealed class DirectoryWorkspaceCreationPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        /// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         /// </summary>
         [Input("customSecurityGroupId")]
         public Input<string>? CustomSecurityGroupId { get; set; }

@@ -87,19 +87,19 @@ type Workflow struct {
 
 	// ARN of Glue Workflow
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+	// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties pulumi.StringMapOutput `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns pulumi.IntPtrOutput `pulumi:"maxConcurrentRuns"`
-	// The name you assign to this workflow.
+	// Name you assign to this workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -135,38 +135,38 @@ func GetWorkflow(ctx *pulumi.Context,
 type workflowState struct {
 	// ARN of Glue Workflow
 	Arn *string `pulumi:"arn"`
-	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+	// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties map[string]string `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
-	// The name you assign to this workflow.
+	// Name you assign to this workflow.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkflowState struct {
 	// ARN of Glue Workflow
 	Arn pulumi.StringPtrInput
-	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+	// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties pulumi.StringMapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns pulumi.IntPtrInput
-	// The name you assign to this workflow.
+	// Name you assign to this workflow.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -175,13 +175,13 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+	// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties map[string]string `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
-	// The name you assign to this workflow.
+	// Name you assign to this workflow.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -191,13 +191,13 @@ type workflowArgs struct {
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+	// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties pulumi.StringMapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
 	MaxConcurrentRuns pulumi.IntPtrInput
-	// The name you assign to this workflow.
+	// Name you assign to this workflow.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -297,7 +297,7 @@ func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 func (o WorkflowOutput) DefaultRunProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.DefaultRunProperties }).(pulumi.StringMapOutput)
 }
@@ -312,7 +312,7 @@ func (o WorkflowOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.IntPtrOutput { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
 
-// The name you assign to this workflow.
+// Name you assign to this workflow.
 func (o WorkflowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -327,7 +327,7 @@ func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkflowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -15,26 +15,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
     /**
-     * @return Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+     * @return Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolbyEDecode` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode dolbyEDecode;
     /**
-     * @return Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+     * @return One or more unique audio tracks from within a source. See `tracks` Block for details.
      * 
      */
     private List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection() {}
     /**
-     * @return Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+     * @return Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolbyEDecode` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode> dolbyEDecode() {
         return Optional.ofNullable(this.dolbyEDecode);
     }
     /**
-     * @return Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+     * @return One or more unique audio tracks from within a source. See `tracks` Block for details.
      * 
      */
     public List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks() {

@@ -171,7 +171,7 @@ class AnomalySubscriptionSubscriber(dict):
                  address: _builtins.str,
                  type: _builtins.str):
         """
-        :param _builtins.str address: The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        :param _builtins.str address: The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
         :param _builtins.str type: The type of subscription. Valid Values: `SNS` | `EMAIL`.
         """
         pulumi.set(__self__, "address", address)
@@ -181,7 +181,7 @@ class AnomalySubscriptionSubscriber(dict):
     @pulumi.getter
     def address(self) -> _builtins.str:
         """
-        The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
         """
         return pulumi.get(self, "address")
 

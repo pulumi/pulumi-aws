@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+        /// Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
         /// </summary>
         [Input("styleControl", required: true)]
         public Input<string> StyleControl { get; set; } = null!;

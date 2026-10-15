@@ -89,7 +89,7 @@ class GetStreamResult:
     @pulumi.getter(name="closedShards")
     def closed_shards(self) -> Sequence[_builtins.str]:
         """
-        List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        List of shard IDs in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
         return pulumi.get(self, "closed_shards")
 
@@ -145,7 +145,7 @@ class GetStreamResult:
     @pulumi.getter(name="openShards")
     def open_shards(self) -> Sequence[_builtins.str]:
         """
-        List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        List of shard IDs in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
         return pulumi.get(self, "open_shards")
 

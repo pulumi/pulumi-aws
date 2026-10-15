@@ -345,7 +345,7 @@ type TopicSubscription struct {
 
 	// ARN of the subscription.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+	// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
 	ConfirmationTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"confirmationTimeoutInMinutes"`
 	// Whether the subscription confirmation request was authenticated.
 	ConfirmationWasAuthenticated pulumi.BoolOutput `pulumi:"confirmationWasAuthenticated"`
@@ -422,7 +422,7 @@ func GetTopicSubscription(ctx *pulumi.Context,
 type topicSubscriptionState struct {
 	// ARN of the subscription.
 	Arn *string `pulumi:"arn"`
-	// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+	// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
 	ConfirmationTimeoutInMinutes *int `pulumi:"confirmationTimeoutInMinutes"`
 	// Whether the subscription confirmation request was authenticated.
 	ConfirmationWasAuthenticated *bool `pulumi:"confirmationWasAuthenticated"`
@@ -461,7 +461,7 @@ type topicSubscriptionState struct {
 type TopicSubscriptionState struct {
 	// ARN of the subscription.
 	Arn pulumi.StringPtrInput
-	// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+	// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
 	ConfirmationTimeoutInMinutes pulumi.IntPtrInput
 	// Whether the subscription confirmation request was authenticated.
 	ConfirmationWasAuthenticated pulumi.BoolPtrInput
@@ -502,7 +502,7 @@ func (TopicSubscriptionState) ElementType() reflect.Type {
 }
 
 type topicSubscriptionArgs struct {
-	// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+	// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
 	ConfirmationTimeoutInMinutes *int `pulumi:"confirmationTimeoutInMinutes"`
 	// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
 	DeliveryPolicy *string `pulumi:"deliveryPolicy"`
@@ -534,7 +534,7 @@ type topicSubscriptionArgs struct {
 
 // The set of arguments for constructing a TopicSubscription resource.
 type TopicSubscriptionArgs struct {
-	// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+	// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
 	ConfirmationTimeoutInMinutes pulumi.IntPtrInput
 	// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
 	DeliveryPolicy pulumi.StringPtrInput
@@ -656,7 +656,7 @@ func (o TopicSubscriptionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
 func (o TopicSubscriptionOutput) ConfirmationTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.IntPtrOutput { return v.ConfirmationTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }

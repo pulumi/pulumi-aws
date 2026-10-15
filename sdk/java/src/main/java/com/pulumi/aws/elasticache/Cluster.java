@@ -207,7 +207,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Elasticache Cluster in Outpost
+ * ### ElastiCache Cluster in Outpost
  * 
  * <pre>
  * {@code

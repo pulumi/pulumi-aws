@@ -62,11 +62,11 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+     * Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      */
     declare public readonly grafanaRole: pulumi.Output<string>;
     /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+     * Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -78,7 +78,7 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceAccountId: pulumi.Output<string>;
     /**
-     * The Grafana workspace with which the service account is associated.
+     * Grafana workspace with which the service account is associated.
      */
     declare public readonly workspaceId: pulumi.Output<string>;
 
@@ -124,11 +124,11 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
  */
 export interface WorkspaceServiceAccountState {
     /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+     * Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      */
     grafanaRole?: pulumi.Input<string | undefined>;
     /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+     * Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface WorkspaceServiceAccountState {
      */
     serviceAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The Grafana workspace with which the service account is associated.
+     * Grafana workspace with which the service account is associated.
      */
     workspaceId?: pulumi.Input<string | undefined>;
 }
@@ -150,11 +150,11 @@ export interface WorkspaceServiceAccountState {
  */
 export interface WorkspaceServiceAccountArgs {
     /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+     * Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      */
     grafanaRole: pulumi.Input<string>;
     /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+     * Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface WorkspaceServiceAccountArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Grafana workspace with which the service account is associated.
+     * Grafana workspace with which the service account is associated.
      */
     workspaceId: pulumi.Input<string>;
 }

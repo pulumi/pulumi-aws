@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings
     {
+        /// <summary>
+        /// Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+        /// </summary>
         public readonly string? OcrLanguage;
+        /// <summary>
+        /// PID field used with the caption selector `LanguageCode` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+        /// </summary>
         public readonly int? Pid;
 
         [OutputConstructor]

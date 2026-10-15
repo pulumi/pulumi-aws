@@ -28,7 +28,7 @@ class DrtAccessLogBucketAssociationArgs:
         The set of arguments for constructing a DrtAccessLogBucketAssociation resource.
 
         :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role ARN association used for allowing Shield DRT Access.
         """
         pulumi.set(__self__, "log_bucket", log_bucket)
         pulumi.set(__self__, "role_arn_association_id", role_arn_association_id)
@@ -51,7 +51,7 @@ class DrtAccessLogBucketAssociationArgs:
     @pulumi.getter(name="roleArnAssociationId")
     def role_arn_association_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Role Arn association used for allowing Shield DRT Access.
+        The ID of the Role ARN association used for allowing Shield DRT Access.
         """
         return pulumi.get(self, "role_arn_association_id")
 
@@ -79,7 +79,7 @@ class _DrtAccessLogBucketAssociationState:
         Input properties used for looking up and filtering DrtAccessLogBucketAssociation resources.
 
         :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role ARN association used for allowing Shield DRT Access.
         """
         if log_bucket is not None:
             pulumi.set(__self__, "log_bucket", log_bucket)
@@ -104,7 +104,7 @@ class _DrtAccessLogBucketAssociationState:
     @pulumi.getter(name="roleArnAssociationId")
     def role_arn_association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Role Arn association used for allowing Shield DRT Access.
+        The ID of the Role ARN association used for allowing Shield DRT Access.
         """
         return pulumi.get(self, "role_arn_association_id")
 
@@ -162,7 +162,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role ARN association used for allowing Shield DRT Access.
         """
         ...
     @overload
@@ -252,7 +252,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role ARN association used for allowing Shield DRT Access.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,7 +275,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
     @pulumi.getter(name="roleArnAssociationId")
     def role_arn_association_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Role Arn association used for allowing Shield DRT Access.
+        The ID of the Role ARN association used for allowing Shield DRT Access.
         """
         return pulumi.get(self, "role_arn_association_id")
 

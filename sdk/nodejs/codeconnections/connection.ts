@@ -69,11 +69,11 @@ export class Connection extends pulumi.CustomResource {
     }
 
     /**
-     * The codeconnections connection ARN.
+     * The CodeConnections connection ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
     declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
@@ -149,11 +149,11 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionState {
     /**
-     * The codeconnections connection ARN.
+     * The CodeConnections connection ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
     connectionStatus?: pulumi.Input<string | undefined>;
     /**

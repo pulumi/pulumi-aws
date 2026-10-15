@@ -34,7 +34,7 @@ public final class GetDomainNameResult {
      */
     private String certificateUploadDate;
     /**
-     * @return Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+     * @return Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
      * 
      */
     private String cloudfrontDomainName;
@@ -127,7 +127,7 @@ public final class GetDomainNameResult {
         return this.certificateUploadDate;
     }
     /**
-     * @return Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+     * @return Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
      * 
      */
     public String cloudfrontDomainName() {

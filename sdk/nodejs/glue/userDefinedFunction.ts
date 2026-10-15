@@ -68,7 +68,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Glue User Defined Function.
+     * ARN of the Glue User Defined Function.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -76,27 +76,27 @@ export class UserDefinedFunction extends pulumi.CustomResource {
      */
     declare public readonly catalogId: pulumi.Output<string | undefined>;
     /**
-     * The Java class that contains the function code.
+     * Java class that contains the function code.
      */
     declare public readonly className: pulumi.Output<string>;
     /**
-     * The time at which the function was created.
+     * Time at which the function was created.
      */
     declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
-     * The name of the Database to create the Function.
+     * Name of the Database to create the Function.
      */
     declare public readonly databaseName: pulumi.Output<string>;
     /**
-     * The name of the function.
+     * Name of the function.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The owner of the function.
+     * Owner of the function.
      */
     declare public readonly ownerName: pulumi.Output<string>;
     /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      */
     declare public readonly ownerType: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
+     * Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      */
     declare public readonly resourceUris: pulumi.Output<outputs.glue.UserDefinedFunctionResourceUri[] | undefined>;
 
@@ -166,7 +166,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
  */
 export interface UserDefinedFunctionState {
     /**
-     * The ARN of the Glue User Defined Function.
+     * ARN of the Glue User Defined Function.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -174,27 +174,27 @@ export interface UserDefinedFunctionState {
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * The Java class that contains the function code.
+     * Java class that contains the function code.
      */
     className?: pulumi.Input<string | undefined>;
     /**
-     * The time at which the function was created.
+     * Time at which the function was created.
      */
     createTime?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Database to create the Function.
+     * Name of the Database to create the Function.
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
-     * The name of the function.
+     * Name of the function.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The owner of the function.
+     * Owner of the function.
      */
     ownerName?: pulumi.Input<string | undefined>;
     /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      */
     ownerType?: pulumi.Input<string | undefined>;
     /**
@@ -202,7 +202,7 @@ export interface UserDefinedFunctionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
+     * Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      */
     resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[] | undefined>;
 }
@@ -216,23 +216,23 @@ export interface UserDefinedFunctionArgs {
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * The Java class that contains the function code.
+     * Java class that contains the function code.
      */
     className: pulumi.Input<string>;
     /**
-     * The name of the Database to create the Function.
+     * Name of the Database to create the Function.
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the function.
+     * Name of the function.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The owner of the function.
+     * Owner of the function.
      */
     ownerName: pulumi.Input<string>;
     /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      */
     ownerType: pulumi.Input<string>;
     /**
@@ -240,7 +240,7 @@ export interface UserDefinedFunctionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
+     * Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      */
     resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[] | undefined>;
 }

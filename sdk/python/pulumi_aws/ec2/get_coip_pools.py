@@ -62,7 +62,7 @@ class GetCoipPoolsResult:
     @pulumi.getter(name="poolIds")
     def pool_ids(self) -> Sequence[_builtins.str]:
         """
-        Set of COIP Pool Identifiers
+        Set of CoIP Pool Identifiers
         """
         return pulumi.get(self, "pool_ids")
 
@@ -99,7 +99,7 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
 
     ## Example Usage
 
-    The following shows outputting all COIP Pool Ids.
+    The following shows outputting all CoIP Pool IDs.
 
     ```python
     import pulumi
@@ -140,7 +140,7 @@ def get_coip_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union
 
     ## Example Usage
 
-    The following shows outputting all COIP Pool Ids.
+    The following shows outputting all CoIP Pool IDs.
 
     ```python
     import pulumi

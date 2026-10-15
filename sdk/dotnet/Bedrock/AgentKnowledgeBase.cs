@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
+    /// Manages an AWS Agents for Amazon Bedrock Knowledge Base.
     /// 
     /// ## Example Usage
     /// 

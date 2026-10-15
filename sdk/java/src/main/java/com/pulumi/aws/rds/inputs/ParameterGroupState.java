@@ -21,14 +21,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     public static final ParameterGroupState Empty = new ParameterGroupState();
 
     /**
-     * ARN of the db parameter group.
+     * ARN of the DB parameter group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the db parameter group.
+     * @return ARN of the DB parameter group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -204,7 +204,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn ARN of the db parameter group.
+         * @param arn ARN of the DB parameter group.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn ARN of the db parameter group.
+         * @param arn ARN of the DB parameter group.
          * 
          * @return builder
          * 

@@ -298,7 +298,7 @@ def get_db_server(cloud_exadata_infrastructure_id: Optional[_builtins.str] = Non
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbServerResult:
     """
-    Data source for managing db server linked to exadata infrastructure of Oracle Database@AWS.
+    Data source for managing DB server linked to exadata infrastructure of Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 
@@ -316,7 +316,7 @@ def get_db_server(cloud_exadata_infrastructure_id: Optional[_builtins.str] = Non
 
 
     :param _builtins.str cloud_exadata_infrastructure_id: Unique identifier of the cloud vm cluster.
-    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
+    :param _builtins.str id: Unique identifier of DB node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -356,7 +356,7 @@ def get_db_server_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional[
                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbServerResult]:
     """
-    Data source for managing db server linked to exadata infrastructure of Oracle Database@AWS.
+    Data source for managing DB server linked to exadata infrastructure of Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 
@@ -374,7 +374,7 @@ def get_db_server_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional[
 
 
     :param _builtins.str cloud_exadata_infrastructure_id: Unique identifier of the cloud vm cluster.
-    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
+    :param _builtins.str id: Unique identifier of DB node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

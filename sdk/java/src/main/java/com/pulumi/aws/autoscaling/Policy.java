@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * Provides an AutoScaling Scaling Policy resource.
  * 
  * &gt; **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
- * when using autoscaling policies. It&#39;s good practice to pick either
+ * when using Auto Scaling policies. It&#39;s good practice to pick either
  * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
  * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
  * (policy-based) scaling.
@@ -363,14 +363,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of the autoscaling group.
+     * Name of the Auto Scaling group.
      * 
      */
     @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return Name of the autoscaling group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     public Output<String> autoscalingGroupName() {

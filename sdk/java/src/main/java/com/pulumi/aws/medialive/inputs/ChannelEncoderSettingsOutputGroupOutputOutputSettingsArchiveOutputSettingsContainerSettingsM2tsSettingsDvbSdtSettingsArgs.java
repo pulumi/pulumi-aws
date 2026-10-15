@@ -16,30 +16,62 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs();
 
+    /**
+     * Service Description Table output behavior.
+     * 
+     */
     @Import(name="outputSdt")
     private @Nullable Output<String> outputSdt;
 
+    /**
+     * @return Service Description Table output behavior.
+     * 
+     */
     public Optional<Output<String>> outputSdt() {
         return Optional.ofNullable(this.outputSdt);
     }
 
+    /**
+     * Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     @Import(name="repInterval")
     private @Nullable Output<Integer> repInterval;
 
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Output<Integer>> repInterval() {
         return Optional.ofNullable(this.repInterval);
     }
 
+    /**
+     * Service name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
+    /**
+     * @return Service name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     public Optional<Output<String>> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
 
+    /**
+     * Service provider name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     @Import(name="serviceProviderName")
     private @Nullable Output<String> serviceProviderName;
 
+    /**
+     * @return Service provider name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     public Optional<Output<String>> serviceProviderName() {
         return Optional.ofNullable(this.serviceProviderName);
     }
@@ -71,38 +103,86 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param outputSdt Service Description Table output behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputSdt(@Nullable Output<String> outputSdt) {
             $.outputSdt = outputSdt;
             return this;
         }
 
+        /**
+         * @param outputSdt Service Description Table output behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputSdt(String outputSdt) {
             return outputSdt(Output.of(outputSdt));
         }
 
+        /**
+         * @param repInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repInterval(@Nullable Output<Integer> repInterval) {
             $.repInterval = repInterval;
             return this;
         }
 
+        /**
+         * @param repInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repInterval(Integer repInterval) {
             return repInterval(Output.of(repInterval));
         }
 
+        /**
+         * @param serviceName Service name placed in the `serviceDescriptor` in the Service Description Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceName(@Nullable Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
+        /**
+         * @param serviceName Service name placed in the `serviceDescriptor` in the Service Description Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }
 
+        /**
+         * @param serviceProviderName Service provider name placed in the `serviceDescriptor` in the Service Description Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceProviderName(@Nullable Output<String> serviceProviderName) {
             $.serviceProviderName = serviceProviderName;
             return this;
         }
 
+        /**
+         * @param serviceProviderName Service provider name placed in the `serviceDescriptor` in the Service Description Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceProviderName(String serviceProviderName) {
             return serviceProviderName(Output.of(serviceProviderName));
         }

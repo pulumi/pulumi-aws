@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue {
     /**
-     * @return The tag key.
+     * @return Tag key.
      * 
      */
     private @Nullable String key;
     /**
-     * @return The tag value.
+     * @return Tag value.
      * 
      */
     private @Nullable String value;
 
     private ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue() {}
     /**
-     * @return The tag key.
+     * @return Tag key.
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return The tag value.
+     * @return Tag value.
      * 
      */
     public Optional<String> value() {

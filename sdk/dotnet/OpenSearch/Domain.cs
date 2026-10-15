@@ -490,13 +490,13 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Domain-specific endpoint for Dashboard without https scheme.
+        /// Domain-specific endpoint for Dashboard without HTTPS scheme.
         /// </summary>
         [Output("dashboardEndpoint")]
         public Output<string> DashboardEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
         /// </summary>
         [Output("dashboardEndpointV2")]
         public Output<string> DashboardEndpointV2 { get; private set; } = null!;
@@ -900,13 +900,13 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainCognitoOptionsGetArgs>? CognitoOptions { get; set; }
 
         /// <summary>
-        /// Domain-specific endpoint for Dashboard without https scheme.
+        /// Domain-specific endpoint for Dashboard without HTTPS scheme.
         /// </summary>
         [Input("dashboardEndpoint")]
         public Input<string>? DashboardEndpoint { get; set; }
 
         /// <summary>
-        /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
         /// </summary>
         [Input("dashboardEndpointV2")]
         public Input<string>? DashboardEndpointV2 { get; set; }

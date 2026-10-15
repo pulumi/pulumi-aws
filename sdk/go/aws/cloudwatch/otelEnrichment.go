@@ -15,6 +15,10 @@ import (
 //
 // > **NOTE:** This resource requires the `observabilityadmin.TelemetryEnrichment` resource to be configured first. Without telemetry enrichment enabled, OTel enrichment will not function properly even if the API accepts the configuration.
 //
+// > **NOTE:** Creating this Terraform resource starts AWS CloudWatch OTel enrichment and deleting this Terraform resource stops AWS CloudWatch OTel enrichment.
+//
+// Filters are evaluated as follows. `includeFilter` is applied first, then the `excludeFilter` match set is subtracted from the result. Exclusion always wins, so a metric matched by both is not enriched. An inactive direction is permissive: with no `includeFilter`, every supported namespace is in scope, and with no `excludeFilter`, nothing is removed. Namespaces and metric names are matched exactly and case-sensitively, with no wildcards or prefixes, so `AWS/EC2` matches only `AWS/EC2`. At most 100 selectors are allowed across `includeFilter` and `excludeFilter` **combined**. Two lists of 60 selectors each satisfy the per-list limit but are rejected together.
+//
 // ## Example Usage
 //
 // ### Enable OTel Enrichment
@@ -48,6 +52,61 @@ import (
 //
 // ```
 //
+// ### Filter Enrichment by Namespace and Metric
+//
+// By default every namespace that CloudWatch supports is enriched. Narrow that scope with `includeFilter` and `excludeFilter`. The configuration below enriches all of `AWS/EC2` except two network metrics, plus exactly two `AWS/RDS` metrics, and nothing else.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := observabilityadmin.NewTelemetryEnrichment(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewOtelEnrichment(ctx, "example", &cloudwatch.OtelEnrichmentArgs{
+//				ExcludeFilters: cloudwatch.OtelEnrichmentExcludeFilterArray{
+//					&cloudwatch.OtelEnrichmentExcludeFilterArgs{
+//						Namespace: pulumi.String("AWS/EC2"),
+//						MetricNames: pulumi.StringArray{
+//							pulumi.String("NetworkPacketsIn"),
+//							pulumi.String("NetworkPacketsOut"),
+//						},
+//					},
+//				},
+//				IncludeFilters: cloudwatch.OtelEnrichmentIncludeFilterArray{
+//					&cloudwatch.OtelEnrichmentIncludeFilterArgs{
+//						Namespace: pulumi.String("AWS/EC2"),
+//					},
+//					&cloudwatch.OtelEnrichmentIncludeFilterArgs{
+//						Namespace: pulumi.String("AWS/RDS"),
+//						MetricNames: pulumi.StringArray{
+//							pulumi.String("CPUUtilization"),
+//							pulumi.String("DatabaseConnections"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -69,6 +128,10 @@ import (
 type OtelEnrichment struct {
 	pulumi.CustomResourceState
 
+	// Namespaces and metric names to leave unenriched. See below.
+	ExcludeFilters OtelEnrichmentExcludeFilterArrayOutput `pulumi:"excludeFilters"`
+	// Namespaces and metric names to enrich. See below.
+	IncludeFilters OtelEnrichmentIncludeFilterArrayOutput `pulumi:"includeFilters"`
 	// AWS region where this resource is managed.
 	Region   pulumi.StringOutput             `pulumi:"region"`
 	Timeouts OtelEnrichmentTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -104,12 +167,20 @@ func GetOtelEnrichment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OtelEnrichment resources.
 type otelEnrichmentState struct {
+	// Namespaces and metric names to leave unenriched. See below.
+	ExcludeFilters []OtelEnrichmentExcludeFilter `pulumi:"excludeFilters"`
+	// Namespaces and metric names to enrich. See below.
+	IncludeFilters []OtelEnrichmentIncludeFilter `pulumi:"includeFilters"`
 	// AWS region where this resource is managed.
 	Region   *string                 `pulumi:"region"`
 	Timeouts *OtelEnrichmentTimeouts `pulumi:"timeouts"`
 }
 
 type OtelEnrichmentState struct {
+	// Namespaces and metric names to leave unenriched. See below.
+	ExcludeFilters OtelEnrichmentExcludeFilterArrayInput
+	// Namespaces and metric names to enrich. See below.
+	IncludeFilters OtelEnrichmentIncludeFilterArrayInput
 	// AWS region where this resource is managed.
 	Region   pulumi.StringPtrInput
 	Timeouts OtelEnrichmentTimeoutsPtrInput
@@ -120,6 +191,10 @@ func (OtelEnrichmentState) ElementType() reflect.Type {
 }
 
 type otelEnrichmentArgs struct {
+	// Namespaces and metric names to leave unenriched. See below.
+	ExcludeFilters []OtelEnrichmentExcludeFilter `pulumi:"excludeFilters"`
+	// Namespaces and metric names to enrich. See below.
+	IncludeFilters []OtelEnrichmentIncludeFilter `pulumi:"includeFilters"`
 	// AWS region where this resource is managed.
 	Region   *string                 `pulumi:"region"`
 	Timeouts *OtelEnrichmentTimeouts `pulumi:"timeouts"`
@@ -127,6 +202,10 @@ type otelEnrichmentArgs struct {
 
 // The set of arguments for constructing a OtelEnrichment resource.
 type OtelEnrichmentArgs struct {
+	// Namespaces and metric names to leave unenriched. See below.
+	ExcludeFilters OtelEnrichmentExcludeFilterArrayInput
+	// Namespaces and metric names to enrich. See below.
+	IncludeFilters OtelEnrichmentIncludeFilterArrayInput
 	// AWS region where this resource is managed.
 	Region   pulumi.StringPtrInput
 	Timeouts OtelEnrichmentTimeoutsPtrInput
@@ -217,6 +296,16 @@ func (o OtelEnrichmentOutput) ToOtelEnrichmentOutput() OtelEnrichmentOutput {
 
 func (o OtelEnrichmentOutput) ToOtelEnrichmentOutputWithContext(ctx context.Context) OtelEnrichmentOutput {
 	return o
+}
+
+// Namespaces and metric names to leave unenriched. See below.
+func (o OtelEnrichmentOutput) ExcludeFilters() OtelEnrichmentExcludeFilterArrayOutput {
+	return o.ApplyT(func(v *OtelEnrichment) OtelEnrichmentExcludeFilterArrayOutput { return v.ExcludeFilters }).(OtelEnrichmentExcludeFilterArrayOutput)
+}
+
+// Namespaces and metric names to enrich. See below.
+func (o OtelEnrichmentOutput) IncludeFilters() OtelEnrichmentIncludeFilterArrayOutput {
+	return o.ApplyT(func(v *OtelEnrichment) OtelEnrichmentIncludeFilterArrayOutput { return v.IncludeFilters }).(OtelEnrichmentIncludeFilterArrayOutput)
 }
 
 // AWS region where this resource is managed.

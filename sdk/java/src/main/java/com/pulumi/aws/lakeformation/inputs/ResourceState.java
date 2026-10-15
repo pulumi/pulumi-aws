@@ -36,14 +36,14 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * Flag to enable AWS Lake Formation hybrid access permission mode.
      * 
      */
     @Import(name="hybridAccessEnabled")
     private @Nullable Output<Boolean> hybridAccessEnabled;
 
     /**
-     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * @return Flag to enable AWS Lake Formation hybrid access permission mode.
      * 
      */
     public Optional<Output<Boolean>> hybridAccessEnabled() {
@@ -201,7 +201,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
+         * @param hybridAccessEnabled Flag to enable AWS Lake Formation hybrid access permission mode.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
+         * @param hybridAccessEnabled Flag to enable AWS Lake Formation hybrid access permission mode.
          * 
          * @return builder
          * 

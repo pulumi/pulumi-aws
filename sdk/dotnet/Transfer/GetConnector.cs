@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Transfer
         public readonly ImmutableArray<Outputs.GetConnectorEgressConfigResult> EgressConfigs;
         public readonly string Id;
         /// <summary>
-        /// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
+        /// ARN of the IAM role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
         /// </summary>
         public readonly string LoggingRole;
         public readonly string Region;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string SecurityPolicyName;
         /// <summary>
-        /// List of egress Ip addresses.
+        /// List of egress IP addresses.
         /// </summary>
         public readonly ImmutableArray<string> ServiceManagedEgressIpAddresses;
         /// <summary>

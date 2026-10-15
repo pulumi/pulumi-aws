@@ -19,14 +19,14 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
     public static final MemberArgs Empty = new MemberArgs();
 
     /**
-     * The AWS account ID for the account.
+     * AWS account ID for the account.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the account.
+     * @return AWS account ID for the account.
      * 
      */
     public Output<String> accountId() {
@@ -34,14 +34,14 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The email address for the account.
+     * Email address for the account.
      * 
      */
     @Import(name="email", required=true)
     private Output<String> email;
 
     /**
-     * @return The email address for the account.
+     * @return Email address for the account.
      * 
      */
     public Output<String> email() {
@@ -49,14 +49,14 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+     * Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      * 
      */
     @Import(name="invitationDisableEmailNotification")
     private @Nullable Output<Boolean> invitationDisableEmailNotification;
 
     /**
-     * @return Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+     * @return Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      * 
      */
     public Optional<Output<Boolean>> invitationDisableEmailNotification() {
@@ -64,14 +64,14 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+     * Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      * 
      */
     @Import(name="invitationMessage")
     private @Nullable Output<String> invitationMessage;
 
     /**
-     * @return A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+     * @return Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      * 
      */
     public Optional<Output<String>> invitationMessage() {
@@ -79,14 +79,14 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Send an invitation to a member
+     * Whether to send an invitation to a member.
      * 
      */
     @Import(name="invite")
     private @Nullable Output<Boolean> invite;
 
     /**
-     * @return Send an invitation to a member
+     * @return Whether to send an invitation to a member.
      * 
      */
     public Optional<Output<Boolean>> invite() {
@@ -109,14 +109,14 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * @return Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -170,7 +170,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The AWS account ID for the account.
+         * @param accountId AWS account ID for the account.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The AWS account ID for the account.
+         * @param accountId AWS account ID for the account.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email The email address for the account.
+         * @param email Email address for the account.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email The email address for the account.
+         * @param email Email address for the account.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invitationDisableEmailNotification Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+         * @param invitationDisableEmailNotification Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invitationDisableEmailNotification Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+         * @param invitationDisableEmailNotification Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invitationMessage A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+         * @param invitationMessage Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invitationMessage A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+         * @param invitationMessage Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invite Send an invitation to a member
+         * @param invite Whether to send an invitation to a member.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invite Send an invitation to a member
+         * @param invite Whether to send an invitation to a member.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+         * @param status Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+         * @param status Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
          * 
          * @return builder
          * 

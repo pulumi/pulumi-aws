@@ -16,6 +16,10 @@ public final class GetCatalogTablePartitionIndex {
      * 
      */
     private String indexName;
+    /**
+     * @return Status of the partition index.
+     * 
+     */
     private String indexStatus;
     /**
      * @return Keys for the partition index.
@@ -31,6 +35,10 @@ public final class GetCatalogTablePartitionIndex {
     public String indexName() {
         return this.indexName;
     }
+    /**
+     * @return Status of the partition index.
+     * 
+     */
     public String indexStatus() {
         return this.indexStatus;
     }

@@ -14,27 +14,27 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings
     {
         /// <summary>
-        /// The ad marker type for this output group.
+        /// List of ad markers for this output group.
         /// </summary>
         public readonly ImmutableArray<string> AdMarkers;
         /// <summary>
-        /// Authentication scheme to use when connecting with CDN.
+        /// Authentication scheme to use when connecting with the CDN.
         /// </summary>
         public readonly string? AuthenticationScheme;
         /// <summary>
-        /// Controls behavior when content cache fills up.
+        /// Behavior when the content cache fills up.
         /// </summary>
         public readonly string? CacheFullBehavior;
         /// <summary>
-        /// Cache length in seconds, is used to calculate buffer size.
+        /// Cache length, in seconds, used to calculate buffer size.
         /// </summary>
         public readonly int? CacheLength;
         /// <summary>
-        /// Controls the types of data that passes to onCaptionInfo outputs.
+        /// Controls the types of data that pass to `onCaptionInfo` outputs.
         /// </summary>
         public readonly string? CaptionData;
         /// <summary>
-        /// Controls the behavior of the RTMP group if input becomes unavailable.
+        /// Behavior of the RTMP group if the input becomes unavailable.
         /// </summary>
         public readonly string? InputLossAction;
         /// <summary>

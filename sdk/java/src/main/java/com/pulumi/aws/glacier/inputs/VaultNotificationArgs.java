@@ -31,14 +31,14 @@ public final class VaultNotificationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The SNS Topic ARN.
+     * SNS Topic ARN.
      * 
      */
     @Import(name="snsTopic", required=true)
     private Output<String> snsTopic;
 
     /**
-     * @return The SNS Topic ARN.
+     * @return SNS Topic ARN.
      * 
      */
     public Output<String> snsTopic() {
@@ -102,7 +102,7 @@ public final class VaultNotificationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param snsTopic The SNS Topic ARN.
+         * @param snsTopic SNS Topic ARN.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class VaultNotificationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param snsTopic The SNS Topic ARN.
+         * @param snsTopic SNS Topic ARN.
          * 
          * @return builder
          * 

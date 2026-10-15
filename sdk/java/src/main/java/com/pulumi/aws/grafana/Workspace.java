@@ -140,14 +140,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:grafana/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
-     * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     @Export(name="accountAccessType", refs={String.class}, tree="[0]")
     private Output<String> accountAccessType;
 
     /**
-     * @return The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * @return Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     public Output<String> accountAccessType() {
@@ -168,175 +168,175 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     @Export(name="authenticationProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> authenticationProviders;
 
     /**
-     * @return The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * @return Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     public Output<List<String>> authenticationProviders() {
         return this.authenticationProviders;
     }
     /**
-     * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     * Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      * 
      */
     @Export(name="configuration", refs={String.class}, tree="[0]")
     private Output<String> configuration;
 
     /**
-     * @return The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     * @return Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      * 
      */
     public Output<String> configuration() {
         return this.configuration;
     }
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+     * Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
      * 
      */
     @Export(name="dataSources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dataSources;
 
     /**
-     * @return The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+     * @return Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
      * 
      */
     public Output<Optional<List<String>>> dataSources() {
         return Codegen.optional(this.dataSources);
     }
     /**
-     * The workspace description.
+     * Workspace description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The workspace description.
+     * @return Workspace description.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The endpoint of the Grafana workspace.
+     * Endpoint of the Grafana workspace.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The endpoint of the Grafana workspace.
+     * @return Endpoint of the Grafana workspace.
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+     * Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
      * 
      */
     @Export(name="grafanaVersion", refs={String.class}, tree="[0]")
     private Output<String> grafanaVersion;
 
     /**
-     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+     * @return Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
      * 
      */
     public Output<String> grafanaVersion() {
         return this.grafanaVersion;
     }
     /**
-     * The ARN of the AWS KMS key for encrypting workspace data.
+     * ARN of the AWS KMS key for encrypting workspace data.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the AWS KMS key for encrypting workspace data.
+     * @return ARN of the AWS KMS key for encrypting workspace data.
      * 
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * The Grafana workspace name.
+     * Grafana workspace name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Grafana workspace name.
+     * @return Grafana workspace name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Configuration for network access to your workspace.See Network Access Control below.
+     * Configuration for network access to your workspace. See `networkAccessControl` Block below.
      * 
      */
     @Export(name="networkAccessControl", refs={WorkspaceNetworkAccessControl.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceNetworkAccessControl> networkAccessControl;
 
     /**
-     * @return Configuration for network access to your workspace.See Network Access Control below.
+     * @return Configuration for network access to your workspace. See `networkAccessControl` Block below.
      * 
      */
     public Output<Optional<WorkspaceNetworkAccessControl>> networkAccessControl() {
         return Codegen.optional(this.networkAccessControl);
     }
     /**
-     * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+     * Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      * 
      */
     @Export(name="notificationDestinations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notificationDestinations;
 
     /**
-     * @return The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+     * @return Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      * 
      */
     public Output<Optional<List<String>>> notificationDestinations() {
         return Codegen.optional(this.notificationDestinations);
     }
     /**
-     * The role name that the workspace uses to access resources through Amazon Organizations.
+     * Role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
     @Export(name="organizationRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationRoleName;
 
     /**
-     * @return The role name that the workspace uses to access resources through Amazon Organizations.
+     * @return Role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
     public Output<Optional<String>> organizationRoleName() {
         return Codegen.optional(this.organizationRoleName);
     }
     /**
-     * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+     * Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
     @Export(name="organizationalUnits", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> organizationalUnits;
 
     /**
-     * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+     * @return Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
     public Output<Optional<List<String>>> organizationalUnits() {
         return Codegen.optional(this.organizationalUnits);
     }
     /**
-     * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     * Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
      * The following arguments are optional:
      * 
@@ -345,7 +345,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     private Output<String> permissionType;
 
     /**
-     * @return The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     * @return Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
      * The following arguments are optional:
      * 
@@ -368,34 +368,42 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IAM role ARN that the workspace assumes.
+     * IAM role ARN that the workspace assumes.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return The IAM role ARN that the workspace assumes.
+     * @return IAM role ARN that the workspace assumes.
      * 
      */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
+    /**
+     * Status of the SAML configuration.
+     * 
+     */
     @Export(name="samlConfigurationStatus", refs={String.class}, tree="[0]")
     private Output<String> samlConfigurationStatus;
 
+    /**
+     * @return Status of the SAML configuration.
+     * 
+     */
     public Output<String> samlConfigurationStatus() {
         return this.samlConfigurationStatus;
     }
     /**
-     * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+     * AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
     @Export(name="stackSetName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stackSetName;
 
     /**
-     * @return The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+     * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
     public Output<Optional<String>> stackSetName() {
@@ -430,14 +438,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
      * 
      */
     @Export(name="vpcConfiguration", refs={WorkspaceVpcConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceVpcConfiguration> vpcConfiguration;
 
     /**
-     * @return The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * @return Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
      * 
      */
     public Output<Optional<WorkspaceVpcConfiguration>> vpcConfiguration() {

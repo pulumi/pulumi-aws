@@ -22,14 +22,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     public static final FleetState Empty = new FleetState();
 
     /**
-     * ARN of the appstream fleet.
+     * ARN of the AppStream fleet.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the appstream fleet.
+     * @return ARN of the AppStream fleet.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -409,7 +409,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream fleet.
+         * @param arn ARN of the AppStream fleet.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream fleet.
+         * @param arn ARN of the AppStream fleet.
          * 
          * @return builder
          * 

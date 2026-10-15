@@ -13,29 +13,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfo {
+    /**
+     * @return Distribution of broker nodes across Availability Zones.
+     * 
+     */
     private String azDistribution;
+    /**
+     * @return List of subnets to connect to in the client VPC.
+     * 
+     */
     private List<String> clientSubnets;
+    /**
+     * @return Information about the cluster access configuration. See `connectivityInfo` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoConnectivityInfo> connectivityInfos;
+    /**
+     * @return Instance type used for the broker nodes.
+     * 
+     */
     private String instanceType;
+    /**
+     * @return List of security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+     * 
+     */
     private List<String> securityGroups;
+    /**
+     * @return Storage information for the broker nodes. See `storageInfo` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoStorageInfo> storageInfos;
 
     private GetClusterBrokerNodeGroupInfo() {}
+    /**
+     * @return Distribution of broker nodes across Availability Zones.
+     * 
+     */
     public String azDistribution() {
         return this.azDistribution;
     }
+    /**
+     * @return List of subnets to connect to in the client VPC.
+     * 
+     */
     public List<String> clientSubnets() {
         return this.clientSubnets;
     }
+    /**
+     * @return Information about the cluster access configuration. See `connectivityInfo` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoConnectivityInfo> connectivityInfos() {
         return this.connectivityInfos;
     }
+    /**
+     * @return Instance type used for the broker nodes.
+     * 
+     */
     public String instanceType() {
         return this.instanceType;
     }
+    /**
+     * @return List of security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+     * 
+     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
+    /**
+     * @return Storage information for the broker nodes. See `storageInfo` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoStorageInfo> storageInfos() {
         return this.storageInfos;
     }

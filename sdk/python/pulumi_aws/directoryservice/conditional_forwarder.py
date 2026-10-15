@@ -190,7 +190,7 @@ class ConditionalForwarder(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
+        Using `pulumi import`, import conditional forwarders using the directory ID and remote_domain_name. For example:
 
         ```sh
         $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com
@@ -230,7 +230,7 @@ class ConditionalForwarder(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
+        Using `pulumi import`, import conditional forwarders using the directory ID and remote_domain_name. For example:
 
         ```sh
         $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com

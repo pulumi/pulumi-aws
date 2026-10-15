@@ -37,7 +37,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty> properties;
     /**
-     * @return Whether this property is required. Defaults to `false`.
+     * @return Whether to mark this property as required. Defaults to `false`.
      * 
      */
     private @Nullable Boolean required;
@@ -77,7 +77,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return this.properties == null ? List.of() : this.properties;
     }
     /**
-     * @return Whether this property is required. Defaults to `false`.
+     * @return Whether to mark this property as required. Defaults to `false`.
      * 
      */
     public Optional<Boolean> required() {

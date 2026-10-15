@@ -384,7 +384,7 @@ class EventConnection(pulumi.CustomResource):
             authorization_type="OAUTH_CLIENT_CREDENTIALS")
         ```
 
-        ### Example Usage Invocation Http Parameters
+        ### Example Usage Invocation HTTP Parameters
 
         ```python
         import pulumi
@@ -637,7 +637,7 @@ class EventConnection(pulumi.CustomResource):
             authorization_type="OAUTH_CLIENT_CREDENTIALS")
         ```
 
-        ### Example Usage Invocation Http Parameters
+        ### Example Usage Invocation HTTP Parameters
 
         ```python
         import pulumi

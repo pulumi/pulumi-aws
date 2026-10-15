@@ -61,7 +61,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import WAF Regional Regex Match Set using the id. For example:
+// Using `pulumi import`, import WAF Regional Regex Match Set using the ID. For example:
 //
 // ```sh
 // $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

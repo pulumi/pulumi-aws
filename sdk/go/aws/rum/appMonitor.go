@@ -42,7 +42,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
+// Using `pulumi import`, import CloudWatch RUM App Monitor using the `name`. For example:
 //
 // ```sh
 // $ pulumi import aws:rum/appMonitor:AppMonitor example example

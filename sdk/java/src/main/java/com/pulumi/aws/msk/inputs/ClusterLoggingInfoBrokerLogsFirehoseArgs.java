@@ -32,9 +32,17 @@ public final class ClusterLoggingInfoBrokerLogsFirehoseArgs extends com.pulumi.r
         return Optional.ofNullable(this.deliveryStream);
     }
 
+    /**
+     * Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+     * 
+     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
+    /**
+     * @return Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+     * 
+     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -85,11 +93,23 @@ public final class ClusterLoggingInfoBrokerLogsFirehoseArgs extends com.pulumi.r
             return deliveryStream(Output.of(deliveryStream));
         }
 
+        /**
+         * @param enabled Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

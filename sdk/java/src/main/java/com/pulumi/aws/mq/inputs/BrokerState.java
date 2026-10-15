@@ -226,14 +226,14 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of information about allocated brokers (both active &amp; standby).
+     * List of information about allocated brokers (both active &amp; standby). See `instances` Block for details.
      * 
      */
     @Import(name="instances")
     private @Nullable Output<List<BrokerInstanceArgs>> instances;
 
     /**
-     * @return List of information about allocated brokers (both active &amp; standby).
+     * @return List of information about allocated brokers (both active &amp; standby). See `instances` Block for details.
      * 
      */
     public Optional<Output<List<BrokerInstanceArgs>>> instances() {
@@ -361,14 +361,14 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
      * 
      */
     @Import(name="sharedResources")
     private @Nullable Output<List<BrokerSharedResourceArgs>> sharedResources;
 
     /**
-     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
      * 
      */
     public Optional<Output<List<BrokerSharedResourceArgs>>> sharedResources() {
@@ -779,7 +779,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instances List of information about allocated brokers (both active &amp; standby).
+         * @param instances List of information about allocated brokers (both active &amp; standby). See `instances` Block for details.
          * 
          * @return builder
          * 
@@ -790,7 +790,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instances List of information about allocated brokers (both active &amp; standby).
+         * @param instances List of information about allocated brokers (both active &amp; standby). See `instances` Block for details.
          * 
          * @return builder
          * 
@@ -800,7 +800,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instances List of information about allocated brokers (both active &amp; standby).
+         * @param instances List of information about allocated brokers (both active &amp; standby). See `instances` Block for details.
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
          * 
          * @return builder
          * 
@@ -1009,7 +1009,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
          * 
          * @return builder
          * 
@@ -1019,7 +1019,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
          * 
          * @return builder
          * 

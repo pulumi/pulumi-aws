@@ -15,9 +15,17 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsA
 
     public static final ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs();
 
+    /**
+     * Settings to configure Nielsen watermarks in the audio encode. See `nielsenWatermarksSettings` Block for details.
+     * 
+     */
     @Import(name="nielsenWatermarksSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs> nielsenWatermarksSettings;
 
+    /**
+     * @return Settings to configure Nielsen watermarks in the audio encode. See `nielsenWatermarksSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs>> nielsenWatermarksSettings() {
         return Optional.ofNullable(this.nielsenWatermarksSettings);
     }
@@ -46,11 +54,23 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsA
             $ = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param nielsenWatermarksSettings Settings to configure Nielsen watermarks in the audio encode. See `nielsenWatermarksSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nielsenWatermarksSettings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs> nielsenWatermarksSettings) {
             $.nielsenWatermarksSettings = nielsenWatermarksSettings;
             return this;
         }
 
+        /**
+         * @param nielsenWatermarksSettings Settings to configure Nielsen watermarks in the audio encode. See `nielsenWatermarksSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nielsenWatermarksSettings(ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs nielsenWatermarksSettings) {
             return nielsenWatermarksSettings(Output.of(nielsenWatermarksSettings));
         }

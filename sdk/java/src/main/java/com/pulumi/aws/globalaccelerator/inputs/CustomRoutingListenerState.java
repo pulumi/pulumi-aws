@@ -32,22 +32,30 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.acceleratorArn);
     }
 
+    /**
+     * ARN of the custom routing listener.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the custom routing listener.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     @Import(name="portRanges")
     private @Nullable Output<List<CustomRoutingListenerPortRangeArgs>> portRanges;
 
     /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * @return Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     public Optional<Output<List<CustomRoutingListenerPortRangeArgs>>> portRanges() {
@@ -101,17 +109,29 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
             return acceleratorArn(Output.of(acceleratorArn));
         }
 
+        /**
+         * @param arn ARN of the custom routing listener.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the custom routing listener.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 
@@ -122,7 +142,7 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 
@@ -132,7 +152,7 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 

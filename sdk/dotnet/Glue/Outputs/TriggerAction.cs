@@ -18,23 +18,23 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Arguments;
         /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `JobName`.
+        /// Name of the crawler to be executed. Conflicts with `JobName`.
         /// </summary>
         public readonly string? CrawlerName;
         /// <summary>
-        /// The name of a job to be executed. Conflicts with `CrawlerName`.
+        /// Name of a job to be executed. Conflicts with `CrawlerName`.
         /// </summary>
         public readonly string? JobName;
         /// <summary>
-        /// Specifies configuration properties of a job run notification. See Notification Property details below.
+        /// Configuration properties of a job run notification. See `NotificationProperty` details below.
         /// </summary>
         public readonly Outputs.TriggerActionNotificationProperty? NotificationProperty;
         /// <summary>
-        /// The name of the Security Configuration structure to be used with this action.
+        /// Name of the Security Configuration structure to be used with this action.
         /// </summary>
         public readonly string? SecurityConfiguration;
         /// <summary>
-        /// The job run timeout in minutes. It overrides the timeout value of the job.
+        /// Job run timeout in minutes. It overrides the timeout value of the job.
         /// </summary>
         public readonly int? Timeout;
 

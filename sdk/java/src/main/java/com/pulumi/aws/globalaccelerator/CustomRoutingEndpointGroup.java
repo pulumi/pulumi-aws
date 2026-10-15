@@ -95,42 +95,42 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
         return this.arn;
     }
     /**
-     * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+     * Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
      * 
      */
     @Export(name="destinationConfigurations", refs={List.class,CustomRoutingEndpointGroupDestinationConfiguration.class}, tree="[0,1]")
     private Output<List<CustomRoutingEndpointGroupDestinationConfiguration>> destinationConfigurations;
 
     /**
-     * @return The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+     * @return Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
      * 
      */
     public Output<List<CustomRoutingEndpointGroupDestinationConfiguration>> destinationConfigurations() {
         return this.destinationConfigurations;
     }
     /**
-     * The list of endpoint objects. Fields documented below.
+     * Endpoint objects. See `endpointConfiguration` below.
      * 
      */
     @Export(name="endpointConfigurations", refs={List.class,CustomRoutingEndpointGroupEndpointConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomRoutingEndpointGroupEndpointConfiguration>> endpointConfigurations;
 
     /**
-     * @return The list of endpoint objects. Fields documented below.
+     * @return Endpoint objects. See `endpointConfiguration` below.
      * 
      */
     public Output<Optional<List<CustomRoutingEndpointGroupEndpointConfiguration>>> endpointConfigurations() {
         return Codegen.optional(this.endpointConfigurations);
     }
     /**
-     * The name of the AWS Region where the custom routing endpoint group is located.
+     * AWS Region where the custom routing endpoint group is located.
      * 
      */
     @Export(name="endpointGroupRegion", refs={String.class}, tree="[0]")
     private Output<String> endpointGroupRegion;
 
     /**
-     * @return The name of the AWS Region where the custom routing endpoint group is located.
+     * @return AWS Region where the custom routing endpoint group is located.
      * 
      */
     public Output<String> endpointGroupRegion() {

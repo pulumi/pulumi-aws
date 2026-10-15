@@ -17,14 +17,14 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
     public static final AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs Empty = new AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs();
 
     /**
-     * Set to `true` to use AWS IAM authentication.
+     * Whether to use AWS IAM authentication. Must be `true` if set.
      * 
      */
     @Import(name="awsIam")
     private @Nullable Output<Boolean> awsIam;
 
     /**
-     * @return Set to `true` to use AWS IAM authentication.
+     * @return Whether to use AWS IAM authentication. Must be `true` if set.
      * 
      */
     public Optional<Output<Boolean>> awsIam() {
@@ -32,14 +32,14 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
     }
 
     /**
-     * Set to `true` to disable authentication.
+     * Whether to disable authentication. Must be `true` if set.
      * 
      */
     @Import(name="none")
     private @Nullable Output<Boolean> none;
 
     /**
-     * @return Set to `true` to disable authentication.
+     * @return Whether to disable authentication. Must be `true` if set.
      * 
      */
     public Optional<Output<Boolean>> none() {
@@ -88,7 +88,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
         }
 
         /**
-         * @param awsIam Set to `true` to use AWS IAM authentication.
+         * @param awsIam Whether to use AWS IAM authentication. Must be `true` if set.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
         }
 
         /**
-         * @param awsIam Set to `true` to use AWS IAM authentication.
+         * @param awsIam Whether to use AWS IAM authentication. Must be `true` if set.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
         }
 
         /**
-         * @param none Set to `true` to disable authentication.
+         * @param none Whether to disable authentication. Must be `true` if set.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
         }
 
         /**
-         * @param none Set to `true` to disable authentication.
+         * @param none Whether to disable authentication. Must be `true` if set.
          * 
          * @return builder
          * 

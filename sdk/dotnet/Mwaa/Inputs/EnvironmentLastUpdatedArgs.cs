@@ -13,13 +13,17 @@ namespace Pulumi.Aws.Mwaa.Inputs
     public sealed class EnvironmentLastUpdatedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Created At date of the MWAA Environment
+        /// Date and time the environment was last updated.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         [Input("errors")]
         private InputList<Inputs.EnvironmentLastUpdatedErrorArgs>? _errors;
+
+        /// <summary>
+        /// Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+        /// </summary>
         public InputList<Inputs.EnvironmentLastUpdatedErrorArgs> Errors
         {
             get => _errors ?? (_errors = new InputList<Inputs.EnvironmentLastUpdatedErrorArgs>());
@@ -27,7 +31,7 @@ namespace Pulumi.Aws.Mwaa.Inputs
         }
 
         /// <summary>
-        /// The status of the Amazon MWAA Environment
+        /// Status of the last update.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

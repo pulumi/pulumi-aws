@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings {
     /**
-     * @return The bitrate is specified in bits per second, as in an HLS manifest.
+     * @return Bitrate, in bits per second, as in an HLS manifest.
      * 
      */
     private @Nullable Integer bandwidth;
@@ -23,20 +23,24 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
      */
     private @Nullable Integer bufferSegments;
     /**
-     * @return The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+     * @return Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
      * 
      */
     private @Nullable Integer retries;
     /**
-     * @return The number of seconds between retries when an attempt to read a manifest or segment fails.
+     * @return Number of seconds between retries when an attempt to read a manifest or segment fails.
      * 
      */
     private @Nullable Integer retryInterval;
+    /**
+     * @return Source for the SCTE-35 messages that MediaLive ingests.
+     * 
+     */
     private @Nullable String scte35Source;
 
     private ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings() {}
     /**
-     * @return The bitrate is specified in bits per second, as in an HLS manifest.
+     * @return Bitrate, in bits per second, as in an HLS manifest.
      * 
      */
     public Optional<Integer> bandwidth() {
@@ -50,19 +54,23 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
         return Optional.ofNullable(this.bufferSegments);
     }
     /**
-     * @return The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+     * @return Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
      * 
      */
     public Optional<Integer> retries() {
         return Optional.ofNullable(this.retries);
     }
     /**
-     * @return The number of seconds between retries when an attempt to read a manifest or segment fails.
+     * @return Number of seconds between retries when an attempt to read a manifest or segment fails.
      * 
      */
     public Optional<Integer> retryInterval() {
         return Optional.ofNullable(this.retryInterval);
     }
+    /**
+     * @return Source for the SCTE-35 messages that MediaLive ingests.
+     * 
+     */
     public Optional<String> scte35Source() {
         return Optional.ofNullable(this.scte35Source);
     }

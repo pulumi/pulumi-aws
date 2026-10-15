@@ -248,7 +248,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
+        Using `pulumi import`, import CloudFront Origin Access Identities using the `id`. For example:
 
         ```sh
         $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
@@ -329,7 +329,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
+        Using `pulumi import`, import CloudFront Origin Access Identities using the `id`. For example:
 
         ```sh
         $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE

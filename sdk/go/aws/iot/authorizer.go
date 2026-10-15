@@ -59,7 +59,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import IOT Authorizers using the name. For example:
+// Using `pulumi import`, import IoT Authorizers using the name. For example:
 //
 // ```sh
 // $ pulumi import aws:iot/authorizer:Authorizer example example

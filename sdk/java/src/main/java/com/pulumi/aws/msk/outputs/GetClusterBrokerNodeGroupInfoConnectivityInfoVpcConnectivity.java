@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+    /**
+     * @return Client authentication configuration for VPC connectivity. See `clientAuthentication` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication> clientAuthentications;
 
     private GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity() {}
+    /**
+     * @return Client authentication configuration for VPC connectivity. See `clientAuthentication` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication> clientAuthentications() {
         return this.clientAuthentications;
     }

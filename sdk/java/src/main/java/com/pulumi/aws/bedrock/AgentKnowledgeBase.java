@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
+ * Manages an AWS Agents for Amazon Bedrock Knowledge Base.
  * 
  * ## Example Usage
  * 

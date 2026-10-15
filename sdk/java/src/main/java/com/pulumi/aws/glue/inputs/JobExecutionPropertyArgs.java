@@ -16,14 +16,14 @@ public final class JobExecutionPropertyArgs extends com.pulumi.resources.Resourc
     public static final JobExecutionPropertyArgs Empty = new JobExecutionPropertyArgs();
 
     /**
-     * The maximum number of concurrent runs allowed for a job. The default is 1.
+     * Maximum number of concurrent runs allowed for a job. The default is 1.
      * 
      */
     @Import(name="maxConcurrentRuns")
     private @Nullable Output<Integer> maxConcurrentRuns;
 
     /**
-     * @return The maximum number of concurrent runs allowed for a job. The default is 1.
+     * @return Maximum number of concurrent runs allowed for a job. The default is 1.
      * 
      */
     public Optional<Output<Integer>> maxConcurrentRuns() {
@@ -55,7 +55,7 @@ public final class JobExecutionPropertyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxConcurrentRuns The maximum number of concurrent runs allowed for a job. The default is 1.
+         * @param maxConcurrentRuns Maximum number of concurrent runs allowed for a job. The default is 1.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class JobExecutionPropertyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxConcurrentRuns The maximum number of concurrent runs allowed for a job. The default is 1.
+         * @param maxConcurrentRuns Maximum number of concurrent runs allowed for a job. The default is 1.
          * 
          * @return builder
          * 

@@ -62,14 +62,14 @@ public final class LoggingOptionsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
+     * The ARN of the role that allows IoT to write to CloudWatch logs.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The ARN of the role that allows IoT to write to Cloudwatch logs.
+     * @return The ARN of the role that allows IoT to write to CloudWatch logs.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -167,7 +167,7 @@ public final class LoggingOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleArn The ARN of the role that allows IoT to write to Cloudwatch logs.
+         * @param roleArn The ARN of the role that allows IoT to write to CloudWatch logs.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class LoggingOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleArn The ARN of the role that allows IoT to write to Cloudwatch logs.
+         * @param roleArn The ARN of the role that allows IoT to write to CloudWatch logs.
          * 
          * @return builder
          * 

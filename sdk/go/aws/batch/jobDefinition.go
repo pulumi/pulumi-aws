@@ -446,7 +446,7 @@ type JobDefinition struct {
 	DeregisterOnNewRevision pulumi.BoolPtrOutput `pulumi:"deregisterOnNewRevision"`
 	// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	EcsProperties pulumi.StringPtrOutput `pulumi:"ecsProperties"`
-	// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	// Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties JobDefinitionEksPropertiesPtrOutput `pulumi:"eksProperties"`
 	// Name of the job definition.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -521,7 +521,7 @@ type jobDefinitionState struct {
 	DeregisterOnNewRevision *bool `pulumi:"deregisterOnNewRevision"`
 	// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	EcsProperties *string `pulumi:"ecsProperties"`
-	// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	// Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// Name of the job definition.
 	Name *string `pulumi:"name"`
@@ -564,7 +564,7 @@ type JobDefinitionState struct {
 	DeregisterOnNewRevision pulumi.BoolPtrInput
 	// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	EcsProperties pulumi.StringPtrInput
-	// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	// Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties JobDefinitionEksPropertiesPtrInput
 	// Name of the job definition.
 	Name pulumi.StringPtrInput
@@ -607,7 +607,7 @@ type jobDefinitionArgs struct {
 	DeregisterOnNewRevision *bool `pulumi:"deregisterOnNewRevision"`
 	// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	EcsProperties *string `pulumi:"ecsProperties"`
-	// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	// Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// Name of the job definition.
 	Name *string `pulumi:"name"`
@@ -643,7 +643,7 @@ type JobDefinitionArgs struct {
 	DeregisterOnNewRevision pulumi.BoolPtrInput
 	// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	EcsProperties pulumi.StringPtrInput
-	// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+	// Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties JobDefinitionEksPropertiesPtrInput
 	// Name of the job definition.
 	Name pulumi.StringPtrInput
@@ -783,7 +783,7 @@ func (o JobDefinitionOutput) EcsProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.EcsProperties }).(pulumi.StringPtrOutput)
 }
 
-// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+// Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
 func (o JobDefinitionOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionEksPropertiesPtrOutput { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }

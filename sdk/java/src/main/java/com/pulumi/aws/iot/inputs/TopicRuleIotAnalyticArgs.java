@@ -33,14 +33,14 @@ public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of AWS IOT Analytics channel.
+     * Name of AWS IoT Analytics channel.
      * 
      */
     @Import(name="channelName", required=true)
     private Output<String> channelName;
 
     /**
-     * @return Name of AWS IOT Analytics channel.
+     * @return Name of AWS IoT Analytics channel.
      * 
      */
     public Output<String> channelName() {
@@ -110,7 +110,7 @@ public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param channelName Name of AWS IOT Analytics channel.
+         * @param channelName Name of AWS IoT Analytics channel.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param channelName Name of AWS IOT Analytics channel.
+         * @param channelName Name of AWS IoT Analytics channel.
          * 
          * @return builder
          * 

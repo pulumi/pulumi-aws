@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+ * Provides details about AWS Bedrock Agents Agent Versions.
  *
  * ## Example Usage
  *
@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getAgentAgentVersions({
- *     agentId: testAwsBedrockagentAgent.agentId,
+ * const example = aws.bedrock.getAgentAgentVersions({
+ *     agentId: exampleAwsBedrockagentAgent.agentId,
  * });
  * ```
  */
@@ -41,7 +41,7 @@ export interface GetAgentAgentVersionsArgs {
      */
     agentId: string;
     /**
-     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block.
      */
     agentVersionSummaries?: inputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
     /**
@@ -56,13 +56,13 @@ export interface GetAgentAgentVersionsArgs {
 export interface GetAgentAgentVersionsResult {
     readonly agentId: string;
     /**
-     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block.
      */
     readonly agentVersionSummaries?: outputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
     readonly region: string;
 }
 /**
- * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+ * Provides details about AWS Bedrock Agents Agent Versions.
  *
  * ## Example Usage
  *
@@ -72,8 +72,8 @@ export interface GetAgentAgentVersionsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getAgentAgentVersions({
- *     agentId: testAwsBedrockagentAgent.agentId,
+ * const example = aws.bedrock.getAgentAgentVersions({
+ *     agentId: exampleAwsBedrockagentAgent.agentId,
  * });
  * ```
  */
@@ -95,7 +95,7 @@ export interface GetAgentAgentVersionsOutputArgs {
      */
     agentId: pulumi.Input<string>;
     /**
-     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block.
      */
     agentVersionSummaries?: pulumi.Input<pulumi.Input<inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryArgs>[] | undefined>;
     /**

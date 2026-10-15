@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent Action Group.
+ * Manages an AWS Agents for Amazon Bedrock Agent Action Group.
  * 
  * ## Example Usage
  * 
@@ -235,7 +235,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the action group ID, the agent ID, and the agent version separated by `,`. For example:
  * 
  * ```sh
  * $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
@@ -389,14 +389,14 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentActionGroupSignature);
     }
     /**
-     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     @Export(name="prepareAgent", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> prepareAgent;
 
     /**
-     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * @return Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     public Output<Boolean> prepareAgent() {
@@ -417,14 +417,14 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Whether the in-use check is skipped when deleting the action group.
+     * Whether to skip the in-use check when deleting the action group. Defaults to `false`.
      * 
      */
     @Export(name="skipResourceInUseCheck", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> skipResourceInUseCheck;
 
     /**
-     * @return Whether the in-use check is skipped when deleting the action group.
+     * @return Whether to skip the in-use check when deleting the action group. Defaults to `false`.
      * 
      */
     public Output<Boolean> skipResourceInUseCheck() {

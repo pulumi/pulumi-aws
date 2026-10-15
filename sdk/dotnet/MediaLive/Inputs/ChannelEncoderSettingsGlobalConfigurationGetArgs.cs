@@ -13,37 +13,37 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsGlobalConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value to set the initial audio gain for the Live Event.
+        /// Value to set the initial audio gain for the live event.
         /// </summary>
         [Input("initialAudioGain")]
         public Input<int>? InitialAudioGain { get; set; }
 
         /// <summary>
-        /// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+        /// Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `None` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
         /// </summary>
         [Input("inputEndAction")]
         public Input<string>? InputEndAction { get; set; }
 
         /// <summary>
-        /// Settings for system actions when input is lost. See Input Loss Behavior for more details.
+        /// Settings for system actions when input is lost. See `InputLossBehavior` Block for details.
         /// </summary>
         [Input("inputLossBehavior")]
         public Input<Inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorGetArgs>? InputLossBehavior { get; set; }
 
         /// <summary>
-        /// Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+        /// How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
         /// </summary>
         [Input("outputLockingMode")]
         public Input<string>? OutputLockingMode { get; set; }
 
         /// <summary>
-        /// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+        /// Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
         /// </summary>
         [Input("outputTimingSource")]
         public Input<string>? OutputTimingSource { get; set; }
 
         /// <summary>
-        /// Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+        /// Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
         /// </summary>
         [Input("supportLowFramerateInputs")]
         public Input<string>? SupportLowFramerateInputs { get; set; }

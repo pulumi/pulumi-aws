@@ -52,7 +52,7 @@ class GetFindingIdsResult:
     @pulumi.getter(name="findingIds")
     def finding_ids(self) -> Sequence[_builtins.str]:
         """
-        A list of finding IDs for the specified detector.
+        List of finding IDs for the specified detector.
         """
         return pulumi.get(self, "finding_ids")
 
@@ -60,7 +60,7 @@ class GetFindingIdsResult:
     @pulumi.getter(name="hasFindings")
     def has_findings(self) -> _builtins.bool:
         """
-        Indicates whether findings are present for the specified detector.
+        Whether findings are present for the specified detector.
         """
         return pulumi.get(self, "has_findings")
 
@@ -92,7 +92,7 @@ def get_finding_ids(detector_id: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFindingIdsResult:
     """
-    Data source for managing an AWS GuardDuty Finding Ids.
+    Data source for managing an AWS GuardDuty Finding IDs.
 
     ## Example Usage
 
@@ -125,7 +125,7 @@ def get_finding_ids_output(detector_id: pulumi.Input[Optional[_builtins.str]] = 
                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFindingIdsResult]:
     """
-    Data source for managing an AWS GuardDuty Finding Ids.
+    Data source for managing an AWS GuardDuty Finding IDs.
 
     ## Example Usage
 

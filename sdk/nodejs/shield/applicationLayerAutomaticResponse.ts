@@ -63,7 +63,7 @@ export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
      */
     declare public readonly action: pulumi.Output<string>;
     /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+     * ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
@@ -110,7 +110,7 @@ export interface ApplicationLayerAutomaticResponseState {
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+     * ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
      */
     resourceArn?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
@@ -125,7 +125,7 @@ export interface ApplicationLayerAutomaticResponseArgs {
      */
     action: pulumi.Input<string>;
     /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+     * ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
      */
     resourceArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;

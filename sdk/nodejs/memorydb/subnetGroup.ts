@@ -64,7 +64,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the subnet group.
+     * ARN of the subnet group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -90,15 +90,15 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The VPC in which the subnet group exists.
+     * VPC in which the subnet group exists.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -149,7 +149,7 @@ export class SubnetGroup extends pulumi.CustomResource {
  */
 export interface SubnetGroupState {
     /**
-     * The ARN of the subnet group.
+     * ARN of the subnet group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -175,15 +175,15 @@ export interface SubnetGroupState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The VPC in which the subnet group exists.
+     * VPC in which the subnet group exists.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -215,7 +215,7 @@ export interface SubnetGroupArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorKafkaClusterClientAuthentication {
     /**
-     * @return Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+     * @return Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
      * 
      */
     private @Nullable ReplicatorKafkaClusterClientAuthenticationMtls mtls;
     /**
-     * @return Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+     * @return Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
      * 
      */
     private @Nullable ReplicatorKafkaClusterClientAuthenticationSaslScram saslScram;
 
     private ReplicatorKafkaClusterClientAuthentication() {}
     /**
-     * @return Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+     * @return Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
      * 
      */
     public Optional<ReplicatorKafkaClusterClientAuthenticationMtls> mtls() {
         return Optional.ofNullable(this.mtls);
     }
     /**
-     * @return Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+     * @return Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
      * 
      */
     public Optional<ReplicatorKafkaClusterClientAuthenticationSaslScram> saslScram() {

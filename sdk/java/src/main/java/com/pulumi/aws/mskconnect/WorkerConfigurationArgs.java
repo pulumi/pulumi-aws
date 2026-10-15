@@ -18,14 +18,14 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
     public static final WorkerConfigurationArgs Empty = new WorkerConfigurationArgs();
 
     /**
-     * A summary description of the worker configuration.
+     * Summary description of the worker configuration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A summary description of the worker configuration.
+     * @return Summary description of the worker configuration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -33,14 +33,14 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the worker configuration.
+     * Name of the worker configuration.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the worker configuration.
+     * @return Name of the worker configuration.
      * 
      */
     public Optional<Output<String>> name() {
@@ -82,14 +82,14 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -125,7 +125,7 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description A summary description of the worker configuration.
+         * @param description Summary description of the worker configuration.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description A summary description of the worker configuration.
+         * @param description Summary description of the worker configuration.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the worker configuration.
+         * @param name Name of the worker configuration.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the worker configuration.
+         * @param name Name of the worker configuration.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

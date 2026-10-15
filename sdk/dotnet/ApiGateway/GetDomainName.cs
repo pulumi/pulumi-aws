@@ -182,7 +182,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string CertificateUploadDate;
         /// <summary>
-        /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        /// Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
         /// </summary>
         public readonly string CloudfrontDomainName;
         /// <summary>

@@ -16,7 +16,7 @@ public final class GetNodeGroupLaunchTemplate {
      */
     private String id;
     /**
-     * @return Name of the AutoScaling Group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     private String name;
@@ -35,7 +35,7 @@ public final class GetNodeGroupLaunchTemplate {
         return this.id;
     }
     /**
-     * @return Name of the AutoScaling Group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     public String name() {

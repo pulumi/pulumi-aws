@@ -12,8 +12,8 @@ namespace Pulumi.Aws.AutoScaling
     public static class GetAmiIds
     {
         /// <summary>
-        /// The Autoscaling Groups data source allows access to the list of AWS
-        /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+        /// The Auto Scaling groups data source allows access to the list of AWS
+        /// ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
         /// 
         /// ## Example Usage
         /// 
@@ -68,8 +68,8 @@ namespace Pulumi.Aws.AutoScaling
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiIdsResult>("aws:autoscaling/getAmiIds:getAmiIds", args ?? new GetAmiIdsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Autoscaling Groups data source allows access to the list of AWS
-        /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+        /// The Auto Scaling groups data source allows access to the list of AWS
+        /// ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
         /// 
         /// ## Example Usage
         /// 
@@ -124,8 +124,8 @@ namespace Pulumi.Aws.AutoScaling
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiIdsResult>("aws:autoscaling/getAmiIds:getAmiIds", args ?? new GetAmiIdsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Autoscaling Groups data source allows access to the list of AWS
-        /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+        /// The Auto Scaling groups data source allows access to the list of AWS
+        /// ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
         /// 
         /// ## Example Usage
         /// 
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.AutoScaling
         private List<string>? _names;
 
         /// <summary>
-        /// List of autoscaling group names
+        /// List of Auto Scaling group names
         /// </summary>
         public List<string> Names
         {
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _names;
 
         /// <summary>
-        /// List of autoscaling group names
+        /// List of Auto Scaling group names
         /// </summary>
         public InputList<string> Names
         {
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GetAmiIdsResult
     {
         /// <summary>
-        /// List of the Autoscaling Groups Arns in the current region.
+        /// List of the Auto Scaling groups ARNs in the current region.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetAmiIdsFilterResult> Filters;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of the Autoscaling Groups in the current region.
+        /// List of the Auto Scaling groups in the current region.
         /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Region;

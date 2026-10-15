@@ -8,13 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Application AutoScaling Policy resource.
+ * Provides an Application Auto Scaling Policy resource.
  *
  * ## Example Usage
  *
- * ### DynamoDB Table Autoscaling
+ * ### DynamoDB Table AutoScaling
  *
- * ### ECS Service Autoscaling
+ * ### ECS Service AutoScaling
  *
  * ### Preserve desired count when updating an autoscaled ECS Service
  *
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * > });
  * > ```
  *
- * ### Aurora Read Replica Autoscaling
+ * ### Aurora Read Replica AutoScaling
  *
  * ### Create target tracking scaling policy using metric math
  *
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
+ * Using `pulumi import`, import Application Auto Scaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
  *
  * ```sh
  * $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name

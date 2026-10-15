@@ -15,17 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings {
     /**
-     * @return Setting to allow self signed or verified RTMP certificates.
+     * @return Whether to allow self-signed or verified RTMP certificates.
      * 
      */
     private @Nullable String certificateMode;
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
      * 
      */
     private @Nullable Integer connectionRetryInterval;
     /**
-     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
+     * @return RTMP endpoint excluding the stream name. See `destination` Block for details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination;
@@ -37,21 +37,21 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings() {}
     /**
-     * @return Setting to allow self signed or verified RTMP certificates.
+     * @return Whether to allow self-signed or verified RTMP certificates.
      * 
      */
     public Optional<String> certificateMode() {
         return Optional.ofNullable(this.certificateMode);
     }
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
      * 
      */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
     /**
-     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
+     * @return RTMP endpoint excluding the stream name. See `destination` Block for details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination() {

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.M2
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Id of the Application.
+        /// ID of the Application.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.M2
         public Output<int> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        /// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         /// </summary>
         [Output("definition")]
         public Output<Outputs.ApplicationDefinition> Definition { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.M2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.M2
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        /// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.ApplicationDefinitionArgs> Definition { get; set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.M2
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of the Application.
+        /// ID of the Application.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.M2
         public Input<int>? CurrentVersion { get; set; }
 
         /// <summary>
-        /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        /// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         /// </summary>
         [Input("definition")]
         public Input<Inputs.ApplicationDefinitionGetArgs>? Definition { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.M2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly bool? CleanExpiredFiles;
         /// <summary>
-        /// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        /// Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
         public readonly int? NumberOfSnapshotsToRetain;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly int? RunRateInHours;
         /// <summary>
-        /// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+        /// Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
         public readonly int? SnapshotRetentionPeriodInDays;
 

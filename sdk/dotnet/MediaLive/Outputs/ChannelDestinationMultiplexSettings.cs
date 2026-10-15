@@ -14,11 +14,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelDestinationMultiplexSettings
     {
         /// <summary>
-        /// The ID of the Multiplex that the encoder is providing output to.
+        /// ID of the Multiplex that the encoder is providing output to.
         /// </summary>
         public readonly string MultiplexId;
         /// <summary>
-        /// The program name of the Multiplex program that the encoder is providing output to.
+        /// Program name of the Multiplex program that the encoder is providing output to.
         /// </summary>
         public readonly string ProgramName;
 

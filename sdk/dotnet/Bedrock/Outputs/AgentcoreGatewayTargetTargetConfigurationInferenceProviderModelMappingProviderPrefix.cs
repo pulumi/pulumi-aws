@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Separator;
         /// <summary>
-        /// Whether clients can omit the provider prefix from model IDs. If `True`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `False`.
+        /// Whether to allow clients to omit the provider prefix from model IDs. If `True`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `False`.
         /// </summary>
         public readonly bool? Strip;
 

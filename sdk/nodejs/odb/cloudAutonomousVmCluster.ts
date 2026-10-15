@@ -158,7 +158,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
      */
     declare public readonly cloudExadataInfrastructureArn: pulumi.Output<string>;
     /**
-     * Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
     declare public readonly cloudExadataInfrastructureId: pulumi.Output<string>;
     /**
@@ -534,7 +534,7 @@ export interface CloudAutonomousVmClusterState {
      */
     cloudExadataInfrastructureArn?: pulumi.Input<string | undefined>;
     /**
-     * Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
     cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
@@ -735,7 +735,7 @@ export interface CloudAutonomousVmClusterArgs {
      */
     cloudExadataInfrastructureArn?: pulumi.Input<string | undefined>;
     /**
-     * Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
     cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**

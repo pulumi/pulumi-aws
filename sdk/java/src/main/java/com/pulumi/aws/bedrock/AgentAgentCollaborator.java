@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Bedrock Agents Agent Collaborator.
+ * Manages an AWS Bedrock Agents Agent Collaborator.
  * 
  * ## Example Usage
  * 
@@ -105,8 +105,8 @@ import javax.annotation.Nullable;
  *                         "bedrock:GetAgentAlias",
  *                         "bedrock:InvokeAgent")
  *                     .resources(                    
- *                         String.format("arn:%s:bedrock:%s:%s:agent/*", currentAgent.partition(),currentGetRegion.region(),current.accountId()),
- *                         String.format("arn:%s:bedrock:%s:%s:agent-alias/*", currentAgent.partition(),currentGetRegion.region(),current.accountId()))
+ *                         String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()),
+ *                         String.format("arn:%s:bedrock:%s:%s:agent-alias/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                     .build())
  *             .build());
  * 
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .agentResourceRoleArn(example.arn())
  *             .idleSessionTtlInSeconds(500)
  *             .foundationModel("anthropic.claude-3-5-sonnet-20241022-v2:0")
- *             .instruction("do what the supervisor tells you to do")
+ *             .instruction("You are a collaborator agent. Do what the supervisor tells you to do.")
  *             .build());
  * 
  *         var exampleSupervisor = new AgentAgent("exampleSupervisor", AgentAgentArgs.builder()
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *             .agentCollaboration("SUPERVISOR")
  *             .idleSessionTtlInSeconds(500)
  *             .foundationModel("anthropic.claude-3-5-sonnet-20241022-v2:0")
- *             .instruction("tell the sub agent what to do")
+ *             .instruction("You are a supervisor agent. Tell the sub agent what to do.")
  *             .prepareAgent(false)
  *             .build());
  * 
@@ -170,35 +170,43 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")
 public class AgentAgentCollaborator extends com.pulumi.resources.CustomResource {
+    /**
+     * Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     * 
+     */
     @Export(name="agentDescriptor", refs={AgentAgentCollaboratorAgentDescriptor.class}, tree="[0]")
     private Output<AgentAgentCollaboratorAgentDescriptor> agentDescriptor;
 
+    /**
+     * @return Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     * 
+     */
     public Output<AgentAgentCollaboratorAgentDescriptor> agentDescriptor() {
         return this.agentDescriptor;
     }
     /**
-     * ID if the agent to associate the collaborator.
+     * ID of the agent to associate the collaborator with.
      * 
      */
     @Export(name="agentId", refs={String.class}, tree="[0]")
     private Output<String> agentId;
 
     /**
-     * @return ID if the agent to associate the collaborator.
+     * @return ID of the agent to associate the collaborator with.
      * 
      */
     public Output<String> agentId() {
         return this.agentId;
     }
     /**
-     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      * 
      */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
     /**
-     * @return Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * @return Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      * 
      */
     public Output<String> agentVersion() {

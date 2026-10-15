@@ -189,7 +189,7 @@ def get_contact_flow_module(contact_flow_module_id: Optional[_builtins.str] = No
     ```
 
 
-    :param _builtins.str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
+    :param _builtins.str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module ID
     :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param _builtins.str name: Returns information on a specific Contact Flow Module by name
            
@@ -250,7 +250,7 @@ def get_contact_flow_module_output(contact_flow_module_id: pulumi.Input[Optional
     ```
 
 
-    :param _builtins.str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
+    :param _builtins.str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module ID
     :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param _builtins.str name: Returns information on a specific Contact Flow Module by name
            

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.UserProfileUserSettingsCustomFileSystemConfig> CustomFileSystemConfigs;
         /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        /// Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsCustomPosixUserConfig? CustomPosixUserConfig;
         /// <summary>

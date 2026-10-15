@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public final class GetAssetsResult {
     private String arn;
     /**
-     * @return List of all the asset ids found. This data source will fail if none are found.
+     * @return List of all the asset IDs found. This data source will fail if none are found.
      * 
      */
     private List<String> assetIds;
@@ -32,7 +32,7 @@ public final class GetAssetsResult {
         return this.arn;
     }
     /**
-     * @return List of all the asset ids found. This data source will fail if none are found.
+     * @return List of all the asset IDs found. This data source will fail if none are found.
      * 
      */
     public List<String> assetIds() {

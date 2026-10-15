@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInputSource {
+    /**
+     * @return Key used to extract the password from EC2 Parameter store.
+     * 
+     */
     private String passwordParam;
+    /**
+     * @return URL where the stream is pulled from.
+     * 
+     */
     private String url;
+    /**
+     * @return Username for the input source.
+     * 
+     */
     private String username;
 
     private GetInputSource() {}
+    /**
+     * @return Key used to extract the password from EC2 Parameter store.
+     * 
+     */
     public String passwordParam() {
         return this.passwordParam;
     }
+    /**
+     * @return URL where the stream is pulled from.
+     * 
+     */
     public String url() {
         return this.url;
     }
+    /**
+     * @return Username for the input source.
+     * 
+     */
     public String username() {
         return this.username;
     }

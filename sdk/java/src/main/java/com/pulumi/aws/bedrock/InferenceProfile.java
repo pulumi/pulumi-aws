@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Bedrock Inference Profile.
+ * Manages an AWS Bedrock Inference Profile.
  * 
  * ## Example Usage
  * 
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
+ * Using `pulumi import`, import Bedrock Inference Profile using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
@@ -209,9 +209,17 @@ public class InferenceProfile extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -390,19 +390,19 @@ class ChannelCdiInputSpecificationArgs:
 class ChannelDestinationArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
     """
-    User-specified id. Ths is used in an output group or an output.
+    User-specified ID used in an output group or an output.
     """
     media_package_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgsDict']]]]]
     """
-    Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+    Destination settings for a MediaPackage output; one destination for both encoders. See `media_package_settings` Block for details.
     """
     multiplex_settings: NotRequired[pulumi.Input[Optional['ChannelDestinationMultiplexSettingsArgsDict']]]
     """
-    Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+    Destination settings for a Multiplex output; one destination for both encoders. See `multiplex_settings` Block for details.
     """
     settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationSettingArgsDict']]]]]
     """
-    Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+    Destination settings for a standard output; one destination for each redundant encoder. See `settings` Block for details.
     """
 
 @pulumi.input_type
@@ -413,10 +413,10 @@ class ChannelDestinationArgs:
                  multiplex_settings: pulumi.Input[Optional['ChannelDestinationMultiplexSettingsArgs']] = None,
                  settings: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] id: User-specified id. Ths is used in an output group or an output.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]] media_package_settings: Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
-        :param pulumi.Input['ChannelDestinationMultiplexSettingsArgs'] multiplex_settings: Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]] settings: Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+        :param pulumi.Input[_builtins.str] id: User-specified ID used in an output group or an output.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]] media_package_settings: Destination settings for a MediaPackage output; one destination for both encoders. See `media_package_settings` Block for details.
+        :param pulumi.Input['ChannelDestinationMultiplexSettingsArgs'] multiplex_settings: Destination settings for a Multiplex output; one destination for both encoders. See `multiplex_settings` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]] settings: Destination settings for a standard output; one destination for each redundant encoder. See `settings` Block for details.
         """
         pulumi.set(__self__, "id", id)
         if media_package_settings is not None:
@@ -430,7 +430,7 @@ class ChannelDestinationArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
         """
-        User-specified id. Ths is used in an output group or an output.
+        User-specified ID used in an output group or an output.
         """
         return pulumi.get(self, "id")
 
@@ -442,7 +442,7 @@ class ChannelDestinationArgs:
     @pulumi.getter(name="mediaPackageSettings")
     def media_package_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]]]:
         """
-        Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+        Destination settings for a MediaPackage output; one destination for both encoders. See `media_package_settings` Block for details.
         """
         return pulumi.get(self, "media_package_settings")
 
@@ -454,7 +454,7 @@ class ChannelDestinationArgs:
     @pulumi.getter(name="multiplexSettings")
     def multiplex_settings(self) -> pulumi.Input[Optional['ChannelDestinationMultiplexSettingsArgs']]:
         """
-        Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+        Destination settings for a Multiplex output; one destination for both encoders. See `multiplex_settings` Block for details.
         """
         return pulumi.get(self, "multiplex_settings")
 
@@ -466,7 +466,7 @@ class ChannelDestinationArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]]]:
         """
-        Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+        Destination settings for a standard output; one destination for each redundant encoder. See `settings` Block for details.
         """
         return pulumi.get(self, "settings")
 
@@ -506,11 +506,11 @@ class ChannelDestinationMediaPackageSettingArgs:
 class ChannelDestinationMultiplexSettingsArgsDict(TypedDict):
     multiplex_id: pulumi.Input[_builtins.str]
     """
-    The ID of the Multiplex that the encoder is providing output to.
+    ID of the Multiplex that the encoder is providing output to.
     """
     program_name: pulumi.Input[_builtins.str]
     """
-    The program name of the Multiplex program that the encoder is providing output to.
+    Program name of the Multiplex program that the encoder is providing output to.
     """
 
 @pulumi.input_type
@@ -519,8 +519,8 @@ class ChannelDestinationMultiplexSettingsArgs:
                  multiplex_id: pulumi.Input[_builtins.str],
                  program_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] multiplex_id: The ID of the Multiplex that the encoder is providing output to.
-        :param pulumi.Input[_builtins.str] program_name: The program name of the Multiplex program that the encoder is providing output to.
+        :param pulumi.Input[_builtins.str] multiplex_id: ID of the Multiplex that the encoder is providing output to.
+        :param pulumi.Input[_builtins.str] program_name: Program name of the Multiplex program that the encoder is providing output to.
         """
         pulumi.set(__self__, "multiplex_id", multiplex_id)
         pulumi.set(__self__, "program_name", program_name)
@@ -529,7 +529,7 @@ class ChannelDestinationMultiplexSettingsArgs:
     @pulumi.getter(name="multiplexId")
     def multiplex_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Multiplex that the encoder is providing output to.
+        ID of the Multiplex that the encoder is providing output to.
         """
         return pulumi.get(self, "multiplex_id")
 
@@ -541,7 +541,7 @@ class ChannelDestinationMultiplexSettingsArgs:
     @pulumi.getter(name="programName")
     def program_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The program name of the Multiplex program that the encoder is providing output to.
+        Program name of the Multiplex program that the encoder is providing output to.
         """
         return pulumi.get(self, "program_name")
 
@@ -557,15 +557,15 @@ class ChannelDestinationSettingArgsDict(TypedDict):
     """
     stream_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Stream name RTMP destinations (URLs of type rtmp://)
+    Stream name for RTMP destinations (URLs of type `rtmp://`).
     """
     url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A URL specifying a destination.
+    URL for the destination.
     """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Username for destination.
+    Username for the destination.
     """
 
 @pulumi.input_type
@@ -577,9 +577,9 @@ class ChannelDestinationSettingArgs:
                  username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
-        :param pulumi.Input[_builtins.str] stream_name: Stream name RTMP destinations (URLs of type rtmp://)
-        :param pulumi.Input[_builtins.str] url: A URL specifying a destination.
-        :param pulumi.Input[_builtins.str] username: Username for destination.
+        :param pulumi.Input[_builtins.str] stream_name: Stream name for RTMP destinations (URLs of type `rtmp://`).
+        :param pulumi.Input[_builtins.str] url: URL for the destination.
+        :param pulumi.Input[_builtins.str] username: Username for the destination.
         """
         if password_param is not None:
             pulumi.set(__self__, "password_param", password_param)
@@ -606,7 +606,7 @@ class ChannelDestinationSettingArgs:
     @pulumi.getter(name="streamName")
     def stream_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Stream name RTMP destinations (URLs of type rtmp://)
+        Stream name for RTMP destinations (URLs of type `rtmp://`).
         """
         return pulumi.get(self, "stream_name")
 
@@ -618,7 +618,7 @@ class ChannelDestinationSettingArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A URL specifying a destination.
+        URL for the destination.
         """
         return pulumi.get(self, "url")
 
@@ -630,7 +630,7 @@ class ChannelDestinationSettingArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Username for destination.
+        Username for the destination.
         """
         return pulumi.get(self, "username")
 
@@ -642,39 +642,39 @@ class ChannelDestinationSettingArgs:
 class ChannelEncoderSettingsArgsDict(TypedDict):
     output_groups: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgsDict']]]
     """
-    Output groups for the channel. See Output Groups for more details.
+    Output groups for the channel. See `output_groups` Block for details.
     """
     timecode_config: pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgsDict']
     """
-    Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+    Settings used to acquire and adjust timecode information from inputs. See `timecode_config` Block for details.
     """
     audio_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgsDict']]]]]
     """
-    Audio descriptions for the channel. See Audio Descriptions for more details.
+    Audio descriptions for the channel. See `audio_descriptions` Block for details.
     """
     avail_blanking: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingArgsDict']]]
     """
-    Settings for ad avail blanking. See Avail Blanking for more details.
+    Settings for ad avail blanking. See `avail_blanking` Block for details.
     """
     caption_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgsDict']]]]]
     """
-    Caption Descriptions. See Caption Descriptions for more details.
+    Caption descriptions for the channel. See `caption_descriptions` Block for details.
     """
     global_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationArgsDict']]]
     """
-    Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+    Configuration settings that apply to the event as a whole. See `global_configuration` Block for details.
     """
     motion_graphics_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationArgsDict']]]
     """
-    Settings for motion graphics. See Motion Graphics Configuration for more details.
+    Settings for motion graphics. See `motion_graphics_configuration` Block for details.
     """
     nielsen_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsNielsenConfigurationArgsDict']]]
     """
-    Nielsen configuration settings. See Nielsen Configuration for more details.
+    Nielsen configuration settings. See `nielsen_configuration` Block for details.
     """
     video_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgsDict']]]]]
     """
-    Video Descriptions. See Video Descriptions for more details.
+    Video descriptions for the channel. See `video_descriptions` Block for details.
     """
 
 @pulumi.input_type
@@ -690,15 +690,15 @@ class ChannelEncoderSettingsArgs:
                  nielsen_configuration: pulumi.Input[Optional['ChannelEncoderSettingsNielsenConfigurationArgs']] = None,
                  video_descriptions: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]] output_groups: Output groups for the channel. See Output Groups for more details.
-        :param pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs'] timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs'] avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]] caption_descriptions: Caption Descriptions. See Caption Descriptions for more details.
-        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArgs'] global_configuration: Configuration settings that apply to the event as a whole. See Global Configuration for more details.
-        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArgs'] motion_graphics_configuration: Settings for motion graphics. See Motion Graphics Configuration for more details.
-        :param pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArgs'] nielsen_configuration: Nielsen configuration settings. See Nielsen Configuration for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]] video_descriptions: Video Descriptions. See Video Descriptions for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]] output_groups: Output groups for the channel. See `output_groups` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs'] timecode_config: Settings used to acquire and adjust timecode information from inputs. See `timecode_config` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]] audio_descriptions: Audio descriptions for the channel. See `audio_descriptions` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs'] avail_blanking: Settings for ad avail blanking. See `avail_blanking` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]] caption_descriptions: Caption descriptions for the channel. See `caption_descriptions` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArgs'] global_configuration: Configuration settings that apply to the event as a whole. See `global_configuration` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArgs'] motion_graphics_configuration: Settings for motion graphics. See `motion_graphics_configuration` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArgs'] nielsen_configuration: Nielsen configuration settings. See `nielsen_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]] video_descriptions: Video descriptions for the channel. See `video_descriptions` Block for details.
         """
         pulumi.set(__self__, "output_groups", output_groups)
         pulumi.set(__self__, "timecode_config", timecode_config)
@@ -721,7 +721,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="outputGroups")
     def output_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]]:
         """
-        Output groups for the channel. See Output Groups for more details.
+        Output groups for the channel. See `output_groups` Block for details.
         """
         return pulumi.get(self, "output_groups")
 
@@ -733,7 +733,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="timecodeConfig")
     def timecode_config(self) -> pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs']:
         """
-        Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        Settings used to acquire and adjust timecode information from inputs. See `timecode_config` Block for details.
         """
         return pulumi.get(self, "timecode_config")
 
@@ -745,7 +745,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="audioDescriptions")
     def audio_descriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]]]:
         """
-        Audio descriptions for the channel. See Audio Descriptions for more details.
+        Audio descriptions for the channel. See `audio_descriptions` Block for details.
         """
         return pulumi.get(self, "audio_descriptions")
 
@@ -757,7 +757,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="availBlanking")
     def avail_blanking(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingArgs']]:
         """
-        Settings for ad avail blanking. See Avail Blanking for more details.
+        Settings for ad avail blanking. See `avail_blanking` Block for details.
         """
         return pulumi.get(self, "avail_blanking")
 
@@ -769,7 +769,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="captionDescriptions")
     def caption_descriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]]]:
         """
-        Caption Descriptions. See Caption Descriptions for more details.
+        Caption descriptions for the channel. See `caption_descriptions` Block for details.
         """
         return pulumi.get(self, "caption_descriptions")
 
@@ -781,7 +781,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="globalConfiguration")
     def global_configuration(self) -> pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationArgs']]:
         """
-        Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        Configuration settings that apply to the event as a whole. See `global_configuration` Block for details.
         """
         return pulumi.get(self, "global_configuration")
 
@@ -793,7 +793,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="motionGraphicsConfiguration")
     def motion_graphics_configuration(self) -> pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationArgs']]:
         """
-        Settings for motion graphics. See Motion Graphics Configuration for more details.
+        Settings for motion graphics. See `motion_graphics_configuration` Block for details.
         """
         return pulumi.get(self, "motion_graphics_configuration")
 
@@ -805,7 +805,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="nielsenConfiguration")
     def nielsen_configuration(self) -> pulumi.Input[Optional['ChannelEncoderSettingsNielsenConfigurationArgs']]:
         """
-        Nielsen configuration settings. See Nielsen Configuration for more details.
+        Nielsen configuration settings. See `nielsen_configuration` Block for details.
         """
         return pulumi.get(self, "nielsen_configuration")
 
@@ -817,7 +817,7 @@ class ChannelEncoderSettingsArgs:
     @pulumi.getter(name="videoDescriptions")
     def video_descriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]]:
         """
-        Video Descriptions. See Video Descriptions for more details.
+        Video descriptions for the channel. See `video_descriptions` Block for details.
         """
         return pulumi.get(self, "video_descriptions")
 
@@ -829,38 +829,47 @@ class ChannelEncoderSettingsArgs:
 class ChannelEncoderSettingsAudioDescriptionArgsDict(TypedDict):
     audio_selector_name: pulumi.Input[_builtins.str]
     """
-    The name of the audio selector used as the source for this AudioDescription.
+    Name of the audio selector used as the source for this audio description.
     """
     name: pulumi.Input[_builtins.str]
     """
-    The name of this audio description.
+    Name of this audio description.
     """
     audio_normalization_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgsDict']]]
     """
-    Advanced audio normalization settings. See Audio Normalization Settings for more details.
+    Advanced audio normalization settings. See `audio_normalization_settings` Block for details.
     """
     audio_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+    Applies only if `audio_type_control` is `useConfigured`. Values for `audio_type` are defined in ISO-IEC 13818-1.
     """
     audio_type_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Determined how audio type is determined.
+    How audio type is determined.
     """
     audio_watermark_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgsDict']]]
     """
-    Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+    Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audio_watermark_settings` Block for details.
     """
     codec_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgsDict']]]
     """
-    Audio codec settings. See Audio Codec Settings for more details.
+    Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
     """
     language_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ISO 639-2 three-digit code for the language of this audio description.
+    """
     language_code_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How to handle the audio language code.
+    """
     remix_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgsDict']]]
+    """
+    Settings to remix the audio. See `remix_settings` Block for details.
+    """
     stream_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Stream name RTMP destinations (URLs of type rtmp://)
+    Stream name used to identify the audio description.
     """
 
 @pulumi.input_type
@@ -878,14 +887,17 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
                  remix_settings: pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs']] = None,
                  stream_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
-        :param pulumi.Input[_builtins.str] name: The name of this audio description.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs'] audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
-        :param pulumi.Input[_builtins.str] audio_type: Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
-        :param pulumi.Input[_builtins.str] audio_type_control: Determined how audio type is determined.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs'] audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs'] codec_settings: Audio codec settings. See Audio Codec Settings for more details.
-        :param pulumi.Input[_builtins.str] stream_name: Stream name RTMP destinations (URLs of type rtmp://)
+        :param pulumi.Input[_builtins.str] audio_selector_name: Name of the audio selector used as the source for this audio description.
+        :param pulumi.Input[_builtins.str] name: Name of this audio description.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs'] audio_normalization_settings: Advanced audio normalization settings. See `audio_normalization_settings` Block for details.
+        :param pulumi.Input[_builtins.str] audio_type: Applies only if `audio_type_control` is `useConfigured`. Values for `audio_type` are defined in ISO-IEC 13818-1.
+        :param pulumi.Input[_builtins.str] audio_type_control: How audio type is determined.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs'] audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audio_watermark_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs'] codec_settings: Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
+        :param pulumi.Input[_builtins.str] language_code: ISO 639-2 three-digit code for the language of this audio description.
+        :param pulumi.Input[_builtins.str] language_code_control: How to handle the audio language code.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs'] remix_settings: Settings to remix the audio. See `remix_settings` Block for details.
+        :param pulumi.Input[_builtins.str] stream_name: Stream name used to identify the audio description.
         """
         pulumi.set(__self__, "audio_selector_name", audio_selector_name)
         pulumi.set(__self__, "name", name)
@@ -912,7 +924,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="audioSelectorName")
     def audio_selector_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the audio selector used as the source for this AudioDescription.
+        Name of the audio selector used as the source for this audio description.
         """
         return pulumi.get(self, "audio_selector_name")
 
@@ -924,7 +936,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of this audio description.
+        Name of this audio description.
         """
         return pulumi.get(self, "name")
 
@@ -936,7 +948,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="audioNormalizationSettings")
     def audio_normalization_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs']]:
         """
-        Advanced audio normalization settings. See Audio Normalization Settings for more details.
+        Advanced audio normalization settings. See `audio_normalization_settings` Block for details.
         """
         return pulumi.get(self, "audio_normalization_settings")
 
@@ -948,7 +960,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="audioType")
     def audio_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+        Applies only if `audio_type_control` is `useConfigured`. Values for `audio_type` are defined in ISO-IEC 13818-1.
         """
         return pulumi.get(self, "audio_type")
 
@@ -960,7 +972,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="audioTypeControl")
     def audio_type_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Determined how audio type is determined.
+        How audio type is determined.
         """
         return pulumi.get(self, "audio_type_control")
 
@@ -972,7 +984,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="audioWatermarkSettings")
     def audio_watermark_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs']]:
         """
-        Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audio_watermark_settings` Block for details.
         """
         return pulumi.get(self, "audio_watermark_settings")
 
@@ -984,7 +996,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="codecSettings")
     def codec_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs']]:
         """
-        Audio codec settings. See Audio Codec Settings for more details.
+        Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
         """
         return pulumi.get(self, "codec_settings")
 
@@ -995,6 +1007,9 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ISO 639-2 three-digit code for the language of this audio description.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -1004,6 +1019,9 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @_builtins.property
     @pulumi.getter(name="languageCodeControl")
     def language_code_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How to handle the audio language code.
+        """
         return pulumi.get(self, "language_code_control")
 
     @language_code_control.setter
@@ -1013,6 +1031,9 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @_builtins.property
     @pulumi.getter(name="remixSettings")
     def remix_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs']]:
+        """
+        Settings to remix the audio. See `remix_settings` Block for details.
+        """
         return pulumi.get(self, "remix_settings")
 
     @remix_settings.setter
@@ -1023,7 +1044,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="streamName")
     def stream_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Stream name RTMP destinations (URLs of type rtmp://)
+        Stream name used to identify the audio description.
         """
         return pulumi.get(self, "stream_name")
 
@@ -1035,7 +1056,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
 class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgsDict(TypedDict):
     algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+    Audio normalization algorithm to use. `itu17701` conforms to the CALM Act specification; `itu17702` conforms to the EBU R-128 specification.
     """
     algorithm_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1053,7 +1074,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs:
                  algorithm_control: pulumi.Input[Optional[_builtins.str]] = None,
                  target_lkfs: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.str] algorithm: Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+        :param pulumi.Input[_builtins.str] algorithm: Audio normalization algorithm to use. `itu17701` conforms to the CALM Act specification; `itu17702` conforms to the EBU R-128 specification.
         :param pulumi.Input[_builtins.str] algorithm_control: Algorithm control for the audio description.
         :param pulumi.Input[_builtins.float] target_lkfs: Target LKFS (loudness) to adjust volume to.
         """
@@ -1068,7 +1089,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs:
     @pulumi.getter
     def algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+        Audio normalization algorithm to use. `itu17701` conforms to the CALM Act specification; `itu17702` conforms to the EBU R-128 specification.
         """
         return pulumi.get(self, "algorithm")
 
@@ -1103,17 +1124,26 @@ class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs:
 
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgsDict(TypedDict):
     nielsen_watermarks_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgsDict']]]
+    """
+    Settings to configure Nielsen watermarks in the audio encode. See `nielsen_watermarks_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs:
     def __init__(__self__, *,
                  nielsen_watermarks_settings: pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs'] nielsen_watermarks_settings: Settings to configure Nielsen watermarks in the audio encode. See `nielsen_watermarks_settings` Block for details.
+        """
         if nielsen_watermarks_settings is not None:
             pulumi.set(__self__, "nielsen_watermarks_settings", nielsen_watermarks_settings)
 
     @_builtins.property
     @pulumi.getter(name="nielsenWatermarksSettings")
     def nielsen_watermarks_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs']]:
+        """
+        Settings to configure Nielsen watermarks in the audio encode. See `nielsen_watermarks_settings` Block for details.
+        """
         return pulumi.get(self, "nielsen_watermarks_settings")
 
     @nielsen_watermarks_settings.setter
@@ -1124,7 +1154,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs:
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgsDict(TypedDict):
     nielsen_cbet_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgsDict']]]
     """
-    Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+    Settings to insert watermarks of type Nielsen CBET. See `nielsen_cbet_settings` Block for details.
     """
     nielsen_distribution_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1132,7 +1162,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     """
     nielsen_naes_ii_nw_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgsDict']]]]]
     """
-    Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+    Settings to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See `nielsen_naes_ii_nw_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -1142,9 +1172,9 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
                  nielsen_distribution_type: pulumi.Input[Optional[_builtins.str]] = None,
                  nielsen_naes_ii_nw_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs'] nielsen_cbet_settings: Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs'] nielsen_cbet_settings: Settings to insert watermarks of type Nielsen CBET. See `nielsen_cbet_settings` Block for details.
         :param pulumi.Input[_builtins.str] nielsen_distribution_type: Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]] nielsen_naes_ii_nw_settings: Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]] nielsen_naes_ii_nw_settings: Settings to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See `nielsen_naes_ii_nw_settings` Block for details.
         """
         if nielsen_cbet_settings is not None:
             pulumi.set(__self__, "nielsen_cbet_settings", nielsen_cbet_settings)
@@ -1157,7 +1187,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     @pulumi.getter(name="nielsenCbetSettings")
     def nielsen_cbet_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs']]:
         """
-        Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        Settings to insert watermarks of type Nielsen CBET. See `nielsen_cbet_settings` Block for details.
         """
         return pulumi.get(self, "nielsen_cbet_settings")
 
@@ -1181,7 +1211,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     @pulumi.getter(name="nielsenNaesIiNwSettings")
     def nielsen_naes_ii_nw_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]]]:
         """
-        Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        Settings to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See `nielsen_naes_ii_nw_settings` Block for details.
         """
         return pulumi.get(self, "nielsen_naes_ii_nw_settings")
 
@@ -1192,9 +1222,12 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgsDict(TypedDict):
     cbet_check_digit_string: pulumi.Input[_builtins.str]
+    """
+    CBET check digits to use for the watermark.
+    """
     cbet_stepaside: pulumi.Input[_builtins.str]
     """
-    Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+    Method of CBET insertion mode when prior encoding is detected on the same layer.
     """
     csid: pulumi.Input[_builtins.str]
     """
@@ -1208,7 +1241,8 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
                  cbet_stepaside: pulumi.Input[_builtins.str],
                  csid: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] cbet_stepaside: Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+        :param pulumi.Input[_builtins.str] cbet_check_digit_string: CBET check digits to use for the watermark.
+        :param pulumi.Input[_builtins.str] cbet_stepaside: Method of CBET insertion mode when prior encoding is detected on the same layer.
         :param pulumi.Input[_builtins.str] csid: CBET source ID to use in the watermark.
         """
         pulumi.set(__self__, "cbet_check_digit_string", cbet_check_digit_string)
@@ -1218,6 +1252,9 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     @_builtins.property
     @pulumi.getter(name="cbetCheckDigitString")
     def cbet_check_digit_string(self) -> pulumi.Input[_builtins.str]:
+        """
+        CBET check digits to use for the watermark.
+        """
         return pulumi.get(self, "cbet_check_digit_string")
 
     @cbet_check_digit_string.setter
@@ -1228,7 +1265,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     @pulumi.getter(name="cbetStepaside")
     def cbet_stepaside(self) -> pulumi.Input[_builtins.str]:
         """
-        Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+        Method of CBET insertion mode when prior encoding is detected on the same layer.
         """
         return pulumi.get(self, "cbet_stepaside")
 
@@ -1251,9 +1288,12 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgsDict(TypedDict):
     check_digit_string: pulumi.Input[_builtins.str]
+    """
+    Check digit string for the watermark.
+    """
     sid: pulumi.Input[_builtins.float]
     """
-    The Nielsen Source ID to include in the watermark.
+    Nielsen source ID to include in the watermark.
     """
 
 @pulumi.input_type
@@ -1262,7 +1302,8 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
                  check_digit_string: pulumi.Input[_builtins.str],
                  sid: pulumi.Input[_builtins.float]):
         """
-        :param pulumi.Input[_builtins.float] sid: The Nielsen Source ID to include in the watermark.
+        :param pulumi.Input[_builtins.str] check_digit_string: Check digit string for the watermark.
+        :param pulumi.Input[_builtins.float] sid: Nielsen source ID to include in the watermark.
         """
         pulumi.set(__self__, "check_digit_string", check_digit_string)
         pulumi.set(__self__, "sid", sid)
@@ -1270,6 +1311,9 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     @_builtins.property
     @pulumi.getter(name="checkDigitString")
     def check_digit_string(self) -> pulumi.Input[_builtins.str]:
+        """
+        Check digit string for the watermark.
+        """
         return pulumi.get(self, "check_digit_string")
 
     @check_digit_string.setter
@@ -1280,7 +1324,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     @pulumi.getter
     def sid(self) -> pulumi.Input[_builtins.float]:
         """
-        The Nielsen Source ID to include in the watermark.
+        Nielsen source ID to include in the watermark.
         """
         return pulumi.get(self, "sid")
 
@@ -1292,23 +1336,32 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgsDict(TypedDict):
     aac_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgsDict']]]
     """
-    Aac Settings. See AAC Settings for more details.
+    AAC settings. See `aac_settings` Block for details.
     """
     ac3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgsDict']]]
     """
-    Ac3 Settings. See AC3 Settings for more details.
+    AC3 settings. See `ac3_settings` Block for details.
     """
     eac3_atmos_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgsDict']]]
     """
-    Eac3 Atmos Settings. See EAC3 Atmos Settings
+    EAC3 Atmos settings. See `eac3_atmos_settings` Block for details.
     """
     eac3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgsDict']]]
     """
-    Eac3 Settings. See EAC3 Settings
+    EAC3 settings. See `eac3_settings` Block for details.
     """
     mp2_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgsDict']]]
+    """
+    MP2 settings. See `mp2_settings` Block for details.
+    """
     pass_through_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgsDict']]]
+    """
+    Pass-through settings. Can be set as an empty block.
+    """
     wav_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgsDict']]]
+    """
+    WAV settings. See `wav_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
@@ -1321,10 +1374,13 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
                  pass_through_settings: pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']] = None,
                  wav_settings: pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs'] aac_settings: Aac Settings. See AAC Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs'] ac3_settings: Ac3 Settings. See AC3 Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs'] eac3_atmos_settings: Eac3 Atmos Settings. See EAC3 Atmos Settings
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs'] eac3_settings: Eac3 Settings. See EAC3 Settings
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs'] aac_settings: AAC settings. See `aac_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs'] ac3_settings: AC3 settings. See `ac3_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs'] eac3_atmos_settings: EAC3 Atmos settings. See `eac3_atmos_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs'] eac3_settings: EAC3 settings. See `eac3_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs'] mp2_settings: MP2 settings. See `mp2_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs'] pass_through_settings: Pass-through settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs'] wav_settings: WAV settings. See `wav_settings` Block for details.
         """
         if aac_settings is not None:
             pulumi.set(__self__, "aac_settings", aac_settings)
@@ -1345,7 +1401,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @pulumi.getter(name="aacSettings")
     def aac_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs']]:
         """
-        Aac Settings. See AAC Settings for more details.
+        AAC settings. See `aac_settings` Block for details.
         """
         return pulumi.get(self, "aac_settings")
 
@@ -1357,7 +1413,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @pulumi.getter(name="ac3Settings")
     def ac3_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs']]:
         """
-        Ac3 Settings. See AC3 Settings for more details.
+        AC3 settings. See `ac3_settings` Block for details.
         """
         return pulumi.get(self, "ac3_settings")
 
@@ -1369,7 +1425,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @pulumi.getter(name="eac3AtmosSettings")
     def eac3_atmos_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']]:
         """
-        Eac3 Atmos Settings. See EAC3 Atmos Settings
+        EAC3 Atmos settings. See `eac3_atmos_settings` Block for details.
         """
         return pulumi.get(self, "eac3_atmos_settings")
 
@@ -1381,7 +1437,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @pulumi.getter(name="eac3Settings")
     def eac3_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs']]:
         """
-        Eac3 Settings. See EAC3 Settings
+        EAC3 settings. See `eac3_settings` Block for details.
         """
         return pulumi.get(self, "eac3_settings")
 
@@ -1392,6 +1448,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="mp2Settings")
     def mp2_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs']]:
+        """
+        MP2 settings. See `mp2_settings` Block for details.
+        """
         return pulumi.get(self, "mp2_settings")
 
     @mp2_settings.setter
@@ -1401,6 +1460,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="passThroughSettings")
     def pass_through_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']]:
+        """
+        Pass-through settings. Can be set as an empty block.
+        """
         return pulumi.get(self, "pass_through_settings")
 
     @pass_through_settings.setter
@@ -1410,6 +1472,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="wavSettings")
     def wav_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs']]:
+        """
+        WAV settings. See `wav_settings` Block for details.
+        """
         return pulumi.get(self, "wav_settings")
 
     @wav_settings.setter
@@ -1424,11 +1489,11 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgsDict(Typ
     """
     coding_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Mono, Stereo, or 5.1 channel layout.
+    Mono, stereo, or 5.1 channel layout.
     """
     input_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+    Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
     """
     profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1436,7 +1501,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgsDict(Typ
     """
     rate_control_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The rate control mode.
+    Rate control mode.
     """
     raw_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1448,11 +1513,11 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgsDict(Typ
     """
     spec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+    Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
     """
     vbr_quality: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    VBR Quality Level - Only used if rateControlMode is VBR.
+    VBR quality level. Only used if `rate_control_mode` is `VBR`.
     """
 
 @pulumi.input_type
@@ -1469,14 +1534,14 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
                  vbr_quality: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.float] bitrate: Average bitrate in bits/second.
-        :param pulumi.Input[_builtins.str] coding_mode: Mono, Stereo, or 5.1 channel layout.
-        :param pulumi.Input[_builtins.str] input_type: Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+        :param pulumi.Input[_builtins.str] coding_mode: Mono, stereo, or 5.1 channel layout.
+        :param pulumi.Input[_builtins.str] input_type: Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
         :param pulumi.Input[_builtins.str] profile: AAC profile.
-        :param pulumi.Input[_builtins.str] rate_control_mode: The rate control mode.
+        :param pulumi.Input[_builtins.str] rate_control_mode: Rate control mode.
         :param pulumi.Input[_builtins.str] raw_format: Sets LATM/LOAS AAC output for raw containers.
         :param pulumi.Input[_builtins.float] sample_rate: Sample rate in Hz.
-        :param pulumi.Input[_builtins.str] spec: Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-        :param pulumi.Input[_builtins.str] vbr_quality: VBR Quality Level - Only used if rateControlMode is VBR.
+        :param pulumi.Input[_builtins.str] spec: Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+        :param pulumi.Input[_builtins.str] vbr_quality: VBR quality level. Only used if `rate_control_mode` is `VBR`.
         """
         if bitrate is not None:
             pulumi.set(__self__, "bitrate", bitrate)
@@ -1513,7 +1578,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Mono, Stereo, or 5.1 channel layout.
+        Mono, stereo, or 5.1 channel layout.
         """
         return pulumi.get(self, "coding_mode")
 
@@ -1525,7 +1590,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @pulumi.getter(name="inputType")
     def input_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+        Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
         """
         return pulumi.get(self, "input_type")
 
@@ -1549,7 +1614,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @pulumi.getter(name="rateControlMode")
     def rate_control_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The rate control mode.
+        Rate control mode.
         """
         return pulumi.get(self, "rate_control_mode")
 
@@ -1585,7 +1650,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @pulumi.getter
     def spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+        Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
         """
         return pulumi.get(self, "spec")
 
@@ -1597,7 +1662,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @pulumi.getter(name="vbrQuality")
     def vbr_quality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        VBR Quality Level - Only used if rateControlMode is VBR.
+        VBR quality level. Only used if `rate_control_mode` is `VBR`.
         """
         return pulumi.get(self, "vbr_quality")
 
@@ -1613,7 +1678,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgsDict(Typ
     """
     bitstream_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+    Bitstream mode (bsmod) for the emitted AC-3 stream.
     """
     coding_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1625,11 +1690,11 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgsDict(Typ
     """
     drc_profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+    When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
     """
     lfe_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+    When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
     """
     metadata_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1648,11 +1713,11 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
                  metadata_control: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.float] bitrate: Average bitrate in bits/second.
-        :param pulumi.Input[_builtins.str] bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        :param pulumi.Input[_builtins.str] bitstream_mode: Bitstream mode (bsmod) for the emitted AC-3 stream.
         :param pulumi.Input[_builtins.str] coding_mode: Dolby Digital coding mode.
         :param pulumi.Input[_builtins.int] dialnorm: Sets the dialnorm of the output.
-        :param pulumi.Input[_builtins.str] drc_profile: If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-        :param pulumi.Input[_builtins.str] lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        :param pulumi.Input[_builtins.str] drc_profile: When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+        :param pulumi.Input[_builtins.str] lfe_filter: When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         :param pulumi.Input[_builtins.str] metadata_control: Metadata control.
         """
         if bitrate is not None:
@@ -1686,7 +1751,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @pulumi.getter(name="bitstreamMode")
     def bitstream_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        Bitstream mode (bsmod) for the emitted AC-3 stream.
         """
         return pulumi.get(self, "bitstream_mode")
 
@@ -1722,7 +1787,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @pulumi.getter(name="drcProfile")
     def drc_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+        When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
         """
         return pulumi.get(self, "drc_profile")
 
@@ -1734,7 +1799,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @pulumi.getter(name="lfeFilter")
     def lfe_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         """
         return pulumi.get(self, "lfe_filter")
 
@@ -1770,11 +1835,11 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgsDi
     """
     drc_line: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the Dolby dynamic range compression profile.
+    Dolby dynamic range compression profile.
     """
     drc_rf: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the profile for heavy Dolby dynamic range compression.
+    Profile for heavy Dolby dynamic range compression.
     """
     height_trim: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
@@ -1799,8 +1864,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs:
         :param pulumi.Input[_builtins.float] bitrate: Average bitrate in bits/second.
         :param pulumi.Input[_builtins.str] coding_mode: Dolby Digital Plus with Dolby Atmos coding mode.
         :param pulumi.Input[_builtins.float] dialnorm: Sets the dialnorm for the output.
-        :param pulumi.Input[_builtins.str] drc_line: Sets the Dolby dynamic range compression profile.
-        :param pulumi.Input[_builtins.str] drc_rf: Sets the profile for heavy Dolby dynamic range compression.
+        :param pulumi.Input[_builtins.str] drc_line: Dolby dynamic range compression profile.
+        :param pulumi.Input[_builtins.str] drc_rf: Profile for heavy Dolby dynamic range compression.
         :param pulumi.Input[_builtins.float] height_trim: Height dimensional trim.
         :param pulumi.Input[_builtins.float] surround_trim: Surround dimensional trim.
         """
@@ -1859,7 +1924,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs:
     @pulumi.getter(name="drcLine")
     def drc_line(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the Dolby dynamic range compression profile.
+        Dolby dynamic range compression profile.
         """
         return pulumi.get(self, "drc_line")
 
@@ -1871,7 +1936,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs:
     @pulumi.getter(name="drcRf")
     def drc_rf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the profile for heavy Dolby dynamic range compression.
+        Profile for heavy Dolby dynamic range compression.
         """
         return pulumi.get(self, "drc_rf")
 
@@ -1907,7 +1972,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs:
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgsDict(TypedDict):
     attenuation_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the attenuation control.
+    Attenuation control.
     """
     bitrate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
@@ -1915,40 +1980,76 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgsDict(Ty
     """
     bitstream_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+    Bitstream mode (bsmod) for the emitted AC-3 stream.
     """
     coding_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Dolby Digital Plus coding mode.
     """
     dc_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to activate a DC filter for the channels.
+    """
     dialnorm: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Sets the dialnorm for the output.
+    """
     drc_line: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets the Dolby dynamic range compression profile.
     """
     drc_rf: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the profile for heavy Dolby dynamic range compression.
+    Profile for heavy Dolby dynamic range compression.
     """
     lfe_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `lfe`, the EAC3 output contains an LFE channel.
+    """
     lfe_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+    When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
     """
     lo_ro_center_mix_level: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Left total/right total center mix level.
+    """
     lo_ro_surround_mix_level: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Left total/right total surround mix level.
+    """
     lt_rt_center_mix_level: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Left only/right only center mix level.
+    """
     lt_rt_surround_mix_level: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Left only/right only surround mix level.
+    """
     metadata_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Metadata control.
     """
     passthrough_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `whenPossible`, input DD+ audio is passed through if present.
+    """
     phase_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to invert the phase of the surround channels.
+    """
     stereo_downmix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Stereo downmix preference.
+    """
     surround_ex_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to encode the stream as Dolby Digital EX.
+    """
     surround_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to encode the stream as a surround sound stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
@@ -1974,14 +2075,26 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
                  surround_ex_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  surround_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] attenuation_control: Sets the attenuation control.
+        :param pulumi.Input[_builtins.str] attenuation_control: Attenuation control.
         :param pulumi.Input[_builtins.float] bitrate: Average bitrate in bits/second.
-        :param pulumi.Input[_builtins.str] bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        :param pulumi.Input[_builtins.str] bitstream_mode: Bitstream mode (bsmod) for the emitted AC-3 stream.
         :param pulumi.Input[_builtins.str] coding_mode: Dolby Digital Plus coding mode.
+        :param pulumi.Input[_builtins.str] dc_filter: Whether to activate a DC filter for the channels.
+        :param pulumi.Input[_builtins.int] dialnorm: Sets the dialnorm for the output.
         :param pulumi.Input[_builtins.str] drc_line: Sets the Dolby dynamic range compression profile.
-        :param pulumi.Input[_builtins.str] drc_rf: Sets the profile for heavy Dolby dynamic range compression.
-        :param pulumi.Input[_builtins.str] lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        :param pulumi.Input[_builtins.str] drc_rf: Profile for heavy Dolby dynamic range compression.
+        :param pulumi.Input[_builtins.str] lfe_control: When set to `lfe`, the EAC3 output contains an LFE channel.
+        :param pulumi.Input[_builtins.str] lfe_filter: When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        :param pulumi.Input[_builtins.float] lo_ro_center_mix_level: Left total/right total center mix level.
+        :param pulumi.Input[_builtins.float] lo_ro_surround_mix_level: Left total/right total surround mix level.
+        :param pulumi.Input[_builtins.float] lt_rt_center_mix_level: Left only/right only center mix level.
+        :param pulumi.Input[_builtins.float] lt_rt_surround_mix_level: Left only/right only surround mix level.
         :param pulumi.Input[_builtins.str] metadata_control: Metadata control.
+        :param pulumi.Input[_builtins.str] passthrough_control: When set to `whenPossible`, input DD+ audio is passed through if present.
+        :param pulumi.Input[_builtins.str] phase_control: Whether to invert the phase of the surround channels.
+        :param pulumi.Input[_builtins.str] stereo_downmix: Stereo downmix preference.
+        :param pulumi.Input[_builtins.str] surround_ex_mode: Whether to encode the stream as Dolby Digital EX.
+        :param pulumi.Input[_builtins.str] surround_mode: Whether to encode the stream as a surround sound stream.
         """
         if attenuation_control is not None:
             pulumi.set(__self__, "attenuation_control", attenuation_control)
@@ -2028,7 +2141,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @pulumi.getter(name="attenuationControl")
     def attenuation_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the attenuation control.
+        Attenuation control.
         """
         return pulumi.get(self, "attenuation_control")
 
@@ -2052,7 +2165,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @pulumi.getter(name="bitstreamMode")
     def bitstream_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        Bitstream mode (bsmod) for the emitted AC-3 stream.
         """
         return pulumi.get(self, "bitstream_mode")
 
@@ -2075,6 +2188,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dcFilter")
     def dc_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to activate a DC filter for the channels.
+        """
         return pulumi.get(self, "dc_filter")
 
     @dc_filter.setter
@@ -2084,6 +2200,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter
     def dialnorm(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Sets the dialnorm for the output.
+        """
         return pulumi.get(self, "dialnorm")
 
     @dialnorm.setter
@@ -2106,7 +2225,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @pulumi.getter(name="drcRf")
     def drc_rf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the profile for heavy Dolby dynamic range compression.
+        Profile for heavy Dolby dynamic range compression.
         """
         return pulumi.get(self, "drc_rf")
 
@@ -2117,6 +2236,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="lfeControl")
     def lfe_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `lfe`, the EAC3 output contains an LFE channel.
+        """
         return pulumi.get(self, "lfe_control")
 
     @lfe_control.setter
@@ -2127,7 +2249,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @pulumi.getter(name="lfeFilter")
     def lfe_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         """
         return pulumi.get(self, "lfe_filter")
 
@@ -2138,6 +2260,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="loRoCenterMixLevel")
     def lo_ro_center_mix_level(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Left total/right total center mix level.
+        """
         return pulumi.get(self, "lo_ro_center_mix_level")
 
     @lo_ro_center_mix_level.setter
@@ -2147,6 +2272,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="loRoSurroundMixLevel")
     def lo_ro_surround_mix_level(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Left total/right total surround mix level.
+        """
         return pulumi.get(self, "lo_ro_surround_mix_level")
 
     @lo_ro_surround_mix_level.setter
@@ -2156,6 +2284,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ltRtCenterMixLevel")
     def lt_rt_center_mix_level(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Left only/right only center mix level.
+        """
         return pulumi.get(self, "lt_rt_center_mix_level")
 
     @lt_rt_center_mix_level.setter
@@ -2165,6 +2296,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ltRtSurroundMixLevel")
     def lt_rt_surround_mix_level(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Left only/right only surround mix level.
+        """
         return pulumi.get(self, "lt_rt_surround_mix_level")
 
     @lt_rt_surround_mix_level.setter
@@ -2186,6 +2320,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="passthroughControl")
     def passthrough_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `whenPossible`, input DD+ audio is passed through if present.
+        """
         return pulumi.get(self, "passthrough_control")
 
     @passthrough_control.setter
@@ -2195,6 +2332,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="phaseControl")
     def phase_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to invert the phase of the surround channels.
+        """
         return pulumi.get(self, "phase_control")
 
     @phase_control.setter
@@ -2204,6 +2344,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="stereoDownmix")
     def stereo_downmix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Stereo downmix preference.
+        """
         return pulumi.get(self, "stereo_downmix")
 
     @stereo_downmix.setter
@@ -2213,6 +2356,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="surroundExMode")
     def surround_ex_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to encode the stream as Dolby Digital EX.
+        """
         return pulumi.get(self, "surround_ex_mode")
 
     @surround_ex_mode.setter
@@ -2222,6 +2368,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="surroundMode")
     def surround_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to encode the stream as a surround sound stream.
+        """
         return pulumi.get(self, "surround_mode")
 
     @surround_mode.setter
@@ -2231,7 +2380,13 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
 
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgsDict(TypedDict):
     bitrate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Average bitrate in bits/second.
+    """
     coding_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    MPEG-2 coding mode.
+    """
     sample_rate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Sample rate in Hz.
@@ -2244,6 +2399,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
                  coding_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  sample_rate: pulumi.Input[Optional[_builtins.float]] = None):
         """
+        :param pulumi.Input[_builtins.float] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[_builtins.str] coding_mode: MPEG-2 coding mode.
         :param pulumi.Input[_builtins.float] sample_rate: Sample rate in Hz.
         """
         if bitrate is not None:
@@ -2256,6 +2413,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
     @_builtins.property
     @pulumi.getter
     def bitrate(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -2265,6 +2425,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        MPEG-2 coding mode.
+        """
         return pulumi.get(self, "coding_mode")
 
     @coding_mode.setter
@@ -2295,7 +2458,13 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs
 
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgsDict(TypedDict):
     bit_depth: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Bits per sample.
+    """
     coding_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    WAV coding mode.
+    """
     sample_rate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Sample rate in Hz.
@@ -2308,6 +2477,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
                  coding_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  sample_rate: pulumi.Input[Optional[_builtins.float]] = None):
         """
+        :param pulumi.Input[_builtins.float] bit_depth: Bits per sample.
+        :param pulumi.Input[_builtins.str] coding_mode: WAV coding mode.
         :param pulumi.Input[_builtins.float] sample_rate: Sample rate in Hz.
         """
         if bit_depth is not None:
@@ -2320,6 +2491,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="bitDepth")
     def bit_depth(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Bits per sample.
+        """
         return pulumi.get(self, "bit_depth")
 
     @bit_depth.setter
@@ -2329,6 +2503,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        WAV coding mode.
+        """
         return pulumi.get(self, "coding_mode")
 
     @coding_mode.setter
@@ -2350,8 +2527,17 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
 
 class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgsDict(TypedDict):
     channel_mappings: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgsDict']]]
+    """
+    Mapping of input channels to output channels. See `channel_mappings` Block for details.
+    """
     channels_in: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of input channels to be used.
+    """
     channels_out: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of output channels to be produced.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
@@ -2359,6 +2545,11 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
                  channel_mappings: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs']]],
                  channels_in: pulumi.Input[Optional[_builtins.int]] = None,
                  channels_out: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs']]] channel_mappings: Mapping of input channels to output channels. See `channel_mappings` Block for details.
+        :param pulumi.Input[_builtins.int] channels_in: Number of input channels to be used.
+        :param pulumi.Input[_builtins.int] channels_out: Number of output channels to be produced.
+        """
         pulumi.set(__self__, "channel_mappings", channel_mappings)
         if channels_in is not None:
             pulumi.set(__self__, "channels_in", channels_in)
@@ -2368,6 +2559,9 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="channelMappings")
     def channel_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs']]]:
+        """
+        Mapping of input channels to output channels. See `channel_mappings` Block for details.
+        """
         return pulumi.get(self, "channel_mappings")
 
     @channel_mappings.setter
@@ -2377,6 +2571,9 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="channelsIn")
     def channels_in(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of input channels to be used.
+        """
         return pulumi.get(self, "channels_in")
 
     @channels_in.setter
@@ -2386,6 +2583,9 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="channelsOut")
     def channels_out(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of output channels to be produced.
+        """
         return pulumi.get(self, "channels_out")
 
     @channels_out.setter
@@ -2395,19 +2595,32 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
 
 class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgsDict(TypedDict):
     input_channel_levels: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgsDict']]]
+    """
+    Levels for each of the input channels. See `input_channel_levels` Block for details.
+    """
     output_channel: pulumi.Input[_builtins.int]
+    """
+    Index of the output channel being produced.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs:
     def __init__(__self__, *,
                  input_channel_levels: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs']]],
                  output_channel: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs']]] input_channel_levels: Levels for each of the input channels. See `input_channel_levels` Block for details.
+        :param pulumi.Input[_builtins.int] output_channel: Index of the output channel being produced.
+        """
         pulumi.set(__self__, "input_channel_levels", input_channel_levels)
         pulumi.set(__self__, "output_channel", output_channel)
 
     @_builtins.property
     @pulumi.getter(name="inputChannelLevels")
     def input_channel_levels(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs']]]:
+        """
+        Levels for each of the input channels. See `input_channel_levels` Block for details.
+        """
         return pulumi.get(self, "input_channel_levels")
 
     @input_channel_levels.setter
@@ -2417,6 +2630,9 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs:
     @_builtins.property
     @pulumi.getter(name="outputChannel")
     def output_channel(self) -> pulumi.Input[_builtins.int]:
+        """
+        Index of the output channel being produced.
+        """
         return pulumi.get(self, "output_channel")
 
     @output_channel.setter
@@ -2426,19 +2642,32 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs:
 
 class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgsDict(TypedDict):
     gain: pulumi.Input[_builtins.int]
+    """
+    Remixing value, from -60 to 6 decibels.
+    """
     input_channel: pulumi.Input[_builtins.int]
+    """
+    Index of the input channel used as a source.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs:
     def __init__(__self__, *,
                  gain: pulumi.Input[_builtins.int],
                  input_channel: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] gain: Remixing value, from -60 to 6 decibels.
+        :param pulumi.Input[_builtins.int] input_channel: Index of the input channel used as a source.
+        """
         pulumi.set(__self__, "gain", gain)
         pulumi.set(__self__, "input_channel", input_channel)
 
     @_builtins.property
     @pulumi.getter
     def gain(self) -> pulumi.Input[_builtins.int]:
+        """
+        Remixing value, from -60 to 6 decibels.
+        """
         return pulumi.get(self, "gain")
 
     @gain.setter
@@ -2448,6 +2677,9 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChan
     @_builtins.property
     @pulumi.getter(name="inputChannel")
     def input_channel(self) -> pulumi.Input[_builtins.int]:
+        """
+        Index of the input channel used as a source.
+        """
         return pulumi.get(self, "input_channel")
 
     @input_channel.setter
@@ -2458,11 +2690,11 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChan
 class ChannelEncoderSettingsAvailBlankingArgsDict(TypedDict):
     avail_blanking_image: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgsDict']]]
     """
-    Blanking image to be used. See Avail Blanking Image for more details.
+    Blanking image to be used. See `avail_blanking_image` Block for details.
     """
     state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+    When set to `enabled`, causes video, audio, and captions to be blanked when insertion metadata is added.
     """
 
 @pulumi.input_type
@@ -2471,8 +2703,8 @@ class ChannelEncoderSettingsAvailBlankingArgs:
                  avail_blanking_image: pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs'] avail_blanking_image: Blanking image to be used. See Avail Blanking Image for more details.
-        :param pulumi.Input[_builtins.str] state: When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs'] avail_blanking_image: Blanking image to be used. See `avail_blanking_image` Block for details.
+        :param pulumi.Input[_builtins.str] state: When set to `enabled`, causes video, audio, and captions to be blanked when insertion metadata is added.
         """
         if avail_blanking_image is not None:
             pulumi.set(__self__, "avail_blanking_image", avail_blanking_image)
@@ -2483,7 +2715,7 @@ class ChannelEncoderSettingsAvailBlankingArgs:
     @pulumi.getter(name="availBlankingImage")
     def avail_blanking_image(self) -> pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']]:
         """
-        Blanking image to be used. See Avail Blanking Image for more details.
+        Blanking image to be used. See `avail_blanking_image` Block for details.
         """
         return pulumi.get(self, "avail_blanking_image")
 
@@ -2495,7 +2727,7 @@ class ChannelEncoderSettingsAvailBlankingArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+        When set to `enabled`, causes video, audio, and captions to be blanked when insertion metadata is added.
         """
         return pulumi.get(self, "state")
 
@@ -2515,7 +2747,7 @@ class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgsDict(TypedDict):
     """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    . Username to be used.
+    Username for the server.
     """
 
 @pulumi.input_type
@@ -2527,7 +2759,7 @@ class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs:
         """
         :param pulumi.Input[_builtins.str] uri: Path to a file accessible to the live stream.
         :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
-        :param pulumi.Input[_builtins.str] username: . Username to be used.
+        :param pulumi.Input[_builtins.str] username: Username for the server.
         """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
@@ -2563,7 +2795,7 @@ class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        . Username to be used.
+        Username for the server.
         """
         return pulumi.get(self, "username")
 
@@ -2575,19 +2807,19 @@ class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs:
 class ChannelEncoderSettingsCaptionDescriptionArgsDict(TypedDict):
     caption_selector_name: pulumi.Input[_builtins.str]
     """
-    Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+    Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
     """
     name: pulumi.Input[_builtins.str]
     """
-    Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+    Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
     """
     accessibility: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+    Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
     """
     destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgsDict']]]
     """
-    Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+    Additional settings for the captions destination that depend on the destination type. See `destination_settings` Block for details.
     """
     language_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2595,7 +2827,7 @@ class ChannelEncoderSettingsCaptionDescriptionArgsDict(TypedDict):
     """
     language_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Human readable information to indicate captions available for players (eg. English, or Spanish).
+    Human-readable information to indicate the captions available for players. For example, English or Spanish.
     """
 
 @pulumi.input_type
@@ -2608,12 +2840,12 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  language_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] caption_selector_name: Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
-        :param pulumi.Input[_builtins.str] name: Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
-        :param pulumi.Input[_builtins.str] accessibility: Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs'] destination_settings: Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        :param pulumi.Input[_builtins.str] caption_selector_name: Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
+        :param pulumi.Input[_builtins.str] name: Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
+        :param pulumi.Input[_builtins.str] accessibility: Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs'] destination_settings: Additional settings for the captions destination that depend on the destination type. See `destination_settings` Block for details.
         :param pulumi.Input[_builtins.str] language_code: ISO 639-2 three-digit code.
-        :param pulumi.Input[_builtins.str] language_description: Human readable information to indicate captions available for players (eg. English, or Spanish).
+        :param pulumi.Input[_builtins.str] language_description: Human-readable information to indicate the captions available for players. For example, English or Spanish.
         """
         pulumi.set(__self__, "caption_selector_name", caption_selector_name)
         pulumi.set(__self__, "name", name)
@@ -2630,7 +2862,7 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
     @pulumi.getter(name="captionSelectorName")
     def caption_selector_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+        Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
         """
         return pulumi.get(self, "caption_selector_name")
 
@@ -2642,7 +2874,7 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+        Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
         """
         return pulumi.get(self, "name")
 
@@ -2654,7 +2886,7 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
     @pulumi.getter
     def accessibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+        Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
         """
         return pulumi.get(self, "accessibility")
 
@@ -2666,7 +2898,7 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
     @pulumi.getter(name="destinationSettings")
     def destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs']]:
         """
-        Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        Additional settings for the captions destination that depend on the destination type. See `destination_settings` Block for details.
         """
         return pulumi.get(self, "destination_settings")
 
@@ -2690,7 +2922,7 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
     @pulumi.getter(name="languageDescription")
     def language_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Human readable information to indicate captions available for players (eg. English, or Spanish).
+        Human-readable information to indicate the captions available for players. For example, English or Spanish.
         """
         return pulumi.get(self, "language_description")
 
@@ -2702,55 +2934,55 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
 class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgsDict(TypedDict):
     arib_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgsDict']]]
     """
-    ARIB Destination Settings.
+    ARIB destination settings. Can be set as an empty block.
     """
     burn_in_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgsDict']]]
     """
-    Burn In Destination Settings. See Burn In Destination Settings for more details.
+    Burn-in destination settings. See `burn_in_destination_settings` Block for details.
     """
     dvb_sub_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgsDict']]]
     """
-    DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+    DVB Sub destination settings. See `dvb_sub_destination_settings` Block for details.
     """
     ebu_tt_d_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgsDict']]]
     """
-    EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
+    EBU TT D destination settings. See `ebu_tt_d_destination_settings` Block for details.
     """
     embedded_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgsDict']]]
     """
-    Embedded Destination Settings.
+    Embedded destination settings. Can be set as an empty block.
     """
     embedded_plus_scte20_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgsDict']]]
     """
-    Embedded Plus SCTE20 Destination Settings.
+    Embedded Plus SCTE-20 destination settings. Can be set as an empty block.
     """
     rtmp_caption_info_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgsDict']]]
     """
-    RTMP Caption Info Destination Settings.
+    RTMP caption info destination settings. Can be set as an empty block.
     """
     scte20_plus_embedded_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgsDict']]]
     """
-    SCTE20 Plus Embedded Destination Settings.
+    SCTE-20 Plus Embedded destination settings. Can be set as an empty block.
     """
     scte27_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgsDict']]]
     """
-    SCTE27 Destination Settings.
+    SCTE-27 destination settings. Can be set as an empty block.
     """
     smpte_tt_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgsDict']]]
     """
-    SMPTE TT Destination Settings.
+    SMPTE TT destination settings. Can be set as an empty block.
     """
     teletext_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgsDict']]]
     """
-    Teletext Destination Settings.
+    Teletext destination settings. Can be set as an empty block.
     """
     ttml_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgsDict']]]
     """
-    TTML Destination Settings. See TTML Destination Settings for more details.
+    TTML destination settings. See `ttml_destination_settings` Block for details.
     """
     webvtt_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgsDict']]]
     """
-    WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+    WebVTT destination settings. See `webvtt_destination_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -2770,19 +3002,19 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
                  ttml_destination_settings: pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs']] = None,
                  webvtt_destination_settings: pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs'] arib_destination_settings: ARIB Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs'] burn_in_destination_settings: Burn In Destination Settings. See Burn In Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs'] dvb_sub_destination_settings: DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs'] ebu_tt_d_destination_settings: EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs'] embedded_destination_settings: Embedded Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs'] embedded_plus_scte20_destination_settings: Embedded Plus SCTE20 Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs'] rtmp_caption_info_destination_settings: RTMP Caption Info Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs'] scte20_plus_embedded_destination_settings: SCTE20 Plus Embedded Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs'] scte27_destination_settings: SCTE27 Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs'] smpte_tt_destination_settings: SMPTE TT Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs'] teletext_destination_settings: Teletext Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs'] ttml_destination_settings: TTML Destination Settings. See TTML Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs'] webvtt_destination_settings: WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs'] arib_destination_settings: ARIB destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs'] burn_in_destination_settings: Burn-in destination settings. See `burn_in_destination_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs'] dvb_sub_destination_settings: DVB Sub destination settings. See `dvb_sub_destination_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs'] ebu_tt_d_destination_settings: EBU TT D destination settings. See `ebu_tt_d_destination_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs'] embedded_destination_settings: Embedded destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs'] embedded_plus_scte20_destination_settings: Embedded Plus SCTE-20 destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs'] rtmp_caption_info_destination_settings: RTMP caption info destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs'] scte20_plus_embedded_destination_settings: SCTE-20 Plus Embedded destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs'] scte27_destination_settings: SCTE-27 destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs'] smpte_tt_destination_settings: SMPTE TT destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs'] teletext_destination_settings: Teletext destination settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs'] ttml_destination_settings: TTML destination settings. See `ttml_destination_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs'] webvtt_destination_settings: WebVTT destination settings. See `webvtt_destination_settings` Block for details.
         """
         if arib_destination_settings is not None:
             pulumi.set(__self__, "arib_destination_settings", arib_destination_settings)
@@ -2815,7 +3047,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="aribDestinationSettings")
     def arib_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs']]:
         """
-        ARIB Destination Settings.
+        ARIB destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "arib_destination_settings")
 
@@ -2827,7 +3059,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="burnInDestinationSettings")
     def burn_in_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs']]:
         """
-        Burn In Destination Settings. See Burn In Destination Settings for more details.
+        Burn-in destination settings. See `burn_in_destination_settings` Block for details.
         """
         return pulumi.get(self, "burn_in_destination_settings")
 
@@ -2839,7 +3071,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="dvbSubDestinationSettings")
     def dvb_sub_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs']]:
         """
-        DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+        DVB Sub destination settings. See `dvb_sub_destination_settings` Block for details.
         """
         return pulumi.get(self, "dvb_sub_destination_settings")
 
@@ -2851,7 +3083,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="ebuTtDDestinationSettings")
     def ebu_tt_d_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs']]:
         """
-        EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
+        EBU TT D destination settings. See `ebu_tt_d_destination_settings` Block for details.
         """
         return pulumi.get(self, "ebu_tt_d_destination_settings")
 
@@ -2863,7 +3095,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="embeddedDestinationSettings")
     def embedded_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs']]:
         """
-        Embedded Destination Settings.
+        Embedded destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "embedded_destination_settings")
 
@@ -2875,7 +3107,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="embeddedPlusScte20DestinationSettings")
     def embedded_plus_scte20_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs']]:
         """
-        Embedded Plus SCTE20 Destination Settings.
+        Embedded Plus SCTE-20 destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "embedded_plus_scte20_destination_settings")
 
@@ -2887,7 +3119,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="rtmpCaptionInfoDestinationSettings")
     def rtmp_caption_info_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs']]:
         """
-        RTMP Caption Info Destination Settings.
+        RTMP caption info destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "rtmp_caption_info_destination_settings")
 
@@ -2899,7 +3131,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="scte20PlusEmbeddedDestinationSettings")
     def scte20_plus_embedded_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs']]:
         """
-        SCTE20 Plus Embedded Destination Settings.
+        SCTE-20 Plus Embedded destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "scte20_plus_embedded_destination_settings")
 
@@ -2911,7 +3143,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="scte27DestinationSettings")
     def scte27_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs']]:
         """
-        SCTE27 Destination Settings.
+        SCTE-27 destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "scte27_destination_settings")
 
@@ -2923,7 +3155,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="smpteTtDestinationSettings")
     def smpte_tt_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs']]:
         """
-        SMPTE TT Destination Settings.
+        SMPTE TT destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "smpte_tt_destination_settings")
 
@@ -2935,7 +3167,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="teletextDestinationSettings")
     def teletext_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs']]:
         """
-        Teletext Destination Settings.
+        Teletext destination settings. Can be set as an empty block.
         """
         return pulumi.get(self, "teletext_destination_settings")
 
@@ -2947,7 +3179,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="ttmlDestinationSettings")
     def ttml_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs']]:
         """
-        TTML Destination Settings. See TTML Destination Settings for more details.
+        TTML destination settings. See `ttml_destination_settings` Block for details.
         """
         return pulumi.get(self, "ttml_destination_settings")
 
@@ -2959,7 +3191,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="webvttDestinationSettings")
     def webvtt_destination_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs']]:
         """
-        WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+        WebVTT destination settings. See `webvtt_destination_settings` Block for details.
         """
         return pulumi.get(self, "webvtt_destination_settings")
 
@@ -2980,71 +3212,71 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestination
 class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgsDict(TypedDict):
     outline_color: pulumi.Input[_builtins.str]
     """
-    Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
     """
     teletext_grid_control: pulumi.Input[_builtins.str]
     """
-    Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+    Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
     """
     alignment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+    Justification of the caption text. When no explicit `x_position` or `y_position` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `x_position` and `y_position` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles.
     """
     background_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+    Color of the rectangle behind the captions.
     """
     background_opacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+    Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
     """
     font: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgsDict']]]
     """
-    External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+    External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
     """
     font_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
     """
     font_opacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+    Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
     """
     font_resolution: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+    Font resolution in DPI (dots per inch). Default is 96 dpi.
     """
     font_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+    When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
     """
     outline_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
     """
     shadow_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+    Color of the shadow cast by the captions.
     """
     shadow_opacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+    Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
     """
     shadow_x_offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+    Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
     """
     shadow_y_offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+    Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
     """
     x_position: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+    Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `x_position` is provided, the horizontal caption position is determined by the alignment parameter.
     """
     y_position: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+    Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `y_position` is provided, the caption is positioned towards the bottom of the output.
     """
 
 @pulumi.input_type
@@ -3068,23 +3300,23 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
                  x_position: pulumi.Input[Optional[_builtins.int]] = None,
                  y_position: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] outline_color: Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] teletext_grid_control: Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
-        :param pulumi.Input[_builtins.str] alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs'] font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
-        :param pulumi.Input[_builtins.str] font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] font_size: When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] outline_size: Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] shadow_color: Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] shadow_opacity: Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] shadow_x_offset: Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] shadow_y_offset: Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] x_position: Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] y_position: Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+        :param pulumi.Input[_builtins.str] outline_color: Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.str] teletext_grid_control: Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        :param pulumi.Input[_builtins.str] alignment: Justification of the caption text. When no explicit `x_position` or `y_position` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `x_position` and `y_position` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles.
+        :param pulumi.Input[_builtins.str] background_color: Color of the rectangle behind the captions.
+        :param pulumi.Input[_builtins.int] background_opacity: Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs'] font: External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
+        :param pulumi.Input[_builtins.str] font_color: Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.int] font_opacity: Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
+        :param pulumi.Input[_builtins.int] font_resolution: Font resolution in DPI (dots per inch). Default is 96 dpi.
+        :param pulumi.Input[_builtins.str] font_size: When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
+        :param pulumi.Input[_builtins.int] outline_size: Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.str] shadow_color: Color of the shadow cast by the captions.
+        :param pulumi.Input[_builtins.int] shadow_opacity: Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
+        :param pulumi.Input[_builtins.int] shadow_x_offset: Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
+        :param pulumi.Input[_builtins.int] shadow_y_offset: Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
+        :param pulumi.Input[_builtins.int] x_position: Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `x_position` is provided, the horizontal caption position is determined by the alignment parameter.
+        :param pulumi.Input[_builtins.int] y_position: Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `y_position` is provided, the caption is positioned towards the bottom of the output.
         """
         pulumi.set(__self__, "outline_color", outline_color)
         pulumi.set(__self__, "teletext_grid_control", teletext_grid_control)
@@ -3123,7 +3355,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="outlineColor")
     def outline_color(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "outline_color")
 
@@ -3135,7 +3367,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="teletextGridControl")
     def teletext_grid_control(self) -> pulumi.Input[_builtins.str]:
         """
-        Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
         """
         return pulumi.get(self, "teletext_grid_control")
 
@@ -3147,7 +3379,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter
     def alignment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+        Justification of the caption text. When no explicit `x_position` or `y_position` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `x_position` and `y_position` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles.
         """
         return pulumi.get(self, "alignment")
 
@@ -3159,7 +3391,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="backgroundColor")
     def background_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+        Color of the rectangle behind the captions.
         """
         return pulumi.get(self, "background_color")
 
@@ -3171,7 +3403,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="backgroundOpacity")
     def background_opacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
         """
         return pulumi.get(self, "background_opacity")
 
@@ -3183,7 +3415,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter
     def font(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs']]:
         """
-        External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
         """
         return pulumi.get(self, "font")
 
@@ -3195,7 +3427,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="fontColor")
     def font_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "font_color")
 
@@ -3207,7 +3439,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="fontOpacity")
     def font_opacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+        Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
         """
         return pulumi.get(self, "font_opacity")
 
@@ -3219,7 +3451,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="fontResolution")
     def font_resolution(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+        Font resolution in DPI (dots per inch). Default is 96 dpi.
         """
         return pulumi.get(self, "font_resolution")
 
@@ -3231,7 +3463,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="fontSize")
     def font_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+        When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
         """
         return pulumi.get(self, "font_size")
 
@@ -3243,7 +3475,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="outlineSize")
     def outline_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "outline_size")
 
@@ -3255,7 +3487,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="shadowColor")
     def shadow_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+        Color of the shadow cast by the captions.
         """
         return pulumi.get(self, "shadow_color")
 
@@ -3267,7 +3499,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="shadowOpacity")
     def shadow_opacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
         """
         return pulumi.get(self, "shadow_opacity")
 
@@ -3279,7 +3511,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="shadowXOffset")
     def shadow_x_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+        Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
         """
         return pulumi.get(self, "shadow_x_offset")
 
@@ -3291,7 +3523,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="shadowYOffset")
     def shadow_y_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+        Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
         """
         return pulumi.get(self, "shadow_y_offset")
 
@@ -3303,7 +3535,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="xPosition")
     def x_position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+        Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `x_position` is provided, the horizontal caption position is determined by the alignment parameter.
         """
         return pulumi.get(self, "x_position")
 
@@ -3315,7 +3547,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter(name="yPosition")
     def y_position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+        Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `y_position` is provided, the caption is positioned towards the bottom of the output.
         """
         return pulumi.get(self, "y_position")
 
@@ -3335,7 +3567,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Username to be used.
+    Username for the server.
     """
 
 @pulumi.input_type
@@ -3347,7 +3579,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
         """
         :param pulumi.Input[_builtins.str] uri: Path to a file accessible to the live stream.
         :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
-        :param pulumi.Input[_builtins.str] username: Username to be used.
+        :param pulumi.Input[_builtins.str] username: Username for the server.
         """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
@@ -3383,7 +3615,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Username to be used.
+        Username for the server.
         """
         return pulumi.get(self, "username")
 
@@ -3395,71 +3627,71 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
 class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgsDict(TypedDict):
     alignment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Justification of the caption text. When no explicit `x_position` or `y_position` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `x_position` and `y_position` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream.
     """
     background_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+    Color of the rectangle behind the captions.
     """
     background_opacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+    Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).
     """
     font: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgsDict']]]
     """
-    External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+    External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
     """
     font_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
     """
     font_opacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+    Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
     """
     font_resolution: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+    Font resolution in DPI (dots per inch). Default is 96 dpi.
     """
     font_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+    When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
     """
     outline_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
     """
     outline_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
     """
     shadow_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+    Color of the shadow cast by the captions.
     """
     shadow_opacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+    Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).
     """
     shadow_x_offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+    Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
     """
     shadow_y_offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+    Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
     """
     teletext_grid_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+    Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
     """
     x_position: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `x_position` is provided, the horizontal caption position is determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
     """
     y_position: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `y_position` is provided, the caption is positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
     """
 
 @pulumi.input_type
@@ -3483,23 +3715,23 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
                  x_position: pulumi.Input[Optional[_builtins.int]] = None,
                  y_position: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs'] font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
-        :param pulumi.Input[_builtins.str] font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] font_size: When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] outline_color: Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] outline_size: Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] shadow_color: Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] shadow_opacity: Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] shadow_x_offset: Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] shadow_y_offset: Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.str] teletext_grid_control: Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
-        :param pulumi.Input[_builtins.int] x_position: Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input[_builtins.int] y_position: Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param pulumi.Input[_builtins.str] alignment: Justification of the caption text. When no explicit `x_position` or `y_position` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `x_position` and `y_position` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.str] background_color: Color of the rectangle behind the captions.
+        :param pulumi.Input[_builtins.int] background_opacity: Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs'] font: External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
+        :param pulumi.Input[_builtins.str] font_color: Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.int] font_opacity: Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
+        :param pulumi.Input[_builtins.int] font_resolution: Font resolution in DPI (dots per inch). Default is 96 dpi.
+        :param pulumi.Input[_builtins.str] font_size: When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
+        :param pulumi.Input[_builtins.str] outline_color: Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.int] outline_size: Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.str] shadow_color: Color of the shadow cast by the captions.
+        :param pulumi.Input[_builtins.int] shadow_opacity: Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).
+        :param pulumi.Input[_builtins.int] shadow_x_offset: Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
+        :param pulumi.Input[_builtins.int] shadow_y_offset: Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
+        :param pulumi.Input[_builtins.str] teletext_grid_control: Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        :param pulumi.Input[_builtins.int] x_position: Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `x_position` is provided, the horizontal caption position is determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
+        :param pulumi.Input[_builtins.int] y_position: Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `y_position` is provided, the caption is positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
         """
         if alignment is not None:
             pulumi.set(__self__, "alignment", alignment)
@@ -3540,7 +3772,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter
     def alignment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Justification of the caption text. When no explicit `x_position` or `y_position` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `x_position` and `y_position` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "alignment")
 
@@ -3552,7 +3784,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="backgroundColor")
     def background_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+        Color of the rectangle behind the captions.
         """
         return pulumi.get(self, "background_color")
 
@@ -3564,7 +3796,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="backgroundOpacity")
     def background_opacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).
         """
         return pulumi.get(self, "background_opacity")
 
@@ -3576,7 +3808,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter
     def font(self) -> pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs']]:
         """
-        External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
         """
         return pulumi.get(self, "font")
 
@@ -3588,7 +3820,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="fontColor")
     def font_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "font_color")
 
@@ -3600,7 +3832,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="fontOpacity")
     def font_opacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+        Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
         """
         return pulumi.get(self, "font_opacity")
 
@@ -3612,7 +3844,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="fontResolution")
     def font_resolution(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+        Font resolution in DPI (dots per inch). Default is 96 dpi.
         """
         return pulumi.get(self, "font_resolution")
 
@@ -3624,7 +3856,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="fontSize")
     def font_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+        When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
         """
         return pulumi.get(self, "font_size")
 
@@ -3636,7 +3868,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="outlineColor")
     def outline_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "outline_color")
 
@@ -3648,7 +3880,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="outlineSize")
     def outline_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "outline_size")
 
@@ -3660,7 +3892,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="shadowColor")
     def shadow_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+        Color of the shadow cast by the captions.
         """
         return pulumi.get(self, "shadow_color")
 
@@ -3672,7 +3904,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="shadowOpacity")
     def shadow_opacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).
         """
         return pulumi.get(self, "shadow_opacity")
 
@@ -3684,7 +3916,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="shadowXOffset")
     def shadow_x_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+        Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
         """
         return pulumi.get(self, "shadow_x_offset")
 
@@ -3696,7 +3928,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="shadowYOffset")
     def shadow_y_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+        Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
         """
         return pulumi.get(self, "shadow_y_offset")
 
@@ -3708,7 +3940,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="teletextGridControl")
     def teletext_grid_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
         """
         return pulumi.get(self, "teletext_grid_control")
 
@@ -3720,7 +3952,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="xPosition")
     def x_position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `x_position` is provided, the horizontal caption position is determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "x_position")
 
@@ -3732,7 +3964,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter(name="yPosition")
     def y_position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `y_position` is provided, the caption is positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
         """
         return pulumi.get(self, "y_position")
 
@@ -3752,7 +3984,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Username to be used.
+    Username for the server.
     """
 
 @pulumi.input_type
@@ -3764,7 +3996,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
         """
         :param pulumi.Input[_builtins.str] uri: Path to a file accessible to the live stream.
         :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
-        :param pulumi.Input[_builtins.str] username: Username to be used.
+        :param pulumi.Input[_builtins.str] username: Username for the server.
         """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
@@ -3800,7 +4032,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Username to be used.
+        Username for the server.
         """
         return pulumi.get(self, "username")
 
@@ -3812,19 +4044,19 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
 class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgsDict(TypedDict):
     copyright_holder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+    Name of the copyright holder to include in the copyright tag in the captions metadata.
     """
     fill_line_gap: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+    How to handle the gap between the lines in multi-line captions. `enabled` fills the gap with the captions background color as specified in the input captions; `disabled` leaves the gap unfilled.
     """
     font_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+    Font family to include in the font data attached to the EBU-TT captions. Valid only if `style_control` is set to `include`. If you leave this field empty, the font family is set to monospaced. You specify only the font family; all other style information (color, bold, position, and so on) is copied from the input captions, and the size is always set to 100% to allow the downstream player to choose the size. Enter a comma-separated list of font names in order of preference, a generic font family such as serif, or default to let the downstream player choose the font.
     """
     style_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+    Style information to include in the font data that is attached to the EBU-TT captions. `include` takes the style information from the source captions and includes it in the font data, valid only if the source captions are Embedded or Teletext. `exclude` sets the font family to monospaced and does not include any other style information.
     """
 
 @pulumi.input_type
@@ -3835,10 +4067,10 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinati
                  font_family: pulumi.Input[Optional[_builtins.str]] = None,
                  style_control: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] copyright_holder: Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
-        :param pulumi.Input[_builtins.str] fill_line_gap: Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
-        :param pulumi.Input[_builtins.str] font_family: Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
-        :param pulumi.Input[_builtins.str] style_control: Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+        :param pulumi.Input[_builtins.str] copyright_holder: Name of the copyright holder to include in the copyright tag in the captions metadata.
+        :param pulumi.Input[_builtins.str] fill_line_gap: How to handle the gap between the lines in multi-line captions. `enabled` fills the gap with the captions background color as specified in the input captions; `disabled` leaves the gap unfilled.
+        :param pulumi.Input[_builtins.str] font_family: Font family to include in the font data attached to the EBU-TT captions. Valid only if `style_control` is set to `include`. If you leave this field empty, the font family is set to monospaced. You specify only the font family; all other style information (color, bold, position, and so on) is copied from the input captions, and the size is always set to 100% to allow the downstream player to choose the size. Enter a comma-separated list of font names in order of preference, a generic font family such as serif, or default to let the downstream player choose the font.
+        :param pulumi.Input[_builtins.str] style_control: Style information to include in the font data that is attached to the EBU-TT captions. `include` takes the style information from the source captions and includes it in the font data, valid only if the source captions are Embedded or Teletext. `exclude` sets the font family to monospaced and does not include any other style information.
         """
         if copyright_holder is not None:
             pulumi.set(__self__, "copyright_holder", copyright_holder)
@@ -3853,7 +4085,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinati
     @pulumi.getter(name="copyrightHolder")
     def copyright_holder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+        Name of the copyright holder to include in the copyright tag in the captions metadata.
         """
         return pulumi.get(self, "copyright_holder")
 
@@ -3865,7 +4097,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinati
     @pulumi.getter(name="fillLineGap")
     def fill_line_gap(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+        How to handle the gap between the lines in multi-line captions. `enabled` fills the gap with the captions background color as specified in the input captions; `disabled` leaves the gap unfilled.
         """
         return pulumi.get(self, "fill_line_gap")
 
@@ -3877,7 +4109,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinati
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+        Font family to include in the font data attached to the EBU-TT captions. Valid only if `style_control` is set to `include`. If you leave this field empty, the font family is set to monospaced. You specify only the font family; all other style information (color, bold, position, and so on) is copied from the input captions, and the size is always set to 100% to allow the downstream player to choose the size. Enter a comma-separated list of font names in order of preference, a generic font family such as serif, or default to let the downstream player choose the font.
         """
         return pulumi.get(self, "font_family")
 
@@ -3889,7 +4121,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinati
     @pulumi.getter(name="styleControl")
     def style_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+        Style information to include in the font data that is attached to the EBU-TT captions. `include` takes the style information from the source captions and includes it in the font data, valid only if the source captions are Embedded or Teletext. `exclude` sets the font family to monospaced and does not include any other style information.
         """
         return pulumi.get(self, "style_control")
 
@@ -3964,7 +4196,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestina
 class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgsDict(TypedDict):
     style_control: pulumi.Input[_builtins.str]
     """
-    This field is not currently supported and will not affect the output styling. Leave the default value.
+    Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
     """
 
 @pulumi.input_type
@@ -3972,7 +4204,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestination
     def __init__(__self__, *,
                  style_control: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] style_control: This field is not currently supported and will not affect the output styling. Leave the default value.
+        :param pulumi.Input[_builtins.str] style_control: Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
         """
         pulumi.set(__self__, "style_control", style_control)
 
@@ -3980,7 +4212,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestination
     @pulumi.getter(name="styleControl")
     def style_control(self) -> pulumi.Input[_builtins.str]:
         """
-        This field is not currently supported and will not affect the output styling. Leave the default value.
+        Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
         """
         return pulumi.get(self, "style_control")
 
@@ -3992,7 +4224,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestination
 class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgsDict(TypedDict):
     style_control: pulumi.Input[_builtins.str]
     """
-    Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\\_STYLE\\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+    Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
     """
 
 @pulumi.input_type
@@ -4000,7 +4232,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinati
     def __init__(__self__, *,
                  style_control: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] style_control: Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\\_STYLE\\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+        :param pulumi.Input[_builtins.str] style_control: Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
         """
         pulumi.set(__self__, "style_control", style_control)
 
@@ -4008,7 +4240,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinati
     @pulumi.getter(name="styleControl")
     def style_control(self) -> pulumi.Input[_builtins.str]:
         """
-        Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\\_STYLE\\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+        Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
         """
         return pulumi.get(self, "style_control")
 
@@ -4020,27 +4252,27 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinati
 class ChannelEncoderSettingsGlobalConfigurationArgsDict(TypedDict):
     initial_audio_gain: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Value to set the initial audio gain for the Live Event.
+    Value to set the initial audio gain for the live event.
     """
     input_end_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+    Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `none` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
     """
     input_loss_behavior: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgsDict']]]
     """
-    Settings for system actions when input is lost. See Input Loss Behavior for more details.
+    Settings for system actions when input is lost. See `input_loss_behavior` Block for details.
     """
     output_locking_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates how MediaLive pipelines are synchronized. PIPELINE\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+    How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
     """
     output_timing_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+    Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
     """
     support_low_framerate_inputs: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+    Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
     """
 
 @pulumi.input_type
@@ -4053,12 +4285,12 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
                  output_timing_source: pulumi.Input[Optional[_builtins.str]] = None,
                  support_low_framerate_inputs: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] initial_audio_gain: Value to set the initial audio gain for the Live Event.
-        :param pulumi.Input[_builtins.str] input_end_action: Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs'] input_loss_behavior: Settings for system actions when input is lost. See Input Loss Behavior for more details.
-        :param pulumi.Input[_builtins.str] output_locking_mode: Indicates how MediaLive pipelines are synchronized. PIPELINE\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-        :param pulumi.Input[_builtins.str] output_timing_source: Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-        :param pulumi.Input[_builtins.str] support_low_framerate_inputs: Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+        :param pulumi.Input[_builtins.int] initial_audio_gain: Value to set the initial audio gain for the live event.
+        :param pulumi.Input[_builtins.str] input_end_action: Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `none` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
+        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs'] input_loss_behavior: Settings for system actions when input is lost. See `input_loss_behavior` Block for details.
+        :param pulumi.Input[_builtins.str] output_locking_mode: How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
+        :param pulumi.Input[_builtins.str] output_timing_source: Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
+        :param pulumi.Input[_builtins.str] support_low_framerate_inputs: Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
         """
         if initial_audio_gain is not None:
             pulumi.set(__self__, "initial_audio_gain", initial_audio_gain)
@@ -4077,7 +4309,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
     @pulumi.getter(name="initialAudioGain")
     def initial_audio_gain(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Value to set the initial audio gain for the Live Event.
+        Value to set the initial audio gain for the live event.
         """
         return pulumi.get(self, "initial_audio_gain")
 
@@ -4089,7 +4321,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
     @pulumi.getter(name="inputEndAction")
     def input_end_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+        Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `none` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
         """
         return pulumi.get(self, "input_end_action")
 
@@ -4101,7 +4333,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
     @pulumi.getter(name="inputLossBehavior")
     def input_loss_behavior(self) -> pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs']]:
         """
-        Settings for system actions when input is lost. See Input Loss Behavior for more details.
+        Settings for system actions when input is lost. See `input_loss_behavior` Block for details.
         """
         return pulumi.get(self, "input_loss_behavior")
 
@@ -4113,7 +4345,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
     @pulumi.getter(name="outputLockingMode")
     def output_locking_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates how MediaLive pipelines are synchronized. PIPELINE\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+        How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
         """
         return pulumi.get(self, "output_locking_mode")
 
@@ -4125,7 +4357,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
     @pulumi.getter(name="outputTimingSource")
     def output_timing_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+        Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
         """
         return pulumi.get(self, "output_timing_source")
 
@@ -4137,7 +4369,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
     @pulumi.getter(name="supportLowFramerateInputs")
     def support_low_framerate_inputs(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+        Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
         """
         return pulumi.get(self, "support_low_framerate_inputs")
 
@@ -4148,10 +4380,25 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
 
 class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgsDict(TypedDict):
     black_frame_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Amount of time, in milliseconds, to display black video when the input is lost.
+    """
     input_loss_image_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Color to display, as a hexadecimal RGBA value, when `input_loss_image_type` is `color`.
+    """
     input_loss_image_slate: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgsDict']]]
+    """
+    Image to display when `input_loss_image_type` is `slate`. See `input_loss_image_slate` Block for details.
+    """
     input_loss_image_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to display a solid color or a slate image when input is lost.
+    """
     repeat_frame_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
@@ -4161,6 +4408,13 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
                  input_loss_image_slate: pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs']] = None,
                  input_loss_image_type: pulumi.Input[Optional[_builtins.str]] = None,
                  repeat_frame_msec: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] black_frame_msec: Amount of time, in milliseconds, to display black video when the input is lost.
+        :param pulumi.Input[_builtins.str] input_loss_image_color: Color to display, as a hexadecimal RGBA value, when `input_loss_image_type` is `color`.
+        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs'] input_loss_image_slate: Image to display when `input_loss_image_type` is `slate`. See `input_loss_image_slate` Block for details.
+        :param pulumi.Input[_builtins.str] input_loss_image_type: Whether to display a solid color or a slate image when input is lost.
+        :param pulumi.Input[_builtins.int] repeat_frame_msec: Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+        """
         if black_frame_msec is not None:
             pulumi.set(__self__, "black_frame_msec", black_frame_msec)
         if input_loss_image_color is not None:
@@ -4175,6 +4429,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
     @_builtins.property
     @pulumi.getter(name="blackFrameMsec")
     def black_frame_msec(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Amount of time, in milliseconds, to display black video when the input is lost.
+        """
         return pulumi.get(self, "black_frame_msec")
 
     @black_frame_msec.setter
@@ -4184,6 +4441,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
     @_builtins.property
     @pulumi.getter(name="inputLossImageColor")
     def input_loss_image_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Color to display, as a hexadecimal RGBA value, when `input_loss_image_type` is `color`.
+        """
         return pulumi.get(self, "input_loss_image_color")
 
     @input_loss_image_color.setter
@@ -4193,6 +4453,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
     @_builtins.property
     @pulumi.getter(name="inputLossImageSlate")
     def input_loss_image_slate(self) -> pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs']]:
+        """
+        Image to display when `input_loss_image_type` is `slate`. See `input_loss_image_slate` Block for details.
+        """
         return pulumi.get(self, "input_loss_image_slate")
 
     @input_loss_image_slate.setter
@@ -4202,6 +4465,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
     @_builtins.property
     @pulumi.getter(name="inputLossImageType")
     def input_loss_image_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to display a solid color or a slate image when input is lost.
+        """
         return pulumi.get(self, "input_loss_image_type")
 
     @input_loss_image_type.setter
@@ -4211,6 +4477,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
     @_builtins.property
     @pulumi.getter(name="repeatFrameMsec")
     def repeat_frame_msec(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+        """
         return pulumi.get(self, "repeat_frame_msec")
 
     @repeat_frame_msec.setter
@@ -4220,8 +4489,17 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
 
 class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgsDict(TypedDict):
     uri: pulumi.Input[_builtins.str]
+    """
+    Path to a file accessible to the live stream.
+    """
     password_param: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Key used to extract the password from EC2 Parameter store.
+    """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Username for the server.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs:
@@ -4229,6 +4507,11 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSl
                  uri: pulumi.Input[_builtins.str],
                  password_param: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] uri: Path to a file accessible to the live stream.
+        :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
+        :param pulumi.Input[_builtins.str] username: Username for the server.
+        """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
             pulumi.set(__self__, "password_param", password_param)
@@ -4238,6 +4521,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSl
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path to a file accessible to the live stream.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -4247,6 +4533,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSl
     @_builtins.property
     @pulumi.getter(name="passwordParam")
     def password_param(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
         return pulumi.get(self, "password_param")
 
     @password_param.setter
@@ -4256,6 +4545,9 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSl
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Username for the server.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -4266,11 +4558,11 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSl
 class ChannelEncoderSettingsMotionGraphicsConfigurationArgsDict(TypedDict):
     motion_graphics_settings: pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgsDict']
     """
-    Motion Graphics Settings. See Motion Graphics Settings for more details.
+    Motion graphics settings. See `motion_graphics_settings` Block for details.
     """
     motion_graphics_insertion: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Motion Graphics Insertion.
+    Whether to activate motion graphics insertion.
     """
 
 @pulumi.input_type
@@ -4279,8 +4571,8 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
                  motion_graphics_settings: pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs'],
                  motion_graphics_insertion: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs'] motion_graphics_settings: Motion Graphics Settings. See Motion Graphics Settings for more details.
-        :param pulumi.Input[_builtins.str] motion_graphics_insertion: Motion Graphics Insertion.
+        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs'] motion_graphics_settings: Motion graphics settings. See `motion_graphics_settings` Block for details.
+        :param pulumi.Input[_builtins.str] motion_graphics_insertion: Whether to activate motion graphics insertion.
         """
         pulumi.set(__self__, "motion_graphics_settings", motion_graphics_settings)
         if motion_graphics_insertion is not None:
@@ -4290,7 +4582,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
     @pulumi.getter(name="motionGraphicsSettings")
     def motion_graphics_settings(self) -> pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs']:
         """
-        Motion Graphics Settings. See Motion Graphics Settings for more details.
+        Motion graphics settings. See `motion_graphics_settings` Block for details.
         """
         return pulumi.get(self, "motion_graphics_settings")
 
@@ -4302,7 +4594,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
     @pulumi.getter(name="motionGraphicsInsertion")
     def motion_graphics_insertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Motion Graphics Insertion.
+        Whether to activate motion graphics insertion.
         """
         return pulumi.get(self, "motion_graphics_insertion")
 
@@ -4314,7 +4606,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
 class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgsDict(TypedDict):
     html_motion_graphics_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgsDict']]]
     """
-    Html Motion Graphics Settings.
+    HTML motion graphics settings. Can be set as an empty block.
     """
 
 @pulumi.input_type
@@ -4322,7 +4614,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArg
     def __init__(__self__, *,
                  html_motion_graphics_settings: pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs'] html_motion_graphics_settings: Html Motion Graphics Settings.
+        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs'] html_motion_graphics_settings: HTML motion graphics settings. Can be set as an empty block.
         """
         if html_motion_graphics_settings is not None:
             pulumi.set(__self__, "html_motion_graphics_settings", html_motion_graphics_settings)
@@ -4331,7 +4623,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArg
     @pulumi.getter(name="htmlMotionGraphicsSettings")
     def html_motion_graphics_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs']]:
         """
-        Html Motion Graphics Settings.
+        HTML motion graphics settings. Can be set as an empty block.
         """
         return pulumi.get(self, "html_motion_graphics_settings")
 
@@ -4352,7 +4644,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtm
 class ChannelEncoderSettingsNielsenConfigurationArgsDict(TypedDict):
     distributor_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enter the Distributor ID assigned to your organization by Nielsen.
+    Distributor ID assigned to your organization by Nielsen.
     """
     nielsen_pcm_to_id3_tagging: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -4365,7 +4657,7 @@ class ChannelEncoderSettingsNielsenConfigurationArgs:
                  distributor_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nielsen_pcm_to_id3_tagging: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] distributor_id: Enter the Distributor ID assigned to your organization by Nielsen.
+        :param pulumi.Input[_builtins.str] distributor_id: Distributor ID assigned to your organization by Nielsen.
         :param pulumi.Input[_builtins.str] nielsen_pcm_to_id3_tagging: Enables Nielsen PCM to ID3 tagging.
         """
         if distributor_id is not None:
@@ -4377,7 +4669,7 @@ class ChannelEncoderSettingsNielsenConfigurationArgs:
     @pulumi.getter(name="distributorId")
     def distributor_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enter the Distributor ID assigned to your organization by Nielsen.
+        Distributor ID assigned to your organization by Nielsen.
         """
         return pulumi.get(self, "distributor_id")
 
@@ -4401,11 +4693,11 @@ class ChannelEncoderSettingsNielsenConfigurationArgs:
 class ChannelEncoderSettingsOutputGroupArgsDict(TypedDict):
     output_group_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgsDict']
     """
-    Settings associated with the output group. See Output Group Settings for more details.
+    Settings associated with the output group. See `output_group_settings` Block for details.
     """
     outputs: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgsDict']]]
     """
-    List of outputs. See Outputs for more details.
+    List of outputs. See `outputs` Block for details.
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -4419,8 +4711,8 @@ class ChannelEncoderSettingsOutputGroupArgs:
                  outputs: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]],
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs'] output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]] outputs: List of outputs. See Outputs for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs'] output_group_settings: Settings associated with the output group. See `output_group_settings` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]] outputs: List of outputs. See `outputs` Block for details.
         :param pulumi.Input[_builtins.str] name: Custom output group name defined by the user.
         """
         pulumi.set(__self__, "output_group_settings", output_group_settings)
@@ -4432,7 +4724,7 @@ class ChannelEncoderSettingsOutputGroupArgs:
     @pulumi.getter(name="outputGroupSettings")
     def output_group_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs']:
         """
-        Settings associated with the output group. See Output Group Settings for more details.
+        Settings associated with the output group. See `output_group_settings` Block for details.
         """
         return pulumi.get(self, "output_group_settings")
 
@@ -4444,7 +4736,7 @@ class ChannelEncoderSettingsOutputGroupArgs:
     @pulumi.getter
     def outputs(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]]:
         """
-        List of outputs. See Outputs for more details.
+        List of outputs. See `outputs` Block for details.
         """
         return pulumi.get(self, "outputs")
 
@@ -4468,23 +4760,23 @@ class ChannelEncoderSettingsOutputGroupArgs:
 class ChannelEncoderSettingsOutputGroupOutputArgsDict(TypedDict):
     output_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgsDict']
     """
-    Settings for output. See Output Settings for more details.
+    Settings for the output. See `output_settings` Block for details.
     """
     audio_description_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The names of the audio descriptions used as audio sources for the output.
+    Names of the audio descriptions used as audio sources for the output.
     """
     caption_description_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The names of the caption descriptions used as caption sources for the output.
+    Names of the caption descriptions used as caption sources for the output.
     """
     output_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name used to identify an output.
+    Name used to identify an output.
     """
     video_description_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the video description used as video source for the output.
+    Name of the video description used as the video source for the output.
     """
 
 @pulumi.input_type
@@ -4496,11 +4788,11 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
                  output_name: pulumi.Input[Optional[_builtins.str]] = None,
                  video_description_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs'] output_settings: Settings for output. See Output Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audio_description_names: The names of the audio descriptions used as audio sources for the output.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] caption_description_names: The names of the caption descriptions used as caption sources for the output.
-        :param pulumi.Input[_builtins.str] output_name: The name used to identify an output.
-        :param pulumi.Input[_builtins.str] video_description_name: The name of the video description used as video source for the output.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs'] output_settings: Settings for the output. See `output_settings` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audio_description_names: Names of the audio descriptions used as audio sources for the output.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] caption_description_names: Names of the caption descriptions used as caption sources for the output.
+        :param pulumi.Input[_builtins.str] output_name: Name used to identify an output.
+        :param pulumi.Input[_builtins.str] video_description_name: Name of the video description used as the video source for the output.
         """
         pulumi.set(__self__, "output_settings", output_settings)
         if audio_description_names is not None:
@@ -4516,7 +4808,7 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
     @pulumi.getter(name="outputSettings")
     def output_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs']:
         """
-        Settings for output. See Output Settings for more details.
+        Settings for the output. See `output_settings` Block for details.
         """
         return pulumi.get(self, "output_settings")
 
@@ -4528,7 +4820,7 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
     @pulumi.getter(name="audioDescriptionNames")
     def audio_description_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The names of the audio descriptions used as audio sources for the output.
+        Names of the audio descriptions used as audio sources for the output.
         """
         return pulumi.get(self, "audio_description_names")
 
@@ -4540,7 +4832,7 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
     @pulumi.getter(name="captionDescriptionNames")
     def caption_description_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The names of the caption descriptions used as caption sources for the output.
+        Names of the caption descriptions used as caption sources for the output.
         """
         return pulumi.get(self, "caption_description_names")
 
@@ -4552,7 +4844,7 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
     @pulumi.getter(name="outputName")
     def output_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name used to identify an output.
+        Name used to identify an output.
         """
         return pulumi.get(self, "output_name")
 
@@ -4564,7 +4856,7 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
     @pulumi.getter(name="videoDescriptionName")
     def video_description_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the video description used as video source for the output.
+        Name of the video description used as the video source for the output.
         """
         return pulumi.get(self, "video_description_name")
 
@@ -4576,21 +4868,36 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgsDict(TypedDict):
     archive_group_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgsDict']]]]]
     """
-    Archive group settings. See Archive Group Settings for more details.
+    Archive group settings. See `archive_group_settings` Block for details.
     """
     frame_capture_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgsDict']]]
+    """
+    Frame capture group settings. See `frame_capture_group_settings` Block for details.
+    """
     hls_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgsDict']]]
+    """
+    HLS group settings. See `hls_group_settings` Block for details.
+    """
     media_package_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgsDict']]]
     """
-    Media package group settings. See Media Package Group Settings for more details.
+    Media package group settings. See `media_package_group_settings` Block for details.
     """
     ms_smooth_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgsDict']]]
+    """
+    Microsoft Smooth group settings. See `ms_smooth_group_settings` Block for details.
+    """
     multiplex_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgsDict']]]
+    """
+    Multiplex group settings. Can be set as an empty block.
+    """
     rtmp_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgsDict']]]
     """
-    RTMP group settings. See RTMP Group Settings for more details.
+    RTMP group settings. See `rtmp_group_settings` Block for details.
     """
     udp_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgsDict']]]
+    """
+    UDP group settings. See `udp_group_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
@@ -4604,9 +4911,14 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
                  rtmp_group_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs']] = None,
                  udp_group_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]] archive_group_settings: Archive group settings. See Archive Group Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs'] media_package_group_settings: Media package group settings. See Media Package Group Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs'] rtmp_group_settings: RTMP group settings. See RTMP Group Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]] archive_group_settings: Archive group settings. See `archive_group_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs'] frame_capture_group_settings: Frame capture group settings. See `frame_capture_group_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs'] hls_group_settings: HLS group settings. See `hls_group_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs'] media_package_group_settings: Media package group settings. See `media_package_group_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs'] ms_smooth_group_settings: Microsoft Smooth group settings. See `ms_smooth_group_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs'] multiplex_group_settings: Multiplex group settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs'] rtmp_group_settings: RTMP group settings. See `rtmp_group_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs'] udp_group_settings: UDP group settings. See `udp_group_settings` Block for details.
         """
         if archive_group_settings is not None:
             pulumi.set(__self__, "archive_group_settings", archive_group_settings)
@@ -4629,7 +4941,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @pulumi.getter(name="archiveGroupSettings")
     def archive_group_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]]]:
         """
-        Archive group settings. See Archive Group Settings for more details.
+        Archive group settings. See `archive_group_settings` Block for details.
         """
         return pulumi.get(self, "archive_group_settings")
 
@@ -4640,6 +4952,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="frameCaptureGroupSettings")
     def frame_capture_group_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs']]:
+        """
+        Frame capture group settings. See `frame_capture_group_settings` Block for details.
+        """
         return pulumi.get(self, "frame_capture_group_settings")
 
     @frame_capture_group_settings.setter
@@ -4649,6 +4964,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="hlsGroupSettings")
     def hls_group_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs']]:
+        """
+        HLS group settings. See `hls_group_settings` Block for details.
+        """
         return pulumi.get(self, "hls_group_settings")
 
     @hls_group_settings.setter
@@ -4659,7 +4977,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @pulumi.getter(name="mediaPackageGroupSettings")
     def media_package_group_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs']]:
         """
-        Media package group settings. See Media Package Group Settings for more details.
+        Media package group settings. See `media_package_group_settings` Block for details.
         """
         return pulumi.get(self, "media_package_group_settings")
 
@@ -4670,6 +4988,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="msSmoothGroupSettings")
     def ms_smooth_group_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs']]:
+        """
+        Microsoft Smooth group settings. See `ms_smooth_group_settings` Block for details.
+        """
         return pulumi.get(self, "ms_smooth_group_settings")
 
     @ms_smooth_group_settings.setter
@@ -4679,6 +5000,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="multiplexGroupSettings")
     def multiplex_group_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs']]:
+        """
+        Multiplex group settings. Can be set as an empty block.
+        """
         return pulumi.get(self, "multiplex_group_settings")
 
     @multiplex_group_settings.setter
@@ -4689,7 +5013,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @pulumi.getter(name="rtmpGroupSettings")
     def rtmp_group_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs']]:
         """
-        RTMP group settings. See RTMP Group Settings for more details.
+        RTMP group settings. See `rtmp_group_settings` Block for details.
         """
         return pulumi.get(self, "rtmp_group_settings")
 
@@ -4700,6 +5024,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="udpGroupSettings")
     def udp_group_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs']]:
+        """
+        UDP group settings. See `udp_group_settings` Block for details.
+        """
         return pulumi.get(self, "udp_group_settings")
 
     @udp_group_settings.setter
@@ -4710,15 +5037,15 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgsDict']
     """
-    A director and base filename where archive files should be written. See Destination for more details.
+    Directory and base filename where archive files are written. See `destination` Block for details.
     """
     archive_cdn_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgsDict']]]
     """
-    Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+    Parameters that control the interactions with the CDN. See `archive_cdn_settings` Block for details.
     """
     rollover_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of seconds to write to archive file before closing and starting a new one.
+    Number of seconds to write to an archive file before closing and starting a new one.
     """
 
 @pulumi.input_type
@@ -4728,9 +5055,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
                  archive_cdn_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs']] = None,
                  rollover_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs'] archive_cdn_settings: Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-        :param pulumi.Input[_builtins.int] rollover_interval: Number of seconds to write to archive file before closing and starting a new one.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs'] destination: Directory and base filename where archive files are written. See `destination` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs'] archive_cdn_settings: Parameters that control the interactions with the CDN. See `archive_cdn_settings` Block for details.
+        :param pulumi.Input[_builtins.int] rollover_interval: Number of seconds to write to an archive file before closing and starting a new one.
         """
         pulumi.set(__self__, "destination", destination)
         if archive_cdn_settings is not None:
@@ -4742,7 +5069,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs']:
         """
-        A director and base filename where archive files should be written. See Destination for more details.
+        Directory and base filename where archive files are written. See `destination` Block for details.
         """
         return pulumi.get(self, "destination")
 
@@ -4754,7 +5081,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
     @pulumi.getter(name="archiveCdnSettings")
     def archive_cdn_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs']]:
         """
-        Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+        Parameters that control the interactions with the CDN. See `archive_cdn_settings` Block for details.
         """
         return pulumi.get(self, "archive_cdn_settings")
 
@@ -4766,7 +5093,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
     @pulumi.getter(name="rolloverInterval")
     def rollover_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of seconds to write to archive file before closing and starting a new one.
+        Number of seconds to write to an archive file before closing and starting a new one.
         """
         return pulumi.get(self, "rollover_interval")
 
@@ -4778,7 +5105,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgsDict(TypedDict):
     archive_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgsDict']]]
     """
-    Archive S3 Settings. See Archive S3 Settings for more details.
+    Archive S3 settings. See `archive_s3_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -4786,7 +5113,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
     def __init__(__self__, *,
                  archive_s3_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs'] archive_s3_settings: Archive S3 Settings. See Archive S3 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs'] archive_s3_settings: Archive S3 settings. See `archive_s3_settings` Block for details.
         """
         if archive_s3_settings is not None:
             pulumi.set(__self__, "archive_s3_settings", archive_s3_settings)
@@ -4795,7 +5122,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
     @pulumi.getter(name="archiveS3Settings")
     def archive_s3_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs']]:
         """
-        Archive S3 Settings. See Archive S3 Settings for more details.
+        Archive S3 settings. See `archive_s3_settings` Block for details.
         """
         return pulumi.get(self, "archive_s3_settings")
 
@@ -4807,7 +5134,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgsDict(TypedDict):
     canned_acl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specify the canned ACL to apply to each S3 request.
+    Canned ACL to apply to each S3 request.
     """
 
 @pulumi.input_type
@@ -4815,7 +5142,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
     def __init__(__self__, *,
                  canned_acl: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] canned_acl: Specify the canned ACL to apply to each S3 request.
+        :param pulumi.Input[_builtins.str] canned_acl: Canned ACL to apply to each S3 request.
         """
         if canned_acl is not None:
             pulumi.set(__self__, "canned_acl", canned_acl)
@@ -4824,7 +5151,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
     @pulumi.getter(name="cannedAcl")
     def canned_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specify the canned ACL to apply to each S3 request.
+        Canned ACL to apply to each S3 request.
         """
         return pulumi.get(self, "canned_acl")
 
@@ -4863,13 +5190,23 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDes
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgsDict']
+    """
+    Parameters that identify where to write the frame captures. See `destination` Block for details.
+    """
     frame_capture_cdn_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgsDict']]]
+    """
+    Parameters that control the interactions with the CDN. See `frame_capture_cdn_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs'],
                  frame_capture_cdn_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs'] destination: Parameters that identify where to write the frame captures. See `destination` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs'] frame_capture_cdn_settings: Parameters that control the interactions with the CDN. See `frame_capture_cdn_settings` Block for details.
+        """
         pulumi.set(__self__, "destination", destination)
         if frame_capture_cdn_settings is not None:
             pulumi.set(__self__, "frame_capture_cdn_settings", frame_capture_cdn_settings)
@@ -4877,6 +5214,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs']:
+        """
+        Parameters that identify where to write the frame captures. See `destination` Block for details.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -4886,6 +5226,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
     @_builtins.property
     @pulumi.getter(name="frameCaptureCdnSettings")
     def frame_capture_cdn_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs']]:
+        """
+        Parameters that control the interactions with the CDN. See `frame_capture_cdn_settings` Block for details.
+        """
         return pulumi.get(self, "frame_capture_cdn_settings")
 
     @frame_capture_cdn_settings.setter
@@ -4923,17 +5266,26 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgsDict(TypedDict):
     frame_capture_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgsDict']]]
+    """
+    Frame capture S3 settings. See `frame_capture_s3_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs:
     def __init__(__self__, *,
                  frame_capture_s3_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs'] frame_capture_s3_settings: Frame capture S3 settings. See `frame_capture_s3_settings` Block for details.
+        """
         if frame_capture_s3_settings is not None:
             pulumi.set(__self__, "frame_capture_s3_settings", frame_capture_s3_settings)
 
     @_builtins.property
     @pulumi.getter(name="frameCaptureS3Settings")
     def frame_capture_s3_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs']]:
+        """
+        Frame capture S3 settings. See `frame_capture_s3_settings` Block for details.
+        """
         return pulumi.get(self, "frame_capture_s3_settings")
 
     @frame_capture_s3_settings.setter
@@ -4944,7 +5296,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgsDict(TypedDict):
     canned_acl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specify the canned ACL to apply to each S3 request.
+    Canned ACL to apply to each S3 request.
     """
 
 @pulumi.input_type
@@ -4952,7 +5304,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
     def __init__(__self__, *,
                  canned_acl: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] canned_acl: Specify the canned ACL to apply to each S3 request.
+        :param pulumi.Input[_builtins.str] canned_acl: Canned ACL to apply to each S3 request.
         """
         if canned_acl is not None:
             pulumi.set(__self__, "canned_acl", canned_acl)
@@ -4961,7 +5313,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
     @pulumi.getter(name="cannedAcl")
     def canned_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specify the canned ACL to apply to each S3 request.
+        Canned ACL to apply to each S3 request.
         """
         return pulumi.get(self, "canned_acl")
 
@@ -4972,53 +5324,173 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgsDict']
+    """
+    Place where the segments and manifests are written. See `destination` Block for details.
+    """
     ad_markers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The ad marker type for this output group.
+    List of markers used to insert ad avail markers in the HLS output.
     """
     base_url_content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prepends a value to the URI of each media (segment) file in the manifest.
+    """
     base_url_content1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Alternate base URL for content, used for redundant manifest configurations.
+    """
     base_url_manifest: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prepends a value to the URI of each variant manifest file in the master manifest.
+    """
     base_url_manifest1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Alternate base URL for manifests, used for redundant manifest configurations.
+    """
     caption_language_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgsDict']]]]]
+    """
+    Mapping of up to 4 caption channels to caption languages. See `caption_language_mappings` Block for details.
+    """
     caption_language_setting: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How audio and caption language setting tags are written in the manifest.
+    """
     client_cache: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `disabled`, sets the `#EXT-X-ALLOW-CACHE:no` tag in the manifest.
+    """
     codec_specification: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specification to use for the codec in the manifest.
+    """
     constant_iv: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    128-bit, 16-byte hex value represented by a 32-character text string, used with the key for encrypting blocks.
+    """
     directory_structure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Place for the media and manifest files.
+    """
     discontinuity_tags: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How the `EXT-X-DISCONTINUITY` tags are inserted.
+    """
     encryption_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Encryption type.
+    """
     hls_cdn_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgsDict']]]]]
+    """
+    Parameters that control the interactions with the CDN. See `hls_cdn_settings` Block for details.
+    """
     hls_id3_segment_tagging: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    State of HLS ID3 segment tagging.
+    """
     iframe_only_playlists: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `standard`, an I-Frame only playlist is written out for each video output in the output group.
+    """
     incomplete_segment_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior of the segment that is in progress at a channel restart or input switch.
+    """
     index_n_segments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of segments to keep in the manifest.
+    """
     input_loss_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Parameter that controls output group behavior on an input loss.
+    """
     iv_in_manifest: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the initialization vector is included in the key method on the segment.
+    """
     iv_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the initialization vector follows the segment number or is from the group.
+    """
     keep_segments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of segments to retain in the destination directory.
+    """
     key_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Value for the key URI format in the key method.
+    """
     key_format_versions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Versions of the key format in the key method.
+    """
     key_provider_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgsDict']]]
+    """
+    Key provider settings. See `key_provider_settings` Block for details.
+    """
     manifest_compression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the manifest is compressed with gzip.
+    """
     manifest_duration_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Format of the segment duration in the manifest.
+    """
     min_segment_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Minimum length, in seconds, for each segment.
+    """
     mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    HLS mode.
+    """
     output_selection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Generation of the manifest and segments or only variant manifests.
+    """
     program_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to include an `EXT-X-PROGRAM-DATE-TIME` tag.
+    """
     program_date_time_clock: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Clock source for the `EXT-X-PROGRAM-DATE-TIME` tag.
+    """
     program_date_time_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Period, in seconds, between `EXT-X-PROGRAM-DATE-TIME` tags.
+    """
     redundant_manifest: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `enabled`, writes a secondary manifest for each output group.
+    """
     segment_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Length, in seconds, of each segment.
+    """
     segments_per_subdirectory: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of segments to write to a subdirectory before starting a new one.
+    """
     stream_inf_resolution: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to include the resolution in the `EXT-X-STREAM-INF` tag.
+    """
     timed_metadata_id3_frame: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates ID3 frame that has the timecode.
+    ID3 frame used for timed metadata.
     """
     timed_metadata_id3_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Period, in seconds, between ID3 frames for timed metadata.
+    """
     timestamp_delta_milliseconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Value, in milliseconds, to offset the program date time from the input timestamp.
+    """
     ts_file_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether segments are placed in subdirectories.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
@@ -5066,8 +5538,48 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
                  timestamp_delta_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
                  ts_file_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ad_markers: The ad marker type for this output group.
-        :param pulumi.Input[_builtins.str] timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs'] destination: Place where the segments and manifests are written. See `destination` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ad_markers: List of markers used to insert ad avail markers in the HLS output.
+        :param pulumi.Input[_builtins.str] base_url_content: Prepends a value to the URI of each media (segment) file in the manifest.
+        :param pulumi.Input[_builtins.str] base_url_content1: Alternate base URL for content, used for redundant manifest configurations.
+        :param pulumi.Input[_builtins.str] base_url_manifest: Prepends a value to the URI of each variant manifest file in the master manifest.
+        :param pulumi.Input[_builtins.str] base_url_manifest1: Alternate base URL for manifests, used for redundant manifest configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs']]] caption_language_mappings: Mapping of up to 4 caption channels to caption languages. See `caption_language_mappings` Block for details.
+        :param pulumi.Input[_builtins.str] caption_language_setting: How audio and caption language setting tags are written in the manifest.
+        :param pulumi.Input[_builtins.str] client_cache: When set to `disabled`, sets the `#EXT-X-ALLOW-CACHE:no` tag in the manifest.
+        :param pulumi.Input[_builtins.str] codec_specification: Specification to use for the codec in the manifest.
+        :param pulumi.Input[_builtins.str] constant_iv: 128-bit, 16-byte hex value represented by a 32-character text string, used with the key for encrypting blocks.
+        :param pulumi.Input[_builtins.str] directory_structure: Place for the media and manifest files.
+        :param pulumi.Input[_builtins.str] discontinuity_tags: How the `EXT-X-DISCONTINUITY` tags are inserted.
+        :param pulumi.Input[_builtins.str] encryption_type: Encryption type.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs']]] hls_cdn_settings: Parameters that control the interactions with the CDN. See `hls_cdn_settings` Block for details.
+        :param pulumi.Input[_builtins.str] hls_id3_segment_tagging: State of HLS ID3 segment tagging.
+        :param pulumi.Input[_builtins.str] iframe_only_playlists: When set to `standard`, an I-Frame only playlist is written out for each video output in the output group.
+        :param pulumi.Input[_builtins.str] incomplete_segment_behavior: Behavior of the segment that is in progress at a channel restart or input switch.
+        :param pulumi.Input[_builtins.int] index_n_segments: Number of segments to keep in the manifest.
+        :param pulumi.Input[_builtins.str] input_loss_action: Parameter that controls output group behavior on an input loss.
+        :param pulumi.Input[_builtins.str] iv_in_manifest: Whether the initialization vector is included in the key method on the segment.
+        :param pulumi.Input[_builtins.str] iv_source: Whether the initialization vector follows the segment number or is from the group.
+        :param pulumi.Input[_builtins.int] keep_segments: Number of segments to retain in the destination directory.
+        :param pulumi.Input[_builtins.str] key_format: Value for the key URI format in the key method.
+        :param pulumi.Input[_builtins.str] key_format_versions: Versions of the key format in the key method.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs'] key_provider_settings: Key provider settings. See `key_provider_settings` Block for details.
+        :param pulumi.Input[_builtins.str] manifest_compression: Whether the manifest is compressed with gzip.
+        :param pulumi.Input[_builtins.str] manifest_duration_format: Format of the segment duration in the manifest.
+        :param pulumi.Input[_builtins.int] min_segment_length: Minimum length, in seconds, for each segment.
+        :param pulumi.Input[_builtins.str] mode: HLS mode.
+        :param pulumi.Input[_builtins.str] output_selection: Generation of the manifest and segments or only variant manifests.
+        :param pulumi.Input[_builtins.str] program_date_time: Whether to include an `EXT-X-PROGRAM-DATE-TIME` tag.
+        :param pulumi.Input[_builtins.str] program_date_time_clock: Clock source for the `EXT-X-PROGRAM-DATE-TIME` tag.
+        :param pulumi.Input[_builtins.int] program_date_time_period: Period, in seconds, between `EXT-X-PROGRAM-DATE-TIME` tags.
+        :param pulumi.Input[_builtins.str] redundant_manifest: When set to `enabled`, writes a secondary manifest for each output group.
+        :param pulumi.Input[_builtins.int] segment_length: Length, in seconds, of each segment.
+        :param pulumi.Input[_builtins.int] segments_per_subdirectory: Number of segments to write to a subdirectory before starting a new one.
+        :param pulumi.Input[_builtins.str] stream_inf_resolution: Whether to include the resolution in the `EXT-X-STREAM-INF` tag.
+        :param pulumi.Input[_builtins.str] timed_metadata_id3_frame: ID3 frame used for timed metadata.
+        :param pulumi.Input[_builtins.int] timed_metadata_id3_period: Period, in seconds, between ID3 frames for timed metadata.
+        :param pulumi.Input[_builtins.int] timestamp_delta_milliseconds: Value, in milliseconds, to offset the program date time from the input timestamp.
+        :param pulumi.Input[_builtins.str] ts_file_mode: Whether segments are placed in subdirectories.
         """
         pulumi.set(__self__, "destination", destination)
         if ad_markers is not None:
@@ -5156,6 +5668,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs']:
+        """
+        Place where the segments and manifests are written. See `destination` Block for details.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -5166,7 +5681,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ad marker type for this output group.
+        List of markers used to insert ad avail markers in the HLS output.
         """
         return pulumi.get(self, "ad_markers")
 
@@ -5177,6 +5692,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="baseUrlContent")
     def base_url_content(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prepends a value to the URI of each media (segment) file in the manifest.
+        """
         return pulumi.get(self, "base_url_content")
 
     @base_url_content.setter
@@ -5186,6 +5704,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="baseUrlContent1")
     def base_url_content1(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alternate base URL for content, used for redundant manifest configurations.
+        """
         return pulumi.get(self, "base_url_content1")
 
     @base_url_content1.setter
@@ -5195,6 +5716,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="baseUrlManifest")
     def base_url_manifest(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prepends a value to the URI of each variant manifest file in the master manifest.
+        """
         return pulumi.get(self, "base_url_manifest")
 
     @base_url_manifest.setter
@@ -5204,6 +5728,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="baseUrlManifest1")
     def base_url_manifest1(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alternate base URL for manifests, used for redundant manifest configurations.
+        """
         return pulumi.get(self, "base_url_manifest1")
 
     @base_url_manifest1.setter
@@ -5213,6 +5740,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="captionLanguageMappings")
     def caption_language_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs']]]]:
+        """
+        Mapping of up to 4 caption channels to caption languages. See `caption_language_mappings` Block for details.
+        """
         return pulumi.get(self, "caption_language_mappings")
 
     @caption_language_mappings.setter
@@ -5222,6 +5752,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="captionLanguageSetting")
     def caption_language_setting(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How audio and caption language setting tags are written in the manifest.
+        """
         return pulumi.get(self, "caption_language_setting")
 
     @caption_language_setting.setter
@@ -5231,6 +5764,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="clientCache")
     def client_cache(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `disabled`, sets the `#EXT-X-ALLOW-CACHE:no` tag in the manifest.
+        """
         return pulumi.get(self, "client_cache")
 
     @client_cache.setter
@@ -5240,6 +5776,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="codecSpecification")
     def codec_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specification to use for the codec in the manifest.
+        """
         return pulumi.get(self, "codec_specification")
 
     @codec_specification.setter
@@ -5249,6 +5788,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="constantIv")
     def constant_iv(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        128-bit, 16-byte hex value represented by a 32-character text string, used with the key for encrypting blocks.
+        """
         return pulumi.get(self, "constant_iv")
 
     @constant_iv.setter
@@ -5258,6 +5800,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="directoryStructure")
     def directory_structure(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Place for the media and manifest files.
+        """
         return pulumi.get(self, "directory_structure")
 
     @directory_structure.setter
@@ -5267,6 +5812,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="discontinuityTags")
     def discontinuity_tags(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How the `EXT-X-DISCONTINUITY` tags are inserted.
+        """
         return pulumi.get(self, "discontinuity_tags")
 
     @discontinuity_tags.setter
@@ -5276,6 +5824,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Encryption type.
+        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -5285,6 +5836,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="hlsCdnSettings")
     def hls_cdn_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs']]]]:
+        """
+        Parameters that control the interactions with the CDN. See `hls_cdn_settings` Block for details.
+        """
         return pulumi.get(self, "hls_cdn_settings")
 
     @hls_cdn_settings.setter
@@ -5294,6 +5848,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="hlsId3SegmentTagging")
     def hls_id3_segment_tagging(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        State of HLS ID3 segment tagging.
+        """
         return pulumi.get(self, "hls_id3_segment_tagging")
 
     @hls_id3_segment_tagging.setter
@@ -5303,6 +5860,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="iframeOnlyPlaylists")
     def iframe_only_playlists(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `standard`, an I-Frame only playlist is written out for each video output in the output group.
+        """
         return pulumi.get(self, "iframe_only_playlists")
 
     @iframe_only_playlists.setter
@@ -5312,6 +5872,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="incompleteSegmentBehavior")
     def incomplete_segment_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior of the segment that is in progress at a channel restart or input switch.
+        """
         return pulumi.get(self, "incomplete_segment_behavior")
 
     @incomplete_segment_behavior.setter
@@ -5321,6 +5884,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="indexNSegments")
     def index_n_segments(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of segments to keep in the manifest.
+        """
         return pulumi.get(self, "index_n_segments")
 
     @index_n_segments.setter
@@ -5330,6 +5896,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="inputLossAction")
     def input_loss_action(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Parameter that controls output group behavior on an input loss.
+        """
         return pulumi.get(self, "input_loss_action")
 
     @input_loss_action.setter
@@ -5339,6 +5908,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ivInManifest")
     def iv_in_manifest(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the initialization vector is included in the key method on the segment.
+        """
         return pulumi.get(self, "iv_in_manifest")
 
     @iv_in_manifest.setter
@@ -5348,6 +5920,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ivSource")
     def iv_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the initialization vector follows the segment number or is from the group.
+        """
         return pulumi.get(self, "iv_source")
 
     @iv_source.setter
@@ -5357,6 +5932,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="keepSegments")
     def keep_segments(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of segments to retain in the destination directory.
+        """
         return pulumi.get(self, "keep_segments")
 
     @keep_segments.setter
@@ -5366,6 +5944,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="keyFormat")
     def key_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Value for the key URI format in the key method.
+        """
         return pulumi.get(self, "key_format")
 
     @key_format.setter
@@ -5375,6 +5956,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="keyFormatVersions")
     def key_format_versions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Versions of the key format in the key method.
+        """
         return pulumi.get(self, "key_format_versions")
 
     @key_format_versions.setter
@@ -5384,6 +5968,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="keyProviderSettings")
     def key_provider_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']]:
+        """
+        Key provider settings. See `key_provider_settings` Block for details.
+        """
         return pulumi.get(self, "key_provider_settings")
 
     @key_provider_settings.setter
@@ -5393,6 +5980,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="manifestCompression")
     def manifest_compression(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the manifest is compressed with gzip.
+        """
         return pulumi.get(self, "manifest_compression")
 
     @manifest_compression.setter
@@ -5402,6 +5992,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="manifestDurationFormat")
     def manifest_duration_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Format of the segment duration in the manifest.
+        """
         return pulumi.get(self, "manifest_duration_format")
 
     @manifest_duration_format.setter
@@ -5411,6 +6004,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="minSegmentLength")
     def min_segment_length(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Minimum length, in seconds, for each segment.
+        """
         return pulumi.get(self, "min_segment_length")
 
     @min_segment_length.setter
@@ -5420,6 +6016,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        HLS mode.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -5429,6 +6028,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="outputSelection")
     def output_selection(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Generation of the manifest and segments or only variant manifests.
+        """
         return pulumi.get(self, "output_selection")
 
     @output_selection.setter
@@ -5438,6 +6040,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="programDateTime")
     def program_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to include an `EXT-X-PROGRAM-DATE-TIME` tag.
+        """
         return pulumi.get(self, "program_date_time")
 
     @program_date_time.setter
@@ -5447,6 +6052,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="programDateTimeClock")
     def program_date_time_clock(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Clock source for the `EXT-X-PROGRAM-DATE-TIME` tag.
+        """
         return pulumi.get(self, "program_date_time_clock")
 
     @program_date_time_clock.setter
@@ -5456,6 +6064,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="programDateTimePeriod")
     def program_date_time_period(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Period, in seconds, between `EXT-X-PROGRAM-DATE-TIME` tags.
+        """
         return pulumi.get(self, "program_date_time_period")
 
     @program_date_time_period.setter
@@ -5465,6 +6076,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="redundantManifest")
     def redundant_manifest(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `enabled`, writes a secondary manifest for each output group.
+        """
         return pulumi.get(self, "redundant_manifest")
 
     @redundant_manifest.setter
@@ -5474,6 +6088,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="segmentLength")
     def segment_length(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Length, in seconds, of each segment.
+        """
         return pulumi.get(self, "segment_length")
 
     @segment_length.setter
@@ -5483,6 +6100,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="segmentsPerSubdirectory")
     def segments_per_subdirectory(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of segments to write to a subdirectory before starting a new one.
+        """
         return pulumi.get(self, "segments_per_subdirectory")
 
     @segments_per_subdirectory.setter
@@ -5492,6 +6112,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="streamInfResolution")
     def stream_inf_resolution(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to include the resolution in the `EXT-X-STREAM-INF` tag.
+        """
         return pulumi.get(self, "stream_inf_resolution")
 
     @stream_inf_resolution.setter
@@ -5502,7 +6125,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @pulumi.getter(name="timedMetadataId3Frame")
     def timed_metadata_id3_frame(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates ID3 frame that has the timecode.
+        ID3 frame used for timed metadata.
         """
         return pulumi.get(self, "timed_metadata_id3_frame")
 
@@ -5513,6 +6136,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="timedMetadataId3Period")
     def timed_metadata_id3_period(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Period, in seconds, between ID3 frames for timed metadata.
+        """
         return pulumi.get(self, "timed_metadata_id3_period")
 
     @timed_metadata_id3_period.setter
@@ -5522,6 +6148,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="timestampDeltaMilliseconds")
     def timestamp_delta_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Value, in milliseconds, to offset the program date time from the input timestamp.
+        """
         return pulumi.get(self, "timestamp_delta_milliseconds")
 
     @timestamp_delta_milliseconds.setter
@@ -5531,6 +6160,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="tsFileMode")
     def ts_file_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether segments are placed in subdirectories.
+        """
         return pulumi.get(self, "ts_file_mode")
 
     @ts_file_mode.setter
@@ -5540,10 +6172,16 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgsDict(TypedDict):
     caption_channel: pulumi.Input[_builtins.int]
+    """
+    Caption channel to install in the output.
+    """
     language_code: pulumi.Input[_builtins.str]
+    """
+    Three-character ISO 639-2 language code.
+    """
     language_description: pulumi.Input[_builtins.str]
     """
-    Human readable information to indicate captions available for players (eg. English, or Spanish).
+    Textual description of the language.
     """
 
 @pulumi.input_type
@@ -5553,7 +6191,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
                  language_code: pulumi.Input[_builtins.str],
                  language_description: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] language_description: Human readable information to indicate captions available for players (eg. English, or Spanish).
+        :param pulumi.Input[_builtins.int] caption_channel: Caption channel to install in the output.
+        :param pulumi.Input[_builtins.str] language_code: Three-character ISO 639-2 language code.
+        :param pulumi.Input[_builtins.str] language_description: Textual description of the language.
         """
         pulumi.set(__self__, "caption_channel", caption_channel)
         pulumi.set(__self__, "language_code", language_code)
@@ -5562,6 +6202,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
     @_builtins.property
     @pulumi.getter(name="captionChannel")
     def caption_channel(self) -> pulumi.Input[_builtins.int]:
+        """
+        Caption channel to install in the output.
+        """
         return pulumi.get(self, "caption_channel")
 
     @caption_channel.setter
@@ -5571,6 +6214,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[_builtins.str]:
+        """
+        Three-character ISO 639-2 language code.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -5581,7 +6227,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
     @pulumi.getter(name="languageDescription")
     def language_description(self) -> pulumi.Input[_builtins.str]:
         """
-        Human readable information to indicate captions available for players (eg. English, or Spanish).
+        Textual description of the language.
         """
         return pulumi.get(self, "language_description")
 
@@ -5620,10 +6266,25 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestin
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgsDict(TypedDict):
     hls_akamai_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgsDict']]]
+    """
+    Akamai settings. See `hls_akamai_settings` Block for details.
+    """
     hls_basic_put_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgsDict']]]
+    """
+    Basic put settings. See `hls_basic_put_settings` Block for details.
+    """
     hls_media_store_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgsDict']]]
+    """
+    Media store settings. See `hls_media_store_settings` Block for details.
+    """
     hls_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgsDict']]]
+    """
+    S3 settings. See `hls_s3_settings` Block for details.
+    """
     hls_webdav_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgsDict']]]
+    """
+    WebDAV settings. See `hls_webdav_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs:
@@ -5633,6 +6294,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
                  hls_media_store_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs']] = None,
                  hls_s3_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs']] = None,
                  hls_webdav_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs'] hls_akamai_settings: Akamai settings. See `hls_akamai_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs'] hls_basic_put_settings: Basic put settings. See `hls_basic_put_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs'] hls_media_store_settings: Media store settings. See `hls_media_store_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs'] hls_s3_settings: S3 settings. See `hls_s3_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs'] hls_webdav_settings: WebDAV settings. See `hls_webdav_settings` Block for details.
+        """
         if hls_akamai_settings is not None:
             pulumi.set(__self__, "hls_akamai_settings", hls_akamai_settings)
         if hls_basic_put_settings is not None:
@@ -5647,6 +6315,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="hlsAkamaiSettings")
     def hls_akamai_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs']]:
+        """
+        Akamai settings. See `hls_akamai_settings` Block for details.
+        """
         return pulumi.get(self, "hls_akamai_settings")
 
     @hls_akamai_settings.setter
@@ -5656,6 +6327,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="hlsBasicPutSettings")
     def hls_basic_put_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs']]:
+        """
+        Basic put settings. See `hls_basic_put_settings` Block for details.
+        """
         return pulumi.get(self, "hls_basic_put_settings")
 
     @hls_basic_put_settings.setter
@@ -5665,6 +6339,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="hlsMediaStoreSettings")
     def hls_media_store_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs']]:
+        """
+        Media store settings. See `hls_media_store_settings` Block for details.
+        """
         return pulumi.get(self, "hls_media_store_settings")
 
     @hls_media_store_settings.setter
@@ -5674,6 +6351,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="hlsS3Settings")
     def hls_s3_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs']]:
+        """
+        S3 settings. See `hls_s3_settings` Block for details.
+        """
         return pulumi.get(self, "hls_s3_settings")
 
     @hls_s3_settings.setter
@@ -5683,6 +6363,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="hlsWebdavSettings")
     def hls_webdav_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs']]:
+        """
+        WebDAV settings. See `hls_webdav_settings` Block for details.
+        """
         return pulumi.get(self, "hls_webdav_settings")
 
     @hls_webdav_settings.setter
@@ -5693,20 +6376,32 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgsDict(TypedDict):
     connection_retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+    Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
     """
     filecache_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Size, in seconds, of the file cache for streaming outputs.
+    """
     http_transfer_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    HTTP transfer mode.
+    """
     num_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of retry attempts.
+    Number of retry attempts that are made before the channel is put into an error state.
     """
     restart_delay: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of seconds to wait until a restart is initiated.
     """
     salt: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Salt for authenticated Akamai.
+    """
     token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Token parameter for authenticated Akamai.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs:
@@ -5719,9 +6414,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
                  salt: pulumi.Input[Optional[_builtins.str]] = None,
                  token: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts.
+        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
+        :param pulumi.Input[_builtins.int] filecache_duration: Size, in seconds, of the file cache for streaming outputs.
+        :param pulumi.Input[_builtins.str] http_transfer_mode: HTTP transfer mode.
+        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts that are made before the channel is put into an error state.
         :param pulumi.Input[_builtins.int] restart_delay: Number of seconds to wait until a restart is initiated.
+        :param pulumi.Input[_builtins.str] salt: Salt for authenticated Akamai.
+        :param pulumi.Input[_builtins.str] token: Token parameter for authenticated Akamai.
         """
         if connection_retry_interval is not None:
             pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
@@ -5742,7 +6441,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="connectionRetryInterval")
     def connection_retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
         """
         return pulumi.get(self, "connection_retry_interval")
 
@@ -5753,6 +6452,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="filecacheDuration")
     def filecache_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Size, in seconds, of the file cache for streaming outputs.
+        """
         return pulumi.get(self, "filecache_duration")
 
     @filecache_duration.setter
@@ -5762,6 +6464,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="httpTransferMode")
     def http_transfer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        HTTP transfer mode.
+        """
         return pulumi.get(self, "http_transfer_mode")
 
     @http_transfer_mode.setter
@@ -5772,7 +6477,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="numRetries")
     def num_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of retry attempts.
+        Number of retry attempts that are made before the channel is put into an error state.
         """
         return pulumi.get(self, "num_retries")
 
@@ -5795,6 +6500,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter
     def salt(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Salt for authenticated Akamai.
+        """
         return pulumi.get(self, "salt")
 
     @salt.setter
@@ -5804,6 +6512,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter
     def token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Token parameter for authenticated Akamai.
+        """
         return pulumi.get(self, "token")
 
     @token.setter
@@ -5814,12 +6525,15 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgsDict(TypedDict):
     connection_retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+    Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
     """
     filecache_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Size, in seconds, of the file cache for streaming outputs.
+    """
     num_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of retry attempts.
+    Number of retry attempts that are made before the channel is put into an error state.
     """
     restart_delay: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -5834,8 +6548,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
                  num_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  restart_delay: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts.
+        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
+        :param pulumi.Input[_builtins.int] filecache_duration: Size, in seconds, of the file cache for streaming outputs.
+        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts that are made before the channel is put into an error state.
         :param pulumi.Input[_builtins.int] restart_delay: Number of seconds to wait until a restart is initiated.
         """
         if connection_retry_interval is not None:
@@ -5851,7 +6566,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="connectionRetryInterval")
     def connection_retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
         """
         return pulumi.get(self, "connection_retry_interval")
 
@@ -5862,6 +6577,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="filecacheDuration")
     def filecache_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Size, in seconds, of the file cache for streaming outputs.
+        """
         return pulumi.get(self, "filecache_duration")
 
     @filecache_duration.setter
@@ -5872,7 +6590,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="numRetries")
     def num_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of retry attempts.
+        Number of retry attempts that are made before the channel is put into an error state.
         """
         return pulumi.get(self, "num_retries")
 
@@ -5896,13 +6614,19 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgsDict(TypedDict):
     connection_retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+    Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
     """
     filecache_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Size, in seconds, of the file cache for streaming outputs.
+    """
     media_store_storage_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    MediaStore storage class to use.
+    """
     num_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of retry attempts.
+    Number of retry attempts that are made before the channel is put into an error state.
     """
     restart_delay: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -5918,8 +6642,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
                  num_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  restart_delay: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts.
+        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
+        :param pulumi.Input[_builtins.int] filecache_duration: Size, in seconds, of the file cache for streaming outputs.
+        :param pulumi.Input[_builtins.str] media_store_storage_class: MediaStore storage class to use.
+        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts that are made before the channel is put into an error state.
         :param pulumi.Input[_builtins.int] restart_delay: Number of seconds to wait until a restart is initiated.
         """
         if connection_retry_interval is not None:
@@ -5937,7 +6663,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="connectionRetryInterval")
     def connection_retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
         """
         return pulumi.get(self, "connection_retry_interval")
 
@@ -5948,6 +6674,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="filecacheDuration")
     def filecache_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Size, in seconds, of the file cache for streaming outputs.
+        """
         return pulumi.get(self, "filecache_duration")
 
     @filecache_duration.setter
@@ -5957,6 +6686,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="mediaStoreStorageClass")
     def media_store_storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        MediaStore storage class to use.
+        """
         return pulumi.get(self, "media_store_storage_class")
 
     @media_store_storage_class.setter
@@ -5967,7 +6699,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="numRetries")
     def num_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of retry attempts.
+        Number of retry attempts that are made before the channel is put into an error state.
         """
         return pulumi.get(self, "num_retries")
 
@@ -5991,7 +6723,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgsDict(TypedDict):
     canned_acl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specify the canned ACL to apply to each S3 request.
+    Canned ACL to apply to each S3 request.
     """
 
 @pulumi.input_type
@@ -5999,7 +6731,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     def __init__(__self__, *,
                  canned_acl: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] canned_acl: Specify the canned ACL to apply to each S3 request.
+        :param pulumi.Input[_builtins.str] canned_acl: Canned ACL to apply to each S3 request.
         """
         if canned_acl is not None:
             pulumi.set(__self__, "canned_acl", canned_acl)
@@ -6008,7 +6740,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="cannedAcl")
     def canned_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specify the canned ACL to apply to each S3 request.
+        Canned ACL to apply to each S3 request.
         """
         return pulumi.get(self, "canned_acl")
 
@@ -6020,13 +6752,19 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgsDict(TypedDict):
     connection_retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+    Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
     """
     filecache_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Size, in seconds, of the file cache for streaming outputs.
+    """
     http_transfer_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    HTTP transfer mode.
+    """
     num_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of retry attempts.
+    Number of retry attempts that are made before the channel is put into an error state.
     """
     restart_delay: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -6042,8 +6780,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
                  num_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  restart_delay: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts.
+        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
+        :param pulumi.Input[_builtins.int] filecache_duration: Size, in seconds, of the file cache for streaming outputs.
+        :param pulumi.Input[_builtins.str] http_transfer_mode: HTTP transfer mode.
+        :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts that are made before the channel is put into an error state.
         :param pulumi.Input[_builtins.int] restart_delay: Number of seconds to wait until a restart is initiated.
         """
         if connection_retry_interval is not None:
@@ -6061,7 +6801,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="connectionRetryInterval")
     def connection_retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
         """
         return pulumi.get(self, "connection_retry_interval")
 
@@ -6072,6 +6812,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="filecacheDuration")
     def filecache_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Size, in seconds, of the file cache for streaming outputs.
+        """
         return pulumi.get(self, "filecache_duration")
 
     @filecache_duration.setter
@@ -6081,6 +6824,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @_builtins.property
     @pulumi.getter(name="httpTransferMode")
     def http_transfer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        HTTP transfer mode.
+        """
         return pulumi.get(self, "http_transfer_mode")
 
     @http_transfer_mode.setter
@@ -6091,7 +6837,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @pulumi.getter(name="numRetries")
     def num_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of retry attempts.
+        Number of retry attempts that are made before the channel is put into an error state.
         """
         return pulumi.get(self, "num_retries")
 
@@ -6114,17 +6860,26 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgsDict(TypedDict):
     static_key_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgsDict']]]]]
+    """
+    Static key settings. See `static_key_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs:
     def __init__(__self__, *,
                  static_key_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]] static_key_settings: Static key settings. See `static_key_settings` Block for details.
+        """
         if static_key_settings is not None:
             pulumi.set(__self__, "static_key_settings", static_key_settings)
 
     @_builtins.property
     @pulumi.getter(name="staticKeySettings")
     def static_key_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]]:
+        """
+        Static key settings. See `static_key_settings` Block for details.
+        """
         return pulumi.get(self, "static_key_settings")
 
     @static_key_settings.setter
@@ -6134,13 +6889,23 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgsDict(TypedDict):
     static_key_value: pulumi.Input[_builtins.str]
+    """
+    Static key value as a 32-character hexadecimal string.
+    """
     key_provider_server: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgsDict']]]
+    """
+    Location of the license server used for protecting content. See `key_provider_server` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs:
     def __init__(__self__, *,
                  static_key_value: pulumi.Input[_builtins.str],
                  key_provider_server: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] static_key_value: Static key value as a 32-character hexadecimal string.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs'] key_provider_server: Location of the license server used for protecting content. See `key_provider_server` Block for details.
+        """
         pulumi.set(__self__, "static_key_value", static_key_value)
         if key_provider_server is not None:
             pulumi.set(__self__, "key_provider_server", key_provider_server)
@@ -6148,6 +6913,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
     @_builtins.property
     @pulumi.getter(name="staticKeyValue")
     def static_key_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Static key value as a 32-character hexadecimal string.
+        """
         return pulumi.get(self, "static_key_value")
 
     @static_key_value.setter
@@ -6157,6 +6925,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
     @_builtins.property
     @pulumi.getter(name="keyProviderServer")
     def key_provider_server(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']]:
+        """
+        Location of the license server used for protecting content. See `key_provider_server` Block for details.
+        """
         return pulumi.get(self, "key_provider_server")
 
     @key_provider_server.setter
@@ -6166,8 +6937,17 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgsDict(TypedDict):
     uri: pulumi.Input[_builtins.str]
+    """
+    Path to a file accessible to the live stream.
+    """
     password_param: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Key used to extract the password from EC2 Parameter store.
+    """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Username for the server.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs:
@@ -6175,6 +6955,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
                  uri: pulumi.Input[_builtins.str],
                  password_param: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] uri: Path to a file accessible to the live stream.
+        :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
+        :param pulumi.Input[_builtins.str] username: Username for the server.
+        """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
             pulumi.set(__self__, "password_param", password_param)
@@ -6184,6 +6969,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path to a file accessible to the live stream.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -6193,6 +6981,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
     @_builtins.property
     @pulumi.getter(name="passwordParam")
     def password_param(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
         return pulumi.get(self, "password_param")
 
     @password_param.setter
@@ -6202,6 +6993,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Username for the server.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -6212,7 +7006,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgsDict']
     """
-    A director and base filename where archive files should be written. See Destination for more details.
+    MediaPackage channel destination. See `destination` Block for details.
     """
 
 @pulumi.input_type
@@ -6220,7 +7014,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
     def __init__(__self__, *,
                  destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs']):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs'] destination: MediaPackage channel destination. See `destination` Block for details.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -6228,7 +7022,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs']:
         """
-        A director and base filename where archive files should be written. See Destination for more details.
+        MediaPackage channel destination. See `destination` Block for details.
         """
         return pulumi.get(self, "destination")
 
@@ -6267,22 +7061,49 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgsDict']
+    """
+    Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+    """
     acquisition_point_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier used to associate the segments between the output and the ingest server.
+    """
     audio_only_timecode_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to put a timecode in the single video track of an audio-only output.
+    """
     certificate_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Setting to allow self signed or verified RTMP certificates.
+    When set to `selfSigned`, accepts self-signed certificates from the destination server.
     """
     connection_retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+    Number of seconds to wait before retrying a connection to the server if the connection is lost.
     """
     event_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Microsoft Smooth channel ID that is sent to the IIS server.
+    """
     event_id_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How the event ID is generated.
+    """
     event_stop_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+    """
     filecache_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Size, in seconds, of the file cache for streaming outputs.
+    """
     fragment_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Length, in seconds, of mp4 fragments to generate.
+    """
     input_loss_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Parameter that controls output group behavior on an input loss.
+    """
     num_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of retry attempts.
@@ -6292,11 +7113,29 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     Number of seconds to wait until a restart is initiated.
     """
     segmentation_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `useInputSegmentation`, segmentation markers from the input are used.
+    """
     send_delay_ms: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds to delay the output from the second pipeline.
+    """
     sparse_track_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of the sparse track that carries timed metadata.
+    """
     stream_manifest_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+    """
     timestamp_offset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Timestamp offset for the event.
+    """
     timestamp_offset_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of timestamp date offset to use.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs:
@@ -6321,10 +7160,25 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
                  timestamp_offset: pulumi.Input[Optional[_builtins.str]] = None,
                  timestamp_offset_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] certificate_mode: Setting to allow self signed or verified RTMP certificates.
-        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs'] destination: Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+        :param pulumi.Input[_builtins.str] acquisition_point_id: Identifier used to associate the segments between the output and the ingest server.
+        :param pulumi.Input[_builtins.str] audio_only_timecode_control: Whether to put a timecode in the single video track of an audio-only output.
+        :param pulumi.Input[_builtins.str] certificate_mode: When set to `selfSigned`, accepts self-signed certificates from the destination server.
+        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying a connection to the server if the connection is lost.
+        :param pulumi.Input[_builtins.str] event_id: Microsoft Smooth channel ID that is sent to the IIS server.
+        :param pulumi.Input[_builtins.str] event_id_mode: How the event ID is generated.
+        :param pulumi.Input[_builtins.str] event_stop_behavior: When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+        :param pulumi.Input[_builtins.int] filecache_duration: Size, in seconds, of the file cache for streaming outputs.
+        :param pulumi.Input[_builtins.int] fragment_length: Length, in seconds, of mp4 fragments to generate.
+        :param pulumi.Input[_builtins.str] input_loss_action: Parameter that controls output group behavior on an input loss.
         :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts.
         :param pulumi.Input[_builtins.int] restart_delay: Number of seconds to wait until a restart is initiated.
+        :param pulumi.Input[_builtins.str] segmentation_mode: When set to `useInputSegmentation`, segmentation markers from the input are used.
+        :param pulumi.Input[_builtins.int] send_delay_ms: Number of milliseconds to delay the output from the second pipeline.
+        :param pulumi.Input[_builtins.str] sparse_track_type: Type of the sparse track that carries timed metadata.
+        :param pulumi.Input[_builtins.str] stream_manifest_behavior: When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+        :param pulumi.Input[_builtins.str] timestamp_offset: Timestamp offset for the event.
+        :param pulumi.Input[_builtins.str] timestamp_offset_mode: Type of timestamp date offset to use.
         """
         pulumi.set(__self__, "destination", destination)
         if acquisition_point_id is not None:
@@ -6367,6 +7221,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs']:
+        """
+        Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -6376,6 +7233,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="acquisitionPointId")
     def acquisition_point_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier used to associate the segments between the output and the ingest server.
+        """
         return pulumi.get(self, "acquisition_point_id")
 
     @acquisition_point_id.setter
@@ -6385,6 +7245,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="audioOnlyTimecodeControl")
     def audio_only_timecode_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to put a timecode in the single video track of an audio-only output.
+        """
         return pulumi.get(self, "audio_only_timecode_control")
 
     @audio_only_timecode_control.setter
@@ -6395,7 +7258,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Setting to allow self signed or verified RTMP certificates.
+        When set to `selfSigned`, accepts self-signed certificates from the destination server.
         """
         return pulumi.get(self, "certificate_mode")
 
@@ -6407,7 +7270,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @pulumi.getter(name="connectionRetryInterval")
     def connection_retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        Number of seconds to wait before retrying a connection to the server if the connection is lost.
         """
         return pulumi.get(self, "connection_retry_interval")
 
@@ -6418,6 +7281,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="eventId")
     def event_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Microsoft Smooth channel ID that is sent to the IIS server.
+        """
         return pulumi.get(self, "event_id")
 
     @event_id.setter
@@ -6427,6 +7293,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="eventIdMode")
     def event_id_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How the event ID is generated.
+        """
         return pulumi.get(self, "event_id_mode")
 
     @event_id_mode.setter
@@ -6436,6 +7305,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="eventStopBehavior")
     def event_stop_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+        """
         return pulumi.get(self, "event_stop_behavior")
 
     @event_stop_behavior.setter
@@ -6445,6 +7317,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="filecacheDuration")
     def filecache_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Size, in seconds, of the file cache for streaming outputs.
+        """
         return pulumi.get(self, "filecache_duration")
 
     @filecache_duration.setter
@@ -6454,6 +7329,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="fragmentLength")
     def fragment_length(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Length, in seconds, of mp4 fragments to generate.
+        """
         return pulumi.get(self, "fragment_length")
 
     @fragment_length.setter
@@ -6463,6 +7341,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="inputLossAction")
     def input_loss_action(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Parameter that controls output group behavior on an input loss.
+        """
         return pulumi.get(self, "input_loss_action")
 
     @input_loss_action.setter
@@ -6496,6 +7377,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="segmentationMode")
     def segmentation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `useInputSegmentation`, segmentation markers from the input are used.
+        """
         return pulumi.get(self, "segmentation_mode")
 
     @segmentation_mode.setter
@@ -6505,6 +7389,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="sendDelayMs")
     def send_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds to delay the output from the second pipeline.
+        """
         return pulumi.get(self, "send_delay_ms")
 
     @send_delay_ms.setter
@@ -6514,6 +7401,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="sparseTrackType")
     def sparse_track_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the sparse track that carries timed metadata.
+        """
         return pulumi.get(self, "sparse_track_type")
 
     @sparse_track_type.setter
@@ -6523,6 +7413,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="streamManifestBehavior")
     def stream_manifest_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+        """
         return pulumi.get(self, "stream_manifest_behavior")
 
     @stream_manifest_behavior.setter
@@ -6532,6 +7425,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="timestampOffset")
     def timestamp_offset(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Timestamp offset for the event.
+        """
         return pulumi.get(self, "timestamp_offset")
 
     @timestamp_offset.setter
@@ -6541,6 +7437,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     @_builtins.property
     @pulumi.getter(name="timestampOffsetMode")
     def timestamp_offset_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of timestamp date offset to use.
+        """
         return pulumi.get(self, "timestamp_offset_mode")
 
     @timestamp_offset_mode.setter
@@ -6588,27 +7487,27 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgsDict(TypedDict):
     ad_markers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The ad marker type for this output group.
+    List of ad markers for this output group.
     """
     authentication_scheme: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Authentication scheme to use when connecting with CDN.
+    Authentication scheme to use when connecting with the CDN.
     """
     cache_full_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Controls behavior when content cache fills up.
+    Behavior when the content cache fills up.
     """
     cache_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Cache length in seconds, is used to calculate buffer size.
+    Cache length, in seconds, used to calculate buffer size.
     """
     caption_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Controls the types of data that passes to onCaptionInfo outputs.
+    Controls the types of data that pass to `onCaptionInfo` outputs.
     """
     input_loss_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Controls the behavior of the RTMP group if input becomes unavailable.
+    Behavior of the RTMP group if the input becomes unavailable.
     """
     restart_delay: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -6626,12 +7525,12 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
                  input_loss_action: pulumi.Input[Optional[_builtins.str]] = None,
                  restart_delay: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ad_markers: The ad marker type for this output group.
-        :param pulumi.Input[_builtins.str] authentication_scheme: Authentication scheme to use when connecting with CDN.
-        :param pulumi.Input[_builtins.str] cache_full_behavior: Controls behavior when content cache fills up.
-        :param pulumi.Input[_builtins.int] cache_length: Cache length in seconds, is used to calculate buffer size.
-        :param pulumi.Input[_builtins.str] caption_data: Controls the types of data that passes to onCaptionInfo outputs.
-        :param pulumi.Input[_builtins.str] input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ad_markers: List of ad markers for this output group.
+        :param pulumi.Input[_builtins.str] authentication_scheme: Authentication scheme to use when connecting with the CDN.
+        :param pulumi.Input[_builtins.str] cache_full_behavior: Behavior when the content cache fills up.
+        :param pulumi.Input[_builtins.int] cache_length: Cache length, in seconds, used to calculate buffer size.
+        :param pulumi.Input[_builtins.str] caption_data: Controls the types of data that pass to `onCaptionInfo` outputs.
+        :param pulumi.Input[_builtins.str] input_loss_action: Behavior of the RTMP group if the input becomes unavailable.
         :param pulumi.Input[_builtins.int] restart_delay: Number of seconds to wait until a restart is initiated.
         """
         if ad_markers is not None:
@@ -6653,7 +7552,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
     @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ad marker type for this output group.
+        List of ad markers for this output group.
         """
         return pulumi.get(self, "ad_markers")
 
@@ -6665,7 +7564,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
     @pulumi.getter(name="authenticationScheme")
     def authentication_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Authentication scheme to use when connecting with CDN.
+        Authentication scheme to use when connecting with the CDN.
         """
         return pulumi.get(self, "authentication_scheme")
 
@@ -6677,7 +7576,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
     @pulumi.getter(name="cacheFullBehavior")
     def cache_full_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls behavior when content cache fills up.
+        Behavior when the content cache fills up.
         """
         return pulumi.get(self, "cache_full_behavior")
 
@@ -6689,7 +7588,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
     @pulumi.getter(name="cacheLength")
     def cache_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Cache length in seconds, is used to calculate buffer size.
+        Cache length, in seconds, used to calculate buffer size.
         """
         return pulumi.get(self, "cache_length")
 
@@ -6701,7 +7600,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
     @pulumi.getter(name="captionData")
     def caption_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls the types of data that passes to onCaptionInfo outputs.
+        Controls the types of data that pass to `onCaptionInfo` outputs.
         """
         return pulumi.get(self, "caption_data")
 
@@ -6713,7 +7612,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
     @pulumi.getter(name="inputLossAction")
     def input_loss_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls the behavior of the RTMP group if input becomes unavailable.
+        Behavior of the RTMP group if the input becomes unavailable.
         """
         return pulumi.get(self, "input_loss_action")
 
@@ -6737,13 +7636,16 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgsDict(TypedDict):
     input_loss_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies behavior of last resort when input video os lost.
+    Behavior of last resort when input video is lost.
     """
     timed_metadata_id3_frame: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates ID3 frame that has the timecode.
+    ID3 frame that has the timecode.
     """
     timed_metadata_id3_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timed metadata interval, in seconds.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
@@ -6752,8 +7654,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
                  timed_metadata_id3_frame: pulumi.Input[Optional[_builtins.str]] = None,
                  timed_metadata_id3_period: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] input_loss_action: Specifies behavior of last resort when input video os lost.
-        :param pulumi.Input[_builtins.str] timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
+        :param pulumi.Input[_builtins.str] input_loss_action: Behavior of last resort when input video is lost.
+        :param pulumi.Input[_builtins.str] timed_metadata_id3_frame: ID3 frame that has the timecode.
+        :param pulumi.Input[_builtins.int] timed_metadata_id3_period: Timed metadata interval, in seconds.
         """
         if input_loss_action is not None:
             pulumi.set(__self__, "input_loss_action", input_loss_action)
@@ -6766,7 +7669,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
     @pulumi.getter(name="inputLossAction")
     def input_loss_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies behavior of last resort when input video os lost.
+        Behavior of last resort when input video is lost.
         """
         return pulumi.get(self, "input_loss_action")
 
@@ -6778,7 +7681,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
     @pulumi.getter(name="timedMetadataId3Frame")
     def timed_metadata_id3_frame(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates ID3 frame that has the timecode.
+        ID3 frame that has the timecode.
         """
         return pulumi.get(self, "timed_metadata_id3_frame")
 
@@ -6789,6 +7692,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="timedMetadataId3Period")
     def timed_metadata_id3_period(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timed metadata interval, in seconds.
+        """
         return pulumi.get(self, "timed_metadata_id3_period")
 
     @timed_metadata_id3_period.setter
@@ -6799,26 +7705,35 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgsDict(TypedDict):
     archive_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgsDict']]]
     """
-    Archive output settings. See Archive Output Settings for more details.
+    Archive output settings. See `archive_output_settings` Block for details.
     """
     frame_capture_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgsDict']]]
+    """
+    Frame capture output settings. See `frame_capture_output_settings` Block for details.
+    """
     hls_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgsDict']]]
+    """
+    HLS output settings. See `hls_output_settings` Block for details.
+    """
     media_package_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgsDict']]]
     """
-    Media package output settings. This can be set as an empty block.
+    Media package output settings. Can be set as an empty block.
     """
     ms_smooth_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgsDict']]]
+    """
+    Microsoft Smooth output settings. See `ms_smooth_output_settings` Block for details.
+    """
     multiplex_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgsDict']]]
     """
-    Multiplex output settings. See Multiplex Output Settings for more details.
+    Multiplex output settings. See `multiplex_output_settings` Block for details.
     """
     rtmp_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgsDict']]]
     """
-    RTMP output settings. See RTMP Output Settings for more details.
+    RTMP output settings. See `rtmp_output_settings` Block for details.
     """
     udp_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgsDict']]]
     """
-    UDP output settings. See UDP Output Settings for more details.
+    UDP output settings. See `udp_output_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -6833,11 +7748,14 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
                  rtmp_output_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs']] = None,
                  udp_output_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs'] archive_output_settings: Archive output settings. See Archive Output Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs'] media_package_output_settings: Media package output settings. This can be set as an empty block.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs'] multiplex_output_settings: Multiplex output settings. See Multiplex Output Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs'] rtmp_output_settings: RTMP output settings. See RTMP Output Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs'] udp_output_settings: UDP output settings. See UDP Output Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs'] archive_output_settings: Archive output settings. See `archive_output_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs'] frame_capture_output_settings: Frame capture output settings. See `frame_capture_output_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs'] hls_output_settings: HLS output settings. See `hls_output_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs'] media_package_output_settings: Media package output settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs'] ms_smooth_output_settings: Microsoft Smooth output settings. See `ms_smooth_output_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs'] multiplex_output_settings: Multiplex output settings. See `multiplex_output_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs'] rtmp_output_settings: RTMP output settings. See `rtmp_output_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs'] udp_output_settings: UDP output settings. See `udp_output_settings` Block for details.
         """
         if archive_output_settings is not None:
             pulumi.set(__self__, "archive_output_settings", archive_output_settings)
@@ -6860,7 +7778,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @pulumi.getter(name="archiveOutputSettings")
     def archive_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs']]:
         """
-        Archive output settings. See Archive Output Settings for more details.
+        Archive output settings. See `archive_output_settings` Block for details.
         """
         return pulumi.get(self, "archive_output_settings")
 
@@ -6871,6 +7789,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="frameCaptureOutputSettings")
     def frame_capture_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs']]:
+        """
+        Frame capture output settings. See `frame_capture_output_settings` Block for details.
+        """
         return pulumi.get(self, "frame_capture_output_settings")
 
     @frame_capture_output_settings.setter
@@ -6880,6 +7801,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="hlsOutputSettings")
     def hls_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs']]:
+        """
+        HLS output settings. See `hls_output_settings` Block for details.
+        """
         return pulumi.get(self, "hls_output_settings")
 
     @hls_output_settings.setter
@@ -6890,7 +7814,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @pulumi.getter(name="mediaPackageOutputSettings")
     def media_package_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs']]:
         """
-        Media package output settings. This can be set as an empty block.
+        Media package output settings. Can be set as an empty block.
         """
         return pulumi.get(self, "media_package_output_settings")
 
@@ -6901,6 +7825,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="msSmoothOutputSettings")
     def ms_smooth_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs']]:
+        """
+        Microsoft Smooth output settings. See `ms_smooth_output_settings` Block for details.
+        """
         return pulumi.get(self, "ms_smooth_output_settings")
 
     @ms_smooth_output_settings.setter
@@ -6911,7 +7838,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @pulumi.getter(name="multiplexOutputSettings")
     def multiplex_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs']]:
         """
-        Multiplex output settings. See Multiplex Output Settings for more details.
+        Multiplex output settings. See `multiplex_output_settings` Block for details.
         """
         return pulumi.get(self, "multiplex_output_settings")
 
@@ -6923,7 +7850,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @pulumi.getter(name="rtmpOutputSettings")
     def rtmp_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs']]:
         """
-        RTMP output settings. See RTMP Output Settings for more details.
+        RTMP output settings. See `rtmp_output_settings` Block for details.
         """
         return pulumi.get(self, "rtmp_output_settings")
 
@@ -6935,7 +7862,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
     @pulumi.getter(name="udpOutputSettings")
     def udp_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs']]:
         """
-        UDP output settings. See UDP Output Settings for more details.
+        UDP output settings. See `udp_output_settings` Block for details.
         """
         return pulumi.get(self, "udp_output_settings")
 
@@ -6947,7 +7874,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgsDict(TypedDict):
     container_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgsDict']]]
     """
-    Settings specific to the container type of the file. See Container Settings for more details.
+    Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
     """
     extension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6965,7 +7892,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  extension: pulumi.Input[Optional[_builtins.str]] = None,
                  name_modifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs'] container_settings: Settings specific to the container type of the file. See Container Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs'] container_settings: Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
         :param pulumi.Input[_builtins.str] extension: Output file extension.
         :param pulumi.Input[_builtins.str] name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         """
@@ -6980,7 +7907,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @pulumi.getter(name="containerSettings")
     def container_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs']]:
         """
-        Settings specific to the container type of the file. See Container Settings for more details.
+        Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
         """
         return pulumi.get(self, "container_settings")
 
@@ -7015,12 +7942,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgsDict(TypedDict):
     m2ts_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgsDict']]]
-    """
-    M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-    """
     raw_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgsDict']]]
     """
-    Raw Settings. This can be set as an empty block.
+    Raw settings. Can be set as an empty block.
     """
 
 @pulumi.input_type
@@ -7029,8 +7953,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  m2ts_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs']] = None,
                  raw_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs'] m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs'] raw_settings: Raw Settings. This can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs'] raw_settings: Raw settings. Can be set as an empty block.
         """
         if m2ts_settings is not None:
             pulumi.set(__self__, "m2ts_settings", m2ts_settings)
@@ -7040,9 +7963,6 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="m2tsSettings")
     def m2ts_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs']]:
-        """
-        M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-        """
         return pulumi.get(self, "m2ts_settings")
 
     @m2ts_settings.setter
@@ -7053,7 +7973,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @pulumi.getter(name="rawSettings")
     def raw_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs']]:
         """
-        Raw Settings. This can be set as an empty block.
+        Raw settings. Can be set as an empty block.
         """
         return pulumi.get(self, "raw_settings")
 
@@ -7064,55 +7984,193 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgsDict(TypedDict):
     absent_input_audio_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+    """
     arib: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `enabled`, uses ARIB-compliant captioning.
+    """
     arib_captions_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for ARIB captions in the transport stream.
+    """
     arib_captions_pid_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How to pass along the ARIB captions.
+    """
     audio_buffer_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+    """
     audio_frames_per_pes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of audio frames to insert for each PES packet.
+    """
     audio_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the elementary audio streams in the transport stream.
+    """
     audio_stream_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+    """
     bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Output bitrate, in bits per second, of the transport stream.
+    """
     buffer_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Controls the timing accuracy for output network traffic.
+    """
     cc_descriptor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `enabled`, generates a captions service descriptor in the PMT.
+    """
     dvb_nit_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgsDict']]]
+    """
+    DVB Network Information Table (NIT) settings. See `dvb_nit_settings` Block for details.
+    """
     dvb_sdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgsDict']]]
+    """
+    DVB Service Description Table (SDT) settings. See `dvb_sdt_settings` Block for details.
+    """
     dvb_sub_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source DVB Subtitle data to this output.
+    """
     dvb_tdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgsDict']]]
+    """
+    DVB Time and Date Table (TDT) settings. See `dvb_tdt_settings` Block for details.
+    """
     dvb_teletext_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source DVB Teletext data to this output.
+    """
     ebif: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through EBIF messages from the input source to this output.
+    """
     ebp_audio_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+    """
     ebp_lookahead_ms: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+    """
     ebp_placement: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+    """
     ecm_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for ECM in the transport stream.
+    """
     es_rate_in_pes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `include`, writes the stream to the PES header.
+    """
     etv_platform_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source ETV Platform data to this output.
+    """
     etv_signal_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source ETV Signal data to this output.
+    """
     fragment_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Length, in seconds, of each fragment, used only with EBP markers.
+    """
     klv: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+    """
     klv_data_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source KLV data to this output.
+    """
     nielsen_id3_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through Nielsen ID3.
+    """
     null_packet_bitrate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Value, in bits per second, to insert null packets into the transport stream.
+    """
     pat_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     pcr_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+    """
     pcr_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum time, in milliseconds, between Program Clock References.
+    """
     pcr_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the Program Clock Reference in the transport stream.
+    """
     pmt_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     pmt_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for the Program Map Table in the transport stream.
+    """
     program_num: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Value of the program number field in the Program Map Table.
+    """
     rate_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `vbr`, does not insert null packets into the transport stream.
+    """
     scte27_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source SCTE-27 data to this output.
+    """
     scte35_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+    """
     scte35_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    PID from which to read SCTE-35 messages.
+    Packet identifier (PID) of the SCTE-35 stream in the transport stream.
     """
     segmentation_markers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of segmentation markers to include.
+    """
     segmentation_style: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether segmentation markers are included at the start of a stream.
+    """
     segmentation_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Length, in seconds, of each segment.
+    """
     timed_metadata_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through timed metadata.
+    """
     timed_metadata_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the timed metadata stream in the transport stream.
+    """
     transport_stream_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Value of the transport stream ID field in the Program Map Table.
+    """
     video_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the elementary video stream in the transport stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs:
@@ -7165,7 +8223,53 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  transport_stream_id: pulumi.Input[Optional[_builtins.int]] = None,
                  video_pid: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] scte35_pid: PID from which to read SCTE-35 messages.
+        :param pulumi.Input[_builtins.str] absent_input_audio_behavior: When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+        :param pulumi.Input[_builtins.str] arib: When set to `enabled`, uses ARIB-compliant captioning.
+        :param pulumi.Input[_builtins.str] arib_captions_pid: Packet identifier (PID) for ARIB captions in the transport stream.
+        :param pulumi.Input[_builtins.str] arib_captions_pid_control: How to pass along the ARIB captions.
+        :param pulumi.Input[_builtins.str] audio_buffer_model: When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+        :param pulumi.Input[_builtins.int] audio_frames_per_pes: Number of audio frames to insert for each PES packet.
+        :param pulumi.Input[_builtins.str] audio_pids: Packet identifier (PID) of the elementary audio streams in the transport stream.
+        :param pulumi.Input[_builtins.str] audio_stream_type: When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+        :param pulumi.Input[_builtins.int] bitrate: Output bitrate, in bits per second, of the transport stream.
+        :param pulumi.Input[_builtins.str] buffer_model: Controls the timing accuracy for output network traffic.
+        :param pulumi.Input[_builtins.str] cc_descriptor: When set to `enabled`, generates a captions service descriptor in the PMT.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs'] dvb_nit_settings: DVB Network Information Table (NIT) settings. See `dvb_nit_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs'] dvb_sdt_settings: DVB Service Description Table (SDT) settings. See `dvb_sdt_settings` Block for details.
+        :param pulumi.Input[_builtins.str] dvb_sub_pids: Packet identifier (PID) for input source DVB Subtitle data to this output.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs'] dvb_tdt_settings: DVB Time and Date Table (TDT) settings. See `dvb_tdt_settings` Block for details.
+        :param pulumi.Input[_builtins.str] dvb_teletext_pid: Packet identifier (PID) for input source DVB Teletext data to this output.
+        :param pulumi.Input[_builtins.str] ebif: When set to `passthrough`, passes through EBIF messages from the input source to this output.
+        :param pulumi.Input[_builtins.str] ebp_audio_interval: When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+        :param pulumi.Input[_builtins.int] ebp_lookahead_ms: Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+        :param pulumi.Input[_builtins.str] ebp_placement: Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+        :param pulumi.Input[_builtins.str] ecm_pid: Packet identifier (PID) for ECM in the transport stream.
+        :param pulumi.Input[_builtins.str] es_rate_in_pes: When set to `include`, writes the stream to the PES header.
+        :param pulumi.Input[_builtins.str] etv_platform_pid: Packet identifier (PID) for input source ETV Platform data to this output.
+        :param pulumi.Input[_builtins.str] etv_signal_pid: Packet identifier (PID) for input source ETV Signal data to this output.
+        :param pulumi.Input[_builtins.float] fragment_time: Length, in seconds, of each fragment, used only with EBP markers.
+        :param pulumi.Input[_builtins.str] klv: When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+        :param pulumi.Input[_builtins.str] klv_data_pids: Packet identifier (PID) for input source KLV data to this output.
+        :param pulumi.Input[_builtins.str] nielsen_id3_behavior: When set to `passthrough`, passes through Nielsen ID3.
+        :param pulumi.Input[_builtins.float] null_packet_bitrate: Value, in bits per second, to insert null packets into the transport stream.
+        :param pulumi.Input[_builtins.int] pat_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] pcr_control: When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        :param pulumi.Input[_builtins.int] pcr_period: Maximum time, in milliseconds, between Program Clock References.
+        :param pulumi.Input[_builtins.str] pcr_pid: Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        :param pulumi.Input[_builtins.int] pmt_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] pmt_pid: Packet identifier (PID) for the Program Map Table in the transport stream.
+        :param pulumi.Input[_builtins.int] program_num: Value of the program number field in the Program Map Table.
+        :param pulumi.Input[_builtins.str] rate_mode: When set to `vbr`, does not insert null packets into the transport stream.
+        :param pulumi.Input[_builtins.str] scte27_pids: Packet identifier (PID) for input source SCTE-27 data to this output.
+        :param pulumi.Input[_builtins.str] scte35_control: When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+        :param pulumi.Input[_builtins.str] scte35_pid: Packet identifier (PID) of the SCTE-35 stream in the transport stream.
+        :param pulumi.Input[_builtins.str] segmentation_markers: Type of segmentation markers to include.
+        :param pulumi.Input[_builtins.str] segmentation_style: Whether segmentation markers are included at the start of a stream.
+        :param pulumi.Input[_builtins.float] segmentation_time: Length, in seconds, of each segment.
+        :param pulumi.Input[_builtins.str] timed_metadata_behavior: When set to `passthrough`, passes through timed metadata.
+        :param pulumi.Input[_builtins.str] timed_metadata_pid: Packet identifier (PID) of the timed metadata stream in the transport stream.
+        :param pulumi.Input[_builtins.int] transport_stream_id: Value of the transport stream ID field in the Program Map Table.
+        :param pulumi.Input[_builtins.str] video_pid: Packet identifier (PID) of the elementary video stream in the transport stream.
         """
         if absent_input_audio_behavior is not None:
             pulumi.set(__self__, "absent_input_audio_behavior", absent_input_audio_behavior)
@@ -7265,6 +8369,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="absentInputAudioBehavior")
     def absent_input_audio_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+        """
         return pulumi.get(self, "absent_input_audio_behavior")
 
     @absent_input_audio_behavior.setter
@@ -7274,6 +8381,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter
     def arib(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `enabled`, uses ARIB-compliant captioning.
+        """
         return pulumi.get(self, "arib")
 
     @arib.setter
@@ -7283,6 +8393,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="aribCaptionsPid")
     def arib_captions_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for ARIB captions in the transport stream.
+        """
         return pulumi.get(self, "arib_captions_pid")
 
     @arib_captions_pid.setter
@@ -7292,6 +8405,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="aribCaptionsPidControl")
     def arib_captions_pid_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How to pass along the ARIB captions.
+        """
         return pulumi.get(self, "arib_captions_pid_control")
 
     @arib_captions_pid_control.setter
@@ -7301,6 +8417,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="audioBufferModel")
     def audio_buffer_model(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+        """
         return pulumi.get(self, "audio_buffer_model")
 
     @audio_buffer_model.setter
@@ -7310,6 +8429,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="audioFramesPerPes")
     def audio_frames_per_pes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of audio frames to insert for each PES packet.
+        """
         return pulumi.get(self, "audio_frames_per_pes")
 
     @audio_frames_per_pes.setter
@@ -7319,6 +8441,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="audioPids")
     def audio_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the elementary audio streams in the transport stream.
+        """
         return pulumi.get(self, "audio_pids")
 
     @audio_pids.setter
@@ -7328,6 +8453,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="audioStreamType")
     def audio_stream_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+        """
         return pulumi.get(self, "audio_stream_type")
 
     @audio_stream_type.setter
@@ -7337,6 +8465,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter
     def bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Output bitrate, in bits per second, of the transport stream.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -7346,6 +8477,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="bufferModel")
     def buffer_model(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Controls the timing accuracy for output network traffic.
+        """
         return pulumi.get(self, "buffer_model")
 
     @buffer_model.setter
@@ -7355,6 +8489,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="ccDescriptor")
     def cc_descriptor(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `enabled`, generates a captions service descriptor in the PMT.
+        """
         return pulumi.get(self, "cc_descriptor")
 
     @cc_descriptor.setter
@@ -7364,6 +8501,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="dvbNitSettings")
     def dvb_nit_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]:
+        """
+        DVB Network Information Table (NIT) settings. See `dvb_nit_settings` Block for details.
+        """
         return pulumi.get(self, "dvb_nit_settings")
 
     @dvb_nit_settings.setter
@@ -7373,6 +8513,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="dvbSdtSettings")
     def dvb_sdt_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]:
+        """
+        DVB Service Description Table (SDT) settings. See `dvb_sdt_settings` Block for details.
+        """
         return pulumi.get(self, "dvb_sdt_settings")
 
     @dvb_sdt_settings.setter
@@ -7382,6 +8525,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="dvbSubPids")
     def dvb_sub_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source DVB Subtitle data to this output.
+        """
         return pulumi.get(self, "dvb_sub_pids")
 
     @dvb_sub_pids.setter
@@ -7391,6 +8537,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="dvbTdtSettings")
     def dvb_tdt_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]:
+        """
+        DVB Time and Date Table (TDT) settings. See `dvb_tdt_settings` Block for details.
+        """
         return pulumi.get(self, "dvb_tdt_settings")
 
     @dvb_tdt_settings.setter
@@ -7400,6 +8549,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="dvbTeletextPid")
     def dvb_teletext_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source DVB Teletext data to this output.
+        """
         return pulumi.get(self, "dvb_teletext_pid")
 
     @dvb_teletext_pid.setter
@@ -7409,6 +8561,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter
     def ebif(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through EBIF messages from the input source to this output.
+        """
         return pulumi.get(self, "ebif")
 
     @ebif.setter
@@ -7418,6 +8573,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="ebpAudioInterval")
     def ebp_audio_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+        """
         return pulumi.get(self, "ebp_audio_interval")
 
     @ebp_audio_interval.setter
@@ -7427,6 +8585,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="ebpLookaheadMs")
     def ebp_lookahead_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+        """
         return pulumi.get(self, "ebp_lookahead_ms")
 
     @ebp_lookahead_ms.setter
@@ -7436,6 +8597,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="ebpPlacement")
     def ebp_placement(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+        """
         return pulumi.get(self, "ebp_placement")
 
     @ebp_placement.setter
@@ -7445,6 +8609,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="ecmPid")
     def ecm_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for ECM in the transport stream.
+        """
         return pulumi.get(self, "ecm_pid")
 
     @ecm_pid.setter
@@ -7454,6 +8621,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="esRateInPes")
     def es_rate_in_pes(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `include`, writes the stream to the PES header.
+        """
         return pulumi.get(self, "es_rate_in_pes")
 
     @es_rate_in_pes.setter
@@ -7463,6 +8633,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="etvPlatformPid")
     def etv_platform_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source ETV Platform data to this output.
+        """
         return pulumi.get(self, "etv_platform_pid")
 
     @etv_platform_pid.setter
@@ -7472,6 +8645,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="etvSignalPid")
     def etv_signal_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source ETV Signal data to this output.
+        """
         return pulumi.get(self, "etv_signal_pid")
 
     @etv_signal_pid.setter
@@ -7481,6 +8657,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="fragmentTime")
     def fragment_time(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Length, in seconds, of each fragment, used only with EBP markers.
+        """
         return pulumi.get(self, "fragment_time")
 
     @fragment_time.setter
@@ -7490,6 +8669,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter
     def klv(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+        """
         return pulumi.get(self, "klv")
 
     @klv.setter
@@ -7499,6 +8681,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="klvDataPids")
     def klv_data_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source KLV data to this output.
+        """
         return pulumi.get(self, "klv_data_pids")
 
     @klv_data_pids.setter
@@ -7508,6 +8693,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="nielsenId3Behavior")
     def nielsen_id3_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through Nielsen ID3.
+        """
         return pulumi.get(self, "nielsen_id3_behavior")
 
     @nielsen_id3_behavior.setter
@@ -7517,6 +8705,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="nullPacketBitrate")
     def null_packet_bitrate(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Value, in bits per second, to insert null packets into the transport stream.
+        """
         return pulumi.get(self, "null_packet_bitrate")
 
     @null_packet_bitrate.setter
@@ -7526,6 +8717,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="patInterval")
     def pat_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "pat_interval")
 
     @pat_interval.setter
@@ -7535,6 +8729,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="pcrControl")
     def pcr_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        """
         return pulumi.get(self, "pcr_control")
 
     @pcr_control.setter
@@ -7544,6 +8741,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="pcrPeriod")
     def pcr_period(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum time, in milliseconds, between Program Clock References.
+        """
         return pulumi.get(self, "pcr_period")
 
     @pcr_period.setter
@@ -7553,6 +8753,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="pcrPid")
     def pcr_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        """
         return pulumi.get(self, "pcr_pid")
 
     @pcr_pid.setter
@@ -7562,6 +8765,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="pmtInterval")
     def pmt_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "pmt_interval")
 
     @pmt_interval.setter
@@ -7571,6 +8777,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="pmtPid")
     def pmt_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for the Program Map Table in the transport stream.
+        """
         return pulumi.get(self, "pmt_pid")
 
     @pmt_pid.setter
@@ -7580,6 +8789,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="programNum")
     def program_num(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Value of the program number field in the Program Map Table.
+        """
         return pulumi.get(self, "program_num")
 
     @program_num.setter
@@ -7589,6 +8801,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="rateMode")
     def rate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `vbr`, does not insert null packets into the transport stream.
+        """
         return pulumi.get(self, "rate_mode")
 
     @rate_mode.setter
@@ -7598,6 +8813,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="scte27Pids")
     def scte27_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source SCTE-27 data to this output.
+        """
         return pulumi.get(self, "scte27_pids")
 
     @scte27_pids.setter
@@ -7607,6 +8825,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="scte35Control")
     def scte35_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+        """
         return pulumi.get(self, "scte35_control")
 
     @scte35_control.setter
@@ -7617,7 +8838,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @pulumi.getter(name="scte35Pid")
     def scte35_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        PID from which to read SCTE-35 messages.
+        Packet identifier (PID) of the SCTE-35 stream in the transport stream.
         """
         return pulumi.get(self, "scte35_pid")
 
@@ -7628,6 +8849,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="segmentationMarkers")
     def segmentation_markers(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of segmentation markers to include.
+        """
         return pulumi.get(self, "segmentation_markers")
 
     @segmentation_markers.setter
@@ -7637,6 +8861,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="segmentationStyle")
     def segmentation_style(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether segmentation markers are included at the start of a stream.
+        """
         return pulumi.get(self, "segmentation_style")
 
     @segmentation_style.setter
@@ -7646,6 +8873,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="segmentationTime")
     def segmentation_time(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Length, in seconds, of each segment.
+        """
         return pulumi.get(self, "segmentation_time")
 
     @segmentation_time.setter
@@ -7655,6 +8885,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="timedMetadataBehavior")
     def timed_metadata_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through timed metadata.
+        """
         return pulumi.get(self, "timed_metadata_behavior")
 
     @timed_metadata_behavior.setter
@@ -7664,6 +8897,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="timedMetadataPid")
     def timed_metadata_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the timed metadata stream in the transport stream.
+        """
         return pulumi.get(self, "timed_metadata_pid")
 
     @timed_metadata_pid.setter
@@ -7673,6 +8909,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="transportStreamId")
     def transport_stream_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Value of the transport stream ID field in the Program Map Table.
+        """
         return pulumi.get(self, "transport_stream_id")
 
     @transport_stream_id.setter
@@ -7682,6 +8921,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="videoPid")
     def video_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the elementary video stream in the transport stream.
+        """
         return pulumi.get(self, "video_pid")
 
     @video_pid.setter
@@ -7691,8 +8933,17 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgsDict(TypedDict):
     network_id: pulumi.Input[_builtins.int]
+    """
+    Numeric value placed in the Network Information Table.
+    """
     network_name: pulumi.Input[_builtins.str]
+    """
+    Network name text placed in the Network Information Table.
+    """
     rep_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs:
@@ -7700,6 +8951,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  network_id: pulumi.Input[_builtins.int],
                  network_name: pulumi.Input[_builtins.str],
                  rep_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] network_id: Numeric value placed in the Network Information Table.
+        :param pulumi.Input[_builtins.str] network_name: Network name text placed in the Network Information Table.
+        :param pulumi.Input[_builtins.int] rep_interval: Number of milliseconds between instances of this table in the output transport stream.
+        """
         pulumi.set(__self__, "network_id", network_id)
         pulumi.set(__self__, "network_name", network_name)
         if rep_interval is not None:
@@ -7708,6 +8964,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="networkId")
     def network_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        Numeric value placed in the Network Information Table.
+        """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
@@ -7717,6 +8976,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="networkName")
     def network_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Network name text placed in the Network Information Table.
+        """
         return pulumi.get(self, "network_name")
 
     @network_name.setter
@@ -7726,6 +8988,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="repInterval")
     def rep_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "rep_interval")
 
     @rep_interval.setter
@@ -7735,9 +9000,21 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgsDict(TypedDict):
     output_sdt: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Service Description Table output behavior.
+    """
     rep_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Service name placed in the `service_descriptor` in the Service Description Table.
+    """
     service_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Service provider name placed in the `service_descriptor` in the Service Description Table.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs:
@@ -7746,6 +9023,12 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  rep_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_provider_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] output_sdt: Service Description Table output behavior.
+        :param pulumi.Input[_builtins.int] rep_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] service_name: Service name placed in the `service_descriptor` in the Service Description Table.
+        :param pulumi.Input[_builtins.str] service_provider_name: Service provider name placed in the `service_descriptor` in the Service Description Table.
+        """
         if output_sdt is not None:
             pulumi.set(__self__, "output_sdt", output_sdt)
         if rep_interval is not None:
@@ -7758,6 +9041,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="outputSdt")
     def output_sdt(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Service Description Table output behavior.
+        """
         return pulumi.get(self, "output_sdt")
 
     @output_sdt.setter
@@ -7767,6 +9053,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="repInterval")
     def rep_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "rep_interval")
 
     @rep_interval.setter
@@ -7776,6 +9065,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Service name placed in the `service_descriptor` in the Service Description Table.
+        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -7785,6 +9077,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @_builtins.property
     @pulumi.getter(name="serviceProviderName")
     def service_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Service provider name placed in the `service_descriptor` in the Service Description Table.
+        """
         return pulumi.get(self, "service_provider_name")
 
     @service_provider_name.setter
@@ -7794,17 +9089,26 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgsDict(TypedDict):
     rep_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs:
     def __init__(__self__, *,
                  rep_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] rep_interval: Number of milliseconds between instances of this table in the output transport stream.
+        """
         if rep_interval is not None:
             pulumi.set(__self__, "rep_interval", rep_interval)
 
     @_builtins.property
     @pulumi.getter(name="repInterval")
     def rep_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "rep_interval")
 
     @rep_interval.setter
@@ -7824,7 +9128,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgsDict(TypedDict):
     name_modifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+    String concatenated to the end of the destination filename.
     """
 
 @pulumi.input_type
@@ -7832,7 +9136,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSet
     def __init__(__self__, *,
                  name_modifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        :param pulumi.Input[_builtins.str] name_modifier: String concatenated to the end of the destination filename.
         """
         if name_modifier is not None:
             pulumi.set(__self__, "name_modifier", name_modifier)
@@ -7841,7 +9145,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSet
     @pulumi.getter(name="nameModifier")
     def name_modifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        String concatenated to the end of the destination filename.
         """
         return pulumi.get(self, "name_modifier")
 
@@ -7852,12 +9156,21 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSet
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgsDict(TypedDict):
     hls_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgsDict']
+    """
+    Settings regarding the underlying stream. See `hls_settings` Block for details.
+    """
     h265_packaging_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+    """
     name_modifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
     """
     segment_modifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String concatenated to the end of the destination filename.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs:
@@ -7867,7 +9180,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
                  name_modifier: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_modifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs'] hls_settings: Settings regarding the underlying stream. See `hls_settings` Block for details.
+        :param pulumi.Input[_builtins.str] h265_packaging_type: Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
         :param pulumi.Input[_builtins.str] name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        :param pulumi.Input[_builtins.str] segment_modifier: String concatenated to the end of the destination filename.
         """
         pulumi.set(__self__, "hls_settings", hls_settings)
         if h265_packaging_type is not None:
@@ -7880,6 +9196,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
     @_builtins.property
     @pulumi.getter(name="hlsSettings")
     def hls_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs']:
+        """
+        Settings regarding the underlying stream. See `hls_settings` Block for details.
+        """
         return pulumi.get(self, "hls_settings")
 
     @hls_settings.setter
@@ -7889,6 +9208,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
     @_builtins.property
     @pulumi.getter(name="h265PackagingType")
     def h265_packaging_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+        """
         return pulumi.get(self, "h265_packaging_type")
 
     @h265_packaging_type.setter
@@ -7910,6 +9232,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
     @_builtins.property
     @pulumi.getter(name="segmentModifier")
     def segment_modifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String concatenated to the end of the destination filename.
+        """
         return pulumi.get(self, "segment_modifier")
 
     @segment_modifier.setter
@@ -7919,9 +9244,21 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgsDict(TypedDict):
     audio_only_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgsDict']]]
+    """
+    Audio-only HLS settings. See `audio_only_hls_settings` Block for details.
+    """
     fmp4_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgsDict']]]
+    """
+    fMP4 HLS settings. See `fmp4_hls_settings` Block for details.
+    """
     frame_capture_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgsDict']]]
+    """
+    Frame capture HLS settings. Can be set as an empty block.
+    """
     standard_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgsDict']]]
+    """
+    Standard HLS settings. See `standard_hls_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs:
@@ -7930,6 +9267,12 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
                  fmp4_hls_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs']] = None,
                  frame_capture_hls_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs']] = None,
                  standard_hls_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs'] audio_only_hls_settings: Audio-only HLS settings. See `audio_only_hls_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs'] fmp4_hls_settings: fMP4 HLS settings. See `fmp4_hls_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs'] frame_capture_hls_settings: Frame capture HLS settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs'] standard_hls_settings: Standard HLS settings. See `standard_hls_settings` Block for details.
+        """
         if audio_only_hls_settings is not None:
             pulumi.set(__self__, "audio_only_hls_settings", audio_only_hls_settings)
         if fmp4_hls_settings is not None:
@@ -7942,6 +9285,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioOnlyHlsSettings")
     def audio_only_hls_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs']]:
+        """
+        Audio-only HLS settings. See `audio_only_hls_settings` Block for details.
+        """
         return pulumi.get(self, "audio_only_hls_settings")
 
     @audio_only_hls_settings.setter
@@ -7951,6 +9297,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="fmp4HlsSettings")
     def fmp4_hls_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs']]:
+        """
+        fMP4 HLS settings. See `fmp4_hls_settings` Block for details.
+        """
         return pulumi.get(self, "fmp4_hls_settings")
 
     @fmp4_hls_settings.setter
@@ -7960,6 +9309,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="frameCaptureHlsSettings")
     def frame_capture_hls_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs']]:
+        """
+        Frame capture HLS settings. Can be set as an empty block.
+        """
         return pulumi.get(self, "frame_capture_hls_settings")
 
     @frame_capture_hls_settings.setter
@@ -7969,6 +9321,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="standardHlsSettings")
     def standard_hls_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs']]:
+        """
+        Standard HLS settings. See `standard_hls_settings` Block for details.
+        """
         return pulumi.get(self, "standard_hls_settings")
 
     @standard_hls_settings.setter
@@ -7978,9 +9333,21 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgsDict(TypedDict):
     audio_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Group to which the audio rendition belongs.
+    """
     audio_only_image: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgsDict']]]
+    """
+    Image for an audio-only output. See `audio_only_image` Block for details.
+    """
     audio_track_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Four types of audio-only tracks.
+    """
     segment_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the stream is an audio-only stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs:
@@ -7989,6 +9356,12 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
                  audio_only_image: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs']] = None,
                  audio_track_type: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] audio_group_id: Group to which the audio rendition belongs.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs'] audio_only_image: Image for an audio-only output. See `audio_only_image` Block for details.
+        :param pulumi.Input[_builtins.str] audio_track_type: Four types of audio-only tracks.
+        :param pulumi.Input[_builtins.str] segment_type: Whether the stream is an audio-only stream.
+        """
         if audio_group_id is not None:
             pulumi.set(__self__, "audio_group_id", audio_group_id)
         if audio_only_image is not None:
@@ -8001,6 +9374,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioGroupId")
     def audio_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Group to which the audio rendition belongs.
+        """
         return pulumi.get(self, "audio_group_id")
 
     @audio_group_id.setter
@@ -8010,6 +9386,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioOnlyImage")
     def audio_only_image(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs']]:
+        """
+        Image for an audio-only output. See `audio_only_image` Block for details.
+        """
         return pulumi.get(self, "audio_only_image")
 
     @audio_only_image.setter
@@ -8019,6 +9398,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioTrackType")
     def audio_track_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Four types of audio-only tracks.
+        """
         return pulumi.get(self, "audio_track_type")
 
     @audio_track_type.setter
@@ -8028,6 +9410,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="segmentType")
     def segment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the stream is an audio-only stream.
+        """
         return pulumi.get(self, "segment_type")
 
     @segment_type.setter
@@ -8037,8 +9422,17 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgsDict(TypedDict):
     uri: pulumi.Input[_builtins.str]
+    """
+    Path to a file accessible to the live stream.
+    """
     password_param: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Key used to extract the password from EC2 Parameter store.
+    """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Username for the server.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs:
@@ -8046,6 +9440,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
                  uri: pulumi.Input[_builtins.str],
                  password_param: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] uri: Path to a file accessible to the live stream.
+        :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
+        :param pulumi.Input[_builtins.str] username: Username for the server.
+        """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
             pulumi.set(__self__, "password_param", password_param)
@@ -8055,6 +9454,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path to a file accessible to the live stream.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -8064,6 +9466,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="passwordParam")
     def password_param(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
         return pulumi.get(self, "password_param")
 
     @password_param.setter
@@ -8073,6 +9478,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Username for the server.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -8082,8 +9490,17 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgsDict(TypedDict):
     audio_rendition_sets: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    List of audio rendition sets, separated by commas.
+    """
     nielsen_id3_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through Nielsen ID3.
+    """
     timed_metadata_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through timed metadata.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs:
@@ -8091,6 +9508,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
                  audio_rendition_sets: pulumi.Input[Optional[_builtins.str]] = None,
                  nielsen_id3_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  timed_metadata_behavior: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] audio_rendition_sets: List of audio rendition sets, separated by commas.
+        :param pulumi.Input[_builtins.str] nielsen_id3_behavior: When set to `passthrough`, passes through Nielsen ID3.
+        :param pulumi.Input[_builtins.str] timed_metadata_behavior: When set to `passthrough`, passes through timed metadata.
+        """
         if audio_rendition_sets is not None:
             pulumi.set(__self__, "audio_rendition_sets", audio_rendition_sets)
         if nielsen_id3_behavior is not None:
@@ -8101,6 +9523,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioRenditionSets")
     def audio_rendition_sets(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        List of audio rendition sets, separated by commas.
+        """
         return pulumi.get(self, "audio_rendition_sets")
 
     @audio_rendition_sets.setter
@@ -8110,6 +9535,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="nielsenId3Behavior")
     def nielsen_id3_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through Nielsen ID3.
+        """
         return pulumi.get(self, "nielsen_id3_behavior")
 
     @nielsen_id3_behavior.setter
@@ -8119,6 +9547,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="timedMetadataBehavior")
     def timed_metadata_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through timed metadata.
+        """
         return pulumi.get(self, "timed_metadata_behavior")
 
     @timed_metadata_behavior.setter
@@ -8137,13 +9568,23 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgsDict(TypedDict):
     m3u8_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgsDict']
+    """
+    Settings for the M3U8 container. See `m3u8_settings` Block for details.
+    """
     audio_rendition_sets: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    List of audio rendition sets, separated by commas.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs:
     def __init__(__self__, *,
                  m3u8_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs'],
                  audio_rendition_sets: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs'] m3u8_settings: Settings for the M3U8 container. See `m3u8_settings` Block for details.
+        :param pulumi.Input[_builtins.str] audio_rendition_sets: List of audio rendition sets, separated by commas.
+        """
         pulumi.set(__self__, "m3u8_settings", m3u8_settings)
         if audio_rendition_sets is not None:
             pulumi.set(__self__, "audio_rendition_sets", audio_rendition_sets)
@@ -8151,6 +9592,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="m3u8Settings")
     def m3u8_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs']:
+        """
+        Settings for the M3U8 container. See `m3u8_settings` Block for details.
+        """
         return pulumi.get(self, "m3u8_settings")
 
     @m3u8_settings.setter
@@ -8160,6 +9604,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioRenditionSets")
     def audio_rendition_sets(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        List of audio rendition sets, separated by commas.
+        """
         return pulumi.get(self, "audio_rendition_sets")
 
     @audio_rendition_sets.setter
@@ -8169,25 +9616,73 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgsDict(TypedDict):
     audio_frames_per_pes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of audio frames to insert for each PES packet.
+    """
     audio_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the elementary audio streams in the transport stream.
+    """
     ecm_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for ECM in the transport stream.
+    """
     nielsen_id3_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through Nielsen ID3.
+    """
     pat_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     pcr_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+    """
     pcr_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum time, in milliseconds, between Program Clock References.
+    """
     pcr_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the Program Clock Reference in the transport stream.
+    """
     pmt_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     pmt_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for the Program Map Table in the transport stream.
+    """
     program_num: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Value of the program number field in the Program Map Table.
+    """
     scte35_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through SCTE-35.
+    """
     scte35_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    PID from which to read SCTE-35 messages.
+    Packet identifier (PID) of the SCTE-35 stream in the transport stream.
     """
     timed_metadata_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through timed metadata.
+    """
     timed_metadata_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the timed metadata stream in the transport stream.
+    """
     transport_stream_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Value of the transport stream ID field in the Program Map Table.
+    """
     video_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the elementary video stream in the transport stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs:
@@ -8210,7 +9705,23 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
                  transport_stream_id: pulumi.Input[Optional[_builtins.int]] = None,
                  video_pid: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] scte35_pid: PID from which to read SCTE-35 messages.
+        :param pulumi.Input[_builtins.int] audio_frames_per_pes: Number of audio frames to insert for each PES packet.
+        :param pulumi.Input[_builtins.str] audio_pids: Packet identifier (PID) of the elementary audio streams in the transport stream.
+        :param pulumi.Input[_builtins.str] ecm_pid: Packet identifier (PID) for ECM in the transport stream.
+        :param pulumi.Input[_builtins.str] nielsen_id3_behavior: When set to `passthrough`, passes through Nielsen ID3.
+        :param pulumi.Input[_builtins.int] pat_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] pcr_control: When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        :param pulumi.Input[_builtins.int] pcr_period: Maximum time, in milliseconds, between Program Clock References.
+        :param pulumi.Input[_builtins.str] pcr_pid: Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        :param pulumi.Input[_builtins.int] pmt_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] pmt_pid: Packet identifier (PID) for the Program Map Table in the transport stream.
+        :param pulumi.Input[_builtins.int] program_num: Value of the program number field in the Program Map Table.
+        :param pulumi.Input[_builtins.str] scte35_behavior: When set to `passthrough`, passes through SCTE-35.
+        :param pulumi.Input[_builtins.str] scte35_pid: Packet identifier (PID) of the SCTE-35 stream in the transport stream.
+        :param pulumi.Input[_builtins.str] timed_metadata_behavior: When set to `passthrough`, passes through timed metadata.
+        :param pulumi.Input[_builtins.str] timed_metadata_pid: Packet identifier (PID) of the timed metadata stream in the transport stream.
+        :param pulumi.Input[_builtins.int] transport_stream_id: Value of the transport stream ID field in the Program Map Table.
+        :param pulumi.Input[_builtins.str] video_pid: Packet identifier (PID) of the elementary video stream in the transport stream.
         """
         if audio_frames_per_pes is not None:
             pulumi.set(__self__, "audio_frames_per_pes", audio_frames_per_pes)
@@ -8250,6 +9761,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioFramesPerPes")
     def audio_frames_per_pes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of audio frames to insert for each PES packet.
+        """
         return pulumi.get(self, "audio_frames_per_pes")
 
     @audio_frames_per_pes.setter
@@ -8259,6 +9773,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="audioPids")
     def audio_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the elementary audio streams in the transport stream.
+        """
         return pulumi.get(self, "audio_pids")
 
     @audio_pids.setter
@@ -8268,6 +9785,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="ecmPid")
     def ecm_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for ECM in the transport stream.
+        """
         return pulumi.get(self, "ecm_pid")
 
     @ecm_pid.setter
@@ -8277,6 +9797,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="nielsenId3Behavior")
     def nielsen_id3_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through Nielsen ID3.
+        """
         return pulumi.get(self, "nielsen_id3_behavior")
 
     @nielsen_id3_behavior.setter
@@ -8286,6 +9809,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="patInterval")
     def pat_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "pat_interval")
 
     @pat_interval.setter
@@ -8295,6 +9821,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="pcrControl")
     def pcr_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        """
         return pulumi.get(self, "pcr_control")
 
     @pcr_control.setter
@@ -8304,6 +9833,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="pcrPeriod")
     def pcr_period(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum time, in milliseconds, between Program Clock References.
+        """
         return pulumi.get(self, "pcr_period")
 
     @pcr_period.setter
@@ -8313,6 +9845,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="pcrPid")
     def pcr_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        """
         return pulumi.get(self, "pcr_pid")
 
     @pcr_pid.setter
@@ -8322,6 +9857,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="pmtInterval")
     def pmt_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "pmt_interval")
 
     @pmt_interval.setter
@@ -8331,6 +9869,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="pmtPid")
     def pmt_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for the Program Map Table in the transport stream.
+        """
         return pulumi.get(self, "pmt_pid")
 
     @pmt_pid.setter
@@ -8340,6 +9881,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="programNum")
     def program_num(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Value of the program number field in the Program Map Table.
+        """
         return pulumi.get(self, "program_num")
 
     @program_num.setter
@@ -8349,6 +9893,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="scte35Behavior")
     def scte35_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through SCTE-35.
+        """
         return pulumi.get(self, "scte35_behavior")
 
     @scte35_behavior.setter
@@ -8359,7 +9906,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @pulumi.getter(name="scte35Pid")
     def scte35_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        PID from which to read SCTE-35 messages.
+        Packet identifier (PID) of the SCTE-35 stream in the transport stream.
         """
         return pulumi.get(self, "scte35_pid")
 
@@ -8370,6 +9917,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="timedMetadataBehavior")
     def timed_metadata_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through timed metadata.
+        """
         return pulumi.get(self, "timed_metadata_behavior")
 
     @timed_metadata_behavior.setter
@@ -8379,6 +9929,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="timedMetadataPid")
     def timed_metadata_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the timed metadata stream in the transport stream.
+        """
         return pulumi.get(self, "timed_metadata_pid")
 
     @timed_metadata_pid.setter
@@ -8388,6 +9941,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="transportStreamId")
     def transport_stream_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Value of the transport stream ID field in the Program Map Table.
+        """
         return pulumi.get(self, "transport_stream_id")
 
     @transport_stream_id.setter
@@ -8397,6 +9953,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @_builtins.property
     @pulumi.getter(name="videoPid")
     def video_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the elementary video stream in the transport stream.
+        """
         return pulumi.get(self, "video_pid")
 
     @video_pid.setter
@@ -8415,9 +9974,12 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSet
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgsDict(TypedDict):
     h265_packaging_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+    """
     name_modifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+    String concatenated to the end of the destination filename.
     """
 
 @pulumi.input_type
@@ -8426,7 +9988,8 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetting
                  h265_packaging_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name_modifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        :param pulumi.Input[_builtins.str] h265_packaging_type: Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+        :param pulumi.Input[_builtins.str] name_modifier: String concatenated to the end of the destination filename.
         """
         if h265_packaging_type is not None:
             pulumi.set(__self__, "h265_packaging_type", h265_packaging_type)
@@ -8436,6 +9999,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetting
     @_builtins.property
     @pulumi.getter(name="h265PackagingType")
     def h265_packaging_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+        """
         return pulumi.get(self, "h265_packaging_type")
 
     @h265_packaging_type.setter
@@ -8446,7 +10012,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetting
     @pulumi.getter(name="nameModifier")
     def name_modifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        String concatenated to the end of the destination filename.
         """
         return pulumi.get(self, "name_modifier")
 
@@ -8458,7 +10024,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetting
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgsDict']
     """
-    Destination is a multiplex. See Destination for more details.
+    Multiplex destination. See `destination` Block for details.
     """
 
 @pulumi.input_type
@@ -8466,7 +10032,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
     def __init__(__self__, *,
                  destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs']):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs'] destination: Destination is a multiplex. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs'] destination: Multiplex destination. See `destination` Block for details.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -8474,7 +10040,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs']:
         """
-        Destination is a multiplex. See Destination for more details.
+        Multiplex destination. See `destination` Block for details.
         """
         return pulumi.get(self, "destination")
 
@@ -8514,15 +10080,15 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgsDict']
     """
-    The RTMP endpoint excluding the stream name. See Destination for more details.
+    RTMP endpoint excluding the stream name. See `destination` Block for details.
     """
     certificate_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Setting to allow self signed or verified RTMP certificates.
+    Whether to allow self-signed or verified RTMP certificates.
     """
     connection_retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+    Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
     """
     num_retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -8537,9 +10103,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArg
                  connection_retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  num_retries: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs'] destination: The RTMP endpoint excluding the stream name. See Destination for more details.
-        :param pulumi.Input[_builtins.str] certificate_mode: Setting to allow self signed or verified RTMP certificates.
-        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs'] destination: RTMP endpoint excluding the stream name. See `destination` Block for details.
+        :param pulumi.Input[_builtins.str] certificate_mode: Whether to allow self-signed or verified RTMP certificates.
+        :param pulumi.Input[_builtins.int] connection_retry_interval: Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
         :param pulumi.Input[_builtins.int] num_retries: Number of retry attempts.
         """
         pulumi.set(__self__, "destination", destination)
@@ -8554,7 +10120,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArg
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs']:
         """
-        The RTMP endpoint excluding the stream name. See Destination for more details.
+        RTMP endpoint excluding the stream name. See `destination` Block for details.
         """
         return pulumi.get(self, "destination")
 
@@ -8566,7 +10132,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArg
     @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Setting to allow self signed or verified RTMP certificates.
+        Whether to allow self-signed or verified RTMP certificates.
         """
         return pulumi.get(self, "certificate_mode")
 
@@ -8578,7 +10144,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArg
     @pulumi.getter(name="connectionRetryInterval")
     def connection_retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
         """
         return pulumi.get(self, "connection_retry_interval")
 
@@ -8630,17 +10196,20 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDes
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgsDict(TypedDict):
     container_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgsDict']
     """
-    UDP container settings. See Container Settings for more details.
+    UDP container settings. See `udp_output_settings.container_settings` Block for details.
     """
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgsDict']
     """
-    Destination address and port number for RTP or UDP packets. See Destination for more details.
+    Destination address and port number for RTP or UDP packets. See `destination` Block for details.
     """
     buffer_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    UDP output buffering in milliseconds.
+    UDP output buffering, in milliseconds.
     """
     fec_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgsDict']]]
+    """
+    Settings for enabling and adjusting Forward Error Correction on UDP outputs. See `fec_output_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs:
@@ -8650,9 +10219,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
                  buffer_msec: pulumi.Input[Optional[_builtins.int]] = None,
                  fec_output_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs'] container_settings: UDP container settings. See Container Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs'] destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
-        :param pulumi.Input[_builtins.int] buffer_msec: UDP output buffering in milliseconds.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs'] container_settings: UDP container settings. See `udp_output_settings.container_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs'] destination: Destination address and port number for RTP or UDP packets. See `destination` Block for details.
+        :param pulumi.Input[_builtins.int] buffer_msec: UDP output buffering, in milliseconds.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs'] fec_output_settings: Settings for enabling and adjusting Forward Error Correction on UDP outputs. See `fec_output_settings` Block for details.
         """
         pulumi.set(__self__, "container_settings", container_settings)
         pulumi.set(__self__, "destination", destination)
@@ -8665,7 +10235,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
     @pulumi.getter(name="containerSettings")
     def container_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs']:
         """
-        UDP container settings. See Container Settings for more details.
+        UDP container settings. See `udp_output_settings.container_settings` Block for details.
         """
         return pulumi.get(self, "container_settings")
 
@@ -8677,7 +10247,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
     @pulumi.getter
     def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs']:
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        Destination address and port number for RTP or UDP packets. See `destination` Block for details.
         """
         return pulumi.get(self, "destination")
 
@@ -8689,7 +10259,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
     @pulumi.getter(name="bufferMsec")
     def buffer_msec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        UDP output buffering in milliseconds.
+        UDP output buffering, in milliseconds.
         """
         return pulumi.get(self, "buffer_msec")
 
@@ -8700,6 +10270,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
     @_builtins.property
     @pulumi.getter(name="fecOutputSettings")
     def fec_output_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs']]:
+        """
+        Settings for enabling and adjusting Forward Error Correction on UDP outputs. See `fec_output_settings` Block for details.
+        """
         return pulumi.get(self, "fec_output_settings")
 
     @fec_output_settings.setter
@@ -8709,26 +10282,17 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgsDict(TypedDict):
     m2ts_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgsDict']]]
-    """
-    M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs:
     def __init__(__self__, *,
                  m2ts_settings: pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs']] = None):
-        """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs'] m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-        """
         if m2ts_settings is not None:
             pulumi.set(__self__, "m2ts_settings", m2ts_settings)
 
     @_builtins.property
     @pulumi.getter(name="m2tsSettings")
     def m2ts_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs']]:
-        """
-        M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-        """
         return pulumi.get(self, "m2ts_settings")
 
     @m2ts_settings.setter
@@ -8738,55 +10302,193 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgsDict(TypedDict):
     absent_input_audio_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+    """
     arib: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `enabled`, uses ARIB-compliant captioning.
+    """
     arib_captions_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for ARIB captions in the transport stream.
+    """
     arib_captions_pid_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How to pass along the ARIB captions.
+    """
     audio_buffer_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+    """
     audio_frames_per_pes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of audio frames to insert for each PES packet.
+    """
     audio_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the elementary audio streams in the transport stream.
+    """
     audio_stream_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+    """
     bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Output bitrate, in bits per second, of the transport stream.
+    """
     buffer_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Controls the timing accuracy for output network traffic.
+    """
     cc_descriptor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `enabled`, generates a captions service descriptor in the PMT.
+    """
     dvb_nit_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgsDict']]]
+    """
+    DVB Network Information Table (NIT) settings. See `dvb_nit_settings` Block for details.
+    """
     dvb_sdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgsDict']]]
+    """
+    DVB Service Description Table (SDT) settings. See `dvb_sdt_settings` Block for details.
+    """
     dvb_sub_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source DVB Subtitle data to this output.
+    """
     dvb_tdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgsDict']]]
+    """
+    DVB Time and Date Table (TDT) settings. See `dvb_tdt_settings` Block for details.
+    """
     dvb_teletext_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source DVB Teletext data to this output.
+    """
     ebif: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through EBIF messages from the input source to this output.
+    """
     ebp_audio_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+    """
     ebp_lookahead_ms: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+    """
     ebp_placement: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+    """
     ecm_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for ECM in the transport stream.
+    """
     es_rate_in_pes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `include`, writes the stream to the PES header.
+    """
     etv_platform_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source ETV Platform data to this output.
+    """
     etv_signal_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source ETV Signal data to this output.
+    """
     fragment_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Length, in seconds, of each fragment, used only with EBP markers.
+    """
     klv: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+    """
     klv_data_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source KLV data to this output.
+    """
     nielsen_id3_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through Nielsen ID3.
+    """
     null_packet_bitrate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Value, in bits per second, to insert null packets into the transport stream.
+    """
     pat_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     pcr_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+    """
     pcr_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum time, in milliseconds, between Program Clock References.
+    """
     pcr_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the Program Clock Reference in the transport stream.
+    """
     pmt_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     pmt_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for the Program Map Table in the transport stream.
+    """
     program_num: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Value of the program number field in the Program Map Table.
+    """
     rate_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `vbr`, does not insert null packets into the transport stream.
+    """
     scte27_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) for input source SCTE-27 data to this output.
+    """
     scte35_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+    """
     scte35_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    PID from which to read SCTE-35 messages.
+    Packet identifier (PID) of the SCTE-35 stream in the transport stream.
     """
     segmentation_markers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of segmentation markers to include.
+    """
     segmentation_style: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether segmentation markers are included at the start of a stream.
+    """
     segmentation_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Length, in seconds, of each segment.
+    """
     timed_metadata_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `passthrough`, passes through timed metadata.
+    """
     timed_metadata_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the timed metadata stream in the transport stream.
+    """
     transport_stream_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Value of the transport stream ID field in the Program Map Table.
+    """
     video_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Packet identifier (PID) of the elementary video stream in the transport stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs:
@@ -8839,7 +10541,53 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
                  transport_stream_id: pulumi.Input[Optional[_builtins.int]] = None,
                  video_pid: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] scte35_pid: PID from which to read SCTE-35 messages.
+        :param pulumi.Input[_builtins.str] absent_input_audio_behavior: When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+        :param pulumi.Input[_builtins.str] arib: When set to `enabled`, uses ARIB-compliant captioning.
+        :param pulumi.Input[_builtins.str] arib_captions_pid: Packet identifier (PID) for ARIB captions in the transport stream.
+        :param pulumi.Input[_builtins.str] arib_captions_pid_control: How to pass along the ARIB captions.
+        :param pulumi.Input[_builtins.str] audio_buffer_model: When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+        :param pulumi.Input[_builtins.int] audio_frames_per_pes: Number of audio frames to insert for each PES packet.
+        :param pulumi.Input[_builtins.str] audio_pids: Packet identifier (PID) of the elementary audio streams in the transport stream.
+        :param pulumi.Input[_builtins.str] audio_stream_type: When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+        :param pulumi.Input[_builtins.int] bitrate: Output bitrate, in bits per second, of the transport stream.
+        :param pulumi.Input[_builtins.str] buffer_model: Controls the timing accuracy for output network traffic.
+        :param pulumi.Input[_builtins.str] cc_descriptor: When set to `enabled`, generates a captions service descriptor in the PMT.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs'] dvb_nit_settings: DVB Network Information Table (NIT) settings. See `dvb_nit_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs'] dvb_sdt_settings: DVB Service Description Table (SDT) settings. See `dvb_sdt_settings` Block for details.
+        :param pulumi.Input[_builtins.str] dvb_sub_pids: Packet identifier (PID) for input source DVB Subtitle data to this output.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs'] dvb_tdt_settings: DVB Time and Date Table (TDT) settings. See `dvb_tdt_settings` Block for details.
+        :param pulumi.Input[_builtins.str] dvb_teletext_pid: Packet identifier (PID) for input source DVB Teletext data to this output.
+        :param pulumi.Input[_builtins.str] ebif: When set to `passthrough`, passes through EBIF messages from the input source to this output.
+        :param pulumi.Input[_builtins.str] ebp_audio_interval: When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+        :param pulumi.Input[_builtins.int] ebp_lookahead_ms: Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+        :param pulumi.Input[_builtins.str] ebp_placement: Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+        :param pulumi.Input[_builtins.str] ecm_pid: Packet identifier (PID) for ECM in the transport stream.
+        :param pulumi.Input[_builtins.str] es_rate_in_pes: When set to `include`, writes the stream to the PES header.
+        :param pulumi.Input[_builtins.str] etv_platform_pid: Packet identifier (PID) for input source ETV Platform data to this output.
+        :param pulumi.Input[_builtins.str] etv_signal_pid: Packet identifier (PID) for input source ETV Signal data to this output.
+        :param pulumi.Input[_builtins.float] fragment_time: Length, in seconds, of each fragment, used only with EBP markers.
+        :param pulumi.Input[_builtins.str] klv: When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+        :param pulumi.Input[_builtins.str] klv_data_pids: Packet identifier (PID) for input source KLV data to this output.
+        :param pulumi.Input[_builtins.str] nielsen_id3_behavior: When set to `passthrough`, passes through Nielsen ID3.
+        :param pulumi.Input[_builtins.float] null_packet_bitrate: Value, in bits per second, to insert null packets into the transport stream.
+        :param pulumi.Input[_builtins.int] pat_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] pcr_control: When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        :param pulumi.Input[_builtins.int] pcr_period: Maximum time, in milliseconds, between Program Clock References.
+        :param pulumi.Input[_builtins.str] pcr_pid: Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        :param pulumi.Input[_builtins.int] pmt_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] pmt_pid: Packet identifier (PID) for the Program Map Table in the transport stream.
+        :param pulumi.Input[_builtins.int] program_num: Value of the program number field in the Program Map Table.
+        :param pulumi.Input[_builtins.str] rate_mode: When set to `vbr`, does not insert null packets into the transport stream.
+        :param pulumi.Input[_builtins.str] scte27_pids: Packet identifier (PID) for input source SCTE-27 data to this output.
+        :param pulumi.Input[_builtins.str] scte35_control: When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+        :param pulumi.Input[_builtins.str] scte35_pid: Packet identifier (PID) of the SCTE-35 stream in the transport stream.
+        :param pulumi.Input[_builtins.str] segmentation_markers: Type of segmentation markers to include.
+        :param pulumi.Input[_builtins.str] segmentation_style: Whether segmentation markers are included at the start of a stream.
+        :param pulumi.Input[_builtins.float] segmentation_time: Length, in seconds, of each segment.
+        :param pulumi.Input[_builtins.str] timed_metadata_behavior: When set to `passthrough`, passes through timed metadata.
+        :param pulumi.Input[_builtins.str] timed_metadata_pid: Packet identifier (PID) of the timed metadata stream in the transport stream.
+        :param pulumi.Input[_builtins.int] transport_stream_id: Value of the transport stream ID field in the Program Map Table.
+        :param pulumi.Input[_builtins.str] video_pid: Packet identifier (PID) of the elementary video stream in the transport stream.
         """
         if absent_input_audio_behavior is not None:
             pulumi.set(__self__, "absent_input_audio_behavior", absent_input_audio_behavior)
@@ -8939,6 +10687,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="absentInputAudioBehavior")
     def absent_input_audio_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+        """
         return pulumi.get(self, "absent_input_audio_behavior")
 
     @absent_input_audio_behavior.setter
@@ -8948,6 +10699,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter
     def arib(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `enabled`, uses ARIB-compliant captioning.
+        """
         return pulumi.get(self, "arib")
 
     @arib.setter
@@ -8957,6 +10711,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="aribCaptionsPid")
     def arib_captions_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for ARIB captions in the transport stream.
+        """
         return pulumi.get(self, "arib_captions_pid")
 
     @arib_captions_pid.setter
@@ -8966,6 +10723,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="aribCaptionsPidControl")
     def arib_captions_pid_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How to pass along the ARIB captions.
+        """
         return pulumi.get(self, "arib_captions_pid_control")
 
     @arib_captions_pid_control.setter
@@ -8975,6 +10735,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="audioBufferModel")
     def audio_buffer_model(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+        """
         return pulumi.get(self, "audio_buffer_model")
 
     @audio_buffer_model.setter
@@ -8984,6 +10747,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="audioFramesPerPes")
     def audio_frames_per_pes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of audio frames to insert for each PES packet.
+        """
         return pulumi.get(self, "audio_frames_per_pes")
 
     @audio_frames_per_pes.setter
@@ -8993,6 +10759,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="audioPids")
     def audio_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the elementary audio streams in the transport stream.
+        """
         return pulumi.get(self, "audio_pids")
 
     @audio_pids.setter
@@ -9002,6 +10771,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="audioStreamType")
     def audio_stream_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+        """
         return pulumi.get(self, "audio_stream_type")
 
     @audio_stream_type.setter
@@ -9011,6 +10783,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter
     def bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Output bitrate, in bits per second, of the transport stream.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -9020,6 +10795,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="bufferModel")
     def buffer_model(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Controls the timing accuracy for output network traffic.
+        """
         return pulumi.get(self, "buffer_model")
 
     @buffer_model.setter
@@ -9029,6 +10807,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="ccDescriptor")
     def cc_descriptor(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `enabled`, generates a captions service descriptor in the PMT.
+        """
         return pulumi.get(self, "cc_descriptor")
 
     @cc_descriptor.setter
@@ -9038,6 +10819,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="dvbNitSettings")
     def dvb_nit_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]:
+        """
+        DVB Network Information Table (NIT) settings. See `dvb_nit_settings` Block for details.
+        """
         return pulumi.get(self, "dvb_nit_settings")
 
     @dvb_nit_settings.setter
@@ -9047,6 +10831,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="dvbSdtSettings")
     def dvb_sdt_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]:
+        """
+        DVB Service Description Table (SDT) settings. See `dvb_sdt_settings` Block for details.
+        """
         return pulumi.get(self, "dvb_sdt_settings")
 
     @dvb_sdt_settings.setter
@@ -9056,6 +10843,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="dvbSubPids")
     def dvb_sub_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source DVB Subtitle data to this output.
+        """
         return pulumi.get(self, "dvb_sub_pids")
 
     @dvb_sub_pids.setter
@@ -9065,6 +10855,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="dvbTdtSettings")
     def dvb_tdt_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]:
+        """
+        DVB Time and Date Table (TDT) settings. See `dvb_tdt_settings` Block for details.
+        """
         return pulumi.get(self, "dvb_tdt_settings")
 
     @dvb_tdt_settings.setter
@@ -9074,6 +10867,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="dvbTeletextPid")
     def dvb_teletext_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source DVB Teletext data to this output.
+        """
         return pulumi.get(self, "dvb_teletext_pid")
 
     @dvb_teletext_pid.setter
@@ -9083,6 +10879,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter
     def ebif(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through EBIF messages from the input source to this output.
+        """
         return pulumi.get(self, "ebif")
 
     @ebif.setter
@@ -9092,6 +10891,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="ebpAudioInterval")
     def ebp_audio_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+        """
         return pulumi.get(self, "ebp_audio_interval")
 
     @ebp_audio_interval.setter
@@ -9101,6 +10903,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="ebpLookaheadMs")
     def ebp_lookahead_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+        """
         return pulumi.get(self, "ebp_lookahead_ms")
 
     @ebp_lookahead_ms.setter
@@ -9110,6 +10915,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="ebpPlacement")
     def ebp_placement(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+        """
         return pulumi.get(self, "ebp_placement")
 
     @ebp_placement.setter
@@ -9119,6 +10927,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="ecmPid")
     def ecm_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for ECM in the transport stream.
+        """
         return pulumi.get(self, "ecm_pid")
 
     @ecm_pid.setter
@@ -9128,6 +10939,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="esRateInPes")
     def es_rate_in_pes(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `include`, writes the stream to the PES header.
+        """
         return pulumi.get(self, "es_rate_in_pes")
 
     @es_rate_in_pes.setter
@@ -9137,6 +10951,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="etvPlatformPid")
     def etv_platform_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source ETV Platform data to this output.
+        """
         return pulumi.get(self, "etv_platform_pid")
 
     @etv_platform_pid.setter
@@ -9146,6 +10963,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="etvSignalPid")
     def etv_signal_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source ETV Signal data to this output.
+        """
         return pulumi.get(self, "etv_signal_pid")
 
     @etv_signal_pid.setter
@@ -9155,6 +10975,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="fragmentTime")
     def fragment_time(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Length, in seconds, of each fragment, used only with EBP markers.
+        """
         return pulumi.get(self, "fragment_time")
 
     @fragment_time.setter
@@ -9164,6 +10987,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter
     def klv(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+        """
         return pulumi.get(self, "klv")
 
     @klv.setter
@@ -9173,6 +10999,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="klvDataPids")
     def klv_data_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source KLV data to this output.
+        """
         return pulumi.get(self, "klv_data_pids")
 
     @klv_data_pids.setter
@@ -9182,6 +11011,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="nielsenId3Behavior")
     def nielsen_id3_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through Nielsen ID3.
+        """
         return pulumi.get(self, "nielsen_id3_behavior")
 
     @nielsen_id3_behavior.setter
@@ -9191,6 +11023,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="nullPacketBitrate")
     def null_packet_bitrate(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Value, in bits per second, to insert null packets into the transport stream.
+        """
         return pulumi.get(self, "null_packet_bitrate")
 
     @null_packet_bitrate.setter
@@ -9200,6 +11035,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="patInterval")
     def pat_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "pat_interval")
 
     @pat_interval.setter
@@ -9209,6 +11047,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="pcrControl")
     def pcr_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        """
         return pulumi.get(self, "pcr_control")
 
     @pcr_control.setter
@@ -9218,6 +11059,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="pcrPeriod")
     def pcr_period(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum time, in milliseconds, between Program Clock References.
+        """
         return pulumi.get(self, "pcr_period")
 
     @pcr_period.setter
@@ -9227,6 +11071,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="pcrPid")
     def pcr_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        """
         return pulumi.get(self, "pcr_pid")
 
     @pcr_pid.setter
@@ -9236,6 +11083,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="pmtInterval")
     def pmt_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "pmt_interval")
 
     @pmt_interval.setter
@@ -9245,6 +11095,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="pmtPid")
     def pmt_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for the Program Map Table in the transport stream.
+        """
         return pulumi.get(self, "pmt_pid")
 
     @pmt_pid.setter
@@ -9254,6 +11107,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="programNum")
     def program_num(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Value of the program number field in the Program Map Table.
+        """
         return pulumi.get(self, "program_num")
 
     @program_num.setter
@@ -9263,6 +11119,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="rateMode")
     def rate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `vbr`, does not insert null packets into the transport stream.
+        """
         return pulumi.get(self, "rate_mode")
 
     @rate_mode.setter
@@ -9272,6 +11131,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="scte27Pids")
     def scte27_pids(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) for input source SCTE-27 data to this output.
+        """
         return pulumi.get(self, "scte27_pids")
 
     @scte27_pids.setter
@@ -9281,6 +11143,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="scte35Control")
     def scte35_control(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+        """
         return pulumi.get(self, "scte35_control")
 
     @scte35_control.setter
@@ -9291,7 +11156,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @pulumi.getter(name="scte35Pid")
     def scte35_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        PID from which to read SCTE-35 messages.
+        Packet identifier (PID) of the SCTE-35 stream in the transport stream.
         """
         return pulumi.get(self, "scte35_pid")
 
@@ -9302,6 +11167,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="segmentationMarkers")
     def segmentation_markers(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of segmentation markers to include.
+        """
         return pulumi.get(self, "segmentation_markers")
 
     @segmentation_markers.setter
@@ -9311,6 +11179,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="segmentationStyle")
     def segmentation_style(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether segmentation markers are included at the start of a stream.
+        """
         return pulumi.get(self, "segmentation_style")
 
     @segmentation_style.setter
@@ -9320,6 +11191,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="segmentationTime")
     def segmentation_time(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Length, in seconds, of each segment.
+        """
         return pulumi.get(self, "segmentation_time")
 
     @segmentation_time.setter
@@ -9329,6 +11203,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="timedMetadataBehavior")
     def timed_metadata_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `passthrough`, passes through timed metadata.
+        """
         return pulumi.get(self, "timed_metadata_behavior")
 
     @timed_metadata_behavior.setter
@@ -9338,6 +11215,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="timedMetadataPid")
     def timed_metadata_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the timed metadata stream in the transport stream.
+        """
         return pulumi.get(self, "timed_metadata_pid")
 
     @timed_metadata_pid.setter
@@ -9347,6 +11227,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="transportStreamId")
     def transport_stream_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Value of the transport stream ID field in the Program Map Table.
+        """
         return pulumi.get(self, "transport_stream_id")
 
     @transport_stream_id.setter
@@ -9356,6 +11239,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="videoPid")
     def video_pid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Packet identifier (PID) of the elementary video stream in the transport stream.
+        """
         return pulumi.get(self, "video_pid")
 
     @video_pid.setter
@@ -9365,8 +11251,17 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgsDict(TypedDict):
     network_id: pulumi.Input[_builtins.int]
+    """
+    Numeric value placed in the Network Information Table.
+    """
     network_name: pulumi.Input[_builtins.str]
+    """
+    Network name text placed in the Network Information Table.
+    """
     rep_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs:
@@ -9374,6 +11269,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
                  network_id: pulumi.Input[_builtins.int],
                  network_name: pulumi.Input[_builtins.str],
                  rep_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] network_id: Numeric value placed in the Network Information Table.
+        :param pulumi.Input[_builtins.str] network_name: Network name text placed in the Network Information Table.
+        :param pulumi.Input[_builtins.int] rep_interval: Number of milliseconds between instances of this table in the output transport stream.
+        """
         pulumi.set(__self__, "network_id", network_id)
         pulumi.set(__self__, "network_name", network_name)
         if rep_interval is not None:
@@ -9382,6 +11282,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="networkId")
     def network_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        Numeric value placed in the Network Information Table.
+        """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
@@ -9391,6 +11294,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="networkName")
     def network_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Network name text placed in the Network Information Table.
+        """
         return pulumi.get(self, "network_name")
 
     @network_name.setter
@@ -9400,6 +11306,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="repInterval")
     def rep_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "rep_interval")
 
     @rep_interval.setter
@@ -9409,9 +11318,21 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgsDict(TypedDict):
     output_sdt: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Service Description Table output behavior.
+    """
     rep_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
     service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Service name placed in the `service_descriptor` in the Service Description Table.
+    """
     service_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Service provider name placed in the `service_descriptor` in the Service Description Table.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs:
@@ -9420,6 +11341,12 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
                  rep_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_provider_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] output_sdt: Service Description Table output behavior.
+        :param pulumi.Input[_builtins.int] rep_interval: Number of milliseconds between instances of this table in the output transport stream.
+        :param pulumi.Input[_builtins.str] service_name: Service name placed in the `service_descriptor` in the Service Description Table.
+        :param pulumi.Input[_builtins.str] service_provider_name: Service provider name placed in the `service_descriptor` in the Service Description Table.
+        """
         if output_sdt is not None:
             pulumi.set(__self__, "output_sdt", output_sdt)
         if rep_interval is not None:
@@ -9432,6 +11359,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="outputSdt")
     def output_sdt(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Service Description Table output behavior.
+        """
         return pulumi.get(self, "output_sdt")
 
     @output_sdt.setter
@@ -9441,6 +11371,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="repInterval")
     def rep_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "rep_interval")
 
     @rep_interval.setter
@@ -9450,6 +11383,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Service name placed in the `service_descriptor` in the Service Description Table.
+        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -9459,6 +11395,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @_builtins.property
     @pulumi.getter(name="serviceProviderName")
     def service_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Service provider name placed in the `service_descriptor` in the Service Description Table.
+        """
         return pulumi.get(self, "service_provider_name")
 
     @service_provider_name.setter
@@ -9468,17 +11407,26 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgsDict(TypedDict):
     rep_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of milliseconds between instances of this table in the output transport stream.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs:
     def __init__(__self__, *,
                  rep_interval: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] rep_interval: Number of milliseconds between instances of this table in the output transport stream.
+        """
         if rep_interval is not None:
             pulumi.set(__self__, "rep_interval", rep_interval)
 
     @_builtins.property
     @pulumi.getter(name="repInterval")
     def rep_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of milliseconds between instances of this table in the output transport stream.
+        """
         return pulumi.get(self, "rep_interval")
 
     @rep_interval.setter
@@ -9517,7 +11465,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDest
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgsDict(TypedDict):
     column_depth: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The height of the FEC protection matrix.
+    Height of the FEC protection matrix.
     """
     include_fec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -9525,7 +11473,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
     """
     row_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The width of the FEC protection matrix.
+    Width of the FEC protection matrix.
     """
 
 @pulumi.input_type
@@ -9535,9 +11483,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
                  include_fec: pulumi.Input[Optional[_builtins.str]] = None,
                  row_length: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] column_depth: The height of the FEC protection matrix.
+        :param pulumi.Input[_builtins.int] column_depth: Height of the FEC protection matrix.
         :param pulumi.Input[_builtins.str] include_fec: Enables column only or column and row based FEC.
-        :param pulumi.Input[_builtins.int] row_length: The width of the FEC protection matrix.
+        :param pulumi.Input[_builtins.int] row_length: Width of the FEC protection matrix.
         """
         if column_depth is not None:
             pulumi.set(__self__, "column_depth", column_depth)
@@ -9550,7 +11498,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
     @pulumi.getter(name="columnDepth")
     def column_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The height of the FEC protection matrix.
+        Height of the FEC protection matrix.
         """
         return pulumi.get(self, "column_depth")
 
@@ -9574,7 +11522,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
     @pulumi.getter(name="rowLength")
     def row_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The width of the FEC protection matrix.
+        Width of the FEC protection matrix.
         """
         return pulumi.get(self, "row_length")
 
@@ -9586,11 +11534,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
 class ChannelEncoderSettingsTimecodeConfigArgsDict(TypedDict):
     source: pulumi.Input[_builtins.str]
     """
-    The source for the timecode that will be associated with the events outputs.
+    Source for the timecode associated with the event outputs.
     """
     sync_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+    Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
     """
 
 @pulumi.input_type
@@ -9599,8 +11547,8 @@ class ChannelEncoderSettingsTimecodeConfigArgs:
                  source: pulumi.Input[_builtins.str],
                  sync_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] source: The source for the timecode that will be associated with the events outputs.
-        :param pulumi.Input[_builtins.int] sync_threshold: Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+        :param pulumi.Input[_builtins.str] source: Source for the timecode associated with the event outputs.
+        :param pulumi.Input[_builtins.int] sync_threshold: Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
         """
         pulumi.set(__self__, "source", source)
         if sync_threshold is not None:
@@ -9610,7 +11558,7 @@ class ChannelEncoderSettingsTimecodeConfigArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
         """
-        The source for the timecode that will be associated with the events outputs.
+        Source for the timecode associated with the event outputs.
         """
         return pulumi.get(self, "source")
 
@@ -9622,7 +11570,7 @@ class ChannelEncoderSettingsTimecodeConfigArgs:
     @pulumi.getter(name="syncThreshold")
     def sync_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+        Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
         """
         return pulumi.get(self, "sync_threshold")
 
@@ -9634,19 +11582,19 @@ class ChannelEncoderSettingsTimecodeConfigArgs:
 class ChannelEncoderSettingsVideoDescriptionArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the video description.
+    Name of the video description.
     """
     codec_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgsDict']]]
     """
-    The video codec settings. See Video Codec Settings for more details.
+    Video codec settings. See `video_descriptions.codec_settings` Block for details.
     """
     height: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Output video height in pixels.
+    Output video height, in pixels.
     """
     respond_to_afd: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicate how to respond to the AFD values that might be in the input video.
+    How to respond to the AFD values that might be in the input video.
     """
     scaling_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -9654,11 +11602,11 @@ class ChannelEncoderSettingsVideoDescriptionArgsDict(TypedDict):
     """
     sharpness: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Changes the strength of the anti-alias filter used for scaling.
+    Strength of the anti-alias filter used for scaling.
     """
     width: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Output video width in pixels.
+    Output video width, in pixels.
     """
 
 @pulumi.input_type
@@ -9672,13 +11620,13 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
                  sharpness: pulumi.Input[Optional[_builtins.int]] = None,
                  width: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the video description.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs'] codec_settings: The video codec settings. See Video Codec Settings for more details.
-        :param pulumi.Input[_builtins.int] height: Output video height in pixels.
-        :param pulumi.Input[_builtins.str] respond_to_afd: Indicate how to respond to the AFD values that might be in the input video.
+        :param pulumi.Input[_builtins.str] name: Name of the video description.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs'] codec_settings: Video codec settings. See `video_descriptions.codec_settings` Block for details.
+        :param pulumi.Input[_builtins.int] height: Output video height, in pixels.
+        :param pulumi.Input[_builtins.str] respond_to_afd: How to respond to the AFD values that might be in the input video.
         :param pulumi.Input[_builtins.str] scaling_behavior: Behavior on how to scale.
-        :param pulumi.Input[_builtins.int] sharpness: Changes the strength of the anti-alias filter used for scaling.
-        :param pulumi.Input[_builtins.int] width: Output video width in pixels.
+        :param pulumi.Input[_builtins.int] sharpness: Strength of the anti-alias filter used for scaling.
+        :param pulumi.Input[_builtins.int] width: Output video width, in pixels.
         """
         pulumi.set(__self__, "name", name)
         if codec_settings is not None:
@@ -9698,7 +11646,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the video description.
+        Name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -9710,7 +11658,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @pulumi.getter(name="codecSettings")
     def codec_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs']]:
         """
-        The video codec settings. See Video Codec Settings for more details.
+        Video codec settings. See `video_descriptions.codec_settings` Block for details.
         """
         return pulumi.get(self, "codec_settings")
 
@@ -9722,7 +11670,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @pulumi.getter
     def height(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Output video height in pixels.
+        Output video height, in pixels.
         """
         return pulumi.get(self, "height")
 
@@ -9734,7 +11682,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @pulumi.getter(name="respondToAfd")
     def respond_to_afd(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicate how to respond to the AFD values that might be in the input video.
+        How to respond to the AFD values that might be in the input video.
         """
         return pulumi.get(self, "respond_to_afd")
 
@@ -9758,7 +11706,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @pulumi.getter
     def sharpness(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Changes the strength of the anti-alias filter used for scaling.
+        Strength of the anti-alias filter used for scaling.
         """
         return pulumi.get(self, "sharpness")
 
@@ -9770,7 +11718,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @pulumi.getter
     def width(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Output video width in pixels.
+        Output video width, in pixels.
         """
         return pulumi.get(self, "width")
 
@@ -9782,13 +11730,16 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgsDict(TypedDict):
     frame_capture_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgsDict']]]
     """
-    Frame capture settings. See Frame Capture Settings for more details.
+    Frame capture settings. See `frame_capture_settings` Block for details.
     """
     h264_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict']]]
     """
-    H264 settings. See H264 Settings for more details.
+    H264 settings. See `h264_settings` Block for details.
     """
     h265_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict']]]
+    """
+    H265 settings. See `h265_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
@@ -9797,8 +11748,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
                  h264_settings: pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']] = None,
                  h265_settings: pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs'] frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs'] h264_settings: H264 settings. See H264 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs'] frame_capture_settings: Frame capture settings. See `frame_capture_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs'] h264_settings: H264 settings. See `h264_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs'] h265_settings: H265 settings. See `h265_settings` Block for details.
         """
         if frame_capture_settings is not None:
             pulumi.set(__self__, "frame_capture_settings", frame_capture_settings)
@@ -9811,7 +11763,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     @pulumi.getter(name="frameCaptureSettings")
     def frame_capture_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']]:
         """
-        Frame capture settings. See Frame Capture Settings for more details.
+        Frame capture settings. See `frame_capture_settings` Block for details.
         """
         return pulumi.get(self, "frame_capture_settings")
 
@@ -9823,7 +11775,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     @pulumi.getter(name="h264Settings")
     def h264_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']]:
         """
-        H264 settings. See H264 Settings for more details.
+        H264 settings. See `h264_settings` Block for details.
         """
         return pulumi.get(self, "h264_settings")
 
@@ -9834,6 +11786,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="h265Settings")
     def h265_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']]:
+        """
+        H265 settings. See `h265_settings` Block for details.
+        """
         return pulumi.get(self, "h265_settings")
 
     @h265_settings.setter
@@ -9844,7 +11799,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgsDict(TypedDict):
     capture_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The frequency at which to capture frames for inclusion in the output.
+    Frequency at which to capture frames for inclusion in the output.
     """
     capture_interval_units: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -9857,7 +11812,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArg
                  capture_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  capture_interval_units: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] capture_interval: The frequency at which to capture frames for inclusion in the output.
+        :param pulumi.Input[_builtins.int] capture_interval: Frequency at which to capture frames for inclusion in the output.
         :param pulumi.Input[_builtins.str] capture_interval_units: Unit for the frame capture interval.
         """
         if capture_interval is not None:
@@ -9869,7 +11824,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArg
     @pulumi.getter(name="captureInterval")
     def capture_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The frequency at which to capture frames for inclusion in the output.
+        Frequency at which to capture frames for inclusion in the output.
         """
         return pulumi.get(self, "capture_interval")
 
@@ -9897,20 +11852,23 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     afd_signaling: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates that AFD values will be written into the output stream.
+    Whether AFD values are written into the output stream.
     """
     bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Average bitrate in bits/second.
     """
     buf_fill_pct: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Percentage of the buffer that should initially be filled.
+    """
     buf_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Size of buffer in bits.
+    Size of the buffer in bits.
     """
     color_metadata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Includes color space metadata in the output.
+    Whether color space metadata is included in the output.
     """
     entropy_encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -9918,20 +11876,23 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgsDict']]]
     """
-    Filters to apply to an encode. See H264 Filter Settings for more details.
+    Filters to apply to an encode. See `filter_settings` Block for details.
     """
     fixed_afd: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Four bit AFD value to write on all frames of video in the output stream.
+    Four-bit AFD value to write on all frames of video in the output stream.
     """
     flicker_aq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Makes adjustments within each frame to reduce flicker on the I-frames.
+    """
     force_field_pictures: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Controls whether coding is performed on a field basis or on a frame basis.
+    Whether coding is performed on a field basis or on a frame basis.
     """
     framerate_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates how the output video frame rate is specified.
+    How the output video frame rate is specified.
     """
     framerate_denominator: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -9955,11 +11916,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     gop_size: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    GOP size in units of either frames of seconds per `gop_size_units`.
+    GOP size in units of either frames or seconds per `gop_size_units`.
     """
     gop_size_units: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates if the `gop_size` is specified in frames or seconds.
+    Whether `gop_size` is specified in frames or seconds.
     """
     level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -9971,11 +11932,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     max_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+    Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
     """
     min_i_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Min interval.
+    Minimum interval, in frames, between two I-frames.
     """
     num_ref_frames: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -9983,15 +11944,15 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     par_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates how the output pixel aspect ratio is specified.
+    How the output pixel aspect ratio is specified.
     """
     par_denominator: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Pixel Aspect Ratio denominator.
+    Pixel aspect ratio denominator.
     """
     par_numerator: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Pixel Aspect Ratio numerator.
+    Pixel aspect ratio numerator.
     """
     profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10003,7 +11964,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     qvbr_quality_level: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Controls the target quality for the video encode.
+    Target quality for the video encode.
     """
     rate_control_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10011,7 +11972,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     scan_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the scan type of the output.
+    Scan type of the output.
     """
     scene_change_detect: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10043,7 +12004,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     timecode_insertion: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Determines how timecodes should be inserted into the video elementary stream.
+    How timecodes are inserted into the video elementary stream.
     """
 
 @pulumi.input_type
@@ -10091,35 +12052,37 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
                  timecode_insertion: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] adaptive_quantization: Enables or disables adaptive quantization.
-        :param pulumi.Input[_builtins.str] afd_signaling: Indicates that AFD values will be written into the output stream.
+        :param pulumi.Input[_builtins.str] afd_signaling: Whether AFD values are written into the output stream.
         :param pulumi.Input[_builtins.int] bitrate: Average bitrate in bits/second.
-        :param pulumi.Input[_builtins.int] buf_size: Size of buffer in bits.
-        :param pulumi.Input[_builtins.str] color_metadata: Includes color space metadata in the output.
+        :param pulumi.Input[_builtins.int] buf_fill_pct: Percentage of the buffer that should initially be filled.
+        :param pulumi.Input[_builtins.int] buf_size: Size of the buffer in bits.
+        :param pulumi.Input[_builtins.str] color_metadata: Whether color space metadata is included in the output.
         :param pulumi.Input[_builtins.str] entropy_encoding: Entropy encoding mode.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See H264 Filter Settings for more details.
-        :param pulumi.Input[_builtins.str] fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
-        :param pulumi.Input[_builtins.str] force_field_pictures: Controls whether coding is performed on a field basis or on a frame basis.
-        :param pulumi.Input[_builtins.str] framerate_control: Indicates how the output video frame rate is specified.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See `filter_settings` Block for details.
+        :param pulumi.Input[_builtins.str] fixed_afd: Four-bit AFD value to write on all frames of video in the output stream.
+        :param pulumi.Input[_builtins.str] flicker_aq: Makes adjustments within each frame to reduce flicker on the I-frames.
+        :param pulumi.Input[_builtins.str] force_field_pictures: Whether coding is performed on a field basis or on a frame basis.
+        :param pulumi.Input[_builtins.str] framerate_control: How the output video frame rate is specified.
         :param pulumi.Input[_builtins.int] framerate_denominator: Framerate denominator.
         :param pulumi.Input[_builtins.int] framerate_numerator: Framerate numerator.
         :param pulumi.Input[_builtins.str] gop_b_reference: GOP-B reference.
         :param pulumi.Input[_builtins.int] gop_closed_cadence: Frequency of closed GOPs.
         :param pulumi.Input[_builtins.int] gop_num_b_frames: Number of B-frames between reference frames.
-        :param pulumi.Input[_builtins.float] gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
-        :param pulumi.Input[_builtins.str] gop_size_units: Indicates if the `gop_size` is specified in frames or seconds.
+        :param pulumi.Input[_builtins.float] gop_size: GOP size in units of either frames or seconds per `gop_size_units`.
+        :param pulumi.Input[_builtins.str] gop_size_units: Whether `gop_size` is specified in frames or seconds.
         :param pulumi.Input[_builtins.str] level: H264 level.
         :param pulumi.Input[_builtins.str] look_ahead_rate_control: Amount of lookahead.
-        :param pulumi.Input[_builtins.int] max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-        :param pulumi.Input[_builtins.int] min_i_interval: Min interval.
+        :param pulumi.Input[_builtins.int] max_bitrate: Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
+        :param pulumi.Input[_builtins.int] min_i_interval: Minimum interval, in frames, between two I-frames.
         :param pulumi.Input[_builtins.int] num_ref_frames: Number of reference frames to use.
-        :param pulumi.Input[_builtins.str] par_control: Indicates how the output pixel aspect ratio is specified.
-        :param pulumi.Input[_builtins.int] par_denominator: Pixel Aspect Ratio denominator.
-        :param pulumi.Input[_builtins.int] par_numerator: Pixel Aspect Ratio numerator.
+        :param pulumi.Input[_builtins.str] par_control: How the output pixel aspect ratio is specified.
+        :param pulumi.Input[_builtins.int] par_denominator: Pixel aspect ratio denominator.
+        :param pulumi.Input[_builtins.int] par_numerator: Pixel aspect ratio numerator.
         :param pulumi.Input[_builtins.str] profile: H264 profile.
         :param pulumi.Input[_builtins.str] quality_level: Quality level.
-        :param pulumi.Input[_builtins.int] qvbr_quality_level: Controls the target quality for the video encode.
+        :param pulumi.Input[_builtins.int] qvbr_quality_level: Target quality for the video encode.
         :param pulumi.Input[_builtins.str] rate_control_mode: Rate control mode.
-        :param pulumi.Input[_builtins.str] scan_type: Sets the scan type of the output.
+        :param pulumi.Input[_builtins.str] scan_type: Scan type of the output.
         :param pulumi.Input[_builtins.str] scene_change_detect: Scene change detection.
         :param pulumi.Input[_builtins.int] slices: Number of slices per picture.
         :param pulumi.Input[_builtins.int] softness: Softness.
@@ -10127,7 +12090,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
         :param pulumi.Input[_builtins.str] subgop_length: Subgop length.
         :param pulumi.Input[_builtins.str] syntax: Produces a bitstream compliant with SMPTE RP-2027.
         :param pulumi.Input[_builtins.str] temporal_aq: Makes adjustments within each frame based on temporal variation of content complexity.
-        :param pulumi.Input[_builtins.str] timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
+        :param pulumi.Input[_builtins.str] timecode_insertion: How timecodes are inserted into the video elementary stream.
         """
         if adaptive_quantization is not None:
             pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
@@ -10226,7 +12189,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="afdSignaling")
     def afd_signaling(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates that AFD values will be written into the output stream.
+        Whether AFD values are written into the output stream.
         """
         return pulumi.get(self, "afd_signaling")
 
@@ -10249,6 +12212,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="bufFillPct")
     def buf_fill_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Percentage of the buffer that should initially be filled.
+        """
         return pulumi.get(self, "buf_fill_pct")
 
     @buf_fill_pct.setter
@@ -10259,7 +12225,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="bufSize")
     def buf_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Size of buffer in bits.
+        Size of the buffer in bits.
         """
         return pulumi.get(self, "buf_size")
 
@@ -10271,7 +12237,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="colorMetadata")
     def color_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Includes color space metadata in the output.
+        Whether color space metadata is included in the output.
         """
         return pulumi.get(self, "color_metadata")
 
@@ -10295,7 +12261,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="filterSettings")
     def filter_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs']]:
         """
-        Filters to apply to an encode. See H264 Filter Settings for more details.
+        Filters to apply to an encode. See `filter_settings` Block for details.
         """
         return pulumi.get(self, "filter_settings")
 
@@ -10307,7 +12273,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="fixedAfd")
     def fixed_afd(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Four bit AFD value to write on all frames of video in the output stream.
+        Four-bit AFD value to write on all frames of video in the output stream.
         """
         return pulumi.get(self, "fixed_afd")
 
@@ -10318,6 +12284,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="flickerAq")
     def flicker_aq(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Makes adjustments within each frame to reduce flicker on the I-frames.
+        """
         return pulumi.get(self, "flicker_aq")
 
     @flicker_aq.setter
@@ -10328,7 +12297,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="forceFieldPictures")
     def force_field_pictures(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls whether coding is performed on a field basis or on a frame basis.
+        Whether coding is performed on a field basis or on a frame basis.
         """
         return pulumi.get(self, "force_field_pictures")
 
@@ -10340,7 +12309,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="framerateControl")
     def framerate_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates how the output video frame rate is specified.
+        How the output video frame rate is specified.
         """
         return pulumi.get(self, "framerate_control")
 
@@ -10412,7 +12381,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="gopSize")
     def gop_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        GOP size in units of either frames of seconds per `gop_size_units`.
+        GOP size in units of either frames or seconds per `gop_size_units`.
         """
         return pulumi.get(self, "gop_size")
 
@@ -10424,7 +12393,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="gopSizeUnits")
     def gop_size_units(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates if the `gop_size` is specified in frames or seconds.
+        Whether `gop_size` is specified in frames or seconds.
         """
         return pulumi.get(self, "gop_size_units")
 
@@ -10460,7 +12429,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
         """
         return pulumi.get(self, "max_bitrate")
 
@@ -10472,7 +12441,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="minIInterval")
     def min_i_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Min interval.
+        Minimum interval, in frames, between two I-frames.
         """
         return pulumi.get(self, "min_i_interval")
 
@@ -10496,7 +12465,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="parControl")
     def par_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates how the output pixel aspect ratio is specified.
+        How the output pixel aspect ratio is specified.
         """
         return pulumi.get(self, "par_control")
 
@@ -10508,7 +12477,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="parDenominator")
     def par_denominator(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Pixel Aspect Ratio denominator.
+        Pixel aspect ratio denominator.
         """
         return pulumi.get(self, "par_denominator")
 
@@ -10520,7 +12489,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="parNumerator")
     def par_numerator(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Pixel Aspect Ratio numerator.
+        Pixel aspect ratio numerator.
         """
         return pulumi.get(self, "par_numerator")
 
@@ -10556,7 +12525,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="qvbrQualityLevel")
     def qvbr_quality_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Controls the target quality for the video encode.
+        Target quality for the video encode.
         """
         return pulumi.get(self, "qvbr_quality_level")
 
@@ -10580,7 +12549,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="scanType")
     def scan_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the scan type of the output.
+        Scan type of the output.
         """
         return pulumi.get(self, "scan_type")
 
@@ -10676,7 +12645,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @pulumi.getter(name="timecodeInsertion")
     def timecode_insertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Determines how timecodes should be inserted into the video elementary stream.
+        How timecodes are inserted into the video elementary stream.
         """
         return pulumi.get(self, "timecode_insertion")
 
@@ -10687,17 +12656,26 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
 
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgsDict(TypedDict):
     temporal_filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgsDict']]]
+    """
+    Temporal filter settings. See `temporal_filter_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs:
     def __init__(__self__, *,
                  temporal_filter_settings: pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs'] temporal_filter_settings: Temporal filter settings. See `temporal_filter_settings` Block for details.
+        """
         if temporal_filter_settings is not None:
             pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
 
     @_builtins.property
     @pulumi.getter(name="temporalFilterSettings")
     def temporal_filter_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']]:
+        """
+        Temporal filter settings. See `temporal_filter_settings` Block for details.
+        """
         return pulumi.get(self, "temporal_filter_settings")
 
     @temporal_filter_settings.setter
@@ -10773,44 +12751,47 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     afd_signaling: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates that AFD values will be written into the output stream.
+    Whether AFD values are written into the output stream.
     """
     alternative_transfer_function: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Whether or not EML should insert an Alternative Transfer Function SEI message.
+    Whether EML inserts an Alternative Transfer Function SEI message.
     """
     buf_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Size of buffer in bits.
+    Size of the buffer in bits.
     """
     color_metadata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Includes color space metadata in the output.
+    Whether color space metadata is included in the output.
     """
     color_space_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgsDict']]]
     """
-    Define the color metadata for the output. H265 Color Space Settings for more details.
+    Color metadata for the output. See `color_space_settings` Block for details.
     """
     filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgsDict']]]
     """
-    Filters to apply to an encode. See H265 Filter Settings for more details.
+    Filters to apply to an encode. See `filter_settings` Block for details.
     """
     fixed_afd: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Four bit AFD value to write on all frames of video in the output stream.
+    Four-bit AFD value to write on all frames of video in the output stream.
     """
     flicker_aq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Makes adjustments within each frame to reduce flicker on the I-frames.
+    """
     gop_closed_cadence: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Frequency of closed GOPs.
     """
     gop_size: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    GOP size in units of either frames of seconds per `gop_size_units`.
+    GOP size in units of either frames or seconds per `gop_size_units`.
     """
     gop_size_units: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates if the `gop_size` is specified in frames or seconds.
+    Whether `gop_size` is specified in frames or seconds.
     """
     level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10822,19 +12803,19 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     max_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+    Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
     """
     min_i_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Min interval.
+    Minimum interval, in frames, between two I-frames.
     """
     min_qp: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Set the minimum QP.
+    Sets the minimum QP.
     """
     mv_over_picture_boundaries: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enables or disables motion vector over picture boundaries.
+    Enables or disables motion vectors over picture boundaries.
     """
     mv_temporal_predictor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10842,11 +12823,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     par_denominator: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Pixel Aspect Ratio denominator.
+    Pixel aspect ratio denominator.
     """
     par_numerator: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Pixel Aspect Ratio numerator.
+    Pixel aspect ratio numerator.
     """
     profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10854,7 +12835,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     qvbr_quality_level: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Controls the target quality for the video encode.
+    Target quality for the video encode.
     """
     rate_control_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10862,7 +12843,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     scan_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the scan type of the output.
+    Scan type of the output.
     """
     scene_change_detect: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10874,11 +12855,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set the H265 tier in the output.
+    H265 tier in the output.
     """
     tile_height: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Sets the height of tiles.
+    Height of tiles.
     """
     tile_padding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10886,19 +12867,19 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     tile_width: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Sets the width of tiles.
+    Width of tiles.
     """
     timecode_burnin_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgsDict']]]
     """
-    Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+    Apply a burned-in timecode. See `timecode_burnin_settings` Block for details.
     """
     timecode_insertion: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Determines how timecodes should be inserted into the video elementary stream.
+    How timecodes are inserted into the video elementary stream.
     """
     treeblock_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the size of the treeblock.
+    Size of the treeblock.
     """
 
 @pulumi.input_type
@@ -10946,38 +12927,39 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
         :param pulumi.Input[_builtins.int] framerate_denominator: Framerate denominator.
         :param pulumi.Input[_builtins.int] framerate_numerator: Framerate numerator.
         :param pulumi.Input[_builtins.str] adaptive_quantization: Enables or disables adaptive quantization.
-        :param pulumi.Input[_builtins.str] afd_signaling: Indicates that AFD values will be written into the output stream.
-        :param pulumi.Input[_builtins.str] alternative_transfer_function: Whether or not EML should insert an Alternative Transfer Function SEI message.
-        :param pulumi.Input[_builtins.int] buf_size: Size of buffer in bits.
-        :param pulumi.Input[_builtins.str] color_metadata: Includes color space metadata in the output.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs'] color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
-        :param pulumi.Input[_builtins.str] fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
+        :param pulumi.Input[_builtins.str] afd_signaling: Whether AFD values are written into the output stream.
+        :param pulumi.Input[_builtins.str] alternative_transfer_function: Whether EML inserts an Alternative Transfer Function SEI message.
+        :param pulumi.Input[_builtins.int] buf_size: Size of the buffer in bits.
+        :param pulumi.Input[_builtins.str] color_metadata: Whether color space metadata is included in the output.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs'] color_space_settings: Color metadata for the output. See `color_space_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See `filter_settings` Block for details.
+        :param pulumi.Input[_builtins.str] fixed_afd: Four-bit AFD value to write on all frames of video in the output stream.
+        :param pulumi.Input[_builtins.str] flicker_aq: Makes adjustments within each frame to reduce flicker on the I-frames.
         :param pulumi.Input[_builtins.int] gop_closed_cadence: Frequency of closed GOPs.
-        :param pulumi.Input[_builtins.float] gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
-        :param pulumi.Input[_builtins.str] gop_size_units: Indicates if the `gop_size` is specified in frames or seconds.
+        :param pulumi.Input[_builtins.float] gop_size: GOP size in units of either frames or seconds per `gop_size_units`.
+        :param pulumi.Input[_builtins.str] gop_size_units: Whether `gop_size` is specified in frames or seconds.
         :param pulumi.Input[_builtins.str] level: H265 level.
         :param pulumi.Input[_builtins.str] look_ahead_rate_control: Amount of lookahead.
-        :param pulumi.Input[_builtins.int] max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-        :param pulumi.Input[_builtins.int] min_i_interval: Min interval.
-        :param pulumi.Input[_builtins.int] min_qp: Set the minimum QP.
-        :param pulumi.Input[_builtins.str] mv_over_picture_boundaries: Enables or disables motion vector over picture boundaries.
+        :param pulumi.Input[_builtins.int] max_bitrate: Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
+        :param pulumi.Input[_builtins.int] min_i_interval: Minimum interval, in frames, between two I-frames.
+        :param pulumi.Input[_builtins.int] min_qp: Sets the minimum QP.
+        :param pulumi.Input[_builtins.str] mv_over_picture_boundaries: Enables or disables motion vectors over picture boundaries.
         :param pulumi.Input[_builtins.str] mv_temporal_predictor: Enables or disables the motion vector temporal predictor.
-        :param pulumi.Input[_builtins.int] par_denominator: Pixel Aspect Ratio denominator.
-        :param pulumi.Input[_builtins.int] par_numerator: Pixel Aspect Ratio numerator.
+        :param pulumi.Input[_builtins.int] par_denominator: Pixel aspect ratio denominator.
+        :param pulumi.Input[_builtins.int] par_numerator: Pixel aspect ratio numerator.
         :param pulumi.Input[_builtins.str] profile: H265 profile.
-        :param pulumi.Input[_builtins.int] qvbr_quality_level: Controls the target quality for the video encode.
+        :param pulumi.Input[_builtins.int] qvbr_quality_level: Target quality for the video encode.
         :param pulumi.Input[_builtins.str] rate_control_mode: Rate control mode.
-        :param pulumi.Input[_builtins.str] scan_type: Sets the scan type of the output.
+        :param pulumi.Input[_builtins.str] scan_type: Scan type of the output.
         :param pulumi.Input[_builtins.str] scene_change_detect: Scene change detection.
         :param pulumi.Input[_builtins.int] slices: Number of slices per picture.
-        :param pulumi.Input[_builtins.str] tier: Set the H265 tier in the output.
-        :param pulumi.Input[_builtins.int] tile_height: Sets the height of tiles.
+        :param pulumi.Input[_builtins.str] tier: H265 tier in the output.
+        :param pulumi.Input[_builtins.int] tile_height: Height of tiles.
         :param pulumi.Input[_builtins.str] tile_padding: Enables or disables padding of tiles.
-        :param pulumi.Input[_builtins.int] tile_width: Sets the width of tiles.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs'] timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
-        :param pulumi.Input[_builtins.str] timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
-        :param pulumi.Input[_builtins.str] treeblock_size: Sets the size of the treeblock.
+        :param pulumi.Input[_builtins.int] tile_width: Width of tiles.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs'] timecode_burnin_settings: Apply a burned-in timecode. See `timecode_burnin_settings` Block for details.
+        :param pulumi.Input[_builtins.str] timecode_insertion: How timecodes are inserted into the video elementary stream.
+        :param pulumi.Input[_builtins.str] treeblock_size: Size of the treeblock.
         """
         pulumi.set(__self__, "bitrate", bitrate)
         pulumi.set(__self__, "framerate_denominator", framerate_denominator)
@@ -11103,7 +13085,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="afdSignaling")
     def afd_signaling(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates that AFD values will be written into the output stream.
+        Whether AFD values are written into the output stream.
         """
         return pulumi.get(self, "afd_signaling")
 
@@ -11115,7 +13097,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="alternativeTransferFunction")
     def alternative_transfer_function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Whether or not EML should insert an Alternative Transfer Function SEI message.
+        Whether EML inserts an Alternative Transfer Function SEI message.
         """
         return pulumi.get(self, "alternative_transfer_function")
 
@@ -11127,7 +13109,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="bufSize")
     def buf_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Size of buffer in bits.
+        Size of the buffer in bits.
         """
         return pulumi.get(self, "buf_size")
 
@@ -11139,7 +13121,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="colorMetadata")
     def color_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Includes color space metadata in the output.
+        Whether color space metadata is included in the output.
         """
         return pulumi.get(self, "color_metadata")
 
@@ -11151,7 +13133,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="colorSpaceSettings")
     def color_space_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']]:
         """
-        Define the color metadata for the output. H265 Color Space Settings for more details.
+        Color metadata for the output. See `color_space_settings` Block for details.
         """
         return pulumi.get(self, "color_space_settings")
 
@@ -11163,7 +13145,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="filterSettings")
     def filter_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']]:
         """
-        Filters to apply to an encode. See H265 Filter Settings for more details.
+        Filters to apply to an encode. See `filter_settings` Block for details.
         """
         return pulumi.get(self, "filter_settings")
 
@@ -11175,7 +13157,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="fixedAfd")
     def fixed_afd(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Four bit AFD value to write on all frames of video in the output stream.
+        Four-bit AFD value to write on all frames of video in the output stream.
         """
         return pulumi.get(self, "fixed_afd")
 
@@ -11186,6 +13168,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @_builtins.property
     @pulumi.getter(name="flickerAq")
     def flicker_aq(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Makes adjustments within each frame to reduce flicker on the I-frames.
+        """
         return pulumi.get(self, "flicker_aq")
 
     @flicker_aq.setter
@@ -11208,7 +13193,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="gopSize")
     def gop_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        GOP size in units of either frames of seconds per `gop_size_units`.
+        GOP size in units of either frames or seconds per `gop_size_units`.
         """
         return pulumi.get(self, "gop_size")
 
@@ -11220,7 +13205,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="gopSizeUnits")
     def gop_size_units(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates if the `gop_size` is specified in frames or seconds.
+        Whether `gop_size` is specified in frames or seconds.
         """
         return pulumi.get(self, "gop_size_units")
 
@@ -11256,7 +13241,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
         """
         return pulumi.get(self, "max_bitrate")
 
@@ -11268,7 +13253,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="minIInterval")
     def min_i_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Min interval.
+        Minimum interval, in frames, between two I-frames.
         """
         return pulumi.get(self, "min_i_interval")
 
@@ -11280,7 +13265,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="minQp")
     def min_qp(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Set the minimum QP.
+        Sets the minimum QP.
         """
         return pulumi.get(self, "min_qp")
 
@@ -11292,7 +13277,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="mvOverPictureBoundaries")
     def mv_over_picture_boundaries(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enables or disables motion vector over picture boundaries.
+        Enables or disables motion vectors over picture boundaries.
         """
         return pulumi.get(self, "mv_over_picture_boundaries")
 
@@ -11316,7 +13301,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="parDenominator")
     def par_denominator(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Pixel Aspect Ratio denominator.
+        Pixel aspect ratio denominator.
         """
         return pulumi.get(self, "par_denominator")
 
@@ -11328,7 +13313,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="parNumerator")
     def par_numerator(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Pixel Aspect Ratio numerator.
+        Pixel aspect ratio numerator.
         """
         return pulumi.get(self, "par_numerator")
 
@@ -11352,7 +13337,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="qvbrQualityLevel")
     def qvbr_quality_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Controls the target quality for the video encode.
+        Target quality for the video encode.
         """
         return pulumi.get(self, "qvbr_quality_level")
 
@@ -11376,7 +13361,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="scanType")
     def scan_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the scan type of the output.
+        Scan type of the output.
         """
         return pulumi.get(self, "scan_type")
 
@@ -11412,7 +13397,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter
     def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set the H265 tier in the output.
+        H265 tier in the output.
         """
         return pulumi.get(self, "tier")
 
@@ -11424,7 +13409,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="tileHeight")
     def tile_height(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Sets the height of tiles.
+        Height of tiles.
         """
         return pulumi.get(self, "tile_height")
 
@@ -11448,7 +13433,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="tileWidth")
     def tile_width(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Sets the width of tiles.
+        Width of tiles.
         """
         return pulumi.get(self, "tile_width")
 
@@ -11460,7 +13445,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="timecodeBurninSettings")
     def timecode_burnin_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']]:
         """
-        Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        Apply a burned-in timecode. See `timecode_burnin_settings` Block for details.
         """
         return pulumi.get(self, "timecode_burnin_settings")
 
@@ -11472,7 +13457,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="timecodeInsertion")
     def timecode_insertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Determines how timecodes should be inserted into the video elementary stream.
+        How timecodes are inserted into the video elementary stream.
         """
         return pulumi.get(self, "timecode_insertion")
 
@@ -11484,7 +13469,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
     @pulumi.getter(name="treeblockSize")
     def treeblock_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the size of the treeblock.
+        Size of the treeblock.
         """
         return pulumi.get(self, "treeblock_size")
 
@@ -11496,23 +13481,23 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgsDict(TypedDict):
     color_space_passthrough_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgsDict']]]
     """
-    Sets the colorspace metadata to be passed through.
+    Sets the colorspace metadata to be passed through. Can be set as an empty block.
     """
     dolby_vision81_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgsDict']]]
     """
-    Set the colorspace to Dolby Vision81.
+    Sets the colorspace to Dolby Vision81. Can be set as an empty block.
     """
     hdr10_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgsDict']]]
     """
-    Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+    Sets the colorspace to be HDR10. See `hdr10_settings` Block for details.
     """
     rec601_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgsDict']]]
     """
-    Set the colorspace to Rec. 601.
+    Sets the colorspace to Rec. 601. Can be set as an empty block.
     """
     rec709_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgsDict']]]
     """
-    Set the colorspace to Rec. 709.
+    Sets the colorspace to Rec. 709. Can be set as an empty block.
     """
 
 @pulumi.input_type
@@ -11524,11 +13509,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
                  rec601_settings: pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']] = None,
                  rec709_settings: pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs'] color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs'] dolby_vision81_settings: Set the colorspace to Dolby Vision81.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs'] hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs'] rec601_settings: Set the colorspace to Rec. 601.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs'] rec709_settings: Set the colorspace to Rec. 709.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs'] color_space_passthrough_settings: Sets the colorspace metadata to be passed through. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs'] dolby_vision81_settings: Sets the colorspace to Dolby Vision81. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs'] hdr10_settings: Sets the colorspace to be HDR10. See `hdr10_settings` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs'] rec601_settings: Sets the colorspace to Rec. 601. Can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs'] rec709_settings: Sets the colorspace to Rec. 709. Can be set as an empty block.
         """
         if color_space_passthrough_settings is not None:
             pulumi.set(__self__, "color_space_passthrough_settings", color_space_passthrough_settings)
@@ -11545,7 +13530,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
     @pulumi.getter(name="colorSpacePassthroughSettings")
     def color_space_passthrough_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']]:
         """
-        Sets the colorspace metadata to be passed through.
+        Sets the colorspace metadata to be passed through. Can be set as an empty block.
         """
         return pulumi.get(self, "color_space_passthrough_settings")
 
@@ -11557,7 +13542,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
     @pulumi.getter(name="dolbyVision81Settings")
     def dolby_vision81_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']]:
         """
-        Set the colorspace to Dolby Vision81.
+        Sets the colorspace to Dolby Vision81. Can be set as an empty block.
         """
         return pulumi.get(self, "dolby_vision81_settings")
 
@@ -11569,7 +13554,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
     @pulumi.getter(name="hdr10Settings")
     def hdr10_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']]:
         """
-        Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        Sets the colorspace to be HDR10. See `hdr10_settings` Block for details.
         """
         return pulumi.get(self, "hdr10_settings")
 
@@ -11581,7 +13566,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
     @pulumi.getter(name="rec601Settings")
     def rec601_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']]:
         """
-        Set the colorspace to Rec. 601.
+        Sets the colorspace to Rec. 601. Can be set as an empty block.
         """
         return pulumi.get(self, "rec601_settings")
 
@@ -11593,7 +13578,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
     @pulumi.getter(name="rec709Settings")
     def rec709_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']]:
         """
-        Set the colorspace to Rec. 709.
+        Sets the colorspace to Rec. 709. Can be set as an empty block.
         """
         return pulumi.get(self, "rec709_settings")
 
@@ -11689,17 +13674,26 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
 
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgsDict(TypedDict):
     temporal_filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgsDict']]]
+    """
+    Temporal filter settings. See `temporal_filter_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs:
     def __init__(__self__, *,
                  temporal_filter_settings: pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs'] temporal_filter_settings: Temporal filter settings. See `temporal_filter_settings` Block for details.
+        """
         if temporal_filter_settings is not None:
             pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
 
     @_builtins.property
     @pulumi.getter(name="temporalFilterSettings")
     def temporal_filter_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']]:
+        """
+        Temporal filter settings. See `temporal_filter_settings` Block for details.
+        """
         return pulumi.get(self, "temporal_filter_settings")
 
     @temporal_filter_settings.setter
@@ -11759,15 +13753,15 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSetti
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgsDict(TypedDict):
     prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set a prefix on the burned in timecode.
+    Prefix on the burned-in timecode.
     """
     timecode_burnin_font_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the size of the burned in timecode.
+    Size of the burned-in timecode.
     """
     timecode_burnin_position: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Sets the position of the burned in timecode.
+    Position of the burned-in timecode.
     """
 
 @pulumi.input_type
@@ -11777,9 +13771,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBur
                  timecode_burnin_font_size: pulumi.Input[Optional[_builtins.str]] = None,
                  timecode_burnin_position: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] prefix: Set a prefix on the burned in timecode.
-        :param pulumi.Input[_builtins.str] timecode_burnin_font_size: Sets the size of the burned in timecode.
-        :param pulumi.Input[_builtins.str] timecode_burnin_position: Sets the position of the burned in timecode.
+        :param pulumi.Input[_builtins.str] prefix: Prefix on the burned-in timecode.
+        :param pulumi.Input[_builtins.str] timecode_burnin_font_size: Size of the burned-in timecode.
+        :param pulumi.Input[_builtins.str] timecode_burnin_position: Position of the burned-in timecode.
         """
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -11792,7 +13786,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBur
     @pulumi.getter
     def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set a prefix on the burned in timecode.
+        Prefix on the burned-in timecode.
         """
         return pulumi.get(self, "prefix")
 
@@ -11804,7 +13798,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBur
     @pulumi.getter(name="timecodeBurninFontSize")
     def timecode_burnin_font_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the size of the burned in timecode.
+        Size of the burned-in timecode.
         """
         return pulumi.get(self, "timecode_burnin_font_size")
 
@@ -11816,7 +13810,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBur
     @pulumi.getter(name="timecodeBurninPosition")
     def timecode_burnin_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Sets the position of the burned in timecode.
+        Position of the burned-in timecode.
         """
         return pulumi.get(self, "timecode_burnin_position")
 
@@ -11832,15 +13826,15 @@ class ChannelInputAttachmentArgsDict(TypedDict):
     """
     input_id: pulumi.Input[_builtins.str]
     """
-    The ID of the input.
+    ID of the input.
     """
     automatic_input_failover_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsArgsDict']]]
     """
-    User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+    Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automatic_input_failover_settings` Block for details.
     """
     input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsArgsDict']]]
     """
-    Settings of an input. See Input Settings for more details.
+    Settings of an input. See `input_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -11852,9 +13846,9 @@ class ChannelInputAttachmentArgs:
                  input_settings: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] input_attachment_name: User-specified name for the attachment.
-        :param pulumi.Input[_builtins.str] input_id: The ID of the input.
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs'] automatic_input_failover_settings: User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsArgs'] input_settings: Settings of an input. See Input Settings for more details.
+        :param pulumi.Input[_builtins.str] input_id: ID of the input.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs'] automatic_input_failover_settings: Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automatic_input_failover_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsArgs'] input_settings: Settings of an input. See `input_settings` Block for details.
         """
         pulumi.set(__self__, "input_attachment_name", input_attachment_name)
         pulumi.set(__self__, "input_id", input_id)
@@ -11879,7 +13873,7 @@ class ChannelInputAttachmentArgs:
     @pulumi.getter(name="inputId")
     def input_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the input.
+        ID of the input.
         """
         return pulumi.get(self, "input_id")
 
@@ -11891,7 +13885,7 @@ class ChannelInputAttachmentArgs:
     @pulumi.getter(name="automaticInputFailoverSettings")
     def automatic_input_failover_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs']]:
         """
-        User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+        Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automatic_input_failover_settings` Block for details.
         """
         return pulumi.get(self, "automatic_input_failover_settings")
 
@@ -11903,7 +13897,7 @@ class ChannelInputAttachmentArgs:
     @pulumi.getter(name="inputSettings")
     def input_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsArgs']]:
         """
-        Settings of an input. See Input Settings for more details.
+        Settings of an input. See `input_settings` Block for details.
         """
         return pulumi.get(self, "input_settings")
 
@@ -11915,15 +13909,15 @@ class ChannelInputAttachmentArgs:
 class ChannelInputAttachmentAutomaticInputFailoverSettingsArgsDict(TypedDict):
     secondary_input_id: pulumi.Input[_builtins.str]
     """
-    The input ID of the secondary input in the automatic input failover pair.
+    Input ID of the secondary input in the automatic input failover pair.
     """
     error_clear_time_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\\_preference for the failover pair is set to PRIMARY\\_INPUT\\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+    Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `input_preference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
     """
     failover_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgsDict']]]]]
     """
-    A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+    Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failover_condition` Block for details.
     """
     input_preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -11938,9 +13932,9 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
                  failover_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]]] = None,
                  input_preference: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] secondary_input_id: The input ID of the secondary input in the automatic input failover pair.
-        :param pulumi.Input[_builtins.int] error_clear_time_msec: This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\\_preference for the failover pair is set to PRIMARY\\_INPUT\\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]] failover_conditions: A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+        :param pulumi.Input[_builtins.str] secondary_input_id: Input ID of the secondary input in the automatic input failover pair.
+        :param pulumi.Input[_builtins.int] error_clear_time_msec: Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `input_preference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]] failover_conditions: Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failover_condition` Block for details.
         :param pulumi.Input[_builtins.str] input_preference: Input preference when deciding which input to make active when a previously failed input has recovered.
         """
         pulumi.set(__self__, "secondary_input_id", secondary_input_id)
@@ -11955,7 +13949,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
     @pulumi.getter(name="secondaryInputId")
     def secondary_input_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The input ID of the secondary input in the automatic input failover pair.
+        Input ID of the secondary input in the automatic input failover pair.
         """
         return pulumi.get(self, "secondary_input_id")
 
@@ -11967,7 +13961,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
     @pulumi.getter(name="errorClearTimeMsec")
     def error_clear_time_msec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\\_preference for the failover pair is set to PRIMARY\\_INPUT\\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+        Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `input_preference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
         """
         return pulumi.get(self, "error_clear_time_msec")
 
@@ -11979,7 +13973,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
     @pulumi.getter(name="failoverConditions")
     def failover_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]]]:
         """
-        A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+        Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failover_condition` Block for details.
         """
         return pulumi.get(self, "failover_conditions")
 
@@ -12003,7 +13997,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
 class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgsDict(TypedDict):
     failover_condition_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgsDict']]]
     """
-    Failover condition type-specific settings. See Failover Condition Settings for more details.
+    Failover condition type-specific settings. See `failover_condition_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -12011,7 +14005,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs:
     def __init__(__self__, *,
                  failover_condition_settings: pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs'] failover_condition_settings: Failover condition type-specific settings. See Failover Condition Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs'] failover_condition_settings: Failover condition type-specific settings. See `failover_condition_settings` Block for details.
         """
         if failover_condition_settings is not None:
             pulumi.set(__self__, "failover_condition_settings", failover_condition_settings)
@@ -12020,7 +14014,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs:
     @pulumi.getter(name="failoverConditionSettings")
     def failover_condition_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs']]:
         """
-        Failover condition type-specific settings. See Failover Condition Settings for more details.
+        Failover condition type-specific settings. See `failover_condition_settings` Block for details.
         """
         return pulumi.get(self, "failover_condition_settings")
 
@@ -12032,15 +14026,15 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs:
 class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgsDict(TypedDict):
     audio_silence_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgsDict']]]
     """
-    MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+    MediaLive fails over if the specified audio selector is silent for the specified period. See `audio_silence_settings` Block for details.
     """
     input_loss_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgsDict']]]
     """
-    MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+    MediaLive fails over if content is not detected in this input for the specified period. See `input_loss_settings` Block for details.
     """
     video_black_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgsDict']]]
     """
-    MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+    MediaLive fails over if content is considered black for the specified period. See `video_black_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -12050,9 +14044,9 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
                  input_loss_settings: pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs']] = None,
                  video_black_settings: pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs'] audio_silence_settings: MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs'] input_loss_settings: MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs'] video_black_settings: MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs'] audio_silence_settings: MediaLive fails over if the specified audio selector is silent for the specified period. See `audio_silence_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs'] input_loss_settings: MediaLive fails over if content is not detected in this input for the specified period. See `input_loss_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs'] video_black_settings: MediaLive fails over if content is considered black for the specified period. See `video_black_settings` Block for details.
         """
         if audio_silence_settings is not None:
             pulumi.set(__self__, "audio_silence_settings", audio_silence_settings)
@@ -12065,7 +14059,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="audioSilenceSettings")
     def audio_silence_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs']]:
         """
-        MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+        MediaLive fails over if the specified audio selector is silent for the specified period. See `audio_silence_settings` Block for details.
         """
         return pulumi.get(self, "audio_silence_settings")
 
@@ -12077,7 +14071,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="inputLossSettings")
     def input_loss_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs']]:
         """
-        MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+        MediaLive fails over if content is not detected in this input for the specified period. See `input_loss_settings` Block for details.
         """
         return pulumi.get(self, "input_loss_settings")
 
@@ -12089,7 +14083,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="videoBlackSettings")
     def video_black_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs']]:
         """
-        MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+        MediaLive fails over if content is considered black for the specified period. See `video_black_settings` Block for details.
         """
         return pulumi.get(self, "video_black_settings")
 
@@ -12100,9 +14094,12 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgsDict(TypedDict):
     audio_selector_name: pulumi.Input[_builtins.str]
+    """
+    Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+    """
     audio_silence_threshold_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+    Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
     """
 
 @pulumi.input_type
@@ -12111,7 +14108,8 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
                  audio_selector_name: pulumi.Input[_builtins.str],
                  audio_silence_threshold_msec: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] audio_silence_threshold_msec: The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+        :param pulumi.Input[_builtins.str] audio_selector_name: Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+        :param pulumi.Input[_builtins.int] audio_silence_threshold_msec: Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
         """
         pulumi.set(__self__, "audio_selector_name", audio_selector_name)
         if audio_silence_threshold_msec is not None:
@@ -12120,6 +14118,9 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @_builtins.property
     @pulumi.getter(name="audioSelectorName")
     def audio_selector_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+        """
         return pulumi.get(self, "audio_selector_name")
 
     @audio_selector_name.setter
@@ -12130,7 +14131,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="audioSilenceThresholdMsec")
     def audio_silence_threshold_msec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+        Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
         """
         return pulumi.get(self, "audio_silence_threshold_msec")
 
@@ -12142,7 +14143,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgsDict(TypedDict):
     input_loss_threshold_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+    Amount of time, in milliseconds, that no input is detected before an input failover occurs.
     """
 
 @pulumi.input_type
@@ -12150,7 +14151,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     def __init__(__self__, *,
                  input_loss_threshold_msec: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] input_loss_threshold_msec: The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+        :param pulumi.Input[_builtins.int] input_loss_threshold_msec: Amount of time, in milliseconds, that no input is detected before an input failover occurs.
         """
         if input_loss_threshold_msec is not None:
             pulumi.set(__self__, "input_loss_threshold_msec", input_loss_threshold_msec)
@@ -12159,7 +14160,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="inputLossThresholdMsec")
     def input_loss_threshold_msec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+        Amount of time, in milliseconds, that no input is detected before an input failover occurs.
         """
         return pulumi.get(self, "input_loss_threshold_msec")
 
@@ -12171,11 +14172,11 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgsDict(TypedDict):
     black_detect_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+    Threshold below which MediaLive considers a pixel to be black, expressed as a decimal fraction of white. For example, `0.1` means 10% white (90% black). For the input to be considered black, every pixel in a frame must be below this threshold. The range is 0.0 to 1.0, with any number of decimal places.
     """
     video_black_threshold_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+    Amount of time, in milliseconds, that the active input must be black before automatic input failover occurs.
     """
 
 @pulumi.input_type
@@ -12184,8 +14185,8 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
                  black_detect_threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  video_black_threshold_msec: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.float] black_detect_threshold: A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
-        :param pulumi.Input[_builtins.int] video_black_threshold_msec: The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+        :param pulumi.Input[_builtins.float] black_detect_threshold: Threshold below which MediaLive considers a pixel to be black, expressed as a decimal fraction of white. For example, `0.1` means 10% white (90% black). For the input to be considered black, every pixel in a frame must be below this threshold. The range is 0.0 to 1.0, with any number of decimal places.
+        :param pulumi.Input[_builtins.int] video_black_threshold_msec: Amount of time, in milliseconds, that the active input must be black before automatic input failover occurs.
         """
         if black_detect_threshold is not None:
             pulumi.set(__self__, "black_detect_threshold", black_detect_threshold)
@@ -12196,7 +14197,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="blackDetectThreshold")
     def black_detect_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+        Threshold below which MediaLive considers a pixel to be black, expressed as a decimal fraction of white. For example, `0.1` means 10% white (90% black). For the input to be considered black, every pixel in a frame must be below this threshold. The range is 0.0 to 1.0, with any number of decimal places.
         """
         return pulumi.get(self, "black_detect_threshold")
 
@@ -12208,7 +14209,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="videoBlackThresholdMsec")
     def video_black_threshold_msec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+        Amount of time, in milliseconds, that the active input must be black before automatic input failover occurs.
         """
         return pulumi.get(self, "video_black_threshold_msec")
 
@@ -12220,23 +14221,23 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 class ChannelInputAttachmentInputSettingsArgsDict(TypedDict):
     audio_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgsDict']]]]]
     """
-    Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+    Select the audio stream to decode for inputs that have multiple. See `audio_selector` Block for details.
     """
     caption_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgsDict']]]]]
     """
-    Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+    Select the caption input to use for inputs that have multiple available. See `caption_selector` Block for details.
     """
     deblock_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enable or disable the deblock filter when filtering.
+    Whether to enable the deblock filter when filtering.
     """
     denoise_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enable or disable the denoise filter when filtering.
+    Whether to enable the denoise filter when filtering.
     """
     filter_strength: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+    Magnitude of filtering from 1 (minimal) to 5 (strongest).
     """
     input_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -12244,7 +14245,7 @@ class ChannelInputAttachmentInputSettingsArgsDict(TypedDict):
     """
     network_input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgsDict']]]
     """
-    Input settings. See Network Input Settings for more details.
+    Input settings. See `network_input_settings` Block for details.
     """
     scte35_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -12252,13 +14253,16 @@ class ChannelInputAttachmentInputSettingsArgsDict(TypedDict):
     """
     smpte2038_data_preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+    Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
     """
     source_end_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Loop input if it is a file.
     """
     video_selector: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsVideoSelectorArgsDict']]]
+    """
+    Information about one video to extract from the input. See `video_selector` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsArgs:
@@ -12275,16 +14279,17 @@ class ChannelInputAttachmentInputSettingsArgs:
                  source_end_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  video_selector: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsVideoSelectorArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]] audio_selectors: Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]] caption_selectors: Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
-        :param pulumi.Input[_builtins.str] deblock_filter: Enable or disable the deblock filter when filtering.
-        :param pulumi.Input[_builtins.str] denoise_filter: Enable or disable the denoise filter when filtering.
-        :param pulumi.Input[_builtins.int] filter_strength: Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]] audio_selectors: Select the audio stream to decode for inputs that have multiple. See `audio_selector` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]] caption_selectors: Select the caption input to use for inputs that have multiple available. See `caption_selector` Block for details.
+        :param pulumi.Input[_builtins.str] deblock_filter: Whether to enable the deblock filter when filtering.
+        :param pulumi.Input[_builtins.str] denoise_filter: Whether to enable the denoise filter when filtering.
+        :param pulumi.Input[_builtins.int] filter_strength: Magnitude of filtering from 1 (minimal) to 5 (strongest).
         :param pulumi.Input[_builtins.str] input_filter: Turns on the filter for the input.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs'] network_input_settings: Input settings. See Network Input Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs'] network_input_settings: Input settings. See `network_input_settings` Block for details.
         :param pulumi.Input[_builtins.int] scte35_pid: PID from which to read SCTE-35 messages.
-        :param pulumi.Input[_builtins.str] smpte2038_data_preference: Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        :param pulumi.Input[_builtins.str] smpte2038_data_preference: Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
         :param pulumi.Input[_builtins.str] source_end_behavior: Loop input if it is a file.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs'] video_selector: Information about one video to extract from the input. See `video_selector` Block for details.
         """
         if audio_selectors is not None:
             pulumi.set(__self__, "audio_selectors", audio_selectors)
@@ -12313,7 +14318,7 @@ class ChannelInputAttachmentInputSettingsArgs:
     @pulumi.getter(name="audioSelectors")
     def audio_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]]]:
         """
-        Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+        Select the audio stream to decode for inputs that have multiple. See `audio_selector` Block for details.
         """
         return pulumi.get(self, "audio_selectors")
 
@@ -12325,7 +14330,7 @@ class ChannelInputAttachmentInputSettingsArgs:
     @pulumi.getter(name="captionSelectors")
     def caption_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]]:
         """
-        Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+        Select the caption input to use for inputs that have multiple available. See `caption_selector` Block for details.
         """
         return pulumi.get(self, "caption_selectors")
 
@@ -12337,7 +14342,7 @@ class ChannelInputAttachmentInputSettingsArgs:
     @pulumi.getter(name="deblockFilter")
     def deblock_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enable or disable the deblock filter when filtering.
+        Whether to enable the deblock filter when filtering.
         """
         return pulumi.get(self, "deblock_filter")
 
@@ -12349,7 +14354,7 @@ class ChannelInputAttachmentInputSettingsArgs:
     @pulumi.getter(name="denoiseFilter")
     def denoise_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enable or disable the denoise filter when filtering.
+        Whether to enable the denoise filter when filtering.
         """
         return pulumi.get(self, "denoise_filter")
 
@@ -12361,7 +14366,7 @@ class ChannelInputAttachmentInputSettingsArgs:
     @pulumi.getter(name="filterStrength")
     def filter_strength(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        Magnitude of filtering from 1 (minimal) to 5 (strongest).
         """
         return pulumi.get(self, "filter_strength")
 
@@ -12385,7 +14390,7 @@ class ChannelInputAttachmentInputSettingsArgs:
     @pulumi.getter(name="networkInputSettings")
     def network_input_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']]:
         """
-        Input settings. See Network Input Settings for more details.
+        Input settings. See `network_input_settings` Block for details.
         """
         return pulumi.get(self, "network_input_settings")
 
@@ -12409,7 +14414,7 @@ class ChannelInputAttachmentInputSettingsArgs:
     @pulumi.getter(name="smpte2038DataPreference")
     def smpte2038_data_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
         """
         return pulumi.get(self, "smpte2038_data_preference")
 
@@ -12432,6 +14437,9 @@ class ChannelInputAttachmentInputSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="videoSelector")
     def video_selector(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsVideoSelectorArgs']]:
+        """
+        Information about one video to extract from the input. See `video_selector` Block for details.
+        """
         return pulumi.get(self, "video_selector")
 
     @video_selector.setter
@@ -12442,11 +14450,12 @@ class ChannelInputAttachmentInputSettingsArgs:
 class ChannelInputAttachmentInputSettingsAudioSelectorArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    Name of the Channel.
-
-    The following arguments are optional:
+    Name of the audio selector.
     """
     selector_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgsDict']]]
+    """
+    Audio selector settings. See `audio_selector.selector_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
@@ -12454,9 +14463,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
                  name: pulumi.Input[_builtins.str],
                  selector_settings: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the Channel.
-               
-               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] name: Name of the audio selector.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs'] selector_settings: Audio selector settings. See `audio_selector.selector_settings` Block for details.
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -12466,9 +14474,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the Channel.
-
-        The following arguments are optional:
+        Name of the audio selector.
         """
         return pulumi.get(self, "name")
 
@@ -12479,6 +14485,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="selectorSettings")
     def selector_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']]:
+        """
+        Audio selector settings. See `audio_selector.selector_settings` Block for details.
+        """
         return pulumi.get(self, "selector_settings")
 
     @selector_settings.setter
@@ -12489,19 +14498,19 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgsDict(TypedDict):
     audio_hls_rendition_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgsDict']]]
     """
-    Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+    HLS rendition selection. See `audio_hls_rendition_selection` Block for details.
     """
     audio_language_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgsDict']]]
     """
-    Audio Language Selection. See Audio Language Selection for more details.
+    Language selection. See `audio_language_selection` Block for details.
     """
     audio_pid_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgsDict']]]
     """
-    Audio Pid Selection. See Audio PID Selection for more details.
+    PID selection. See `audio_pid_selection` Block for details.
     """
     audio_track_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgsDict']]]
     """
-    Audio Track Selection. See Audio Track Selection for more details.
+    Track selection. See `audio_track_selection` Block for details.
     """
 
 @pulumi.input_type
@@ -12512,10 +14521,10 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
                  audio_pid_selection: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']] = None,
                  audio_track_selection: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs'] audio_hls_rendition_selection: Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs'] audio_language_selection: Audio Language Selection. See Audio Language Selection for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs'] audio_pid_selection: Audio Pid Selection. See Audio PID Selection for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs'] audio_track_selection: Audio Track Selection. See Audio Track Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs'] audio_hls_rendition_selection: HLS rendition selection. See `audio_hls_rendition_selection` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs'] audio_language_selection: Language selection. See `audio_language_selection` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs'] audio_pid_selection: PID selection. See `audio_pid_selection` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs'] audio_track_selection: Track selection. See `audio_track_selection` Block for details.
         """
         if audio_hls_rendition_selection is not None:
             pulumi.set(__self__, "audio_hls_rendition_selection", audio_hls_rendition_selection)
@@ -12530,7 +14539,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @pulumi.getter(name="audioHlsRenditionSelection")
     def audio_hls_rendition_selection(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs']]:
         """
-        Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+        HLS rendition selection. See `audio_hls_rendition_selection` Block for details.
         """
         return pulumi.get(self, "audio_hls_rendition_selection")
 
@@ -12542,7 +14551,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @pulumi.getter(name="audioLanguageSelection")
     def audio_language_selection(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs']]:
         """
-        Audio Language Selection. See Audio Language Selection for more details.
+        Language selection. See `audio_language_selection` Block for details.
         """
         return pulumi.get(self, "audio_language_selection")
 
@@ -12554,7 +14563,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @pulumi.getter(name="audioPidSelection")
     def audio_pid_selection(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']]:
         """
-        Audio Pid Selection. See Audio PID Selection for more details.
+        PID selection. See `audio_pid_selection` Block for details.
         """
         return pulumi.get(self, "audio_pid_selection")
 
@@ -12566,7 +14575,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @pulumi.getter(name="audioTrackSelection")
     def audio_track_selection(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']]:
         """
-        Audio Track Selection. See Audio Track Selection for more details.
+        Track selection. See `audio_track_selection` Block for details.
         """
         return pulumi.get(self, "audio_track_selection")
 
@@ -12578,11 +14587,11 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgsDict(TypedDict):
     group_id: pulumi.Input[_builtins.str]
     """
-    Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+    GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
     """
     name: pulumi.Input[_builtins.str]
     """
-    Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+    NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
     """
 
 @pulumi.input_type
@@ -12591,8 +14600,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
                  group_id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] group_id: Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-        :param pulumi.Input[_builtins.str] name: Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        :param pulumi.Input[_builtins.str] group_id: GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
+        :param pulumi.Input[_builtins.str] name: NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "name", name)
@@ -12601,7 +14610,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
         """
         return pulumi.get(self, "group_id")
 
@@ -12613,7 +14622,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
         """
         return pulumi.get(self, "name")
 
@@ -12625,11 +14634,11 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgsDict(TypedDict):
     language_code: pulumi.Input[_builtins.str]
     """
-    Selects a specific three-letter language code from within an audio source.
+    Three-letter language code from within an audio source.
     """
     language_selection_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+    How to handle a change in the language of the audio stream after it is selected. When set to `strict`, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present, then mute is encoded until the language returns. When set to `loose`, the demux chooses another audio stream in the program with the same stream type on a PMT update if it cannot find one with the same language.
     """
 
 @pulumi.input_type
@@ -12638,8 +14647,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
                  language_code: pulumi.Input[_builtins.str],
                  language_selection_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] language_code: Selects a specific three-letter language code from within an audio source.
-        :param pulumi.Input[_builtins.str] language_selection_policy: When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+        :param pulumi.Input[_builtins.str] language_code: Three-letter language code from within an audio source.
+        :param pulumi.Input[_builtins.str] language_selection_policy: How to handle a change in the language of the audio stream after it is selected. When set to `strict`, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present, then mute is encoded until the language returns. When set to `loose`, the demux chooses another audio stream in the program with the same stream type on a PMT update if it cannot find one with the same language.
         """
         pulumi.set(__self__, "language_code", language_code)
         if language_selection_policy is not None:
@@ -12649,7 +14658,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[_builtins.str]:
         """
-        Selects a specific three-letter language code from within an audio source.
+        Three-letter language code from within an audio source.
         """
         return pulumi.get(self, "language_code")
 
@@ -12661,7 +14670,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
     @pulumi.getter(name="languageSelectionPolicy")
     def language_selection_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+        How to handle a change in the language of the audio stream after it is selected. When set to `strict`, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present, then mute is encoded until the language returns. When set to `loose`, the demux chooses another audio stream in the program with the same stream type on a PMT update if it cannot find one with the same language.
         """
         return pulumi.get(self, "language_selection_policy")
 
@@ -12673,7 +14682,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgsDict(TypedDict):
     pid: pulumi.Input[_builtins.int]
     """
-    Selects a specific PID from within a source.
+    PID from within a source.
     """
 
 @pulumi.input_type
@@ -12681,7 +14690,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSe
     def __init__(__self__, *,
                  pid: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] pid: Selects a specific PID from within a source.
+        :param pulumi.Input[_builtins.int] pid: PID from within a source.
         """
         pulumi.set(__self__, "pid", pid)
 
@@ -12689,7 +14698,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSe
     @pulumi.getter
     def pid(self) -> pulumi.Input[_builtins.int]:
         """
-        Selects a specific PID from within a source.
+        PID from within a source.
         """
         return pulumi.get(self, "pid")
 
@@ -12701,11 +14710,11 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSe
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgsDict(TypedDict):
     tracks: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgsDict']]]
     """
-    Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+    One or more unique audio tracks from within a source. See `tracks` Block for details.
     """
     dolby_e_decode: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgsDict']]]
     """
-    Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+    Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolby_e_decode` Block for details.
     """
 
 @pulumi.input_type
@@ -12714,8 +14723,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
                  tracks: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]],
                  dolby_e_decode: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]] tracks: Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs'] dolby_e_decode: Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]] tracks: One or more unique audio tracks from within a source. See `tracks` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs'] dolby_e_decode: Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolby_e_decode` Block for details.
         """
         pulumi.set(__self__, "tracks", tracks)
         if dolby_e_decode is not None:
@@ -12725,7 +14734,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
     @pulumi.getter
     def tracks(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]]:
         """
-        Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+        One or more unique audio tracks from within a source. See `tracks` Block for details.
         """
         return pulumi.get(self, "tracks")
 
@@ -12737,7 +14746,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
     @pulumi.getter(name="dolbyEDecode")
     def dolby_e_decode(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']]:
         """
-        Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+        Decoding options for Dolby E streams. These should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See `dolby_e_decode` Block for details.
         """
         return pulumi.get(self, "dolby_e_decode")
 
@@ -12749,7 +14758,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgsDict(TypedDict):
     program_selection: pulumi.Input[_builtins.str]
     """
-    Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+    Program ID of the Dolby E program to extract from the specified track. Applies only to Dolby E. One program is extracted per audio selector. To select multiple programs, create multiple selectors with the same track and different program numbers. `All channels` ignores the program IDs and includes all the channels in this selector; useful if metadata is known to be incorrect.
     """
 
 @pulumi.input_type
@@ -12757,7 +14766,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
     def __init__(__self__, *,
                  program_selection: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] program_selection: Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+        :param pulumi.Input[_builtins.str] program_selection: Program ID of the Dolby E program to extract from the specified track. Applies only to Dolby E. One program is extracted per audio selector. To select multiple programs, create multiple selectors with the same track and different program numbers. `All channels` ignores the program IDs and includes all the channels in this selector; useful if metadata is known to be incorrect.
         """
         pulumi.set(__self__, "program_selection", program_selection)
 
@@ -12765,7 +14774,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
     @pulumi.getter(name="programSelection")
     def program_selection(self) -> pulumi.Input[_builtins.str]:
         """
-        Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+        Program ID of the Dolby E program to extract from the specified track. Applies only to Dolby E. One program is extracted per audio selector. To select multiple programs, create multiple selectors with the same track and different program numbers. `All channels` ignores the program IDs and includes all the channels in this selector; useful if metadata is known to be incorrect.
         """
         return pulumi.get(self, "program_selection")
 
@@ -12805,12 +14814,16 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 class ChannelInputAttachmentInputSettingsCaptionSelectorArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    Name of the Channel.
-
-    The following arguments are optional:
+    Name of the caption selector.
     """
     language_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When specified, indicates the three-letter language code of the caption track to extract from the source.
+    """
     selector_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgsDict']]]
+    """
+    Caption selector settings. See `caption_selector.selector_settings` Block for details.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
@@ -12819,9 +14832,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  selector_settings: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the Channel.
-               
-               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] name: Name of the caption selector.
+        :param pulumi.Input[_builtins.str] language_code: When specified, indicates the three-letter language code of the caption track to extract from the source.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs'] selector_settings: Caption selector settings. See `caption_selector.selector_settings` Block for details.
         """
         pulumi.set(__self__, "name", name)
         if language_code is not None:
@@ -12833,9 +14846,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the Channel.
-
-        The following arguments are optional:
+        Name of the caption selector.
         """
         return pulumi.get(self, "name")
 
@@ -12846,6 +14857,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When specified, indicates the three-letter language code of the caption track to extract from the source.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -12855,6 +14869,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="selectorSettings")
     def selector_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']]:
+        """
+        Caption selector settings. See `caption_selector.selector_settings` Block for details.
+        """
         return pulumi.get(self, "selector_settings")
 
     @selector_settings.setter
@@ -12865,31 +14882,31 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgsDict(TypedDict):
     ancillary_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgsDict']]]
     """
-    Ancillary Source Settings. See Ancillary Source Settings for more details.
+    Ancillary source settings. See `ancillary_source_settings` Block for details.
     """
     arib_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgsDict']]]
     """
-    ARIB Source Settings.
+    ARIB source settings. Can be set as an empty block.
     """
     dvb_sub_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgsDict']]]
     """
-    DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+    DVB Sub source settings. See `dvb_sub_source_settings` Block for details.
     """
     embedded_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgsDict']]]
     """
-    Embedded Source Settings. See Embedded Source Settings for more details.
+    Embedded source settings. See `embedded_source_settings` Block for details.
     """
     scte20_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgsDict']]]
     """
-    SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+    SCTE-20 source settings. See `scte20_source_settings` Block for details.
     """
     scte27_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgsDict']]]
     """
-    SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+    SCTE-27 source settings. See `scte27_source_settings` Block for details.
     """
     teletext_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgsDict']]]
     """
-    Teletext Source Settings. See Teletext Source Settings for more details.
+    Teletext source settings. See `teletext_source_settings` Block for details.
     """
 
 @pulumi.input_type
@@ -12903,13 +14920,13 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
                  scte27_source_settings: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']] = None,
                  teletext_source_settings: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs'] ancillary_source_settings: Ancillary Source Settings. See Ancillary Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs'] arib_source_settings: ARIB Source Settings.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs'] dvb_sub_source_settings: DVB Sub Source Settings. See DVB Sub Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs'] embedded_source_settings: Embedded Source Settings. See Embedded Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs'] scte20_source_settings: SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs'] scte27_source_settings: SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs'] teletext_source_settings: Teletext Source Settings. See Teletext Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs'] ancillary_source_settings: Ancillary source settings. See `ancillary_source_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs'] arib_source_settings: ARIB source settings. Can be set as an empty block.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs'] dvb_sub_source_settings: DVB Sub source settings. See `dvb_sub_source_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs'] embedded_source_settings: Embedded source settings. See `embedded_source_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs'] scte20_source_settings: SCTE-20 source settings. See `scte20_source_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs'] scte27_source_settings: SCTE-27 source settings. See `scte27_source_settings` Block for details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs'] teletext_source_settings: Teletext source settings. See `teletext_source_settings` Block for details.
         """
         if ancillary_source_settings is not None:
             pulumi.set(__self__, "ancillary_source_settings", ancillary_source_settings)
@@ -12930,7 +14947,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @pulumi.getter(name="ancillarySourceSettings")
     def ancillary_source_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs']]:
         """
-        Ancillary Source Settings. See Ancillary Source Settings for more details.
+        Ancillary source settings. See `ancillary_source_settings` Block for details.
         """
         return pulumi.get(self, "ancillary_source_settings")
 
@@ -12942,7 +14959,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @pulumi.getter(name="aribSourceSettings")
     def arib_source_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']]:
         """
-        ARIB Source Settings.
+        ARIB source settings. Can be set as an empty block.
         """
         return pulumi.get(self, "arib_source_settings")
 
@@ -12954,7 +14971,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @pulumi.getter(name="dvbSubSourceSettings")
     def dvb_sub_source_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']]:
         """
-        DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        DVB Sub source settings. See `dvb_sub_source_settings` Block for details.
         """
         return pulumi.get(self, "dvb_sub_source_settings")
 
@@ -12966,7 +14983,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @pulumi.getter(name="embeddedSourceSettings")
     def embedded_source_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs']]:
         """
-        Embedded Source Settings. See Embedded Source Settings for more details.
+        Embedded source settings. See `embedded_source_settings` Block for details.
         """
         return pulumi.get(self, "embedded_source_settings")
 
@@ -12978,7 +14995,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @pulumi.getter(name="scte20SourceSettings")
     def scte20_source_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs']]:
         """
-        SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        SCTE-20 source settings. See `scte20_source_settings` Block for details.
         """
         return pulumi.get(self, "scte20_source_settings")
 
@@ -12990,7 +15007,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @pulumi.getter(name="scte27SourceSettings")
     def scte27_source_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']]:
         """
-        SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        SCTE-27 source settings. See `scte27_source_settings` Block for details.
         """
         return pulumi.get(self, "scte27_source_settings")
 
@@ -13002,7 +15019,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @pulumi.getter(name="teletextSourceSettings")
     def teletext_source_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']]:
         """
-        Teletext Source Settings. See Teletext Source Settings for more details.
+        Teletext source settings. See `teletext_source_settings` Block for details.
         """
         return pulumi.get(self, "teletext_source_settings")
 
@@ -13014,7 +15031,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgsDict(TypedDict):
     source_ancillary_channel_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+    Captions channel, from 1 to 4, to extract from the ancillary captions. Complete this field if you plan to convert the ancillary captions to another format. Leave blank if you plan to choose Embedded as the captions destination in the output, because MediaLive ignores the field.
     """
 
 @pulumi.input_type
@@ -13022,7 +15039,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillar
     def __init__(__self__, *,
                  source_ancillary_channel_number: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] source_ancillary_channel_number: Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+        :param pulumi.Input[_builtins.int] source_ancillary_channel_number: Captions channel, from 1 to 4, to extract from the ancillary captions. Complete this field if you plan to convert the ancillary captions to another format. Leave blank if you plan to choose Embedded as the captions destination in the output, because MediaLive ignores the field.
         """
         if source_ancillary_channel_number is not None:
             pulumi.set(__self__, "source_ancillary_channel_number", source_ancillary_channel_number)
@@ -13031,7 +15048,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillar
     @pulumi.getter(name="sourceAncillaryChannelNumber")
     def source_ancillary_channel_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+        Captions channel, from 1 to 4, to extract from the ancillary captions. Complete this field if you plan to convert the ancillary captions to another format. Leave blank if you plan to choose Embedded as the captions destination in the output, because MediaLive ignores the field.
         """
         return pulumi.get(self, "source_ancillary_channel_number")
 
@@ -13052,11 +15069,11 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSour
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgsDict(TypedDict):
     ocr_language: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+    Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
     """
     pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+    PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
     """
 
 @pulumi.input_type
@@ -13065,8 +15082,8 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSo
                  ocr_language: pulumi.Input[Optional[_builtins.str]] = None,
                  pid: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] ocr_language: If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-        :param pulumi.Input[_builtins.int] pid: When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+        :param pulumi.Input[_builtins.str] ocr_language: Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+        :param pulumi.Input[_builtins.int] pid: PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
         """
         if ocr_language is not None:
             pulumi.set(__self__, "ocr_language", ocr_language)
@@ -13077,7 +15094,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSo
     @pulumi.getter(name="ocrLanguage")
     def ocr_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+        Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
         """
         return pulumi.get(self, "ocr_language")
 
@@ -13089,7 +15106,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSo
     @pulumi.getter
     def pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+        PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
         """
         return pulumi.get(self, "pid")
 
@@ -13101,15 +15118,15 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSo
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgsDict(TypedDict):
     convert608_to708: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+    When set to `upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
     """
     scte20_detection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+    Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
     """
     source608_channel_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+    608/708 channel number within the video track from which to extract captions. Unused for passthrough.
     """
 
 @pulumi.input_type
@@ -13119,9 +15136,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
                  scte20_detection: pulumi.Input[Optional[_builtins.str]] = None,
                  source608_channel_number: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] convert608_to708: If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-        :param pulumi.Input[_builtins.str] scte20_detection: Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
-        :param pulumi.Input[_builtins.int] source608_channel_number: Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        :param pulumi.Input[_builtins.str] convert608_to708: When set to `upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
+        :param pulumi.Input[_builtins.str] scte20_detection: Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
+        :param pulumi.Input[_builtins.int] source608_channel_number: 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
         """
         if convert608_to708 is not None:
             pulumi.set(__self__, "convert608_to708", convert608_to708)
@@ -13134,7 +15151,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
     @pulumi.getter(name="convert608To708")
     def convert608_to708(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+        When set to `upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
         """
         return pulumi.get(self, "convert608_to708")
 
@@ -13146,7 +15163,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
     @pulumi.getter(name="scte20Detection")
     def scte20_detection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+        Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
         """
         return pulumi.get(self, "scte20_detection")
 
@@ -13158,7 +15175,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
     @pulumi.getter(name="source608ChannelNumber")
     def source608_channel_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        608/708 channel number within the video track from which to extract captions. Unused for passthrough.
         """
         return pulumi.get(self, "source608_channel_number")
 
@@ -13169,13 +15186,23 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
 
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgsDict(TypedDict):
     convert608_to708: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When set to `upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
+    """
     source608_channel_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs:
     def __init__(__self__, *,
                  convert608_to708: pulumi.Input[Optional[_builtins.str]] = None,
                  source608_channel_number: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] convert608_to708: When set to `upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
+        :param pulumi.Input[_builtins.int] source608_channel_number: 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        """
         if convert608_to708 is not None:
             pulumi.set(__self__, "convert608_to708", convert608_to708)
         if source608_channel_number is not None:
@@ -13184,6 +15211,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
     @_builtins.property
     @pulumi.getter(name="convert608To708")
     def convert608_to708(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When set to `upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
+        """
         return pulumi.get(self, "convert608_to708")
 
     @convert608_to708.setter
@@ -13193,6 +15223,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
     @_builtins.property
     @pulumi.getter(name="source608ChannelNumber")
     def source608_channel_number(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        """
         return pulumi.get(self, "source608_channel_number")
 
     @source608_channel_number.setter
@@ -13202,13 +15235,23 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
 
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgsDict(TypedDict):
     ocr_language: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+    """
     pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    PID field used with the caption selector `language_code` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs:
     def __init__(__self__, *,
                  ocr_language: pulumi.Input[Optional[_builtins.str]] = None,
                  pid: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] ocr_language: Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+        :param pulumi.Input[_builtins.int] pid: PID field used with the caption selector `language_code` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+        """
         if ocr_language is not None:
             pulumi.set(__self__, "ocr_language", ocr_language)
         if pid is not None:
@@ -13217,6 +15260,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
     @_builtins.property
     @pulumi.getter(name="ocrLanguage")
     def ocr_language(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+        """
         return pulumi.get(self, "ocr_language")
 
     @ocr_language.setter
@@ -13226,6 +15272,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
     @_builtins.property
     @pulumi.getter
     def pid(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        PID field used with the caption selector `language_code` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+        """
         return pulumi.get(self, "pid")
 
     @pid.setter
@@ -13236,11 +15285,11 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgsDict(TypedDict):
     output_rectangle: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgsDict']]]
     """
-    Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+    Region where TTML style captions are displayed. See `output_rectangle` Block for details.
     """
     page_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+    Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
     """
 
 @pulumi.input_type
@@ -13249,8 +15298,8 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
                  output_rectangle: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']] = None,
                  page_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs'] output_rectangle: Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
-        :param pulumi.Input[_builtins.str] page_number: Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs'] output_rectangle: Region where TTML style captions are displayed. See `output_rectangle` Block for details.
+        :param pulumi.Input[_builtins.str] page_number: Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
         """
         if output_rectangle is not None:
             pulumi.set(__self__, "output_rectangle", output_rectangle)
@@ -13261,7 +15310,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @pulumi.getter(name="outputRectangle")
     def output_rectangle(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']]:
         """
-        Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+        Region where TTML style captions are displayed. See `output_rectangle` Block for details.
         """
         return pulumi.get(self, "output_rectangle")
 
@@ -13273,7 +15322,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @pulumi.getter(name="pageNumber")
     def page_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+        Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
         """
         return pulumi.get(self, "page_number")
 
@@ -13284,15 +15333,21 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgsDict(TypedDict):
     height: pulumi.Input[_builtins.float]
+    """
+    Height of the rectangle as a percentage of the underlying frame height. The `top_offset` and rectangle height must add up to 100% or less. This field corresponds to `tts:extent` - Y in the TTML standard.
+    """
     left_offset: pulumi.Input[_builtins.float]
     """
-    Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+    Position of the left edge of the rectangle as a percentage of the underlying frame width, relative to the left edge of the frame. Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. You can define a display rectangle smaller than the underlying video frame; if you specify a value for one of the offset or dimension fields, you must specify a value for all of them. This field corresponds to `tts:origin` - X in the TTML standard.
     """
     top_offset: pulumi.Input[_builtins.float]
     """
-    See the description in left\\_offset. For top\\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+    Position of the top edge of the rectangle as a percentage of the underlying frame height, relative to the top edge of the frame. This field corresponds to `tts:origin` - Y in the TTML standard.
     """
     width: pulumi.Input[_builtins.float]
+    """
+    Width of the rectangle as a percentage of the underlying frame width. The `left_offset` and rectangle width must add up to 100% or less. This field corresponds to `tts:extent` - X in the TTML standard.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs:
@@ -13302,8 +15357,10 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
                  top_offset: pulumi.Input[_builtins.float],
                  width: pulumi.Input[_builtins.float]):
         """
-        :param pulumi.Input[_builtins.float] left_offset: Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
-        :param pulumi.Input[_builtins.float] top_offset: See the description in left\\_offset. For top\\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+        :param pulumi.Input[_builtins.float] height: Height of the rectangle as a percentage of the underlying frame height. The `top_offset` and rectangle height must add up to 100% or less. This field corresponds to `tts:extent` - Y in the TTML standard.
+        :param pulumi.Input[_builtins.float] left_offset: Position of the left edge of the rectangle as a percentage of the underlying frame width, relative to the left edge of the frame. Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. You can define a display rectangle smaller than the underlying video frame; if you specify a value for one of the offset or dimension fields, you must specify a value for all of them. This field corresponds to `tts:origin` - X in the TTML standard.
+        :param pulumi.Input[_builtins.float] top_offset: Position of the top edge of the rectangle as a percentage of the underlying frame height, relative to the top edge of the frame. This field corresponds to `tts:origin` - Y in the TTML standard.
+        :param pulumi.Input[_builtins.float] width: Width of the rectangle as a percentage of the underlying frame width. The `left_offset` and rectangle width must add up to 100% or less. This field corresponds to `tts:extent` - X in the TTML standard.
         """
         pulumi.set(__self__, "height", height)
         pulumi.set(__self__, "left_offset", left_offset)
@@ -13313,6 +15370,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @_builtins.property
     @pulumi.getter
     def height(self) -> pulumi.Input[_builtins.float]:
+        """
+        Height of the rectangle as a percentage of the underlying frame height. The `top_offset` and rectangle height must add up to 100% or less. This field corresponds to `tts:extent` - Y in the TTML standard.
+        """
         return pulumi.get(self, "height")
 
     @height.setter
@@ -13323,7 +15383,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @pulumi.getter(name="leftOffset")
     def left_offset(self) -> pulumi.Input[_builtins.float]:
         """
-        Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+        Position of the left edge of the rectangle as a percentage of the underlying frame width, relative to the left edge of the frame. Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. You can define a display rectangle smaller than the underlying video frame; if you specify a value for one of the offset or dimension fields, you must specify a value for all of them. This field corresponds to `tts:origin` - X in the TTML standard.
         """
         return pulumi.get(self, "left_offset")
 
@@ -13335,7 +15395,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @pulumi.getter(name="topOffset")
     def top_offset(self) -> pulumi.Input[_builtins.float]:
         """
-        See the description in left\\_offset. For top\\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+        Position of the top edge of the rectangle as a percentage of the underlying frame height, relative to the top edge of the frame. This field corresponds to `tts:origin` - Y in the TTML standard.
         """
         return pulumi.get(self, "top_offset")
 
@@ -13346,6 +15406,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @_builtins.property
     @pulumi.getter
     def width(self) -> pulumi.Input[_builtins.float]:
+        """
+        Width of the rectangle as a percentage of the underlying frame width. The `left_offset` and rectangle width must add up to 100% or less. This field corresponds to `tts:extent` - X in the TTML standard.
+        """
         return pulumi.get(self, "width")
 
     @width.setter
@@ -13356,7 +15419,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgsDict(TypedDict):
     hls_input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgsDict']]]
     """
-    Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+    HLS input settings when the URI is for an HLS manifest. See `hls_input_settings` Block for details.
     """
     server_validation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -13369,7 +15432,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs:
                  hls_input_settings: pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']] = None,
                  server_validation: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs'] hls_input_settings: Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs'] hls_input_settings: HLS input settings when the URI is for an HLS manifest. See `hls_input_settings` Block for details.
         :param pulumi.Input[_builtins.str] server_validation: Check HTTPS server certificates.
         """
         if hls_input_settings is not None:
@@ -13381,7 +15444,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs:
     @pulumi.getter(name="hlsInputSettings")
     def hls_input_settings(self) -> pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']]:
         """
-        Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        HLS input settings when the URI is for an HLS manifest. See `hls_input_settings` Block for details.
         """
         return pulumi.get(self, "hls_input_settings")
 
@@ -13405,7 +15468,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs:
 class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgsDict(TypedDict):
     bandwidth: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The bitrate is specified in bits per second, as in an HLS manifest.
+    Bitrate, in bits per second, as in an HLS manifest.
     """
     buffer_segments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -13413,13 +15476,16 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
     """
     retries: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+    Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
     """
     retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of seconds between retries when an attempt to read a manifest or segment fails.
+    Number of seconds between retries when an attempt to read a manifest or segment fails.
     """
     scte35_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Source for the SCTE-35 messages that MediaLive ingests.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs:
@@ -13430,10 +15496,11 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
                  retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  scte35_source: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] bandwidth: The bitrate is specified in bits per second, as in an HLS manifest.
+        :param pulumi.Input[_builtins.int] bandwidth: Bitrate, in bits per second, as in an HLS manifest.
         :param pulumi.Input[_builtins.int] buffer_segments: Buffer segments.
-        :param pulumi.Input[_builtins.int] retries: The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-        :param pulumi.Input[_builtins.int] retry_interval: The number of seconds between retries when an attempt to read a manifest or segment fails.
+        :param pulumi.Input[_builtins.int] retries: Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        :param pulumi.Input[_builtins.int] retry_interval: Number of seconds between retries when an attempt to read a manifest or segment fails.
+        :param pulumi.Input[_builtins.str] scte35_source: Source for the SCTE-35 messages that MediaLive ingests.
         """
         if bandwidth is not None:
             pulumi.set(__self__, "bandwidth", bandwidth)
@@ -13450,7 +15517,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
     @pulumi.getter
     def bandwidth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The bitrate is specified in bits per second, as in an HLS manifest.
+        Bitrate, in bits per second, as in an HLS manifest.
         """
         return pulumi.get(self, "bandwidth")
 
@@ -13474,7 +15541,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
     @pulumi.getter
     def retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
         """
         return pulumi.get(self, "retries")
 
@@ -13486,7 +15553,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
     @pulumi.getter(name="retryInterval")
     def retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of seconds between retries when an attempt to read a manifest or segment fails.
+        Number of seconds between retries when an attempt to read a manifest or segment fails.
         """
         return pulumi.get(self, "retry_interval")
 
@@ -13497,6 +15564,9 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
     @_builtins.property
     @pulumi.getter(name="scte35Source")
     def scte35_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source for the SCTE-35 messages that MediaLive ingests.
+        """
         return pulumi.get(self, "scte35_source")
 
     @scte35_source.setter
@@ -13506,13 +15576,23 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
 
 class ChannelInputAttachmentInputSettingsVideoSelectorArgsDict(TypedDict):
     color_space: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Color space of the input.
+    """
     color_space_usage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How MediaLive applies the color space metadata from the input.
+    """
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsVideoSelectorArgs:
     def __init__(__self__, *,
                  color_space: pulumi.Input[Optional[_builtins.str]] = None,
                  color_space_usage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] color_space: Color space of the input.
+        :param pulumi.Input[_builtins.str] color_space_usage: How MediaLive applies the color space metadata from the input.
+        """
         if color_space is not None:
             pulumi.set(__self__, "color_space", color_space)
         if color_space_usage is not None:
@@ -13521,6 +15601,9 @@ class ChannelInputAttachmentInputSettingsVideoSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="colorSpace")
     def color_space(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Color space of the input.
+        """
         return pulumi.get(self, "color_space")
 
     @color_space.setter
@@ -13530,6 +15613,9 @@ class ChannelInputAttachmentInputSettingsVideoSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="colorSpaceUsage")
     def color_space_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How MediaLive applies the color space metadata from the input.
+        """
         return pulumi.get(self, "color_space_usage")
 
     @color_space_usage.setter
@@ -13539,8 +15625,17 @@ class ChannelInputAttachmentInputSettingsVideoSelectorArgs:
 
 class ChannelInputSpecificationArgsDict(TypedDict):
     codec: pulumi.Input[_builtins.str]
+    """
+    Codec to use for the input.
+    """
     input_resolution: pulumi.Input[_builtins.str]
+    """
+    Maximum input resolution.
+    """
     maximum_bitrate: pulumi.Input[_builtins.str]
+    """
+    Maximum input bitrate for an input.
+    """
 
 @pulumi.input_type
 class ChannelInputSpecificationArgs:
@@ -13548,6 +15643,11 @@ class ChannelInputSpecificationArgs:
                  codec: pulumi.Input[_builtins.str],
                  input_resolution: pulumi.Input[_builtins.str],
                  maximum_bitrate: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] codec: Codec to use for the input.
+        :param pulumi.Input[_builtins.str] input_resolution: Maximum input resolution.
+        :param pulumi.Input[_builtins.str] maximum_bitrate: Maximum input bitrate for an input.
+        """
         pulumi.set(__self__, "codec", codec)
         pulumi.set(__self__, "input_resolution", input_resolution)
         pulumi.set(__self__, "maximum_bitrate", maximum_bitrate)
@@ -13555,6 +15655,9 @@ class ChannelInputSpecificationArgs:
     @_builtins.property
     @pulumi.getter
     def codec(self) -> pulumi.Input[_builtins.str]:
+        """
+        Codec to use for the input.
+        """
         return pulumi.get(self, "codec")
 
     @codec.setter
@@ -13564,6 +15667,9 @@ class ChannelInputSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="inputResolution")
     def input_resolution(self) -> pulumi.Input[_builtins.str]:
+        """
+        Maximum input resolution.
+        """
         return pulumi.get(self, "input_resolution")
 
     @input_resolution.setter
@@ -13573,6 +15679,9 @@ class ChannelInputSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="maximumBitrate")
     def maximum_bitrate(self) -> pulumi.Input[_builtins.str]:
+        """
+        Maximum input bitrate for an input.
+        """
         return pulumi.get(self, "maximum_bitrate")
 
     @maximum_bitrate.setter
@@ -13583,11 +15692,11 @@ class ChannelInputSpecificationArgs:
 class ChannelMaintenanceArgsDict(TypedDict):
     maintenance_day: pulumi.Input[_builtins.str]
     """
-    The day of the week to use for maintenance.
+    Day of the week to use for maintenance.
     """
     maintenance_start_time: pulumi.Input[_builtins.str]
     """
-    The hour maintenance will start.
+    Hour maintenance will start.
     """
 
 @pulumi.input_type
@@ -13596,8 +15705,8 @@ class ChannelMaintenanceArgs:
                  maintenance_day: pulumi.Input[_builtins.str],
                  maintenance_start_time: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] maintenance_day: The day of the week to use for maintenance.
-        :param pulumi.Input[_builtins.str] maintenance_start_time: The hour maintenance will start.
+        :param pulumi.Input[_builtins.str] maintenance_day: Day of the week to use for maintenance.
+        :param pulumi.Input[_builtins.str] maintenance_start_time: Hour maintenance will start.
         """
         pulumi.set(__self__, "maintenance_day", maintenance_day)
         pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
@@ -13606,7 +15715,7 @@ class ChannelMaintenanceArgs:
     @pulumi.getter(name="maintenanceDay")
     def maintenance_day(self) -> pulumi.Input[_builtins.str]:
         """
-        The day of the week to use for maintenance.
+        Day of the week to use for maintenance.
         """
         return pulumi.get(self, "maintenance_day")
 
@@ -13618,7 +15727,7 @@ class ChannelMaintenanceArgs:
     @pulumi.getter(name="maintenanceStartTime")
     def maintenance_start_time(self) -> pulumi.Input[_builtins.str]:
         """
-        The hour maintenance will start.
+        Hour maintenance will start.
         """
         return pulumi.get(self, "maintenance_start_time")
 
@@ -13630,17 +15739,17 @@ class ChannelMaintenanceArgs:
 class ChannelVpcArgsDict(TypedDict):
     public_address_allocation_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+    List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
     """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+    List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
     """
     availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     network_interface_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+    List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
     """
 
 @pulumi.input_type
@@ -13652,9 +15761,9 @@ class ChannelVpcArgs:
                  network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] public_address_allocation_ids: List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] public_address_allocation_ids: List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
         """
         pulumi.set(__self__, "public_address_allocation_ids", public_address_allocation_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -13669,7 +15778,7 @@ class ChannelVpcArgs:
     @pulumi.getter(name="publicAddressAllocationIds")
     def public_address_allocation_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+        List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
         """
         return pulumi.get(self, "public_address_allocation_ids")
 
@@ -13681,7 +15790,7 @@ class ChannelVpcArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+        List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -13711,7 +15820,7 @@ class ChannelVpcArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+        List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -13723,7 +15832,7 @@ class ChannelVpcArgs:
 class InputDestinationArgsDict(TypedDict):
     stream_name: pulumi.Input[_builtins.str]
     """
-    A unique name for the location the RTMP stream is being pushed to.
+    Unique name for the location the RTMP stream is being pushed to.
     """
 
 @pulumi.input_type
@@ -13731,7 +15840,7 @@ class InputDestinationArgs:
     def __init__(__self__, *,
                  stream_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] stream_name: A unique name for the location the RTMP stream is being pushed to.
+        :param pulumi.Input[_builtins.str] stream_name: Unique name for the location the RTMP stream is being pushed to.
         """
         pulumi.set(__self__, "stream_name", stream_name)
 
@@ -13739,7 +15848,7 @@ class InputDestinationArgs:
     @pulumi.getter(name="streamName")
     def stream_name(self) -> pulumi.Input[_builtins.str]:
         """
-        A unique name for the location the RTMP stream is being pushed to.
+        Unique name for the location the RTMP stream is being pushed to.
         """
         return pulumi.get(self, "stream_name")
 
@@ -13751,7 +15860,7 @@ class InputDestinationArgs:
 class InputInputDeviceArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
     """
-    The unique ID for the device.
+    Unique ID for the device.
     """
 
 @pulumi.input_type
@@ -13759,7 +15868,7 @@ class InputInputDeviceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] id: The unique ID for the device.
+        :param pulumi.Input[_builtins.str] id: Unique ID for the device.
         """
         pulumi.set(__self__, "id", id)
 
@@ -13767,7 +15876,7 @@ class InputInputDeviceArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique ID for the device.
+        Unique ID for the device.
         """
         return pulumi.get(self, "id")
 
@@ -13779,7 +15888,7 @@ class InputInputDeviceArgs:
 class InputMediaConnectFlowArgsDict(TypedDict):
     flow_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the MediaConnect Flow
+    ARN of the MediaConnect Flow.
     """
 
 @pulumi.input_type
@@ -13787,7 +15896,7 @@ class InputMediaConnectFlowArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] flow_arn: The ARN of the MediaConnect Flow
+        :param pulumi.Input[_builtins.str] flow_arn: ARN of the MediaConnect Flow.
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
 
@@ -13795,7 +15904,7 @@ class InputMediaConnectFlowArgs:
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the MediaConnect Flow
+        ARN of the MediaConnect Flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -13807,7 +15916,7 @@ class InputMediaConnectFlowArgs:
 class InputSecurityGroupWhitelistRuleArgsDict(TypedDict):
     cidr: pulumi.Input[_builtins.str]
     """
-    The IPv4 CIDR that's whitelisted.
+    IPv4 CIDR that's whitelisted.
     """
 
 @pulumi.input_type
@@ -13815,7 +15924,7 @@ class InputSecurityGroupWhitelistRuleArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] cidr: The IPv4 CIDR that's whitelisted.
+        :param pulumi.Input[_builtins.str] cidr: IPv4 CIDR that's whitelisted.
         """
         pulumi.set(__self__, "cidr", cidr)
 
@@ -13823,7 +15932,7 @@ class InputSecurityGroupWhitelistRuleArgs:
     @pulumi.getter
     def cidr(self) -> pulumi.Input[_builtins.str]:
         """
-        The IPv4 CIDR that's whitelisted.
+        IPv4 CIDR that's whitelisted.
         """
         return pulumi.get(self, "cidr")
 
@@ -13835,15 +15944,15 @@ class InputSecurityGroupWhitelistRuleArgs:
 class InputSourceArgsDict(TypedDict):
     password_param: pulumi.Input[_builtins.str]
     """
-    The key used to extract the password from EC2 Parameter store.
+    Key used to extract the password from EC2 Parameter store.
     """
     url: pulumi.Input[_builtins.str]
     """
-    The URL where the stream is pulled from.
+    URL where the stream is pulled from.
     """
     username: pulumi.Input[_builtins.str]
     """
-    The username for the input source.
+    Username for the input source.
     """
 
 @pulumi.input_type
@@ -13853,9 +15962,9 @@ class InputSourceArgs:
                  url: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] password_param: The key used to extract the password from EC2 Parameter store.
-        :param pulumi.Input[_builtins.str] url: The URL where the stream is pulled from.
-        :param pulumi.Input[_builtins.str] username: The username for the input source.
+        :param pulumi.Input[_builtins.str] password_param: Key used to extract the password from EC2 Parameter store.
+        :param pulumi.Input[_builtins.str] url: URL where the stream is pulled from.
+        :param pulumi.Input[_builtins.str] username: Username for the input source.
         """
         pulumi.set(__self__, "password_param", password_param)
         pulumi.set(__self__, "url", url)
@@ -13865,7 +15974,7 @@ class InputSourceArgs:
     @pulumi.getter(name="passwordParam")
     def password_param(self) -> pulumi.Input[_builtins.str]:
         """
-        The key used to extract the password from EC2 Parameter store.
+        Key used to extract the password from EC2 Parameter store.
         """
         return pulumi.get(self, "password_param")
 
@@ -13877,7 +15986,7 @@ class InputSourceArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[_builtins.str]:
         """
-        The URL where the stream is pulled from.
+        URL where the stream is pulled from.
         """
         return pulumi.get(self, "url")
 
@@ -13889,7 +15998,7 @@ class InputSourceArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
         """
-        The username for the input source.
+        Username for the input source.
         """
         return pulumi.get(self, "username")
 
@@ -13901,11 +16010,11 @@ class InputSourceArgs:
 class InputVpcArgsDict(TypedDict):
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    A list of 2 VPC subnet IDs from the same VPC.
+    List of 2 VPC subnet IDs from the same VPC.
     """
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+    List of up to 5 EC2 VPC security group IDs to attach to the Input.
     """
 
 @pulumi.input_type
@@ -13914,8 +16023,8 @@ class InputVpcArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of 2 VPC subnet IDs from the same VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of 2 VPC subnet IDs from the same VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of up to 5 EC2 VPC security group IDs to attach to the Input.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
@@ -13925,7 +16034,7 @@ class InputVpcArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of 2 VPC subnet IDs from the same VPC.
+        List of 2 VPC subnet IDs from the same VPC.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -13937,7 +16046,7 @@ class InputVpcArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+        List of up to 5 EC2 VPC security group IDs to attach to the Input.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -14044,11 +16153,11 @@ class MultiplexProgramMultiplexProgramSettingsArgsDict(TypedDict):
     """
     service_descriptor: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgsDict']]]
     """
-    Service Descriptor. See Service Descriptor for more details.
+    Service Descriptor. See `service_descriptor` Block for more details.
     """
     video_settings: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgsDict']]]
     """
-    Video settings. See Video Settings for more details.
+    Video settings. See `video_settings` Block for more details.
     """
 
 @pulumi.input_type
@@ -14061,8 +16170,8 @@ class MultiplexProgramMultiplexProgramSettingsArgs:
         """
         :param pulumi.Input[_builtins.str] preferred_channel_pipeline: Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
         :param pulumi.Input[_builtins.int] program_number: Unique program number.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs'] service_descriptor: Service Descriptor. See Service Descriptor for more details.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs'] video_settings: Video settings. See Video Settings for more details.
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs'] service_descriptor: Service Descriptor. See `service_descriptor` Block for more details.
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs'] video_settings: Video settings. See `video_settings` Block for more details.
         """
         pulumi.set(__self__, "preferred_channel_pipeline", preferred_channel_pipeline)
         pulumi.set(__self__, "program_number", program_number)
@@ -14099,7 +16208,7 @@ class MultiplexProgramMultiplexProgramSettingsArgs:
     @pulumi.getter(name="serviceDescriptor")
     def service_descriptor(self) -> pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]:
         """
-        Service Descriptor. See Service Descriptor for more details.
+        Service Descriptor. See `service_descriptor` Block for more details.
         """
         return pulumi.get(self, "service_descriptor")
 
@@ -14111,7 +16220,7 @@ class MultiplexProgramMultiplexProgramSettingsArgs:
     @pulumi.getter(name="videoSettings")
     def video_settings(self) -> pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs']]:
         """
-        Video settings. See Video Settings for more details.
+        Video settings. See `video_settings` Block for more details.
         """
         return pulumi.get(self, "video_settings")
 
@@ -14174,7 +16283,7 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgsDict(TypedDict):
     """
     statmux_settings: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgsDict']]]
     """
-    Statmux settings. See Statmux Settings for more details.
+    Statmux settings. See `statmux_settings` Block for more details.
     """
 
 @pulumi.input_type
@@ -14184,7 +16293,7 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs:
                  statmux_settings: pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] constant_bitrate: Constant bitrate value.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs'] statmux_settings: Statmux settings. See Statmux Settings for more details.
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs'] statmux_settings: Statmux settings. See `statmux_settings` Block for more details.
         """
         if constant_bitrate is not None:
             pulumi.set(__self__, "constant_bitrate", constant_bitrate)
@@ -14207,7 +16316,7 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs:
     @pulumi.getter(name="statmuxSettings")
     def statmux_settings(self) -> pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs']]:
         """
-        Statmux settings. See Statmux Settings for more details.
+        Statmux settings. See `statmux_settings` Block for more details.
         """
         return pulumi.get(self, "statmux_settings")
 

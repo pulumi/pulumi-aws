@@ -15,14 +15,14 @@ public final class ServerlessClusterClientAuthenticationArgs extends com.pulumi.
     public static final ServerlessClusterClientAuthenticationArgs Empty = new ServerlessClusterClientAuthenticationArgs();
 
     /**
-     * Details for client authentication using SASL. See below.
+     * Details for client authentication using SASL. See `sasl` Block below.
      * 
      */
     @Import(name="sasl", required=true)
     private Output<ServerlessClusterClientAuthenticationSaslArgs> sasl;
 
     /**
-     * @return Details for client authentication using SASL. See below.
+     * @return Details for client authentication using SASL. See `sasl` Block below.
      * 
      */
     public Output<ServerlessClusterClientAuthenticationSaslArgs> sasl() {
@@ -54,7 +54,7 @@ public final class ServerlessClusterClientAuthenticationArgs extends com.pulumi.
         }
 
         /**
-         * @param sasl Details for client authentication using SASL. See below.
+         * @param sasl Details for client authentication using SASL. See `sasl` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ServerlessClusterClientAuthenticationArgs extends com.pulumi.
         }
 
         /**
-         * @param sasl Details for client authentication using SASL. See below.
+         * @param sasl Details for client authentication using SASL. See `sasl` Block below.
          * 
          * @return builder
          * 

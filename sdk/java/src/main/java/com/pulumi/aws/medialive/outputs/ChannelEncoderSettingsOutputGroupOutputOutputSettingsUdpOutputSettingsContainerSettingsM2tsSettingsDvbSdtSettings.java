@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings {
+    /**
+     * @return Service Description Table output behavior.
+     * 
+     */
     private @Nullable String outputSdt;
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     private @Nullable Integer repInterval;
+    /**
+     * @return Service name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     private @Nullable String serviceName;
+    /**
+     * @return Service provider name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     private @Nullable String serviceProviderName;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings() {}
+    /**
+     * @return Service Description Table output behavior.
+     * 
+     */
     public Optional<String> outputSdt() {
         return Optional.ofNullable(this.outputSdt);
     }
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Integer> repInterval() {
         return Optional.ofNullable(this.repInterval);
     }
+    /**
+     * @return Service name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     public Optional<String> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
+    /**
+     * @return Service provider name placed in the `serviceDescriptor` in the Service Description Table.
+     * 
+     */
     public Optional<String> serviceProviderName() {
         return Optional.ofNullable(this.serviceProviderName);
     }

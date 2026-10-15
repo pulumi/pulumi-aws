@@ -33,14 +33,14 @@ public final class AgentAgentKnowledgeBaseAssociationArgs extends com.pulumi.res
     }
 
     /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
      * 
      */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
     /**
-     * @return Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+     * @return Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
      * 
      */
     public Optional<Output<String>> agentVersion() {
@@ -170,7 +170,7 @@ public final class AgentAgentKnowledgeBaseAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class AgentAgentKnowledgeBaseAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
          * 
          * @return builder
          * 

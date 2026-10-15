@@ -577,6 +577,8 @@ class CustomPermissionsCapabilities(dict):
         suggest = None
         if key == "addOrRunAnomalyDetectionForAnalyses":
             suggest = "add_or_run_anomaly_detection_for_analyses"
+        elif key == "chatAgent":
+            suggest = "chat_agent"
         elif key == "createAndUpdateDashboardEmailReports":
             suggest = "create_and_update_dashboard_email_reports"
         elif key == "createAndUpdateDataSources":
@@ -587,6 +589,8 @@ class CustomPermissionsCapabilities(dict):
             suggest = "create_and_update_themes"
         elif key == "createAndUpdateThresholdAlerts":
             suggest = "create_and_update_threshold_alerts"
+        elif key == "createChatAgents":
+            suggest = "create_chat_agents"
         elif key == "createSharedFolders":
             suggest = "create_shared_folders"
         elif key == "createSpiceDataset":
@@ -605,8 +609,14 @@ class CustomPermissionsCapabilities(dict):
             suggest = "export_to_pdf_in_scheduled_reports"
         elif key == "includeContentInScheduledReportsEmail":
             suggest = "include_content_in_scheduled_reports_email"
+        elif key == "knowledgeBase":
+            suggest = "knowledge_base"
+        elif key == "performFlowUiTask":
+            suggest = "perform_flow_ui_task"
         elif key == "printReports":
             suggest = "print_reports"
+        elif key == "publishWithoutApproval":
+            suggest = "publish_without_approval"
         elif key == "renameSharedFolders":
             suggest = "rename_shared_folders"
         elif key == "shareAnalyses":
@@ -619,6 +629,10 @@ class CustomPermissionsCapabilities(dict):
             suggest = "share_datasets"
         elif key == "subscribeDashboardEmailReports":
             suggest = "subscribe_dashboard_email_reports"
+        elif key == "useAgentWebSearch":
+            suggest = "use_agent_web_search"
+        elif key == "useBedrockModels":
+            suggest = "use_bedrock_models"
         elif key == "viewAccountSpiceCapacity":
             suggest = "view_account_spice_capacity"
 
@@ -634,56 +648,92 @@ class CustomPermissionsCapabilities(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 action: Optional[_builtins.str] = None,
                  add_or_run_anomaly_detection_for_analyses: Optional[_builtins.str] = None,
+                 analysis: Optional[_builtins.str] = None,
+                 automate: Optional[_builtins.str] = None,
+                 chat_agent: Optional[_builtins.str] = None,
                  create_and_update_dashboard_email_reports: Optional[_builtins.str] = None,
                  create_and_update_data_sources: Optional[_builtins.str] = None,
                  create_and_update_datasets: Optional[_builtins.str] = None,
                  create_and_update_themes: Optional[_builtins.str] = None,
                  create_and_update_threshold_alerts: Optional[_builtins.str] = None,
+                 create_chat_agents: Optional[_builtins.str] = None,
                  create_shared_folders: Optional[_builtins.str] = None,
                  create_spice_dataset: Optional[_builtins.str] = None,
+                 dashboard: Optional[_builtins.str] = None,
                  export_to_csv: Optional[_builtins.str] = None,
                  export_to_csv_in_scheduled_reports: Optional[_builtins.str] = None,
                  export_to_excel: Optional[_builtins.str] = None,
                  export_to_excel_in_scheduled_reports: Optional[_builtins.str] = None,
                  export_to_pdf: Optional[_builtins.str] = None,
                  export_to_pdf_in_scheduled_reports: Optional[_builtins.str] = None,
+                 flow: Optional[_builtins.str] = None,
                  include_content_in_scheduled_reports_email: Optional[_builtins.str] = None,
+                 knowledge_base: Optional[_builtins.str] = None,
+                 perform_flow_ui_task: Optional[_builtins.str] = None,
                  print_reports: Optional[_builtins.str] = None,
+                 publish_without_approval: Optional[_builtins.str] = None,
                  rename_shared_folders: Optional[_builtins.str] = None,
+                 research: Optional[_builtins.str] = None,
                  share_analyses: Optional[_builtins.str] = None,
                  share_dashboards: Optional[_builtins.str] = None,
                  share_data_sources: Optional[_builtins.str] = None,
                  share_datasets: Optional[_builtins.str] = None,
+                 space: Optional[_builtins.str] = None,
                  subscribe_dashboard_email_reports: Optional[_builtins.str] = None,
+                 use_agent_web_search: Optional[_builtins.str] = None,
+                 use_bedrock_models: Optional[_builtins.str] = None,
                  view_account_spice_capacity: Optional[_builtins.str] = None):
         """
+        :param _builtins.str action: Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
         :param _builtins.str add_or_run_anomaly_detection_for_analyses: Ability to add or run anomaly detection. Valid values: `DENY`.
+        :param _builtins.str analysis: Ability to perform analysis-related actions. Valid values: `DENY`.
+        :param _builtins.str automate: Ability to perform automate-related actions. Valid values: `DENY`.
+        :param _builtins.str chat_agent: Ability to perform chat-related actions. Valid values: `DENY`.
         :param _builtins.str create_and_update_dashboard_email_reports: Ability to create and update email reports. Valid values: `DENY`.
         :param _builtins.str create_and_update_data_sources: Ability to create and update data sources. Valid values: `DENY`.
         :param _builtins.str create_and_update_datasets: Ability to create and update datasets. Valid values: `DENY`.
         :param _builtins.str create_and_update_themes: Ability to create and update themes. Valid values: `DENY`.
         :param _builtins.str create_and_update_threshold_alerts: Ability to create and update threshold alerts. Valid values: `DENY`.
+        :param _builtins.str create_chat_agents: Ability to create chat agents. Valid values: `DENY`.
         :param _builtins.str create_shared_folders: Ability to create shared folders. Valid values: `DENY`.
         :param _builtins.str create_spice_dataset: Ability to create a SPICE dataset. Valid values: `DENY`.
+        :param _builtins.str dashboard: Ability to perform dashboard-related actions. Valid values: `DENY`.
         :param _builtins.str export_to_csv: Ability to export to CSV files from the UI. Valid values: `DENY`.
         :param _builtins.str export_to_csv_in_scheduled_reports: Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
         :param _builtins.str export_to_excel: Ability to export to Excel files from the UI. Valid values: `DENY`.
         :param _builtins.str export_to_excel_in_scheduled_reports: Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
         :param _builtins.str export_to_pdf: Ability to export to PDF files from the UI. Valid values: `DENY`.
         :param _builtins.str export_to_pdf_in_scheduled_reports: Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+        :param _builtins.str flow: Ability to perform flow-related actions. Valid values: `DENY`.
         :param _builtins.str include_content_in_scheduled_reports_email: Ability to include content in scheduled email reports. Valid values: `DENY`.
+        :param _builtins.str knowledge_base: Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+        :param _builtins.str perform_flow_ui_task: Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
         :param _builtins.str print_reports: Ability to print reports. Valid values: `DENY`.
+        :param _builtins.str publish_without_approval: Ability to enable approvals for flow share. Valid values: `DENY`.
         :param _builtins.str rename_shared_folders: Ability to rename shared folders. Valid values: `DENY`.
+        :param _builtins.str research: Ability to perform research-related actions. Valid values: `DENY`.
         :param _builtins.str share_analyses: Ability to share analyses. Valid values: `DENY`.
         :param _builtins.str share_dashboards: Ability to share dashboards. Valid values: `DENY`.
         :param _builtins.str share_data_sources: Ability to share data sources. Valid values: `DENY`.
         :param _builtins.str share_datasets: Ability to share datasets. Valid values: `DENY`.
+        :param _builtins.str space: Ability to perform space-related actions. Valid values: `DENY`.
         :param _builtins.str subscribe_dashboard_email_reports: Ability to subscribe to email reports. Valid values: `DENY`.
+        :param _builtins.str use_agent_web_search: Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+        :param _builtins.str use_bedrock_models: Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
         :param _builtins.str view_account_spice_capacity: Ability to view account SPICE capacity. Valid values: `DENY`.
         """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if add_or_run_anomaly_detection_for_analyses is not None:
             pulumi.set(__self__, "add_or_run_anomaly_detection_for_analyses", add_or_run_anomaly_detection_for_analyses)
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if automate is not None:
+            pulumi.set(__self__, "automate", automate)
+        if chat_agent is not None:
+            pulumi.set(__self__, "chat_agent", chat_agent)
         if create_and_update_dashboard_email_reports is not None:
             pulumi.set(__self__, "create_and_update_dashboard_email_reports", create_and_update_dashboard_email_reports)
         if create_and_update_data_sources is not None:
@@ -694,10 +744,14 @@ class CustomPermissionsCapabilities(dict):
             pulumi.set(__self__, "create_and_update_themes", create_and_update_themes)
         if create_and_update_threshold_alerts is not None:
             pulumi.set(__self__, "create_and_update_threshold_alerts", create_and_update_threshold_alerts)
+        if create_chat_agents is not None:
+            pulumi.set(__self__, "create_chat_agents", create_chat_agents)
         if create_shared_folders is not None:
             pulumi.set(__self__, "create_shared_folders", create_shared_folders)
         if create_spice_dataset is not None:
             pulumi.set(__self__, "create_spice_dataset", create_spice_dataset)
+        if dashboard is not None:
+            pulumi.set(__self__, "dashboard", dashboard)
         if export_to_csv is not None:
             pulumi.set(__self__, "export_to_csv", export_to_csv)
         if export_to_csv_in_scheduled_reports is not None:
@@ -710,12 +764,22 @@ class CustomPermissionsCapabilities(dict):
             pulumi.set(__self__, "export_to_pdf", export_to_pdf)
         if export_to_pdf_in_scheduled_reports is not None:
             pulumi.set(__self__, "export_to_pdf_in_scheduled_reports", export_to_pdf_in_scheduled_reports)
+        if flow is not None:
+            pulumi.set(__self__, "flow", flow)
         if include_content_in_scheduled_reports_email is not None:
             pulumi.set(__self__, "include_content_in_scheduled_reports_email", include_content_in_scheduled_reports_email)
+        if knowledge_base is not None:
+            pulumi.set(__self__, "knowledge_base", knowledge_base)
+        if perform_flow_ui_task is not None:
+            pulumi.set(__self__, "perform_flow_ui_task", perform_flow_ui_task)
         if print_reports is not None:
             pulumi.set(__self__, "print_reports", print_reports)
+        if publish_without_approval is not None:
+            pulumi.set(__self__, "publish_without_approval", publish_without_approval)
         if rename_shared_folders is not None:
             pulumi.set(__self__, "rename_shared_folders", rename_shared_folders)
+        if research is not None:
+            pulumi.set(__self__, "research", research)
         if share_analyses is not None:
             pulumi.set(__self__, "share_analyses", share_analyses)
         if share_dashboards is not None:
@@ -724,10 +788,24 @@ class CustomPermissionsCapabilities(dict):
             pulumi.set(__self__, "share_data_sources", share_data_sources)
         if share_datasets is not None:
             pulumi.set(__self__, "share_datasets", share_datasets)
+        if space is not None:
+            pulumi.set(__self__, "space", space)
         if subscribe_dashboard_email_reports is not None:
             pulumi.set(__self__, "subscribe_dashboard_email_reports", subscribe_dashboard_email_reports)
+        if use_agent_web_search is not None:
+            pulumi.set(__self__, "use_agent_web_search", use_agent_web_search)
+        if use_bedrock_models is not None:
+            pulumi.set(__self__, "use_bedrock_models", use_bedrock_models)
         if view_account_spice_capacity is not None:
             pulumi.set(__self__, "view_account_spice_capacity", view_account_spice_capacity)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="addOrRunAnomalyDetectionForAnalyses")
@@ -736,6 +814,30 @@ class CustomPermissionsCapabilities(dict):
         Ability to add or run anomaly detection. Valid values: `DENY`.
         """
         return pulumi.get(self, "add_or_run_anomaly_detection_for_analyses")
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform analysis-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "analysis")
+
+    @_builtins.property
+    @pulumi.getter
+    def automate(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform automate-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "automate")
+
+    @_builtins.property
+    @pulumi.getter(name="chatAgent")
+    def chat_agent(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform chat-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "chat_agent")
 
     @_builtins.property
     @pulumi.getter(name="createAndUpdateDashboardEmailReports")
@@ -778,6 +880,14 @@ class CustomPermissionsCapabilities(dict):
         return pulumi.get(self, "create_and_update_threshold_alerts")
 
     @_builtins.property
+    @pulumi.getter(name="createChatAgents")
+    def create_chat_agents(self) -> Optional[_builtins.str]:
+        """
+        Ability to create chat agents. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_chat_agents")
+
+    @_builtins.property
     @pulumi.getter(name="createSharedFolders")
     def create_shared_folders(self) -> Optional[_builtins.str]:
         """
@@ -792,6 +902,14 @@ class CustomPermissionsCapabilities(dict):
         Ability to create a SPICE dataset. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_spice_dataset")
+
+    @_builtins.property
+    @pulumi.getter
+    def dashboard(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform dashboard-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "dashboard")
 
     @_builtins.property
     @pulumi.getter(name="exportToCsv")
@@ -842,12 +960,36 @@ class CustomPermissionsCapabilities(dict):
         return pulumi.get(self, "export_to_pdf_in_scheduled_reports")
 
     @_builtins.property
+    @pulumi.getter
+    def flow(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform flow-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "flow")
+
+    @_builtins.property
     @pulumi.getter(name="includeContentInScheduledReportsEmail")
     def include_content_in_scheduled_reports_email(self) -> Optional[_builtins.str]:
         """
         Ability to include content in scheduled email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "include_content_in_scheduled_reports_email")
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeBase")
+    def knowledge_base(self) -> Optional[_builtins.str]:
+        """
+        Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "knowledge_base")
+
+    @_builtins.property
+    @pulumi.getter(name="performFlowUiTask")
+    def perform_flow_ui_task(self) -> Optional[_builtins.str]:
+        """
+        Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "perform_flow_ui_task")
 
     @_builtins.property
     @pulumi.getter(name="printReports")
@@ -858,12 +1000,28 @@ class CustomPermissionsCapabilities(dict):
         return pulumi.get(self, "print_reports")
 
     @_builtins.property
+    @pulumi.getter(name="publishWithoutApproval")
+    def publish_without_approval(self) -> Optional[_builtins.str]:
+        """
+        Ability to enable approvals for flow share. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "publish_without_approval")
+
+    @_builtins.property
     @pulumi.getter(name="renameSharedFolders")
     def rename_shared_folders(self) -> Optional[_builtins.str]:
         """
         Ability to rename shared folders. Valid values: `DENY`.
         """
         return pulumi.get(self, "rename_shared_folders")
+
+    @_builtins.property
+    @pulumi.getter
+    def research(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform research-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "research")
 
     @_builtins.property
     @pulumi.getter(name="shareAnalyses")
@@ -898,12 +1056,36 @@ class CustomPermissionsCapabilities(dict):
         return pulumi.get(self, "share_datasets")
 
     @_builtins.property
+    @pulumi.getter
+    def space(self) -> Optional[_builtins.str]:
+        """
+        Ability to perform space-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "space")
+
+    @_builtins.property
     @pulumi.getter(name="subscribeDashboardEmailReports")
     def subscribe_dashboard_email_reports(self) -> Optional[_builtins.str]:
         """
         Ability to subscribe to email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "subscribe_dashboard_email_reports")
+
+    @_builtins.property
+    @pulumi.getter(name="useAgentWebSearch")
+    def use_agent_web_search(self) -> Optional[_builtins.str]:
+        """
+        Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "use_agent_web_search")
+
+    @_builtins.property
+    @pulumi.getter(name="useBedrockModels")
+    def use_bedrock_models(self) -> Optional[_builtins.str]:
+        """
+        Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "use_bedrock_models")
 
     @_builtins.property
     @pulumi.getter(name="viewAccountSpiceCapacity")
@@ -967,7 +1149,7 @@ class DashboardDashboardPublishOptions(dict):
         :param 'DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs' data_point_drill_up_down_option: Drill-down options of data points in a dashboard. See `data_point_drill_up_down_option`.
         :param 'DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs' data_point_menu_label_option: Data point menu label options of a dashboard. See `data_point_menu_label_option`.
         :param 'DashboardDashboardPublishOptionsDataPointTooltipOptionArgs' data_point_tooltip_option: Data point tool tip options of a dashboard. See `data_point_tooltip_option`.
-        :param 'DashboardDashboardPublishOptionsExportToCsvOptionArgs' export_to_csv_option: Export to .csv option. See `export_to_csv_option`.
+        :param 'DashboardDashboardPublishOptionsExportToCsvOptionArgs' export_to_csv_option: Export to `.csv` option. See `export_to_csv_option`.
         :param 'DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs' export_with_hidden_fields_option: Whether hidden fields are exported with a dashboard. See `export_with_hidden_fields_option`.
         :param 'DashboardDashboardPublishOptionsSheetControlsOptionArgs' sheet_controls_option: Sheet controls option. See `sheet_controls_option`.
         :param 'DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs' sheet_layout_element_maximization_option: Sheet layout maximization options of a dashboard. See `sheet_layout_element_maximization_option`.
@@ -1031,7 +1213,7 @@ class DashboardDashboardPublishOptions(dict):
     @pulumi.getter(name="exportToCsvOption")
     def export_to_csv_option(self) -> Optional['outputs.DashboardDashboardPublishOptionsExportToCsvOption']:
         """
-        Export to .csv option. See `export_to_csv_option`.
+        Export to `.csv` option. See `export_to_csv_option`.
         """
         return pulumi.get(self, "export_to_csv_option")
 
@@ -3931,7 +4113,7 @@ class DataSourceParameters(dict):
         :param 'DataSourceParametersAthenaArgs' athena: Parameters for connecting to Athena.
         :param 'DataSourceParametersAuroraArgs' aurora: Parameters for connecting to Aurora MySQL.
         :param 'DataSourceParametersAuroraPostgresqlArgs' aurora_postgresql: Parameters for connecting to Aurora Postgresql.
-        :param 'DataSourceParametersAwsIotAnalyticsArgs' aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
+        :param 'DataSourceParametersAwsIotAnalyticsArgs' aws_iot_analytics: Parameters for connecting to AWS IoT Analytics.
         :param 'DataSourceParametersDatabricksArgs' databricks: Parameters for connecting to Databricks.
         :param 'DataSourceParametersJiraArgs' jira: Parameters for connecting to Jira.
         :param 'DataSourceParametersMariaDbArgs' maria_db: Parameters for connecting to MariaDB.
@@ -4028,7 +4210,7 @@ class DataSourceParameters(dict):
     @pulumi.getter(name="awsIotAnalytics")
     def aws_iot_analytics(self) -> Optional['outputs.DataSourceParametersAwsIotAnalytics']:
         """
-        Parameters for connecting to AWS IOT Analytics.
+        Parameters for connecting to AWS IoT Analytics.
         """
         return pulumi.get(self, "aws_iot_analytics")
 
@@ -5195,8 +5377,8 @@ class IamPolicyAssignmentIdentities(dict):
                  groups: Optional[Sequence[_builtins.str]] = None,
                  users: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] groups: Array of Quicksight group names to assign the policy to.
-        :param Sequence[_builtins.str] users: Array of Quicksight user names to assign the policy to.
+        :param Sequence[_builtins.str] groups: Array of QuickSight group names to assign the policy to.
+        :param Sequence[_builtins.str] users: Array of QuickSight user names to assign the policy to.
         """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -5207,7 +5389,7 @@ class IamPolicyAssignmentIdentities(dict):
     @pulumi.getter
     def groups(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Array of Quicksight group names to assign the policy to.
+        Array of QuickSight group names to assign the policy to.
         """
         return pulumi.get(self, "groups")
 
@@ -5215,7 +5397,7 @@ class IamPolicyAssignmentIdentities(dict):
     @pulumi.getter
     def users(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Array of Quicksight user names to assign the policy to.
+        Array of QuickSight user names to assign the policy to.
         """
         return pulumi.get(self, "users")
 

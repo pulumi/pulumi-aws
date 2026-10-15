@@ -20,14 +20,14 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     public static final ServerlessClusterState Empty = new ServerlessClusterState();
 
     /**
-     * The ARN of the serverless cluster.
+     * ARN of the serverless cluster.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the serverless cluster.
+     * @return ARN of the serverless cluster.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -50,14 +50,14 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies client authentication information for the serverless cluster. See below.
+     * Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
      * 
      */
     @Import(name="clientAuthentication")
     private @Nullable Output<ServerlessClusterClientAuthenticationArgs> clientAuthentication;
 
     /**
-     * @return Specifies client authentication information for the serverless cluster. See below.
+     * @return Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
      * 
      */
     public Optional<Output<ServerlessClusterClientAuthenticationArgs>> clientAuthentication() {
@@ -65,14 +65,14 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the serverless cluster.
+     * Name of the serverless cluster.
      * 
      */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
     /**
-     * @return The name of the serverless cluster.
+     * @return Name of the serverless cluster.
      * 
      */
     public Optional<Output<String>> clusterName() {
@@ -110,14 +110,14 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -125,14 +125,14 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -140,14 +140,14 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * VPC configuration information. See below.
+     * VPC configuration information. See `vpcConfig` Block below.
      * 
      */
     @Import(name="vpcConfigs")
     private @Nullable Output<List<ServerlessClusterVpcConfigArgs>> vpcConfigs;
 
     /**
-     * @return VPC configuration information. See below.
+     * @return VPC configuration information. See `vpcConfig` Block below.
      * 
      */
     public Optional<Output<List<ServerlessClusterVpcConfigArgs>>> vpcConfigs() {
@@ -187,7 +187,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The ARN of the serverless cluster.
+         * @param arn ARN of the serverless cluster.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The ARN of the serverless cluster.
+         * @param arn ARN of the serverless cluster.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientAuthentication Specifies client authentication information for the serverless cluster. See below.
+         * @param clientAuthentication Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientAuthentication Specifies client authentication information for the serverless cluster. See below.
+         * @param clientAuthentication Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clusterName The name of the serverless cluster.
+         * @param clusterName Name of the serverless cluster.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clusterName The name of the serverless cluster.
+         * @param clusterName Name of the serverless cluster.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpcConfigs VPC configuration information. See below.
+         * @param vpcConfigs VPC configuration information. See `vpcConfig` Block below.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpcConfigs VPC configuration information. See below.
+         * @param vpcConfigs VPC configuration information. See `vpcConfig` Block below.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpcConfigs VPC configuration information. See below.
+         * @param vpcConfigs VPC configuration information. See `vpcConfig` Block below.
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs();
 
     /**
-     * IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+     * IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
      * 
      */
     @Import(name="endpointIpAddressType", required=true)
     private Output<String> endpointIpAddressType;
 
     /**
-     * @return IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+     * @return IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
      * 
      */
     public Output<String> endpointIpAddressType() {
@@ -138,7 +138,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param endpointIpAddressType IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         * @param endpointIpAddressType IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param endpointIpAddressType IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         * @param endpointIpAddressType IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
          * 
          * @return builder
          * 

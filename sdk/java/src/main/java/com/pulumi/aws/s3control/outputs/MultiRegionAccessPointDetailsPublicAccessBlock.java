@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MultiRegionAccessPointDetailsPublicAccessBlock {
     /**
-     * @return Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+     * @return Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
     private @Nullable Boolean blockPublicAcls;
@@ -34,7 +34,7 @@ public final class MultiRegionAccessPointDetailsPublicAccessBlock {
 
     private MultiRegionAccessPointDetailsPublicAccessBlock() {}
     /**
-     * @return Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+     * @return Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
     public Optional<Boolean> blockPublicAcls() {

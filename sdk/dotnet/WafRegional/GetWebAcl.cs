@@ -12,7 +12,7 @@ namespace Pulumi.Aws.WafRegional
     public static class GetWebAcl
     {
         /// <summary>
-        /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+        /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.WafRegional
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafregional/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+        /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.WafRegional
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafregional/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+        /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
         /// 
         /// ## Example Usage
         /// 

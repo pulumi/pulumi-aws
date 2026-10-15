@@ -182,7 +182,7 @@ def get_security_profile(instance_id: Optional[_builtins.str] = None,
            
            > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
+    :param _builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile ID
     :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Security Profile.
     """
     __args__ = dict()
@@ -242,7 +242,7 @@ def get_security_profile_output(instance_id: pulumi.Input[Optional[_builtins.str
            
            > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
+    :param _builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile ID
     :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Security Profile.
     """
     __args__ = dict()

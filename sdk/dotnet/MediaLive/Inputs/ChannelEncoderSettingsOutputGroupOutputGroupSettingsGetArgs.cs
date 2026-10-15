@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingGetArgs>? _archiveGroupSettings;
 
         /// <summary>
-        /// Archive group settings. See Archive Group Settings for more details.
+        /// Archive group settings. See `ArchiveGroupSettings` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingGetArgs> ArchiveGroupSettings
         {
@@ -24,30 +24,45 @@ namespace Pulumi.Aws.MediaLive.Inputs
             set => _archiveGroupSettings = value;
         }
 
+        /// <summary>
+        /// Frame capture group settings. See `FrameCaptureGroupSettings` Block for details.
+        /// </summary>
         [Input("frameCaptureGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsGetArgs>? FrameCaptureGroupSettings { get; set; }
 
+        /// <summary>
+        /// HLS group settings. See `HlsGroupSettings` Block for details.
+        /// </summary>
         [Input("hlsGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsGetArgs>? HlsGroupSettings { get; set; }
 
         /// <summary>
-        /// Media package group settings. See Media Package Group Settings for more details.
+        /// Media package group settings. See `MediaPackageGroupSettings` Block for details.
         /// </summary>
         [Input("mediaPackageGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsGetArgs>? MediaPackageGroupSettings { get; set; }
 
+        /// <summary>
+        /// Microsoft Smooth group settings. See `MsSmoothGroupSettings` Block for details.
+        /// </summary>
         [Input("msSmoothGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsGetArgs>? MsSmoothGroupSettings { get; set; }
 
+        /// <summary>
+        /// Multiplex group settings. Can be set as an empty block.
+        /// </summary>
         [Input("multiplexGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsGetArgs>? MultiplexGroupSettings { get; set; }
 
         /// <summary>
-        /// RTMP group settings. See RTMP Group Settings for more details.
+        /// RTMP group settings. See `RtmpGroupSettings` Block for details.
         /// </summary>
         [Input("rtmpGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsGetArgs>? RtmpGroupSettings { get; set; }
 
+        /// <summary>
+        /// UDP group settings. See `UdpGroupSettings` Block for details.
+        /// </summary>
         [Input("udpGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsGetArgs>? UdpGroupSettings { get; set; }
 

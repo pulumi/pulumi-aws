@@ -62,7 +62,7 @@ type LookupRegistryArgs struct {
 type LookupRegistryResult struct {
 	// ARN of Glue Registry.
 	Arn string `pulumi:"arn"`
-	// A description of the registry.
+	// Description of the registry.
 	Description string `pulumi:"description"`
 	Name        string `pulumi:"name"`
 	Region      string `pulumi:"region"`
@@ -105,7 +105,7 @@ func (o LookupRegistryResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the registry.
+// Description of the registry.
 func (o LookupRegistryResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Description }).(pulumi.StringOutput)
 }

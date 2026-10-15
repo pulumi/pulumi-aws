@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.appstream.Fleet` using the id. For example:
+ * Using `pulumi import`, import `aws.appstream.Fleet` using the ID. For example:
  *
  * ```sh
  * $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -75,7 +75,7 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the appstream fleet.
+     * ARN of the AppStream fleet.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -244,7 +244,7 @@ export class Fleet extends pulumi.CustomResource {
  */
 export interface FleetState {
     /**
-     * ARN of the appstream fleet.
+     * ARN of the AppStream fleet.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -18,14 +18,14 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
     public static final MLTransformParametersFindMatchesParametersArgs Empty = new MLTransformParametersFindMatchesParametersArgs();
 
     /**
-     * The value that is selected when tuning your transform for a balance between accuracy and cost.
+     * Value that is selected when tuning your transform for a balance between accuracy and cost.
      * 
      */
     @Import(name="accuracyCostTradeOff")
     private @Nullable Output<Double> accuracyCostTradeOff;
 
     /**
-     * @return The value that is selected when tuning your transform for a balance between accuracy and cost.
+     * @return Value that is selected when tuning your transform for a balance between accuracy and cost.
      * 
      */
     public Optional<Output<Double>> accuracyCostTradeOff() {
@@ -33,14 +33,14 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
     }
 
     /**
-     * The value to switch on or off to force the output to match the provided labels from users.
+     * Value to switch on or off to force the output to match the provided labels from users.
      * 
      */
     @Import(name="enforceProvidedLabels")
     private @Nullable Output<Boolean> enforceProvidedLabels;
 
     /**
-     * @return The value to switch on or off to force the output to match the provided labels from users.
+     * @return Value to switch on or off to force the output to match the provided labels from users.
      * 
      */
     public Optional<Output<Boolean>> enforceProvidedLabels() {
@@ -48,14 +48,14 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
     }
 
     /**
-     * The value selected when tuning your transform for a balance between precision and recall.
+     * Value selected when tuning your transform for a balance between precision and recall.
      * 
      */
     @Import(name="precisionRecallTradeOff")
     private @Nullable Output<Double> precisionRecallTradeOff;
 
     /**
-     * @return The value selected when tuning your transform for a balance between precision and recall.
+     * @return Value selected when tuning your transform for a balance between precision and recall.
      * 
      */
     public Optional<Output<Double>> precisionRecallTradeOff() {
@@ -63,14 +63,14 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
     }
 
     /**
-     * The name of a column that uniquely identifies rows in the source table.
+     * Name of a column that uniquely identifies rows in the source table.
      * 
      */
     @Import(name="primaryKeyColumnName")
     private @Nullable Output<String> primaryKeyColumnName;
 
     /**
-     * @return The name of a column that uniquely identifies rows in the source table.
+     * @return Name of a column that uniquely identifies rows in the source table.
      * 
      */
     public Optional<Output<String>> primaryKeyColumnName() {
@@ -105,7 +105,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param accuracyCostTradeOff The value that is selected when tuning your transform for a balance between accuracy and cost.
+         * @param accuracyCostTradeOff Value that is selected when tuning your transform for a balance between accuracy and cost.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param accuracyCostTradeOff The value that is selected when tuning your transform for a balance between accuracy and cost.
+         * @param accuracyCostTradeOff Value that is selected when tuning your transform for a balance between accuracy and cost.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param enforceProvidedLabels The value to switch on or off to force the output to match the provided labels from users.
+         * @param enforceProvidedLabels Value to switch on or off to force the output to match the provided labels from users.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param enforceProvidedLabels The value to switch on or off to force the output to match the provided labels from users.
+         * @param enforceProvidedLabels Value to switch on or off to force the output to match the provided labels from users.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param precisionRecallTradeOff The value selected when tuning your transform for a balance between precision and recall.
+         * @param precisionRecallTradeOff Value selected when tuning your transform for a balance between precision and recall.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param precisionRecallTradeOff The value selected when tuning your transform for a balance between precision and recall.
+         * @param precisionRecallTradeOff Value selected when tuning your transform for a balance between precision and recall.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param primaryKeyColumnName The name of a column that uniquely identifies rows in the source table.
+         * @param primaryKeyColumnName Name of a column that uniquely identifies rows in the source table.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
         }
 
         /**
-         * @param primaryKeyColumnName The name of a column that uniquely identifies rows in the source table.
+         * @param primaryKeyColumnName Name of a column that uniquely identifies rows in the source table.
          * 
          * @return builder
          * 

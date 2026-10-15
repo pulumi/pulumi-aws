@@ -63,14 +63,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     @Import(name="portRanges")
     private @Nullable Output<List<ListenerPortRangeArgs>> portRanges;
 
     /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * @return Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     public Optional<Output<List<ListenerPortRangeArgs>>> portRanges() {
@@ -78,14 +78,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * @return Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -184,7 +184,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+         * @param protocol Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+         * @param protocol Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
          * 
          * @return builder
          * 

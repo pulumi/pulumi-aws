@@ -323,11 +323,11 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly cognitoOptions: pulumi.Output<outputs.opensearch.DomainCognitoOptions | undefined>;
     /**
-     * Domain-specific endpoint for Dashboard without https scheme.
+     * Domain-specific endpoint for Dashboard without HTTPS scheme.
      */
     declare public /*out*/ readonly dashboardEndpoint: pulumi.Output<string>;
     /**
-     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
      */
     declare public /*out*/ readonly dashboardEndpointV2: pulumi.Output<string>;
     /**
@@ -539,11 +539,11 @@ export interface DomainState {
      */
     cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions | undefined>;
     /**
-     * Domain-specific endpoint for Dashboard without https scheme.
+     * Domain-specific endpoint for Dashboard without HTTPS scheme.
      */
     dashboardEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
      */
     dashboardEndpointV2?: pulumi.Input<string | undefined>;
     /**

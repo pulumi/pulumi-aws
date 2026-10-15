@@ -18,14 +18,14 @@ public final class GetLogGroupArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLogGroupArgs Empty = new GetLogGroupArgs();
 
     /**
-     * Name of the Cloudwatch log group
+     * Name of the CloudWatch log group
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Cloudwatch log group
+     * @return Name of the CloudWatch log group
      * 
      */
     public Output<String> name() {
@@ -89,7 +89,7 @@ public final class GetLogGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the Cloudwatch log group
+         * @param name Name of the CloudWatch log group
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetLogGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the Cloudwatch log group
+         * @param name Name of the CloudWatch log group
          * 
          * @return builder
          * 

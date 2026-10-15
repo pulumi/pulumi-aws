@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CloudFront
     public static class GetOriginAccessIdentities
     {
         /// <summary>
-        /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+        /// Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
         /// 
         /// ## Example Usage
         /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.CloudFront
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+        /// Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
         /// 
         /// ## Example Usage
         /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.CloudFront
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+        /// Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
         /// 
         /// ## Example Usage
         /// 
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Set of ids of the matched origin access identities.
+        /// Set of IDs of the matched origin access identities.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         /// <summary>

@@ -18,23 +18,23 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Equals;
         /// <summary>
-        /// The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
+        /// Name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         /// </summary>
         public readonly string Field;
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string? GreaterThan;
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string? GreaterThanOrEqual;
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string? LessThan;
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string? LessThanOrEqual;
         /// <summary>

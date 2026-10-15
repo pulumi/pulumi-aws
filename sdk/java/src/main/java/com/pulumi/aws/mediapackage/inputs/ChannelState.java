@@ -20,14 +20,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     public static final ChannelState Empty = new ChannelState();
 
     /**
-     * The ARN of the channel
+     * ARN of the channel
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the channel
+     * @return ARN of the channel
      * 
      */
     public Optional<Output<String>> arn() {
@@ -35,14 +35,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique identifier describing the channel
+     * Unique identifier describing the channel
      * 
      */
     @Import(name="channelId")
     private @Nullable Output<String> channelId;
 
     /**
-     * @return A unique identifier describing the channel
+     * @return Unique identifier describing the channel
      * 
      */
     public Optional<Output<String>> channelId() {
@@ -50,14 +50,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the channel
+     * Description of the channel
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the channel
+     * @return Description of the channel
      * 
      */
     public Optional<Output<String>> description() {
@@ -65,14 +65,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A single item list of HLS ingest information
+     * Single item list of HLS ingest information
      * 
      */
     @Import(name="hlsIngests")
     private @Nullable Output<List<ChannelHlsIngestArgs>> hlsIngests;
 
     /**
-     * @return A single item list of HLS ingest information
+     * @return Single item list of HLS ingest information
      * 
      */
     public Optional<Output<List<ChannelHlsIngestArgs>>> hlsIngests() {
@@ -95,14 +95,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -110,14 +110,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -155,7 +155,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the channel
+         * @param arn ARN of the channel
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the channel
+         * @param arn ARN of the channel
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelId A unique identifier describing the channel
+         * @param channelId Unique identifier describing the channel
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelId A unique identifier describing the channel
+         * @param channelId Unique identifier describing the channel
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the channel
+         * @param description Description of the channel
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the channel
+         * @param description Description of the channel
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hlsIngests A single item list of HLS ingest information
+         * @param hlsIngests Single item list of HLS ingest information
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hlsIngests A single item list of HLS ingest information
+         * @param hlsIngests Single item list of HLS ingest information
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hlsIngests A single item list of HLS ingest information
+         * @param hlsIngests Single item list of HLS ingest information
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

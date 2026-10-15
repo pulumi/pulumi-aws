@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreBrowserBrowserSigning {
     /**
-     * @return Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+     * @return Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
      * 
      */
     private Boolean enabled;
 
     private AgentcoreBrowserBrowserSigning() {}
     /**
-     * @return Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+     * @return Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
      * 
      */
     public Boolean enabled() {

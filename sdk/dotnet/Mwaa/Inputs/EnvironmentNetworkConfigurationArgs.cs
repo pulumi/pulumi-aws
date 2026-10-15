@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Mwaa.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+        /// Private subnet IDs in which the environment should be created. MWAA requires two subnets.
         /// </summary>
         public InputList<string> SubnetIds
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorLogDelivery
     {
         /// <summary>
-        /// Configuration block for replicator log delivery. Detailed below.
+        /// Configuration block for replicator log delivery. See `ReplicatorLogDelivery` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorLogDeliveryReplicatorLogDelivery? LogDelivery;
 

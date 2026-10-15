@@ -65,14 +65,14 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The values that define the partition.
+     * Values that define the partition.
      * 
      */
     @Import(name="partitionValues", required=true)
     private Output<List<String>> partitionValues;
 
     /**
-     * @return The values that define the partition.
+     * @return Values that define the partition.
      * 
      */
     public Output<List<String>> partitionValues() {
@@ -95,23 +95,31 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
     @Import(name="storageDescriptor")
     private @Nullable Output<PartitionStorageDescriptorArgs> storageDescriptor;
 
     /**
-     * @return A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * @return Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
     public Optional<Output<PartitionStorageDescriptorArgs>> storageDescriptor() {
         return Optional.ofNullable(this.storageDescriptor);
     }
 
+    /**
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
+    /**
+     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -210,7 +218,7 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionValues The values that define the partition.
+         * @param partitionValues Values that define the partition.
          * 
          * @return builder
          * 
@@ -221,7 +229,7 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionValues The values that define the partition.
+         * @param partitionValues Values that define the partition.
          * 
          * @return builder
          * 
@@ -231,7 +239,7 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionValues The values that define the partition.
+         * @param partitionValues Values that define the partition.
          * 
          * @return builder
          * 
@@ -262,7 +270,7 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageDescriptor A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+         * @param storageDescriptor Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
          * 
          * @return builder
          * 
@@ -273,7 +281,7 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageDescriptor A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+         * @param storageDescriptor Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
          * 
          * @return builder
          * 
@@ -282,11 +290,23 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
             return storageDescriptor(Output.of(storageDescriptor));
         }
 
+        /**
+         * @param tableName Name of the table. For Hive compatibility, this must be entirely lowercase.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
+        /**
+         * @param tableName Name of the table. For Hive compatibility, this must be entirely lowercase.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

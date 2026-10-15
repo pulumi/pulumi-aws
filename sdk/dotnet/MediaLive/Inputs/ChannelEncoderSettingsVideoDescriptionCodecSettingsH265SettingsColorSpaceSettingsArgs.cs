@@ -13,31 +13,31 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the colorspace metadata to be passed through.
+        /// Sets the colorspace metadata to be passed through. Can be set as an empty block.
         /// </summary>
         [Input("colorSpacePassthroughSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs>? ColorSpacePassthroughSettings { get; set; }
 
         /// <summary>
-        /// Set the colorspace to Dolby Vision81.
+        /// Sets the colorspace to Dolby Vision81. Can be set as an empty block.
         /// </summary>
         [Input("dolbyVision81Settings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs>? DolbyVision81Settings { get; set; }
 
         /// <summary>
-        /// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        /// Sets the colorspace to be HDR10. See `Hdr10Settings` Block for details.
         /// </summary>
         [Input("hdr10Settings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs>? Hdr10Settings { get; set; }
 
         /// <summary>
-        /// Set the colorspace to Rec. 601.
+        /// Sets the colorspace to Rec. 601. Can be set as an empty block.
         /// </summary>
         [Input("rec601Settings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs>? Rec601Settings { get; set; }
 
         /// <summary>
-        /// Set the colorspace to Rec. 709.
+        /// Sets the colorspace to Rec. 709. Can be set as an empty block.
         /// </summary>
         [Input("rec709Settings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs>? Rec709Settings { get; set; }

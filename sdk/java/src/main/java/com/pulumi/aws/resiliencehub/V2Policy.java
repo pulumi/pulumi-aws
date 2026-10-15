@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -148,6 +149,47 @@ import javax.annotation.Nullable;
  *                 .rtoInMinutes(30)
  *                 .build())
  *             .name("example-multi-region-policy")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With Organization Sharing Enabled
+ * 
+ * Sharing is only available when the policy owner is the organization&#39;s management account or a delegated administrator.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.resiliencehub.V2Policy;
+ * import com.pulumi.aws.resiliencehub.V2PolicyArgs;
+ * import com.pulumi.aws.resiliencehub.inputs.V2PolicyAvailabilitySloArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new V2Policy("example", V2PolicyArgs.builder()
+ *             .availabilitySlo(V2PolicyAvailabilitySloArgs.builder()
+ *                 .target(99.9)
+ *                 .build())
+ *             .name("example-shared-policy")
+ *             .description("Baseline policy shared with member accounts")
+ *             .sharingEnabled(true)
  *             .build());
  * 
  *     }
@@ -301,6 +343,20 @@ public class V2Policy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+     * 
+     */
+    @Export(name="sharingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> sharingEnabled;
+
+    /**
+     * @return Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> sharingEnabled() {
+        return this.sharingEnabled;
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

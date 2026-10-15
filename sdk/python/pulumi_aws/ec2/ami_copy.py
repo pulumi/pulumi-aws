@@ -36,7 +36,7 @@ class AmiCopyArgs:
         """
         The set of arguments for constructing a AmiCopy resource.
 
-        :param pulumi.Input[_builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+        :param pulumi.Input[_builtins.str] source_ami_id: ID of the AMI to copy. This ID must be valid in the region
                given by `source_ami_region`.
         :param pulumi.Input[_builtins.str] source_ami_region: Region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
@@ -81,7 +81,7 @@ class AmiCopyArgs:
     @pulumi.getter(name="sourceAmiId")
     def source_ami_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Id of the AMI to copy. This id must be valid in the region
+        ID of the AMI to copy. This ID must be valid in the region
         given by `source_ami_region`.
         """
         return pulumi.get(self, "source_ami_id")
@@ -289,13 +289,12 @@ class _AmiCopyState:
         :param pulumi.Input[_builtins.str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[_builtins.str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-        :param pulumi.Input[_builtins.str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[_builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[_builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        :param pulumi.Input[_builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+        :param pulumi.Input[_builtins.str] source_ami_id: ID of the AMI to copy. This ID must be valid in the region
                given by `source_ami_region`.
         :param pulumi.Input[_builtins.str] source_ami_region: Region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
@@ -586,9 +585,6 @@ class _AmiCopyState:
     @_builtins.property
     @pulumi.getter(name="lastLaunchedTime")
     def last_launched_time(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        """
         return pulumi.get(self, "last_launched_time")
 
     @last_launched_time.setter
@@ -702,7 +698,7 @@ class _AmiCopyState:
     @pulumi.getter(name="sourceAmiId")
     def source_ami_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the AMI to copy. This id must be valid in the region
+        ID of the AMI to copy. This ID must be valid in the region
         given by `source_ami_region`.
         """
         return pulumi.get(self, "source_ami_id")
@@ -868,7 +864,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[_builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+        :param pulumi.Input[_builtins.str] source_ami_id: ID of the AMI to copy. This ID must be valid in the region
                given by `source_ami_region`.
         :param pulumi.Input[_builtins.str] source_ami_region: Region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
@@ -1059,13 +1055,12 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[_builtins.str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-        :param pulumi.Input[_builtins.str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[_builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[_builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        :param pulumi.Input[_builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+        :param pulumi.Input[_builtins.str] source_ami_id: ID of the AMI to copy. This ID must be valid in the region
                given by `source_ami_region`.
         :param pulumi.Input[_builtins.str] source_ami_region: Region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
@@ -1256,9 +1251,6 @@ class AmiCopy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="lastLaunchedTime")
     def last_launched_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        """
         return pulumi.get(self, "last_launched_time")
 
     @_builtins.property
@@ -1328,7 +1320,7 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter(name="sourceAmiId")
     def source_ami_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Id of the AMI to copy. This id must be valid in the region
+        ID of the AMI to copy. This ID must be valid in the region
         given by `source_ami_region`.
         """
         return pulumi.get(self, "source_ami_id")

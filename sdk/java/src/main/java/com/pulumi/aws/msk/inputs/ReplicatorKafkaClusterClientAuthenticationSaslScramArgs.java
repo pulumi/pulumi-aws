@@ -15,14 +15,14 @@ public final class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs exten
     public static final ReplicatorKafkaClusterClientAuthenticationSaslScramArgs Empty = new ReplicatorKafkaClusterClientAuthenticationSaslScramArgs();
 
     /**
-     * The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+     * SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
      * 
      */
     @Import(name="mechanism", required=true)
     private Output<String> mechanism;
 
     /**
-     * @return The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+     * @return SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
      * 
      */
     public Output<String> mechanism() {
@@ -30,14 +30,14 @@ public final class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs exten
     }
 
     /**
-     * The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+     * ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
      * 
      */
     @Import(name="secretArn", required=true)
     private Output<String> secretArn;
 
     /**
-     * @return The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+     * @return ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
      * 
      */
     public Output<String> secretArn() {
@@ -70,7 +70,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs exten
         }
 
         /**
-         * @param mechanism The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+         * @param mechanism SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs exten
         }
 
         /**
-         * @param mechanism The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+         * @param mechanism SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs exten
         }
 
         /**
-         * @param secretArn The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         * @param secretArn ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs exten
         }
 
         /**
-         * @param secretArn The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         * @param secretArn ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLogGroupResult {
     /**
-     * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+     * @return ARN of the CloudWatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
     private String arn;
@@ -58,7 +58,7 @@ public final class GetLogGroupResult {
 
     private GetLogGroupResult() {}
     /**
-     * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+     * @return ARN of the CloudWatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
     public String arn() {

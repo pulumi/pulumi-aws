@@ -49,14 +49,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
     }
 
     /**
-     * OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
      * 
      */
     @Import(name="grantType")
     private @Nullable Output<String> grantType;
 
     /**
-     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
      * 
      */
     public Optional<Output<String>> grantType() {
@@ -64,14 +64,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
     }
 
     /**
-     * ARN of the Oauth credential provider for OAuth authentication.
+     * ARN of the OAuth credential provider.
      * 
      */
     @Import(name="providerArn", required=true)
     private Output<String> providerArn;
 
     /**
-     * @return ARN of the Oauth credential provider for OAuth authentication.
+     * @return ARN of the OAuth credential provider.
      * 
      */
     public Output<String> providerArn() {
@@ -164,7 +164,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param grantType OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * @param grantType OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param grantType OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * @param grantType OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param providerArn ARN of the Oauth credential provider for OAuth authentication.
+         * @param providerArn ARN of the OAuth credential provider.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param providerArn ARN of the Oauth credential provider for OAuth authentication.
+         * @param providerArn ARN of the OAuth credential provider.
          * 
          * @return builder
          * 

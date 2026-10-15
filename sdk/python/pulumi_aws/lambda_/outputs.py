@@ -1290,7 +1290,7 @@ class EventSourceMappingSourceAccessConfiguration(dict):
                  uri: _builtins.str):
         """
         :param _builtins.str type: Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-        :param _builtins.str uri: URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+        :param _builtins.str uri: URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's `id` attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's `id` attribute.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "uri", uri)
@@ -1307,7 +1307,7 @@ class EventSourceMappingSourceAccessConfiguration(dict):
     @pulumi.getter
     def uri(self) -> _builtins.str:
         """
-        URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+        URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's `id` attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's `id` attribute.
         """
         return pulumi.get(self, "uri")
 

@@ -423,14 +423,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serverName);
     }
     /**
-     * ARN used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for DynamoDB endpoints.
      * 
      */
     @Export(name="serviceAccessRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceAccessRole;
 
     /**
-     * @return ARN used by the service access IAM role for dynamodb endpoints.
+     * @return ARN used by the service access IAM role for DynamoDB endpoints.
      * 
      */
     public Output<Optional<String>> serviceAccessRole() {

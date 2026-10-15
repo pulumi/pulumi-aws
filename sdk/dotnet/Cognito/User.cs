@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// unique user id that is never reassignable to another user.
+        /// unique user ID that is never reassignable to another user.
         /// </summary>
         [Output("sub")]
         public Output<string> Sub { get; private set; } = null!;
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// unique user id that is never reassignable to another user.
+        /// unique user ID that is never reassignable to another user.
         /// </summary>
         [Input("sub")]
         public Input<string>? Sub { get; set; }

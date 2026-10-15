@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Bedrock Foundation Model.
+// Provides details about an AWS Bedrock Foundation Model.
 //
 // ## Example Usage
 //
@@ -29,12 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := bedrockfoundation.GetModels(ctx, &bedrockfoundation.GetModelsArgs{}, nil)
+//			example, err := bedrockfoundation.GetModels(ctx, &bedrockfoundation.GetModelsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = bedrockfoundation.GetModel(ctx, &bedrockfoundation.GetModelArgs{
-//				ModelId: test.ModelSummaries[0].ModelId,
+//				ModelId: example.ModelSummaries[0].ModelId,
 //			}, nil)
 //			if err != nil {
 //				return err

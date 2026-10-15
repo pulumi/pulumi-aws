@@ -56,7 +56,7 @@ class CloudAutonomousVmClusterArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         :param pulumi.Input[_builtins.str] description: Description of the Autonomous VM cluster.
         :param pulumi.Input[_builtins.bool] is_mtls_enabled_vm_cluster: Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] license_model: License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
@@ -224,7 +224,7 @@ class CloudAutonomousVmClusterArgs:
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
+        Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 
@@ -405,7 +405,7 @@ class _CloudAutonomousVmClusterState:
         :param pulumi.Input[_builtins.int] available_container_databases: Number of Autonomous CDBs that you can create with the currently available storage.
         :param pulumi.Input[_builtins.float] available_cpus: Number of CPU cores available for allocation to Autonomous Databases.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         :param pulumi.Input[_builtins.str] compute_model: Compute model of the Autonomous VM cluster: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_core_count: Total number of CPU cores in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
@@ -651,7 +651,7 @@ class _CloudAutonomousVmClusterState:
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
+        Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 
@@ -1335,7 +1335,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] description: Description of the Autonomous VM cluster.
@@ -1648,7 +1648,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] available_container_databases: Number of Autonomous CDBs that you can create with the currently available storage.
         :param pulumi.Input[_builtins.float] available_cpus: Number of CPU cores available for allocation to Autonomous Databases.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         :param pulumi.Input[_builtins.str] compute_model: Compute model of the Autonomous VM cluster: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_core_count: Total number of CPU cores in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
@@ -1817,7 +1817,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
+        Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 

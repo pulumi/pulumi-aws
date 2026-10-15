@@ -79,14 +79,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the SNS topic, as a more obvious property (clone of id)
+     * The ARN of the SNS topic, as a more obvious property (clone of `id`)
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the SNS topic, as a more obvious property (clone of id)
+     * @return The ARN of the SNS topic, as a more obvious property (clone of `id`)
      * 
      */
     public Optional<Output<String>> arn() {
@@ -670,7 +670,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the SNS topic, as a more obvious property (clone of id)
+         * @param arn The ARN of the SNS topic, as a more obvious property (clone of `id`)
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the SNS topic, as a more obvious property (clone of id)
+         * @param arn The ARN of the SNS topic, as a more obvious property (clone of `id`)
          * 
          * @return builder
          * 

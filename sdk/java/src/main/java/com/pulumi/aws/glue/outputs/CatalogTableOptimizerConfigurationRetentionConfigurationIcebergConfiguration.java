@@ -18,7 +18,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      */
     private @Nullable Boolean cleanExpiredFiles;
     /**
-     * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+     * @return Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     private @Nullable Integer numberOfSnapshotsToRetain;
@@ -28,7 +28,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      */
     private @Nullable Integer runRateInHours;
     /**
-     * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+     * @return Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     private @Nullable Integer snapshotRetentionPeriodInDays;
@@ -42,7 +42,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
         return Optional.ofNullable(this.cleanExpiredFiles);
     }
     /**
-     * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+     * @return Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     public Optional<Integer> numberOfSnapshotsToRetain() {
@@ -56,7 +56,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
         return Optional.ofNullable(this.runRateInHours);
     }
     /**
-     * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+     * @return Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     public Optional<Integer> snapshotRetentionPeriodInDays() {

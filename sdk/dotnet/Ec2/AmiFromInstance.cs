@@ -129,9 +129,6 @@ namespace Pulumi.Aws.Ec2
         [Output("kernelId")]
         public Output<string> KernelId { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        /// </summary>
         [Output("lastLaunchedTime")]
         public Output<string> LastLaunchedTime { get; private set; } = null!;
 
@@ -454,9 +451,6 @@ namespace Pulumi.Aws.Ec2
         [Input("kernelId")]
         public Input<string>? KernelId { get; set; }
 
-        /// <summary>
-        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        /// </summary>
         [Input("lastLaunchedTime")]
         public Input<string>? LastLaunchedTime { get; set; }
 

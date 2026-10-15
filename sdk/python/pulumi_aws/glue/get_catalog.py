@@ -102,7 +102,7 @@ class GetCatalogResult:
     @pulumi.getter(name="catalogProperties")
     def catalog_properties(self) -> Sequence['outputs.GetCatalogCatalogPropertyResult']:
         """
-        Catalog properties. See `catalog_properties` below.
+        Catalog properties. See `catalog_properties` Block below.
         """
         return pulumi.get(self, "catalog_properties")
 
@@ -110,7 +110,7 @@ class GetCatalogResult:
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> Sequence['outputs.GetCatalogCreateDatabaseDefaultPermissionResult']:
         """
-        Default permissions on databases for principals. See `create_database_default_permissions` below.
+        Default permissions on databases for principals. See `create_database_default_permissions` Block below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
@@ -118,7 +118,7 @@ class GetCatalogResult:
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Sequence['outputs.GetCatalogCreateTableDefaultPermissionResult']:
         """
-        Default permissions on tables for principals. See `create_table_default_permissions` below.
+        Default permissions on tables for principals. See `create_table_default_permissions` Block below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
@@ -142,7 +142,7 @@ class GetCatalogResult:
     @pulumi.getter(name="federatedCatalogs")
     def federated_catalogs(self) -> Sequence['outputs.GetCatalogFederatedCatalogResult']:
         """
-        Federated catalog configuration. See `federated_catalog` below.
+        Federated catalog configuration. See `federated_catalog` Block below.
         """
         return pulumi.get(self, "federated_catalogs")
 
@@ -176,7 +176,7 @@ class GetCatalogResult:
     @pulumi.getter(name="targetRedshiftCatalogs")
     def target_redshift_catalogs(self) -> Sequence['outputs.GetCatalogTargetRedshiftCatalogResult']:
         """
-        Target Redshift catalog configuration. See `target_redshift_catalog` below.
+        Target Redshift catalog configuration. See `target_redshift_catalog` Block below.
         """
         return pulumi.get(self, "target_redshift_catalogs")
 

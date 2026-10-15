@@ -13,43 +13,43 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Ancillary Source Settings. See Ancillary Source Settings for more details.
+        /// Ancillary source settings. See `AncillarySourceSettings` Block for details.
         /// </summary>
         [Input("ancillarySourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsGetArgs>? AncillarySourceSettings { get; set; }
 
         /// <summary>
-        /// ARIB Source Settings.
+        /// ARIB source settings. Can be set as an empty block.
         /// </summary>
         [Input("aribSourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsGetArgs>? AribSourceSettings { get; set; }
 
         /// <summary>
-        /// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        /// DVB Sub source settings. See `DvbSubSourceSettings` Block for details.
         /// </summary>
         [Input("dvbSubSourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsGetArgs>? DvbSubSourceSettings { get; set; }
 
         /// <summary>
-        /// Embedded Source Settings. See Embedded Source Settings for more details.
+        /// Embedded source settings. See `EmbeddedSourceSettings` Block for details.
         /// </summary>
         [Input("embeddedSourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsGetArgs>? EmbeddedSourceSettings { get; set; }
 
         /// <summary>
-        /// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        /// SCTE-20 source settings. See `Scte20SourceSettings` Block for details.
         /// </summary>
         [Input("scte20SourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsGetArgs>? Scte20SourceSettings { get; set; }
 
         /// <summary>
-        /// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        /// SCTE-27 source settings. See `Scte27SourceSettings` Block for details.
         /// </summary>
         [Input("scte27SourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsGetArgs>? Scte27SourceSettings { get; set; }
 
         /// <summary>
-        /// Teletext Source Settings. See Teletext Source Settings for more details.
+        /// Teletext source settings. See `TeletextSourceSettings` Block for details.
         /// </summary>
         [Input("teletextSourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsGetArgs>? TeletextSourceSettings { get; set; }

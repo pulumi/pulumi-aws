@@ -228,17 +228,20 @@ export class Replicator extends pulumi.CustomResource {
      * ARN of the Replicator.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Current version of the MSK Replicator.
+     */
     declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
-     * A summary description of the replicator.
+     * Summary description of the replicator.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+     * Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
      */
     declare public readonly kafkaClusters: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
-     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
      */
     declare public readonly logDelivery: pulumi.Output<outputs.msk.ReplicatorLogDelivery | undefined>;
     /**
@@ -246,23 +249,23 @@ export class Replicator extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+     * List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
      */
     declare public readonly replicationInfoList: pulumi.Output<outputs.msk.ReplicatorReplicationInfoList>;
     /**
-     * The name of the replicator.
+     * Name of the replicator.
      */
     declare public readonly replicatorName: pulumi.Output<string>;
     /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
+     * ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
      */
     declare public readonly serviceExecutionRoleArn: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -329,17 +332,20 @@ export interface ReplicatorState {
      * ARN of the Replicator.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Current version of the MSK Replicator.
+     */
     currentVersion?: pulumi.Input<string | undefined>;
     /**
-     * A summary description of the replicator.
+     * Summary description of the replicator.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+     * Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
      */
     kafkaClusters?: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[] | undefined>;
     /**
-     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
      */
     logDelivery?: pulumi.Input<inputs.msk.ReplicatorLogDelivery | undefined>;
     /**
@@ -347,23 +353,23 @@ export interface ReplicatorState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+     * List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
      */
     replicationInfoList?: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList | undefined>;
     /**
-     * The name of the replicator.
+     * Name of the replicator.
      */
     replicatorName?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
+     * ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
      */
     serviceExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -373,15 +379,15 @@ export interface ReplicatorState {
  */
 export interface ReplicatorArgs {
     /**
-     * A summary description of the replicator.
+     * Summary description of the replicator.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+     * Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
      */
     kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
     /**
-     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
      */
     logDelivery?: pulumi.Input<inputs.msk.ReplicatorLogDelivery | undefined>;
     /**
@@ -389,19 +395,19 @@ export interface ReplicatorArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+     * List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
      */
     replicationInfoList: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList>;
     /**
-     * The name of the replicator.
+     * Name of the replicator.
      */
     replicatorName: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
+     * ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
      */
     serviceExecutionRoleArn: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

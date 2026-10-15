@@ -91,14 +91,14 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
      * 
      */
     @Import(name="customPosixUserConfig")
     private @Nullable Output<UserProfileUserSettingsCustomPosixUserConfigArgs> customPosixUserConfig;
 
     /**
-     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * @return Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsCustomPosixUserConfigArgs>> customPosixUserConfig() {
@@ -436,7 +436,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
          * 
          * @return builder
          * 

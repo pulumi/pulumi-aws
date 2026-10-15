@@ -19,19 +19,19 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? PasswordParam { get; set; }
 
         /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
+        /// Stream name for RTMP destinations (URLs of type `rtmp://`).
         /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
 
         /// <summary>
-        /// A URL specifying a destination.
+        /// URL for the destination.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Username for destination.
+        /// Username for the destination.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

@@ -16,14 +16,14 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
     public static final ConnectorKafkaClusterApacheKafkaClusterVpcArgs Empty = new ConnectorKafkaClusterApacheKafkaClusterVpcArgs();
 
     /**
-     * The security groups for the connector.
+     * Security groups for the connector.
      * 
      */
     @Import(name="securityGroups", required=true)
     private Output<List<String>> securityGroups;
 
     /**
-     * @return The security groups for the connector.
+     * @return Security groups for the connector.
      * 
      */
     public Output<List<String>> securityGroups() {
@@ -31,14 +31,14 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
     }
 
     /**
-     * The subnets for the connector.
+     * Subnets for the connector.
      * 
      */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
     /**
-     * @return The subnets for the connector.
+     * @return Subnets for the connector.
      * 
      */
     public Output<List<String>> subnets() {
@@ -71,7 +71,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
         }
 
         /**
-         * @param securityGroups The security groups for the connector.
+         * @param securityGroups Security groups for the connector.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
         }
 
         /**
-         * @param securityGroups The security groups for the connector.
+         * @param securityGroups Security groups for the connector.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
         }
 
         /**
-         * @param securityGroups The security groups for the connector.
+         * @param securityGroups Security groups for the connector.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
         }
 
         /**
-         * @param subnets The subnets for the connector.
+         * @param subnets Subnets for the connector.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
         }
 
         /**
-         * @param subnets The subnets for the connector.
+         * @param subnets Subnets for the connector.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
         }
 
         /**
-         * @param subnets The subnets for the connector.
+         * @param subnets Subnets for the connector.
          * 
          * @return builder
          * 

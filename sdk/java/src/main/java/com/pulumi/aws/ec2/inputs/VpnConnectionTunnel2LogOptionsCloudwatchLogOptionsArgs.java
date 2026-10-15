@@ -47,14 +47,14 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs extend
     }
 
     /**
-     * Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     @Import(name="bgpLogOutputFormat")
     private @Nullable Output<String> bgpLogOutputFormat;
 
     /**
-     * @return Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * @return Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     public Optional<Output<String>> bgpLogOutputFormat() {
@@ -92,14 +92,14 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs extend
     }
 
     /**
-     * Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     @Import(name="logOutputFormat")
     private @Nullable Output<String> logOutputFormat;
 
     /**
-     * @return Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * @return Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     public Optional<Output<String>> logOutputFormat() {
@@ -178,7 +178,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param bgpLogOutputFormat Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * @param bgpLogOutputFormat Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param bgpLogOutputFormat Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * @param bgpLogOutputFormat Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param logOutputFormat Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * @param logOutputFormat Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param logOutputFormat Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * @param logOutputFormat Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
          * 
          * @return builder
          * 

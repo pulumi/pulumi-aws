@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? InputAction;
         /// <summary>
-        /// Toggles guardrail evaluation on input.
+        /// Whether to enable guardrail evaluation on input.
         /// </summary>
         public readonly bool? InputEnabled;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? OutputAction;
         /// <summary>
-        /// Toggles guardrail evaluation on output.
+        /// Whether to enable guardrail evaluation on output.
         /// </summary>
         public readonly bool? OutputEnabled;
         /// <summary>

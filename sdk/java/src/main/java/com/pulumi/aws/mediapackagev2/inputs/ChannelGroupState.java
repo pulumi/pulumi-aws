@@ -17,14 +17,14 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
     public static final ChannelGroupState Empty = new ChannelGroupState();
 
     /**
-     * The ARN of the channel
+     * ARN of the channel group
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the channel
+     * @return ARN of the channel group
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the channel group
+     * Description of the channel group
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the channel group
+     * @return Description of the channel group
      * 
      */
     public Optional<Output<String>> description() {
@@ -47,14 +47,14 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The egress domain of the channel group
+     * Egress domain of the channel group
      * 
      */
     @Import(name="egressDomain")
     private @Nullable Output<String> egressDomain;
 
     /**
-     * @return The egress domain of the channel group
+     * @return Egress domain of the channel group
      * 
      */
     public Optional<Output<String>> egressDomain() {
@@ -62,14 +62,14 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique identifier naming the channel group
+     * Unique identifier naming the channel group
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A unique identifier naming the channel group
+     * @return Unique identifier naming the channel group
      * 
      */
     public Optional<Output<String>> name() {
@@ -92,14 +92,14 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -107,14 +107,14 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -152,7 +152,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the channel
+         * @param arn ARN of the channel group
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the channel
+         * @param arn ARN of the channel group
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the channel group
+         * @param description Description of the channel group
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the channel group
+         * @param description Description of the channel group
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param egressDomain The egress domain of the channel group
+         * @param egressDomain Egress domain of the channel group
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param egressDomain The egress domain of the channel group
+         * @param egressDomain Egress domain of the channel group
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique identifier naming the channel group
+         * @param name Unique identifier naming the channel group
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique identifier naming the channel group
+         * @param name Unique identifier naming the channel group
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ChannelGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

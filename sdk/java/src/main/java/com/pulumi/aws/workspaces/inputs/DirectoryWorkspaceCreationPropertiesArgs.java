@@ -17,14 +17,14 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
     public static final DirectoryWorkspaceCreationPropertiesArgs Empty = new DirectoryWorkspaceCreationPropertiesArgs();
 
     /**
-     * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+     * The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
      * 
      */
     @Import(name="customSecurityGroupId")
     private @Nullable Output<String> customSecurityGroupId;
 
     /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+     * @return The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
      * 
      */
     public Optional<Output<String>> customSecurityGroupId() {
@@ -120,7 +120,7 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param customSecurityGroupId The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+         * @param customSecurityGroupId The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
         }
 
         /**
-         * @param customSecurityGroupId The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+         * @param customSecurityGroupId The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
          * 
          * @return builder
          * 

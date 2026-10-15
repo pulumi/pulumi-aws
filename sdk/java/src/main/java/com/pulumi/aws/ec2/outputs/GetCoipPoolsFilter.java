@@ -19,7 +19,7 @@ public final class GetCoipPoolsFilter {
     private String name;
     /**
      * @return Set of values that are accepted for the given field.
-     * A COIP Pool will be selected if any one of the given values matches.
+     * A CoIP Pool will be selected if any one of the given values matches.
      * 
      */
     private List<String> values;
@@ -35,7 +35,7 @@ public final class GetCoipPoolsFilter {
     }
     /**
      * @return Set of values that are accepted for the given field.
-     * A COIP Pool will be selected if any one of the given values matches.
+     * A CoIP Pool will be selected if any one of the given values matches.
      * 
      */
     public List<String> values() {

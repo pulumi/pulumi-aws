@@ -33,14 +33,14 @@ public final class CatalogCreateTableDefaultPermissionArgs extends com.pulumi.re
     }
 
     /**
-     * Principal who is granted permissions. See `principal` below.
+     * Principal who is granted permissions. See `principal` Block below.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<CatalogCreateTableDefaultPermissionPrincipalArgs> principal;
 
     /**
-     * @return Principal who is granted permissions. See `principal` below.
+     * @return Principal who is granted permissions. See `principal` Block below.
      * 
      */
     public Optional<Output<CatalogCreateTableDefaultPermissionPrincipalArgs>> principal() {
@@ -104,7 +104,7 @@ public final class CatalogCreateTableDefaultPermissionArgs extends com.pulumi.re
         }
 
         /**
-         * @param principal Principal who is granted permissions. See `principal` below.
+         * @param principal Principal who is granted permissions. See `principal` Block below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class CatalogCreateTableDefaultPermissionArgs extends com.pulumi.re
         }
 
         /**
-         * @param principal Principal who is granted permissions. See `principal` below.
+         * @param principal Principal who is granted permissions. See `principal` Block below.
          * 
          * @return builder
          * 

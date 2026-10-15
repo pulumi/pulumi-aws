@@ -27,7 +27,7 @@ class GetV2PolicyResult:
     """
     A collection of values returned by getV2Policy.
     """
-    def __init__(__self__, arn=None, availability_slos=None, data_recoveries=None, description=None, kms_key_id=None, multi_azs=None, multi_regions=None, name=None, region=None, tags=None):
+    def __init__(__self__, arn=None, availability_slos=None, data_recoveries=None, description=None, kms_key_id=None, multi_azs=None, multi_regions=None, name=None, region=None, sharing_enabled=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetV2PolicyResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if sharing_enabled and not isinstance(sharing_enabled, bool):
+            raise TypeError("Expected argument 'sharing_enabled' to be a bool")
+        pulumi.set(__self__, "sharing_enabled", sharing_enabled)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -126,6 +129,14 @@ class GetV2PolicyResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> _builtins.bool:
+        """
+        Whether the policy is shared with other member accounts of the organization.
+        """
+        return pulumi.get(self, "sharing_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
@@ -149,6 +160,7 @@ class AwaitableGetV2PolicyResult(GetV2PolicyResult):
             multi_regions=self.multi_regions,
             name=self.name,
             region=self.region,
+            sharing_enabled=self.sharing_enabled,
             tags=self.tags)
 
 
@@ -189,6 +201,7 @@ def get_v2_policy(arn: Optional[_builtins.str] = None,
         multi_regions=pulumi.get(__ret__, 'multi_regions'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
+        sharing_enabled=pulumi.get(__ret__, 'sharing_enabled'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_v2_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -226,4 +239,5 @@ def get_v2_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         multi_regions=pulumi.get(__response__, 'multi_regions'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
+        sharing_enabled=pulumi.get(__response__, 'sharing_enabled'),
         tags=pulumi.get(__response__, 'tags')))

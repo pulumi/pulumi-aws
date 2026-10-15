@@ -19,14 +19,14 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
     public static final CrawlerDeltaTargetArgs Empty = new CrawlerDeltaTargetArgs();
 
     /**
-     * The name of the connection to use to connect to the Delta table target.
+     * Name of the connection to use to connect to the Delta table target.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return Name of the connection to use to connect to the Delta table target.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -34,14 +34,14 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+     * Whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
      * 
      */
     @Import(name="createNativeDeltaTable")
     private @Nullable Output<Boolean> createNativeDeltaTable;
 
     /**
-     * @return Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+     * @return Whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
      * 
      */
     public Optional<Output<Boolean>> createNativeDeltaTable() {
@@ -49,14 +49,14 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of the Amazon S3 paths to the Delta tables.
+     * List of the Amazon S3 paths to the Delta tables.
      * 
      */
     @Import(name="deltaTables", required=true)
     private Output<List<String>> deltaTables;
 
     /**
-     * @return A list of the Amazon S3 paths to the Delta tables.
+     * @return List of the Amazon S3 paths to the Delta tables.
      * 
      */
     public Output<List<String>> deltaTables() {
@@ -64,14 +64,14 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies whether to write the manifest files to the Delta table path.
+     * Whether to write the manifest files to the Delta table path.
      * 
      */
     @Import(name="writeManifest", required=true)
     private Output<Boolean> writeManifest;
 
     /**
-     * @return Specifies whether to write the manifest files to the Delta table path.
+     * @return Whether to write the manifest files to the Delta table path.
      * 
      */
     public Output<Boolean> writeManifest() {
@@ -106,7 +106,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName Name of the connection to use to connect to the Delta table target.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName Name of the connection to use to connect to the Delta table target.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param createNativeDeltaTable Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+         * @param createNativeDeltaTable Whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param createNativeDeltaTable Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+         * @param createNativeDeltaTable Whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deltaTables A list of the Amazon S3 paths to the Delta tables.
+         * @param deltaTables List of the Amazon S3 paths to the Delta tables.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deltaTables A list of the Amazon S3 paths to the Delta tables.
+         * @param deltaTables List of the Amazon S3 paths to the Delta tables.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deltaTables A list of the Amazon S3 paths to the Delta tables.
+         * @param deltaTables List of the Amazon S3 paths to the Delta tables.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param writeManifest Specifies whether to write the manifest files to the Delta table path.
+         * @param writeManifest Whether to write the manifest files to the Delta table path.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param writeManifest Specifies whether to write the manifest files to the Delta table path.
+         * @param writeManifest Whether to write the manifest files to the Delta table path.
          * 
          * @return builder
          * 

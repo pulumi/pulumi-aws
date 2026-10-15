@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
     public sealed class DomainLogPublishingOptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Cloudwatch log group to which log needs to be published.
+        /// ARN of the CloudWatch log group to which log needs to be published.
         /// </summary>
         [Input("cloudwatchLogGroupArn", required: true)]
         public Input<string> CloudwatchLogGroupArn { get; set; } = null!;

@@ -38,22 +38,22 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
 
-        :param pulumi.Input[_builtins.str] channel_class: Concise argument description.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: Destinations for channel. See Destinations for more details.
-        :param pulumi.Input['ChannelEncoderSettingsArgs'] encoder_settings: Encoder settings. See Encoder Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]] input_attachments: Input attachments for the channel. See Input Attachments for more details.
-        :param pulumi.Input['ChannelInputSpecificationArgs'] input_specification: Specification of network and file inputs for the channel.
-        :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
-        :param pulumi.Input[_builtins.str] log_level: The log level to write to Cloudwatch logs.
-        :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[_builtins.str] name: Name of the Channel.
+        :param pulumi.Input[_builtins.str] channel_class: Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: Destinations for the channel. See `destinations` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsArgs'] encoder_settings: Encoder settings. See `encoder_settings` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]] input_attachments: Input attachments for the channel. See `input_attachments` Block for details.
+        :param pulumi.Input['ChannelInputSpecificationArgs'] input_specification: Specification of network and file inputs for the channel. See `input_specification` Block for details.
+        :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See `cdi_input_specification` Block for details.
+        :param pulumi.Input[_builtins.str] log_level: Level of verbosity for the logs written to CloudWatch Logs.
+        :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See `maintenance` Block for details.
+        :param pulumi.Input[_builtins.str] name: Name of the channel.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Concise argument description.
-        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See VPC for more details.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role for the channel.
+        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See `vpc` Block for details.
         """
         pulumi.set(__self__, "channel_class", channel_class)
         pulumi.set(__self__, "destinations", destinations)
@@ -83,7 +83,7 @@ class ChannelArgs:
     @pulumi.getter(name="channelClass")
     def channel_class(self) -> pulumi.Input[_builtins.str]:
         """
-        Concise argument description.
+        Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         """
         return pulumi.get(self, "channel_class")
 
@@ -95,7 +95,7 @@ class ChannelArgs:
     @pulumi.getter
     def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]]:
         """
-        Destinations for channel. See Destinations for more details.
+        Destinations for the channel. See `destinations` Block for details.
         """
         return pulumi.get(self, "destinations")
 
@@ -107,7 +107,7 @@ class ChannelArgs:
     @pulumi.getter(name="encoderSettings")
     def encoder_settings(self) -> pulumi.Input['ChannelEncoderSettingsArgs']:
         """
-        Encoder settings. See Encoder Settings for more details.
+        Encoder settings. See `encoder_settings` Block for details.
         """
         return pulumi.get(self, "encoder_settings")
 
@@ -119,7 +119,7 @@ class ChannelArgs:
     @pulumi.getter(name="inputAttachments")
     def input_attachments(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]]:
         """
-        Input attachments for the channel. See Input Attachments for more details.
+        Input attachments for the channel. See `input_attachments` Block for details.
         """
         return pulumi.get(self, "input_attachments")
 
@@ -131,7 +131,7 @@ class ChannelArgs:
     @pulumi.getter(name="inputSpecification")
     def input_specification(self) -> pulumi.Input['ChannelInputSpecificationArgs']:
         """
-        Specification of network and file inputs for the channel.
+        Specification of network and file inputs for the channel. See `input_specification` Block for details.
         """
         return pulumi.get(self, "input_specification")
 
@@ -143,7 +143,7 @@ class ChannelArgs:
     @pulumi.getter(name="cdiInputSpecification")
     def cdi_input_specification(self) -> pulumi.Input[Optional['ChannelCdiInputSpecificationArgs']]:
         """
-        Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+        Specification of CDI inputs for this channel. See `cdi_input_specification` Block for details.
         """
         return pulumi.get(self, "cdi_input_specification")
 
@@ -155,7 +155,7 @@ class ChannelArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The log level to write to Cloudwatch logs.
+        Level of verbosity for the logs written to CloudWatch Logs.
         """
         return pulumi.get(self, "log_level")
 
@@ -167,7 +167,7 @@ class ChannelArgs:
     @pulumi.getter
     def maintenance(self) -> pulumi.Input[Optional['ChannelMaintenanceArgs']]:
         """
-        Maintenance settings for this channel. See Maintenance for more details.
+        Maintenance settings for this channel. See `maintenance` Block for details.
         """
         return pulumi.get(self, "maintenance")
 
@@ -179,7 +179,7 @@ class ChannelArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the Channel.
+        Name of the channel.
 
         The following arguments are optional:
         """
@@ -205,7 +205,7 @@ class ChannelArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Concise argument description.
+        ARN of the IAM role for the channel.
         """
         return pulumi.get(self, "role_arn")
 
@@ -217,7 +217,7 @@ class ChannelArgs:
     @pulumi.getter(name="startChannel")
     def start_channel(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to start/stop channel. Default: `false`
+        Whether to start/stop channel. Default: `false`.
         """
         return pulumi.get(self, "start_channel")
 
@@ -229,7 +229,7 @@ class ChannelArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -241,7 +241,7 @@ class ChannelArgs:
     @pulumi.getter
     def vpc(self) -> pulumi.Input[Optional['ChannelVpcArgs']]:
         """
-        Settings for the VPC outputs. See VPC for more details.
+        Settings for the VPC outputs. See `vpc` Block for details.
         """
         return pulumi.get(self, "vpc")
 
@@ -274,23 +274,26 @@ class _ChannelState:
         Input properties used for looking up and filtering Channel resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Channel.
-        :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
-        :param pulumi.Input[_builtins.str] channel_class: Concise argument description.
+        :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See `cdi_input_specification` Block for details.
+        :param pulumi.Input[_builtins.str] channel_class: Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         :param pulumi.Input[_builtins.str] channel_id: ID of the Channel.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: Destinations for channel. See Destinations for more details.
-        :param pulumi.Input['ChannelEncoderSettingsArgs'] encoder_settings: Encoder settings. See Encoder Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]] input_attachments: Input attachments for the channel. See Input Attachments for more details.
-        :param pulumi.Input['ChannelInputSpecificationArgs'] input_specification: Specification of network and file inputs for the channel.
-        :param pulumi.Input[_builtins.str] log_level: The log level to write to Cloudwatch logs.
-        :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[_builtins.str] name: Name of the Channel.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: Destinations for the channel. See `destinations` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsArgs'] encoder_settings: Encoder settings. See `encoder_settings` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]] input_attachments: Input attachments for the channel. See `input_attachments` Block for details.
+        :param pulumi.Input['ChannelInputSpecificationArgs'] input_specification: Specification of network and file inputs for the channel. See `input_specification` Block for details.
+        :param pulumi.Input[_builtins.str] log_level: Level of verbosity for the logs written to CloudWatch Logs.
+        :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See `maintenance` Block for details.
+        :param pulumi.Input[_builtins.str] name: Name of the channel.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Concise argument description.
-        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See VPC for more details.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role for the channel.
+        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+               * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See `vpc` Block for details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -343,7 +346,7 @@ class _ChannelState:
     @pulumi.getter(name="cdiInputSpecification")
     def cdi_input_specification(self) -> pulumi.Input[Optional['ChannelCdiInputSpecificationArgs']]:
         """
-        Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+        Specification of CDI inputs for this channel. See `cdi_input_specification` Block for details.
         """
         return pulumi.get(self, "cdi_input_specification")
 
@@ -355,7 +358,7 @@ class _ChannelState:
     @pulumi.getter(name="channelClass")
     def channel_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Concise argument description.
+        Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         """
         return pulumi.get(self, "channel_class")
 
@@ -379,7 +382,7 @@ class _ChannelState:
     @pulumi.getter
     def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationArgs']]]]:
         """
-        Destinations for channel. See Destinations for more details.
+        Destinations for the channel. See `destinations` Block for details.
         """
         return pulumi.get(self, "destinations")
 
@@ -391,7 +394,7 @@ class _ChannelState:
     @pulumi.getter(name="encoderSettings")
     def encoder_settings(self) -> pulumi.Input[Optional['ChannelEncoderSettingsArgs']]:
         """
-        Encoder settings. See Encoder Settings for more details.
+        Encoder settings. See `encoder_settings` Block for details.
         """
         return pulumi.get(self, "encoder_settings")
 
@@ -403,7 +406,7 @@ class _ChannelState:
     @pulumi.getter(name="inputAttachments")
     def input_attachments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]]]:
         """
-        Input attachments for the channel. See Input Attachments for more details.
+        Input attachments for the channel. See `input_attachments` Block for details.
         """
         return pulumi.get(self, "input_attachments")
 
@@ -415,7 +418,7 @@ class _ChannelState:
     @pulumi.getter(name="inputSpecification")
     def input_specification(self) -> pulumi.Input[Optional['ChannelInputSpecificationArgs']]:
         """
-        Specification of network and file inputs for the channel.
+        Specification of network and file inputs for the channel. See `input_specification` Block for details.
         """
         return pulumi.get(self, "input_specification")
 
@@ -427,7 +430,7 @@ class _ChannelState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The log level to write to Cloudwatch logs.
+        Level of verbosity for the logs written to CloudWatch Logs.
         """
         return pulumi.get(self, "log_level")
 
@@ -439,7 +442,7 @@ class _ChannelState:
     @pulumi.getter
     def maintenance(self) -> pulumi.Input[Optional['ChannelMaintenanceArgs']]:
         """
-        Maintenance settings for this channel. See Maintenance for more details.
+        Maintenance settings for this channel. See `maintenance` Block for details.
         """
         return pulumi.get(self, "maintenance")
 
@@ -451,7 +454,7 @@ class _ChannelState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the Channel.
+        Name of the channel.
 
         The following arguments are optional:
         """
@@ -477,7 +480,7 @@ class _ChannelState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Concise argument description.
+        ARN of the IAM role for the channel.
         """
         return pulumi.get(self, "role_arn")
 
@@ -489,7 +492,7 @@ class _ChannelState:
     @pulumi.getter(name="startChannel")
     def start_channel(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to start/stop channel. Default: `false`
+        Whether to start/stop channel. Default: `false`.
         """
         return pulumi.get(self, "start_channel")
 
@@ -501,7 +504,7 @@ class _ChannelState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -512,6 +515,11 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+        * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -522,7 +530,7 @@ class _ChannelState:
     @pulumi.getter
     def vpc(self) -> pulumi.Input[Optional['ChannelVpcArgs']]:
         """
-        Settings for the VPC outputs. See VPC for more details.
+        Settings for the VPC outputs. See `vpc` Block for details.
         """
         return pulumi.get(self, "vpc")
 
@@ -650,22 +658,22 @@ class Channel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ChannelCdiInputSpecificationArgs', 'ChannelCdiInputSpecificationArgsDict', 'outputs.ChannelCdiInputSpecification']] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
-        :param pulumi.Input[_builtins.str] channel_class: Concise argument description.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict', 'outputs.ChannelDestination']]]] destinations: Destinations for channel. See Destinations for more details.
-        :param pulumi.Input[Union['ChannelEncoderSettingsArgs', 'ChannelEncoderSettingsArgsDict', 'outputs.ChannelEncoderSettings']] encoder_settings: Encoder settings. See Encoder Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelInputAttachmentArgs', 'ChannelInputAttachmentArgsDict', 'outputs.ChannelInputAttachment']]]] input_attachments: Input attachments for the channel. See Input Attachments for more details.
-        :param pulumi.Input[Union['ChannelInputSpecificationArgs', 'ChannelInputSpecificationArgsDict', 'outputs.ChannelInputSpecification']] input_specification: Specification of network and file inputs for the channel.
-        :param pulumi.Input[_builtins.str] log_level: The log level to write to Cloudwatch logs.
-        :param pulumi.Input[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict', 'outputs.ChannelMaintenance']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[_builtins.str] name: Name of the Channel.
+        :param pulumi.Input[Union['ChannelCdiInputSpecificationArgs', 'ChannelCdiInputSpecificationArgsDict', 'outputs.ChannelCdiInputSpecification']] cdi_input_specification: Specification of CDI inputs for this channel. See `cdi_input_specification` Block for details.
+        :param pulumi.Input[_builtins.str] channel_class: Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict', 'outputs.ChannelDestination']]]] destinations: Destinations for the channel. See `destinations` Block for details.
+        :param pulumi.Input[Union['ChannelEncoderSettingsArgs', 'ChannelEncoderSettingsArgsDict', 'outputs.ChannelEncoderSettings']] encoder_settings: Encoder settings. See `encoder_settings` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelInputAttachmentArgs', 'ChannelInputAttachmentArgsDict', 'outputs.ChannelInputAttachment']]]] input_attachments: Input attachments for the channel. See `input_attachments` Block for details.
+        :param pulumi.Input[Union['ChannelInputSpecificationArgs', 'ChannelInputSpecificationArgsDict', 'outputs.ChannelInputSpecification']] input_specification: Specification of network and file inputs for the channel. See `input_specification` Block for details.
+        :param pulumi.Input[_builtins.str] log_level: Level of verbosity for the logs written to CloudWatch Logs.
+        :param pulumi.Input[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict', 'outputs.ChannelMaintenance']] maintenance: Maintenance settings for this channel. See `maintenance` Block for details.
+        :param pulumi.Input[_builtins.str] name: Name of the channel.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Concise argument description.
-        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ChannelVpcArgs', 'ChannelVpcArgsDict', 'outputs.ChannelVpc']] vpc: Settings for the VPC outputs. See VPC for more details.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role for the channel.
+        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['ChannelVpcArgs', 'ChannelVpcArgsDict', 'outputs.ChannelVpc']] vpc: Settings for the VPC outputs. See `vpc` Block for details.
         """
         ...
     @overload
@@ -869,23 +877,26 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Channel.
-        :param pulumi.Input[Union['ChannelCdiInputSpecificationArgs', 'ChannelCdiInputSpecificationArgsDict', 'outputs.ChannelCdiInputSpecification']] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
-        :param pulumi.Input[_builtins.str] channel_class: Concise argument description.
+        :param pulumi.Input[Union['ChannelCdiInputSpecificationArgs', 'ChannelCdiInputSpecificationArgsDict', 'outputs.ChannelCdiInputSpecification']] cdi_input_specification: Specification of CDI inputs for this channel. See `cdi_input_specification` Block for details.
+        :param pulumi.Input[_builtins.str] channel_class: Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         :param pulumi.Input[_builtins.str] channel_id: ID of the Channel.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict', 'outputs.ChannelDestination']]]] destinations: Destinations for channel. See Destinations for more details.
-        :param pulumi.Input[Union['ChannelEncoderSettingsArgs', 'ChannelEncoderSettingsArgsDict', 'outputs.ChannelEncoderSettings']] encoder_settings: Encoder settings. See Encoder Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelInputAttachmentArgs', 'ChannelInputAttachmentArgsDict', 'outputs.ChannelInputAttachment']]]] input_attachments: Input attachments for the channel. See Input Attachments for more details.
-        :param pulumi.Input[Union['ChannelInputSpecificationArgs', 'ChannelInputSpecificationArgsDict', 'outputs.ChannelInputSpecification']] input_specification: Specification of network and file inputs for the channel.
-        :param pulumi.Input[_builtins.str] log_level: The log level to write to Cloudwatch logs.
-        :param pulumi.Input[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict', 'outputs.ChannelMaintenance']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[_builtins.str] name: Name of the Channel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict', 'outputs.ChannelDestination']]]] destinations: Destinations for the channel. See `destinations` Block for details.
+        :param pulumi.Input[Union['ChannelEncoderSettingsArgs', 'ChannelEncoderSettingsArgsDict', 'outputs.ChannelEncoderSettings']] encoder_settings: Encoder settings. See `encoder_settings` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelInputAttachmentArgs', 'ChannelInputAttachmentArgsDict', 'outputs.ChannelInputAttachment']]]] input_attachments: Input attachments for the channel. See `input_attachments` Block for details.
+        :param pulumi.Input[Union['ChannelInputSpecificationArgs', 'ChannelInputSpecificationArgsDict', 'outputs.ChannelInputSpecification']] input_specification: Specification of network and file inputs for the channel. See `input_specification` Block for details.
+        :param pulumi.Input[_builtins.str] log_level: Level of verbosity for the logs written to CloudWatch Logs.
+        :param pulumi.Input[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict', 'outputs.ChannelMaintenance']] maintenance: Maintenance settings for this channel. See `maintenance` Block for details.
+        :param pulumi.Input[_builtins.str] name: Name of the channel.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Concise argument description.
-        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ChannelVpcArgs', 'ChannelVpcArgsDict', 'outputs.ChannelVpc']] vpc: Settings for the VPC outputs. See VPC for more details.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role for the channel.
+        :param pulumi.Input[_builtins.bool] start_channel: Whether to start/stop channel. Default: `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+               * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+        :param pulumi.Input[Union['ChannelVpcArgs', 'ChannelVpcArgsDict', 'outputs.ChannelVpc']] vpc: Settings for the VPC outputs. See `vpc` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -922,7 +933,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="cdiInputSpecification")
     def cdi_input_specification(self) -> pulumi.Output[Optional['outputs.ChannelCdiInputSpecification']]:
         """
-        Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+        Specification of CDI inputs for this channel. See `cdi_input_specification` Block for details.
         """
         return pulumi.get(self, "cdi_input_specification")
 
@@ -930,7 +941,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="channelClass")
     def channel_class(self) -> pulumi.Output[_builtins.str]:
         """
-        Concise argument description.
+        Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         """
         return pulumi.get(self, "channel_class")
 
@@ -946,7 +957,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def destinations(self) -> pulumi.Output[Sequence['outputs.ChannelDestination']]:
         """
-        Destinations for channel. See Destinations for more details.
+        Destinations for the channel. See `destinations` Block for details.
         """
         return pulumi.get(self, "destinations")
 
@@ -954,7 +965,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="encoderSettings")
     def encoder_settings(self) -> pulumi.Output['outputs.ChannelEncoderSettings']:
         """
-        Encoder settings. See Encoder Settings for more details.
+        Encoder settings. See `encoder_settings` Block for details.
         """
         return pulumi.get(self, "encoder_settings")
 
@@ -962,7 +973,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="inputAttachments")
     def input_attachments(self) -> pulumi.Output[Sequence['outputs.ChannelInputAttachment']]:
         """
-        Input attachments for the channel. See Input Attachments for more details.
+        Input attachments for the channel. See `input_attachments` Block for details.
         """
         return pulumi.get(self, "input_attachments")
 
@@ -970,7 +981,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="inputSpecification")
     def input_specification(self) -> pulumi.Output['outputs.ChannelInputSpecification']:
         """
-        Specification of network and file inputs for the channel.
+        Specification of network and file inputs for the channel. See `input_specification` Block for details.
         """
         return pulumi.get(self, "input_specification")
 
@@ -978,7 +989,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[_builtins.str]:
         """
-        The log level to write to Cloudwatch logs.
+        Level of verbosity for the logs written to CloudWatch Logs.
         """
         return pulumi.get(self, "log_level")
 
@@ -986,7 +997,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def maintenance(self) -> pulumi.Output['outputs.ChannelMaintenance']:
         """
-        Maintenance settings for this channel. See Maintenance for more details.
+        Maintenance settings for this channel. See `maintenance` Block for details.
         """
         return pulumi.get(self, "maintenance")
 
@@ -994,7 +1005,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the Channel.
+        Name of the channel.
 
         The following arguments are optional:
         """
@@ -1012,7 +1023,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Concise argument description.
+        ARN of the IAM role for the channel.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1020,7 +1031,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="startChannel")
     def start_channel(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to start/stop channel. Default: `false`
+        Whether to start/stop channel. Default: `false`.
         """
         return pulumi.get(self, "start_channel")
 
@@ -1028,20 +1039,25 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+        * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def vpc(self) -> pulumi.Output[Optional['outputs.ChannelVpc']]:
         """
-        Settings for the VPC outputs. See VPC for more details.
+        Settings for the VPC outputs. See `vpc` Block for details.
         """
         return pulumi.get(self, "vpc")
 

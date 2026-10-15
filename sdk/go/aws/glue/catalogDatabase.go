@@ -89,11 +89,11 @@ type CatalogDatabase struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
 	FederatedDatabase CatalogDatabaseFederatedDatabasePtrOutput `pulumi:"federatedDatabase"`
 	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
@@ -105,9 +105,9 @@ type CatalogDatabase struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	// Configuration block for a target database for resource linking. See `targetDatabase` Block below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrOutput `pulumi:"targetDatabase"`
 }
 
@@ -145,11 +145,11 @@ type catalogDatabaseState struct {
 	Arn *string `pulumi:"arn"`
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
-	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
 	FederatedDatabase *CatalogDatabaseFederatedDatabase `pulumi:"federatedDatabase"`
 	// Location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
@@ -161,9 +161,9 @@ type catalogDatabaseState struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	// Configuration block for a target database for resource linking. See `targetDatabase` Block below.
 	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
 }
 
@@ -172,11 +172,11 @@ type CatalogDatabaseState struct {
 	Arn pulumi.StringPtrInput
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
-	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
 	FederatedDatabase CatalogDatabaseFederatedDatabasePtrInput
 	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
@@ -188,9 +188,9 @@ type CatalogDatabaseState struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	// Configuration block for a target database for resource linking. See `targetDatabase` Block below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
 }
 
@@ -201,11 +201,11 @@ func (CatalogDatabaseState) ElementType() reflect.Type {
 type catalogDatabaseArgs struct {
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
-	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
 	FederatedDatabase *CatalogDatabaseFederatedDatabase `pulumi:"federatedDatabase"`
 	// Location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
@@ -217,7 +217,7 @@ type catalogDatabaseArgs struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	// Configuration block for a target database for resource linking. See `targetDatabase` Block below.
 	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
 }
 
@@ -225,11 +225,11 @@ type catalogDatabaseArgs struct {
 type CatalogDatabaseArgs struct {
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
-	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
 	FederatedDatabase CatalogDatabaseFederatedDatabasePtrInput
 	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
@@ -241,7 +241,7 @@ type CatalogDatabaseArgs struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	// Configuration block for a target database for resource linking. See `targetDatabase` Block below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
 }
 
@@ -342,7 +342,7 @@ func (o CatalogDatabaseOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
 func (o CatalogDatabaseOutput) CreateTableDefaultPermissions() CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v *CatalogDatabase) CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
 		return v.CreateTableDefaultPermissions
@@ -354,7 +354,7 @@ func (o CatalogDatabaseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
 func (o CatalogDatabaseOutput) FederatedDatabase() CatalogDatabaseFederatedDatabasePtrOutput {
 	return o.ApplyT(func(v *CatalogDatabase) CatalogDatabaseFederatedDatabasePtrOutput { return v.FederatedDatabase }).(CatalogDatabaseFederatedDatabasePtrOutput)
 }
@@ -384,12 +384,12 @@ func (o CatalogDatabaseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CatalogDatabaseOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for a target database for resource linking. See `targetDatabase` below.
+// Configuration block for a target database for resource linking. See `targetDatabase` Block below.
 func (o CatalogDatabaseOutput) TargetDatabase() CatalogDatabaseTargetDatabasePtrOutput {
 	return o.ApplyT(func(v *CatalogDatabase) CatalogDatabaseTargetDatabasePtrOutput { return v.TargetDatabase }).(CatalogDatabaseTargetDatabasePtrOutput)
 }

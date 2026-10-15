@@ -133,7 +133,7 @@ export class Topic extends pulumi.CustomResource {
      */
     declare public readonly archivePolicy: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the SNS topic, as a more obvious property (clone of id)
+     * The ARN of the SNS topic, as a more obvious property (clone of `id`)
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -363,7 +363,7 @@ export interface TopicState {
      */
     archivePolicy?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the SNS topic, as a more obvious property (clone of id)
+     * The ARN of the SNS topic, as a more obvious property (clone of `id`)
      */
     arn?: pulumi.Input<string | undefined>;
     /**

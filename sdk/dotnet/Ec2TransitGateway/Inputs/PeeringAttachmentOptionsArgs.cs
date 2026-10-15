@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
     public sealed class PeeringAttachmentOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether dynamic routing is enabled or disabled.. Supports `Enable` and `Disable`.
+        /// Indicates whether dynamic routing is enabled or disabled. Supports `Enable` and `Disable`. If not configured, the value is populated from the API.
         /// </summary>
         [Input("dynamicRouting")]
         public Input<string>? DynamicRouting { get; set; }

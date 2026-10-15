@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TriggerPredicate {
     /**
-     * @return A list of the conditions that determine when the trigger will fire. See Conditions.
+     * @return List of the conditions that determine when the trigger will fire. See `conditions`.
      * 
      */
     private List<TriggerPredicateCondition> conditions;
@@ -27,7 +27,7 @@ public final class TriggerPredicate {
 
     private TriggerPredicate() {}
     /**
-     * @return A list of the conditions that determine when the trigger will fire. See Conditions.
+     * @return List of the conditions that determine when the trigger will fire. See `conditions`.
      * 
      */
     public List<TriggerPredicateCondition> conditions() {

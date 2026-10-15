@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
+// Provides an EC2 launch template resource. Can be used to create instances or Auto Scaling groups.
 //
 // #### Optional
 //

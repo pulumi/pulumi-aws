@@ -18,6 +18,8 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociation {
     /**
      * @return ARN of the CloudFront function.
      * 
+     * #### `GRPC` config arguments
+     * 
      */
     private String functionArn;
 
@@ -31,6 +33,8 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociation {
     }
     /**
      * @return ARN of the CloudFront function.
+     * 
+     * #### `GRPC` config arguments
      * 
      */
     public String functionArn() {

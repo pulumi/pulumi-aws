@@ -1039,7 +1039,7 @@ class PresetVideoWatermarkArgsDict(TypedDict):
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+    A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
     """
     max_height: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1086,7 +1086,7 @@ class PresetVideoWatermarkArgs:
         """
         :param pulumi.Input[_builtins.str] horizontal_align: The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
         :param pulumi.Input[_builtins.str] horizontal_offset: The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
-        :param pulumi.Input[_builtins.str] id: A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+        :param pulumi.Input[_builtins.str] id: A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
         :param pulumi.Input[_builtins.str] max_height: The maximum height of the watermark.
         :param pulumi.Input[_builtins.str] max_width: The maximum width of the watermark.
         :param pulumi.Input[_builtins.str] opacity: A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
@@ -1144,7 +1144,7 @@ class PresetVideoWatermarkArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+        A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
         """
         return pulumi.get(self, "id")
 

@@ -82,13 +82,13 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	// Id of the Application.
+	// ID of the Application.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ARN of the Application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Current version of the application deployed.
 	CurrentVersion pulumi.IntOutput `pulumi:"currentVersion"`
-	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+	// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
 	Definition ApplicationDefinitionOutput `pulumi:"definition"`
 	// Description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -106,7 +106,7 @@ type Application struct {
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts ApplicationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -147,13 +147,13 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// Id of the Application.
+	// ID of the Application.
 	ApplicationId *string `pulumi:"applicationId"`
 	// ARN of the Application.
 	Arn *string `pulumi:"arn"`
 	// Current version of the application deployed.
 	CurrentVersion *int `pulumi:"currentVersion"`
-	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+	// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
 	Definition *ApplicationDefinition `pulumi:"definition"`
 	// Description of the application.
 	Description *string `pulumi:"description"`
@@ -171,19 +171,19 @@ type applicationState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
 
 type ApplicationState struct {
-	// Id of the Application.
+	// ID of the Application.
 	ApplicationId pulumi.StringPtrInput
 	// ARN of the Application.
 	Arn pulumi.StringPtrInput
 	// Current version of the application deployed.
 	CurrentVersion pulumi.IntPtrInput
-	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+	// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
 	Definition ApplicationDefinitionPtrInput
 	// Description of the application.
 	Description pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type ApplicationState struct {
 	RoleArn pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ApplicationTimeoutsPtrInput
 }
@@ -211,7 +211,7 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+	// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
 	Definition ApplicationDefinition `pulumi:"definition"`
 	// Description of the application.
 	Description *string `pulumi:"description"`
@@ -234,7 +234,7 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+	// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
 	Definition ApplicationDefinitionInput
 	// Description of the application.
 	Description pulumi.StringPtrInput
@@ -342,7 +342,7 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Id of the Application.
+// ID of the Application.
 func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
@@ -357,7 +357,7 @@ func (o ApplicationOutput) CurrentVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *Application) pulumi.IntOutput { return v.CurrentVersion }).(pulumi.IntOutput)
 }
 
-// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+// Application definition for this application. You can specify either inline JSON or an S3 bucket location.
 func (o ApplicationOutput) Definition() ApplicationDefinitionOutput {
 	return o.ApplyT(func(v *Application) ApplicationDefinitionOutput { return v.Definition }).(ApplicationDefinitionOutput)
 }
@@ -399,7 +399,7 @@ func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

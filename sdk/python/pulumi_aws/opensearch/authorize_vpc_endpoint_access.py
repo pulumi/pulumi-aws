@@ -157,7 +157,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
+        Resource for managing an AWS OpenSearch Authorize VPC Endpoint Access.
 
         ## Example Usage
 
@@ -175,7 +175,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
+        Using `pulumi import`, import OpenSearch Authorize VPC Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
 
         ```sh
         $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
@@ -195,7 +195,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
                  args: AuthorizeVpcEndpointAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
+        Resource for managing an AWS OpenSearch Authorize VPC Endpoint Access.
 
         ## Example Usage
 
@@ -213,7 +213,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
+        Using `pulumi import`, import OpenSearch Authorize VPC Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
 
         ```sh
         $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012

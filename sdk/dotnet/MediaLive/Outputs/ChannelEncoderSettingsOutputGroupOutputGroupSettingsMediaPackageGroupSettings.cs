@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings
     {
         /// <summary>
-        /// A director and base filename where archive files should be written. See Destination for more details.
+        /// MediaPackage channel destination. See `Destination` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination Destination;
 

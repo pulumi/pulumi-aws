@@ -18,14 +18,14 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
     public static final GetHoursOfOperationArgs Empty = new GetHoursOfOperationArgs();
 
     /**
-     * Returns information on a specific Hours of Operation by hours of operation id
+     * Returns information on a specific Hours of Operation by hours of operation ID
      * 
      */
     @Import(name="hoursOfOperationId")
     private @Nullable Output<String> hoursOfOperationId;
 
     /**
-     * @return Returns information on a specific Hours of Operation by hours of operation id
+     * @return Returns information on a specific Hours of Operation by hours of operation ID
      * 
      */
     public Optional<Output<String>> hoursOfOperationId() {
@@ -125,7 +125,7 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param hoursOfOperationId Returns information on a specific Hours of Operation by hours of operation id
+         * @param hoursOfOperationId Returns information on a specific Hours of Operation by hours of operation ID
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param hoursOfOperationId Returns information on a specific Hours of Operation by hours of operation id
+         * @param hoursOfOperationId Returns information on a specific Hours of Operation by hours of operation ID
          * 
          * @return builder
          * 

@@ -162,7 +162,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Denotes the user's authentication properties.
+        /// Authentication properties for the user.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserAuthenticationModeResult> AuthenticationModes;
         /// <summary>

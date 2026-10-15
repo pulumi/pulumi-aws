@@ -19,14 +19,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs();
 
     /**
-     * Setting to allow self signed or verified RTMP certificates.
+     * Whether to allow self-signed or verified RTMP certificates.
      * 
      */
     @Import(name="certificateMode")
     private @Nullable Output<String> certificateMode;
 
     /**
-     * @return Setting to allow self signed or verified RTMP certificates.
+     * @return Whether to allow self-signed or verified RTMP certificates.
      * 
      */
     public Optional<Output<String>> certificateMode() {
@@ -34,14 +34,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
     }
 
     /**
-     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
      * 
      */
     @Import(name="connectionRetryInterval")
     private @Nullable Output<Integer> connectionRetryInterval;
 
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
      * 
      */
     public Optional<Output<Integer>> connectionRetryInterval() {
@@ -49,14 +49,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
     }
 
     /**
-     * The RTMP endpoint excluding the stream name. See Destination for more details.
+     * RTMP endpoint excluding the stream name. See `destination` Block for details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs> destination;
 
     /**
-     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
+     * @return RTMP endpoint excluding the stream name. See `destination` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs> destination() {
@@ -106,7 +106,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * @param certificateMode Whether to allow self-signed or verified RTMP certificates.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * @param certificateMode Whether to allow self-signed or verified RTMP certificates.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param destination The RTMP endpoint excluding the stream name. See Destination for more details.
+         * @param destination RTMP endpoint excluding the stream name. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param destination The RTMP endpoint excluding the stream name. See Destination for more details.
+         * @param destination RTMP endpoint excluding the stream name. See `destination` Block for details.
          * 
          * @return builder
          * 

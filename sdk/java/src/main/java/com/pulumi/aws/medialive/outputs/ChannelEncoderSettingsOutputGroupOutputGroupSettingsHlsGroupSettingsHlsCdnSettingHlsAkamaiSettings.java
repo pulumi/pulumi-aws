@@ -13,14 +13,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings {
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     private @Nullable Integer connectionRetryInterval;
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     private @Nullable Integer filecacheDuration;
+    /**
+     * @return HTTP transfer mode.
+     * 
+     */
     private @Nullable String httpTransferMode;
     /**
-     * @return Number of retry attempts.
+     * @return Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     private @Nullable Integer numRetries;
@@ -29,25 +37,41 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
      * 
      */
     private @Nullable Integer restartDelay;
+    /**
+     * @return Salt for authenticated Akamai.
+     * 
+     */
     private @Nullable String salt;
+    /**
+     * @return Token parameter for authenticated Akamai.
+     * 
+     */
     private @Nullable String token;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings() {}
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     public Optional<Integer> filecacheDuration() {
         return Optional.ofNullable(this.filecacheDuration);
     }
+    /**
+     * @return HTTP transfer mode.
+     * 
+     */
     public Optional<String> httpTransferMode() {
         return Optional.ofNullable(this.httpTransferMode);
     }
     /**
-     * @return Number of retry attempts.
+     * @return Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     public Optional<Integer> numRetries() {
@@ -60,9 +84,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<Integer> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }
+    /**
+     * @return Salt for authenticated Akamai.
+     * 
+     */
     public Optional<String> salt() {
         return Optional.ofNullable(this.salt);
     }
+    /**
+     * @return Token parameter for authenticated Akamai.
+     * 
+     */
     public Optional<String> token() {
         return Optional.ofNullable(this.token);
     }

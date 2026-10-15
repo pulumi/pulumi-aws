@@ -193,7 +193,7 @@ type BuildStorageLocation struct {
 	Bucket string `pulumi:"bucket"`
 	// Name of the zip file containing your build files.
 	Key string `pulumi:"key"`
-	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	// Specific version of the file. If not set, the latest version of the file is retrieved.
 	ObjectVersion *string `pulumi:"objectVersion"`
 	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 	RoleArn string `pulumi:"roleArn"`
@@ -215,7 +215,7 @@ type BuildStorageLocationArgs struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Name of the zip file containing your build files.
 	Key pulumi.StringInput `pulumi:"key"`
-	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	// Specific version of the file. If not set, the latest version of the file is retrieved.
 	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
 	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -308,7 +308,7 @@ func (o BuildStorageLocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildStorageLocation) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// A specific version of the file. If not set, the latest version of the file is retrieved.
+// Specific version of the file. If not set, the latest version of the file is retrieved.
 func (o BuildStorageLocationOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildStorageLocation) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
 }
@@ -362,7 +362,7 @@ func (o BuildStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A specific version of the file. If not set, the latest version of the file is retrieved.
+// Specific version of the file. If not set, the latest version of the file is retrieved.
 func (o BuildStorageLocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildStorageLocation) *string {
 		if v == nil {
@@ -383,7 +383,7 @@ func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type FleetCertificateConfiguration struct {
-	// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+	// Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
 	CertificateType *string `pulumi:"certificateType"`
 }
 
@@ -399,7 +399,7 @@ type FleetCertificateConfigurationInput interface {
 }
 
 type FleetCertificateConfigurationArgs struct {
-	// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+	// Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
 }
 
@@ -480,7 +480,7 @@ func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrO
 	}).(FleetCertificateConfigurationPtrOutput)
 }
 
-// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+// Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
 func (o FleetCertificateConfigurationOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetCertificateConfiguration) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
@@ -509,7 +509,7 @@ func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigura
 	}).(FleetCertificateConfigurationOutput)
 }
 
-// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+// Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
 func (o FleetCertificateConfigurationPtrOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetCertificateConfiguration) *string {
 		if v == nil {
@@ -1090,10 +1090,7 @@ func (o FleetRuntimeConfigurationServerProcessArrayOutput) Index(i pulumi.IntInp
 }
 
 type GameServerGroupAutoScalingPolicy struct {
-	// Length of time, in seconds, it takes for a new instance to start
-	// new game server processes and register with GameLift FleetIQ.
-	// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-	// because it avoids prematurely starting new instances. Defaults to `60`.
+	// Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances. Defaults to `60`.
 	EstimatedInstanceWarmup     *int                                                        `pulumi:"estimatedInstanceWarmup"`
 	TargetTrackingConfiguration GameServerGroupAutoScalingPolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
@@ -1110,10 +1107,7 @@ type GameServerGroupAutoScalingPolicyInput interface {
 }
 
 type GameServerGroupAutoScalingPolicyArgs struct {
-	// Length of time, in seconds, it takes for a new instance to start
-	// new game server processes and register with GameLift FleetIQ.
-	// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-	// because it avoids prematurely starting new instances. Defaults to `60`.
+	// Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances. Defaults to `60`.
 	EstimatedInstanceWarmup     pulumi.IntPtrInput                                               `pulumi:"estimatedInstanceWarmup"`
 	TargetTrackingConfiguration GameServerGroupAutoScalingPolicyTargetTrackingConfigurationInput `pulumi:"targetTrackingConfiguration"`
 }
@@ -1195,10 +1189,7 @@ func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPoli
 	}).(GameServerGroupAutoScalingPolicyPtrOutput)
 }
 
-// Length of time, in seconds, it takes for a new instance to start
-// new game server processes and register with GameLift FleetIQ.
-// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-// because it avoids prematurely starting new instances. Defaults to `60`.
+// Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances. Defaults to `60`.
 func (o GameServerGroupAutoScalingPolicyOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) *int { return v.EstimatedInstanceWarmup }).(pulumi.IntPtrOutput)
 }
@@ -1233,10 +1224,7 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) Elem() GameServerGroupAutoSca
 	}).(GameServerGroupAutoScalingPolicyOutput)
 }
 
-// Length of time, in seconds, it takes for a new instance to start
-// new game server processes and register with GameLift FleetIQ.
-// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-// because it avoids prematurely starting new instances. Defaults to `60`.
+// Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances. Defaults to `60`.
 func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *int {
 		if v == nil {
@@ -1393,12 +1381,9 @@ func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) Ta
 }
 
 type GameServerGroupInstanceDefinition struct {
-	// An EC2 instance type.
+	// EC2 instance type.
 	InstanceType string `pulumi:"instanceType"`
-	// Instance weighting that indicates how much this instance type contributes
-	// to the total capacity of a game server group.
-	// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
-	// the most cost-effective options.
+	// Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options.
 	WeightedCapacity *string `pulumi:"weightedCapacity"`
 }
 
@@ -1414,12 +1399,9 @@ type GameServerGroupInstanceDefinitionInput interface {
 }
 
 type GameServerGroupInstanceDefinitionArgs struct {
-	// An EC2 instance type.
+	// EC2 instance type.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Instance weighting that indicates how much this instance type contributes
-	// to the total capacity of a game server group.
-	// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
-	// the most cost-effective options.
+	// Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options.
 	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
 }
 
@@ -1474,15 +1456,12 @@ func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefini
 	return o
 }
 
-// An EC2 instance type.
+// EC2 instance type.
 func (o GameServerGroupInstanceDefinitionOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GameServerGroupInstanceDefinition) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Instance weighting that indicates how much this instance type contributes
-// to the total capacity of a game server group.
-// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
-// the most cost-effective options.
+// Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options.
 func (o GameServerGroupInstanceDefinitionOutput) WeightedCapacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupInstanceDefinition) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
 }
@@ -1508,11 +1487,11 @@ func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GameServerGroupLaunchTemplate struct {
-	// A unique identifier for an existing EC2 launch template.
+	// Unique identifier for an existing EC2 launch template.
 	Id *string `pulumi:"id"`
-	// A readable identifier for an existing EC2 launch template.
+	// Readable identifier for an existing EC2 launch template.
 	Name *string `pulumi:"name"`
-	// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+	// Version of the EC2 launch template to use. If none is set, the default is the first version created.
 	Version *string `pulumi:"version"`
 }
 
@@ -1528,11 +1507,11 @@ type GameServerGroupLaunchTemplateInput interface {
 }
 
 type GameServerGroupLaunchTemplateArgs struct {
-	// A unique identifier for an existing EC2 launch template.
+	// Unique identifier for an existing EC2 launch template.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A readable identifier for an existing EC2 launch template.
+	// Readable identifier for an existing EC2 launch template.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+	// Version of the EC2 launch template to use. If none is set, the default is the first version created.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1613,17 +1592,17 @@ func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrO
 	}).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
-// A unique identifier for an existing EC2 launch template.
+// Unique identifier for an existing EC2 launch template.
 func (o GameServerGroupLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// A readable identifier for an existing EC2 launch template.
+// Readable identifier for an existing EC2 launch template.
 func (o GameServerGroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+// Version of the EC2 launch template to use. If none is set, the default is the first version created.
 func (o GameServerGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1652,7 +1631,7 @@ func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemp
 	}).(GameServerGroupLaunchTemplateOutput)
 }
 
-// A unique identifier for an existing EC2 launch template.
+// Unique identifier for an existing EC2 launch template.
 func (o GameServerGroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1662,7 +1641,7 @@ func (o GameServerGroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A readable identifier for an existing EC2 launch template.
+// Readable identifier for an existing EC2 launch template.
 func (o GameServerGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1672,7 +1651,7 @@ func (o GameServerGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the EC2 launch template to use. If none is set, the default is the first version created.
+// Version of the EC2 launch template to use. If none is set, the default is the first version created.
 func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1793,7 +1772,7 @@ type ScriptStorageLocation struct {
 	Bucket string `pulumi:"bucket"`
 	// Name of the zip file containing your script files.
 	Key string `pulumi:"key"`
-	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	// Specific version of the file. If not set, the latest version of the file is retrieved.
 	ObjectVersion *string `pulumi:"objectVersion"`
 	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 	RoleArn string `pulumi:"roleArn"`
@@ -1815,7 +1794,7 @@ type ScriptStorageLocationArgs struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Name of the zip file containing your script files.
 	Key pulumi.StringInput `pulumi:"key"`
-	// A specific version of the file. If not set, the latest version of the file is retrieved.
+	// Specific version of the file. If not set, the latest version of the file is retrieved.
 	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
 	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -1908,7 +1887,7 @@ func (o ScriptStorageLocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptStorageLocation) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// A specific version of the file. If not set, the latest version of the file is retrieved.
+// Specific version of the file. If not set, the latest version of the file is retrieved.
 func (o ScriptStorageLocationOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScriptStorageLocation) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
 }
@@ -1962,7 +1941,7 @@ func (o ScriptStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A specific version of the file. If not set, the latest version of the file is retrieved.
+// Specific version of the file. If not set, the latest version of the file is retrieved.
 func (o ScriptStorageLocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptStorageLocation) *string {
 		if v == nil {

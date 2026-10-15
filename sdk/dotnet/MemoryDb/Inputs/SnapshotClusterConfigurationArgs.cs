@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The engine that will run on cluster nodes.
+        /// Engine that will run on cluster nodes.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The weekly time range during which maintenance on the cluster is performed.
+        /// Weekly time range during which maintenance on the cluster is performed.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public Input<int>? SnapshotRetentionLimit { get; set; }
 
         /// <summary>
-        /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+        /// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
         /// </summary>
         [Input("snapshotWindow")]
         public Input<string>? SnapshotWindow { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public Input<string>? TopicArn { get; set; }
 
         /// <summary>
-        /// The VPC in which the cluster exists.
+        /// VPC in which the cluster exists.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

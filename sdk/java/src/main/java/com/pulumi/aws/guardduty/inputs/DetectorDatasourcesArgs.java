@@ -18,16 +18,14 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
     public static final DetectorDatasourcesArgs Empty = new DetectorDatasourcesArgs();
 
     /**
-     * Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes and Kubernetes Audit Logs below for more details.
+     * Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `kubernetes` below for more details.
      * 
      */
     @Import(name="kubernetes")
     private @Nullable Output<DetectorDatasourcesKubernetesArgs> kubernetes;
 
     /**
-     * @return Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes and Kubernetes Audit Logs below for more details.
+     * @return Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `kubernetes` below for more details.
      * 
      */
     public Optional<Output<DetectorDatasourcesKubernetesArgs>> kubernetes() {
@@ -35,16 +33,14 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+     * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html). See `malwareProtection` below for more details.
      * 
      */
     @Import(name="malwareProtection")
     private @Nullable Output<DetectorDatasourcesMalwareProtectionArgs> malwareProtection;
 
     /**
-     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html). See `malwareProtection` below for more details.
      * 
      */
     public Optional<Output<DetectorDatasourcesMalwareProtectionArgs>> malwareProtection() {
@@ -52,16 +48,14 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * See S3 Logs below for more details.
+     * Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). See `s3Logs` below for more details.
      * 
      */
     @Import(name="s3Logs")
     private @Nullable Output<DetectorDatasourcesS3LogsArgs> s3Logs;
 
     /**
-     * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * See S3 Logs below for more details.
+     * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). See `s3Logs` below for more details.
      * 
      */
     public Optional<Output<DetectorDatasourcesS3LogsArgs>> s3Logs() {
@@ -95,8 +89,7 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kubernetes Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes and Kubernetes Audit Logs below for more details.
+         * @param kubernetes Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `kubernetes` below for more details.
          * 
          * @return builder
          * 
@@ -107,8 +100,7 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kubernetes Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes and Kubernetes Audit Logs below for more details.
+         * @param kubernetes Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `kubernetes` below for more details.
          * 
          * @return builder
          * 
@@ -118,8 +110,7 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-         * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html). See `malwareProtection` below for more details.
          * 
          * @return builder
          * 
@@ -130,8 +121,7 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-         * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html). See `malwareProtection` below for more details.
          * 
          * @return builder
          * 
@@ -141,8 +131,7 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param s3Logs Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-         * See S3 Logs below for more details.
+         * @param s3Logs Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). See `s3Logs` below for more details.
          * 
          * @return builder
          * 
@@ -153,8 +142,7 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param s3Logs Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-         * See S3 Logs below for more details.
+         * @param s3Logs Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html). See `s3Logs` below for more details.
          * 
          * @return builder
          * 

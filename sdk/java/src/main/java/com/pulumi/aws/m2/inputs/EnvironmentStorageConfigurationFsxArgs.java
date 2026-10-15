@@ -15,14 +15,14 @@ public final class EnvironmentStorageConfigurationFsxArgs extends com.pulumi.res
     public static final EnvironmentStorageConfigurationFsxArgs Empty = new EnvironmentStorageConfigurationFsxArgs();
 
     /**
-     * Id of the FSX filesystem to mount.
+     * ID of the FSx filesystem to mount.
      * 
      */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
     /**
-     * @return Id of the FSX filesystem to mount.
+     * @return ID of the FSx filesystem to mount.
      * 
      */
     public Output<String> fileSystemId() {
@@ -70,7 +70,7 @@ public final class EnvironmentStorageConfigurationFsxArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileSystemId Id of the FSX filesystem to mount.
+         * @param fileSystemId ID of the FSx filesystem to mount.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class EnvironmentStorageConfigurationFsxArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileSystemId Id of the FSX filesystem to mount.
+         * @param fileSystemId ID of the FSx filesystem to mount.
          * 
          * @return builder
          * 

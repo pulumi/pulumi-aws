@@ -18,36 +18,44 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
     public static final EnvironmentLastUpdatedArgs Empty = new EnvironmentLastUpdatedArgs();
 
     /**
-     * The Created At date of the MWAA Environment
+     * Date and time the environment was last updated.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The Created At date of the MWAA Environment
+     * @return Date and time the environment was last updated.
      * 
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
+    /**
+     * Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+     * 
+     */
     @Import(name="errors")
     private @Nullable Output<List<EnvironmentLastUpdatedErrorArgs>> errors;
 
+    /**
+     * @return Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+     * 
+     */
     public Optional<Output<List<EnvironmentLastUpdatedErrorArgs>>> errors() {
         return Optional.ofNullable(this.errors);
     }
 
     /**
-     * The status of the Amazon MWAA Environment
+     * Status of the last update.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the Amazon MWAA Environment
+     * @return Status of the last update.
      * 
      */
     public Optional<Output<String>> status() {
@@ -81,7 +89,7 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param createdAt The Created At date of the MWAA Environment
+         * @param createdAt Date and time the environment was last updated.
          * 
          * @return builder
          * 
@@ -92,7 +100,7 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param createdAt The Created At date of the MWAA Environment
+         * @param createdAt Date and time the environment was last updated.
          * 
          * @return builder
          * 
@@ -101,21 +109,39 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
             return createdAt(Output.of(createdAt));
         }
 
+        /**
+         * @param errors Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errors(@Nullable Output<List<EnvironmentLastUpdatedErrorArgs>> errors) {
             $.errors = errors;
             return this;
         }
 
+        /**
+         * @param errors Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errors(List<EnvironmentLastUpdatedErrorArgs> errors) {
             return errors(Output.of(errors));
         }
 
+        /**
+         * @param errors Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errors(EnvironmentLastUpdatedErrorArgs... errors) {
             return errors(List.of(errors));
         }
 
         /**
-         * @param status The status of the Amazon MWAA Environment
+         * @param status Status of the last update.
          * 
          * @return builder
          * 
@@ -126,7 +152,7 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param status The status of the Amazon MWAA Environment
+         * @param status Status of the last update.
          * 
          * @return builder
          * 

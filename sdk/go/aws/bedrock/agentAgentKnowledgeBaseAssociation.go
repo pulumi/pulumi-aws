@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
+// Manages an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
 //
 // ## Example Usage
 //
@@ -57,7 +57,7 @@ type AgentAgentKnowledgeBaseAssociation struct {
 
 	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
-	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
 	// Description of what the agent should use the knowledge base for.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -116,7 +116,7 @@ func GetAgentAgentKnowledgeBaseAssociation(ctx *pulumi.Context,
 type agentAgentKnowledgeBaseAssociationState struct {
 	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId *string `pulumi:"agentId"`
-	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Description of what the agent should use the knowledge base for.
 	Description *string `pulumi:"description"`
@@ -134,7 +134,7 @@ type agentAgentKnowledgeBaseAssociationState struct {
 type AgentAgentKnowledgeBaseAssociationState struct {
 	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId pulumi.StringPtrInput
-	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
 	AgentVersion pulumi.StringPtrInput
 	// Description of what the agent should use the knowledge base for.
 	Description pulumi.StringPtrInput
@@ -156,7 +156,7 @@ func (AgentAgentKnowledgeBaseAssociationState) ElementType() reflect.Type {
 type agentAgentKnowledgeBaseAssociationArgs struct {
 	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId string `pulumi:"agentId"`
-	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Description of what the agent should use the knowledge base for.
 	Description string `pulumi:"description"`
@@ -175,7 +175,7 @@ type agentAgentKnowledgeBaseAssociationArgs struct {
 type AgentAgentKnowledgeBaseAssociationArgs struct {
 	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId pulumi.StringInput
-	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
 	AgentVersion pulumi.StringPtrInput
 	// Description of what the agent should use the knowledge base for.
 	Description pulumi.StringInput
@@ -282,7 +282,7 @@ func (o AgentAgentKnowledgeBaseAssociationOutput) AgentId() pulumi.StringOutput 
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
 func (o AgentAgentKnowledgeBaseAssociationOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }

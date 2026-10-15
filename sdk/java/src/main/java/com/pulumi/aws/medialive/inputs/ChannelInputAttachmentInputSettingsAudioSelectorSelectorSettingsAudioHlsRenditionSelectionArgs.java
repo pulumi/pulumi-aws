@@ -15,14 +15,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs();
 
     /**
-     * Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
      * 
      */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
     /**
-     * @return Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * @return GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
      * 
      */
     public Output<String> groupId() {
@@ -30,14 +30,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
 
     /**
-     * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * @return NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param groupId Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+         * @param groupId GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param groupId Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+         * @param groupId GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param name Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+         * @param name NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param name Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+         * @param name NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
          * 
          * @return builder
          * 

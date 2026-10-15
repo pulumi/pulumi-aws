@@ -32,14 +32,14 @@ public final class LocationFsxOntapFileSystemProtocolArgs extends com.pulumi.res
     }
 
     /**
-     * Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+     * Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
      * 
      */
     @Import(name="smb")
     private @Nullable Output<LocationFsxOntapFileSystemProtocolSmbArgs> smb;
 
     /**
-     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
      * 
      */
     public Optional<Output<LocationFsxOntapFileSystemProtocolSmbArgs>> smb() {
@@ -93,7 +93,7 @@ public final class LocationFsxOntapFileSystemProtocolArgs extends com.pulumi.res
         }
 
         /**
-         * @param smb Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+         * @param smb Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LocationFsxOntapFileSystemProtocolArgs extends com.pulumi.res
         }
 
         /**
-         * @param smb Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+         * @param smb Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
          * 
          * @return builder
          * 

@@ -66,14 +66,14 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
     }
 
     /**
-     * Configuration for specifying the position in the topics to start replicating from.
+     * Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
      * 
      */
     @Import(name="startingPosition")
     private @Nullable Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs> startingPosition;
 
     /**
-     * @return Configuration for specifying the position in the topics to start replicating from.
+     * @return Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
      * 
      */
     public Optional<Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs>> startingPosition() {
@@ -81,14 +81,14 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
     }
 
     /**
-     * Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
      * 
      */
     @Import(name="topicNameConfiguration")
     private @Nullable Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration;
 
     /**
-     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
      * 
      */
     public Optional<Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs>> topicNameConfiguration() {
@@ -219,7 +219,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         }
 
         /**
-         * @param startingPosition Configuration for specifying the position in the topics to start replicating from.
+         * @param startingPosition Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         }
 
         /**
-         * @param startingPosition Configuration for specifying the position in the topics to start replicating from.
+         * @param startingPosition Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         }
 
         /**
-         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         }
 
         /**
-         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
          * 
          * @return builder
          * 

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class GetInputDestinationVpcResult
     {
+        /// <summary>
+        /// Availability Zone.
+        /// </summary>
         public readonly string AvailabilityZone;
+        /// <summary>
+        /// Network interface ID.
+        /// </summary>
         public readonly string NetworkInterfaceId;
 
         [OutputConstructor]

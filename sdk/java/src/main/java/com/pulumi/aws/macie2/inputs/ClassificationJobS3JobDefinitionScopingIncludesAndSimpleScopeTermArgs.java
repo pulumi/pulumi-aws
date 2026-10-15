@@ -17,14 +17,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
     public static final ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs Empty = new ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs();
 
     /**
-     * The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+     * Operator to use in a condition. Valid values are `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`.
      * 
      */
     @Import(name="comparator")
     private @Nullable Output<String> comparator;
 
     /**
-     * @return The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+     * @return Operator to use in a condition. Valid values are `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`.
      * 
      */
     public Optional<Output<String>> comparator() {
@@ -32,14 +32,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
     }
 
     /**
-     * The object property to use in the condition.
+     * Object property to use in the condition.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The object property to use in the condition.
+     * @return Object property to use in the condition.
      * 
      */
     public Optional<Output<String>> key() {
@@ -47,14 +47,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
     }
 
     /**
-     * An array that lists the values to use in the condition.
+     * Array that lists the values to use in the condition.
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return An array that lists the values to use in the condition.
+     * @return Array that lists the values to use in the condition.
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -88,7 +88,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
         }
 
         /**
-         * @param comparator The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+         * @param comparator Operator to use in a condition. Valid values are `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
         }
 
         /**
-         * @param comparator The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+         * @param comparator Operator to use in a condition. Valid values are `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
         }
 
         /**
-         * @param key The object property to use in the condition.
+         * @param key Object property to use in the condition.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
         }
 
         /**
-         * @param key The object property to use in the condition.
+         * @param key Object property to use in the condition.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
         }
 
         /**
-         * @param values An array that lists the values to use in the condition.
+         * @param values Array that lists the values to use in the condition.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
         }
 
         /**
-         * @param values An array that lists the values to use in the condition.
+         * @param values Array that lists the values to use in the condition.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScope
         }
 
         /**
-         * @param values An array that lists the values to use in the condition.
+         * @param values Array that lists the values to use in the condition.
          * 
          * @return builder
          * 

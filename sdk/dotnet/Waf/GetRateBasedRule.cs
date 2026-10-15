@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Waf
     public static class GetRateBasedRule
     {
         /// <summary>
-        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Waf
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? new GetRateBasedRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Waf
             => global::Pulumi.Deployment.Instance.Invoke<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? new GetRateBasedRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AutoScaling
     /// the `InitialLifecycleHook` attribute from the
     /// `aws.autoscaling.Group`
     /// resource, or via this one. Hooks added via this resource will not be added
-    /// until the autoscaling group has been created, and depending on your
+    /// until the Auto Scaling group has been created, and depending on your
     /// capacity
     /// settings, after the initial instances have been launched, creating unintended
     /// behavior. If you need hooks to run on all instances, add them with

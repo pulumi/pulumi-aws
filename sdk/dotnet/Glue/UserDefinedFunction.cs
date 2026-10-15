@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Glue
     public partial class UserDefinedFunction : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Glue User Defined Function.
+        /// ARN of the Glue User Defined Function.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -72,37 +72,37 @@ namespace Pulumi.Aws.Glue
         public Output<string?> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// The Java class that contains the function code.
+        /// Java class that contains the function code.
         /// </summary>
         [Output("className")]
         public Output<string> ClassName { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the function was created.
+        /// Time at which the function was created.
         /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Database to create the Function.
+        /// Name of the Database to create the Function.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the function.
+        /// Name of the function.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The owner of the function.
+        /// Owner of the function.
         /// </summary>
         [Output("ownerName")]
         public Output<string> OwnerName { get; private set; } = null!;
 
         /// <summary>
-        /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        /// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         /// </summary>
         [Output("ownerType")]
         public Output<string> OwnerType { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration block for Resource URIs. See resource uris below for more details.
+        /// Configuration block for Resource URIs. See `ResourceUris` Block below for more details.
         /// </summary>
         [Output("resourceUris")]
         public Output<ImmutableArray<Outputs.UserDefinedFunctionResourceUri>> ResourceUris { get; private set; } = null!;
@@ -172,31 +172,31 @@ namespace Pulumi.Aws.Glue
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// The Java class that contains the function code.
+        /// Java class that contains the function code.
         /// </summary>
         [Input("className", required: true)]
         public Input<string> ClassName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Database to create the Function.
+        /// Name of the Database to create the Function.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the function.
+        /// Name of the function.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The owner of the function.
+        /// Owner of the function.
         /// </summary>
         [Input("ownerName", required: true)]
         public Input<string> OwnerName { get; set; } = null!;
 
         /// <summary>
-        /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        /// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         /// </summary>
         [Input("ownerType", required: true)]
         public Input<string> OwnerType { get; set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.UserDefinedFunctionResourceUriArgs>? _resourceUris;
 
         /// <summary>
-        /// The configuration block for Resource URIs. See resource uris below for more details.
+        /// Configuration block for Resource URIs. See `ResourceUris` Block below for more details.
         /// </summary>
         public InputList<Inputs.UserDefinedFunctionResourceUriArgs> ResourceUris
         {
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Glue
     public sealed class UserDefinedFunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Glue User Defined Function.
+        /// ARN of the Glue User Defined Function.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -240,37 +240,37 @@ namespace Pulumi.Aws.Glue
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// The Java class that contains the function code.
+        /// Java class that contains the function code.
         /// </summary>
         [Input("className")]
         public Input<string>? ClassName { get; set; }
 
         /// <summary>
-        /// The time at which the function was created.
+        /// Time at which the function was created.
         /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
         /// <summary>
-        /// The name of the Database to create the Function.
+        /// Name of the Database to create the Function.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The name of the function.
+        /// Name of the function.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The owner of the function.
+        /// Owner of the function.
         /// </summary>
         [Input("ownerName")]
         public Input<string>? OwnerName { get; set; }
 
         /// <summary>
-        /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        /// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         /// </summary>
         [Input("ownerType")]
         public Input<string>? OwnerType { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.UserDefinedFunctionResourceUriGetArgs>? _resourceUris;
 
         /// <summary>
-        /// The configuration block for Resource URIs. See resource uris below for more details.
+        /// Configuration block for Resource URIs. See `ResourceUris` Block below for more details.
         /// </summary>
         public InputList<Inputs.UserDefinedFunctionResourceUriGetArgs> ResourceUris
         {

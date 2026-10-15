@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Agents for Amazon Bedrock Data Source.
+    /// Manages an AWS Agents for Amazon Bedrock Data Source.
     /// 
     /// ## Example Usage
     /// 
@@ -197,6 +197,85 @@ namespace Pulumi.Aws.Bedrock
     ///         },
     ///         KnowledgeBaseId = exampleAwsBedrockagentKnowledgeBase.Id,
     ///         Name = "multimodal-example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### GraphRAG with Neptune Analytics
+    /// 
+    /// Knowledge bases that use `NEPTUNE_ANALYTICS` storage require every associated data source to set `ContextEnrichmentConfiguration`.
+    /// 
+    /// The graph construction model must be one that GraphRAG currently supports, and the supported models are reachable only through a cross-Region [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html). Passing a plain foundation model ARN fails with `ValidationException: Invalid graph bedrock foundation model provided`.
+    /// 
+    /// The knowledge base service role needs:
+    /// 
+    /// * `bedrock:GetInferenceProfile` on `*`. Scoping this to the profile ARN is not honored, and creation fails with `Not authorized to call GetInferenceProfile` even when the granted ARN matches the one in the error.
+    /// * `bedrock:InvokeModel` on the inference profile ARN.
+    /// * `bedrock:InvokeModel` on the underlying foundation model in every Region the profile routes to, which `aws bedrock get-inference-profile` reports as `models[].modelArn`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentKnowledgeBase("example", new()
+    ///     {
+    ///         KnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs
+    ///         {
+    ///             VectorKnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs
+    ///             {
+    ///                 EmbeddingModelArn = "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3",
+    ///             },
+    ///             Type = "VECTOR",
+    ///         },
+    ///         StorageConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseStorageConfigurationArgs
+    ///         {
+    ///             NeptuneAnalyticsConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs
+    ///             {
+    ///                 FieldMapping = new Aws.Bedrock.Inputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs
+    ///                 {
+    ///                     MetadataField = "metadata",
+    ///                     TextField = "text",
+    ///                 },
+    ///                 GraphArn = exampleAwsNeptunegraphGraph.Arn,
+    ///             },
+    ///             Type = "NEPTUNE_ANALYTICS",
+    ///         },
+    ///         Name = "graphrag-example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///     });
+    /// 
+    ///     var exampleAgentDataSource = new Aws.Bedrock.AgentDataSource("example", new()
+    ///     {
+    ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
+    ///         {
+    ///             S3Configuration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = exampleAwsS3Bucket.Arn,
+    ///             },
+    ///             Type = "S3",
+    ///         },
+    ///         VectorIngestionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationArgs
+    ///         {
+    ///             ContextEnrichmentConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs
+    ///             {
+    ///                 BedrockFoundationModelConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs
+    ///                 {
+    ///                     EnrichmentStrategyConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs
+    ///                     {
+    ///                         Method = "CHUNK_ENTITY_EXTRACTION",
+    ///                     },
+    ///                     ModelArn = $"arn:aws:bedrock:us-east-1:{current.AccountId}:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    ///                 },
+    ///                 Type = "BEDROCK_FOUNDATION_MODEL",
+    ///             },
+    ///         },
+    ///         KnowledgeBaseId = example.Id,
+    ///         Name = "graphrag-example",
     ///     });
     /// 
     /// });

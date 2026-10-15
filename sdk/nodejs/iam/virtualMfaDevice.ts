@@ -84,7 +84,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serialNumber: pulumi.Output<string>;
     /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface VirtualMfaDeviceState {
      */
     serialNumber?: pulumi.Input<string | undefined>;
     /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface VirtualMfaDeviceArgs {
      */
     path?: pulumi.Input<string | undefined>;
     /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

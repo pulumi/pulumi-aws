@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock
     public static class GetCustomModel
     {
         /// <summary>
-        /// Returns properties of a specific Amazon Bedrock custom model.
+        /// Provides details about a specific Amazon Bedrock custom model.
         /// 
         /// ## Example Usage
         /// 
@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
+        ///     var example = Aws.Bedrock.GetCustomModel.Invoke(new()
         ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
+        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4",
         ///     });
         /// 
         /// });
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns properties of a specific Amazon Bedrock custom model.
+        /// Provides details about a specific Amazon Bedrock custom model.
         /// 
         /// ## Example Usage
         /// 
@@ -48,9 +48,9 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
+        ///     var example = Aws.Bedrock.GetCustomModel.Invoke(new()
         ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
+        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4",
         ///     });
         /// 
         /// });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns properties of a specific Amazon Bedrock custom model.
+        /// Provides details about a specific Amazon Bedrock custom model.
         /// 
         /// ## Example Usage
         /// 
@@ -72,9 +72,9 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
+        ///     var example = Aws.Bedrock.GetCustomModel.Invoke(new()
         ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
+        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4",
         ///     });
         /// 
         /// });
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public readonly string JobName;
         /// <summary>
-        /// Key-value mapping of tags for the fine-tuning job.
+        /// Key-value mapping of tags for the customization job.
         /// </summary>
         public readonly ImmutableDictionary<string, string> JobTags;
         /// <summary>

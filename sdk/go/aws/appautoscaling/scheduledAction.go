@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Application AutoScaling ScheduledAction resource.
+// Provides an Application Auto Scaling ScheduledAction resource.
 //
 // ## Example Usage
 //
-// ### DynamoDB Table Autoscaling
+// ### DynamoDB Table AutoScaling
 //
 // ```go
 // package main
@@ -60,7 +60,7 @@ import (
 //
 // ```
 //
-// ### ECS Service Autoscaling
+// ### ECS Service AutoScaling
 //
 // ```go
 // package main
@@ -122,7 +122,7 @@ type ScheduledAction struct {
 	ScalableTargetAction ScheduledActionScalableTargetActionOutput `pulumi:"scalableTargetAction"`
 	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
 	Schedule pulumi.StringOutput `pulumi:"schedule"`
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
 	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
 	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
@@ -191,7 +191,7 @@ type scheduledActionState struct {
 	ScalableTargetAction *ScheduledActionScalableTargetAction `pulumi:"scalableTargetAction"`
 	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
 	Schedule *string `pulumi:"schedule"`
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
 	ServiceNamespace *string `pulumi:"serviceNamespace"`
 	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 	StartTime *string `pulumi:"startTime"`
@@ -216,7 +216,7 @@ type ScheduledActionState struct {
 	ScalableTargetAction ScheduledActionScalableTargetActionPtrInput
 	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
 	Schedule pulumi.StringPtrInput
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
 	ServiceNamespace pulumi.StringPtrInput
 	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 	StartTime pulumi.StringPtrInput
@@ -243,7 +243,7 @@ type scheduledActionArgs struct {
 	ScalableTargetAction ScheduledActionScalableTargetAction `pulumi:"scalableTargetAction"`
 	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
 	Schedule string `pulumi:"schedule"`
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
 	ServiceNamespace string `pulumi:"serviceNamespace"`
 	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 	StartTime *string `pulumi:"startTime"`
@@ -267,7 +267,7 @@ type ScheduledActionArgs struct {
 	ScalableTargetAction ScheduledActionScalableTargetActionInput
 	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
 	Schedule pulumi.StringInput
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
 	ServiceNamespace pulumi.StringInput
 	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 	StartTime pulumi.StringPtrInput
@@ -402,7 +402,7 @@ func (o ScheduledActionOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
 func (o ScheduledActionOutput) ServiceNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ServiceNamespace }).(pulumi.StringOutput)
 }

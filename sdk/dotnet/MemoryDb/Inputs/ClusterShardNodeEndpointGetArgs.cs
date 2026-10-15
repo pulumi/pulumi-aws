@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        /// Port number on which each of the nodes accepts connections. Defaults to `6379`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

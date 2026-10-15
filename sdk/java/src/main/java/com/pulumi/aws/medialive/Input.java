@@ -123,56 +123,56 @@ public class Input extends com.pulumi.resources.CustomResource {
         return this.attachedChannels;
     }
     /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * Destination settings for PUSH type inputs. See `destinations` Block for more details.
      * 
      */
     @Export(name="destinations", refs={List.class,InputDestination.class}, tree="[0,1]")
     private Output</* @Nullable */ List<InputDestination>> destinations;
 
     /**
-     * @return Destination settings for PUSH type inputs. See Destinations for more details.
+     * @return Destination settings for PUSH type inputs. See `destinations` Block for more details.
      * 
      */
     public Output<Optional<List<InputDestination>>> destinations() {
         return Codegen.optional(this.destinations);
     }
     /**
-     * The input class.
+     * Input class.
      * 
      */
     @Export(name="inputClass", refs={String.class}, tree="[0]")
     private Output<String> inputClass;
 
     /**
-     * @return The input class.
+     * @return Input class.
      * 
      */
     public Output<String> inputClass() {
         return this.inputClass;
     }
     /**
-     * Settings for the devices. See Input Devices for more details.
+     * Settings for the devices. See `inputDevices` Block for more details.
      * 
      */
     @Export(name="inputDevices", refs={List.class,InputInputDevice.class}, tree="[0,1]")
     private Output<List<InputInputDevice>> inputDevices;
 
     /**
-     * @return Settings for the devices. See Input Devices for more details.
+     * @return Settings for the devices. See `inputDevices` Block for more details.
      * 
      */
     public Output<List<InputInputDevice>> inputDevices() {
         return this.inputDevices;
     }
     /**
-     * A list of IDs for all Inputs which are partners of this one.
+     * IDs for all Inputs which are partners of this one.
      * 
      */
     @Export(name="inputPartnerIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> inputPartnerIds;
 
     /**
-     * @return A list of IDs for all Inputs which are partners of this one.
+     * @return IDs for all Inputs which are partners of this one.
      * 
      */
     public Output<List<String>> inputPartnerIds() {
@@ -207,14 +207,14 @@ public class Input extends com.pulumi.resources.CustomResource {
         return this.inputSourceType;
     }
     /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      * 
      */
     @Export(name="mediaConnectFlows", refs={List.class,InputMediaConnectFlow.class}, tree="[0,1]")
     private Output<List<InputMediaConnectFlow>> mediaConnectFlows;
 
     /**
-     * @return A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * @return MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      * 
      */
     public Output<List<InputMediaConnectFlow>> mediaConnectFlows() {
@@ -249,42 +249,42 @@ public class Input extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * ARN of the role this input assumes during and after creation.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the role this input assumes during and after creation.
+     * @return ARN of the role this input assumes during and after creation.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * The source URLs for a PULL-type input. See Sources for more details.
+     * Source URLs for a PULL-type input. See `sources` Block for more details.
      * 
      */
     @Export(name="sources", refs={List.class,InputSource.class}, tree="[0,1]")
     private Output<List<InputSource>> sources;
 
     /**
-     * @return The source URLs for a PULL-type input. See Sources for more details.
+     * @return Source URLs for a PULL-type input. See `sources` Block for more details.
      * 
      */
     public Output<List<InputSource>> sources() {
         return this.sources;
     }
     /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -297,7 +297,7 @@ public class Input extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
+     * Type of input that AWS Elemental MediaLive supports.
      * 
      * The following arguments are optional:
      * 
@@ -306,7 +306,7 @@ public class Input extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return The different types of inputs that AWS Elemental MediaLive supports.
+     * @return Type of input that AWS Elemental MediaLive supports.
      * 
      * The following arguments are optional:
      * 
@@ -315,14 +315,14 @@ public class Input extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * Settings for a private VPC Input. See VPC for more details.
+     * Settings for a private VPC Input. See `vpc` Block for more details.
      * 
      */
     @Export(name="vpc", refs={InputVpc.class}, tree="[0]")
     private Output</* @Nullable */ InputVpc> vpc;
 
     /**
-     * @return Settings for a private VPC Input. See VPC for more details.
+     * @return Settings for a private VPC Input. See `vpc` Block for more details.
      * 
      */
     public Output<Optional<InputVpc>> vpc() {

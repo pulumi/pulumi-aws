@@ -49,25 +49,25 @@ namespace Pulumi.Aws.Grafana
     public partial class WorkspaceServiceAccountToken : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies when the service account token was created.
+        /// When the service account token was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies when the service account token will expire.
+        /// When the service account token will expire.
         /// </summary>
         [Output("expiresAt")]
         public Output<string> ExpiresAt { get; private set; } = null!;
 
         /// <summary>
-        /// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+        /// Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the token to create. The name must be unique within the workspace.
+        /// Name for the token to create. The name must be unique within the workspace.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Grafana
         public Output<int> SecondsToLive { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the service account for which to create a token.
+        /// ID of the service account for which to create a token.
         /// </summary>
         [Output("serviceAccountId")]
         public Output<string> ServiceAccountId { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string> ServiceAccountTokenId { get; private set; } = null!;
 
         /// <summary>
-        /// The Grafana workspace with which the service account token is associated.
+        /// Grafana workspace with which the service account token is associated.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Grafana
     public sealed class WorkspaceServiceAccountTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A name for the token to create. The name must be unique within the workspace.
+        /// Name for the token to create. The name must be unique within the workspace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.Grafana
         public Input<int> SecondsToLive { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the service account for which to create a token.
+        /// ID of the service account for which to create a token.
         /// </summary>
         [Input("serviceAccountId", required: true)]
         public Input<string> ServiceAccountId { get; set; } = null!;
 
         /// <summary>
-        /// The Grafana workspace with which the service account token is associated.
+        /// Grafana workspace with which the service account token is associated.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -191,13 +191,13 @@ namespace Pulumi.Aws.Grafana
     public sealed class WorkspaceServiceAccountTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies when the service account token was created.
+        /// When the service account token was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Specifies when the service account token will expire.
+        /// When the service account token will expire.
         /// </summary>
         [Input("expiresAt")]
         public Input<string>? ExpiresAt { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Grafana
         private Input<string>? _key;
 
         /// <summary>
-        /// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+        /// Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
         /// </summary>
         public Input<string>? Key
         {
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// A name for the token to create. The name must be unique within the workspace.
+        /// Name for the token to create. The name must be unique within the workspace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Grafana
         public Input<int>? SecondsToLive { get; set; }
 
         /// <summary>
-        /// The ID of the service account for which to create a token.
+        /// ID of the service account for which to create a token.
         /// </summary>
         [Input("serviceAccountId")]
         public Input<string>? ServiceAccountId { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? ServiceAccountTokenId { get; set; }
 
         /// <summary>
-        /// The Grafana workspace with which the service account token is associated.
+        /// Grafana workspace with which the service account token is associated.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

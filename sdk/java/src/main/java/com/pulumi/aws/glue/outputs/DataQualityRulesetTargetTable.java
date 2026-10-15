@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataQualityRulesetTargetTable {
     /**
-     * @return The catalog id where the AWS Glue table exists.
+     * @return Catalog ID where the AWS Glue table exists.
      * 
      */
     private @Nullable String catalogId;
@@ -30,7 +30,7 @@ public final class DataQualityRulesetTargetTable {
 
     private DataQualityRulesetTargetTable() {}
     /**
-     * @return The catalog id where the AWS Glue table exists.
+     * @return Catalog ID where the AWS Glue table exists.
      * 
      */
     public Optional<String> catalogId() {

@@ -2099,7 +2099,7 @@ func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 }
 
 type DomainLogPublishingOption struct {
-	// ARN of the Cloudwatch log group to which log needs to be published.
+	// ARN of the CloudWatch log group to which log needs to be published.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
 	// Whether given log publishing option is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
@@ -2119,7 +2119,7 @@ type DomainLogPublishingOptionInput interface {
 }
 
 type DomainLogPublishingOptionArgs struct {
-	// ARN of the Cloudwatch log group to which log needs to be published.
+	// ARN of the CloudWatch log group to which log needs to be published.
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
 	// Whether given log publishing option is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2178,7 +2178,7 @@ func (o DomainLogPublishingOptionOutput) ToDomainLogPublishingOptionOutputWithCo
 	return o
 }
 
-// ARN of the Cloudwatch log group to which log needs to be published.
+// ARN of the CloudWatch log group to which log needs to be published.
 func (o DomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
@@ -2604,7 +2604,7 @@ func (o DomainSamlOptionsSamlOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutp
 type DomainSamlOptionsSamlOptionsIdp struct {
 	// The unique Entity ID of the application in SAML Identity Provider.
 	EntityId string `pulumi:"entityId"`
-	// The Metadata of the SAML application in xml format.
+	// The Metadata of the SAML application in XML format.
 	MetadataContent string `pulumi:"metadataContent"`
 }
 
@@ -2622,7 +2622,7 @@ type DomainSamlOptionsSamlOptionsIdpInput interface {
 type DomainSamlOptionsSamlOptionsIdpArgs struct {
 	// The unique Entity ID of the application in SAML Identity Provider.
 	EntityId pulumi.StringInput `pulumi:"entityId"`
-	// The Metadata of the SAML application in xml format.
+	// The Metadata of the SAML application in XML format.
 	MetadataContent pulumi.StringInput `pulumi:"metadataContent"`
 }
 
@@ -2708,7 +2708,7 @@ func (o DomainSamlOptionsSamlOptionsIdpOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainSamlOptionsSamlOptionsIdp) string { return v.EntityId }).(pulumi.StringOutput)
 }
 
-// The Metadata of the SAML application in xml format.
+// The Metadata of the SAML application in XML format.
 func (o DomainSamlOptionsSamlOptionsIdpOutput) MetadataContent() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainSamlOptionsSamlOptionsIdp) string { return v.MetadataContent }).(pulumi.StringOutput)
 }
@@ -2747,7 +2747,7 @@ func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) EntityId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Metadata of the SAML application in xml format.
+// The Metadata of the SAML application in XML format.
 func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) MetadataContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptionsSamlOptionsIdp) *string {
 		if v == nil {
@@ -3256,7 +3256,7 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 
 type VpcEndpointVpcOptions struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -3276,7 +3276,7 @@ type VpcEndpointVpcOptionsInput interface {
 
 type VpcEndpointVpcOptionsArgs struct {
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
@@ -3364,7 +3364,7 @@ func (o VpcEndpointVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
 func (o VpcEndpointVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -3411,7 +3411,7 @@ func (o VpcEndpointVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
 func (o VpcEndpointVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointVpcOptions) []string {
 		if v == nil {
@@ -4529,7 +4529,7 @@ func (o GetDomainEbsOptionArrayOutput) Index(i pulumi.IntInput) GetDomainEbsOpti
 type GetDomainEncryptionAtRest struct {
 	// Whether node to node encryption is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// The KMS key id used to encrypt data at rest.
+	// The KMS key ID used to encrypt data at rest.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -4547,7 +4547,7 @@ type GetDomainEncryptionAtRestInput interface {
 type GetDomainEncryptionAtRestArgs struct {
 	// Whether node to node encryption is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The KMS key id used to encrypt data at rest.
+	// The KMS key ID used to encrypt data at rest.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -4607,7 +4607,7 @@ func (o GetDomainEncryptionAtRestOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainEncryptionAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The KMS key id used to encrypt data at rest.
+// The KMS key ID used to encrypt data at rest.
 func (o GetDomainEncryptionAtRestOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainEncryptionAtRest) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

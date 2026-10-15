@@ -56,7 +56,7 @@ class VpcIpamPoolArgs:
         :param pulumi.Input[_builtins.bool] publicly_advertisable: Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_ipam_pool_id: ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input['VpcIpamPoolSourceResourceArgs'] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+        :param pulumi.Input['VpcIpamPoolSourceResourceArgs'] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "address_family", address_family)
@@ -276,7 +276,7 @@ class VpcIpamPoolArgs:
     @pulumi.getter(name="sourceResource")
     def source_resource(self) -> pulumi.Input[Optional['VpcIpamPoolSourceResourceArgs']]:
         """
-        Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+        Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
         """
         return pulumi.get(self, "source_resource")
 
@@ -343,7 +343,7 @@ class _VpcIpamPoolState:
         :param pulumi.Input[_builtins.bool] publicly_advertisable: Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_ipam_pool_id: ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input['VpcIpamPoolSourceResourceArgs'] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+        :param pulumi.Input['VpcIpamPoolSourceResourceArgs'] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
         :param pulumi.Input[_builtins.str] state: State of the IPAM pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -613,7 +613,7 @@ class _VpcIpamPoolState:
     @pulumi.getter(name="sourceResource")
     def source_resource(self) -> pulumi.Input[Optional['VpcIpamPoolSourceResourceArgs']]:
         """
-        Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+        Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
         """
         return pulumi.get(self, "source_resource")
 
@@ -790,7 +790,7 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] publicly_advertisable: Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_ipam_pool_id: ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input[Union['VpcIpamPoolSourceResourceArgs', 'VpcIpamPoolSourceResourceArgsDict', 'outputs.VpcIpamPoolSourceResource']] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+        :param pulumi.Input[Union['VpcIpamPoolSourceResourceArgs', 'VpcIpamPoolSourceResourceArgsDict', 'outputs.VpcIpamPoolSourceResource']] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -1014,7 +1014,7 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] publicly_advertisable: Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_ipam_pool_id: ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input[Union['VpcIpamPoolSourceResourceArgs', 'VpcIpamPoolSourceResourceArgsDict', 'outputs.VpcIpamPoolSourceResource']] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+        :param pulumi.Input[Union['VpcIpamPoolSourceResourceArgs', 'VpcIpamPoolSourceResourceArgsDict', 'outputs.VpcIpamPoolSourceResource']] source_resource: Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
         :param pulumi.Input[_builtins.str] state: State of the IPAM pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1195,7 +1195,7 @@ class VpcIpamPool(pulumi.CustomResource):
     @pulumi.getter(name="sourceResource")
     def source_resource(self) -> pulumi.Output[Optional['outputs.VpcIpamPoolSourceResource']]:
         """
-        Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+        Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
         """
         return pulumi.get(self, "source_resource")
 

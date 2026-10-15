@@ -250,7 +250,7 @@ class AccessPointPublicAccessBlockConfiguration(dict):
                  ignore_public_acls: Optional[_builtins.bool] = None,
                  restrict_public_buckets: Optional[_builtins.bool] = None):
         """
-        :param _builtins.bool block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+        :param _builtins.bool block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
         :param _builtins.bool block_public_policy: Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
         :param _builtins.bool ignore_public_acls: Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
         :param _builtins.bool restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
@@ -268,7 +268,7 @@ class AccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[_builtins.bool]:
         """
-        Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+        Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
         """
         return pulumi.get(self, "block_public_acls")
 
@@ -1263,8 +1263,8 @@ class BucketGrant(dict):
         """
         :param Sequence[_builtins.str] permissions: List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         :param _builtins.str type: Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
-        :param _builtins.str id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
-        :param _builtins.str uri: Uri address to grant for. Used only when `type` is `Group`.
+        :param _builtins.str id: Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
+        :param _builtins.str uri: URI address to grant for. Used only when `type` is `Group`.
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "type", type)
@@ -1293,7 +1293,7 @@ class BucketGrant(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+        Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
         """
         return pulumi.get(self, "id")
 
@@ -1301,7 +1301,7 @@ class BucketGrant(dict):
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
         """
-        Uri address to grant for. Used only when `type` is `Group`.
+        URI address to grant for. Used only when `type` is `Group`.
         """
         return pulumi.get(self, "uri")
 
@@ -5867,8 +5867,8 @@ class BucketV2Grant(dict):
         """
         :param Sequence[_builtins.str] permissions: List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         :param _builtins.str type: Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
-        :param _builtins.str id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
-        :param _builtins.str uri: Uri address to grant for. Used only when `type` is `Group`.
+        :param _builtins.str id: Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
+        :param _builtins.str uri: URI address to grant for. Used only when `type` is `Group`.
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "type", type)
@@ -5897,7 +5897,7 @@ class BucketV2Grant(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+        Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
         """
         return pulumi.get(self, "id")
 
@@ -5905,7 +5905,7 @@ class BucketV2Grant(dict):
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
         """
-        Uri address to grant for. Used only when `type` is `Group`.
+        URI address to grant for. Used only when `type` is `Group`.
         """
         return pulumi.get(self, "uri")
 

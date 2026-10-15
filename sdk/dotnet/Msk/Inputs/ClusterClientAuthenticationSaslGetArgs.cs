@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterClientAuthenticationSaslGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable IAM client authentication. Defaults to `False`.
+        /// </summary>
         [Input("iam")]
         public Input<bool>? Iam { get; set; }
 
+        /// <summary>
+        /// Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `False`.
+        /// </summary>
         [Input("scram")]
         public Input<bool>? Scram { get; set; }
 

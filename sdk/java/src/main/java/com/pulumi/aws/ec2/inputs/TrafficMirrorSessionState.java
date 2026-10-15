@@ -183,14 +183,14 @@ public final class TrafficMirrorSessionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
      * 
      */
     @Import(name="virtualNetworkId")
     private @Nullable Output<Integer> virtualNetworkId;
 
     /**
-     * @return The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * @return The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
      * 
      */
     public Optional<Output<Integer>> virtualNetworkId() {
@@ -464,7 +464,7 @@ public final class TrafficMirrorSessionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param virtualNetworkId The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+         * @param virtualNetworkId The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class TrafficMirrorSessionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param virtualNetworkId The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+         * @param virtualNetworkId The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
          * 
          * @return builder
          * 

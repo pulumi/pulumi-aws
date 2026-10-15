@@ -61,7 +61,7 @@ class GetResourceResult:
     @pulumi.getter(name="hybridAccessEnabled")
     def hybrid_access_enabled(self) -> _builtins.bool:
         """
-        Flag to enable AWS LakeFormation hybrid access permission mode.
+        Flag to enable AWS Lake Formation hybrid access permission mode.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 

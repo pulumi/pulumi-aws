@@ -83,7 +83,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
-     * ARN assigned by AWS to the autoscaling schedule.
+     * ARN assigned by AWS to the Auto Scaling schedule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -185,7 +185,7 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleState {
     /**
-     * ARN assigned by AWS to the autoscaling schedule.
+     * ARN assigned by AWS to the Auto Scaling schedule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

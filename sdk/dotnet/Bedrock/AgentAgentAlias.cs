@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
+    /// Manages an AWS Agents for Amazon Bedrock Agent Alias.
     /// 
     /// ## Example Usage
     /// 
@@ -110,8 +110,9 @@ namespace Pulumi.Aws.Bedrock
     ///     {
     ///         AgentName = "my-agent-name",
     ///         AgentResourceRoleArn = example.Arn,
-    ///         IdleTtl = 500,
+    ///         IdleSessionTtlInSeconds = 500,
     ///         FoundationModel = "anthropic.claude-v2",
+    ///         Instruction = "You are a friendly assistant who helps answer questions.",
     ///     });
     /// 
     ///     var exampleAgentAgentAlias = new Aws.Bedrock.AgentAgentAlias("example", new()

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     [OutputType]
     public sealed class GetCustomRoutingAcceleratorAttributeResult
     {
+        /// <summary>
+        /// Whether flow logs are enabled.
+        /// </summary>
         public readonly bool FlowLogsEnabled;
+        /// <summary>
+        /// Name of the Amazon S3 bucket for the flow logs.
+        /// </summary>
         public readonly string FlowLogsS3Bucket;
+        /// <summary>
+        /// Prefix for the location in the Amazon S3 bucket for the flow logs.
+        /// </summary>
         public readonly string FlowLogsS3Prefix;
 
         [OutputConstructor]

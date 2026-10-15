@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get the id and rootResourceId of a REST API in
+ * Use this data source to get the ID and rootResourceId of a REST API in
  * API Gateway. To fetch the REST API you must provide a name to match against.
  * As there is no unique name constraint on REST APIs this data source will
  * error if there is more than one match.
@@ -111,7 +111,7 @@ export interface GetRestApiResult {
     readonly tags: {[key: string]: string};
 }
 /**
- * Use this data source to get the id and rootResourceId of a REST API in
+ * Use this data source to get the ID and rootResourceId of a REST API in
  * API Gateway. To fetch the REST API you must provide a name to match against.
  * As there is no unique name constraint on REST APIs this data source will
  * error if there is more than one match.

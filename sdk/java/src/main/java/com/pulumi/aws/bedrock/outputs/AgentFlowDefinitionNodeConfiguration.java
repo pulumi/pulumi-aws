@@ -44,7 +44,7 @@ public final class AgentFlowDefinitionNodeConfiguration {
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationInlineCode inlineCode;
     /**
-     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationInput input;
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionNodeConfiguration {
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationIterator iterator;
     /**
-     * @return Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+     * @return Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBase knowledgeBase;
@@ -69,7 +69,7 @@ public final class AgentFlowDefinitionNodeConfiguration {
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationLex lex;
     /**
-     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationOutput output;
@@ -119,7 +119,7 @@ public final class AgentFlowDefinitionNodeConfiguration {
         return Optional.ofNullable(this.inlineCode);
     }
     /**
-     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationInput> input() {
@@ -133,7 +133,7 @@ public final class AgentFlowDefinitionNodeConfiguration {
         return Optional.ofNullable(this.iterator);
     }
     /**
-     * @return Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+     * @return Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBase> knowledgeBase() {
@@ -154,7 +154,7 @@ public final class AgentFlowDefinitionNodeConfiguration {
         return Optional.ofNullable(this.lex);
     }
     /**
-     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationOutput> output() {

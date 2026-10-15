@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// The id of the transit gateway route table announcement, most of the time it is an empty string.
+        /// The ID of the transit gateway route table announcement, most of the time it is an empty string.
         /// </summary>
         public readonly string TransitGatewayRouteTableAnnouncementId;
         /// <summary>

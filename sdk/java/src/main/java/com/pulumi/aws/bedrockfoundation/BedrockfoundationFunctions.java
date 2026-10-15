@@ -22,7 +22,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class BedrockfoundationFunctions {
     /**
-     * Data source for managing an AWS Bedrock Foundation Model.
+     * Provides details about an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
      * 
@@ -51,11 +51,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
-     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.modelSummaries()[0].modelId())
+     *         final var exampleGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -68,7 +68,7 @@ public final class BedrockfoundationFunctions {
         return getModel(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Bedrock Foundation Model.
+     * Provides details about an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
      * 
@@ -97,11 +97,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
-     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.modelSummaries()[0].modelId())
+     *         final var exampleGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -114,7 +114,7 @@ public final class BedrockfoundationFunctions {
         return getModelPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS Bedrock Foundation Model.
+     * Provides details about an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
      * 
@@ -143,11 +143,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
-     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.modelSummaries()[0].modelId())
+     *         final var exampleGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -160,7 +160,7 @@ public final class BedrockfoundationFunctions {
         return Deployment.getInstance().invoke("aws:bedrockfoundation/getModel:getModel", TypeShape.of(GetModelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Bedrock Foundation Model.
+     * Provides details about an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
      * 
@@ -189,11 +189,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
-     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.modelSummaries()[0].modelId())
+     *         final var exampleGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -206,7 +206,7 @@ public final class BedrockfoundationFunctions {
         return Deployment.getInstance().invoke("aws:bedrockfoundation/getModel:getModel", TypeShape.of(GetModelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS Bedrock Foundation Model.
+     * Provides details about an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
      * 
@@ -235,11 +235,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
-     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.modelSummaries()[0].modelId())
+     *         final var exampleGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -266,6 +266,7 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -280,8 +281,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
-     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
+     * 
+     *         final var exampleGetModelAgreementOffers = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -308,6 +312,7 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -322,8 +327,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
-     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
+     * 
+     *         final var exampleGetModelAgreementOffers = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -350,6 +358,7 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -364,8 +373,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
-     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
+     * 
+     *         final var exampleGetModelAgreementOffers = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -392,6 +404,7 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -406,8 +419,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
-     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
+     * 
+     *         final var exampleGetModelAgreementOffers = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -434,6 +450,7 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -448,8 +465,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
-     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
+     * 
+     *         final var exampleGetModelAgreementOffers = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(example.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -462,7 +482,7 @@ public final class BedrockfoundationFunctions {
         return Deployment.getInstance().invokeAsync("aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers", TypeShape.of(GetModelAgreementOffersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock Foundation Models.
+     * Provides details about AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
      * 
@@ -490,7 +510,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -522,7 +542,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
@@ -536,7 +556,7 @@ public final class BedrockfoundationFunctions {
         return getModels(GetModelsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Foundation Models.
+     * Provides details about AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
      * 
@@ -564,7 +584,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -596,7 +616,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
@@ -610,7 +630,7 @@ public final class BedrockfoundationFunctions {
         return getModelsPlain(GetModelsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Foundation Models.
+     * Provides details about AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
      * 
@@ -638,7 +658,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -670,7 +690,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
@@ -684,7 +704,7 @@ public final class BedrockfoundationFunctions {
         return getModels(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Foundation Models.
+     * Provides details about AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
      * 
@@ -712,7 +732,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -744,7 +764,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
@@ -758,7 +778,7 @@ public final class BedrockfoundationFunctions {
         return getModelsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing AWS Bedrock Foundation Models.
+     * Provides details about AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
      * 
@@ -786,7 +806,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -818,7 +838,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
@@ -832,7 +852,7 @@ public final class BedrockfoundationFunctions {
         return Deployment.getInstance().invoke("aws:bedrockfoundation/getModels:getModels", TypeShape.of(GetModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock Foundation Models.
+     * Provides details about AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
      * 
@@ -860,7 +880,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -892,7 +912,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
@@ -906,7 +926,7 @@ public final class BedrockfoundationFunctions {
         return Deployment.getInstance().invoke("aws:bedrockfoundation/getModels:getModels", TypeShape.of(GetModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing AWS Bedrock Foundation Models.
+     * Provides details about AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
      * 
@@ -934,7 +954,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .build());
      * 
      *     }
@@ -966,7 +986,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *         final var example = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
      *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 

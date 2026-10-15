@@ -32,14 +32,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
-     * Mono, Stereo, or 5.1 channel layout.
+     * Mono, stereo, or 5.1 channel layout.
      * 
      */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Mono, stereo, or 5.1 channel layout.
      * 
      */
     public Optional<Output<String>> codingMode() {
@@ -47,14 +47,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
-     * Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+     * Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
      * 
      */
     @Import(name="inputType")
     private @Nullable Output<String> inputType;
 
     /**
-     * @return Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+     * @return Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
      * 
      */
     public Optional<Output<String>> inputType() {
@@ -77,14 +77,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
-     * The rate control mode.
+     * Rate control mode.
      * 
      */
     @Import(name="rateControlMode")
     private @Nullable Output<String> rateControlMode;
 
     /**
-     * @return The rate control mode.
+     * @return Rate control mode.
      * 
      */
     public Optional<Output<String>> rateControlMode() {
@@ -122,14 +122,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
-     * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+     * Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
      * 
      */
     @Import(name="spec")
     private @Nullable Output<String> spec;
 
     /**
-     * @return Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+     * @return Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
      * 
      */
     public Optional<Output<String>> spec() {
@@ -137,14 +137,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
-     * VBR Quality Level - Only used if rateControlMode is VBR.
+     * VBR quality level. Only used if `rateControlMode` is `VBR`.
      * 
      */
     @Import(name="vbrQuality")
     private @Nullable Output<String> vbrQuality;
 
     /**
-     * @return VBR Quality Level - Only used if rateControlMode is VBR.
+     * @return VBR quality level. Only used if `rateControlMode` is `VBR`.
      * 
      */
     public Optional<Output<String>> vbrQuality() {
@@ -205,7 +205,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param codingMode Mono, Stereo, or 5.1 channel layout.
+         * @param codingMode Mono, stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param codingMode Mono, Stereo, or 5.1 channel layout.
+         * @param codingMode Mono, stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param inputType Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+         * @param inputType Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param inputType Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+         * @param inputType Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param rateControlMode The rate control mode.
+         * @param rateControlMode Rate control mode.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param rateControlMode The rate control mode.
+         * @param rateControlMode Rate control mode.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param spec Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+         * @param spec Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param spec Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+         * @param spec Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param vbrQuality VBR Quality Level - Only used if rateControlMode is VBR.
+         * @param vbrQuality VBR quality level. Only used if `rateControlMode` is `VBR`.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param vbrQuality VBR Quality Level - Only used if rateControlMode is VBR.
+         * @param vbrQuality VBR quality level. Only used if `rateControlMode` is `VBR`.
          * 
          * @return builder
          * 

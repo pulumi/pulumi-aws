@@ -16,14 +16,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs();
 
     /**
-     * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+     * Amount of time, in milliseconds, that no input is detected before an input failover occurs.
      * 
      */
     @Import(name="inputLossThresholdMsec")
     private @Nullable Output<Integer> inputLossThresholdMsec;
 
     /**
-     * @return The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+     * @return Amount of time, in milliseconds, that no input is detected before an input failover occurs.
      * 
      */
     public Optional<Output<Integer>> inputLossThresholdMsec() {
@@ -55,7 +55,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param inputLossThresholdMsec The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+         * @param inputLossThresholdMsec Amount of time, in milliseconds, that no input is detected before an input failover occurs.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param inputLossThresholdMsec The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+         * @param inputLossThresholdMsec Amount of time, in milliseconds, that no input is detected before an input failover occurs.
          * 
          * @return builder
          * 

@@ -18,11 +18,14 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Name of the Column.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The datatype of data in the Column.
+        /// Datatype of data in the Column.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

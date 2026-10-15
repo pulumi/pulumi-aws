@@ -64,14 +64,14 @@ public final class FeatureGroupOnlineStoreConfigArgs extends com.pulumi.resource
     }
 
     /**
-     * Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+     * Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
      * 
      */
     @Import(name="ttlDuration")
     private @Nullable Output<FeatureGroupOnlineStoreConfigTtlDurationArgs> ttlDuration;
 
     /**
-     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
      * 
      */
     public Optional<Output<FeatureGroupOnlineStoreConfigTtlDurationArgs>> ttlDuration() {
@@ -169,7 +169,7 @@ public final class FeatureGroupOnlineStoreConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ttlDuration Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+         * @param ttlDuration Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class FeatureGroupOnlineStoreConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ttlDuration Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+         * @param ttlDuration Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
          * 
          * @return builder
          * 

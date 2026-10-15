@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+ * Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
  *
  * ## Example Usage
  *
@@ -95,7 +95,7 @@ export interface GetPublicKeyResult {
     readonly signingAlgorithms: string[];
 }
 /**
- * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+ * Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
  *
  * ## Example Usage
  *

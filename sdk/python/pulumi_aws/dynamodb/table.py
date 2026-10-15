@@ -1064,11 +1064,11 @@ class Table(pulumi.CustomResource):
         """
         Provides a DynamoDB table resource.
 
-        > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
+        > **Note:** We recommend using `lifecycle` `ignore_changes` for `read_capacity` and/or `write_capacity` if there's Auto Scaling policy attached to the table.
 
         > **Note:** When using dynamodb.TableReplica with this resource, use `lifecycle` `ignore_changes` for `replica`, _e.g._, `lifecycle { ignore_changes = [replica] }`.
 
-        > **Note:** If autoscaling creates drift for your `global_secondary_index` blocks and/or more granular `lifecycle` management for GSIs, we recommend using the new **experimental** resource `dynamodb.GlobalSecondaryIndex`.
+        > **Note:** If Auto Scaling creates drift for your `global_secondary_index` blocks and/or more granular `lifecycle` management for GSIs, we recommend using the new **experimental** resource `dynamodb.GlobalSecondaryIndex`.
 
         > **Note:** Only define attributes on the table object that are going to be used as a hash key or range key for the table itself, or for LSI/GSI keys. Adding attributes not used in these scenarios causes an infinite plan loop. When using `dynamodb.GlobalSecondaryIndex`, you do not need to define attributes for externally managed GSIs in the `dynamodb.Table` resource.
 
@@ -1076,7 +1076,7 @@ class Table(pulumi.CustomResource):
 
         ### Basic Example
 
-        The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+        The following DynamoDB table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 
         ```python
         import pulumi
@@ -1124,7 +1124,7 @@ class Table(pulumi.CustomResource):
 
         ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
 
-        The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        The following DynamoDB table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
 
         > **Note:** Multi-attribute keys for GSIs use the `key_schema` block instead of `hash_key`/`range_key`. The `hash_key` and `range_key` arguments are deprecated in favor of `key_schema`.
 
@@ -1430,11 +1430,11 @@ class Table(pulumi.CustomResource):
         """
         Provides a DynamoDB table resource.
 
-        > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
+        > **Note:** We recommend using `lifecycle` `ignore_changes` for `read_capacity` and/or `write_capacity` if there's Auto Scaling policy attached to the table.
 
         > **Note:** When using dynamodb.TableReplica with this resource, use `lifecycle` `ignore_changes` for `replica`, _e.g._, `lifecycle { ignore_changes = [replica] }`.
 
-        > **Note:** If autoscaling creates drift for your `global_secondary_index` blocks and/or more granular `lifecycle` management for GSIs, we recommend using the new **experimental** resource `dynamodb.GlobalSecondaryIndex`.
+        > **Note:** If Auto Scaling creates drift for your `global_secondary_index` blocks and/or more granular `lifecycle` management for GSIs, we recommend using the new **experimental** resource `dynamodb.GlobalSecondaryIndex`.
 
         > **Note:** Only define attributes on the table object that are going to be used as a hash key or range key for the table itself, or for LSI/GSI keys. Adding attributes not used in these scenarios causes an infinite plan loop. When using `dynamodb.GlobalSecondaryIndex`, you do not need to define attributes for externally managed GSIs in the `dynamodb.Table` resource.
 
@@ -1442,7 +1442,7 @@ class Table(pulumi.CustomResource):
 
         ### Basic Example
 
-        The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+        The following DynamoDB table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 
         ```python
         import pulumi
@@ -1490,7 +1490,7 @@ class Table(pulumi.CustomResource):
 
         ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
 
-        The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        The following DynamoDB table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
 
         > **Note:** Multi-attribute keys for GSIs use the `key_schema` block instead of `hash_key`/`range_key`. The `hash_key` and `range_key` arguments are deprecated in favor of `key_schema`.
 

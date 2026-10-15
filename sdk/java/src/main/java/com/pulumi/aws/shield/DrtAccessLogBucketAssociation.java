@@ -87,14 +87,14 @@ public class DrtAccessLogBucketAssociation extends com.pulumi.resources.CustomRe
         return this.logBucket;
     }
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * The ID of the Role ARN association used for allowing Shield DRT Access.
      * 
      */
     @Export(name="roleArnAssociationId", refs={String.class}, tree="[0]")
     private Output<String> roleArnAssociationId;
 
     /**
-     * @return The ID of the Role Arn association used for allowing Shield DRT Access.
+     * @return The ID of the Role ARN association used for allowing Shield DRT Access.
      * 
      */
     public Output<String> roleArnAssociationId() {

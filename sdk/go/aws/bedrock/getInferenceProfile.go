@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Bedrock Inference Profile.
+// Provides details about an AWS Bedrock Inference Profile.
 //
 // ## Example Usage
 //
@@ -29,12 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := bedrock.GetInferenceProfiles(ctx, &bedrock.GetInferenceProfilesArgs{}, nil)
+//			example, err := bedrock.GetInferenceProfiles(ctx, &bedrock.GetInferenceProfilesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = bedrock.LookupInferenceProfile(ctx, &bedrock.LookupInferenceProfileArgs{
-//				InferenceProfileId: test.InferenceProfileSummaries[0].InferenceProfileId,
+//				InferenceProfileId: example.InferenceProfileSummaries[0].InferenceProfileId,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -71,7 +71,7 @@ type LookupInferenceProfileResult struct {
 	// ARN of the inference profile.
 	InferenceProfileArn string `pulumi:"inferenceProfileArn"`
 	InferenceProfileId  string `pulumi:"inferenceProfileId"`
-	// Unique identifier of the inference profile.
+	// Name of the inference profile.
 	InferenceProfileName string `pulumi:"inferenceProfileName"`
 	// List of information about each model in the inference profile. See `models`.
 	Models []GetInferenceProfileModel `pulumi:"models"`
@@ -135,7 +135,7 @@ func (o LookupInferenceProfileResultOutput) InferenceProfileId() pulumi.StringOu
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.InferenceProfileId }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the inference profile.
+// Name of the inference profile.
 func (o LookupInferenceProfileResultOutput) InferenceProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.InferenceProfileName }).(pulumi.StringOutput)
 }

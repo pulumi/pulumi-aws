@@ -12,11 +12,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Check digit string for the watermark.
+        /// </summary>
         [Input("checkDigitString", required: true)]
         public Input<string> CheckDigitString { get; set; } = null!;
 
         /// <summary>
-        /// The Nielsen Source ID to include in the watermark.
+        /// Nielsen source ID to include in the watermark.
         /// </summary>
         [Input("sid", required: true)]
         public Input<double> Sid { get; set; } = null!;

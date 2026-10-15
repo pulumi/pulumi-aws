@@ -119,7 +119,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
-     * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
      */
     declare public readonly enableCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
     /**
@@ -373,7 +373,7 @@ export interface ClusterState {
      */
     deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
-     * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
      */
     enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -519,7 +519,7 @@ export interface ClusterArgs {
      */
     deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
-     * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
      */
     enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

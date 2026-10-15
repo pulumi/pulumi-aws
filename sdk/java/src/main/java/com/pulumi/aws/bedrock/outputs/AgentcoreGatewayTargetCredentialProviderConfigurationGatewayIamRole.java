@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole {
     /**
-     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Can only be set when `service` is set.
      * 
      */
     private @Nullable String region;
@@ -24,7 +24,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
 
     private AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole() {}
     /**
-     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Can only be set when `service` is set.
      * 
      */
     public Optional<String> region() {

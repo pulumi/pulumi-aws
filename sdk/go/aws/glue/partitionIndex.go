@@ -139,11 +139,11 @@ import (
 type PartitionIndex struct {
 	pulumi.CustomResourceState
 
-	// The catalog ID where the table resides.
+	// Catalog ID where the table resides.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Configuration block for a partition index. See `partitionIndex` below.
+	// Configuration block for a partition index. See `partitionIndex` Block below.
 	PartitionIndex PartitionIndexPartitionIndexOutput `pulumi:"partitionIndex"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -190,11 +190,11 @@ func GetPartitionIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PartitionIndex resources.
 type partitionIndexState struct {
-	// The catalog ID where the table resides.
+	// Catalog ID where the table resides.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Configuration block for a partition index. See `partitionIndex` below.
+	// Configuration block for a partition index. See `partitionIndex` Block below.
 	PartitionIndex *PartitionIndexPartitionIndex `pulumi:"partitionIndex"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -203,11 +203,11 @@ type partitionIndexState struct {
 }
 
 type PartitionIndexState struct {
-	// The catalog ID where the table resides.
+	// Catalog ID where the table resides.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringPtrInput
-	// Configuration block for a partition index. See `partitionIndex` below.
+	// Configuration block for a partition index. See `partitionIndex` Block below.
 	PartitionIndex PartitionIndexPartitionIndexPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -220,11 +220,11 @@ func (PartitionIndexState) ElementType() reflect.Type {
 }
 
 type partitionIndexArgs struct {
-	// The catalog ID where the table resides.
+	// Catalog ID where the table resides.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName string `pulumi:"databaseName"`
-	// Configuration block for a partition index. See `partitionIndex` below.
+	// Configuration block for a partition index. See `partitionIndex` Block below.
 	PartitionIndex PartitionIndexPartitionIndex `pulumi:"partitionIndex"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -234,11 +234,11 @@ type partitionIndexArgs struct {
 
 // The set of arguments for constructing a PartitionIndex resource.
 type PartitionIndexArgs struct {
-	// The catalog ID where the table resides.
+	// Catalog ID where the table resides.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringInput
-	// Configuration block for a partition index. See `partitionIndex` below.
+	// Configuration block for a partition index. See `partitionIndex` Block below.
 	PartitionIndex PartitionIndexPartitionIndexInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -333,7 +333,7 @@ func (o PartitionIndexOutput) ToPartitionIndexOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The catalog ID where the table resides.
+// Catalog ID where the table resides.
 func (o PartitionIndexOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
@@ -343,7 +343,7 @@ func (o PartitionIndexOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Configuration block for a partition index. See `partitionIndex` below.
+// Configuration block for a partition index. See `partitionIndex` Block below.
 func (o PartitionIndexOutput) PartitionIndex() PartitionIndexPartitionIndexOutput {
 	return o.ApplyT(func(v *PartitionIndex) PartitionIndexPartitionIndexOutput { return v.PartitionIndex }).(PartitionIndexPartitionIndexOutput)
 }

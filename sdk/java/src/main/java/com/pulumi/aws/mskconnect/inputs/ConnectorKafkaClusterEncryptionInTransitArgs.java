@@ -16,14 +16,14 @@ public final class ConnectorKafkaClusterEncryptionInTransitArgs extends com.pulu
     public static final ConnectorKafkaClusterEncryptionInTransitArgs Empty = new ConnectorKafkaClusterEncryptionInTransitArgs();
 
     /**
-     * The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+     * Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
      * 
      */
     @Import(name="encryptionType")
     private @Nullable Output<String> encryptionType;
 
     /**
-     * @return The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+     * @return Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
      * 
      */
     public Optional<Output<String>> encryptionType() {
@@ -55,7 +55,7 @@ public final class ConnectorKafkaClusterEncryptionInTransitArgs extends com.pulu
         }
 
         /**
-         * @param encryptionType The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+         * @param encryptionType Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ConnectorKafkaClusterEncryptionInTransitArgs extends com.pulu
         }
 
         /**
-         * @param encryptionType The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+         * @param encryptionType Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
          * 
          * @return builder
          * 

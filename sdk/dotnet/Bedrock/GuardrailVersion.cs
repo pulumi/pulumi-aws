@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Bedrock Guardrail Version.
+    /// Manages an AWS Bedrock Guardrail Version.
     /// 
     /// ## Example Usage
     /// 
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Bedrock
     ///     var example = new Aws.Bedrock.GuardrailVersion("example", new()
     ///     {
     ///         Description = "example",
-    ///         GuardrailArn = test.GuardrailArn,
+    ///         GuardrailArn = exampleAwsBedrockGuardrail.GuardrailArn,
     ///         SkipDestroy = true,
     ///     });
     /// 
@@ -36,10 +36,10 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `GuardrailArn` and `Version`. For example:
+    /// Using `pulumi import`, import Amazon Bedrock Guardrail Version using a comma-delimited string of `GuardrailArn` and `Version`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
+    /// $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail/guardrail-id-12345678,1
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/guardrailVersion:GuardrailVersion")]
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
+        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
+        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
+        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }

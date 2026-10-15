@@ -17,14 +17,14 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
     public static final ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs Empty = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs();
 
     /**
-     * A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+     * Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
      * 
      */
     @Import(name="provisionedThroughput")
     private @Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs> provisionedThroughput;
 
     /**
-     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+     * @return Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs>> provisionedThroughput() {
@@ -32,14 +32,14 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
     }
 
     /**
-     * The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+     * Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
      * 
      */
     @Import(name="volumeSize")
     private @Nullable Output<Integer> volumeSize;
 
     /**
-     * @return The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+     * @return Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
      * 
      */
     public Optional<Output<Integer>> volumeSize() {
@@ -72,7 +72,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
         }
 
         /**
-         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+         * @param provisionedThroughput Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
         }
 
         /**
-         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
+         * @param provisionedThroughput Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisionedThroughput` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
         }
 
         /**
-         * @param volumeSize The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+         * @param volumeSize Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
         }
 
         /**
-         * @param volumeSize The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+         * @param volumeSize Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
          * 
          * @return builder
          * 

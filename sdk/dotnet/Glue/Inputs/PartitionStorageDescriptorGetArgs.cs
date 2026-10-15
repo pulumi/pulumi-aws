@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _bucketColumns;
 
         /// <summary>
-        /// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        /// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         /// </summary>
         public InputList<string> BucketColumns
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.PartitionStorageDescriptorColumnGetArgs>? _columns;
 
         /// <summary>
-        /// A list of the Columns in the table.
+        /// List of the `Columns` in the table.
         /// </summary>
         public InputList<Inputs.PartitionStorageDescriptorColumnGetArgs> Columns
         {
@@ -55,13 +55,13 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<bool>? Compressed { get; set; }
 
         /// <summary>
-        /// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        /// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         /// </summary>
         [Input("inputFormat")]
         public Input<string>? InputFormat { get; set; }
 
         /// <summary>
-        /// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        /// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<int>? NumberOfBuckets { get; set; }
 
         /// <summary>
-        /// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        /// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.PartitionStorageDescriptorSortColumnGetArgs>? _sortColumns;
 
         /// <summary>
-        /// A list of Order objects specifying the sort order of each bucket in the table.
+        /// List of `SortColumns` objects specifying the sort order of each bucket in the table.
         /// </summary>
         public InputList<Inputs.PartitionStorageDescriptorSortColumnGetArgs> SortColumns
         {

@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create a new launch configuration, used for autoscaling groups.
+// Provides a resource to create a new launch configuration, used for Auto Scaling groups.
 //
 // > **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
 //
-// > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute.
+// > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute. This will allow Pulumi lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
 //
 // ## Example Usage
 //
@@ -84,7 +84,7 @@ type LaunchConfiguration struct {
 
 	// ARN of the launch configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Associate a public ip address with an instance in a VPC.
+	// Associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrOutput `pulumi:"associatePublicIpAddress"`
 	// Additional EBS block devices to attach to the instance. See Block Devices below for details.
 	EbsBlockDevices LaunchConfigurationEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
@@ -116,7 +116,7 @@ type LaunchConfiguration struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
-	// A list of associated security group IDS.
+	// A list of associated security group IDs.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
@@ -164,7 +164,7 @@ func GetLaunchConfiguration(ctx *pulumi.Context,
 type launchConfigurationState struct {
 	// ARN of the launch configuration.
 	Arn *string `pulumi:"arn"`
-	// Associate a public ip address with an instance in a VPC.
+	// Associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// Additional EBS block devices to attach to the instance. See Block Devices below for details.
 	EbsBlockDevices []LaunchConfigurationEbsBlockDevice `pulumi:"ebsBlockDevices"`
@@ -196,7 +196,7 @@ type launchConfigurationState struct {
 	Region *string `pulumi:"region"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *LaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevice"`
-	// A list of associated security group IDS.
+	// A list of associated security group IDs.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
 	SpotPrice *string `pulumi:"spotPrice"`
@@ -209,7 +209,7 @@ type launchConfigurationState struct {
 type LaunchConfigurationState struct {
 	// ARN of the launch configuration.
 	Arn pulumi.StringPtrInput
-	// Associate a public ip address with an instance in a VPC.
+	// Associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
 	// Additional EBS block devices to attach to the instance. See Block Devices below for details.
 	EbsBlockDevices LaunchConfigurationEbsBlockDeviceArrayInput
@@ -241,7 +241,7 @@ type LaunchConfigurationState struct {
 	Region pulumi.StringPtrInput
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDevicePtrInput
-	// A list of associated security group IDS.
+	// A list of associated security group IDs.
 	SecurityGroups pulumi.StringArrayInput
 	// The maximum price to use for reserving spot instances.
 	SpotPrice pulumi.StringPtrInput
@@ -256,7 +256,7 @@ func (LaunchConfigurationState) ElementType() reflect.Type {
 }
 
 type launchConfigurationArgs struct {
-	// Associate a public ip address with an instance in a VPC.
+	// Associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// Additional EBS block devices to attach to the instance. See Block Devices below for details.
 	EbsBlockDevices []LaunchConfigurationEbsBlockDevice `pulumi:"ebsBlockDevices"`
@@ -288,7 +288,7 @@ type launchConfigurationArgs struct {
 	Region *string `pulumi:"region"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *LaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevice"`
-	// A list of associated security group IDS.
+	// A list of associated security group IDs.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
 	SpotPrice *string `pulumi:"spotPrice"`
@@ -300,7 +300,7 @@ type launchConfigurationArgs struct {
 
 // The set of arguments for constructing a LaunchConfiguration resource.
 type LaunchConfigurationArgs struct {
-	// Associate a public ip address with an instance in a VPC.
+	// Associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
 	// Additional EBS block devices to attach to the instance. See Block Devices below for details.
 	EbsBlockDevices LaunchConfigurationEbsBlockDeviceArrayInput
@@ -332,7 +332,7 @@ type LaunchConfigurationArgs struct {
 	Region pulumi.StringPtrInput
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDevicePtrInput
-	// A list of associated security group IDS.
+	// A list of associated security group IDs.
 	SecurityGroups pulumi.StringArrayInput
 	// The maximum price to use for reserving spot instances.
 	SpotPrice pulumi.StringPtrInput
@@ -434,7 +434,7 @@ func (o LaunchConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Associate a public ip address with an instance in a VPC.
+// Associate a public IP address with an instance in a VPC.
 func (o LaunchConfigurationOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.BoolPtrOutput { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
@@ -513,7 +513,7 @@ func (o LaunchConfigurationOutput) RootBlockDevice() LaunchConfigurationRootBloc
 	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationRootBlockDeviceOutput { return v.RootBlockDevice }).(LaunchConfigurationRootBlockDeviceOutput)
 }
 
-// A list of associated security group IDS.
+// A list of associated security group IDs.
 func (o LaunchConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

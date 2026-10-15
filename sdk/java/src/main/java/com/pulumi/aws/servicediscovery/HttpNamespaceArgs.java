@@ -32,14 +32,14 @@ public final class HttpNamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the http namespace.
+     * The name of the HTTP namespace.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the http namespace.
+     * @return The name of the HTTP namespace.
      * 
      */
     public Optional<Output<String>> name() {
@@ -125,7 +125,7 @@ public final class HttpNamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the http namespace.
+         * @param name The name of the HTTP namespace.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class HttpNamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the http namespace.
+         * @param name The name of the HTTP namespace.
          * 
          * @return builder
          * 

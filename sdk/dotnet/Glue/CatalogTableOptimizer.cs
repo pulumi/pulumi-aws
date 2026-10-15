@@ -130,19 +130,19 @@ namespace Pulumi.Aws.Glue
     public partial class CatalogTableOptimizer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Catalog ID of the table.
+        /// Catalog ID of the table.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        /// Configuration block that defines the table optimizer settings. See `Configuration` Block for additional details.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.CatalogTableOptimizerConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database in the catalog in which the table resides.
+        /// Name of the database in the catalog in which the table resides.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the table.
+        /// Name of the table.
         /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of table optimizer. Valid values are `Compaction`, `Retention`, and `OrphanFileDeletion`.
+        /// Type of table optimizer. Valid values are `Compaction`, `Retention`, and `OrphanFileDeletion`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -212,19 +212,19 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogTableOptimizerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Catalog ID of the table.
+        /// Catalog ID of the table.
         /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
         /// <summary>
-        /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        /// Configuration block that defines the table optimizer settings. See `Configuration` Block for additional details.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.CatalogTableOptimizerConfigurationArgs> Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The name of the database in the catalog in which the table resides.
+        /// Name of the database in the catalog in which the table resides.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -236,13 +236,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the table.
+        /// Name of the table.
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// The type of table optimizer. Valid values are `Compaction`, `Retention`, and `OrphanFileDeletion`.
+        /// Type of table optimizer. Valid values are `Compaction`, `Retention`, and `OrphanFileDeletion`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -256,19 +256,19 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogTableOptimizerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Catalog ID of the table.
+        /// Catalog ID of the table.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        /// Configuration block that defines the table optimizer settings. See `Configuration` Block for additional details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// The name of the database in the catalog in which the table resides.
+        /// Name of the database in the catalog in which the table resides.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -280,13 +280,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the table.
+        /// Name of the table.
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// The type of table optimizer. Valid values are `Compaction`, `Retention`, and `OrphanFileDeletion`.
+        /// Type of table optimizer. Valid values are `Compaction`, `Retention`, and `OrphanFileDeletion`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

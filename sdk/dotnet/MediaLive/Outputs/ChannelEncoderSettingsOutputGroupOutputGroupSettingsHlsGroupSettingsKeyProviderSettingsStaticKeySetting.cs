@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting
     {
+        /// <summary>
+        /// Location of the license server used for protecting content. See `KeyProviderServer` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer? KeyProviderServer;
+        /// <summary>
+        /// Static key value as a 32-character hexadecimal string.
+        /// </summary>
         public readonly string StaticKeyValue;
 
         [OutputConstructor]

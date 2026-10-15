@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a resource to create a new launch configuration, used for autoscaling groups.
+    /// Provides a resource to create a new launch configuration, used for Auto Scaling groups.
     /// 
     /// &gt; **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
     /// 
-    /// &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `NamePrefix` (Optional) instead of the `Name` (Optional) attribute.
+    /// &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `NamePrefix` (Optional) instead of the `Name` (Optional) attribute. This will allow Pulumi lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
     /// 
     /// ## Example Usage
     /// 
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Associate a public ip address with an instance in a VPC.
+        /// Associate a public IP address with an instance in a VPC.
         /// </summary>
         [Output("associatePublicIpAddress")]
         public Output<bool?> AssociatePublicIpAddress { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchConfigurationRootBlockDevice> RootBlockDevice { get; private set; } = null!;
 
         /// <summary>
-        /// A list of associated security group IDS.
+        /// A list of associated security group IDs.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Associate a public ip address with an instance in a VPC.
+        /// Associate a public IP address with an instance in a VPC.
         /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of associated security group IDS.
+        /// A list of associated security group IDs.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Associate a public ip address with an instance in a VPC.
+        /// Associate a public IP address with an instance in a VPC.
         /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
@@ -502,7 +502,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of associated security group IDS.
+        /// A list of associated security group IDs.
         /// </summary>
         public InputList<string> SecurityGroups
         {

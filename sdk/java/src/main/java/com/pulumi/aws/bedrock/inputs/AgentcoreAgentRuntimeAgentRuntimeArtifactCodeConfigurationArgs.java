@@ -49,14 +49,14 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArg
     }
 
     /**
-     * Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+     * Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
      * 
      */
     @Import(name="runtime", required=true)
     private Output<String> runtime;
 
     /**
-     * @return Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+     * @return Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
      * 
      */
     public Output<String> runtime() {
@@ -142,7 +142,7 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArg
         }
 
         /**
-         * @param runtime Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+         * @param runtime Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArg
         }
 
         /**
-         * @param runtime Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+         * @param runtime Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
          * 
          * @return builder
          * 

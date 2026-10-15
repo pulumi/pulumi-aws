@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.macie2.OrganizationAdminAccount` using the id. For example:
+ * Using `pulumi import`, import `aws.macie2.OrganizationAdminAccount` using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:macie2/organizationAdminAccount:OrganizationAdminAccount")
 public class OrganizationAdminAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+     * AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      * 
      */
     @Export(name="adminAccountId", refs={String.class}, tree="[0]")
     private Output<String> adminAccountId;
 
     /**
-     * @return The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+     * @return AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      * 
      */
     public Output<String> adminAccountId() {

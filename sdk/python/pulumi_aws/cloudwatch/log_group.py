@@ -416,7 +416,7 @@ class LogGroup(pulumi.CustomResource):
         * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
-        Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
+        Using `pulumi import`, import CloudWatch Log Groups using the `name`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logGroup:LogGroup example yada
@@ -475,7 +475,7 @@ class LogGroup(pulumi.CustomResource):
         * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
-        Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
+        Using `pulumi import`, import CloudWatch Log Groups using the `name`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logGroup:LogGroup example yada

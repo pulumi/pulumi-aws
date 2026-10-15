@@ -104,13 +104,13 @@ export class MultiplexProgram extends pulumi.CustomResource {
      */
     declare public readonly multiplexId: pulumi.Output<string>;
     /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     *
-     * The following arguments are optional:
+     * MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
      */
     declare public readonly multiplexProgramSettings: pulumi.Output<outputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
     /**
      * Unique program name.
+     *
+     * The following arguments are optional:
      */
     declare public readonly programName: pulumi.Output<string>;
     /**
@@ -165,13 +165,13 @@ export interface MultiplexProgramState {
      */
     multiplexId?: pulumi.Input<string | undefined>;
     /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     *
-     * The following arguments are optional:
+     * MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
      */
     multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
     /**
      * Unique program name.
+     *
+     * The following arguments are optional:
      */
     programName?: pulumi.Input<string | undefined>;
     /**
@@ -190,13 +190,13 @@ export interface MultiplexProgramArgs {
      */
     multiplexId: pulumi.Input<string>;
     /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     *
-     * The following arguments are optional:
+     * MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
      */
     multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
     /**
      * Unique program name.
+     *
+     * The following arguments are optional:
      */
     programName: pulumi.Input<string>;
     /**

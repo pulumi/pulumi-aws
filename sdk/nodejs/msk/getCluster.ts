@@ -87,7 +87,7 @@ export interface GetClusterResult {
      */
     readonly bootstrapBrokersTls: string;
     /**
-     * Configuration block for the broker nodes of the Kafka cluster.
+     * Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block for details.
      */
     readonly brokerNodeGroupInfos: outputs.msk.GetClusterBrokerNodeGroupInfo[];
     readonly clusterName: string;
@@ -117,11 +117,11 @@ export interface GetClusterResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     readonly zookeeperConnectString: string;
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     readonly zookeeperConnectStringTls: string;
 }

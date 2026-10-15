@@ -146,15 +146,39 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class GetAcceleratorResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// Attributes of the accelerator. See `Attributes` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAcceleratorAttributeResult> Attributes;
+        /// <summary>
+        /// DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        /// </summary>
         public readonly string DnsName;
+        /// <summary>
+        /// DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
+        /// </summary>
         public readonly string DualStackDnsName;
+        /// <summary>
+        /// Whether the accelerator is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+        /// </summary>
         public readonly string HostedZoneId;
         public readonly string Id;
+        /// <summary>
+        /// Value for the address type.
+        /// </summary>
         public readonly string IpAddressType;
+        /// <summary>
+        /// IP address set associated with the accelerator. See `IpSets` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAcceleratorIpSetResult> IpSets;
         public readonly string Name;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

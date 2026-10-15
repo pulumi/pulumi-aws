@@ -374,14 +374,14 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.self);
     }
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+     * Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      * 
      */
     @Export(name="sourceSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> sourceSecurityGroupId;
 
     /**
-     * @return Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+     * @return Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      * 
      */
     public Output<String> sourceSecurityGroupId() {

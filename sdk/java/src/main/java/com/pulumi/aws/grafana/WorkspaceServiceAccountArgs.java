@@ -17,14 +17,14 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
     public static final WorkspaceServiceAccountArgs Empty = new WorkspaceServiceAccountArgs();
 
     /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+     * Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      * 
      */
     @Import(name="grafanaRole", required=true)
     private Output<String> grafanaRole;
 
     /**
-     * @return The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+     * @return Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      * 
      */
     public Output<String> grafanaRole() {
@@ -32,14 +32,14 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+     * Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+     * @return Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Grafana workspace with which the service account is associated.
+     * Grafana workspace with which the service account is associated.
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The Grafana workspace with which the service account is associated.
+     * @return Grafana workspace with which the service account is associated.
      * 
      */
     public Output<String> workspaceId() {
@@ -104,7 +104,7 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param grafanaRole The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+         * @param grafanaRole Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param grafanaRole The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+         * @param grafanaRole Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+         * @param name Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+         * @param name Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param workspaceId The Grafana workspace with which the service account is associated.
+         * @param workspaceId Grafana workspace with which the service account is associated.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param workspaceId The Grafana workspace with which the service account is associated.
+         * @param workspaceId Grafana workspace with which the service account is associated.
          * 
          * @return builder
          * 

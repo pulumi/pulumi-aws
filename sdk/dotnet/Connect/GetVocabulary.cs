@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// Returns information on a specific Vocabulary by Vocabulary id
+        /// Returns information on a specific Vocabulary by Vocabulary ID
         /// 
         /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `VocabularyId` is required.
         /// </summary>
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// Returns information on a specific Vocabulary by Vocabulary id
+        /// Returns information on a specific Vocabulary by Vocabulary ID
         /// 
         /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `VocabularyId` is required.
         /// </summary>

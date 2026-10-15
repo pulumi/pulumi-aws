@@ -15,14 +15,14 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
     public static final ChannelMaintenanceArgs Empty = new ChannelMaintenanceArgs();
 
     /**
-     * The day of the week to use for maintenance.
+     * Day of the week to use for maintenance.
      * 
      */
     @Import(name="maintenanceDay", required=true)
     private Output<String> maintenanceDay;
 
     /**
-     * @return The day of the week to use for maintenance.
+     * @return Day of the week to use for maintenance.
      * 
      */
     public Output<String> maintenanceDay() {
@@ -30,14 +30,14 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The hour maintenance will start.
+     * Hour maintenance will start.
      * 
      */
     @Import(name="maintenanceStartTime", required=true)
     private Output<String> maintenanceStartTime;
 
     /**
-     * @return The hour maintenance will start.
+     * @return Hour maintenance will start.
      * 
      */
     public Output<String> maintenanceStartTime() {
@@ -70,7 +70,7 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maintenanceDay The day of the week to use for maintenance.
+         * @param maintenanceDay Day of the week to use for maintenance.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maintenanceDay The day of the week to use for maintenance.
+         * @param maintenanceDay Day of the week to use for maintenance.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maintenanceStartTime The hour maintenance will start.
+         * @param maintenanceStartTime Hour maintenance will start.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param maintenanceStartTime The hour maintenance will start.
+         * @param maintenanceStartTime Hour maintenance will start.
          * 
          * @return builder
          * 

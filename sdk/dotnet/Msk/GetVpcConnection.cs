@@ -155,11 +155,11 @@ namespace Pulumi.Aws.Msk
     {
         public readonly string Arn;
         /// <summary>
-        /// The authentication type for the client VPC Connection.
+        /// Authentication type for the client VPC Connection.
         /// </summary>
         public readonly string Authentication;
         /// <summary>
-        /// The list of subnets in the client VPC.
+        /// List of subnets in the client VPC.
         /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Msk
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// The security groups attached to the ENIs for the broker nodes.
+        /// Security groups attached to the ENIs for the broker nodes.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string TargetClusterArn;
         /// <summary>
-        /// The VPC ID of the remote client.
+        /// VPC ID of the remote client.
         /// </summary>
         public readonly string VpcId;
 

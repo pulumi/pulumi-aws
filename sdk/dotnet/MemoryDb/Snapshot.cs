@@ -45,13 +45,13 @@ namespace Pulumi.Aws.MemoryDb
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the cluster from which the snapshot was taken.
+        /// Configuration of the cluster from which the snapshot was taken.
         /// </summary>
         [Output("clusterConfigurations")]
         public Output<ImmutableArray<Outputs.SnapshotClusterConfiguration>> ClusterConfigurations { get; private set; } = null!;
@@ -87,19 +87,19 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the snapshot is from an automatic backup (`Automated`) or was created manually (`Manual`).
+        /// Whether the snapshot is from an automatic backup (`Automated`) or was created manually (`Manual`).
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputList<Inputs.SnapshotClusterConfigurationGetArgs>? _clusterConfigurations;
 
         /// <summary>
-        /// The configuration of the cluster from which the snapshot was taken.
+        /// Configuration of the cluster from which the snapshot was taken.
         /// </summary>
         public InputList<Inputs.SnapshotClusterConfigurationGetArgs> ClusterConfigurations
         {
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether the snapshot is from an automatic backup (`Automated`) or was created manually (`Manual`).
+        /// Whether the snapshot is from an automatic backup (`Automated`) or was created manually (`Manual`).
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

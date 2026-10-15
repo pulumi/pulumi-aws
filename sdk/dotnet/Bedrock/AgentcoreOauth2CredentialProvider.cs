@@ -55,26 +55,17 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var auth0 = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("auth0", new()
     ///     {
-    ///         CustomOauth2ProviderConfig = new[]
+    ///         Oauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs
     ///         {
-    ///             
+    ///             CustomOauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs
     ///             {
-    ///                 { "custom", new[]
+    ///                 OauthDiscovery = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs
     ///                 {
-    ///                     
-    ///                     {
-    ///                         { "oauthDiscovery", new[]
-    ///                         {
-    ///                             
-    ///                             {
-    ///                                 { "discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration" },
-    ///                             },
-    ///                         } },
-    ///                         { "clientIdWo", "auth0-client-id" },
-    ///                         { "clientSecretWo", "auth0-client-secret" },
-    ///                         { "clientCredentialsWoVersion", 1 },
-    ///                     },
-    ///                 } },
+    ///                     DiscoveryUrl = "https://dev-company.auth0.com/.well-known/openid-configuration",
+    ///                 },
+    ///                 ClientIdWo = "auth0-client-id",
+    ///                 ClientSecretWo = "auth0-client-secret",
+    ///                 ClientCredentialsWoVersion = 1,
     ///             },
     ///         },
     ///         Name = "auth0-oauth-provider",
@@ -132,7 +123,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// &gt; **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `ClientId`, `ClientSecret`, `ClientSecretSource`, `ClientSecretConfig`, and the write-only `ClientIdWo`/`ClientSecretWo`/`ClientCredentialsWoVersion` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
+    /// &gt; **Note:** This resource does not read OAuth2 client credentials back from the AgentCore API. On import, `ClientId`, `ClientSecret`, `ClientSecretSource`, `ClientSecretConfig`, `ClientCredentialsWoVersion`, and the Microsoft `TenantId` and `TenantIdWoVersion` arguments are not populated, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
     /// 
     /// ### Identity Schema
     /// 
@@ -142,7 +133,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Optional
     /// 
-    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
     /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `Name`. For example:

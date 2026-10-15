@@ -14,7 +14,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     /**
      * @return ARN of the KMS key used to encrypt the managed knowledge base.
      * 
-     * &gt; **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+     * &gt; **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
      * 
      */
     private @Nullable String kmsKeyArn;
@@ -23,7 +23,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     /**
      * @return ARN of the KMS key used to encrypt the managed knowledge base.
      * 
-     * &gt; **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+     * &gt; **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
      * 
      */
     public Optional<String> kmsKeyArn() {

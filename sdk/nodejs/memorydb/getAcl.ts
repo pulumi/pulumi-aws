@@ -58,7 +58,7 @@ export interface GetAclResult {
      */
     readonly id: string;
     /**
-     * The minimum engine version supported by the ACL.
+     * Minimum engine version supported by the ACL.
      */
     readonly minimumEngineVersion: string;
     readonly name: string;

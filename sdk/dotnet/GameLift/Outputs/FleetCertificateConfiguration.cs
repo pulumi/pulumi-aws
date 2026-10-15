@@ -14,7 +14,7 @@ namespace Pulumi.Aws.GameLift.Outputs
     public sealed class FleetCertificateConfiguration
     {
         /// <summary>
-        /// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+        /// Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         /// </summary>
         public readonly string? CertificateType;
 

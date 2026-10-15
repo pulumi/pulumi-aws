@@ -18,6 +18,10 @@ from . import outputs
 __all__ = [
     'RegexPatternSetRegularExpression',
     'RuleGroupCustomResponseBody',
+    'RuleGroupMonetizationConfig',
+    'RuleGroupMonetizationConfigCryptoConfig',
+    'RuleGroupMonetizationConfigCryptoConfigPaymentNetwork',
+    'RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices',
     'RuleGroupRule',
     'RuleGroupRuleAction',
     'RuleGroupRuleActionAllow',
@@ -35,6 +39,7 @@ __all__ = [
     'RuleGroupRuleActionCount',
     'RuleGroupRuleActionCountCustomRequestHandling',
     'RuleGroupRuleActionCountCustomRequestHandlingInsertHeader',
+    'RuleGroupRuleActionMonetize',
     'RuleGroupRuleCaptchaConfig',
     'RuleGroupRuleCaptchaConfigImmunityTimeProperty',
     'RuleGroupRuleRuleLabel',
@@ -402,6 +407,10 @@ __all__ = [
     'WebAclLoggingConfigurationRedactedFieldQueryString',
     'WebAclLoggingConfigurationRedactedFieldSingleHeader',
     'WebAclLoggingConfigurationRedactedFieldUriPath',
+    'WebAclMonetizationConfig',
+    'WebAclMonetizationConfigCryptoConfig',
+    'WebAclMonetizationConfigCryptoConfigPaymentNetwork',
+    'WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices',
     'WebAclRule',
     'WebAclRuleAction',
     'WebAclRuleActionAllow',
@@ -1143,6 +1152,177 @@ class RuleGroupCustomResponseBody(dict):
 
 
 @pulumi.output_type
+class RuleGroupMonetizationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cryptoConfig":
+            suggest = "crypto_config"
+        elif key == "currencyMode":
+            suggest = "currency_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupMonetizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupMonetizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupMonetizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crypto_config: Optional['outputs.RuleGroupMonetizationConfigCryptoConfig'] = None,
+                 currency_mode: Optional[_builtins.str] = None):
+        """
+        :param 'RuleGroupMonetizationConfigCryptoConfigArgs' crypto_config: Cryptocurrency payment configuration for the rule group. See `crypto_config` below for details.
+        :param _builtins.str currency_mode: Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> Optional['outputs.RuleGroupMonetizationConfigCryptoConfig']:
+        """
+        Cryptocurrency payment configuration for the rule group. See `crypto_config` below for details.
+        """
+        return pulumi.get(self, "crypto_config")
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> Optional[_builtins.str]:
+        """
+        Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        return pulumi.get(self, "currency_mode")
+
+
+@pulumi.output_type
+class RuleGroupMonetizationConfigCryptoConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paymentNetworks":
+            suggest = "payment_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupMonetizationConfigCryptoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupMonetizationConfigCryptoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupMonetizationConfigCryptoConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 payment_networks: Sequence['outputs.RuleGroupMonetizationConfigCryptoConfigPaymentNetwork']):
+        """
+        :param Sequence['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs'] payment_networks: Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> Sequence['outputs.RuleGroupMonetizationConfigCryptoConfigPaymentNetwork']:
+        """
+        Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        return pulumi.get(self, "payment_networks")
+
+
+@pulumi.output_type
+class RuleGroupMonetizationConfigCryptoConfigPaymentNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "walletAddress":
+            suggest = "wallet_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupMonetizationConfigCryptoConfigPaymentNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupMonetizationConfigCryptoConfigPaymentNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupMonetizationConfigCryptoConfigPaymentNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chain: _builtins.str,
+                 prices: 'outputs.RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices',
+                 wallet_address: _builtins.str):
+        """
+        :param _builtins.str chain: Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        :param 'RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs' prices: Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        :param _builtins.str wallet_address: Payee wallet address on the specified blockchain that receives payments.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> _builtins.str:
+        """
+        Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        """
+        return pulumi.get(self, "chain")
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> 'outputs.RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices':
+        """
+        Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        """
+        return pulumi.get(self, "prices")
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> _builtins.str:
+        """
+        Payee wallet address on the specified blockchain that receives payments.
+        """
+        return pulumi.get(self, "wallet_address")
+
+
+@pulumi.output_type
+class RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices(dict):
+    def __init__(__self__, *,
+                 amount: _builtins.str,
+                 currency: _builtins.str):
+        """
+        :param _builtins.str amount: Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        :param _builtins.str currency: Currency of the price amount. Valid value is `USDC`.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.str:
+        """
+        Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        """
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> _builtins.str:
+        """
+        Currency of the price amount. Valid value is `USDC`.
+        """
+        return pulumi.get(self, "currency")
+
+
+@pulumi.output_type
 class RuleGroupRule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1256,13 +1436,15 @@ class RuleGroupRuleAction(dict):
                  block: Optional['outputs.RuleGroupRuleActionBlock'] = None,
                  captcha: Optional['outputs.RuleGroupRuleActionCaptcha'] = None,
                  challenge: Optional['outputs.RuleGroupRuleActionChallenge'] = None,
-                 count: Optional['outputs.RuleGroupRuleActionCount'] = None):
+                 count: Optional['outputs.RuleGroupRuleActionCount'] = None,
+                 monetize: Optional['outputs.RuleGroupRuleActionMonetize'] = None):
         """
         :param 'RuleGroupRuleActionAllowArgs' allow: Instructs AWS WAF to allow the web request. See Allow below for details.
         :param 'RuleGroupRuleActionBlockArgs' block: Instructs AWS WAF to block the web request. See Block below for details.
         :param 'RuleGroupRuleActionCaptchaArgs' captcha: Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
         :param 'RuleGroupRuleActionChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
         :param 'RuleGroupRuleActionCountArgs' count: Instructs AWS WAF to count the web request and allow it. See Count below for details.
+        :param 'RuleGroupRuleActionMonetizeArgs' monetize: Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetization_config`. See Monetize below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -1274,6 +1456,8 @@ class RuleGroupRuleAction(dict):
             pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if monetize is not None:
+            pulumi.set(__self__, "monetize", monetize)
 
     @_builtins.property
     @pulumi.getter
@@ -1314,6 +1498,14 @@ class RuleGroupRuleAction(dict):
         Instructs AWS WAF to count the web request and allow it. See Count below for details.
         """
         return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def monetize(self) -> Optional['outputs.RuleGroupRuleActionMonetize']:
+        """
+        Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetization_config`. See Monetize below for details.
+        """
+        return pulumi.get(self, "monetize")
 
 
 @pulumi.output_type
@@ -1842,6 +2034,42 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
         Value of the custom header.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleGroupRuleActionMonetize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "priceMultiplier":
+            suggest = "price_multiplier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionMonetize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleActionMonetize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleActionMonetize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 price_multiplier: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str price_multiplier: Integer multiplier applied to the base price defined in the rule group's `monetization_config` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+        """
+        if price_multiplier is not None:
+            pulumi.set(__self__, "price_multiplier", price_multiplier)
+
+    @_builtins.property
+    @pulumi.getter(name="priceMultiplier")
+    def price_multiplier(self) -> Optional[_builtins.str]:
+        """
+        Integer multiplier applied to the base price defined in the rule group's `monetization_config` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+        """
+        return pulumi.get(self, "price_multiplier")
 
 
 @pulumi.output_type
@@ -16691,6 +16919,177 @@ class WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
 class WebAclLoggingConfigurationRedactedFieldUriPath(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclMonetizationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cryptoConfig":
+            suggest = "crypto_config"
+        elif key == "currencyMode":
+            suggest = "currency_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclMonetizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclMonetizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclMonetizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crypto_config: Optional['outputs.WebAclMonetizationConfigCryptoConfig'] = None,
+                 currency_mode: Optional[_builtins.str] = None):
+        """
+        :param 'WebAclMonetizationConfigCryptoConfigArgs' crypto_config: Cryptocurrency payment configuration for the web ACL. See `crypto_config` below for details.
+        :param _builtins.str currency_mode: Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> Optional['outputs.WebAclMonetizationConfigCryptoConfig']:
+        """
+        Cryptocurrency payment configuration for the web ACL. See `crypto_config` below for details.
+        """
+        return pulumi.get(self, "crypto_config")
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> Optional[_builtins.str]:
+        """
+        Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        return pulumi.get(self, "currency_mode")
+
+
+@pulumi.output_type
+class WebAclMonetizationConfigCryptoConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paymentNetworks":
+            suggest = "payment_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclMonetizationConfigCryptoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclMonetizationConfigCryptoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclMonetizationConfigCryptoConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 payment_networks: Sequence['outputs.WebAclMonetizationConfigCryptoConfigPaymentNetwork']):
+        """
+        :param Sequence['WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs'] payment_networks: Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> Sequence['outputs.WebAclMonetizationConfigCryptoConfigPaymentNetwork']:
+        """
+        Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        return pulumi.get(self, "payment_networks")
+
+
+@pulumi.output_type
+class WebAclMonetizationConfigCryptoConfigPaymentNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "walletAddress":
+            suggest = "wallet_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclMonetizationConfigCryptoConfigPaymentNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclMonetizationConfigCryptoConfigPaymentNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclMonetizationConfigCryptoConfigPaymentNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chain: _builtins.str,
+                 prices: 'outputs.WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices',
+                 wallet_address: _builtins.str):
+        """
+        :param _builtins.str chain: Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        :param 'WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs' prices: Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        :param _builtins.str wallet_address: Payee wallet address on the specified blockchain that receives payments.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> _builtins.str:
+        """
+        Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        """
+        return pulumi.get(self, "chain")
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> 'outputs.WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices':
+        """
+        Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        """
+        return pulumi.get(self, "prices")
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> _builtins.str:
+        """
+        Payee wallet address on the specified blockchain that receives payments.
+        """
+        return pulumi.get(self, "wallet_address")
+
+
+@pulumi.output_type
+class WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices(dict):
+    def __init__(__self__, *,
+                 amount: _builtins.str,
+                 currency: _builtins.str):
+        """
+        :param _builtins.str amount: Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        :param _builtins.str currency: Currency of the price amount. Valid value is `USDC`.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.str:
+        """
+        Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        """
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> _builtins.str:
+        """
+        Currency of the price amount. Valid value is `USDC`.
+        """
+        return pulumi.get(self, "currency")
 
 
 @pulumi.output_type

@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs();
 
     /**
-     * Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+     * Region where TTML style captions are displayed. See `outputRectangle` Block for details.
      * 
      */
     @Import(name="outputRectangle")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs> outputRectangle;
 
     /**
-     * @return Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+     * @return Region where TTML style captions are displayed. See `outputRectangle` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs>> outputRectangle() {
@@ -32,14 +32,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+     * Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
      * 
      */
     @Import(name="pageNumber")
     private @Nullable Output<String> pageNumber;
 
     /**
-     * @return Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+     * @return Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
      * 
      */
     public Optional<Output<String>> pageNumber() {
@@ -72,7 +72,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param outputRectangle Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+         * @param outputRectangle Region where TTML style captions are displayed. See `outputRectangle` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param outputRectangle Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+         * @param outputRectangle Region where TTML style captions are displayed. See `outputRectangle` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param pageNumber Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+         * @param pageNumber Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param pageNumber Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+         * @param pageNumber Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
          * 
          * @return builder
          * 

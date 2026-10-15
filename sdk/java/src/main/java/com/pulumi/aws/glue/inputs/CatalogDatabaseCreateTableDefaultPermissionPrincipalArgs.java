@@ -16,14 +16,14 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs exte
     public static final CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs Empty = new CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs();
 
     /**
-     * An identifier for the Lake Formation principal.
+     * Identifier for the Lake Formation principal.
      * 
      */
     @Import(name="dataLakePrincipalIdentifier")
     private @Nullable Output<String> dataLakePrincipalIdentifier;
 
     /**
-     * @return An identifier for the Lake Formation principal.
+     * @return Identifier for the Lake Formation principal.
      * 
      */
     public Optional<Output<String>> dataLakePrincipalIdentifier() {
@@ -55,7 +55,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs exte
         }
 
         /**
-         * @param dataLakePrincipalIdentifier An identifier for the Lake Formation principal.
+         * @param dataLakePrincipalIdentifier Identifier for the Lake Formation principal.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs exte
         }
 
         /**
-         * @param dataLakePrincipalIdentifier An identifier for the Lake Formation principal.
+         * @param dataLakePrincipalIdentifier Identifier for the Lake Formation principal.
          * 
          * @return builder
          * 

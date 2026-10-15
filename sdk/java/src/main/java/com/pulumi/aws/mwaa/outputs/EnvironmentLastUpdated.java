@@ -14,30 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnvironmentLastUpdated {
     /**
-     * @return The Created At date of the MWAA Environment
+     * @return Date and time the environment was last updated.
      * 
      */
     private @Nullable String createdAt;
+    /**
+     * @return Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+     * 
+     */
     private @Nullable List<EnvironmentLastUpdatedError> errors;
     /**
-     * @return The status of the Amazon MWAA Environment
+     * @return Status of the last update.
      * 
      */
     private @Nullable String status;
 
     private EnvironmentLastUpdated() {}
     /**
-     * @return The Created At date of the MWAA Environment
+     * @return Date and time the environment was last updated.
      * 
      */
     public Optional<String> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
+    /**
+     * @return Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+     * 
+     */
     public List<EnvironmentLastUpdatedError> errors() {
         return this.errors == null ? List.of() : this.errors;
     }
     /**
-     * @return The status of the Amazon MWAA Environment
+     * @return Status of the last update.
      * 
      */
     public Optional<String> status() {

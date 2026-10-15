@@ -819,7 +819,7 @@ public final class KmsFunctions {
     }
     /**
      * Use this data source to get detailed information about
-     * the specified KMS Key with flexible key id input.
+     * the specified KMS Key with flexible key ID input.
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
@@ -874,7 +874,7 @@ public final class KmsFunctions {
     }
     /**
      * Use this data source to get detailed information about
-     * the specified KMS Key with flexible key id input.
+     * the specified KMS Key with flexible key ID input.
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
@@ -929,7 +929,7 @@ public final class KmsFunctions {
     }
     /**
      * Use this data source to get detailed information about
-     * the specified KMS Key with flexible key id input.
+     * the specified KMS Key with flexible key ID input.
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
@@ -984,7 +984,7 @@ public final class KmsFunctions {
     }
     /**
      * Use this data source to get detailed information about
-     * the specified KMS Key with flexible key id input.
+     * the specified KMS Key with flexible key ID input.
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
@@ -1039,7 +1039,7 @@ public final class KmsFunctions {
     }
     /**
      * Use this data source to get detailed information about
-     * the specified KMS Key with flexible key id input.
+     * the specified KMS Key with flexible key ID input.
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
@@ -1093,7 +1093,7 @@ public final class KmsFunctions {
         return Deployment.getInstance().invokeAsync("aws:kms/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+     * Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
      * 
@@ -1145,7 +1145,7 @@ public final class KmsFunctions {
         return getPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+     * Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
      * 
@@ -1197,7 +1197,7 @@ public final class KmsFunctions {
         return getPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+     * Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
      * 
@@ -1249,7 +1249,7 @@ public final class KmsFunctions {
         return Deployment.getInstance().invoke("aws:kms/getPublicKey:getPublicKey", TypeShape.of(GetPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+     * Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
      * 
@@ -1301,7 +1301,7 @@ public final class KmsFunctions {
         return Deployment.getInstance().invoke("aws:kms/getPublicKey:getPublicKey", TypeShape.of(GetPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+     * Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
      * 
@@ -1392,7 +1392,7 @@ public final class KmsFunctions {
      * 
      * ## Example Usage
      * 
-     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI `kms encrypt`](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
      * 
      * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
      * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
@@ -1408,7 +1408,7 @@ public final class KmsFunctions {
      * 
      * ## Example Usage
      * 
-     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI `kms encrypt`](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
      * 
      * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
      * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
@@ -1424,7 +1424,7 @@ public final class KmsFunctions {
      * 
      * ## Example Usage
      * 
-     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI `kms encrypt`](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
      * 
      * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
      * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
@@ -1440,7 +1440,7 @@ public final class KmsFunctions {
      * 
      * ## Example Usage
      * 
-     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI `kms encrypt`](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
      * 
      * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
      * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
@@ -1456,7 +1456,7 @@ public final class KmsFunctions {
      * 
      * ## Example Usage
      * 
-     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI `kms encrypt`](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
      * 
      * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
      * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.

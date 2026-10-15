@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Configuration for extracting media content (images, audio, video) from documents. See `MediaExtractionConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration? MediaExtractionConfiguration;
+        /// <summary>
+        /// Recurring schedule on which the connector automatically syncs this data source. See `SyncSchedule` Block for details.
+        /// </summary>
+        public readonly Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule? SyncSchedule;
 
         [OutputConstructor]
         private AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration? deletionProtectionConfiguration,
 
-            Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration? mediaExtractionConfiguration)
+            Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration? mediaExtractionConfiguration,
+
+            Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule? syncSchedule)
         {
             ConnectorParameters = connectorParameters;
             DeletionProtectionConfiguration = deletionProtectionConfiguration;
             MediaExtractionConfiguration = mediaExtractionConfiguration;
+            SyncSchedule = syncSchedule;
         }
     }
 }

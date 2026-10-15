@@ -107,14 +107,14 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
         return this.freeTrialExpiration;
     }
     /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      * 
      */
     @Export(name="grafanaToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> grafanaToken;
 
     /**
-     * @return A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * @return Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      * 
      */
     public Output<Optional<String>> grafanaToken() {
@@ -135,14 +135,14 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
         return this.licenseExpiration;
     }
     /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
     @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
-     * @return The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * @return Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
     public Output<String> licenseType() {
@@ -163,14 +163,14 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The workspace id.
+     * Workspace ID.
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return The workspace id.
+     * @return Workspace ID.
      * 
      */
     public Output<String> workspaceId() {

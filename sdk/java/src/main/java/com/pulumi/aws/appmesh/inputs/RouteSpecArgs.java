@@ -20,14 +20,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     public static final RouteSpecArgs Empty = new RouteSpecArgs();
 
     /**
-     * GRPC routing information for the route. See `spec.grpc_route` Block for details.
+     * gRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     @Import(name="grpcRoute")
     private @Nullable Output<RouteSpecGrpcRouteArgs> grpcRoute;
 
     /**
-     * @return GRPC routing information for the route. See `spec.grpc_route` Block for details.
+     * @return gRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteArgs>> grpcRoute() {
@@ -123,7 +123,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grpcRoute GRPC routing information for the route. See `spec.grpc_route` Block for details.
+         * @param grpcRoute gRPC routing information for the route. See `spec.grpc_route` Block for details.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grpcRoute GRPC routing information for the route. See `spec.grpc_route` Block for details.
+         * @param grpcRoute gRPC routing information for the route. See `spec.grpc_route` Block for details.
          * 
          * @return builder
          * 

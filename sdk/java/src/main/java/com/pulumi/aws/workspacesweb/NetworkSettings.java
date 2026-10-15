@@ -163,14 +163,14 @@ public class NetworkSettings extends com.pulumi.resources.CustomResource {
         return this.securityGroupIds;
     }
     /**
-     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+     * @return The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
      * 
      */
     public Output<List<String>> subnetIds() {

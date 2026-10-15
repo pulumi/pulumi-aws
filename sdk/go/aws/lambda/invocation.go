@@ -212,7 +212,7 @@ type Invocation struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// String result of the Lambda function invocation.
 	Result pulumi.StringOutput `pulumi:"result"`
-	// Tenant Id to serve invocations from specified tenant.
+	// Tenant ID to serve invocations from specified tenant.
 	TenantId     pulumi.StringPtrOutput `pulumi:"tenantId"`
 	TerraformKey pulumi.StringPtrOutput `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -269,7 +269,7 @@ type invocationState struct {
 	Region *string `pulumi:"region"`
 	// String result of the Lambda function invocation.
 	Result *string `pulumi:"result"`
-	// Tenant Id to serve invocations from specified tenant.
+	// Tenant ID to serve invocations from specified tenant.
 	TenantId     *string `pulumi:"tenantId"`
 	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -291,7 +291,7 @@ type InvocationState struct {
 	Region pulumi.StringPtrInput
 	// String result of the Lambda function invocation.
 	Result pulumi.StringPtrInput
-	// Tenant Id to serve invocations from specified tenant.
+	// Tenant ID to serve invocations from specified tenant.
 	TenantId     pulumi.StringPtrInput
 	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -315,7 +315,7 @@ type invocationArgs struct {
 	Qualifier *string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Tenant Id to serve invocations from specified tenant.
+	// Tenant ID to serve invocations from specified tenant.
 	TenantId     *string `pulumi:"tenantId"`
 	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -336,7 +336,7 @@ type InvocationArgs struct {
 	Qualifier pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Tenant Id to serve invocations from specified tenant.
+	// Tenant ID to serve invocations from specified tenant.
 	TenantId     pulumi.StringPtrInput
 	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -462,7 +462,7 @@ func (o InvocationOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Result }).(pulumi.StringOutput)
 }
 
-// Tenant Id to serve invocations from specified tenant.
+// Tenant ID to serve invocations from specified tenant.
 func (o InvocationOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
 }

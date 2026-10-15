@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAcceleratorAttribute {
+    /**
+     * @return Whether flow logs are enabled.
+     * 
+     */
     private Boolean flowLogsEnabled;
+    /**
+     * @return Name of the Amazon S3 bucket for the flow logs.
+     * 
+     */
     private String flowLogsS3Bucket;
+    /**
+     * @return Prefix for the location in the Amazon S3 bucket for the flow logs.
+     * 
+     */
     private String flowLogsS3Prefix;
 
     private GetAcceleratorAttribute() {}
+    /**
+     * @return Whether flow logs are enabled.
+     * 
+     */
     public Boolean flowLogsEnabled() {
         return this.flowLogsEnabled;
     }
+    /**
+     * @return Name of the Amazon S3 bucket for the flow logs.
+     * 
+     */
     public String flowLogsS3Bucket() {
         return this.flowLogsS3Bucket;
     }
+    /**
+     * @return Prefix for the location in the Amazon S3 bucket for the flow logs.
+     * 
+     */
     public String flowLogsS3Prefix() {
         return this.flowLogsS3Prefix;
     }

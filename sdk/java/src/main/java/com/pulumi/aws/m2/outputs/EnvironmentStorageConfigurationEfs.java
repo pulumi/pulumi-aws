@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class EnvironmentStorageConfigurationEfs {
     /**
-     * @return Id of the EFS filesystem to mount.
+     * @return ID of the EFS filesystem to mount.
      * 
      */
     private String fileSystemId;
@@ -23,7 +23,7 @@ public final class EnvironmentStorageConfigurationEfs {
 
     private EnvironmentStorageConfigurationEfs() {}
     /**
-     * @return Id of the EFS filesystem to mount.
+     * @return ID of the EFS filesystem to mount.
      * 
      */
     public String fileSystemId() {

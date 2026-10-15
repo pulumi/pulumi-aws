@@ -21,14 +21,14 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
     public static final CatalogTableOptimizerConfigurationArgs Empty = new CatalogTableOptimizerConfigurationArgs();
 
     /**
-     * The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
      * 
      */
     @Import(name="compactionConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationCompactionConfigurationArgs> compactionConfiguration;
 
     /**
-     * @return The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * @return Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationCompactionConfigurationArgs>> compactionConfiguration() {
@@ -36,14 +36,14 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * Indicates whether the table optimizer is enabled.
+     * Whether the table optimizer is enabled.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether the table optimizer is enabled.
+     * @return Whether the table optimizer is enabled.
      * 
      */
     public Output<Boolean> enabled() {
@@ -51,14 +51,14 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+     * Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
      * 
      */
     @Import(name="orphanFileDeletionConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs> orphanFileDeletionConfiguration;
 
     /**
-     * @return The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+     * @return Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs>> orphanFileDeletionConfiguration() {
@@ -66,14 +66,14 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+     * Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
      * 
      */
     @Import(name="retentionConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs> retentionConfiguration;
 
     /**
-     * @return The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+     * @return Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs>> retentionConfiguration() {
@@ -81,14 +81,14 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The ARN of the IAM role to use for the table optimizer.
+     * ARN of the IAM role to use for the table optimizer.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role to use for the table optimizer.
+     * @return ARN of the IAM role to use for the table optimizer.
      * 
      */
     public Output<String> roleArn() {
@@ -124,7 +124,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param compactionConfiguration The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+         * @param compactionConfiguration Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param compactionConfiguration The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+         * @param compactionConfiguration Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Indicates whether the table optimizer is enabled.
+         * @param enabled Whether the table optimizer is enabled.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Indicates whether the table optimizer is enabled.
+         * @param enabled Whether the table optimizer is enabled.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param orphanFileDeletionConfiguration The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+         * @param orphanFileDeletionConfiguration Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param orphanFileDeletionConfiguration The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+         * @param orphanFileDeletionConfiguration Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param retentionConfiguration The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+         * @param retentionConfiguration Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param retentionConfiguration The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+         * @param retentionConfiguration Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to use for the table optimizer.
+         * @param roleArn ARN of the IAM role to use for the table optimizer.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to use for the table optimizer.
+         * @param roleArn ARN of the IAM role to use for the table optimizer.
          * 
          * @return builder
          * 

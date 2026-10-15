@@ -30,7 +30,7 @@ export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.Invok
  */
 export interface GetHttpNamespaceArgs {
     /**
-     * Name of the http namespace.
+     * Name of the HTTP namespace.
      */
     name: string;
     /**
@@ -96,7 +96,7 @@ export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: 
  */
 export interface GetHttpNamespaceOutputArgs {
     /**
-     * Name of the http namespace.
+     * Name of the HTTP namespace.
      */
     name: pulumi.Input<string>;
     /**

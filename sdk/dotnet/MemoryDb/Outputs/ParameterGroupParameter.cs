@@ -14,11 +14,11 @@ namespace Pulumi.Aws.MemoryDb.Outputs
     public sealed class ParameterGroupParameter
     {
         /// <summary>
-        /// The name of the parameter.
+        /// Name of the parameter.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the parameter.
+        /// Value of the parameter.
         /// </summary>
         public readonly string Value;
 

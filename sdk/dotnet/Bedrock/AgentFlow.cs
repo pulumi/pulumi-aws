@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Bedrock Agents Flow.
+    /// Manages an AWS Bedrock Agents Flow.
     /// 
     /// ## Example Usage
     /// 

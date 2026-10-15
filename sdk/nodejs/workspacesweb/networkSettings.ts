@@ -102,7 +102,7 @@ export class NetworkSettings extends pulumi.CustomResource {
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
-     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
@@ -189,7 +189,7 @@ export interface NetworkSettingsState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -221,7 +221,7 @@ export interface NetworkSettingsArgs {
      */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

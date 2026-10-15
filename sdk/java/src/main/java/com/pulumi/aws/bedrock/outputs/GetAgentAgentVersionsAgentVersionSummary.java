@@ -39,7 +39,7 @@ public final class GetAgentAgentVersionsAgentVersionSummary {
      */
     private String description;
     /**
-     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
      * 
      */
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations;
@@ -86,7 +86,7 @@ public final class GetAgentAgentVersionsAgentVersionSummary {
         return this.description;
     }
     /**
-     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
      * 
      */
     public List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations() {

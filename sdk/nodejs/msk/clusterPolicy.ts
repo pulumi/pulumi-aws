@@ -79,6 +79,9 @@ export class ClusterPolicy extends pulumi.CustomResource {
      * ARN that uniquely identifies the cluster.
      */
     declare public readonly clusterArn: pulumi.Output<string>;
+    /**
+     * Current version of the policy.
+     */
     declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * Resource policy for cluster.
@@ -132,6 +135,9 @@ export interface ClusterPolicyState {
      * ARN that uniquely identifies the cluster.
      */
     clusterArn?: pulumi.Input<string | undefined>;
+    /**
+     * Current version of the policy.
+     */
     currentVersion?: pulumi.Input<string | undefined>;
     /**
      * Resource policy for cluster.

@@ -140,6 +140,56 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### EKS Cluster Scoped by Labels
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.resiliencehub.V2InputSource;
+ * import com.pulumi.aws.resiliencehub.V2InputSourceArgs;
+ * import com.pulumi.aws.resiliencehub.inputs.V2InputSourceResourceConfigurationArgs;
+ * import com.pulumi.aws.resiliencehub.inputs.V2InputSourceResourceConfigurationEksArgs;
+ * import com.pulumi.aws.resiliencehub.inputs.V2InputSourceResourceConfigurationEksLabelSelectorArgs;
+ * import com.pulumi.aws.resiliencehub.inputs.V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new V2InputSource("example", V2InputSourceArgs.builder()
+ *             .resourceConfiguration(V2InputSourceResourceConfigurationArgs.builder()
+ *                 .eks(V2InputSourceResourceConfigurationEksArgs.builder()
+ *                     .labelSelector(V2InputSourceResourceConfigurationEksLabelSelectorArgs.builder()
+ *                         .matchExpressions(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs.builder()
+ *                             .key("deprecated")
+ *                             .operator("DOES_NOT_EXIST")
+ *                             .build())
+ *                         .matchLabels(Map.of("app", "payments"))
+ *                         .build())
+ *                     .clusterArn("arn:aws:eks:us-west-2:123456789012:cluster/my-cluster")
+ *                     .namespaces("default")
+ *                     .build())
+ *                 .build())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema

@@ -18,14 +18,14 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
     public static final ClusterLoggingInfoBrokerLogsArgs Empty = new ClusterLoggingInfoBrokerLogsArgs();
 
     /**
-     * Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+     * Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
      * 
      */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs> cloudwatchLogs;
 
     /**
-     * @return Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+     * @return Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
      * 
      */
     public Optional<Output<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs>> cloudwatchLogs() {
@@ -33,14 +33,14 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
     }
 
     /**
-     * Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+     * Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
      * 
      */
     @Import(name="firehose")
     private @Nullable Output<ClusterLoggingInfoBrokerLogsFirehoseArgs> firehose;
 
     /**
-     * @return Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+     * @return Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
      * 
      */
     public Optional<Output<ClusterLoggingInfoBrokerLogsFirehoseArgs>> firehose() {
@@ -48,14 +48,14 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
     }
 
     /**
-     * Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+     * Configuration block for S3 settings. See `s3` Block below.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<ClusterLoggingInfoBrokerLogsS3Args> s3;
 
     /**
-     * @return Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+     * @return Configuration block for S3 settings. See `s3` Block below.
      * 
      */
     public Optional<Output<ClusterLoggingInfoBrokerLogsS3Args>> s3() {
@@ -89,7 +89,7 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+         * @param cloudwatchLogs Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
+         * @param cloudwatchLogs Configuration block for CloudWatch Logs settings. See `cloudwatchLogs` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param firehose Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+         * @param firehose Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param firehose Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
+         * @param firehose Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param s3 Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+         * @param s3 Configuration block for S3 settings. See `s3` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ClusterLoggingInfoBrokerLogsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param s3 Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
+         * @param s3 Configuration block for S3 settings. See `s3` Block below.
          * 
          * @return builder
          * 

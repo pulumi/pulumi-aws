@@ -3821,7 +3821,7 @@ type GetCoreNetworkPolicyDocumentSegmentAction struct {
 	Description *string `pulumi:"description"`
 	// List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
 	DestinationCidrBlocks []string `pulumi:"destinationCidrBlocks"`
-	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+	// A list of strings. Valid values include `["blackhole"]` or a list of attachment IDs.
 	Destinations []string `pulumi:"destinations"`
 	// Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
 	EdgeLocationAssociation *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation `pulumi:"edgeLocationAssociation"`
@@ -3859,7 +3859,7 @@ type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
 	DestinationCidrBlocks pulumi.StringArrayInput `pulumi:"destinationCidrBlocks"`
-	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+	// A list of strings. Valid values include `["blackhole"]` or a list of attachment IDs.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
 	// Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
 	EdgeLocationAssociation GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput `pulumi:"edgeLocationAssociation"`
@@ -3945,7 +3945,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) DestinationCidrBlocks()
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.DestinationCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+// A list of strings. Valid values include `["blackhole"]` or a list of attachment IDs.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Destinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }

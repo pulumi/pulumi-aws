@@ -17,14 +17,14 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
     public static final CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs Empty = new CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs();
 
     /**
-     * Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
+     * Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
+     * @return Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
      * 
      */
     public Optional<Output<String>> location() {
@@ -32,14 +32,14 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
     }
 
     /**
-     * The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+     * Number of days that orphan files should be retained before file deletion. Defaults to `3`.
      * 
      */
     @Import(name="orphanFileRetentionPeriodInDays")
     private @Nullable Output<Integer> orphanFileRetentionPeriodInDays;
 
     /**
-     * @return The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+     * @return Number of days that orphan files should be retained before file deletion. Defaults to `3`.
      * 
      */
     public Optional<Output<Integer>> orphanFileRetentionPeriodInDays() {
@@ -47,14 +47,14 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
     }
 
     /**
-     * interval in hours between orphan file deletion job runs. Defaults to `24`.
+     * Interval in hours between retention job runs. Defaults to `24`.
      * 
      */
     @Import(name="runRateInHours")
     private @Nullable Output<Integer> runRateInHours;
 
     /**
-     * @return interval in hours between orphan file deletion job runs. Defaults to `24`.
+     * @return Interval in hours between retention job runs. Defaults to `24`.
      * 
      */
     public Optional<Output<Integer>> runRateInHours() {
@@ -88,7 +88,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param location Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
+         * @param location Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param location Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
+         * @param location Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param orphanFileRetentionPeriodInDays The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+         * @param orphanFileRetentionPeriodInDays Number of days that orphan files should be retained before file deletion. Defaults to `3`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param orphanFileRetentionPeriodInDays The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+         * @param orphanFileRetentionPeriodInDays Number of days that orphan files should be retained before file deletion. Defaults to `3`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param runRateInHours interval in hours between orphan file deletion job runs. Defaults to `24`.
+         * @param runRateInHours Interval in hours between retention job runs. Defaults to `24`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param runRateInHours interval in hours between orphan file deletion job runs. Defaults to `24`.
+         * @param runRateInHours Interval in hours between retention job runs. Defaults to `24`.
          * 
          * @return builder
          * 

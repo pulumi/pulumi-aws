@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the partition was created.
+        /// Time at which the partition was created.
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
@@ -65,13 +65,13 @@ namespace Pulumi.Aws.Glue
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The last time at which the partition was accessed.
+        /// Last time at which the partition was accessed.
         /// </summary>
         [Output("lastAccessedTime")]
         public Output<string> LastAccessedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The last time at which column statistics were computed for this partition.
+        /// Last time at which column statistics were computed for this partition.
         /// </summary>
         [Output("lastAnalyzedTime")]
         public Output<string> LastAnalyzedTime { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The values that define the partition.
+        /// Values that define the partition.
         /// </summary>
         [Output("partitionValues")]
         public Output<ImmutableArray<string>> PartitionValues { get; private set; } = null!;
@@ -95,11 +95,14 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        /// Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         /// </summary>
         [Output("storageDescriptor")]
         public Output<Outputs.PartitionStorageDescriptor?> StorageDescriptor { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
@@ -177,7 +180,7 @@ namespace Pulumi.Aws.Glue
         private InputList<string>? _partitionValues;
 
         /// <summary>
-        /// The values that define the partition.
+        /// Values that define the partition.
         /// </summary>
         public InputList<string> PartitionValues
         {
@@ -192,11 +195,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        /// Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.PartitionStorageDescriptorArgs>? StorageDescriptor { get; set; }
 
+        /// <summary>
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -215,7 +221,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// The time at which the partition was created.
+        /// Time at which the partition was created.
         /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
@@ -227,13 +233,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The last time at which the partition was accessed.
+        /// Last time at which the partition was accessed.
         /// </summary>
         [Input("lastAccessedTime")]
         public Input<string>? LastAccessedTime { get; set; }
 
         /// <summary>
-        /// The last time at which column statistics were computed for this partition.
+        /// Last time at which column statistics were computed for this partition.
         /// </summary>
         [Input("lastAnalyzedTime")]
         public Input<string>? LastAnalyzedTime { get; set; }
@@ -254,7 +260,7 @@ namespace Pulumi.Aws.Glue
         private InputList<string>? _partitionValues;
 
         /// <summary>
-        /// The values that define the partition.
+        /// Values that define the partition.
         /// </summary>
         public InputList<string> PartitionValues
         {
@@ -269,11 +275,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        /// Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.PartitionStorageDescriptorGetArgs>? StorageDescriptor { get; set; }
 
+        /// <summary>
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 

@@ -18,14 +18,14 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
     public static final CrawlerCatalogTargetArgs Empty = new CrawlerCatalogTargetArgs();
 
     /**
-     * The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+     * Name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+     * @return Name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -33,14 +33,14 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the Glue database to be synchronized.
+     * Name of the Glue database to be synchronized.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of the Glue database to be synchronized.
+     * @return Name of the Glue database to be synchronized.
      * 
      */
     public Output<String> databaseName() {
@@ -48,22 +48,14 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+     * Valid Amazon SQS ARN.
      * 
      */
     @Import(name="dlqEventQueueArn")
     private @Nullable Output<String> dlqEventQueueArn;
 
     /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+     * @return Valid Amazon SQS ARN.
      * 
      */
     public Optional<Output<String>> dlqEventQueueArn() {
@@ -71,14 +63,14 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A valid Amazon SQS ARN.
+     * Valid Amazon SQS ARN.
      * 
      */
     @Import(name="eventQueueArn")
     private @Nullable Output<String> eventQueueArn;
 
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return Valid Amazon SQS ARN.
      * 
      */
     public Optional<Output<String>> eventQueueArn() {
@@ -86,14 +78,22 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A list of catalog tables to be synchronized.
+     * List of catalog tables to be synchronized.
+     * 
+     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
+     * 
+     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
      * 
      */
     @Import(name="tables", required=true)
     private Output<List<String>> tables;
 
     /**
-     * @return A list of catalog tables to be synchronized.
+     * @return List of catalog tables to be synchronized.
+     * 
+     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
+     * 
+     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
      * 
      */
     public Output<List<String>> tables() {
@@ -129,7 +129,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+         * @param connectionName Name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+         * @param connectionName Name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param databaseName The name of the Glue database to be synchronized.
+         * @param databaseName Name of the Glue database to be synchronized.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param databaseName The name of the Glue database to be synchronized.
+         * @param databaseName Name of the Glue database to be synchronized.
          * 
          * @return builder
          * 
@@ -171,11 +171,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dlqEventQueueArn A valid Amazon SQS ARN.
-         * 
-         * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-         * 
-         * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+         * @param dlqEventQueueArn Valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -186,11 +182,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dlqEventQueueArn A valid Amazon SQS ARN.
-         * 
-         * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-         * 
-         * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+         * @param dlqEventQueueArn Valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -200,7 +192,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eventQueueArn A valid Amazon SQS ARN.
+         * @param eventQueueArn Valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -211,7 +203,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eventQueueArn A valid Amazon SQS ARN.
+         * @param eventQueueArn Valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -221,7 +213,11 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tables A list of catalog tables to be synchronized.
+         * @param tables List of catalog tables to be synchronized.
+         * 
+         * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
+         * 
+         * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
          * 
          * @return builder
          * 
@@ -232,7 +228,11 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tables A list of catalog tables to be synchronized.
+         * @param tables List of catalog tables to be synchronized.
+         * 
+         * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
+         * 
+         * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
          * 
          * @return builder
          * 
@@ -242,7 +242,11 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tables A list of catalog tables to be synchronized.
+         * @param tables List of catalog tables to be synchronized.
+         * 
+         * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
+         * 
+         * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
          * 
          * @return builder
          * 

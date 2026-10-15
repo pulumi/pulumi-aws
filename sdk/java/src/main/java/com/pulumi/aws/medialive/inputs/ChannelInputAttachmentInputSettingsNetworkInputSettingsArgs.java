@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs e
     public static final ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs Empty = new ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs();
 
     /**
-     * Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+     * HLS input settings when the URI is for an HLS manifest. See `hlsInputSettings` Block for details.
      * 
      */
     @Import(name="hlsInputSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs> hlsInputSettings;
 
     /**
-     * @return Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+     * @return HLS input settings when the URI is for an HLS manifest. See `hlsInputSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs>> hlsInputSettings() {
@@ -72,7 +72,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs e
         }
 
         /**
-         * @param hlsInputSettings Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+         * @param hlsInputSettings HLS input settings when the URI is for an HLS manifest. See `hlsInputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs e
         }
 
         /**
-         * @param hlsInputSettings Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+         * @param hlsInputSettings HLS input settings when the URI is for an HLS manifest. See `hlsInputSettings` Block for details.
          * 
          * @return builder
          * 

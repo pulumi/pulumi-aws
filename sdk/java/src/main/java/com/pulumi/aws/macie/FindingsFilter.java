@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.macie.FindingsFilter` using the id. For example:
+ * Using `pulumi import`, import `aws.macie.FindingsFilter` using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:macie/findingsFilter:FindingsFilter")
 public class FindingsFilter extends com.pulumi.resources.CustomResource {
     /**
-     * The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
+     * Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
+     * @return Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
      * 
      */
     public Output<String> action() {
@@ -110,42 +110,42 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A custom description of the filter. The description can contain as many as 512 characters.
+     * Custom description of the filter. Can contain as many as 512 characters.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A custom description of the filter. The description can contain as many as 512 characters.
+     * @return Custom description of the filter. Can contain as many as 512 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The criteria to use to filter findings.
+     * Criteria to use to filter findings. See `findingCriteria` Block for details.
      * 
      */
     @Export(name="findingCriteria", refs={FindingsFilterFindingCriteria.class}, tree="[0]")
     private Output<FindingsFilterFindingCriteria> findingCriteria;
 
     /**
-     * @return The criteria to use to filter findings.
+     * @return Criteria to use to filter findings. See `findingCriteria` Block for details.
      * 
      */
     public Output<FindingsFilterFindingCriteria> findingCriteria() {
         return this.findingCriteria;
     }
     /**
-     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Output<String> name() {
@@ -166,14 +166,14 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+     * Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
     @Export(name="position", refs={Integer.class}, tree="[0]")
     private Output<Integer> position;
 
     /**
-     * @return The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+     * @return Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
     public Output<Integer> position() {
@@ -208,14 +208,14 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

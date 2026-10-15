@@ -102,15 +102,15 @@ export class CrossAccountAttachment extends pulumi.CustomResource {
      */
     declare public readonly principals: pulumi.Output<string[] | undefined>;
     /**
-     * List of resources to be associated with the accelerator.
+     * List of resources to be associated with the accelerator. See `resource` below.
      */
     declare public readonly resources: pulumi.Output<outputs.globalaccelerator.CrossAccountAttachmentResource[] | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -178,15 +178,15 @@ export interface CrossAccountAttachmentState {
      */
     principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of resources to be associated with the accelerator.
+     * List of resources to be associated with the accelerator. See `resource` below.
      */
     resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResource>[] | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -206,11 +206,11 @@ export interface CrossAccountAttachmentArgs {
      */
     principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of resources to be associated with the accelerator.
+     * List of resources to be associated with the accelerator. See `resource` below.
      */
     resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResource>[] | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

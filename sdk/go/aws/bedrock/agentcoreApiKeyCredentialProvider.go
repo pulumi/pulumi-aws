@@ -126,7 +126,7 @@ import (
 type AgentcoreApiKeyCredentialProvider struct {
 	pulumi.CustomResourceState
 
-	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+	// API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput `pulumi:"apiKeySecretArns"`
@@ -137,7 +137,7 @@ type AgentcoreApiKeyCredentialProvider struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo pulumi.StringPtrOutput `pulumi:"apiKeyWo"`
-	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+	// Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion pulumi.IntPtrOutput `pulumi:"apiKeyWoVersion"`
 	// ARN of the API Key credential provider.
 	CredentialProviderArn pulumi.StringOutput `pulumi:"credentialProviderArn"`
@@ -194,7 +194,7 @@ func GetAgentcoreApiKeyCredentialProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
 type agentcoreApiKeyCredentialProviderState struct {
-	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+	// API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
 	ApiKey *string `pulumi:"apiKey"`
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns []AgentcoreApiKeyCredentialProviderApiKeySecretArn `pulumi:"apiKeySecretArns"`
@@ -205,7 +205,7 @@ type agentcoreApiKeyCredentialProviderState struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo *string `pulumi:"apiKeyWo"`
-	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+	// Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
 	// ARN of the API Key credential provider.
 	CredentialProviderArn *string `pulumi:"credentialProviderArn"`
@@ -222,7 +222,7 @@ type agentcoreApiKeyCredentialProviderState struct {
 }
 
 type AgentcoreApiKeyCredentialProviderState struct {
-	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+	// API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
 	ApiKey pulumi.StringPtrInput
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput
@@ -233,7 +233,7 @@ type AgentcoreApiKeyCredentialProviderState struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo pulumi.StringPtrInput
-	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+	// Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion pulumi.IntPtrInput
 	// ARN of the API Key credential provider.
 	CredentialProviderArn pulumi.StringPtrInput
@@ -254,7 +254,7 @@ func (AgentcoreApiKeyCredentialProviderState) ElementType() reflect.Type {
 }
 
 type agentcoreApiKeyCredentialProviderArgs struct {
-	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+	// API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
 	ApiKey *string `pulumi:"apiKey"`
 	// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
 	ApiKeySecretConfig *AgentcoreApiKeyCredentialProviderApiKeySecretConfig `pulumi:"apiKeySecretConfig"`
@@ -263,7 +263,7 @@ type agentcoreApiKeyCredentialProviderArgs struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo *string `pulumi:"apiKeyWo"`
-	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+	// Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
 	// Name of the API Key credential provider. Forces replacement when changed.
 	//
@@ -277,7 +277,7 @@ type agentcoreApiKeyCredentialProviderArgs struct {
 
 // The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
 type AgentcoreApiKeyCredentialProviderArgs struct {
-	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+	// API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
 	ApiKey pulumi.StringPtrInput
 	// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
 	ApiKeySecretConfig AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput
@@ -286,7 +286,7 @@ type AgentcoreApiKeyCredentialProviderArgs struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo pulumi.StringPtrInput
-	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+	// Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion pulumi.IntPtrInput
 	// Name of the API Key credential provider. Forces replacement when changed.
 	//
@@ -385,7 +385,7 @@ func (o AgentcoreApiKeyCredentialProviderOutput) ToAgentcoreApiKeyCredentialProv
 	return o
 }
 
-// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+// API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
@@ -415,7 +415,7 @@ func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeyWo() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringPtrOutput { return v.ApiKeyWo }).(pulumi.StringPtrOutput)
 }
 
-// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+// Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeyWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.IntPtrOutput { return v.ApiKeyWoVersion }).(pulumi.IntPtrOutput)
 }

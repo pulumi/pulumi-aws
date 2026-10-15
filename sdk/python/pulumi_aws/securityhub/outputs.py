@@ -3440,14 +3440,14 @@ class InsightFilters(dict):
         :param Sequence['InsightFiltersMalwareStateArgs'] malware_states: The state of the malware that was observed. See String Filter below for more details.
         :param Sequence['InsightFiltersMalwareTypeArgs'] malware_types: The type of the malware that was observed. See String Filter below for more details.
         :param Sequence['InsightFiltersNetworkDestinationDomainArgs'] network_destination_domains: The destination domain of network-related information about a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkDestinationIpv4Args'] network_destination_ipv4s: The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersNetworkDestinationIpv6Args'] network_destination_ipv6s: The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersNetworkDestinationIpv4Args'] network_destination_ipv4s: The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
+        :param Sequence['InsightFiltersNetworkDestinationIpv6Args'] network_destination_ipv6s: The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
         :param Sequence['InsightFiltersNetworkDestinationPortArgs'] network_destination_ports: The destination port of network-related information about a finding. See Number Filter below for more details.
         :param Sequence['InsightFiltersNetworkDirectionArgs'] network_directions: Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
         :param Sequence['InsightFiltersNetworkProtocolArgs'] network_protocols: The protocol of network-related information about a finding. See String Filter below for more details.
         :param Sequence['InsightFiltersNetworkSourceDomainArgs'] network_source_domains: The source domain of network-related information about a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkSourceIpv4Args'] network_source_ipv4s: The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersNetworkSourceIpv6Args'] network_source_ipv6s: The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersNetworkSourceIpv4Args'] network_source_ipv4s: The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
+        :param Sequence['InsightFiltersNetworkSourceIpv6Args'] network_source_ipv6s: The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
         :param Sequence['InsightFiltersNetworkSourceMacArgs'] network_source_macs: The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
         :param Sequence['InsightFiltersNetworkSourcePortArgs'] network_source_ports: The source port of network-related information about a finding. See Number Filter below for more details.
         :param Sequence['InsightFiltersNoteTextArgs'] note_texts: The text of a note. See String Filter below for more details.
@@ -3468,8 +3468,8 @@ class InsightFilters(dict):
         :param Sequence['InsightFiltersRelatedFindingsProductArnArgs'] related_findings_product_arns: The ARN of the solution that generated a related finding. See String Filter below for more details.
         :param Sequence['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs'] resource_aws_ec2_instance_iam_instance_profile_arns: The IAM profile ARN of the instance. See String Filter below for more details.
         :param Sequence['InsightFiltersResourceAwsEc2InstanceImageIdArgs'] resource_aws_ec2_instance_image_ids: AMI ID of the instance. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs'] resource_aws_ec2_instance_ipv4_addresses: The IPv4 addresses associated with the instance. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs'] resource_aws_ec2_instance_ipv6_addresses: The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs'] resource_aws_ec2_instance_ipv4_addresses: The IPv4 addresses associated with the instance. See IP Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs'] resource_aws_ec2_instance_ipv6_addresses: The IPv6 addresses associated with the instance. See IP Filter below for more details.
         :param Sequence['InsightFiltersResourceAwsEc2InstanceKeyNameArgs'] resource_aws_ec2_instance_key_names: The key name associated with the instance. See String Filter below for more details.
         :param Sequence['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs'] resource_aws_ec2_instance_launched_ats: The date and time the instance was launched. See Date Filter below for more details.
         :param Sequence['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs'] resource_aws_ec2_instance_subnet_ids: The identifier of the subnet that the instance was launched in. See String Filter below for more details.
@@ -3928,7 +3928,7 @@ class InsightFilters(dict):
     @pulumi.getter(name="networkDestinationIpv4s")
     def network_destination_ipv4s(self) -> Optional[Sequence['outputs.InsightFiltersNetworkDestinationIpv4']]:
         """
-        The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
         """
         return pulumi.get(self, "network_destination_ipv4s")
 
@@ -3936,7 +3936,7 @@ class InsightFilters(dict):
     @pulumi.getter(name="networkDestinationIpv6s")
     def network_destination_ipv6s(self) -> Optional[Sequence['outputs.InsightFiltersNetworkDestinationIpv6']]:
         """
-        The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
         """
         return pulumi.get(self, "network_destination_ipv6s")
 
@@ -3976,7 +3976,7 @@ class InsightFilters(dict):
     @pulumi.getter(name="networkSourceIpv4s")
     def network_source_ipv4s(self) -> Optional[Sequence['outputs.InsightFiltersNetworkSourceIpv4']]:
         """
-        The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
         """
         return pulumi.get(self, "network_source_ipv4s")
 
@@ -3984,7 +3984,7 @@ class InsightFilters(dict):
     @pulumi.getter(name="networkSourceIpv6s")
     def network_source_ipv6s(self) -> Optional[Sequence['outputs.InsightFiltersNetworkSourceIpv6']]:
         """
-        The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
         """
         return pulumi.get(self, "network_source_ipv6s")
 
@@ -4152,7 +4152,7 @@ class InsightFilters(dict):
     @pulumi.getter(name="resourceAwsEc2InstanceIpv4Addresses")
     def resource_aws_ec2_instance_ipv4_addresses(self) -> Optional[Sequence['outputs.InsightFiltersResourceAwsEc2InstanceIpv4Address']]:
         """
-        The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+        The IPv4 addresses associated with the instance. See IP Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_ipv4_addresses")
 
@@ -4160,7 +4160,7 @@ class InsightFilters(dict):
     @pulumi.getter(name="resourceAwsEc2InstanceIpv6Addresses")
     def resource_aws_ec2_instance_ipv6_addresses(self) -> Optional[Sequence['outputs.InsightFiltersResourceAwsEc2InstanceIpv6Address']]:
         """
-        The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        The IPv6 addresses associated with the instance. See IP Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_ipv6_addresses")
 

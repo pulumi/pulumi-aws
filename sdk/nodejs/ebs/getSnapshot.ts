@@ -59,7 +59,7 @@ export interface GetSnapshotArgs {
      */
     mostRecent?: boolean;
     /**
-     * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+     * Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
      */
     owners?: string[];
     /**
@@ -207,7 +207,7 @@ export interface GetSnapshotOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean | undefined>;
     /**
-     * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+     * Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
      */
     owners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

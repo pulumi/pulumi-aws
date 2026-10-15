@@ -33,14 +33,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
     @Import(name="defaultRunProperties")
     private @Nullable Output<Map<String,String>> defaultRunProperties;
 
     /**
-     * @return A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * @return Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
     public Optional<Output<Map<String,String>>> defaultRunProperties() {
@@ -78,14 +78,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name you assign to this workflow.
+     * Name you assign to this workflow.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name you assign to this workflow.
+     * @return Name you assign to this workflow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -123,14 +123,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -190,7 +190,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRunProperties A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+         * @param defaultRunProperties Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRunProperties A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+         * @param defaultRunProperties Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name you assign to this workflow.
+         * @param name Name you assign to this workflow.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name you assign to this workflow.
+         * @param name Name you assign to this workflow.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

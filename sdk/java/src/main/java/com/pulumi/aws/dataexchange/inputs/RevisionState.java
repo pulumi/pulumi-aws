@@ -47,14 +47,14 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The dataset id.
+     * The dataset ID.
      * 
      */
     @Import(name="dataSetId")
     private @Nullable Output<String> dataSetId;
 
     /**
-     * @return The dataset id.
+     * @return The dataset ID.
      * 
      */
     public Optional<Output<String>> dataSetId() {
@@ -77,14 +77,14 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Id of the revision.
+     * The ID of the revision.
      * 
      */
     @Import(name="revisionId")
     private @Nullable Output<String> revisionId;
 
     /**
-     * @return The Id of the revision.
+     * @return The ID of the revision.
      * 
      */
     public Optional<Output<String>> revisionId() {
@@ -194,7 +194,7 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSetId The dataset id.
+         * @param dataSetId The dataset ID.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSetId The dataset id.
+         * @param dataSetId The dataset ID.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revisionId The Id of the revision.
+         * @param revisionId The ID of the revision.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revisionId The Id of the revision.
+         * @param revisionId The ID of the revision.
          * 
          * @return builder
          * 

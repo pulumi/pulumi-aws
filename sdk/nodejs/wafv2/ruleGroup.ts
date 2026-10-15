@@ -372,6 +372,10 @@ export class RuleGroup extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly lockToken: pulumi.Output<string>;
     /**
+     * Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+     */
+    declare public readonly monetizationConfig: pulumi.Output<outputs.wafv2.RuleGroupMonetizationConfig | undefined>;
+    /**
      * Friendly name of the rule group.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -426,6 +430,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["customResponseBodies"] = state?.customResponseBodies;
             resourceInputs["description"] = state?.description;
             resourceInputs["lockToken"] = state?.lockToken;
+            resourceInputs["monetizationConfig"] = state?.monetizationConfig;
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
             resourceInputs["region"] = state?.region;
@@ -449,6 +454,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["capacity"] = args?.capacity;
             resourceInputs["customResponseBodies"] = args?.customResponseBodies;
             resourceInputs["description"] = args?.description;
+            resourceInputs["monetizationConfig"] = args?.monetizationConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
             resourceInputs["region"] = args?.region;
@@ -487,6 +493,10 @@ export interface RuleGroupState {
      */
     description?: pulumi.Input<string | undefined>;
     lockToken?: pulumi.Input<string | undefined>;
+    /**
+     * Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+     */
+    monetizationConfig?: pulumi.Input<inputs.wafv2.RuleGroupMonetizationConfig | undefined>;
     /**
      * Friendly name of the rule group.
      */
@@ -541,6 +551,10 @@ export interface RuleGroupArgs {
      * Friendly description of the rule group.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+     */
+    monetizationConfig?: pulumi.Input<inputs.wafv2.RuleGroupMonetizationConfig | undefined>;
     /**
      * Friendly name of the rule group.
      */

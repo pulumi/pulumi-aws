@@ -14,16 +14,32 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
 
     public static final ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs Empty = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs();
 
+    /**
+     * Remixing value, from -60 to 6 decibels.
+     * 
+     */
     @Import(name="gain", required=true)
     private Output<Integer> gain;
 
+    /**
+     * @return Remixing value, from -60 to 6 decibels.
+     * 
+     */
     public Output<Integer> gain() {
         return this.gain;
     }
 
+    /**
+     * Index of the input channel used as a source.
+     * 
+     */
     @Import(name="inputChannel", required=true)
     private Output<Integer> inputChannel;
 
+    /**
+     * @return Index of the input channel used as a source.
+     * 
+     */
     public Output<Integer> inputChannel() {
         return this.inputChannel;
     }
@@ -53,20 +69,44 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
             $ = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param gain Remixing value, from -60 to 6 decibels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gain(Output<Integer> gain) {
             $.gain = gain;
             return this;
         }
 
+        /**
+         * @param gain Remixing value, from -60 to 6 decibels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gain(Integer gain) {
             return gain(Output.of(gain));
         }
 
+        /**
+         * @param inputChannel Index of the input channel used as a source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputChannel(Output<Integer> inputChannel) {
             $.inputChannel = inputChannel;
             return this;
         }
 
+        /**
+         * @param inputChannel Index of the input channel used as a source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputChannel(Integer inputChannel) {
             return inputChannel(Output.of(inputChannel));
         }

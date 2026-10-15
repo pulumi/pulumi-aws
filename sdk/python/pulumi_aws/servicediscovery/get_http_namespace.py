@@ -130,7 +130,7 @@ def get_http_namespace(name: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str name: Name of the http namespace.
+    :param _builtins.str name: Name of the HTTP namespace.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
     """
@@ -164,7 +164,7 @@ def get_http_namespace_output(name: pulumi.Input[Optional[_builtins.str]] = None
     ```
 
 
-    :param _builtins.str name: Name of the http namespace.
+    :param _builtins.str name: Name of the HTTP namespace.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
     """

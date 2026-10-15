@@ -60,7 +60,7 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
      */
     declare public readonly apiId: pulumi.Output<string>;
     /**
-     * Appsync domain name.
+     * AppSync domain name.
      */
     declare public readonly domainName: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export interface DomainNameApiAssociationState {
      */
     apiId?: pulumi.Input<string | undefined>;
     /**
-     * Appsync domain name.
+     * AppSync domain name.
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
@@ -128,7 +128,7 @@ export interface DomainNameApiAssociationArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * Appsync domain name.
+     * AppSync domain name.
      */
     domainName: pulumi.Input<string>;
     /**

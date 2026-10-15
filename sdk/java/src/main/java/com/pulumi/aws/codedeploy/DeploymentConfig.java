@@ -193,14 +193,14 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.computePlatform);
     }
     /**
-     * The AWS Assigned deployment config id
+     * The AWS Assigned deployment config ID
      * 
      */
     @Export(name="deploymentConfigId", refs={String.class}, tree="[0]")
     private Output<String> deploymentConfigId;
 
     /**
-     * @return The AWS Assigned deployment config id
+     * @return The AWS Assigned deployment config ID
      * 
      */
     public Output<String> deploymentConfigId() {

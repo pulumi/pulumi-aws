@@ -22,7 +22,7 @@ public final class AgentFlowDefinitionNode {
      */
     private @Nullable AgentFlowDefinitionNodeConfiguration configuration;
     /**
-     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     private @Nullable List<AgentFlowDefinitionNodeInput> inputs;
@@ -34,7 +34,7 @@ public final class AgentFlowDefinitionNode {
      */
     private String name;
     /**
-     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     private @Nullable List<AgentFlowDefinitionNodeOutput> outputs;
@@ -53,7 +53,7 @@ public final class AgentFlowDefinitionNode {
         return Optional.ofNullable(this.configuration);
     }
     /**
-     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public List<AgentFlowDefinitionNodeInput> inputs() {
@@ -69,7 +69,7 @@ public final class AgentFlowDefinitionNode {
         return this.name;
     }
     /**
-     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public List<AgentFlowDefinitionNodeOutput> outputs() {

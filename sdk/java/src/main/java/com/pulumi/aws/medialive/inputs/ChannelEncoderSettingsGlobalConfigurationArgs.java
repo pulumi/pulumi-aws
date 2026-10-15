@@ -18,14 +18,14 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
     public static final ChannelEncoderSettingsGlobalConfigurationArgs Empty = new ChannelEncoderSettingsGlobalConfigurationArgs();
 
     /**
-     * Value to set the initial audio gain for the Live Event.
+     * Value to set the initial audio gain for the live event.
      * 
      */
     @Import(name="initialAudioGain")
     private @Nullable Output<Integer> initialAudioGain;
 
     /**
-     * @return Value to set the initial audio gain for the Live Event.
+     * @return Value to set the initial audio gain for the live event.
      * 
      */
     public Optional<Output<Integer>> initialAudioGain() {
@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
     }
 
     /**
-     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+     * Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `none` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
      * 
      */
     @Import(name="inputEndAction")
     private @Nullable Output<String> inputEndAction;
 
     /**
-     * @return Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+     * @return Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `none` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
      * 
      */
     public Optional<Output<String>> inputEndAction() {
@@ -48,14 +48,14 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
     }
 
     /**
-     * Settings for system actions when input is lost. See Input Loss Behavior for more details.
+     * Settings for system actions when input is lost. See `inputLossBehavior` Block for details.
      * 
      */
     @Import(name="inputLossBehavior")
     private @Nullable Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs> inputLossBehavior;
 
     /**
-     * @return Settings for system actions when input is lost. See Input Loss Behavior for more details.
+     * @return Settings for system actions when input is lost. See `inputLossBehavior` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs>> inputLossBehavior() {
@@ -63,14 +63,14 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
     }
 
     /**
-     * Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+     * How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
      * 
      */
     @Import(name="outputLockingMode")
     private @Nullable Output<String> outputLockingMode;
 
     /**
-     * @return Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+     * @return How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
      * 
      */
     public Optional<Output<String>> outputLockingMode() {
@@ -78,14 +78,14 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
     }
 
     /**
-     * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+     * Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
      * 
      */
     @Import(name="outputTimingSource")
     private @Nullable Output<String> outputTimingSource;
 
     /**
-     * @return Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+     * @return Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
      * 
      */
     public Optional<Output<String>> outputTimingSource() {
@@ -93,14 +93,14 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
     }
 
     /**
-     * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+     * Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
      * 
      */
     @Import(name="supportLowFramerateInputs")
     private @Nullable Output<String> supportLowFramerateInputs;
 
     /**
-     * @return Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+     * @return Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
      * 
      */
     public Optional<Output<String>> supportLowFramerateInputs() {
@@ -137,7 +137,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param initialAudioGain Value to set the initial audio gain for the Live Event.
+         * @param initialAudioGain Value to set the initial audio gain for the live event.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param initialAudioGain Value to set the initial audio gain for the Live Event.
+         * @param initialAudioGain Value to set the initial audio gain for the live event.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param inputEndAction Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+         * @param inputEndAction Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `none` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param inputEndAction Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+         * @param inputEndAction Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `none` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param inputLossBehavior Settings for system actions when input is lost. See Input Loss Behavior for more details.
+         * @param inputLossBehavior Settings for system actions when input is lost. See `inputLossBehavior` Block for details.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param inputLossBehavior Settings for system actions when input is lost. See Input Loss Behavior for more details.
+         * @param inputLossBehavior Settings for system actions when input is lost. See `inputLossBehavior` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param outputLockingMode Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+         * @param outputLockingMode How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param outputLockingMode Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+         * @param outputLockingMode How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param outputTimingSource Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+         * @param outputTimingSource Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param outputTimingSource Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+         * @param outputTimingSource Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param supportLowFramerateInputs Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+         * @param supportLowFramerateInputs Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
         }
 
         /**
-         * @param supportLowFramerateInputs Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+         * @param supportLowFramerateInputs Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
          * 
          * @return builder
          * 

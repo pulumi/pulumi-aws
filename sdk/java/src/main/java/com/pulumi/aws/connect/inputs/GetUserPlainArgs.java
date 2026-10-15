@@ -77,7 +77,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Returns information on a specific User by User id
+     * Returns information on a specific User by User ID
      * 
      * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      * 
@@ -86,7 +86,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable String userId;
 
     /**
-     * @return Returns information on a specific User by User id
+     * @return Returns information on a specific User by User ID
      * 
      * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      * 
@@ -168,7 +168,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param userId Returns information on a specific User by User id
+         * @param userId Returns information on a specific User by User ID
          * 
          * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
          * 

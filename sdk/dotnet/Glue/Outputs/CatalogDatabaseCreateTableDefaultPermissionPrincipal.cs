@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogDatabaseCreateTableDefaultPermissionPrincipal
     {
         /// <summary>
-        /// An identifier for the Lake Formation principal.
+        /// Identifier for the Lake Formation principal.
         /// </summary>
         public readonly string? DataLakePrincipalIdentifier;
 

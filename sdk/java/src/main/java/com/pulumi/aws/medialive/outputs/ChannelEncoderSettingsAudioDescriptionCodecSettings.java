@@ -18,64 +18,88 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
     /**
-     * @return Aac Settings. See AAC Settings for more details.
+     * @return AAC settings. See `aacSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings aacSettings;
     /**
-     * @return Ac3 Settings. See AC3 Settings for more details.
+     * @return AC3 settings. See `ac3Settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings ac3Settings;
     /**
-     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * @return EAC3 Atmos settings. See `eac3AtmosSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings;
     /**
-     * @return Eac3 Settings. See EAC3 Settings
+     * @return EAC3 settings. See `eac3Settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings;
+    /**
+     * @return MP2 settings. See `mp2Settings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings mp2Settings;
+    /**
+     * @return Pass-through settings. Can be set as an empty block.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings passThroughSettings;
+    /**
+     * @return WAV settings. See `wavSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings wavSettings;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettings() {}
     /**
-     * @return Aac Settings. See AAC Settings for more details.
+     * @return AAC settings. See `aacSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings> aacSettings() {
         return Optional.ofNullable(this.aacSettings);
     }
     /**
-     * @return Ac3 Settings. See AC3 Settings for more details.
+     * @return AC3 settings. See `ac3Settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings> ac3Settings() {
         return Optional.ofNullable(this.ac3Settings);
     }
     /**
-     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * @return EAC3 Atmos settings. See `eac3AtmosSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings> eac3AtmosSettings() {
         return Optional.ofNullable(this.eac3AtmosSettings);
     }
     /**
-     * @return Eac3 Settings. See EAC3 Settings
+     * @return EAC3 settings. See `eac3Settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings> eac3Settings() {
         return Optional.ofNullable(this.eac3Settings);
     }
+    /**
+     * @return MP2 settings. See `mp2Settings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings> mp2Settings() {
         return Optional.ofNullable(this.mp2Settings);
     }
+    /**
+     * @return Pass-through settings. Can be set as an empty block.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings> passThroughSettings() {
         return Optional.ofNullable(this.passThroughSettings);
     }
+    /**
+     * @return WAV settings. See `wavSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings> wavSettings() {
         return Optional.ofNullable(this.wavSettings);
     }

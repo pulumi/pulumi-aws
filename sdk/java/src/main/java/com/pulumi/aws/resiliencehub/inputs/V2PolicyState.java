@@ -9,6 +9,7 @@ import com.pulumi.aws.resiliencehub.inputs.V2PolicyMultiAzArgs;
 import com.pulumi.aws.resiliencehub.inputs.V2PolicyMultiRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -160,6 +161,21 @@ public final class V2PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+     * 
+     */
+    @Import(name="sharingEnabled")
+    private @Nullable Output<Boolean> sharingEnabled;
+
+    /**
+     * @return Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> sharingEnabled() {
+        return Optional.ofNullable(this.sharingEnabled);
+    }
+
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -201,6 +217,7 @@ public final class V2PolicyState extends com.pulumi.resources.ResourceArgs {
         this.multiRegion = $.multiRegion;
         this.name = $.name;
         this.region = $.region;
+        this.sharingEnabled = $.sharingEnabled;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -414,6 +431,27 @@ public final class V2PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param sharingEnabled Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharingEnabled(@Nullable Output<Boolean> sharingEnabled) {
+            $.sharingEnabled = sharingEnabled;
+            return this;
+        }
+
+        /**
+         * @param sharingEnabled Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharingEnabled(Boolean sharingEnabled) {
+            return sharingEnabled(Output.of(sharingEnabled));
         }
 
         /**

@@ -77,7 +77,7 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Returns information on a specific Vocabulary by Vocabulary id
+     * Returns information on a specific Vocabulary by Vocabulary ID
      * 
      * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
      * 
@@ -86,7 +86,7 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
     private @Nullable String vocabularyId;
 
     /**
-     * @return Returns information on a specific Vocabulary by Vocabulary id
+     * @return Returns information on a specific Vocabulary by Vocabulary ID
      * 
      * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
      * 
@@ -168,7 +168,7 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param vocabularyId Returns information on a specific Vocabulary by Vocabulary id
+         * @param vocabularyId Returns information on a specific Vocabulary by Vocabulary ID
          * 
          * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
          * 

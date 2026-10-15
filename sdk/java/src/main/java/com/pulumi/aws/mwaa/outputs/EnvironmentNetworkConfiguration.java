@@ -17,7 +17,7 @@ public final class EnvironmentNetworkConfiguration {
      */
     private List<String> securityGroupIds;
     /**
-     * @return The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+     * @return Private subnet IDs in which the environment should be created. MWAA requires two subnets.
      * 
      */
     private List<String> subnetIds;
@@ -31,7 +31,7 @@ public final class EnvironmentNetworkConfiguration {
         return this.securityGroupIds;
     }
     /**
-     * @return The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+     * @return Private subnet IDs in which the environment should be created. MWAA requires two subnets.
      * 
      */
     public List<String> subnetIds() {

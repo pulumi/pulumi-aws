@@ -64,14 +64,14 @@ public final class EventConnectionAuthParametersOauthArgs extends com.pulumi.res
     }
 
     /**
-     * OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+     * OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
     @Import(name="oauthHttpParameters", required=true)
     private Output<EventConnectionAuthParametersOauthOauthHttpParametersArgs> oauthHttpParameters;
 
     /**
-     * @return OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+     * @return OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
     public Output<EventConnectionAuthParametersOauthOauthHttpParametersArgs> oauthHttpParameters() {
@@ -169,7 +169,7 @@ public final class EventConnectionAuthParametersOauthArgs extends com.pulumi.res
         }
 
         /**
-         * @param oauthHttpParameters OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+         * @param oauthHttpParameters OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class EventConnectionAuthParametersOauthArgs extends com.pulumi.res
         }
 
         /**
-         * @param oauthHttpParameters OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+         * @param oauthHttpParameters OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
          * 
          * @return builder
          * 

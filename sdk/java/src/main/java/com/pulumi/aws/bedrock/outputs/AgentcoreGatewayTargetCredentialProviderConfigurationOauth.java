@@ -25,12 +25,12 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
      */
     private @Nullable String defaultReturnUrl;
     /**
-     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
      * 
      */
     private @Nullable String grantType;
     /**
-     * @return ARN of the Oauth credential provider for OAuth authentication.
+     * @return ARN of the OAuth credential provider.
      * 
      */
     private String providerArn;
@@ -56,14 +56,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
         return Optional.ofNullable(this.defaultReturnUrl);
     }
     /**
-     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
      * 
      */
     public Optional<String> grantType() {
         return Optional.ofNullable(this.grantType);
     }
     /**
-     * @return ARN of the Oauth credential provider for OAuth authentication.
+     * @return ARN of the OAuth credential provider.
      * 
      */
     public String providerArn() {

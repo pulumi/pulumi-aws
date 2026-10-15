@@ -215,7 +215,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     declare public readonly autoRollbackConfiguration: pulumi.Output<outputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
     /**
-     * Autoscaling groups associated with the deployment group.
+     * Auto Scaling groups associated with the deployment group.
      */
     declare public readonly autoscalingGroups: pulumi.Output<string[] | undefined>;
     /**
@@ -388,7 +388,7 @@ export interface DeploymentGroupState {
      */
     autoRollbackConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
     /**
-     * Autoscaling groups associated with the deployment group.
+     * Auto Scaling groups associated with the deployment group.
      */
     autoscalingGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -482,7 +482,7 @@ export interface DeploymentGroupArgs {
      */
     autoRollbackConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
     /**
-     * Autoscaling groups associated with the deployment group.
+     * Auto Scaling groups associated with the deployment group.
      */
     autoscalingGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

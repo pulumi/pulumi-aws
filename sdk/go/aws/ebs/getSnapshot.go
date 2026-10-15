@@ -71,7 +71,7 @@ type LookupSnapshotArgs struct {
 	Filters []GetSnapshotFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+	// Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
 	Owners []string `pulumi:"owners"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -136,7 +136,7 @@ type LookupSnapshotOutputArgs struct {
 	Filters GetSnapshotFilterArrayInput `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+	// Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

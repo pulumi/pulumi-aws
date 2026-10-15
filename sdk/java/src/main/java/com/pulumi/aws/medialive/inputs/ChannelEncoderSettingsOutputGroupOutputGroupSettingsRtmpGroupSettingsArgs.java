@@ -18,14 +18,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs();
 
     /**
-     * The ad marker type for this output group.
+     * List of ad markers for this output group.
      * 
      */
     @Import(name="adMarkers")
     private @Nullable Output<List<String>> adMarkers;
 
     /**
-     * @return The ad marker type for this output group.
+     * @return List of ad markers for this output group.
      * 
      */
     public Optional<Output<List<String>>> adMarkers() {
@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
     }
 
     /**
-     * Authentication scheme to use when connecting with CDN.
+     * Authentication scheme to use when connecting with the CDN.
      * 
      */
     @Import(name="authenticationScheme")
     private @Nullable Output<String> authenticationScheme;
 
     /**
-     * @return Authentication scheme to use when connecting with CDN.
+     * @return Authentication scheme to use when connecting with the CDN.
      * 
      */
     public Optional<Output<String>> authenticationScheme() {
@@ -48,14 +48,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
     }
 
     /**
-     * Controls behavior when content cache fills up.
+     * Behavior when the content cache fills up.
      * 
      */
     @Import(name="cacheFullBehavior")
     private @Nullable Output<String> cacheFullBehavior;
 
     /**
-     * @return Controls behavior when content cache fills up.
+     * @return Behavior when the content cache fills up.
      * 
      */
     public Optional<Output<String>> cacheFullBehavior() {
@@ -63,14 +63,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
     }
 
     /**
-     * Cache length in seconds, is used to calculate buffer size.
+     * Cache length, in seconds, used to calculate buffer size.
      * 
      */
     @Import(name="cacheLength")
     private @Nullable Output<Integer> cacheLength;
 
     /**
-     * @return Cache length in seconds, is used to calculate buffer size.
+     * @return Cache length, in seconds, used to calculate buffer size.
      * 
      */
     public Optional<Output<Integer>> cacheLength() {
@@ -78,14 +78,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
     }
 
     /**
-     * Controls the types of data that passes to onCaptionInfo outputs.
+     * Controls the types of data that pass to `onCaptionInfo` outputs.
      * 
      */
     @Import(name="captionData")
     private @Nullable Output<String> captionData;
 
     /**
-     * @return Controls the types of data that passes to onCaptionInfo outputs.
+     * @return Controls the types of data that pass to `onCaptionInfo` outputs.
      * 
      */
     public Optional<Output<String>> captionData() {
@@ -93,14 +93,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
     }
 
     /**
-     * Controls the behavior of the RTMP group if input becomes unavailable.
+     * Behavior of the RTMP group if the input becomes unavailable.
      * 
      */
     @Import(name="inputLossAction")
     private @Nullable Output<String> inputLossAction;
 
     /**
-     * @return Controls the behavior of the RTMP group if input becomes unavailable.
+     * @return Behavior of the RTMP group if the input becomes unavailable.
      * 
      */
     public Optional<Output<String>> inputLossAction() {
@@ -153,7 +153,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param adMarkers The ad marker type for this output group.
+         * @param adMarkers List of ad markers for this output group.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param adMarkers The ad marker type for this output group.
+         * @param adMarkers List of ad markers for this output group.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param adMarkers The ad marker type for this output group.
+         * @param adMarkers List of ad markers for this output group.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param authenticationScheme Authentication scheme to use when connecting with CDN.
+         * @param authenticationScheme Authentication scheme to use when connecting with the CDN.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param authenticationScheme Authentication scheme to use when connecting with CDN.
+         * @param authenticationScheme Authentication scheme to use when connecting with the CDN.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param cacheFullBehavior Controls behavior when content cache fills up.
+         * @param cacheFullBehavior Behavior when the content cache fills up.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param cacheFullBehavior Controls behavior when content cache fills up.
+         * @param cacheFullBehavior Behavior when the content cache fills up.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param cacheLength Cache length in seconds, is used to calculate buffer size.
+         * @param cacheLength Cache length, in seconds, used to calculate buffer size.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param cacheLength Cache length in seconds, is used to calculate buffer size.
+         * @param cacheLength Cache length, in seconds, used to calculate buffer size.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param captionData Controls the types of data that passes to onCaptionInfo outputs.
+         * @param captionData Controls the types of data that pass to `onCaptionInfo` outputs.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param captionData Controls the types of data that passes to onCaptionInfo outputs.
+         * @param captionData Controls the types of data that pass to `onCaptionInfo` outputs.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
+         * @param inputLossAction Behavior of the RTMP group if the input becomes unavailable.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
+         * @param inputLossAction Behavior of the RTMP group if the input becomes unavailable.
          * 
          * @return builder
          * 

@@ -14,13 +14,16 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettings
     {
         /// <summary>
-        /// Frame capture settings. See Frame Capture Settings for more details.
+        /// Frame capture settings. See `FrameCaptureSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings? FrameCaptureSettings;
         /// <summary>
-        /// H264 settings. See H264 Settings for more details.
+        /// H264 settings. See `H264Settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings? H264Settings;
+        /// <summary>
+        /// H265 settings. See `H265Settings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings? H265Settings;
 
         [OutputConstructor]

@@ -353,7 +353,7 @@ type Domain struct {
 	EncryptAtRest DomainEncryptAtRestOutput `pulumi:"encryptAtRest"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Domain-specific endpoint for kibana without https scheme.
+	// Domain-specific endpoint for kibana without HTTPS scheme.
 	KibanaEndpoint pulumi.StringOutput `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
@@ -431,7 +431,7 @@ type domainState struct {
 	EncryptAtRest *DomainEncryptAtRest `pulumi:"encryptAtRest"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint *string `pulumi:"endpoint"`
-	// Domain-specific endpoint for kibana without https scheme.
+	// Domain-specific endpoint for kibana without HTTPS scheme.
 	KibanaEndpoint *string `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
@@ -480,7 +480,7 @@ type DomainState struct {
 	EncryptAtRest DomainEncryptAtRestPtrInput
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint pulumi.StringPtrInput
-	// Domain-specific endpoint for kibana without https scheme.
+	// Domain-specific endpoint for kibana without HTTPS scheme.
 	KibanaEndpoint pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
@@ -740,7 +740,7 @@ func (o DomainOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Domain-specific endpoint for kibana without https scheme.
+// Domain-specific endpoint for kibana without HTTPS scheme.
 func (o DomainOutput) KibanaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }

@@ -30,7 +30,7 @@ class AclArgs:
         :param pulumi.Input[_builtins.str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         if name is not None:
@@ -84,7 +84,7 @@ class AclArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -119,13 +119,13 @@ class _AclState:
         """
         Input properties used for looking up and filtering Acl resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the ACL.
-        :param pulumi.Input[_builtins.str] minimum_engine_version: The minimum engine version supported by the ACL.
+        :param pulumi.Input[_builtins.str] arn: ARN of the ACL.
+        :param pulumi.Input[_builtins.str] minimum_engine_version: Minimum engine version supported by the ACL.
         :param pulumi.Input[_builtins.str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         if arn is not None:
@@ -149,7 +149,7 @@ class _AclState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the ACL.
+        ARN of the ACL.
         """
         return pulumi.get(self, "arn")
 
@@ -161,7 +161,7 @@ class _AclState:
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum engine version supported by the ACL.
+        Minimum engine version supported by the ACL.
         """
         return pulumi.get(self, "minimum_engine_version")
 
@@ -209,7 +209,7 @@ class _AclState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -221,7 +221,7 @@ class _AclState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -287,7 +287,7 @@ class Acl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         ...
@@ -386,13 +386,13 @@ class Acl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the ACL.
-        :param pulumi.Input[_builtins.str] minimum_engine_version: The minimum engine version supported by the ACL.
+        :param pulumi.Input[_builtins.str] arn: ARN of the ACL.
+        :param pulumi.Input[_builtins.str] minimum_engine_version: Minimum engine version supported by the ACL.
         :param pulumi.Input[_builtins.str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -413,7 +413,7 @@ class Acl(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the ACL.
+        ARN of the ACL.
         """
         return pulumi.get(self, "arn")
 
@@ -421,7 +421,7 @@ class Acl(pulumi.CustomResource):
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The minimum engine version supported by the ACL.
+        Minimum engine version supported by the ACL.
         """
         return pulumi.get(self, "minimum_engine_version")
 
@@ -453,7 +453,7 @@ class Acl(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -461,7 +461,7 @@ class Acl(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -17,7 +17,7 @@ public final class ConnectorPluginCustomPlugin {
      */
     private String arn;
     /**
-     * @return The revision of the custom plugin.
+     * @return Revision of the custom plugin.
      * 
      */
     private Integer revision;
@@ -31,7 +31,7 @@ public final class ConnectorPluginCustomPlugin {
         return this.arn;
     }
     /**
-     * @return The revision of the custom plugin.
+     * @return Revision of the custom plugin.
      * 
      */
     public Integer revision() {

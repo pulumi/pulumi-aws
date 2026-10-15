@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
     public partial class MainRouteTableAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Used internally, see **Notes** below
+        /// Original route table ID, used internally; see __Notes__ below
         /// </summary>
         [Output("originalRouteTableId")]
         public Output<string> OriginalRouteTableId { get; private set; } = null!;
@@ -50,14 +50,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Route Table to set as the new
-        /// main route table for the target VPC
+        /// ID of the Route Table to set as the new main route table for the target VPC
         /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC whose main route table should be set
+        /// ID of the VPC whose main route table should be set
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -115,14 +114,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Route Table to set as the new
-        /// main route table for the target VPC
+        /// ID of the Route Table to set as the new main route table for the target VPC
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC whose main route table should be set
+        /// ID of the VPC whose main route table should be set
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class MainRouteTableAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Used internally, see **Notes** below
+        /// Original route table ID, used internally; see __Notes__ below
         /// </summary>
         [Input("originalRouteTableId")]
         public Input<string>? OriginalRouteTableId { get; set; }
@@ -148,14 +146,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Route Table to set as the new
-        /// main route table for the target VPC
+        /// ID of the Route Table to set as the new main route table for the target VPC
         /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 
         /// <summary>
-        /// The ID of the VPC whose main route table should be set
+        /// ID of the VPC whose main route table should be set
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

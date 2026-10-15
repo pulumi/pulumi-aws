@@ -30,9 +30,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreRegistry("example", {
+ *     approvalConfigurations: [{
+ *         autoApproval: true,
+ *     }],
  *     name: "example_registry",
  *     description: "MCP servers and tools for the platform team",
- *     autoApproval: true,
  * });
  * ```
  *
@@ -61,12 +63,12 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `registryId` (String) Registry ID.
+ * * `registryId` (String) Registry ID.
  *
  * #### Optional
  *
- * * `accountId` (String) AWS account ID for this resource.
- * * `region` (String) AWS Region for this resource.
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import a Bedrock AgentCore Registry by registry ID. For example:
  *
@@ -119,7 +121,7 @@ export class AgentcoreRegistry extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
      *
      * The following arguments are optional:
      */
@@ -198,7 +200,7 @@ export interface AgentcoreRegistryState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
      *
      * The following arguments are optional:
      */
@@ -239,7 +241,7 @@ export interface AgentcoreRegistryArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
      *
      * The following arguments are optional:
      */

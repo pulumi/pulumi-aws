@@ -13,7 +13,7 @@ import (
 
 // Provides details about an EC2 Local Gateway Route Table.
 //
-// This data source can prove useful when a module accepts a local gateway route table id as
+// This data source can prove useful when a module accepts a local gateway route table ID as
 // an input variable and needs to, for example, find the associated Outpost or Local Gateway.
 //
 // ## Example Usage
@@ -62,7 +62,7 @@ type LookupLocalGatewayRouteTableArgs struct {
 	Filters []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
 	// ID of the specific local gateway route table to retrieve.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
-	// Local Gateway Route Table Id assigned to desired local gateway route table
+	// Local Gateway Route Table ID assigned to desired local gateway route table
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -102,7 +102,7 @@ type LookupLocalGatewayRouteTableOutputArgs struct {
 	Filters GetLocalGatewayRouteTableFilterArrayInput `pulumi:"filters"`
 	// ID of the specific local gateway route table to retrieve.
 	LocalGatewayId pulumi.StringPtrInput `pulumi:"localGatewayId"`
-	// Local Gateway Route Table Id assigned to desired local gateway route table
+	// Local Gateway Route Table ID assigned to desired local gateway route table
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`

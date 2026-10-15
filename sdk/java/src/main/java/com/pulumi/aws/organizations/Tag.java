@@ -96,14 +96,14 @@ public class Tag extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * Id of the Organizations resource to tag.
+     * ID of the Organizations resource to tag.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return Id of the Organizations resource to tag.
+     * @return ID of the Organizations resource to tag.
      * 
      */
     public Output<String> resourceId() {

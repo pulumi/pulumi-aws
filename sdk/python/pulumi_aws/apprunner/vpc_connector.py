@@ -296,7 +296,7 @@ class VpcConnector(pulumi.CustomResource):
 
         - `arn` (String) ARN of the App Runner VPC connector.
 
-        Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
+        Using `pulumi import`, import App Runner VPC connector using the `arn`. For example:
 
         ```sh
         $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
@@ -346,7 +346,7 @@ class VpcConnector(pulumi.CustomResource):
 
         - `arn` (String) ARN of the App Runner VPC connector.
 
-        Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
+        Using `pulumi import`, import App Runner VPC connector using the `arn`. For example:
 
         ```sh
         $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe

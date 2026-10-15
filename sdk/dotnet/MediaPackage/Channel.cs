@@ -43,25 +43,25 @@ namespace Pulumi.Aws.MediaPackage
     public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the channel
+        /// ARN of the channel
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier describing the channel
+        /// Unique identifier describing the channel
         /// </summary>
         [Output("channelId")]
         public Output<string> ChannelId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the channel
+        /// Description of the channel
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A single item list of HLS ingest information
+        /// Single item list of HLS ingest information
         /// </summary>
         [Output("hlsIngests")]
         public Output<ImmutableArray<Outputs.ChannelHlsIngest>> HlsIngests { get; private set; } = null!;
@@ -73,13 +73,13 @@ namespace Pulumi.Aws.MediaPackage
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.MediaPackage
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique identifier describing the channel
+        /// Unique identifier describing the channel
         /// </summary>
         [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
 
         /// <summary>
-        /// A description of the channel
+        /// Description of the channel
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.MediaPackage
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -170,19 +170,19 @@ namespace Pulumi.Aws.MediaPackage
     public sealed class ChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the channel
+        /// ARN of the channel
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A unique identifier describing the channel
+        /// Unique identifier describing the channel
         /// </summary>
         [Input("channelId")]
         public Input<string>? ChannelId { get; set; }
 
         /// <summary>
-        /// A description of the channel
+        /// Description of the channel
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.MediaPackage
         private InputList<Inputs.ChannelHlsIngestGetArgs>? _hlsIngests;
 
         /// <summary>
-        /// A single item list of HLS ingest information
+        /// Single item list of HLS ingest information
         /// </summary>
         public InputList<Inputs.ChannelHlsIngestGetArgs> HlsIngests
         {
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.MediaPackage
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.MediaPackage
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

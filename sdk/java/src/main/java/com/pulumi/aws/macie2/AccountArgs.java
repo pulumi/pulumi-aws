@@ -16,14 +16,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     public static final AccountArgs Empty = new AccountArgs();
 
     /**
-     * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+     * How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
     @Import(name="findingPublishingFrequency")
     private @Nullable Output<String> findingPublishingFrequency;
 
     /**
-     * @return Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+     * @return How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
     public Optional<Output<String>> findingPublishingFrequency() {
@@ -46,14 +46,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * @return Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -87,7 +87,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param findingPublishingFrequency Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+         * @param findingPublishingFrequency How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param findingPublishingFrequency Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+         * @param findingPublishingFrequency How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+         * @param status Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+         * @param status Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
          * 
          * @return builder
          * 

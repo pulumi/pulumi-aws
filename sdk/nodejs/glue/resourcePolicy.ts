@@ -73,11 +73,11 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      */
     declare public readonly enableHybrid: pulumi.Output<string | undefined>;
     /**
-     * The policy to be applied to the aws glue data catalog.
+     * Policy to be applied to the aws glue data catalog.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -120,11 +120,11 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyState {
     /**
-     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      */
     enableHybrid?: pulumi.Input<string | undefined>;
     /**
-     * The policy to be applied to the aws glue data catalog.
+     * Policy to be applied to the aws glue data catalog.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -138,11 +138,11 @@ export interface ResourcePolicyState {
  */
 export interface ResourcePolicyArgs {
     /**
-     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      */
     enableHybrid?: pulumi.Input<string | undefined>;
     /**
-     * The policy to be applied to the aws glue data catalog.
+     * Policy to be applied to the aws glue data catalog.
      */
     policy: pulumi.Input<string>;
     /**

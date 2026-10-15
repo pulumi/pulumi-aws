@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Oidc Usage
+ * ### OIDC Usage
  * 
  * <pre>
  * {@code

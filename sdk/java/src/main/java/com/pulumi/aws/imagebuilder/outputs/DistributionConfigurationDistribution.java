@@ -55,7 +55,7 @@ public final class DistributionConfigurationDistribution {
      */
     private @Nullable DistributionConfigurationDistributionS3ExportConfiguration s3ExportConfiguration;
     /**
-     * @return Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * @return Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
      * 
      */
     private @Nullable List<DistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations;
@@ -111,7 +111,7 @@ public final class DistributionConfigurationDistribution {
         return Optional.ofNullable(this.s3ExportConfiguration);
     }
     /**
-     * @return Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * @return Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
      * 
      */
     public List<DistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations() {

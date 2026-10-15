@@ -13,13 +13,13 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
     public sealed class CustomRoutingListenerPortRangeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The first port in the range of ports, inclusive.
+        /// First port in the range of ports, inclusive.
         /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
         /// <summary>
-        /// The last port in the range of ports, inclusive.
+        /// Last port in the range of ports, inclusive.
         /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }

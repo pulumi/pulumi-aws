@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentLastUpdatedError {
+    /**
+     * @return Error code of the last update error.
+     * 
+     */
     private @Nullable String errorCode;
+    /**
+     * @return Error message of the last update error.
+     * 
+     */
     private @Nullable String errorMessage;
 
     private EnvironmentLastUpdatedError() {}
+    /**
+     * @return Error code of the last update error.
+     * 
+     */
     public Optional<String> errorCode() {
         return Optional.ofNullable(this.errorCode);
     }
+    /**
+     * @return Error message of the last update error.
+     * 
+     */
     public Optional<String> errorMessage() {
         return Optional.ofNullable(this.errorMessage);
     }

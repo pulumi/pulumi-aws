@@ -173,7 +173,7 @@ def get_quick_connect(instance_id: Optional[_builtins.str] = None,
     :param _builtins.str name: Returns information on a specific Quick Connect by name
            
            > **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
-    :param _builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
+    :param _builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect ID
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Quick Connect.
     """
@@ -232,7 +232,7 @@ def get_quick_connect_output(instance_id: pulumi.Input[Optional[_builtins.str]] 
     :param _builtins.str name: Returns information on a specific Quick Connect by name
            
            > **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
-    :param _builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
+    :param _builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect ID
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Quick Connect.
     """

@@ -188,8 +188,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allows deleting the Auto Scaling Group without waiting
-     * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
+     * Allows deleting the Auto Scaling group without waiting
+     * for all instances in the pool to terminate. You can force an Auto Scaling group to delete
      * even if it&#39;s in the process of scaling a resource. Normally, this provider
      * drains all the instances before deleting the group. This bypasses that
      * behavior and potentially leaves resources dangling.
@@ -199,8 +199,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> forceDelete;
 
     /**
-     * @return Allows deleting the Auto Scaling Group without waiting
-     * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
+     * @return Allows deleting the Auto Scaling group without waiting
+     * for all instances in the pool to terminate. You can force an Auto Scaling group to delete
      * even if it&#39;s in the process of scaling a resource. Normally, this provider
      * drains all the instances before deleting the group. This bypasses that
      * behavior and potentially leaves resources dangling.
@@ -211,14 +211,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     * Allows deleting the Auto Scaling group without waiting for all instances in the warm pool to terminate.
      * 
      */
     @Import(name="forceDeleteWarmPool")
     private @Nullable Output<Boolean> forceDeleteWarmPool;
 
     /**
-     * @return Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     * @return Allows deleting the Auto Scaling group without waiting for all instances in the warm pool to terminate.
      * 
      */
     public Optional<Output<Boolean>> forceDeleteWarmPool() {
@@ -273,11 +273,11 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
-     * to attach to the Auto Scaling Group **before** instances are launched. The
+     * to attach to the Auto Scaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
      * `aws.autoscaling.LifecycleHook`
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
-     * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
+     * a new Auto Scaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      * 
      */
     @Import(name="initialLifecycleHooks")
@@ -286,11 +286,11 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
-     * to attach to the Auto Scaling Group **before** instances are launched. The
+     * to attach to the Auto Scaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
      * `aws.autoscaling.LifecycleHook`
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
-     * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
+     * a new Auto Scaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      * 
      */
     public Optional<Output<List<GroupInitialLifecycleHookArgs>>> initialLifecycleHooks() {
@@ -298,14 +298,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     * If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling group. Defined below.
      * 
      */
     @Import(name="instanceLifecyclePolicy")
     private @Nullable Output<GroupInstanceLifecyclePolicyArgs> instanceLifecyclePolicy;
 
     /**
-     * @return If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     * @return If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling group. Defined below.
      * 
      */
     public Optional<Output<GroupInstanceLifecyclePolicyArgs>> instanceLifecyclePolicy() {
@@ -330,7 +330,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * If this block is configured, start an
      * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-     * when this Auto Scaling Group is updated. Defined below.
+     * when this Auto Scaling group is updated. Defined below.
      * 
      */
     @Import(name="instanceRefresh")
@@ -339,7 +339,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return If this block is configured, start an
      * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-     * when this Auto Scaling Group is updated. Defined below.
+     * when this Auto Scaling group is updated. Defined below.
      * 
      */
     public Optional<Output<GroupInstanceRefreshArgs>> instanceRefresh() {
@@ -377,7 +377,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of elastic load balancer names to add to the autoscaling
+     * List of elastic load balancer names to add to the Auto Scaling
      * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
@@ -385,7 +385,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> loadBalancers;
 
     /**
-     * @return List of elastic load balancer names to add to the autoscaling
+     * @return List of elastic load balancer names to add to the Auto Scaling
      * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
@@ -409,14 +409,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Maximum size of the Auto Scaling Group.
+     * Maximum size of the Auto Scaling group.
      * 
      */
     @Import(name="maxSize", required=true)
     private Output<Integer> maxSize;
 
     /**
-     * @return Maximum size of the Auto Scaling Group.
+     * @return Maximum size of the Auto Scaling group.
      * 
      */
     public Output<Integer> maxSize() {
@@ -440,7 +440,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Setting this causes Pulumi to wait for
-     * this number of instances from this Auto Scaling Group to show up healthy in the
+     * this number of instances from this Auto Scaling group to show up healthy in the
      * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
      * 
@@ -450,7 +450,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Setting this causes Pulumi to wait for
-     * this number of instances from this Auto Scaling Group to show up healthy in the
+     * this number of instances from this Auto Scaling group to show up healthy in the
      * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
      * 
@@ -460,7 +460,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum size of the Auto Scaling Group.
+     * Minimum size of the Auto Scaling group.
      * (See also Waiting for Capacity below.)
      * 
      */
@@ -468,7 +468,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private Output<Integer> minSize;
 
     /**
-     * @return Minimum size of the Auto Scaling Group.
+     * @return Minimum size of the Auto Scaling group.
      * (See also Waiting for Capacity below.)
      * 
      */
@@ -492,14 +492,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
+     * Name of the Auto Scaling group. By default generated by Pulumi. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
+     * @return Name of the Auto Scaling group. By default generated by Pulumi. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -592,16 +592,16 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
-     * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+     * List of processes to suspend for the Auto Scaling group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+     * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling group from functioning properly.
      * 
      */
     @Import(name="suspendedProcesses")
     private @Nullable Output<List<String>> suspendedProcesses;
 
     /**
-     * @return List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
-     * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+     * @return List of processes to suspend for the Auto Scaling group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+     * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling group from functioning properly.
      * 
      */
     public Optional<Output<List<String>>> suspendedProcesses() {
@@ -639,14 +639,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
+     * List of policies to decide how the instances in the Auto Scaling group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
      * 
      */
     @Import(name="terminationPolicies")
     private @Nullable Output<List<String>> terminationPolicies;
 
     /**
-     * @return List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
+     * @return List of policies to decide how the instances in the Auto Scaling group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
      * 
      */
     public Optional<Output<List<String>>> terminationPolicies() {
@@ -708,7 +708,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Setting this will cause Pulumi to wait
-     * for exactly this number of healthy instances from this Auto Scaling Group in
+     * for exactly this number of healthy instances from this Auto Scaling group in
      * all attached load balancers on both create and update operations. (Takes
      * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
@@ -719,7 +719,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Setting this will cause Pulumi to wait
-     * for exactly this number of healthy instances from this Auto Scaling Group in
+     * for exactly this number of healthy instances from this Auto Scaling group in
      * all attached load balancers on both create and update operations. (Takes
      * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
@@ -1047,8 +1047,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDelete Allows deleting the Auto Scaling Group without waiting
-         * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
+         * @param forceDelete Allows deleting the Auto Scaling group without waiting
+         * for all instances in the pool to terminate. You can force an Auto Scaling group to delete
          * even if it&#39;s in the process of scaling a resource. Normally, this provider
          * drains all the instances before deleting the group. This bypasses that
          * behavior and potentially leaves resources dangling.
@@ -1062,8 +1062,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDelete Allows deleting the Auto Scaling Group without waiting
-         * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
+         * @param forceDelete Allows deleting the Auto Scaling group without waiting
+         * for all instances in the pool to terminate. You can force an Auto Scaling group to delete
          * even if it&#39;s in the process of scaling a resource. Normally, this provider
          * drains all the instances before deleting the group. This bypasses that
          * behavior and potentially leaves resources dangling.
@@ -1076,7 +1076,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDeleteWarmPool Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+         * @param forceDeleteWarmPool Allows deleting the Auto Scaling group without waiting for all instances in the warm pool to terminate.
          * 
          * @return builder
          * 
@@ -1087,7 +1087,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDeleteWarmPool Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+         * @param forceDeleteWarmPool Allows deleting the Auto Scaling group without waiting for all instances in the warm pool to terminate.
          * 
          * @return builder
          * 
@@ -1162,11 +1162,11 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param initialLifecycleHooks One or more
          * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
-         * to attach to the Auto Scaling Group **before** instances are launched. The
+         * to attach to the Auto Scaling group **before** instances are launched. The
          * syntax is exactly the same as the separate
          * `aws.autoscaling.LifecycleHook`
          * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
-         * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
+         * a new Auto Scaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
          * 
          * @return builder
          * 
@@ -1179,11 +1179,11 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param initialLifecycleHooks One or more
          * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
-         * to attach to the Auto Scaling Group **before** instances are launched. The
+         * to attach to the Auto Scaling group **before** instances are launched. The
          * syntax is exactly the same as the separate
          * `aws.autoscaling.LifecycleHook`
          * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
-         * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
+         * a new Auto Scaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
          * 
          * @return builder
          * 
@@ -1195,11 +1195,11 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param initialLifecycleHooks One or more
          * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
-         * to attach to the Auto Scaling Group **before** instances are launched. The
+         * to attach to the Auto Scaling group **before** instances are launched. The
          * syntax is exactly the same as the separate
          * `aws.autoscaling.LifecycleHook`
          * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
-         * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
+         * a new Auto Scaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
          * 
          * @return builder
          * 
@@ -1209,7 +1209,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceLifecyclePolicy If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+         * @param instanceLifecyclePolicy If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling group. Defined below.
          * 
          * @return builder
          * 
@@ -1220,7 +1220,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceLifecyclePolicy If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+         * @param instanceLifecyclePolicy If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling group. Defined below.
          * 
          * @return builder
          * 
@@ -1253,7 +1253,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param instanceRefresh If this block is configured, start an
          * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-         * when this Auto Scaling Group is updated. Defined below.
+         * when this Auto Scaling group is updated. Defined below.
          * 
          * @return builder
          * 
@@ -1266,7 +1266,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param instanceRefresh If this block is configured, start an
          * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-         * when this Auto Scaling Group is updated. Defined below.
+         * when this Auto Scaling group is updated. Defined below.
          * 
          * @return builder
          * 
@@ -1318,7 +1318,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancers List of elastic load balancer names to add to the autoscaling
+         * @param loadBalancers List of elastic load balancer names to add to the Auto Scaling
          * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
          * 
          * @return builder
@@ -1330,7 +1330,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancers List of elastic load balancer names to add to the autoscaling
+         * @param loadBalancers List of elastic load balancer names to add to the Auto Scaling
          * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
          * 
          * @return builder
@@ -1341,7 +1341,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancers List of elastic load balancer names to add to the autoscaling
+         * @param loadBalancers List of elastic load balancer names to add to the Auto Scaling
          * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
          * 
          * @return builder
@@ -1373,7 +1373,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize Maximum size of the Auto Scaling Group.
+         * @param maxSize Maximum size of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -1384,7 +1384,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize Maximum size of the Auto Scaling Group.
+         * @param maxSize Maximum size of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -1436,7 +1436,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param minElbCapacity Setting this causes Pulumi to wait for
-         * this number of instances from this Auto Scaling Group to show up healthy in the
+         * this number of instances from this Auto Scaling group to show up healthy in the
          * ELB only on creation. Updates will not wait on ELB instance number changes.
          * (See also Waiting for Capacity below.)
          * 
@@ -1450,7 +1450,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param minElbCapacity Setting this causes Pulumi to wait for
-         * this number of instances from this Auto Scaling Group to show up healthy in the
+         * this number of instances from this Auto Scaling group to show up healthy in the
          * ELB only on creation. Updates will not wait on ELB instance number changes.
          * (See also Waiting for Capacity below.)
          * 
@@ -1462,7 +1462,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Minimum size of the Auto Scaling Group.
+         * @param minSize Minimum size of the Auto Scaling group.
          * (See also Waiting for Capacity below.)
          * 
          * @return builder
@@ -1474,7 +1474,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Minimum size of the Auto Scaling Group.
+         * @param minSize Minimum size of the Auto Scaling group.
          * (See also Waiting for Capacity below.)
          * 
          * @return builder
@@ -1506,7 +1506,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
+         * @param name Name of the Auto Scaling group. By default generated by Pulumi. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -1517,7 +1517,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
+         * @param name Name of the Auto Scaling group. By default generated by Pulumi. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -1642,8 +1642,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedProcesses List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
-         * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+         * @param suspendedProcesses List of processes to suspend for the Auto Scaling group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+         * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling group from functioning properly.
          * 
          * @return builder
          * 
@@ -1654,8 +1654,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedProcesses List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
-         * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+         * @param suspendedProcesses List of processes to suspend for the Auto Scaling group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+         * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling group from functioning properly.
          * 
          * @return builder
          * 
@@ -1665,8 +1665,8 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedProcesses List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
-         * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+         * @param suspendedProcesses List of processes to suspend for the Auto Scaling group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+         * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling group from functioning properly.
          * 
          * @return builder
          * 
@@ -1738,7 +1738,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
+         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
          * 
          * @return builder
          * 
@@ -1749,7 +1749,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
+         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
          * 
          * @return builder
          * 
@@ -1759,7 +1759,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
+         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
          * 
          * @return builder
          * 
@@ -1861,7 +1861,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param waitForElbCapacity Setting this will cause Pulumi to wait
-         * for exactly this number of healthy instances from this Auto Scaling Group in
+         * for exactly this number of healthy instances from this Auto Scaling group in
          * all attached load balancers on both create and update operations. (Takes
          * precedence over `minElbCapacity` behavior.)
          * (See also Waiting for Capacity below.)
@@ -1876,7 +1876,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param waitForElbCapacity Setting this will cause Pulumi to wait
-         * for exactly this number of healthy instances from this Auto Scaling Group in
+         * for exactly this number of healthy instances from this Auto Scaling group in
          * all attached load balancers on both create and update operations. (Takes
          * precedence over `minElbCapacity` behavior.)
          * (See also Waiting for Capacity below.)

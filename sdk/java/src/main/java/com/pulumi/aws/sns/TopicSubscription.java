@@ -327,14 +327,14 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     * Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
      * 
      */
     @Export(name="confirmationTimeoutInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> confirmationTimeoutInMinutes;
 
     /**
-     * @return Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     * @return Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
      * 
      */
     public Output<Optional<Integer>> confirmationTimeoutInMinutes() {

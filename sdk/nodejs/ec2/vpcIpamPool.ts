@@ -208,7 +208,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
      */
     declare public readonly sourceIpamPoolId: pulumi.Output<string | undefined>;
     /**
-     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
      */
     declare public readonly sourceResource: pulumi.Output<outputs.ec2.VpcIpamPoolSourceResource | undefined>;
     /**
@@ -372,7 +372,7 @@ export interface VpcIpamPoolState {
      */
     sourceIpamPoolId?: pulumi.Input<string | undefined>;
     /**
-     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
      */
     sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource | undefined>;
     /**
@@ -454,7 +454,7 @@ export interface VpcIpamPoolArgs {
      */
     sourceIpamPoolId?: pulumi.Input<string | undefined>;
     /**
-     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
      */
     sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource | undefined>;
     /**

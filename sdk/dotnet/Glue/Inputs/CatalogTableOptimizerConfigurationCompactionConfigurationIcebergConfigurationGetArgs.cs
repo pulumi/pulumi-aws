@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+        /// Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
         /// </summary>
         [Input("deleteFileThreshold")]
         public Input<int>? DeleteFileThreshold { get; set; }
 
         /// <summary>
-        /// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+        /// Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
         /// </summary>
         [Input("minInputFiles")]
         public Input<int>? MinInputFiles { get; set; }
 
         /// <summary>
-        /// The strategy to use for compaction. Valid values are `Binpack`, `Sort` and `z-order` Defaults to `Binpack`.
+        /// Strategy to use for compaction. Valid values are `Binpack`, `Sort` and `z-order` Defaults to `Binpack`.
         /// </summary>
         [Input("strategy")]
         public Input<string>? Strategy { get; set; }

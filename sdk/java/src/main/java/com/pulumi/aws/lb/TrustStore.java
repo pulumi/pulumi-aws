@@ -145,14 +145,14 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
         return this.caCertificatesBundleS3Key;
     }
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
     @Export(name="caCertificatesBundleS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> caCertificatesBundleS3ObjectVersion;
 
     /**
-     * @return Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * @return Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
     public Output<Optional<String>> caCertificatesBundleS3ObjectVersion() {

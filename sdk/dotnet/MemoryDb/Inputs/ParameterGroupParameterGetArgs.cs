@@ -13,13 +13,13 @@ namespace Pulumi.Aws.MemoryDb.Inputs
     public sealed class ParameterGroupParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the parameter.
+        /// Name of the parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of the parameter.
+        /// Value of the parameter.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

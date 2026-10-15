@@ -50,7 +50,7 @@ class GetDataCatalogEncryptionSettingsResult:
     @pulumi.getter(name="dataCatalogEncryptionSettings")
     def data_catalog_encryption_settings(self) -> Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult']:
         """
-        The security configuration to set. see Data Catalog Encryption Settings.
+        Security configuration to set. see `data_catalog_encryption_settings` Block.
         """
         return pulumi.get(self, "data_catalog_encryption_settings")
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppAutoScaling
 {
     /// <summary>
-    /// Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
+    /// Provides an Application Auto Scaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
     /// 
     /// &gt; **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `Arn`. These resource cannot use `Tags` or participate in `DefaultTags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.
     /// 
@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// ## Example Usage
     /// 
-    /// ### DynamoDB Table Autoscaling
+    /// ### DynamoDB Table AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// 
-    /// ### DynamoDB Index Autoscaling
+    /// ### DynamoDB Index AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// 
-    /// ### ECS Service Autoscaling
+    /// ### ECS Service AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// 
-    /// ### Aurora Read Replica Autoscaling
+    /// ### Aurora Read Replica AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// * `AccountId` (String) AWS Account where this resource is managed.
     /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
+    /// Using `pulumi import`, import Application Auto Scaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
+        /// ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
+        /// ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
+        /// ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

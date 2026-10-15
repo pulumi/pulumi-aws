@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Eks.Inputs
         private InputList<Inputs.NodeGroupResourceAutoscalingGroupGetArgs>? _autoscalingGroups;
 
         /// <summary>
-        /// List of objects containing information about AutoScaling Groups.
+        /// List of objects containing information about Auto Scaling groups.
         /// </summary>
         public InputList<Inputs.NodeGroupResourceAutoscalingGroupGetArgs> AutoscalingGroups
         {

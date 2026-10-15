@@ -47,7 +47,7 @@ public final class UserProfileUserSettings {
      */
     private @Nullable List<UserProfileUserSettingsCustomFileSystemConfig> customFileSystemConfigs;
     /**
-     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * @return Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
      * 
      */
     private @Nullable UserProfileUserSettingsCustomPosixUserConfig customPosixUserConfig;
@@ -147,7 +147,7 @@ public final class UserProfileUserSettings {
         return this.customFileSystemConfigs == null ? List.of() : this.customFileSystemConfigs;
     }
     /**
-     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * @return Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
      * 
      */
     public Optional<UserProfileUserSettingsCustomPosixUserConfig> customPosixUserConfig() {

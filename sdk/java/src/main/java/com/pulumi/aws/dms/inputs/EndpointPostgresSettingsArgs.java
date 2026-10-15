@@ -228,14 +228,14 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
      * 
      */
     @Import(name="maxFileSize")
     private @Nullable Output<Integer> maxFileSize;
 
     /**
-     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * @return Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
      * 
      */
     public Optional<Output<Integer>> maxFileSize() {
@@ -623,7 +623,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param maxFileSize Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+         * @param maxFileSize Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param maxFileSize Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+         * @param maxFileSize Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
         /// </summary>
         public readonly string? EncryptionOption;
         /// <summary>
-        /// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+        /// KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

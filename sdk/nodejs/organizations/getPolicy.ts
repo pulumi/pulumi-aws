@@ -21,7 +21,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetPolicyArgs {
     /**
-     * The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+     * The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
      */
     policyId: string;
 }
@@ -77,7 +77,7 @@ export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetPolicyOutputArgs {
     /**
-     * The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+     * The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
      */
     policyId: pulumi.Input<string>;
 }

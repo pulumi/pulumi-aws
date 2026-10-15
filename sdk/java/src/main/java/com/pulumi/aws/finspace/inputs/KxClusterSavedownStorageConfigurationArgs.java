@@ -32,14 +32,14 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+     * Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+     * @return Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
      * 
      */
     public Optional<Output<String>> type() {
@@ -109,7 +109,7 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param type Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+         * @param type Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param type Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+         * @param type Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
          * 
          * @return builder
          * 

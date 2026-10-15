@@ -486,7 +486,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly enableLocalWriteForwarding: pulumi.Output<boolean | undefined>;
     /**
-     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+     * Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
      */
     declare public readonly enabledCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
     /**
@@ -606,6 +606,10 @@ export class Cluster extends pulumi.CustomResource {
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    /**
+     * Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+     */
+    declare public readonly publiclyAccessible: pulumi.Output<boolean>;
     /**
      * Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
      */
@@ -745,6 +749,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = state?.port;
             resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
             resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
             resourceInputs["readerEndpoint"] = state?.readerEndpoint;
             resourceInputs["region"] = state?.region;
             resourceInputs["replicationSourceIdentifier"] = state?.replicationSourceIdentifier;
@@ -820,6 +825,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = args?.port;
             resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
             resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
             resourceInputs["region"] = args?.region;
             resourceInputs["replicationSourceIdentifier"] = args?.replicationSourceIdentifier;
             resourceInputs["restoreToPointInTime"] = args?.restoreToPointInTime;
@@ -977,7 +983,7 @@ export interface ClusterState {
      */
     enableLocalWriteForwarding?: pulumi.Input<boolean | undefined>;
     /**
-     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+     * Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -1097,6 +1103,10 @@ export interface ClusterState {
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+     */
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
      */
@@ -1277,7 +1287,7 @@ export interface ClusterArgs {
      */
     enableLocalWriteForwarding?: pulumi.Input<boolean | undefined>;
     /**
-     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+     * Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -1381,6 +1391,10 @@ export interface ClusterArgs {
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+     */
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

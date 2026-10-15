@@ -23,7 +23,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an Amazon Bedrock Guardrail.
+ * Manages an Amazon Bedrock Guardrail.
  * 
  * ## Example Usage
  * 
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                     .type("HATE")
  *                     .build())
  *                 .tierConfigs(GuardrailContentPolicyConfigTierConfigArgs.builder()
- *                     .tierName("STANDARD")
+ *                     .tierName("CLASSIC")
  *                     .build())
  *                 .build())
  *             .sensitiveInformationPolicyConfig(GuardrailSensitiveInformationPolicyConfigArgs.builder()
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `guardrailId` and `version`. For example:
+ * Using `pulumi import`, import Amazon Bedrock Guardrail using a comma-delimited string of `guardrailId` and `version`. For example:
  * 
  * ```sh
  * $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
@@ -192,28 +192,28 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contextualGroundingPolicyConfig);
     }
     /**
-     * Unix epoch timestamp in seconds for when the Guardrail was created.
+     * Date and time the Guardrail was created, in RFC3339 format.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Unix epoch timestamp in seconds for when the Guardrail was created.
+     * @return Date and time the Guardrail was created, in RFC3339 format.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      * 
      */
     @Export(name="crossRegionConfig", refs={GuardrailCrossRegionConfig.class}, tree="[0]")
     private Output</* @Nullable */ GuardrailCrossRegionConfig> crossRegionConfig;
 
     /**
-     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      * 
      */
     public Output<Optional<GuardrailCrossRegionConfig>> crossRegionConfig() {
@@ -322,14 +322,14 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sensitiveInformationPolicyConfig);
     }
     /**
-     * Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+     * Status of the Bedrock Guardrail.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+     * @return Status of the Bedrock Guardrail.
      * 
      */
     public Output<String> status() {
@@ -349,9 +349,17 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -376,14 +384,14 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.topicPolicyConfig);
     }
     /**
-     * Date and time that the Guardrail list was last updated.
+     * Date and time that the Guardrail was last updated, in RFC3339 format.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date and time that the Guardrail list was last updated.
+     * @return Date and time that the Guardrail was last updated, in RFC3339 format.
      * 
      */
     public Output<String> updatedAt() {

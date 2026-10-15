@@ -36,7 +36,7 @@ class InstanceGroupArgs:
 
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        :param pulumi.Input[_builtins.str] autoscaling_policy: The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         :param pulumi.Input[_builtins.str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[_builtins.str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
@@ -113,7 +113,7 @@ class InstanceGroupArgs:
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         """
         return pulumi.get(self, "autoscaling_policy")
 
@@ -245,7 +245,7 @@ class _InstanceGroupState:
         """
         Input properties used for looking up and filtering InstanceGroup resources.
 
-        :param pulumi.Input[_builtins.str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        :param pulumi.Input[_builtins.str] autoscaling_policy: The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         :param pulumi.Input[_builtins.str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
@@ -308,7 +308,7 @@ class _InstanceGroupState:
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         """
         return pulumi.get(self, "autoscaling_policy")
 
@@ -510,7 +510,7 @@ class InstanceGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
+        Using `pulumi import`, import EMR task instance group using their EMR Cluster ID and Instance Group ID separated by a forward-slash `/`. For example:
 
         ```sh
         $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
@@ -519,7 +519,7 @@ class InstanceGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        :param pulumi.Input[_builtins.str] autoscaling_policy: The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         :param pulumi.Input[_builtins.str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
@@ -580,7 +580,7 @@ class InstanceGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
+        Using `pulumi import`, import EMR task instance group using their EMR Cluster ID and Instance Group ID separated by a forward-slash `/`. For example:
 
         ```sh
         $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
@@ -666,7 +666,7 @@ class InstanceGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        :param pulumi.Input[_builtins.str] autoscaling_policy: The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         :param pulumi.Input[_builtins.str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
@@ -722,7 +722,7 @@ class InstanceGroup(pulumi.CustomResource):
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         """
         return pulumi.get(self, "autoscaling_policy")
 

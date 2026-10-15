@@ -176,28 +176,28 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+     * Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
      * 
      */
     @Export(name="cdiInputSpecification", refs={ChannelCdiInputSpecification.class}, tree="[0]")
     private Output</* @Nullable */ ChannelCdiInputSpecification> cdiInputSpecification;
 
     /**
-     * @return Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+     * @return Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
      * 
      */
     public Output<Optional<ChannelCdiInputSpecification>> cdiInputSpecification() {
         return Codegen.optional(this.cdiInputSpecification);
     }
     /**
-     * Concise argument description.
+     * Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
      * 
      */
     @Export(name="channelClass", refs={String.class}, tree="[0]")
     private Output<String> channelClass;
 
     /**
-     * @return Concise argument description.
+     * @return Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
      * 
      */
     public Output<String> channelClass() {
@@ -218,91 +218,91 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.channelId;
     }
     /**
-     * Destinations for channel. See Destinations for more details.
+     * Destinations for the channel. See `destinations` Block for details.
      * 
      */
     @Export(name="destinations", refs={List.class,ChannelDestination.class}, tree="[0,1]")
     private Output<List<ChannelDestination>> destinations;
 
     /**
-     * @return Destinations for channel. See Destinations for more details.
+     * @return Destinations for the channel. See `destinations` Block for details.
      * 
      */
     public Output<List<ChannelDestination>> destinations() {
         return this.destinations;
     }
     /**
-     * Encoder settings. See Encoder Settings for more details.
+     * Encoder settings. See `encoderSettings` Block for details.
      * 
      */
     @Export(name="encoderSettings", refs={ChannelEncoderSettings.class}, tree="[0]")
     private Output<ChannelEncoderSettings> encoderSettings;
 
     /**
-     * @return Encoder settings. See Encoder Settings for more details.
+     * @return Encoder settings. See `encoderSettings` Block for details.
      * 
      */
     public Output<ChannelEncoderSettings> encoderSettings() {
         return this.encoderSettings;
     }
     /**
-     * Input attachments for the channel. See Input Attachments for more details.
+     * Input attachments for the channel. See `inputAttachments` Block for details.
      * 
      */
     @Export(name="inputAttachments", refs={List.class,ChannelInputAttachment.class}, tree="[0,1]")
     private Output<List<ChannelInputAttachment>> inputAttachments;
 
     /**
-     * @return Input attachments for the channel. See Input Attachments for more details.
+     * @return Input attachments for the channel. See `inputAttachments` Block for details.
      * 
      */
     public Output<List<ChannelInputAttachment>> inputAttachments() {
         return this.inputAttachments;
     }
     /**
-     * Specification of network and file inputs for the channel.
+     * Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
      * 
      */
     @Export(name="inputSpecification", refs={ChannelInputSpecification.class}, tree="[0]")
     private Output<ChannelInputSpecification> inputSpecification;
 
     /**
-     * @return Specification of network and file inputs for the channel.
+     * @return Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
      * 
      */
     public Output<ChannelInputSpecification> inputSpecification() {
         return this.inputSpecification;
     }
     /**
-     * The log level to write to Cloudwatch logs.
+     * Level of verbosity for the logs written to CloudWatch Logs.
      * 
      */
     @Export(name="logLevel", refs={String.class}, tree="[0]")
     private Output<String> logLevel;
 
     /**
-     * @return The log level to write to Cloudwatch logs.
+     * @return Level of verbosity for the logs written to CloudWatch Logs.
      * 
      */
     public Output<String> logLevel() {
         return this.logLevel;
     }
     /**
-     * Maintenance settings for this channel. See Maintenance for more details.
+     * Maintenance settings for this channel. See `maintenance` Block for details.
      * 
      */
     @Export(name="maintenance", refs={ChannelMaintenance.class}, tree="[0]")
     private Output<ChannelMaintenance> maintenance;
 
     /**
-     * @return Maintenance settings for this channel. See Maintenance for more details.
+     * @return Maintenance settings for this channel. See `maintenance` Block for details.
      * 
      */
     public Output<ChannelMaintenance> maintenance() {
         return this.maintenance;
     }
     /**
-     * Name of the Channel.
+     * Name of the channel.
      * 
      * The following arguments are optional:
      * 
@@ -311,7 +311,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Name of the Channel.
+     * @return Name of the channel.
      * 
      * The following arguments are optional:
      * 
@@ -334,62 +334,74 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Concise argument description.
+     * ARN of the IAM role for the channel.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return Concise argument description.
+     * @return ARN of the IAM role for the channel.
      * 
      */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
     /**
-     * Whether to start/stop channel. Default: `false`
+     * Whether to start/stop channel. Default: `false`.
      * 
      */
     @Export(name="startChannel", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startChannel;
 
     /**
-     * @return Whether to start/stop channel. Default: `false`
+     * @return Whether to start/stop channel. Default: `false`.
      * 
      */
     public Output<Optional<Boolean>> startChannel() {
         return Codegen.optional(this.startChannel);
     }
     /**
-     * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+     * * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+     * * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Settings for the VPC outputs. See VPC for more details.
+     * Settings for the VPC outputs. See `vpc` Block for details.
      * 
      */
     @Export(name="vpc", refs={ChannelVpc.class}, tree="[0]")
     private Output</* @Nullable */ ChannelVpc> vpc;
 
     /**
-     * @return Settings for the VPC outputs. See VPC for more details.
+     * @return Settings for the VPC outputs. See `vpc` Block for details.
      * 
      */
     public Output<Optional<ChannelVpc>> vpc() {

@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetContactFlowModuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific Contact Flow Module by contact flow module id
+        /// Returns information on a specific Contact Flow Module by contact flow module ID
         /// </summary>
         [Input("contactFlowModuleId")]
         public string? ContactFlowModuleId { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetContactFlowModuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific Contact Flow Module by contact flow module id
+        /// Returns information on a specific Contact Flow Module by contact flow module ID
         /// </summary>
         [Input("contactFlowModuleId")]
         public Input<string>? ContactFlowModuleId { get; set; }

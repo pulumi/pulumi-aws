@@ -61,49 +61,49 @@ namespace Pulumi.Aws.MemoryDb
     public partial class MultiRegionCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the multi-region cluster.
+        /// ARN of the multi-region cluster.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// description for the multi-region cluster.
+        /// Description for the multi-region cluster.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the engine to be used for the multi-region cluster. Valid values are `Redis` and `Valkey`.
+        /// Name of the engine to be used for the multi-region cluster. Valid values are `Redis` and `Valkey`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+        /// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the multi-region cluster.
+        /// Name of the multi-region cluster.
         /// </summary>
         [Output("multiRegionClusterName")]
         public Output<string> MultiRegionClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+        /// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
         /// </summary>
         [Output("multiRegionClusterNameSuffix")]
         public Output<string> MultiRegionClusterNameSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the multi-region parameter group to be associated with the cluster.
+        /// Name of the multi-region parameter group to be associated with the cluster.
         /// </summary>
         [Output("multiRegionParameterGroupName")]
         public Output<string> MultiRegionParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The node type to be used for the multi-region cluster.
+        /// Node type to be used for the multi-region cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> NodeType { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards for the multi-region cluster.
+        /// Number of shards for the multi-region cluster.
         /// </summary>
         [Output("numShards")]
         public Output<int> NumShards { get; private set; } = null!;
@@ -122,17 +122,20 @@ namespace Pulumi.Aws.MemoryDb
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of the multi-region cluster.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -141,11 +144,14 @@ namespace Pulumi.Aws.MemoryDb
         public Output<Outputs.MultiRegionClusterTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// A flag to enable in-transit encryption on the cluster.
+        /// Whether to enable in-transit encryption on the cluster.
         /// </summary>
         [Output("tlsEnabled")]
         public Output<bool> TlsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Strategy to use for the multi-region cluster update. Valid values are `Coordinated` and `Uncoordinated`.
+        /// </summary>
         [Output("updateStrategy")]
         public Output<string?> UpdateStrategy { get; private set; } = null!;
 
@@ -196,37 +202,37 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class MultiRegionClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// description for the multi-region cluster.
+        /// Description for the multi-region cluster.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the engine to be used for the multi-region cluster. Valid values are `Redis` and `Valkey`.
+        /// Name of the engine to be used for the multi-region cluster. Valid values are `Redis` and `Valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+        /// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+        /// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
         /// </summary>
         [Input("multiRegionClusterNameSuffix", required: true)]
         public Input<string> MultiRegionClusterNameSuffix { get; set; } = null!;
 
         /// <summary>
-        /// The name of the multi-region parameter group to be associated with the cluster.
+        /// Name of the multi-region parameter group to be associated with the cluster.
         /// </summary>
         [Input("multiRegionParameterGroupName")]
         public Input<string>? MultiRegionParameterGroupName { get; set; }
 
         /// <summary>
-        /// The node type to be used for the multi-region cluster.
+        /// Node type to be used for the multi-region cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -234,7 +240,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string> NodeType { get; set; } = null!;
 
         /// <summary>
-        /// The number of shards for the multi-region cluster.
+        /// Number of shards for the multi-region cluster.
         /// </summary>
         [Input("numShards")]
         public Input<int>? NumShards { get; set; }
@@ -249,7 +255,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -261,11 +267,14 @@ namespace Pulumi.Aws.MemoryDb
         public Input<Inputs.MultiRegionClusterTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// A flag to enable in-transit encryption on the cluster.
+        /// Whether to enable in-transit encryption on the cluster.
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }
 
+        /// <summary>
+        /// Strategy to use for the multi-region cluster update. Valid values are `Coordinated` and `Uncoordinated`.
+        /// </summary>
         [Input("updateStrategy")]
         public Input<string>? UpdateStrategy { get; set; }
 
@@ -278,49 +287,49 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class MultiRegionClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the multi-region cluster.
+        /// ARN of the multi-region cluster.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// description for the multi-region cluster.
+        /// Description for the multi-region cluster.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the engine to be used for the multi-region cluster. Valid values are `Redis` and `Valkey`.
+        /// Name of the engine to be used for the multi-region cluster. Valid values are `Redis` and `Valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+        /// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of the multi-region cluster.
+        /// Name of the multi-region cluster.
         /// </summary>
         [Input("multiRegionClusterName")]
         public Input<string>? MultiRegionClusterName { get; set; }
 
         /// <summary>
-        /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+        /// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
         /// </summary>
         [Input("multiRegionClusterNameSuffix")]
         public Input<string>? MultiRegionClusterNameSuffix { get; set; }
 
         /// <summary>
-        /// The name of the multi-region parameter group to be associated with the cluster.
+        /// Name of the multi-region parameter group to be associated with the cluster.
         /// </summary>
         [Input("multiRegionParameterGroupName")]
         public Input<string>? MultiRegionParameterGroupName { get; set; }
 
         /// <summary>
-        /// The node type to be used for the multi-region cluster.
+        /// Node type to be used for the multi-region cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -328,7 +337,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// The number of shards for the multi-region cluster.
+        /// Number of shards for the multi-region cluster.
         /// </summary>
         [Input("numShards")]
         public Input<int>? NumShards { get; set; }
@@ -339,6 +348,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Status of the multi-region cluster.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -346,7 +358,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -358,7 +370,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -370,11 +382,14 @@ namespace Pulumi.Aws.MemoryDb
         public Input<Inputs.MultiRegionClusterTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// A flag to enable in-transit encryption on the cluster.
+        /// Whether to enable in-transit encryption on the cluster.
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }
 
+        /// <summary>
+        /// Strategy to use for the multi-region cluster update. Valid values are `Coordinated` and `Uncoordinated`.
+        /// </summary>
         [Input("updateStrategy")]
         public Input<string>? UpdateStrategy { get; set; }
 

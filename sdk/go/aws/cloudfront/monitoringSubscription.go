@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
+// Using `pulumi import`, import CloudFront monitoring subscription using the ID. For example:
 //
 // ```sh
 // $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB

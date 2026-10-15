@@ -109,7 +109,7 @@ type NetworkSettings struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more security groups used to control access from streaming instances to your VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -174,7 +174,7 @@ type networkSettingsState struct {
 	Region *string `pulumi:"region"`
 	// One or more security groups used to control access from streaming instances to your VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -195,7 +195,7 @@ type NetworkSettingsState struct {
 	Region pulumi.StringPtrInput
 	// One or more security groups used to control access from streaming instances to your VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
 	SubnetIds pulumi.StringArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -216,7 +216,7 @@ type networkSettingsArgs struct {
 	Region *string `pulumi:"region"`
 	// One or more security groups used to control access from streaming instances to your VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -232,7 +232,7 @@ type NetworkSettingsArgs struct {
 	Region pulumi.StringPtrInput
 	// One or more security groups used to control access from streaming instances to your VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
 	SubnetIds pulumi.StringArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -349,7 +349,7 @@ func (o NetworkSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
 func (o NetworkSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

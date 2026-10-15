@@ -51,17 +51,17 @@ import (
 type Container struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the container.
+	// ARN of the container.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The DNS endpoint of the container.
+	// DNS endpoint of the container.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The name of the container. Must contain alphanumeric characters or underscores.
+	// Name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -95,32 +95,32 @@ func GetContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Container resources.
 type containerState struct {
-	// The ARN of the container.
+	// ARN of the container.
 	Arn *string `pulumi:"arn"`
-	// The DNS endpoint of the container.
+	// DNS endpoint of the container.
 	Endpoint *string `pulumi:"endpoint"`
-	// The name of the container. Must contain alphanumeric characters or underscores.
+	// Name of the container. Must contain alphanumeric characters or underscores.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ContainerState struct {
-	// The ARN of the container.
+	// ARN of the container.
 	Arn pulumi.StringPtrInput
-	// The DNS endpoint of the container.
+	// DNS endpoint of the container.
 	Endpoint pulumi.StringPtrInput
-	// The name of the container. Must contain alphanumeric characters or underscores.
+	// Name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -129,21 +129,21 @@ func (ContainerState) ElementType() reflect.Type {
 }
 
 type containerArgs struct {
-	// The name of the container. Must contain alphanumeric characters or underscores.
+	// Name of the container. Must contain alphanumeric characters or underscores.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
-	// The name of the container. Must contain alphanumeric characters or underscores.
+	// Name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -234,17 +234,17 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 	return o
 }
 
-// The ARN of the container.
+// ARN of the container.
 func (o ContainerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The DNS endpoint of the container.
+// DNS endpoint of the container.
 func (o ContainerOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the container. Must contain alphanumeric characters or underscores.
+// Name of the container. Must contain alphanumeric characters or underscores.
 func (o ContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -254,12 +254,12 @@ func (o ContainerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContainerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContainerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

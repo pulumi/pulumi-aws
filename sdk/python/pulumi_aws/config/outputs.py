@@ -479,6 +479,7 @@ class Endpoints(dict):
                  pipes: Optional[_builtins.str] = None,
                  polly: Optional[_builtins.str] = None,
                  pricing: Optional[_builtins.str] = None,
+                 pricingplanmanager: Optional[_builtins.str] = None,
                  prometheus: Optional[_builtins.str] = None,
                  prometheusservice: Optional[_builtins.str] = None,
                  qbusiness: Optional[_builtins.str] = None,
@@ -805,6 +806,7 @@ class Endpoints(dict):
         :param _builtins.str pipes: Use this to override the default service endpoint URL
         :param _builtins.str polly: Use this to override the default service endpoint URL
         :param _builtins.str pricing: Use this to override the default service endpoint URL
+        :param _builtins.str pricingplanmanager: Use this to override the default service endpoint URL
         :param _builtins.str prometheus: Use this to override the default service endpoint URL
         :param _builtins.str prometheusservice: Use this to override the default service endpoint URL
         :param _builtins.str qbusiness: Use this to override the default service endpoint URL
@@ -1368,6 +1370,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "polly", polly)
         if pricing is not None:
             pulumi.set(__self__, "pricing", pricing)
+        if pricingplanmanager is not None:
+            pulumi.set(__self__, "pricingplanmanager", pricingplanmanager)
         if prometheus is not None:
             pulumi.set(__self__, "prometheus", prometheus)
         if prometheusservice is not None:
@@ -3440,6 +3444,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "pricing")
+
+    @_builtins.property
+    @pulumi.getter
+    def pricingplanmanager(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "pricingplanmanager")
 
     @_builtins.property
     @pulumi.getter

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<bool>? BatchMode { get; set; }
 
         /// <summary>
-        /// Name of AWS IOT Analytics channel.
+        /// Name of AWS IoT Analytics channel.
         /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;

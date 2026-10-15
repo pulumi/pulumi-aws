@@ -88,70 +88,70 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+     * Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      * 
      */
     @Export(name="compatibility", refs={String.class}, tree="[0]")
     private Output<String> compatibility;
 
     /**
-     * @return The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+     * @return Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      * 
      */
     public Output<String> compatibility() {
         return this.compatibility;
     }
     /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+     * Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      * 
      */
     @Export(name="dataFormat", refs={String.class}, tree="[0]")
     private Output<String> dataFormat;
 
     /**
-     * @return The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+     * @return Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      * 
      */
     public Output<String> dataFormat() {
         return this.dataFormat;
     }
     /**
-     * A description of the schema.
+     * Description of the schema.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the schema.
+     * @return Description of the schema.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The latest version of the schema associated with the returned schema definition.
+     * Latest version of the schema associated with the returned schema definition.
      * 
      */
     @Export(name="latestSchemaVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestSchemaVersion;
 
     /**
-     * @return The latest version of the schema associated with the returned schema definition.
+     * @return Latest version of the schema associated with the returned schema definition.
      * 
      */
     public Output<Integer> latestSchemaVersion() {
         return this.latestSchemaVersion;
     }
     /**
-     * The next version of the schema associated with the returned schema definition.
+     * Next version of the schema associated with the returned schema definition.
      * 
      */
     @Export(name="nextSchemaVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> nextSchemaVersion;
 
     /**
-     * @return The next version of the schema associated with the returned schema definition.
+     * @return Next version of the schema associated with the returned schema definition.
      * 
      */
     public Output<Integer> nextSchemaVersion() {
@@ -172,70 +172,70 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of the Glue Registry to create the schema in.
+     * ARN of the Glue Registry to create the schema in.
      * 
      */
     @Export(name="registryArn", refs={String.class}, tree="[0]")
     private Output<String> registryArn;
 
     /**
-     * @return The ARN of the Glue Registry to create the schema in.
+     * @return ARN of the Glue Registry to create the schema in.
      * 
      */
     public Output<String> registryArn() {
         return this.registryArn;
     }
     /**
-     * The name of the Glue Registry.
+     * Name of the Glue Registry.
      * 
      */
     @Export(name="registryName", refs={String.class}, tree="[0]")
     private Output<String> registryName;
 
     /**
-     * @return The name of the Glue Registry.
+     * @return Name of the Glue Registry.
      * 
      */
     public Output<String> registryName() {
         return this.registryName;
     }
     /**
-     * The version number of the checkpoint (the last time the compatibility mode was changed).
+     * Version number of the checkpoint (the last time the compatibility mode was changed).
      * 
      */
     @Export(name="schemaCheckpoint", refs={Integer.class}, tree="[0]")
     private Output<Integer> schemaCheckpoint;
 
     /**
-     * @return The version number of the checkpoint (the last time the compatibility mode was changed).
+     * @return Version number of the checkpoint (the last time the compatibility mode was changed).
      * 
      */
     public Output<Integer> schemaCheckpoint() {
         return this.schemaCheckpoint;
     }
     /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
+     * Schema definition using the `dataFormat` setting for `schemaName`.
      * 
      */
     @Export(name="schemaDefinition", refs={String.class}, tree="[0]")
     private Output<String> schemaDefinition;
 
     /**
-     * @return The schema definition using the `dataFormat` setting for `schemaName`.
+     * @return Schema definition using the `dataFormat` setting for `schemaName`.
      * 
      */
     public Output<String> schemaDefinition() {
         return this.schemaDefinition;
     }
     /**
-     * The Name of the schema.
+     * Name of the schema.
      * 
      */
     @Export(name="schemaName", refs={String.class}, tree="[0]")
     private Output<String> schemaName;
 
     /**
-     * @return The Name of the schema.
+     * @return Name of the schema.
      * 
      */
     public Output<String> schemaName() {
@@ -256,14 +256,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

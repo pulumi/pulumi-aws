@@ -16,33 +16,77 @@ import java.util.Objects;
 @CustomType
 public final class GetCustomRoutingAcceleratorResult {
     private String arn;
+    /**
+     * @return Attributes of the accelerator. See `attributes` below.
+     * 
+     */
     private List<GetCustomRoutingAcceleratorAttribute> attributes;
+    /**
+     * @return DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * 
+     */
     private String dnsName;
+    /**
+     * @return Whether the accelerator is enabled.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+     * 
+     */
     private String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Value for the address type.
+     * 
+     */
     private String ipAddressType;
+    /**
+     * @return IP address set associated with the accelerator. See `ipSets` below.
+     * 
+     */
     private List<GetCustomRoutingAcceleratorIpSet> ipSets;
     private String name;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetCustomRoutingAcceleratorResult() {}
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Attributes of the accelerator. See `attributes` below.
+     * 
+     */
     public List<GetCustomRoutingAcceleratorAttribute> attributes() {
         return this.attributes;
     }
+    /**
+     * @return DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * 
+     */
     public String dnsName() {
         return this.dnsName;
     }
+    /**
+     * @return Whether the accelerator is enabled.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+     * 
+     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }
@@ -53,15 +97,27 @@ public final class GetCustomRoutingAcceleratorResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Value for the address type.
+     * 
+     */
     public String ipAddressType() {
         return this.ipAddressType;
     }
+    /**
+     * @return IP address set associated with the accelerator. See `ipSets` below.
+     * 
+     */
     public List<GetCustomRoutingAcceleratorIpSet> ipSets() {
         return this.ipSets;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

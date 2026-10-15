@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode {
     /**
-     * @return Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+     * @return Program ID of the Dolby E program to extract from the specified track. Applies only to Dolby E. One program is extracted per audio selector. To select multiple programs, create multiple selectors with the same track and different program numbers. `All channels` ignores the program IDs and includes all the channels in this selector; useful if metadata is known to be incorrect.
      * 
      */
     private String programSelection;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode() {}
     /**
-     * @return Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+     * @return Program ID of the Dolby E program to extract from the specified track. Applies only to Dolby E. One program is extracted per audio selector. To select multiple programs, create multiple selectors with the same track and different program numbers. `All channels` ignores the program IDs and includes all the channels in this selector; useful if metadata is known to be incorrect.
      * 
      */
     public String programSelection() {

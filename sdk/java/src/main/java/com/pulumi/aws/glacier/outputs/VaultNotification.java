@@ -17,7 +17,7 @@ public final class VaultNotification {
      */
     private List<String> events;
     /**
-     * @return The SNS Topic ARN.
+     * @return SNS Topic ARN.
      * 
      */
     private String snsTopic;
@@ -31,7 +31,7 @@ public final class VaultNotification {
         return this.events;
     }
     /**
-     * @return The SNS Topic ARN.
+     * @return SNS Topic ARN.
      * 
      */
     public String snsTopic() {

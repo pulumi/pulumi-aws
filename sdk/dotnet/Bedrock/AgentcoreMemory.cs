@@ -93,7 +93,6 @@ namespace Pulumi.Aws.Bedrock
     ///         EventExpiryDuration = 60,
     ///         EncryptionKeyArn = example.Arn,
     ///         MemoryExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         ClientToken = "unique-client-token",
     ///     });
     /// 
     /// });
@@ -109,7 +108,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Optional
     /// 
-    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
     /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import memories using `Id`. For example:

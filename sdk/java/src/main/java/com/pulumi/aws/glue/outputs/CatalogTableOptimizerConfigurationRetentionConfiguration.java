@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOptimizerConfigurationRetentionConfiguration {
     /**
-     * @return The configuration for an Iceberg snapshot retention optimizer.
+     * @return Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     private @Nullable CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration icebergConfiguration;
 
     private CatalogTableOptimizerConfigurationRetentionConfiguration() {}
     /**
-     * @return The configuration for an Iceberg snapshot retention optimizer.
+     * @return Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     public Optional<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration> icebergConfiguration() {

@@ -22,7 +22,7 @@ public final class GetUserPoolsResult {
      */
     private String id;
     /**
-     * @return Set of cognito user pool ids.
+     * @return Set of cognito user pool IDs.
      * 
      */
     private List<String> ids;
@@ -45,7 +45,7 @@ public final class GetUserPoolsResult {
         return this.id;
     }
     /**
-     * @return Set of cognito user pool ids.
+     * @return Set of cognito user pool IDs.
      * 
      */
     public List<String> ids() {

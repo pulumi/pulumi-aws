@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? InputAction { get; set; }
 
         /// <summary>
-        /// Toggles guardrail evaluation on input.
+        /// Whether to enable guardrail evaluation on input.
         /// </summary>
         [Input("inputEnabled")]
         public Input<bool>? InputEnabled { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? OutputAction { get; set; }
 
         /// <summary>
-        /// Toggles guardrail evaluation on output.
+        /// Whether to enable guardrail evaluation on output.
         /// </summary>
         [Input("outputEnabled")]
         public Input<bool>? OutputEnabled { get; set; }

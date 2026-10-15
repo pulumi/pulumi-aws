@@ -84,14 +84,14 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unix epoch timestamp in seconds for when the Guardrail was created.
+     * Date and time the Guardrail was created, in RFC3339 format.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Unix epoch timestamp in seconds for when the Guardrail was created.
+     * @return Date and time the Guardrail was created, in RFC3339 format.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -99,14 +99,14 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      * 
      */
     @Import(name="crossRegionConfig")
     private @Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig;
 
     /**
-     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      * 
      */
     public Optional<Output<GuardrailCrossRegionConfigArgs>> crossRegionConfig() {
@@ -223,14 +223,14 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+     * Status of the Bedrock Guardrail.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+     * @return Status of the Bedrock Guardrail.
      * 
      */
     public Optional<Output<String>> status() {
@@ -252,9 +252,17 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -282,14 +290,14 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Date and time that the Guardrail list was last updated.
+     * Date and time that the Guardrail was last updated, in RFC3339 format.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date and time that the Guardrail list was last updated.
+     * @return Date and time that the Guardrail was last updated, in RFC3339 format.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -455,7 +463,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt Unix epoch timestamp in seconds for when the Guardrail was created.
+         * @param createdAt Date and time the Guardrail was created, in RFC3339 format.
          * 
          * @return builder
          * 
@@ -466,7 +474,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt Unix epoch timestamp in seconds for when the Guardrail was created.
+         * @param createdAt Date and time the Guardrail was created, in RFC3339 format.
          * 
          * @return builder
          * 
@@ -476,7 +484,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
          * 
          * @return builder
          * 
@@ -487,7 +495,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
          * 
          * @return builder
          * 
@@ -648,7 +656,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+         * @param status Status of the Bedrock Guardrail.
          * 
          * @return builder
          * 
@@ -659,7 +667,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+         * @param status Status of the Bedrock Guardrail.
          * 
          * @return builder
          * 
@@ -689,11 +697,23 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -729,7 +749,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt Date and time that the Guardrail list was last updated.
+         * @param updatedAt Date and time that the Guardrail was last updated, in RFC3339 format.
          * 
          * @return builder
          * 
@@ -740,7 +760,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt Date and time that the Guardrail list was last updated.
+         * @param updatedAt Date and time that the Guardrail was last updated, in RFC3339 format.
          * 
          * @return builder
          * 

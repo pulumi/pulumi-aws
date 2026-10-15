@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Glue
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+        /// Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
         /// </summary>
         [Input("queryAsOfTime")]
         public string? QueryAsOfTime { get; set; }
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Glue
         public string? Region { get; set; }
 
         /// <summary>
-        /// The transaction ID at which to read the table contents.
+        /// Transaction ID at which to read the table contents.
         /// </summary>
         [Input("transactionId")]
         public int? TransactionId { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+        /// Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
         /// </summary>
         [Input("queryAsOfTime")]
         public Input<string>? QueryAsOfTime { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The transaction ID at which to read the table contents.
+        /// Transaction ID at which to read the table contents.
         /// </summary>
         [Input("transactionId")]
         public Input<int>? TransactionId { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Glue
     public sealed class GetCatalogTableResult
     {
         /// <summary>
-        /// The ARN of the Glue Table.
+        /// ARN of the Glue Table.
         /// </summary>
         public readonly string Arn;
         /// <summary>

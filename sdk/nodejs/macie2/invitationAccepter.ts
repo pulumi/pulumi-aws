@@ -65,11 +65,11 @@ export class InvitationAccepter extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID for the account that sent the invitation.
+     * AWS account ID for the account that sent the invitation.
      */
     declare public readonly administratorAccountId: pulumi.Output<string>;
     /**
-     * The unique identifier for the invitation.
+     * Unique identifier for the invitation.
      */
     declare public /*out*/ readonly invitationId: pulumi.Output<string>;
     /**
@@ -112,11 +112,11 @@ export class InvitationAccepter extends pulumi.CustomResource {
  */
 export interface InvitationAccepterState {
     /**
-     * The AWS account ID for the account that sent the invitation.
+     * AWS account ID for the account that sent the invitation.
      */
     administratorAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the invitation.
+     * Unique identifier for the invitation.
      */
     invitationId?: pulumi.Input<string | undefined>;
     /**
@@ -130,7 +130,7 @@ export interface InvitationAccepterState {
  */
 export interface InvitationAccepterArgs {
     /**
-     * The AWS account ID for the account that sent the invitation.
+     * AWS account ID for the account that sent the invitation.
      */
     administratorAccountId: pulumi.Input<string>;
     /**

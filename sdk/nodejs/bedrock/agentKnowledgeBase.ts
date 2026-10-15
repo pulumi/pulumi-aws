@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
+ * Manages an AWS Agents for Amazon Bedrock Knowledge Base.
  *
  * ## Example Usage
  *

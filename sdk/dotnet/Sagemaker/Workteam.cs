@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Sagemaker
     /// });
     /// ```
     /// 
-    /// ### Oidc Usage
+    /// ### OIDC Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

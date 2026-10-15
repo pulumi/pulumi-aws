@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Sns
         public Output<string?> ArchivePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the SNS topic, as a more obvious property (clone of id)
+        /// The ARN of the SNS topic, as a more obvious property (clone of `Id`)
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -595,7 +595,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? ArchivePolicy { get; set; }
 
         /// <summary>
-        /// The ARN of the SNS topic, as a more obvious property (clone of id)
+        /// The ARN of the SNS topic, as a more obvious property (clone of `Id`)
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

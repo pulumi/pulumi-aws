@@ -16,14 +16,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs();
 
     /**
-     * Archive S3 Settings. See Archive S3 Settings for more details.
+     * Archive S3 settings. See `archiveS3Settings` Block for details.
      * 
      */
     @Import(name="archiveS3Settings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs> archiveS3Settings;
 
     /**
-     * @return Archive S3 Settings. See Archive S3 Settings for more details.
+     * @return Archive S3 settings. See `archiveS3Settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs>> archiveS3Settings() {
@@ -55,7 +55,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param archiveS3Settings Archive S3 Settings. See Archive S3 Settings for more details.
+         * @param archiveS3Settings Archive S3 settings. See `archiveS3Settings` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param archiveS3Settings Archive S3 Settings. See Archive S3 Settings for more details.
+         * @param archiveS3Settings Archive S3 settings. See `archiveS3Settings` Block for details.
          * 
          * @return builder
          * 

@@ -3574,6 +3574,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="pricingplanmanager")
+    private @Nullable Output<String> pricingplanmanager;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> pricingplanmanager() {
+        return Optional.ofNullable(this.pricingplanmanager);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="prometheus")
     private @Nullable Output<String> prometheus;
 
@@ -5130,6 +5145,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.pipes = $.pipes;
         this.polly = $.polly;
         this.pricing = $.pricing;
+        this.pricingplanmanager = $.pricingplanmanager;
         this.prometheus = $.prometheus;
         this.prometheusservice = $.prometheusservice;
         this.qbusiness = $.qbusiness;
@@ -10213,6 +10229,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder pricing(String pricing) {
             return pricing(Output.of(pricing));
+        }
+
+        /**
+         * @param pricingplanmanager Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pricingplanmanager(@Nullable Output<String> pricingplanmanager) {
+            $.pricingplanmanager = pricingplanmanager;
+            return this;
+        }
+
+        /**
+         * @param pricingplanmanager Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pricingplanmanager(String pricingplanmanager) {
+            return pricingplanmanager(Output.of(pricingplanmanager));
         }
 
         /**

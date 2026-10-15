@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclChallengeConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDataProtectionConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclMonetizationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
 import com.pulumi.core.Output;
@@ -184,6 +185,21 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    @Import(name="monetizationConfig")
+    private @Nullable Output<WebAclMonetizationConfigArgs> monetizationConfig;
+
+    /**
+     * @return Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    public Optional<Output<WebAclMonetizationConfigArgs>> monetizationConfig() {
+        return Optional.ofNullable(this.monetizationConfig);
+    }
+
+    /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
@@ -347,6 +363,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         this.defaultAction = $.defaultAction;
         this.description = $.description;
         this.lockToken = $.lockToken;
+        this.monetizationConfig = $.monetizationConfig;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.region = $.region;
@@ -604,6 +621,27 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
 
         public Builder lockToken(String lockToken) {
             return lockToken(Output.of(lockToken));
+        }
+
+        /**
+         * @param monetizationConfig Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monetizationConfig(@Nullable Output<WebAclMonetizationConfigArgs> monetizationConfig) {
+            $.monetizationConfig = monetizationConfig;
+            return this;
+        }
+
+        /**
+         * @param monetizationConfig Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monetizationConfig(WebAclMonetizationConfigArgs monetizationConfig) {
+            return monetizationConfig(Output.of(monetizationConfig));
         }
 
         /**

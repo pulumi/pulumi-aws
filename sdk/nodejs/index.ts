@@ -141,6 +141,7 @@ import * as cloudhsmv2 from "./cloudhsmv2";
 import * as cloudsearch from "./cloudsearch";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
+import * as cloudwatchomni from "./cloudwatchomni";
 import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codecatalyst from "./codecatalyst";
@@ -169,6 +170,7 @@ import * as datazone from "./datazone";
 import * as dax from "./dax";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
+import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
 import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
@@ -262,6 +264,7 @@ import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
 import * as polly from "./polly";
 import * as pricing from "./pricing";
+import * as pricingplanmanager from "./pricingplanmanager";
 import * as qbusiness from "./qbusiness";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
@@ -381,6 +384,7 @@ export {
     cloudsearch,
     cloudtrail,
     cloudwatch,
+    cloudwatchomni,
     codeartifact,
     codebuild,
     codecatalyst,
@@ -409,6 +413,7 @@ export {
     dax,
     detective,
     devicefarm,
+    devopsagent,
     devopsguru,
     directconnect,
     directoryservice,
@@ -502,6 +507,7 @@ export {
     pipes,
     polly,
     pricing,
+    pricingplanmanager,
     qbusiness,
     qldb,
     quicksight,

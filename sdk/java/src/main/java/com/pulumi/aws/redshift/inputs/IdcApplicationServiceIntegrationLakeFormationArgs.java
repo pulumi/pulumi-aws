@@ -16,14 +16,14 @@ public final class IdcApplicationServiceIntegrationLakeFormationArgs extends com
     public static final IdcApplicationServiceIntegrationLakeFormationArgs Empty = new IdcApplicationServiceIntegrationLakeFormationArgs();
 
     /**
-     * Lake formation scope.
+     * Lake Formation scope.
      * 
      */
     @Import(name="lakeFormationQuery")
     private @Nullable Output<IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs> lakeFormationQuery;
 
     /**
-     * @return Lake formation scope.
+     * @return Lake Formation scope.
      * 
      */
     public Optional<Output<IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs>> lakeFormationQuery() {
@@ -55,7 +55,7 @@ public final class IdcApplicationServiceIntegrationLakeFormationArgs extends com
         }
 
         /**
-         * @param lakeFormationQuery Lake formation scope.
+         * @param lakeFormationQuery Lake Formation scope.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class IdcApplicationServiceIntegrationLakeFormationArgs extends com
         }
 
         /**
-         * @param lakeFormationQuery Lake formation scope.
+         * @param lakeFormationQuery Lake Formation scope.
          * 
          * @return builder
          * 

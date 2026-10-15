@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobScheduleFrequency {
     /**
-     * @return Specifies a daily recurrence pattern for running the job.
+     * @return Whether to run the job on a daily recurrence pattern.
      * 
      */
     private @Nullable Boolean dailySchedule;
     /**
-     * @return Specifies a monthly recurrence pattern for running the job.
+     * @return Day of the month on which to run the job for a monthly recurrence pattern.
      * 
      */
     private @Nullable Integer monthlySchedule;
     /**
-     * @return Specifies a weekly recurrence pattern for running the job.
+     * @return Day of the week on which to run the job for a weekly recurrence pattern.
      * 
      */
     private @Nullable String weeklySchedule;
 
     private ClassificationJobScheduleFrequency() {}
     /**
-     * @return Specifies a daily recurrence pattern for running the job.
+     * @return Whether to run the job on a daily recurrence pattern.
      * 
      */
     public Optional<Boolean> dailySchedule() {
         return Optional.ofNullable(this.dailySchedule);
     }
     /**
-     * @return Specifies a monthly recurrence pattern for running the job.
+     * @return Day of the month on which to run the job for a monthly recurrence pattern.
      * 
      */
     public Optional<Integer> monthlySchedule() {
         return Optional.ofNullable(this.monthlySchedule);
     }
     /**
-     * @return Specifies a weekly recurrence pattern for running the job.
+     * @return Day of the week on which to run the job for a weekly recurrence pattern.
      * 
      */
     public Optional<String> weeklySchedule() {

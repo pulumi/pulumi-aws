@@ -398,14 +398,14 @@ public class MaintenanceWindowTask extends com.pulumi.resources.CustomResource {
         return this.serviceRoleArn;
     }
     /**
-     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      * 
      */
     @Export(name="targets", refs={List.class,MaintenanceWindowTaskTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MaintenanceWindowTaskTarget>> targets;
 
     /**
-     * @return The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * @return The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      * 
      */
     public Output<Optional<List<MaintenanceWindowTaskTarget>>> targets() {
@@ -454,14 +454,14 @@ public class MaintenanceWindowTask extends com.pulumi.resources.CustomResource {
         return this.taskType;
     }
     /**
-     * The Id of the maintenance window to register the task with.
+     * The ID of the maintenance window to register the task with.
      * 
      */
     @Export(name="windowId", refs={String.class}, tree="[0]")
     private Output<String> windowId;
 
     /**
-     * @return The Id of the maintenance window to register the task with.
+     * @return The ID of the maintenance window to register the task with.
      * 
      */
     public Output<String> windowId() {

@@ -16,7 +16,7 @@ public final class GetGroupLaunchTemplate {
      */
     private String id;
     /**
-     * @return Specify the exact name of the desired autoscaling group.
+     * @return Specify the exact name of the desired Auto Scaling group.
      * 
      */
     private String name;
@@ -35,7 +35,7 @@ public final class GetGroupLaunchTemplate {
         return this.id;
     }
     /**
-     * @return Specify the exact name of the desired autoscaling group.
+     * @return Specify the exact name of the desired Auto Scaling group.
      * 
      */
     public String name() {

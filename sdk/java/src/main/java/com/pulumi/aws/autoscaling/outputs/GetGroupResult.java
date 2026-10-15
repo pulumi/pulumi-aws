@@ -105,7 +105,7 @@ public final class GetGroupResult {
      */
     private List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies;
     /**
-     * @return Name of the Auto Scaling Group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     private String name;
@@ -136,7 +136,7 @@ public final class GetGroupResult {
      */
     private String status;
     /**
-     * @return List of processes suspended processes for the Auto Scaling Group.
+     * @return List of processes suspended processes for the Auto Scaling group.
      * 
      */
     private List<String> suspendedProcesses;
@@ -297,7 +297,7 @@ public final class GetGroupResult {
         return this.mixedInstancesPolicies;
     }
     /**
-     * @return Name of the Auto Scaling Group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     public String name() {
@@ -342,7 +342,7 @@ public final class GetGroupResult {
         return this.status;
     }
     /**
-     * @return List of processes suspended processes for the Auto Scaling Group.
+     * @return List of processes suspended processes for the Auto Scaling group.
      * 
      */
     public List<String> suspendedProcesses() {

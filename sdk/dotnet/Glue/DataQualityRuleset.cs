@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The time and date that this data quality ruleset was created.
+        /// Time and date that this data quality ruleset was created.
         /// </summary>
         [Output("createdOn")]
         public Output<string> CreatedOn { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The time and date that this data quality ruleset was created.
+        /// Time and date that this data quality ruleset was created.
         /// </summary>
         [Output("lastModifiedOn")]
         public Output<string> LastModifiedOn { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        /// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
         [Output("ruleset")]
         public Output<string> Ruleset { get; private set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` below.
+        /// Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` Block below.
         /// </summary>
         [Output("targetTable")]
         public Output<Outputs.DataQualityRulesetTargetTable?> TargetTable { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        /// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
         [Input("ruleset", required: true)]
         public Input<string> Ruleset { get; set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// A Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` below.
+        /// Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` Block below.
         /// </summary>
         [Input("targetTable")]
         public Input<Inputs.DataQualityRulesetTargetTableArgs>? TargetTable { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The time and date that this data quality ruleset was created.
+        /// Time and date that this data quality ruleset was created.
         /// </summary>
         [Input("createdOn")]
         public Input<string>? CreatedOn { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The time and date that this data quality ruleset was created.
+        /// Time and date that this data quality ruleset was created.
         /// </summary>
         [Input("lastModifiedOn")]
         public Input<string>? LastModifiedOn { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        /// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
         [Input("ruleset")]
         public Input<string>? Ruleset { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// A Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` below.
+        /// Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` Block below.
         /// </summary>
         [Input("targetTable")]
         public Input<Inputs.DataQualityRulesetTargetTableGetArgs>? TargetTable { get; set; }

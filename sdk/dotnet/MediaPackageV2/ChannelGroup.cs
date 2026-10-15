@@ -43,25 +43,25 @@ namespace Pulumi.Aws.MediaPackageV2
     public partial class ChannelGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the channel
+        /// ARN of the channel group
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the channel group
+        /// Description of the channel group
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The egress domain of the channel group
+        /// Egress domain of the channel group
         /// </summary>
         [Output("egressDomain")]
         public Output<string> EgressDomain { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier naming the channel group
+        /// Unique identifier naming the channel group
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -73,13 +73,13 @@ namespace Pulumi.Aws.MediaPackageV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.MediaPackageV2
     public sealed class ChannelGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the channel group
+        /// Description of the channel group
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A unique identifier naming the channel group
+        /// Unique identifier naming the channel group
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.MediaPackageV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -169,25 +169,25 @@ namespace Pulumi.Aws.MediaPackageV2
     public sealed class ChannelGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the channel
+        /// ARN of the channel group
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description of the channel group
+        /// Description of the channel group
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The egress domain of the channel group
+        /// Egress domain of the channel group
         /// </summary>
         [Input("egressDomain")]
         public Input<string>? EgressDomain { get; set; }
 
         /// <summary>
-        /// A unique identifier naming the channel group
+        /// Unique identifier naming the channel group
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.MediaPackageV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.MediaPackageV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

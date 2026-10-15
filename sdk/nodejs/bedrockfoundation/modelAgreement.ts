@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `modelId` - Model ID argument of the Foundation Model Agreement.
+ * * `modelId` (String) Model ID of the foundation model.
  *
  * #### Optional
  *
@@ -88,7 +88,7 @@ export class ModelAgreement extends pulumi.CustomResource {
      */
     declare public readonly offerToken: pulumi.Output<string>;
     /**
-     * Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrockfoundation.ModelAgreementTimeouts | undefined>;
@@ -143,7 +143,7 @@ export interface ModelAgreementState {
      */
     offerToken?: pulumi.Input<string | undefined>;
     /**
-     * Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.bedrockfoundation.ModelAgreementTimeouts | undefined>;
@@ -164,7 +164,7 @@ export interface ModelAgreementArgs {
      */
     offerToken: pulumi.Input<string>;
     /**
-     * Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.bedrockfoundation.ModelAgreementTimeouts | undefined>;

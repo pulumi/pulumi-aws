@@ -13,13 +13,13 @@ namespace Pulumi.Aws.MskConnect.Inputs
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+        /// Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
         /// </summary>
         [Input("deliveryStream")]
         public Input<string>? DeliveryStream { get; set; }
 
         /// <summary>
-        /// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
+        /// Whether connector logs get delivered to Amazon Kinesis Data Firehose.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

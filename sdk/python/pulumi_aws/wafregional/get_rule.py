@@ -71,7 +71,7 @@ def get_rule(name: Optional[_builtins.str] = None,
              region: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+    `wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
 
     ## Example Usage
 
@@ -100,7 +100,7 @@ def get_rule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
-    `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+    `wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
 
     ## Example Usage
 

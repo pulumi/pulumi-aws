@@ -80,11 +80,11 @@ type GetBootstrapBrokersResult struct {
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
 	// One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
 	BootstrapBrokersTlsIpv6 string `pulumi:"bootstrapBrokersTlsIpv6"`
-	// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
+	// One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
 	BootstrapBrokersVpcConnectivitySaslIam string `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
-	// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+	// One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
 	BootstrapBrokersVpcConnectivitySaslScram string `pulumi:"bootstrapBrokersVpcConnectivitySaslScram"`
-	// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
+	// One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
 	BootstrapBrokersVpcConnectivityTls string `pulumi:"bootstrapBrokersVpcConnectivityTls"`
 	ClusterArn                         string `pulumi:"clusterArn"`
 	// The provider-assigned unique ID for this managed resource.
@@ -179,17 +179,17 @@ func (o GetBootstrapBrokersResultOutput) BootstrapBrokersTlsIpv6() pulumi.String
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersTlsIpv6 }).(pulumi.StringOutput)
 }
 
-// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
+// One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersVpcConnectivitySaslIam() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersVpcConnectivitySaslIam }).(pulumi.StringOutput)
 }
 
-// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+// One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersVpcConnectivitySaslScram() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersVpcConnectivitySaslScram }).(pulumi.StringOutput)
 }
 
-// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
+// One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersVpcConnectivityTls() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersVpcConnectivityTls }).(pulumi.StringOutput)
 }

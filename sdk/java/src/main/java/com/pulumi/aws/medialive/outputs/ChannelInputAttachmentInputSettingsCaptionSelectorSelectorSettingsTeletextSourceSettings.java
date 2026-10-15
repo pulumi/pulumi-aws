@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
     /**
-     * @return Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+     * @return Region where TTML style captions are displayed. See `outputRectangle` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle outputRectangle;
     /**
-     * @return Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+     * @return Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
      * 
      */
     private @Nullable String pageNumber;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings() {}
     /**
-     * @return Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+     * @return Region where TTML style captions are displayed. See `outputRectangle` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle> outputRectangle() {
         return Optional.ofNullable(this.outputRectangle);
     }
     /**
-     * @return Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+     * @return Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
      * 
      */
     public Optional<String> pageNumber() {

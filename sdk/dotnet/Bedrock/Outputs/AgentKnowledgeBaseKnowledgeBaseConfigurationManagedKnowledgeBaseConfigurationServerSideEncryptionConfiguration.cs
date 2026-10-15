@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// ARN of the KMS key used to encrypt the managed knowledge base.
         /// 
-        /// &gt; **NOTE:** `StorageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+        /// &gt; **Note:** `StorageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
         /// </summary>
         public readonly string? KmsKeyArn;
 

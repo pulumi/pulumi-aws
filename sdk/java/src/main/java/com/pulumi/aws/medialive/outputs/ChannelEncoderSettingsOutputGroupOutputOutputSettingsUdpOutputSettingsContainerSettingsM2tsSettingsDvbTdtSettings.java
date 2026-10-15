@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings {
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     private @Nullable Integer repInterval;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings() {}
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Integer> repInterval() {
         return Optional.ofNullable(this.repInterval);
     }

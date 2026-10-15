@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
+ * Manages an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
  * 
  * ## Example Usage
  * 
@@ -82,14 +82,14 @@ public class AgentAgentKnowledgeBaseAssociation extends com.pulumi.resources.Cus
         return this.agentId;
     }
     /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
      * 
      */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
     /**
-     * @return Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+     * @return Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
      * 
      */
     public Output<String> agentVersion() {

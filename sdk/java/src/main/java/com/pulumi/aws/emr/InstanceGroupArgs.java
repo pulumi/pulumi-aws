@@ -21,14 +21,14 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceGroupArgs Empty = new InstanceGroupArgs();
 
     /**
-     * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+     * The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      * 
      */
     @Import(name="autoscalingPolicy")
     private @Nullable Output<String> autoscalingPolicy;
 
     /**
-     * @return The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+     * @return The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      * 
      */
     public Optional<Output<String>> autoscalingPolicy() {
@@ -296,7 +296,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingPolicy The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+         * @param autoscalingPolicy The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingPolicy The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+         * @param autoscalingPolicy The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
          * 
          * @return builder
          * 

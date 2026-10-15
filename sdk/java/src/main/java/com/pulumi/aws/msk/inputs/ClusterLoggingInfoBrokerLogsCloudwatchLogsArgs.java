@@ -17,22 +17,30 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs extends com.pu
 
     public static final ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs Empty = new ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs();
 
+    /**
+     * Whether to enable or disable streaming broker logs to CloudWatch Logs.
+     * 
+     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
+    /**
+     * @return Whether to enable or disable streaming broker logs to CloudWatch Logs.
+     * 
+     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
     /**
-     * Name of the Cloudwatch Log Group to deliver logs to.
+     * Name of the CloudWatch Log Group to deliver logs to.
      * 
      */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
     /**
-     * @return Name of the Cloudwatch Log Group to deliver logs to.
+     * @return Name of the CloudWatch Log Group to deliver logs to.
      * 
      */
     public Optional<Output<String>> logGroup() {
@@ -64,17 +72,29 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs extends com.pu
             $ = new ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether to enable or disable streaming broker logs to CloudWatch Logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether to enable or disable streaming broker logs to CloudWatch Logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
         /**
-         * @param logGroup Name of the Cloudwatch Log Group to deliver logs to.
+         * @param logGroup Name of the CloudWatch Log Group to deliver logs to.
          * 
          * @return builder
          * 
@@ -85,7 +105,7 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs extends com.pu
         }
 
         /**
-         * @param logGroup Name of the Cloudwatch Log Group to deliver logs to.
+         * @param logGroup Name of the CloudWatch Log Group to deliver logs to.
          * 
          * @return builder
          * 

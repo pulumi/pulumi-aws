@@ -171,7 +171,7 @@ class GetBootstrapBrokersResult:
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")
     def bootstrap_brokers_vpc_connectivity_sasl_iam(self) -> _builtins.str:
         """
-        A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
+        One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_iam")
 
@@ -179,7 +179,7 @@ class GetBootstrapBrokersResult:
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslScram")
     def bootstrap_brokers_vpc_connectivity_sasl_scram(self) -> _builtins.str:
         """
-        A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+        One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_scram")
 
@@ -187,7 +187,7 @@ class GetBootstrapBrokersResult:
     @pulumi.getter(name="bootstrapBrokersVpcConnectivityTls")
     def bootstrap_brokers_vpc_connectivity_tls(self) -> _builtins.str:
         """
-        A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
+        One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_tls")
 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupInstanceRefreshPreferencesAlarmSpecification {
     /**
-     * @return List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+     * @return List of CloudWatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
      * 
      */
     private @Nullable List<String> alarms;
 
     private GroupInstanceRefreshPreferencesAlarmSpecification() {}
     /**
-     * @return List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+     * @return List of CloudWatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
      * 
      */
     public List<String> alarms() {

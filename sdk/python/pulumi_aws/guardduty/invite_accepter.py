@@ -25,7 +25,7 @@ class InviteAccepterArgs:
         """
         The set of arguments for constructing a InviteAccepter resource.
 
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the member GuardDuty account.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the member GuardDuty account.
         :param pulumi.Input[_builtins.str] master_account_id: AWS account ID for primary account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,7 +38,7 @@ class InviteAccepterArgs:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The detector ID of the member GuardDuty account.
+        Detector ID of the member GuardDuty account.
         """
         return pulumi.get(self, "detector_id")
 
@@ -80,7 +80,7 @@ class _InviteAccepterState:
         """
         Input properties used for looking up and filtering InviteAccepter resources.
 
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the member GuardDuty account.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the member GuardDuty account.
         :param pulumi.Input[_builtins.str] master_account_id: AWS account ID for primary account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -95,7 +95,7 @@ class _InviteAccepterState:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The detector ID of the member GuardDuty account.
+        Detector ID of the member GuardDuty account.
         """
         return pulumi.get(self, "detector_id")
 
@@ -171,7 +171,7 @@ class InviteAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the member GuardDuty account.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the member GuardDuty account.
         :param pulumi.Input[_builtins.str] master_account_id: AWS account ID for primary account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -266,7 +266,7 @@ class InviteAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the member GuardDuty account.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the member GuardDuty account.
         :param pulumi.Input[_builtins.str] master_account_id: AWS account ID for primary account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -283,7 +283,7 @@ class InviteAccepter(pulumi.CustomResource):
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The detector ID of the member GuardDuty account.
+        Detector ID of the member GuardDuty account.
         """
         return pulumi.get(self, "detector_id")
 

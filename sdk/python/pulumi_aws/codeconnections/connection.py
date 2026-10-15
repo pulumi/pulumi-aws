@@ -135,8 +135,8 @@ class _ConnectionState:
         """
         Input properties used for looking up and filtering Connection resources.
 
-        :param pulumi.Input[_builtins.str] arn: The codeconnections connection ARN.
-        :param pulumi.Input[_builtins.str] connection_status: The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        :param pulumi.Input[_builtins.str] arn: The CodeConnections connection ARN.
+        :param pulumi.Input[_builtins.str] connection_status: The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         :param pulumi.Input[_builtins.str] host_arn: ARN of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[_builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
@@ -169,7 +169,7 @@ class _ConnectionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The codeconnections connection ARN.
+        The CodeConnections connection ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -181,7 +181,7 @@ class _ConnectionState:
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         """
         return pulumi.get(self, "connection_status")
 
@@ -440,8 +440,8 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The codeconnections connection ARN.
-        :param pulumi.Input[_builtins.str] connection_status: The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        :param pulumi.Input[_builtins.str] arn: The CodeConnections connection ARN.
+        :param pulumi.Input[_builtins.str] connection_status: The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         :param pulumi.Input[_builtins.str] host_arn: ARN of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[_builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
@@ -469,7 +469,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The codeconnections connection ARN.
+        The CodeConnections connection ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -477,7 +477,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         """
         return pulumi.get(self, "connection_status")
 

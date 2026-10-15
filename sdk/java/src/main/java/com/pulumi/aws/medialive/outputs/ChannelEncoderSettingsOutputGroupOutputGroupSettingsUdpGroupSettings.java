@@ -13,32 +13,40 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings {
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Behavior of last resort when input video is lost.
      * 
      */
     private @Nullable String inputLossAction;
     /**
-     * @return Indicates ID3 frame that has the timecode.
+     * @return ID3 frame that has the timecode.
      * 
      */
     private @Nullable String timedMetadataId3Frame;
+    /**
+     * @return Timed metadata interval, in seconds.
+     * 
+     */
     private @Nullable Integer timedMetadataId3Period;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings() {}
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Behavior of last resort when input video is lost.
      * 
      */
     public Optional<String> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
     /**
-     * @return Indicates ID3 frame that has the timecode.
+     * @return ID3 frame that has the timecode.
      * 
      */
     public Optional<String> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }
+    /**
+     * @return Timed metadata interval, in seconds.
+     * 
+     */
     public Optional<Integer> timedMetadataId3Period() {
         return Optional.ofNullable(this.timedMetadataId3Period);
     }

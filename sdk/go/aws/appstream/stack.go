@@ -91,7 +91,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `appstream.Stack` using the id. For example:
+// Using `pulumi import`, import `appstream.Stack` using the ID. For example:
 //
 // ```sh
 // $ pulumi import aws:appstream/stack:Stack example stackID
@@ -103,7 +103,7 @@ type Stack struct {
 	AccessEndpoints StackAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence. See `applicationSettings` below.
 	ApplicationSettings StackApplicationSettingsOutput `pulumi:"applicationSettings"`
-	// ARN of the appstream stack.
+	// ARN of the AppStream stack.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -168,7 +168,7 @@ type stackState struct {
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence. See `applicationSettings` below.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
-	// ARN of the appstream stack.
+	// ARN of the AppStream stack.
 	Arn *string `pulumi:"arn"`
 	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -204,7 +204,7 @@ type StackState struct {
 	AccessEndpoints StackAccessEndpointArrayInput
 	// Settings for application settings persistence. See `applicationSettings` below.
 	ApplicationSettings StackApplicationSettingsPtrInput
-	// ARN of the appstream stack.
+	// ARN of the AppStream stack.
 	Arn pulumi.StringPtrInput
 	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
 	CreatedTime pulumi.StringPtrInput
@@ -399,7 +399,7 @@ func (o StackOutput) ApplicationSettings() StackApplicationSettingsOutput {
 	return o.ApplyT(func(v *Stack) StackApplicationSettingsOutput { return v.ApplicationSettings }).(StackApplicationSettingsOutput)
 }
 
-// ARN of the appstream stack.
+// ARN of the AppStream stack.
 func (o StackOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

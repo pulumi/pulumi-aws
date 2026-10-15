@@ -63,14 +63,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The autoscaling groups used by this Environment.
+     * The Auto Scaling groups used by this Environment.
      * 
      */
     @Import(name="autoscalingGroups")
     private @Nullable Output<List<String>> autoscalingGroups;
 
     /**
-     * @return The autoscaling groups used by this Environment.
+     * @return The Auto Scaling groups used by this Environment.
      * 
      */
     public Optional<Output<List<String>>> autoscalingGroups() {
@@ -370,14 +370,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Autoscaling triggers in use by this Environment.
+     * Auto Scaling triggers in use by this Environment.
      * 
      */
     @Import(name="triggers")
     private @Nullable Output<List<String>> triggers;
 
     /**
-     * @return Autoscaling triggers in use by this Environment.
+     * @return Auto Scaling triggers in use by this Environment.
      * 
      */
     public Optional<Output<List<String>>> triggers() {
@@ -540,7 +540,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroups The autoscaling groups used by this Environment.
+         * @param autoscalingGroups The Auto Scaling groups used by this Environment.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroups The autoscaling groups used by this Environment.
+         * @param autoscalingGroups The Auto Scaling groups used by this Environment.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroups The autoscaling groups used by this Environment.
+         * @param autoscalingGroups The Auto Scaling groups used by this Environment.
          * 
          * @return builder
          * 
@@ -1023,7 +1023,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Autoscaling triggers in use by this Environment.
+         * @param triggers Auto Scaling triggers in use by this Environment.
          * 
          * @return builder
          * 
@@ -1034,7 +1034,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Autoscaling triggers in use by this Environment.
+         * @param triggers Auto Scaling triggers in use by this Environment.
          * 
          * @return builder
          * 
@@ -1044,7 +1044,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Autoscaling triggers in use by this Environment.
+         * @param triggers Auto Scaling triggers in use by this Environment.
          * 
          * @return builder
          * 

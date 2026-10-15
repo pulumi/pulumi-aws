@@ -20,14 +20,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs();
 
     /**
-     * Sets the colorspace metadata to be passed through.
+     * Sets the colorspace metadata to be passed through. Can be set as an empty block.
      * 
      */
     @Import(name="colorSpacePassthroughSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs> colorSpacePassthroughSettings;
 
     /**
-     * @return Sets the colorspace metadata to be passed through.
+     * @return Sets the colorspace metadata to be passed through. Can be set as an empty block.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs>> colorSpacePassthroughSettings() {
@@ -35,14 +35,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Set the colorspace to Dolby Vision81.
+     * Sets the colorspace to Dolby Vision81. Can be set as an empty block.
      * 
      */
     @Import(name="dolbyVision81Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs> dolbyVision81Settings;
 
     /**
-     * @return Set the colorspace to Dolby Vision81.
+     * @return Sets the colorspace to Dolby Vision81. Can be set as an empty block.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs>> dolbyVision81Settings() {
@@ -50,14 +50,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+     * Sets the colorspace to be HDR10. See `hdr10Settings` Block for details.
      * 
      */
     @Import(name="hdr10Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs> hdr10Settings;
 
     /**
-     * @return Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+     * @return Sets the colorspace to be HDR10. See `hdr10Settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs>> hdr10Settings() {
@@ -65,14 +65,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Set the colorspace to Rec. 601.
+     * Sets the colorspace to Rec. 601. Can be set as an empty block.
      * 
      */
     @Import(name="rec601Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs> rec601Settings;
 
     /**
-     * @return Set the colorspace to Rec. 601.
+     * @return Sets the colorspace to Rec. 601. Can be set as an empty block.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs>> rec601Settings() {
@@ -80,14 +80,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Set the colorspace to Rec. 709.
+     * Sets the colorspace to Rec. 709. Can be set as an empty block.
      * 
      */
     @Import(name="rec709Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs> rec709Settings;
 
     /**
-     * @return Set the colorspace to Rec. 709.
+     * @return Sets the colorspace to Rec. 709. Can be set as an empty block.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs>> rec709Settings() {
@@ -123,7 +123,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param colorSpacePassthroughSettings Sets the colorspace metadata to be passed through.
+         * @param colorSpacePassthroughSettings Sets the colorspace metadata to be passed through. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param colorSpacePassthroughSettings Sets the colorspace metadata to be passed through.
+         * @param colorSpacePassthroughSettings Sets the colorspace metadata to be passed through. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param dolbyVision81Settings Set the colorspace to Dolby Vision81.
+         * @param dolbyVision81Settings Sets the colorspace to Dolby Vision81. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param dolbyVision81Settings Set the colorspace to Dolby Vision81.
+         * @param dolbyVision81Settings Sets the colorspace to Dolby Vision81. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param hdr10Settings Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+         * @param hdr10Settings Sets the colorspace to be HDR10. See `hdr10Settings` Block for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param hdr10Settings Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+         * @param hdr10Settings Sets the colorspace to be HDR10. See `hdr10Settings` Block for details.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param rec601Settings Set the colorspace to Rec. 601.
+         * @param rec601Settings Sets the colorspace to Rec. 601. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param rec601Settings Set the colorspace to Rec. 601.
+         * @param rec601Settings Sets the colorspace to Rec. 601. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param rec709Settings Set the colorspace to Rec. 709.
+         * @param rec709Settings Sets the colorspace to Rec. 709. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param rec709Settings Set the colorspace to Rec. 709.
+         * @param rec709Settings Sets the colorspace to Rec. 709. Can be set as an empty block.
          * 
          * @return builder
          * 

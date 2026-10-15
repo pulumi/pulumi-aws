@@ -101,7 +101,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> _builtins.str:
         """
-        (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
+        Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         """
         return pulumi.get(self, "account_access_type")
 
@@ -117,7 +117,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="authenticationProviders")
     def authentication_providers(self) -> Sequence[_builtins.str]:
         """
-        (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         """
         return pulumi.get(self, "authentication_providers")
 
@@ -173,7 +173,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The ID or ARN of the AWS KMS key for encrypting workspace data.
+        ID or ARN of the AWS KMS key for encrypting workspace data.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -197,7 +197,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Sequence[_builtins.str]:
         """
-        The notification destinations.
+        Notification destinations.
         """
         return pulumi.get(self, "notification_destinations")
 
@@ -205,7 +205,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="organizationRoleName")
     def organization_role_name(self) -> _builtins.str:
         """
-        The role name that the workspace uses to access resources through Amazon Organizations.
+        Role name that the workspace uses to access resources through Amazon Organizations.
         """
         return pulumi.get(self, "organization_role_name")
 
@@ -213,7 +213,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> Sequence[_builtins.str]:
         """
-        The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+        Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         """
         return pulumi.get(self, "organizational_units")
 
@@ -241,6 +241,9 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="samlConfigurationStatus")
     def saml_configuration_status(self) -> _builtins.str:
+        """
+        Status of the SAML configuration.
+        """
         return pulumi.get(self, "saml_configuration_status")
 
     @_builtins.property

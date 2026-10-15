@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings
     {
         /// <summary>
-        /// Sets the attenuation control.
+        /// Attenuation control.
         /// </summary>
         public readonly string? AttenuationControl;
         /// <summary>
@@ -22,40 +22,76 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly double? Bitrate;
         /// <summary>
-        /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        /// Bitstream mode (bsmod) for the emitted AC-3 stream.
         /// </summary>
         public readonly string? BitstreamMode;
         /// <summary>
         /// Dolby Digital Plus coding mode.
         /// </summary>
         public readonly string? CodingMode;
+        /// <summary>
+        /// Whether to activate a DC filter for the channels.
+        /// </summary>
         public readonly string? DcFilter;
+        /// <summary>
+        /// Sets the dialnorm for the output.
+        /// </summary>
         public readonly int? Dialnorm;
         /// <summary>
         /// Sets the Dolby dynamic range compression profile.
         /// </summary>
         public readonly string? DrcLine;
         /// <summary>
-        /// Sets the profile for heavy Dolby dynamic range compression.
+        /// Profile for heavy Dolby dynamic range compression.
         /// </summary>
         public readonly string? DrcRf;
+        /// <summary>
+        /// When set to `Lfe`, the EAC3 output contains an LFE channel.
+        /// </summary>
         public readonly string? LfeControl;
         /// <summary>
-        /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        /// When set to `Enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         /// </summary>
         public readonly string? LfeFilter;
+        /// <summary>
+        /// Left total/right total center mix level.
+        /// </summary>
         public readonly double? LoRoCenterMixLevel;
+        /// <summary>
+        /// Left total/right total surround mix level.
+        /// </summary>
         public readonly double? LoRoSurroundMixLevel;
+        /// <summary>
+        /// Left only/right only center mix level.
+        /// </summary>
         public readonly double? LtRtCenterMixLevel;
+        /// <summary>
+        /// Left only/right only surround mix level.
+        /// </summary>
         public readonly double? LtRtSurroundMixLevel;
         /// <summary>
         /// Metadata control.
         /// </summary>
         public readonly string? MetadataControl;
+        /// <summary>
+        /// When set to `whenPossible`, input DD+ audio is passed through if present.
+        /// </summary>
         public readonly string? PassthroughControl;
+        /// <summary>
+        /// Whether to invert the phase of the surround channels.
+        /// </summary>
         public readonly string? PhaseControl;
+        /// <summary>
+        /// Stereo downmix preference.
+        /// </summary>
         public readonly string? StereoDownmix;
+        /// <summary>
+        /// Whether to encode the stream as Dolby Digital EX.
+        /// </summary>
         public readonly string? SurroundExMode;
+        /// <summary>
+        /// Whether to encode the stream as a surround sound stream.
+        /// </summary>
         public readonly string? SurroundMode;
 
         [OutputConstructor]

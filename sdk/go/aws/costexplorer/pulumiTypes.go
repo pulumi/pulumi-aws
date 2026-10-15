@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AnomalySubscriptionSubscriber struct {
-	// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+	// The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
 	Address string `pulumi:"address"`
 	// The type of subscription. Valid Values: `SNS` | `EMAIL`.
 	Type string `pulumi:"type"`
@@ -32,7 +32,7 @@ type AnomalySubscriptionSubscriberInput interface {
 }
 
 type AnomalySubscriptionSubscriberArgs struct {
-	// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+	// The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
 	Address pulumi.StringInput `pulumi:"address"`
 	// The type of subscription. Valid Values: `SNS` | `EMAIL`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -89,7 +89,7 @@ func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutp
 	return o
 }
 
-// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+// The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
 func (o AnomalySubscriptionSubscriberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalySubscriptionSubscriber) string { return v.Address }).(pulumi.StringOutput)
 }

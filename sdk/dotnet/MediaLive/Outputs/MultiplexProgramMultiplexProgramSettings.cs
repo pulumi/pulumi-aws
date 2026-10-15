@@ -22,11 +22,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int ProgramNumber;
         /// <summary>
-        /// Service Descriptor. See Service Descriptor for more details.
+        /// Service Descriptor. See `ServiceDescriptor` Block for more details.
         /// </summary>
         public readonly Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor? ServiceDescriptor;
         /// <summary>
-        /// Video settings. See Video Settings for more details.
+        /// Video settings. See `VideoSettings` Block for more details.
         /// </summary>
         public readonly Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings? VideoSettings;
 

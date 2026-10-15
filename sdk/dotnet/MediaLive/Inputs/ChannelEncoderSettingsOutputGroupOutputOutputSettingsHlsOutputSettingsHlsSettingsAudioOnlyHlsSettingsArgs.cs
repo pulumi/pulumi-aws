@@ -12,15 +12,27 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Group to which the audio rendition belongs.
+        /// </summary>
         [Input("audioGroupId")]
         public Input<string>? AudioGroupId { get; set; }
 
+        /// <summary>
+        /// Image for an audio-only output. See `AudioOnlyImage` Block for details.
+        /// </summary>
         [Input("audioOnlyImage")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs>? AudioOnlyImage { get; set; }
 
+        /// <summary>
+        /// Four types of audio-only tracks.
+        /// </summary>
         [Input("audioTrackType")]
         public Input<string>? AudioTrackType { get; set; }
 
+        /// <summary>
+        /// Whether the stream is an audio-only stream.
+        /// </summary>
         [Input("segmentType")]
         public Input<string>? SegmentType { get; set; }
 

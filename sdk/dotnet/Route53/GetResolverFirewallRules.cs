@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

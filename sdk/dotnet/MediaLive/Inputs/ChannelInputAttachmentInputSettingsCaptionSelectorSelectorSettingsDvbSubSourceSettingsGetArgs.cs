@@ -13,13 +13,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+        /// Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
         /// </summary>
         [Input("ocrLanguage")]
         public Input<string>? OcrLanguage { get; set; }
 
         /// <summary>
-        /// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+        /// PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
         /// </summary>
         [Input("pid")]
         public Input<int>? Pid { get; set; }

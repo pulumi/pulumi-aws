@@ -213,17 +213,17 @@ type Catalog struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the parent catalog.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Configuration block of properties for the catalog. See `catalogProperties` below.
+	// Configuration block of properties for the catalog. See `catalogProperties` Block below.
 	CatalogProperties CatalogCatalogPropertiesPtrOutput `pulumi:"catalogProperties"`
-	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 	CreateDatabaseDefaultPermissions CatalogCreateDatabaseDefaultPermissionArrayOutput `pulumi:"createDatabaseDefaultPermissions"`
-	// List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+	// List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 	CreateTableDefaultPermissions CatalogCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// Time at which the catalog was created.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// Description of the catalog.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Configuration block for a federated catalog. See `federatedCatalog` below.
+	// Configuration block for a federated catalog. See `federatedCatalog` Block below.
 	FederatedCatalog CatalogFederatedCatalogPtrOutput `pulumi:"federatedCatalog"`
 	// Name of the catalog.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -237,7 +237,7 @@ type Catalog struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
 	TargetRedshiftCatalog CatalogTargetRedshiftCatalogPtrOutput `pulumi:"targetRedshiftCatalog"`
 	Timeouts              CatalogTimeoutsPtrOutput              `pulumi:"timeouts"`
 	// Time at which the catalog was last updated.
@@ -280,17 +280,17 @@ type catalogState struct {
 	Arn *string `pulumi:"arn"`
 	// ID of the parent catalog.
 	CatalogId *string `pulumi:"catalogId"`
-	// Configuration block of properties for the catalog. See `catalogProperties` below.
+	// Configuration block of properties for the catalog. See `catalogProperties` Block below.
 	CatalogProperties *CatalogCatalogProperties `pulumi:"catalogProperties"`
-	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 	CreateDatabaseDefaultPermissions []CatalogCreateDatabaseDefaultPermission `pulumi:"createDatabaseDefaultPermissions"`
-	// List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+	// List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 	CreateTableDefaultPermissions []CatalogCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Time at which the catalog was created.
 	CreateTime *string `pulumi:"createTime"`
 	// Description of the catalog.
 	Description *string `pulumi:"description"`
-	// Configuration block for a federated catalog. See `federatedCatalog` below.
+	// Configuration block for a federated catalog. See `federatedCatalog` Block below.
 	FederatedCatalog *CatalogFederatedCatalog `pulumi:"federatedCatalog"`
 	// Name of the catalog.
 	Name *string `pulumi:"name"`
@@ -304,7 +304,7 @@ type catalogState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
 	TargetRedshiftCatalog *CatalogTargetRedshiftCatalog `pulumi:"targetRedshiftCatalog"`
 	Timeouts              *CatalogTimeouts              `pulumi:"timeouts"`
 	// Time at which the catalog was last updated.
@@ -318,17 +318,17 @@ type CatalogState struct {
 	Arn pulumi.StringPtrInput
 	// ID of the parent catalog.
 	CatalogId pulumi.StringPtrInput
-	// Configuration block of properties for the catalog. See `catalogProperties` below.
+	// Configuration block of properties for the catalog. See `catalogProperties` Block below.
 	CatalogProperties CatalogCatalogPropertiesPtrInput
-	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 	CreateDatabaseDefaultPermissions CatalogCreateDatabaseDefaultPermissionArrayInput
-	// List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+	// List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 	CreateTableDefaultPermissions CatalogCreateTableDefaultPermissionArrayInput
 	// Time at which the catalog was created.
 	CreateTime pulumi.StringPtrInput
 	// Description of the catalog.
 	Description pulumi.StringPtrInput
-	// Configuration block for a federated catalog. See `federatedCatalog` below.
+	// Configuration block for a federated catalog. See `federatedCatalog` Block below.
 	FederatedCatalog CatalogFederatedCatalogPtrInput
 	// Name of the catalog.
 	Name pulumi.StringPtrInput
@@ -342,7 +342,7 @@ type CatalogState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
 	TargetRedshiftCatalog CatalogTargetRedshiftCatalogPtrInput
 	Timeouts              CatalogTimeoutsPtrInput
 	// Time at which the catalog was last updated.
@@ -356,15 +356,15 @@ func (CatalogState) ElementType() reflect.Type {
 type catalogArgs struct {
 	// Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
 	AllowFullTableExternalDataAccess *string `pulumi:"allowFullTableExternalDataAccess"`
-	// Configuration block of properties for the catalog. See `catalogProperties` below.
+	// Configuration block of properties for the catalog. See `catalogProperties` Block below.
 	CatalogProperties *CatalogCatalogProperties `pulumi:"catalogProperties"`
-	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 	CreateDatabaseDefaultPermissions []CatalogCreateDatabaseDefaultPermission `pulumi:"createDatabaseDefaultPermissions"`
-	// List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+	// List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 	CreateTableDefaultPermissions []CatalogCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Description of the catalog.
 	Description *string `pulumi:"description"`
-	// Configuration block for a federated catalog. See `federatedCatalog` below.
+	// Configuration block for a federated catalog. See `federatedCatalog` Block below.
 	FederatedCatalog *CatalogFederatedCatalog `pulumi:"federatedCatalog"`
 	// Name of the catalog.
 	Name *string `pulumi:"name"`
@@ -376,7 +376,7 @@ type catalogArgs struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
 	TargetRedshiftCatalog *CatalogTargetRedshiftCatalog `pulumi:"targetRedshiftCatalog"`
 	Timeouts              *CatalogTimeouts              `pulumi:"timeouts"`
 }
@@ -385,15 +385,15 @@ type catalogArgs struct {
 type CatalogArgs struct {
 	// Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
 	AllowFullTableExternalDataAccess pulumi.StringPtrInput
-	// Configuration block of properties for the catalog. See `catalogProperties` below.
+	// Configuration block of properties for the catalog. See `catalogProperties` Block below.
 	CatalogProperties CatalogCatalogPropertiesPtrInput
-	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+	// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 	CreateDatabaseDefaultPermissions CatalogCreateDatabaseDefaultPermissionArrayInput
-	// List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+	// List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 	CreateTableDefaultPermissions CatalogCreateTableDefaultPermissionArrayInput
 	// Description of the catalog.
 	Description pulumi.StringPtrInput
-	// Configuration block for a federated catalog. See `federatedCatalog` below.
+	// Configuration block for a federated catalog. See `federatedCatalog` Block below.
 	FederatedCatalog CatalogFederatedCatalogPtrInput
 	// Name of the catalog.
 	Name pulumi.StringPtrInput
@@ -405,7 +405,7 @@ type CatalogArgs struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+	// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
 	TargetRedshiftCatalog CatalogTargetRedshiftCatalogPtrInput
 	Timeouts              CatalogTimeoutsPtrInput
 }
@@ -512,19 +512,19 @@ func (o CatalogOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Catalog) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Configuration block of properties for the catalog. See `catalogProperties` below.
+// Configuration block of properties for the catalog. See `catalogProperties` Block below.
 func (o CatalogOutput) CatalogProperties() CatalogCatalogPropertiesPtrOutput {
 	return o.ApplyT(func(v *Catalog) CatalogCatalogPropertiesPtrOutput { return v.CatalogProperties }).(CatalogCatalogPropertiesPtrOutput)
 }
 
-// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+// List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 func (o CatalogOutput) CreateDatabaseDefaultPermissions() CatalogCreateDatabaseDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v *Catalog) CatalogCreateDatabaseDefaultPermissionArrayOutput {
 		return v.CreateDatabaseDefaultPermissions
 	}).(CatalogCreateDatabaseDefaultPermissionArrayOutput)
 }
 
-// List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+// List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 func (o CatalogOutput) CreateTableDefaultPermissions() CatalogCreateTableDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v *Catalog) CatalogCreateTableDefaultPermissionArrayOutput {
 		return v.CreateTableDefaultPermissions
@@ -541,7 +541,7 @@ func (o CatalogOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Catalog) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for a federated catalog. See `federatedCatalog` below.
+// Configuration block for a federated catalog. See `federatedCatalog` Block below.
 func (o CatalogOutput) FederatedCatalog() CatalogFederatedCatalogPtrOutput {
 	return o.ApplyT(func(v *Catalog) CatalogFederatedCatalogPtrOutput { return v.FederatedCatalog }).(CatalogFederatedCatalogPtrOutput)
 }
@@ -576,7 +576,7 @@ func (o CatalogOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Catalog) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+// Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
 func (o CatalogOutput) TargetRedshiftCatalog() CatalogTargetRedshiftCatalogPtrOutput {
 	return o.ApplyT(func(v *Catalog) CatalogTargetRedshiftCatalogPtrOutput { return v.TargetRedshiftCatalog }).(CatalogTargetRedshiftCatalogPtrOutput)
 }

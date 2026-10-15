@@ -12,9 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentLoggingConfigurationSchedulerLogs {
+    /**
+     * @return ARN of the CloudWatch Logs log group where the logs are published.
+     * 
+     */
     private @Nullable String cloudWatchLogGroupArn;
     /**
-     * @return Enabling or disabling the collection of logs
+     * @return Whether to enable the collection of logs.
      * 
      */
     private @Nullable Boolean enabled;
@@ -25,11 +29,15 @@ public final class EnvironmentLoggingConfigurationSchedulerLogs {
     private @Nullable String logLevel;
 
     private EnvironmentLoggingConfigurationSchedulerLogs() {}
+    /**
+     * @return ARN of the CloudWatch Logs log group where the logs are published.
+     * 
+     */
     public Optional<String> cloudWatchLogGroupArn() {
         return Optional.ofNullable(this.cloudWatchLogGroupArn);
     }
     /**
-     * @return Enabling or disabling the collection of logs
+     * @return Whether to enable the collection of logs.
      * 
      */
     public Optional<Boolean> enabled() {

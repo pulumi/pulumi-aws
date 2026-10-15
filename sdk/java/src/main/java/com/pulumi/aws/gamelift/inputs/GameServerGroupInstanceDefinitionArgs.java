@@ -17,14 +17,14 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
     public static final GameServerGroupInstanceDefinitionArgs Empty = new GameServerGroupInstanceDefinitionArgs();
 
     /**
-     * An EC2 instance type.
+     * EC2 instance type.
      * 
      */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
     /**
-     * @return An EC2 instance type.
+     * @return EC2 instance type.
      * 
      */
     public Output<String> instanceType() {
@@ -32,20 +32,14 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
     }
 
     /**
-     * Instance weighting that indicates how much this instance type contributes
-     * to the total capacity of a game server group.
-     * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-     * the most cost-effective options.
+     * Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify the most cost-effective options.
      * 
      */
     @Import(name="weightedCapacity")
     private @Nullable Output<String> weightedCapacity;
 
     /**
-     * @return Instance weighting that indicates how much this instance type contributes
-     * to the total capacity of a game server group.
-     * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-     * the most cost-effective options.
+     * @return Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify the most cost-effective options.
      * 
      */
     public Optional<Output<String>> weightedCapacity() {
@@ -78,7 +72,7 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param instanceType An EC2 instance type.
+         * @param instanceType EC2 instance type.
          * 
          * @return builder
          * 
@@ -89,7 +83,7 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param instanceType An EC2 instance type.
+         * @param instanceType EC2 instance type.
          * 
          * @return builder
          * 
@@ -99,10 +93,7 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param weightedCapacity Instance weighting that indicates how much this instance type contributes
-         * to the total capacity of a game server group.
-         * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-         * the most cost-effective options.
+         * @param weightedCapacity Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify the most cost-effective options.
          * 
          * @return builder
          * 
@@ -113,10 +104,7 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param weightedCapacity Instance weighting that indicates how much this instance type contributes
-         * to the total capacity of a game server group.
-         * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-         * the most cost-effective options.
+         * @param weightedCapacity Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify the most cost-effective options.
          * 
          * @return builder
          * 

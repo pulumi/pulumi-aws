@@ -1715,7 +1715,7 @@ public final class CloudwatchFunctions {
         return Deployment.getInstance().invokeAsync("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", TypeShape.of(GetLogDataProtectionPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an AWS Cloudwatch Log Group
+     * Use this data source to get information about an AWS CloudWatch Log Group
      * 
      * ## Example Usage
      * 
@@ -1755,7 +1755,7 @@ public final class CloudwatchFunctions {
         return getLogGroup(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an AWS Cloudwatch Log Group
+     * Use this data source to get information about an AWS CloudWatch Log Group
      * 
      * ## Example Usage
      * 
@@ -1795,7 +1795,7 @@ public final class CloudwatchFunctions {
         return getLogGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an AWS Cloudwatch Log Group
+     * Use this data source to get information about an AWS CloudWatch Log Group
      * 
      * ## Example Usage
      * 
@@ -1835,7 +1835,7 @@ public final class CloudwatchFunctions {
         return Deployment.getInstance().invoke("aws:cloudwatch/getLogGroup:getLogGroup", TypeShape.of(GetLogGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an AWS Cloudwatch Log Group
+     * Use this data source to get information about an AWS CloudWatch Log Group
      * 
      * ## Example Usage
      * 
@@ -1875,7 +1875,7 @@ public final class CloudwatchFunctions {
         return Deployment.getInstance().invoke("aws:cloudwatch/getLogGroup:getLogGroup", TypeShape.of(GetLogGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an AWS Cloudwatch Log Group
+     * Use this data source to get information about an AWS CloudWatch Log Group
      * 
      * ## Example Usage
      * 
@@ -1915,7 +1915,7 @@ public final class CloudwatchFunctions {
         return Deployment.getInstance().invokeAsync("aws:cloudwatch/getLogGroup:getLogGroup", TypeShape.of(GetLogGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get a list of AWS Cloudwatch Log Groups
+     * Use this data source to get a list of AWS CloudWatch Log Groups
      * 
      * ## Example Usage
      * 
@@ -1955,7 +1955,7 @@ public final class CloudwatchFunctions {
         return getLogGroups(GetLogGroupsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get a list of AWS Cloudwatch Log Groups
+     * Use this data source to get a list of AWS CloudWatch Log Groups
      * 
      * ## Example Usage
      * 
@@ -1995,7 +1995,7 @@ public final class CloudwatchFunctions {
         return getLogGroupsPlain(GetLogGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get a list of AWS Cloudwatch Log Groups
+     * Use this data source to get a list of AWS CloudWatch Log Groups
      * 
      * ## Example Usage
      * 
@@ -2035,7 +2035,7 @@ public final class CloudwatchFunctions {
         return getLogGroups(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get a list of AWS Cloudwatch Log Groups
+     * Use this data source to get a list of AWS CloudWatch Log Groups
      * 
      * ## Example Usage
      * 
@@ -2075,7 +2075,7 @@ public final class CloudwatchFunctions {
         return getLogGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get a list of AWS Cloudwatch Log Groups
+     * Use this data source to get a list of AWS CloudWatch Log Groups
      * 
      * ## Example Usage
      * 
@@ -2115,7 +2115,7 @@ public final class CloudwatchFunctions {
         return Deployment.getInstance().invoke("aws:cloudwatch/getLogGroups:getLogGroups", TypeShape.of(GetLogGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get a list of AWS Cloudwatch Log Groups
+     * Use this data source to get a list of AWS CloudWatch Log Groups
      * 
      * ## Example Usage
      * 
@@ -2155,7 +2155,7 @@ public final class CloudwatchFunctions {
         return Deployment.getInstance().invoke("aws:cloudwatch/getLogGroups:getLogGroups", TypeShape.of(GetLogGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get a list of AWS Cloudwatch Log Groups
+     * Use this data source to get a list of AWS CloudWatch Log Groups
      * 
      * ## Example Usage
      * 

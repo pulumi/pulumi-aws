@@ -18,14 +18,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkflowArgs Empty = new WorkflowArgs();
 
     /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
     @Import(name="defaultRunProperties")
     private @Nullable Output<Map<String,String>> defaultRunProperties;
 
     /**
-     * @return A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * @return Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
     public Optional<Output<Map<String,String>>> defaultRunProperties() {
@@ -63,14 +63,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name you assign to this workflow.
+     * Name you assign to this workflow.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name you assign to this workflow.
+     * @return Name you assign to this workflow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -137,7 +137,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRunProperties A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+         * @param defaultRunProperties Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRunProperties A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+         * @param defaultRunProperties Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name you assign to this workflow.
+         * @param name Name you assign to this workflow.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name you assign to this workflow.
+         * @param name Name you assign to this workflow.
          * 
          * @return builder
          * 

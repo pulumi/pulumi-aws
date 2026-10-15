@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class LoggingConfigurationDestinationConfigurationCloudwatchLogs {
     /**
-     * @return Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+     * @return Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
      * 
      */
     private String logGroupName;
 
     private LoggingConfigurationDestinationConfigurationCloudwatchLogs() {}
     /**
-     * @return Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+     * @return Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
      * 
      */
     public String logGroupName() {

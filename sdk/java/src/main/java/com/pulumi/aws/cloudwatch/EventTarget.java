@@ -632,7 +632,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Cloudwatch Log Group Usage
+ * ### CloudWatch Log Group Usage
  * 
  * <pre>
  * {@code
@@ -1174,14 +1174,14 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sqsTarget);
     }
     /**
-     * The unique target assignment ID. If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique ID.
      * 
      */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**
-     * @return The unique target assignment ID. If missing, will generate a random, unique id.
+     * @return The unique target assignment ID. If missing, will generate a random, unique ID.
      * 
      */
     public Output<String> targetId() {

@@ -14,23 +14,47 @@ public final class ChannelInputSpecificationArgs extends com.pulumi.resources.Re
 
     public static final ChannelInputSpecificationArgs Empty = new ChannelInputSpecificationArgs();
 
+    /**
+     * Codec to use for the input.
+     * 
+     */
     @Import(name="codec", required=true)
     private Output<String> codec;
 
+    /**
+     * @return Codec to use for the input.
+     * 
+     */
     public Output<String> codec() {
         return this.codec;
     }
 
+    /**
+     * Maximum input resolution.
+     * 
+     */
     @Import(name="inputResolution", required=true)
     private Output<String> inputResolution;
 
+    /**
+     * @return Maximum input resolution.
+     * 
+     */
     public Output<String> inputResolution() {
         return this.inputResolution;
     }
 
+    /**
+     * Maximum input bitrate for an input.
+     * 
+     */
     @Import(name="maximumBitrate", required=true)
     private Output<String> maximumBitrate;
 
+    /**
+     * @return Maximum input bitrate for an input.
+     * 
+     */
     public Output<String> maximumBitrate() {
         return this.maximumBitrate;
     }
@@ -61,29 +85,65 @@ public final class ChannelInputSpecificationArgs extends com.pulumi.resources.Re
             $ = new ChannelInputSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param codec Codec to use for the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codec(Output<String> codec) {
             $.codec = codec;
             return this;
         }
 
+        /**
+         * @param codec Codec to use for the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codec(String codec) {
             return codec(Output.of(codec));
         }
 
+        /**
+         * @param inputResolution Maximum input resolution.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputResolution(Output<String> inputResolution) {
             $.inputResolution = inputResolution;
             return this;
         }
 
+        /**
+         * @param inputResolution Maximum input resolution.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputResolution(String inputResolution) {
             return inputResolution(Output.of(inputResolution));
         }
 
+        /**
+         * @param maximumBitrate Maximum input bitrate for an input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumBitrate(Output<String> maximumBitrate) {
             $.maximumBitrate = maximumBitrate;
             return this;
         }
 
+        /**
+         * @param maximumBitrate Maximum input bitrate for an input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumBitrate(String maximumBitrate) {
             return maximumBitrate(Output.of(maximumBitrate));
         }

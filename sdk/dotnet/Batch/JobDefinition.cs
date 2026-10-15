@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Batch
         public Output<string?> EcsProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Valid eks properties. This parameter is only valid if the `Type` parameter is `Container`.
+        /// Valid EKS properties. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Output("eksProperties")]
         public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
@@ -612,7 +612,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? EcsProperties { get; set; }
 
         /// <summary>
-        /// Valid eks properties. This parameter is only valid if the `Type` parameter is `Container`.
+        /// Valid EKS properties. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("eksProperties")]
         public Input<Inputs.JobDefinitionEksPropertiesArgs>? EksProperties { get; set; }
@@ -742,7 +742,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? EcsProperties { get; set; }
 
         /// <summary>
-        /// Valid eks properties. This parameter is only valid if the `Type` parameter is `Container`.
+        /// Valid EKS properties. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("eksProperties")]
         public Input<Inputs.JobDefinitionEksPropertiesGetArgs>? EksProperties { get; set; }

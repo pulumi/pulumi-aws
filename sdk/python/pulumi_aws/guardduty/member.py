@@ -30,7 +30,7 @@ class MemberArgs:
         The set of arguments for constructing a Member resource.
 
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for member account.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account where you want to create member accounts.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account where you want to create member accounts.
         :param pulumi.Input[_builtins.str] email: Email address for member account.
         :param pulumi.Input[_builtins.bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         :param pulumi.Input[_builtins.str] invitation_message: Message for invitation.
@@ -65,7 +65,7 @@ class MemberArgs:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The detector ID of the GuardDuty account where you want to create member accounts.
+        Detector ID of the GuardDuty account where you want to create member accounts.
         """
         return pulumi.get(self, "detector_id")
 
@@ -149,13 +149,13 @@ class _MemberState:
         Input properties used for looking up and filtering Member resources.
 
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for member account.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account where you want to create member accounts.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account where you want to create member accounts.
         :param pulumi.Input[_builtins.bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         :param pulumi.Input[_builtins.str] email: Email address for member account.
         :param pulumi.Input[_builtins.str] invitation_message: Message for invitation.
         :param pulumi.Input[_builtins.bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+        :param pulumi.Input[_builtins.str] relationship_status: Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -190,7 +190,7 @@ class _MemberState:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The detector ID of the GuardDuty account where you want to create member accounts.
+        Detector ID of the GuardDuty account where you want to create member accounts.
         """
         return pulumi.get(self, "detector_id")
 
@@ -262,7 +262,7 @@ class _MemberState:
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+        Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         return pulumi.get(self, "relationship_status")
 
@@ -316,7 +316,7 @@ class Member(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for member account.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account where you want to create member accounts.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account where you want to create member accounts.
         :param pulumi.Input[_builtins.bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         :param pulumi.Input[_builtins.str] email: Email address for member account.
         :param pulumi.Input[_builtins.str] invitation_message: Message for invitation.
@@ -428,13 +428,13 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for member account.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account where you want to create member accounts.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account where you want to create member accounts.
         :param pulumi.Input[_builtins.bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         :param pulumi.Input[_builtins.str] email: Email address for member account.
         :param pulumi.Input[_builtins.str] invitation_message: Message for invitation.
         :param pulumi.Input[_builtins.bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+        :param pulumi.Input[_builtins.str] relationship_status: Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -462,7 +462,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The detector ID of the GuardDuty account where you want to create member accounts.
+        Detector ID of the GuardDuty account where you want to create member accounts.
         """
         return pulumi.get(self, "detector_id")
 
@@ -510,7 +510,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+        Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         return pulumi.get(self, "relationship_status")
 

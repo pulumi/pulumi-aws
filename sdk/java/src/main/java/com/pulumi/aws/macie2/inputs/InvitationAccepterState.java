@@ -16,14 +16,14 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
     public static final InvitationAccepterState Empty = new InvitationAccepterState();
 
     /**
-     * The AWS account ID for the account that sent the invitation.
+     * AWS account ID for the account that sent the invitation.
      * 
      */
     @Import(name="administratorAccountId")
     private @Nullable Output<String> administratorAccountId;
 
     /**
-     * @return The AWS account ID for the account that sent the invitation.
+     * @return AWS account ID for the account that sent the invitation.
      * 
      */
     public Optional<Output<String>> administratorAccountId() {
@@ -31,14 +31,14 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The unique identifier for the invitation.
+     * Unique identifier for the invitation.
      * 
      */
     @Import(name="invitationId")
     private @Nullable Output<String> invitationId;
 
     /**
-     * @return The unique identifier for the invitation.
+     * @return Unique identifier for the invitation.
      * 
      */
     public Optional<Output<String>> invitationId() {
@@ -87,7 +87,7 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
+         * @param administratorAccountId AWS account ID for the account that sent the invitation.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
+         * @param administratorAccountId AWS account ID for the account that sent the invitation.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param invitationId The unique identifier for the invitation.
+         * @param invitationId Unique identifier for the invitation.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param invitationId The unique identifier for the invitation.
+         * @param invitationId Unique identifier for the invitation.
          * 
          * @return builder
          * 

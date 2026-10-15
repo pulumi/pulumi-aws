@@ -530,28 +530,28 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnel1Address;
     }
     /**
-     * Bgp asn number of the first VPN tunnel.
+     * BGP ASN number of the first VPN tunnel.
      * 
      */
     @Export(name="tunnel1BgpAsn", refs={String.class}, tree="[0]")
     private Output<String> tunnel1BgpAsn;
 
     /**
-     * @return Bgp asn number of the first VPN tunnel.
+     * @return BGP ASN number of the first VPN tunnel.
      * 
      */
     public Output<String> tunnel1BgpAsn() {
         return this.tunnel1BgpAsn;
     }
     /**
-     * Bgp holdtime of the first VPN tunnel.
+     * BGP holdtime of the first VPN tunnel.
      * 
      */
     @Export(name="tunnel1BgpHoldtime", refs={Integer.class}, tree="[0]")
     private Output<Integer> tunnel1BgpHoldtime;
 
     /**
-     * @return Bgp holdtime of the first VPN tunnel.
+     * @return BGP holdtime of the first VPN tunnel.
      * 
      */
     public Output<Integer> tunnel1BgpHoldtime() {
@@ -880,28 +880,28 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnel2Address;
     }
     /**
-     * Bgp asn number of the second VPN tunnel.
+     * BGP ASN number of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2BgpAsn", refs={String.class}, tree="[0]")
     private Output<String> tunnel2BgpAsn;
 
     /**
-     * @return Bgp asn number of the second VPN tunnel.
+     * @return BGP ASN number of the second VPN tunnel.
      * 
      */
     public Output<String> tunnel2BgpAsn() {
         return this.tunnel2BgpAsn;
     }
     /**
-     * Bgp holdtime of the second VPN tunnel.
+     * BGP holdtime of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2BgpHoldtime", refs={Integer.class}, tree="[0]")
     private Output<Integer> tunnel2BgpHoldtime;
 
     /**
-     * @return Bgp holdtime of the second VPN tunnel.
+     * @return BGP holdtime of the second VPN tunnel.
      * 
      */
     public Output<Integer> tunnel2BgpHoldtime() {

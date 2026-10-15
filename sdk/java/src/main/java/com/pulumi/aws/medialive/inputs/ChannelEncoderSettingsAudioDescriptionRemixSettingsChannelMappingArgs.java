@@ -16,16 +16,32 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
 
     public static final ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs Empty = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs();
 
+    /**
+     * Levels for each of the input channels. See `inputChannelLevels` Block for details.
+     * 
+     */
     @Import(name="inputChannelLevels", required=true)
     private Output<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>> inputChannelLevels;
 
+    /**
+     * @return Levels for each of the input channels. See `inputChannelLevels` Block for details.
+     * 
+     */
     public Output<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>> inputChannelLevels() {
         return this.inputChannelLevels;
     }
 
+    /**
+     * Index of the output channel being produced.
+     * 
+     */
     @Import(name="outputChannel", required=true)
     private Output<Integer> outputChannel;
 
+    /**
+     * @return Index of the output channel being produced.
+     * 
+     */
     public Output<Integer> outputChannel() {
         return this.outputChannel;
     }
@@ -55,24 +71,54 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
             $ = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inputChannelLevels Levels for each of the input channels. See `inputChannelLevels` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputChannelLevels(Output<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>> inputChannelLevels) {
             $.inputChannelLevels = inputChannelLevels;
             return this;
         }
 
+        /**
+         * @param inputChannelLevels Levels for each of the input channels. See `inputChannelLevels` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputChannelLevels(List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs> inputChannelLevels) {
             return inputChannelLevels(Output.of(inputChannelLevels));
         }
 
+        /**
+         * @param inputChannelLevels Levels for each of the input channels. See `inputChannelLevels` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputChannelLevels(ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs... inputChannelLevels) {
             return inputChannelLevels(List.of(inputChannelLevels));
         }
 
+        /**
+         * @param outputChannel Index of the output channel being produced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputChannel(Output<Integer> outputChannel) {
             $.outputChannel = outputChannel;
             return this;
         }
 
+        /**
+         * @param outputChannel Index of the output channel being produced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputChannel(Integer outputChannel) {
             return outputChannel(Output.of(outputChannel));
         }

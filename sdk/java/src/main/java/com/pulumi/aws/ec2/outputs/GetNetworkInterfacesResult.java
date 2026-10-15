@@ -21,7 +21,7 @@ public final class GetNetworkInterfacesResult {
      */
     private String id;
     /**
-     * @return List of all the network interface ids found.
+     * @return List of all the network interface IDs found.
      * 
      */
     private List<String> ids;
@@ -40,7 +40,7 @@ public final class GetNetworkInterfacesResult {
         return this.id;
     }
     /**
-     * @return List of all the network interface ids found.
+     * @return List of all the network interface IDs found.
      * 
      */
     public List<String> ids() {

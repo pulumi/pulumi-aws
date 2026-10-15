@@ -18,7 +18,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderMod
      */
     private @Nullable String separator;
     /**
-     * @return Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+     * @return Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
      * 
      */
     private @Nullable Boolean strip;
@@ -32,7 +32,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderMod
         return Optional.ofNullable(this.separator);
     }
     /**
-     * @return Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+     * @return Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
      * 
      */
     public Optional<Boolean> strip() {

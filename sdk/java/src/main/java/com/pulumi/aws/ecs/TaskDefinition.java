@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With AppMesh Proxy
+ * ### With App Mesh Proxy
  * 
  * <pre>
  * {@code
@@ -492,14 +492,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return this.containerDefinitions;
     }
     /**
-     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     @Export(name="cpu", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cpu;
 
     /**
-     * @return Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * @return Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     public Output<Optional<String>> cpu() {

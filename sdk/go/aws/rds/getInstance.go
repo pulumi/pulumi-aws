@@ -89,7 +89,7 @@ type LookupInstanceResult struct {
 	DbParameterGroups []string `pulumi:"dbParameterGroups"`
 	// Name of the subnet group associated with the DB instance.
 	DbSubnetGroup string `pulumi:"dbSubnetGroup"`
-	// List of log types to export to cloudwatch.
+	// List of log types to export to CloudWatch.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// Connection endpoint in `address:port` format.
 	Endpoint string `pulumi:"endpoint"`
@@ -259,7 +259,7 @@ func (o LookupInstanceResultOutput) DbSubnetGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbSubnetGroup }).(pulumi.StringOutput)
 }
 
-// List of log types to export to cloudwatch.
+// List of log types to export to CloudWatch.
 func (o LookupInstanceResultOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []string { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public final class ProjectFileSystemLocation {
     /**
      * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an
-     * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+     * environment variable by appending the identifier in all capital letters to `CODEBUILD_`. For example, if you specify
      * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */
@@ -43,7 +43,7 @@ public final class ProjectFileSystemLocation {
     private ProjectFileSystemLocation() {}
     /**
      * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an
-     * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+     * environment variable by appending the identifier in all capital letters to `CODEBUILD_`. For example, if you specify
      * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */

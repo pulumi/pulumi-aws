@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
-    /// Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
+    /// Manages an individual Auto Scaling group (ASG) tag. This resource should only be used in cases where ASGs are created outside Pulumi (e.g., ASGs implicitly created by EKS Node Groups).
     /// 
     /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.autoscaling.Group` and `aws.autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `aws.autoscaling.Group` resource will try to remove the tag being added by the `aws.autoscaling.Tag` resource.
     /// 
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Autoscaling Group to apply the tag to.
+        /// Name of the Auto Scaling group to apply the tag to.
         /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Autoscaling Group to apply the tag to.
+        /// Name of the Auto Scaling group to apply the tag to.
         /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Autoscaling Group to apply the tag to.
+        /// Name of the Auto Scaling group to apply the tag to.
         /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }

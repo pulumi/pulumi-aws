@@ -33,12 +33,13 @@ class AgentAgentCollaboratorArgs:
         """
         The set of arguments for constructing a AgentAgentCollaborator resource.
 
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
+        :param pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs'] agent_descriptor: Agent descriptor for the agent collaborator. See `agent_descriptor` Block for details.
+        :param pulumi.Input[_builtins.str] agent_id: ID of the agent to associate the collaborator with.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
@@ -61,6 +62,9 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="agentDescriptor")
     def agent_descriptor(self) -> pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']:
+        """
+        Agent descriptor for the agent collaborator. See `agent_descriptor` Block for details.
+        """
         return pulumi.get(self, "agent_descriptor")
 
     @agent_descriptor.setter
@@ -71,7 +75,7 @@ class AgentAgentCollaboratorArgs:
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ID if the agent to associate the collaborator.
+        ID of the agent to associate the collaborator with.
         """
         return pulumi.get(self, "agent_id")
 
@@ -109,7 +113,7 @@ class AgentAgentCollaboratorArgs:
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         """
         return pulumi.get(self, "agent_version")
 
@@ -179,8 +183,9 @@ class _AgentAgentCollaboratorState:
         """
         Input properties used for looking up and filtering AgentAgentCollaborator resources.
 
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        :param pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs'] agent_descriptor: Agent descriptor for the agent collaborator. See `agent_descriptor` Block for details.
+        :param pulumi.Input[_builtins.str] agent_id: ID of the agent to associate the collaborator with.
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
@@ -214,6 +219,9 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="agentDescriptor")
     def agent_descriptor(self) -> pulumi.Input[Optional['AgentAgentCollaboratorAgentDescriptorArgs']]:
+        """
+        Agent descriptor for the agent collaborator. See `agent_descriptor` Block for details.
+        """
         return pulumi.get(self, "agent_descriptor")
 
     @agent_descriptor.setter
@@ -224,7 +232,7 @@ class _AgentAgentCollaboratorState:
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID if the agent to associate the collaborator.
+        ID of the agent to associate the collaborator with.
         """
         return pulumi.get(self, "agent_id")
 
@@ -236,7 +244,7 @@ class _AgentAgentCollaboratorState:
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         """
         return pulumi.get(self, "agent_version")
 
@@ -345,7 +353,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict', 'outputs.AgentAgentCollaboratorTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Agents Agent Collaborator.
+        Manages an AWS Bedrock Agents Agent Collaborator.
 
         ## Example Usage
 
@@ -388,8 +396,8 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "bedrock:InvokeAgent",
                 ],
                 "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
+                    f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
+                    f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
                 ],
             },
         ])
@@ -404,14 +412,14 @@ class AgentAgentCollaborator(pulumi.CustomResource):
             agent_resource_role_arn=example.arn,
             idle_session_ttl_in_seconds=500,
             foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="do what the supervisor tells you to do")
+            instruction="You are a collaborator agent. Do what the supervisor tells you to do.")
         example_supervisor = aws.bedrock.AgentAgent("example_supervisor",
             agent_name="my-agent-supervisor",
             agent_resource_role_arn=example.arn,
             agent_collaboration="SUPERVISOR",
             idle_session_ttl_in_seconds=500,
             foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="tell the sub agent what to do",
+            instruction="You are a supervisor agent. Tell the sub agent what to do.",
             prepare_agent=False)
         example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
             agent_alias_name="my-agent-alias",
@@ -438,8 +446,9 @@ class AgentAgentCollaborator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        :param pulumi.Input[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict', 'outputs.AgentAgentCollaboratorAgentDescriptor']] agent_descriptor: Agent descriptor for the agent collaborator. See `agent_descriptor` Block for details.
+        :param pulumi.Input[_builtins.str] agent_id: ID of the agent to associate the collaborator with.
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
                
@@ -455,7 +464,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  args: AgentAgentCollaboratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Agents Agent Collaborator.
+        Manages an AWS Bedrock Agents Agent Collaborator.
 
         ## Example Usage
 
@@ -498,8 +507,8 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "bedrock:InvokeAgent",
                 ],
                 "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
+                    f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
+                    f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
                 ],
             },
         ])
@@ -514,14 +523,14 @@ class AgentAgentCollaborator(pulumi.CustomResource):
             agent_resource_role_arn=example.arn,
             idle_session_ttl_in_seconds=500,
             foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="do what the supervisor tells you to do")
+            instruction="You are a collaborator agent. Do what the supervisor tells you to do.")
         example_supervisor = aws.bedrock.AgentAgent("example_supervisor",
             agent_name="my-agent-supervisor",
             agent_resource_role_arn=example.arn,
             agent_collaboration="SUPERVISOR",
             idle_session_ttl_in_seconds=500,
             foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="tell the sub agent what to do",
+            instruction="You are a supervisor agent. Tell the sub agent what to do.",
             prepare_agent=False)
         example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
             agent_alias_name="my-agent-alias",
@@ -624,8 +633,9 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        :param pulumi.Input[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict', 'outputs.AgentAgentCollaboratorAgentDescriptor']] agent_descriptor: Agent descriptor for the agent collaborator. See `agent_descriptor` Block for details.
+        :param pulumi.Input[_builtins.str] agent_id: ID of the agent to associate the collaborator with.
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
@@ -654,13 +664,16 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentDescriptor")
     def agent_descriptor(self) -> pulumi.Output['outputs.AgentAgentCollaboratorAgentDescriptor']:
+        """
+        Agent descriptor for the agent collaborator. See `agent_descriptor` Block for details.
+        """
         return pulumi.get(self, "agent_descriptor")
 
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID if the agent to associate the collaborator.
+        ID of the agent to associate the collaborator with.
         """
         return pulumi.get(self, "agent_id")
 
@@ -668,7 +681,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         """
         return pulumi.get(self, "agent_version")
 

@@ -383,7 +383,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the subnet ids found.
+        /// List of all the subnet IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

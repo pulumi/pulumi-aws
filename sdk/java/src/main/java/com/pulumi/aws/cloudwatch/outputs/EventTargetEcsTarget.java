@@ -71,7 +71,7 @@ public final class EventTargetEcsTarget {
      */
     private @Nullable String propagateTags;
     /**
-     * @return A map of tags to assign to ecs resources.
+     * @return A map of tags to assign to ECS resources.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -158,7 +158,7 @@ public final class EventTargetEcsTarget {
         return Optional.ofNullable(this.propagateTags);
     }
     /**
-     * @return A map of tags to assign to ecs resources.
+     * @return A map of tags to assign to ECS resources.
      * 
      */
     public Map<String,String> tags() {

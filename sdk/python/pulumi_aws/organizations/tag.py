@@ -26,7 +26,7 @@ class TagArgs:
         The set of arguments for constructing a Tag resource.
 
         :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the Organizations resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         """
         pulumi.set(__self__, "key", key)
@@ -49,7 +49,7 @@ class TagArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Id of the Organizations resource to tag.
+        ID of the Organizations resource to tag.
         """
         return pulumi.get(self, "resource_id")
 
@@ -80,7 +80,7 @@ class _TagState:
         Input properties used for looking up and filtering Tag resources.
 
         :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the Organizations resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         """
         if key is not None:
@@ -106,7 +106,7 @@ class _TagState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the Organizations resource to tag.
+        ID of the Organizations resource to tag.
         """
         return pulumi.get(self, "resource_id")
 
@@ -173,7 +173,7 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the Organizations resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         """
         ...
@@ -272,7 +272,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the Organizations resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -296,7 +296,7 @@ class Tag(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Id of the Organizations resource to tag.
+        ID of the Organizations resource to tag.
         """
         return pulumi.get(self, "resource_id")
 

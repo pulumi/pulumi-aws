@@ -99,7 +99,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
         :param pulumi.Input['ClusterKerberosAttributesArgs'] kerberos_attributes: Kerberos configuration for the cluster. See below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] list_steps_states: List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
-        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         :param pulumi.Input[_builtins.str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         :param pulumi.Input['ClusterMasterInstanceFleetArgs'] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
@@ -416,7 +416,7 @@ class ClusterArgs:
     @pulumi.getter(name="logEncryptionKmsKeyId")
     def log_encryption_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         """
         return pulumi.get(self, "log_encryption_kms_key_id")
 
@@ -689,7 +689,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
         :param pulumi.Input['ClusterKerberosAttributesArgs'] kerberos_attributes: Kerberos configuration for the cluster. See below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] list_steps_states: List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
-        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         :param pulumi.Input[_builtins.str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         :param pulumi.Input['ClusterMasterInstanceFleetArgs'] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
@@ -1017,7 +1017,7 @@ class _ClusterState:
     @pulumi.getter(name="logEncryptionKmsKeyId")
     def log_encryption_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         """
         return pulumi.get(self, "log_encryption_kms_key_id")
 
@@ -1616,7 +1616,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
         :param pulumi.Input[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict', 'outputs.ClusterKerberosAttributes']] kerberos_attributes: Kerberos configuration for the cluster. See below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] list_steps_states: List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
-        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         :param pulumi.Input[_builtins.str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         :param pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict', 'outputs.ClusterMasterInstanceFleet']] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict', 'outputs.ClusterMasterInstanceGroup']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
@@ -2114,7 +2114,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
         :param pulumi.Input[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict', 'outputs.ClusterKerberosAttributes']] kerberos_attributes: Kerberos configuration for the cluster. See below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] list_steps_states: List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
-        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        :param pulumi.Input[_builtins.str] log_encryption_kms_key_id: AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         :param pulumi.Input[_builtins.str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         :param pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict', 'outputs.ClusterMasterInstanceFleet']] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict', 'outputs.ClusterMasterInstanceGroup']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
@@ -2342,7 +2342,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="logEncryptionKmsKeyId")
     def log_encryption_kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         """
         return pulumi.get(self, "log_encryption_kms_key_id")
 

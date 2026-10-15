@@ -77,7 +77,7 @@ namespace Pulumi.Aws.LB
         public Output<string> RevocationsS3Key { get; private set; } = null!;
 
         /// <summary>
-        /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        /// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
         [Output("revocationsS3ObjectVersion")]
         public Output<string?> RevocationsS3ObjectVersion { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.LB
         public Input<string> RevocationsS3Key { get; set; } = null!;
 
         /// <summary>
-        /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        /// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
         [Input("revocationsS3ObjectVersion")]
         public Input<string>? RevocationsS3ObjectVersion { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RevocationsS3Key { get; set; }
 
         /// <summary>
-        /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        /// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
         [Input("revocationsS3ObjectVersion")]
         public Input<string>? RevocationsS3ObjectVersion { get; set; }

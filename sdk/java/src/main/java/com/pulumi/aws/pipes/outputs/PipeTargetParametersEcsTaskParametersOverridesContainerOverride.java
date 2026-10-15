@@ -22,7 +22,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      */
     private @Nullable List<String> commands;
     /**
-     * @return Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     private @Nullable Integer cpu;
@@ -66,7 +66,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     public Optional<Integer> cpu() {

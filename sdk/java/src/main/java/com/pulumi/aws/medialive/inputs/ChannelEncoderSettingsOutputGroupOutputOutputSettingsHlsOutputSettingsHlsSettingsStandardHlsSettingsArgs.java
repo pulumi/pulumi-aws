@@ -17,16 +17,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs();
 
+    /**
+     * List of audio rendition sets, separated by commas.
+     * 
+     */
     @Import(name="audioRenditionSets")
     private @Nullable Output<String> audioRenditionSets;
 
+    /**
+     * @return List of audio rendition sets, separated by commas.
+     * 
+     */
     public Optional<Output<String>> audioRenditionSets() {
         return Optional.ofNullable(this.audioRenditionSets);
     }
 
+    /**
+     * Settings for the M3U8 container. See `m3u8Settings` Block for details.
+     * 
+     */
     @Import(name="m3u8Settings", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs> m3u8Settings;
 
+    /**
+     * @return Settings for the M3U8 container. See `m3u8Settings` Block for details.
+     * 
+     */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs> m3u8Settings() {
         return this.m3u8Settings;
     }
@@ -56,20 +72,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audioRenditionSets List of audio rendition sets, separated by commas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioRenditionSets(@Nullable Output<String> audioRenditionSets) {
             $.audioRenditionSets = audioRenditionSets;
             return this;
         }
 
+        /**
+         * @param audioRenditionSets List of audio rendition sets, separated by commas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioRenditionSets(String audioRenditionSets) {
             return audioRenditionSets(Output.of(audioRenditionSets));
         }
 
+        /**
+         * @param m3u8Settings Settings for the M3U8 container. See `m3u8Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder m3u8Settings(Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs> m3u8Settings) {
             $.m3u8Settings = m3u8Settings;
             return this;
         }
 
+        /**
+         * @param m3u8Settings Settings for the M3U8 container. See `m3u8Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder m3u8Settings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs m3u8Settings) {
             return m3u8Settings(Output.of(m3u8Settings));
         }

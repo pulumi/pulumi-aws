@@ -309,28 +309,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/crawler:Crawler")
 public class Crawler extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the crawler
+     * ARN of the crawler
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the crawler
+     * @return ARN of the crawler
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
      * 
      */
     @Export(name="catalogTargets", refs={List.class,CrawlerCatalogTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerCatalogTarget>> catalogTargets;
 
     /**
-     * @return List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * @return List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
      * 
      */
     public Output<Optional<List<CrawlerCatalogTarget>>> catalogTargets() {
@@ -379,14 +379,14 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * List of nested Delta Lake target arguments. See Delta Target below.
+     * List of nested Delta Lake target arguments. See `deltaTarget` below.
      * 
      */
     @Export(name="deltaTargets", refs={List.class,CrawlerDeltaTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerDeltaTarget>> deltaTargets;
 
     /**
-     * @return List of nested Delta Lake target arguments. See Delta Target below.
+     * @return List of nested Delta Lake target arguments. See `deltaTarget` below.
      * 
      */
     public Output<Optional<List<CrawlerDeltaTarget>>> deltaTargets() {
@@ -407,98 +407,98 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * List of nested DynamoDB target arguments. See Dynamodb Target below.
+     * List of nested DynamoDB target arguments. See `dynamodbTarget` below.
      * 
      */
     @Export(name="dynamodbTargets", refs={List.class,CrawlerDynamodbTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerDynamodbTarget>> dynamodbTargets;
 
     /**
-     * @return List of nested DynamoDB target arguments. See Dynamodb Target below.
+     * @return List of nested DynamoDB target arguments. See `dynamodbTarget` below.
      * 
      */
     public Output<Optional<List<CrawlerDynamodbTarget>>> dynamodbTargets() {
         return Codegen.optional(this.dynamodbTargets);
     }
     /**
-     * List of nested Hudi target arguments. See Iceberg Target below.
+     * List of nested Hudi target arguments. See `hudiTarget` below.
      * 
      */
     @Export(name="hudiTargets", refs={List.class,CrawlerHudiTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerHudiTarget>> hudiTargets;
 
     /**
-     * @return List of nested Hudi target arguments. See Iceberg Target below.
+     * @return List of nested Hudi target arguments. See `hudiTarget` below.
      * 
      */
     public Output<Optional<List<CrawlerHudiTarget>>> hudiTargets() {
         return Codegen.optional(this.hudiTargets);
     }
     /**
-     * List of nested Iceberg target arguments. See Iceberg Target below.
+     * List of nested Iceberg target arguments. See `icebergTarget` below.
      * 
      */
     @Export(name="icebergTargets", refs={List.class,CrawlerIcebergTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerIcebergTarget>> icebergTargets;
 
     /**
-     * @return List of nested Iceberg target arguments. See Iceberg Target below.
+     * @return List of nested Iceberg target arguments. See `icebergTarget` below.
      * 
      */
     public Output<Optional<List<CrawlerIcebergTarget>>> icebergTargets() {
         return Codegen.optional(this.icebergTargets);
     }
     /**
-     * List of nested JDBC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See `jdbcTarget` below.
      * 
      */
     @Export(name="jdbcTargets", refs={List.class,CrawlerJdbcTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerJdbcTarget>> jdbcTargets;
 
     /**
-     * @return List of nested JDBC target arguments. See JDBC Target below.
+     * @return List of nested JDBC target arguments. See `jdbcTarget` below.
      * 
      */
     public Output<Optional<List<CrawlerJdbcTarget>>> jdbcTargets() {
         return Codegen.optional(this.jdbcTargets);
     }
     /**
-     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * Lake Formation configuration settings for the crawler. See `lakeFormationConfiguration` below.
      * 
      */
     @Export(name="lakeFormationConfiguration", refs={CrawlerLakeFormationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerLakeFormationConfiguration> lakeFormationConfiguration;
 
     /**
-     * @return Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * @return Lake Formation configuration settings for the crawler. See `lakeFormationConfiguration` below.
      * 
      */
     public Output<Optional<CrawlerLakeFormationConfiguration>> lakeFormationConfiguration() {
         return Codegen.optional(this.lakeFormationConfiguration);
     }
     /**
-     * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+     * Data lineage configuration settings for the crawler. See `lineageConfiguration` below.
      * 
      */
     @Export(name="lineageConfiguration", refs={CrawlerLineageConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerLineageConfiguration> lineageConfiguration;
 
     /**
-     * @return Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+     * @return Data lineage configuration settings for the crawler. See `lineageConfiguration` below.
      * 
      */
     public Output<Optional<CrawlerLineageConfiguration>> lineageConfiguration() {
         return Codegen.optional(this.lineageConfiguration);
     }
     /**
-     * List of nested MongoDB target arguments. See MongoDB Target below.
+     * List of nested MongoDB target arguments. See `mongodbTarget` below.
      * 
      */
     @Export(name="mongodbTargets", refs={List.class,CrawlerMongodbTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerMongodbTarget>> mongodbTargets;
 
     /**
-     * @return List of nested MongoDB target arguments. See MongoDB Target below.
+     * @return List of nested MongoDB target arguments. See `mongodbTarget` below.
      * 
      */
     public Output<Optional<List<CrawlerMongodbTarget>>> mongodbTargets() {
@@ -519,14 +519,14 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+     * Policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run. See `recrawlPolicy` below.
      * 
      */
     @Export(name="recrawlPolicy", refs={CrawlerRecrawlPolicy.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerRecrawlPolicy> recrawlPolicy;
 
     /**
-     * @return A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+     * @return Policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run. See `recrawlPolicy` below.
      * 
      */
     public Output<Optional<CrawlerRecrawlPolicy>> recrawlPolicy() {
@@ -547,84 +547,84 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+     * IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+     * @return IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      * 
      */
     public Output<String> role() {
         return this.role;
     }
     /**
-     * List of nested Amazon S3 target arguments. See S3 Target below.
+     * List of nested Amazon S3 target arguments. See `s3Target` below.
      * 
      */
     @Export(name="s3Targets", refs={List.class,CrawlerS3Target.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerS3Target>> s3Targets;
 
     /**
-     * @return List of nested Amazon S3 target arguments. See S3 Target below.
+     * @return List of nested Amazon S3 target arguments. See `s3Target` below.
      * 
      */
     public Output<Optional<List<CrawlerS3Target>>> s3Targets() {
         return Codegen.optional(this.s3Targets);
     }
     /**
-     * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+     * Cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      * 
      */
     @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedule;
 
     /**
-     * @return A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+     * @return Cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      * 
      */
     public Output<Optional<String>> schedule() {
         return Codegen.optional(this.schedule);
     }
     /**
-     * Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
+     * Policy for the crawler&#39;s update and deletion behavior. See `schemaChangePolicy` below.
      * 
      */
     @Export(name="schemaChangePolicy", refs={CrawlerSchemaChangePolicy.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerSchemaChangePolicy> schemaChangePolicy;
 
     /**
-     * @return Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
+     * @return Policy for the crawler&#39;s update and deletion behavior. See `schemaChangePolicy` below.
      * 
      */
     public Output<Optional<CrawlerSchemaChangePolicy>> schemaChangePolicy() {
         return Codegen.optional(this.schemaChangePolicy);
     }
     /**
-     * The name of Security Configuration to be used by the crawler
+     * Name of Security Configuration to be used by the crawler.
      * 
      */
     @Export(name="securityConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityConfiguration;
 
     /**
-     * @return The name of Security Configuration to be used by the crawler
+     * @return Name of Security Configuration to be used by the crawler.
      * 
      */
     public Output<Optional<String>> securityConfiguration() {
         return Codegen.optional(this.securityConfiguration);
     }
     /**
-     * The table prefix used for catalog tables that are created.
+     * Table prefix used for catalog tables that are created.
      * 
      */
     @Export(name="tablePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tablePrefix;
 
     /**
-     * @return The table prefix used for catalog tables that are created.
+     * @return Table prefix used for catalog tables that are created.
      * 
      */
     public Output<Optional<String>> tablePrefix() {
@@ -649,14 +649,14 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

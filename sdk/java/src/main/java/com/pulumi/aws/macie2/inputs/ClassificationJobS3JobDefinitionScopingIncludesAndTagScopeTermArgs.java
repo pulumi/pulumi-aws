@@ -18,14 +18,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
     public static final ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs Empty = new ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs();
 
     /**
-     * The operator to use in the condition.
+     * Operator to use in the condition.
      * 
      */
     @Import(name="comparator")
     private @Nullable Output<String> comparator;
 
     /**
-     * @return The operator to use in the condition.
+     * @return Operator to use in the condition.
      * 
      */
     public Optional<Output<String>> comparator() {
@@ -33,14 +33,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
     }
 
     /**
-     * The tag key to use in the condition. The only valid value is `TAG`.
+     * Tag key to use in the condition. The only valid value is `TAG`.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The tag key to use in the condition. The only valid value is `TAG`.
+     * @return Tag key to use in the condition. The only valid value is `TAG`.
      * 
      */
     public Optional<Output<String>> key() {
@@ -48,14 +48,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
     }
 
     /**
-     * The tag keys or tag key and value pairs to use in the condition.
+     * Tag keys or tag key and value pairs to use in the condition. See `s3_job_definition.scoping.includes.and.tag_scope_term.tag_values` Block for details.
      * 
      */
     @Import(name="tagValues")
     private @Nullable Output<List<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs>> tagValues;
 
     /**
-     * @return The tag keys or tag key and value pairs to use in the condition.
+     * @return Tag keys or tag key and value pairs to use in the condition. See `s3_job_definition.scoping.includes.and.tag_scope_term.tag_values` Block for details.
      * 
      */
     public Optional<Output<List<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs>>> tagValues() {
@@ -63,14 +63,14 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
     }
 
     /**
-     * The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
+     * Type of object to apply the condition to. The only valid value is `S3_OBJECT`. The AWS API requires this argument when `tagScopeTerm` is used.
      * 
      */
     @Import(name="target")
     private @Nullable Output<String> target;
 
     /**
-     * @return The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
+     * @return Type of object to apply the condition to. The only valid value is `S3_OBJECT`. The AWS API requires this argument when `tagScopeTerm` is used.
      * 
      */
     public Optional<Output<String>> target() {
@@ -105,7 +105,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param comparator The operator to use in the condition.
+         * @param comparator Operator to use in the condition.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param comparator The operator to use in the condition.
+         * @param comparator Operator to use in the condition.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param key The tag key to use in the condition. The only valid value is `TAG`.
+         * @param key Tag key to use in the condition. The only valid value is `TAG`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param key The tag key to use in the condition. The only valid value is `TAG`.
+         * @param key Tag key to use in the condition. The only valid value is `TAG`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param tagValues The tag keys or tag key and value pairs to use in the condition.
+         * @param tagValues Tag keys or tag key and value pairs to use in the condition. See `s3_job_definition.scoping.includes.and.tag_scope_term.tag_values` Block for details.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param tagValues The tag keys or tag key and value pairs to use in the condition.
+         * @param tagValues Tag keys or tag key and value pairs to use in the condition. See `s3_job_definition.scoping.includes.and.tag_scope_term.tag_values` Block for details.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param tagValues The tag keys or tag key and value pairs to use in the condition.
+         * @param tagValues Tag keys or tag key and value pairs to use in the condition. See `s3_job_definition.scoping.includes.and.tag_scope_term.tag_values` Block for details.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param target The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
+         * @param target Type of object to apply the condition to. The only valid value is `S3_OBJECT`. The AWS API requires this argument when `tagScopeTerm` is used.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
 
         /**
-         * @param target The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
+         * @param target Type of object to apply the condition to. The only valid value is `S3_OBJECT`. The AWS API requires this argument when `tagScopeTerm` is used.
          * 
          * @return builder
          * 

@@ -135,9 +135,9 @@ type ObjectCopy struct {
 	CustomerKeyMd5 pulumi.StringOutput `pulumi:"customerKeyMd5"`
 	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedSourceBucketOwner pulumi.StringPtrOutput `pulumi:"expectedSourceBucketOwner"`
 	// If the object expiration is configured, this attribute will be set.
 	Expiration pulumi.StringOutput `pulumi:"expiration"`
@@ -304,9 +304,9 @@ type objectCopyState struct {
 	CustomerKeyMd5 *string `pulumi:"customerKeyMd5"`
 	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
 	Etag *string `pulumi:"etag"`
-	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedSourceBucketOwner *string `pulumi:"expectedSourceBucketOwner"`
 	// If the object expiration is configured, this attribute will be set.
 	Expiration *string `pulumi:"expiration"`
@@ -416,9 +416,9 @@ type ObjectCopyState struct {
 	CustomerKeyMd5 pulumi.StringPtrInput
 	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
 	Etag pulumi.StringPtrInput
-	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedSourceBucketOwner pulumi.StringPtrInput
 	// If the object expiration is configured, this attribute will be set.
 	Expiration pulumi.StringPtrInput
@@ -518,9 +518,9 @@ type objectCopyArgs struct {
 	CustomerKey *string `pulumi:"customerKey"`
 	// 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	CustomerKeyMd5 *string `pulumi:"customerKeyMd5"`
-	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedSourceBucketOwner *string `pulumi:"expectedSourceBucketOwner"`
 	// Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	Expires *string `pulumi:"expires"`
@@ -605,9 +605,9 @@ type ObjectCopyArgs struct {
 	CustomerKey pulumi.StringPtrInput
 	// 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	CustomerKeyMd5 pulumi.StringPtrInput
-	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedSourceBucketOwner pulumi.StringPtrInput
 	// Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	Expires pulumi.StringPtrInput
@@ -860,12 +860,12 @@ func (o ObjectCopyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 func (o ObjectCopyOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 func (o ObjectCopyOutput) ExpectedSourceBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ExpectedSourceBucketOwner }).(pulumi.StringPtrOutput)
 }

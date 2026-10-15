@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer {
+    /**
+     * @return Key used to extract the password from EC2 Parameter store.
+     * 
+     */
     private @Nullable String passwordParam;
+    /**
+     * @return Path to a file accessible to the live stream.
+     * 
+     */
     private String uri;
+    /**
+     * @return Username for the server.
+     * 
+     */
     private @Nullable String username;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer() {}
+    /**
+     * @return Key used to extract the password from EC2 Parameter store.
+     * 
+     */
     public Optional<String> passwordParam() {
         return Optional.ofNullable(this.passwordParam);
     }
+    /**
+     * @return Path to a file accessible to the live stream.
+     * 
+     */
     public String uri() {
         return this.uri;
     }
+    /**
+     * @return Username for the server.
+     * 
+     */
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }

@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsVideoSelector {
+    /**
+     * @return Color space of the input.
+     * 
+     */
     private @Nullable String colorSpace;
+    /**
+     * @return How MediaLive applies the color space metadata from the input.
+     * 
+     */
     private @Nullable String colorSpaceUsage;
 
     private ChannelInputAttachmentInputSettingsVideoSelector() {}
+    /**
+     * @return Color space of the input.
+     * 
+     */
     public Optional<String> colorSpace() {
         return Optional.ofNullable(this.colorSpace);
     }
+    /**
+     * @return How MediaLive applies the color space metadata from the input.
+     * 
+     */
     public Optional<String> colorSpaceUsage() {
         return Optional.ofNullable(this.colorSpaceUsage);
     }

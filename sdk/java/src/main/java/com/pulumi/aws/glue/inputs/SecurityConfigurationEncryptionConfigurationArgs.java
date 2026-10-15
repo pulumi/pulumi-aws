@@ -16,29 +16,45 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
 
     public static final SecurityConfigurationEncryptionConfigurationArgs Empty = new SecurityConfigurationEncryptionConfigurationArgs();
 
+    /**
+     * `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+     * 
+     */
     @Import(name="cloudwatchEncryption", required=true)
     private Output<SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs> cloudwatchEncryption;
 
+    /**
+     * @return `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+     * 
+     */
     public Output<SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs> cloudwatchEncryption() {
         return this.cloudwatchEncryption;
     }
 
+    /**
+     * `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
+     * 
+     */
     @Import(name="jobBookmarksEncryption", required=true)
     private Output<SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs> jobBookmarksEncryption;
 
+    /**
+     * @return `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
+     * 
+     */
     public Output<SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs> jobBookmarksEncryption() {
         return this.jobBookmarksEncryption;
     }
 
     /**
-     * A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * `s3Encryption` block as described below, which contains encryption configuration for S3 data.
      * 
      */
     @Import(name="s3Encryption", required=true)
     private Output<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption;
 
     /**
-     * @return A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * @return `s3Encryption` block as described below, which contains encryption configuration for S3 data.
      * 
      */
     public Output<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption() {
@@ -71,26 +87,50 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
             $ = new SecurityConfigurationEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cloudwatchEncryption `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchEncryption(Output<SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs> cloudwatchEncryption) {
             $.cloudwatchEncryption = cloudwatchEncryption;
             return this;
         }
 
+        /**
+         * @param cloudwatchEncryption `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs cloudwatchEncryption) {
             return cloudwatchEncryption(Output.of(cloudwatchEncryption));
         }
 
+        /**
+         * @param jobBookmarksEncryption `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobBookmarksEncryption(Output<SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs> jobBookmarksEncryption) {
             $.jobBookmarksEncryption = jobBookmarksEncryption;
             return this;
         }
 
+        /**
+         * @param jobBookmarksEncryption `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobBookmarksEncryption(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs jobBookmarksEncryption) {
             return jobBookmarksEncryption(Output.of(jobBookmarksEncryption));
         }
 
         /**
-         * @param s3Encryption A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+         * @param s3Encryption `s3Encryption` block as described below, which contains encryption configuration for S3 data.
          * 
          * @return builder
          * 
@@ -101,7 +141,7 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
         }
 
         /**
-         * @param s3Encryption A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+         * @param s3Encryption `s3Encryption` block as described below, which contains encryption configuration for S3 data.
          * 
          * @return builder
          * 

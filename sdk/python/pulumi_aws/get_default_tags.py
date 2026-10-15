@@ -77,7 +77,7 @@ def get_default_tags(id: Optional[_builtins.str] = None,
     example = aws.get_default_tags()
     ```
 
-    ### Dynamically Apply Default Tags to Auto Scaling Group
+    ### Dynamically Apply Default Tags to Auto Scaling group
 
     ```python
     import pulumi
@@ -117,7 +117,7 @@ def get_default_tags_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] 
     example = aws.get_default_tags()
     ```
 
-    ### Dynamically Apply Default Tags to Auto Scaling Group
+    ### Dynamically Apply Default Tags to Auto Scaling group
 
     ```python
     import pulumi

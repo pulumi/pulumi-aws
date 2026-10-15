@@ -295,42 +295,42 @@ public class Catalog extends com.pulumi.resources.CustomResource {
         return this.catalogId;
     }
     /**
-     * Configuration block of properties for the catalog. See `catalogProperties` below.
+     * Configuration block of properties for the catalog. See `catalogProperties` Block below.
      * 
      */
     @Export(name="catalogProperties", refs={CatalogCatalogProperties.class}, tree="[0]")
     private Output</* @Nullable */ CatalogCatalogProperties> catalogProperties;
 
     /**
-     * @return Configuration block of properties for the catalog. See `catalogProperties` below.
+     * @return Configuration block of properties for the catalog. See `catalogProperties` Block below.
      * 
      */
     public Output<Optional<CatalogCatalogProperties>> catalogProperties() {
         return Codegen.optional(this.catalogProperties);
     }
     /**
-     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      * 
      */
     @Export(name="createDatabaseDefaultPermissions", refs={List.class,CatalogCreateDatabaseDefaultPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CatalogCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions;
 
     /**
-     * @return List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * @return List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      * 
      */
     public Output<Optional<List<CatalogCreateDatabaseDefaultPermission>>> createDatabaseDefaultPermissions() {
         return Codegen.optional(this.createDatabaseDefaultPermissions);
     }
     /**
-     * List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      * 
      */
     @Export(name="createTableDefaultPermissions", refs={List.class,CatalogCreateTableDefaultPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CatalogCreateTableDefaultPermission>> createTableDefaultPermissions;
 
     /**
-     * @return List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * @return List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      * 
      */
     public Output<Optional<List<CatalogCreateTableDefaultPermission>>> createTableDefaultPermissions() {
@@ -365,14 +365,14 @@ public class Catalog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Configuration block for a federated catalog. See `federatedCatalog` below.
+     * Configuration block for a federated catalog. See `federatedCatalog` Block below.
      * 
      */
     @Export(name="federatedCatalog", refs={CatalogFederatedCatalog.class}, tree="[0]")
     private Output</* @Nullable */ CatalogFederatedCatalog> federatedCatalog;
 
     /**
-     * @return Configuration block for a federated catalog. See `federatedCatalog` below.
+     * @return Configuration block for a federated catalog. See `federatedCatalog` Block below.
      * 
      */
     public Output<Optional<CatalogFederatedCatalog>> federatedCatalog() {
@@ -463,14 +463,14 @@ public class Catalog extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
      * 
      */
     @Export(name="targetRedshiftCatalog", refs={CatalogTargetRedshiftCatalog.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTargetRedshiftCatalog> targetRedshiftCatalog;
 
     /**
-     * @return Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+     * @return Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
      * 
      */
     public Output<Optional<CatalogTargetRedshiftCatalog>> targetRedshiftCatalog() {

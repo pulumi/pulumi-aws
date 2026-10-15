@@ -137,7 +137,7 @@ export class User extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * unique user id that is never reassignable to another user.
+     * unique user ID that is never reassignable to another user.
      */
     declare public /*out*/ readonly sub: pulumi.Output<string>;
     /**
@@ -271,7 +271,7 @@ export interface UserState {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * unique user id that is never reassignable to another user.
+     * unique user ID that is never reassignable to another user.
      */
     sub?: pulumi.Input<string | undefined>;
     /**

@@ -105,23 +105,23 @@ type Connector struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Information about the capacity allocated to the connector. See `capacity` Block for details.
 	Capacity ConnectorCapacityOutput `pulumi:"capacity"`
-	// A map of keys to values that represent the configuration for the connector.
+	// Map of keys to values that represent the configuration for the connector.
 	ConnectorConfiguration pulumi.StringMapOutput `pulumi:"connectorConfiguration"`
-	// A summary description of the connector.
+	// Summary description of the connector.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+	// Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
 	KafkaCluster ConnectorKafkaClusterOutput `pulumi:"kafkaCluster"`
 	// Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthenticationOutput `pulumi:"kafkaClusterClientAuthentication"`
 	// Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
 	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransitOutput `pulumi:"kafkaClusterEncryptionInTransit"`
-	// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+	// Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaconnectVersion pulumi.StringOutput `pulumi:"kafkaconnectVersion"`
 	// Details about log delivery. See `logDelivery` Block for details.
 	LogDelivery ConnectorLogDeliveryPtrOutput `pulumi:"logDelivery"`
-	// The name of the connector.
+	// Name of the connector.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies which plugins to use for the connector. See `plugin` Block for details.
+	// Plugins to use for the connector. See `plugin` Block for details.
 	Plugins ConnectorPluginArrayOutput `pulumi:"plugins"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -129,13 +129,13 @@ type Connector struct {
 	//
 	// The following arguments are optional:
 	ServiceExecutionRoleArn pulumi.StringOutput `pulumi:"serviceExecutionRoleArn"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The current version of the connector.
+	// Current version of the connector.
 	Version pulumi.StringOutput `pulumi:"version"`
-	// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+	// Worker configuration to use with the connector. See `workerConfiguration` Block for details.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrOutput `pulumi:"workerConfiguration"`
 }
 
@@ -197,23 +197,23 @@ type connectorState struct {
 	Arn *string `pulumi:"arn"`
 	// Information about the capacity allocated to the connector. See `capacity` Block for details.
 	Capacity *ConnectorCapacity `pulumi:"capacity"`
-	// A map of keys to values that represent the configuration for the connector.
+	// Map of keys to values that represent the configuration for the connector.
 	ConnectorConfiguration map[string]string `pulumi:"connectorConfiguration"`
-	// A summary description of the connector.
+	// Summary description of the connector.
 	Description *string `pulumi:"description"`
-	// Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+	// Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
 	KafkaCluster *ConnectorKafkaCluster `pulumi:"kafkaCluster"`
 	// Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
 	KafkaClusterClientAuthentication *ConnectorKafkaClusterClientAuthentication `pulumi:"kafkaClusterClientAuthentication"`
 	// Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
 	KafkaClusterEncryptionInTransit *ConnectorKafkaClusterEncryptionInTransit `pulumi:"kafkaClusterEncryptionInTransit"`
-	// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+	// Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaconnectVersion *string `pulumi:"kafkaconnectVersion"`
 	// Details about log delivery. See `logDelivery` Block for details.
 	LogDelivery *ConnectorLogDelivery `pulumi:"logDelivery"`
-	// The name of the connector.
+	// Name of the connector.
 	Name *string `pulumi:"name"`
-	// Specifies which plugins to use for the connector. See `plugin` Block for details.
+	// Plugins to use for the connector. See `plugin` Block for details.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -221,13 +221,13 @@ type connectorState struct {
 	//
 	// The following arguments are optional:
 	ServiceExecutionRoleArn *string `pulumi:"serviceExecutionRoleArn"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The current version of the connector.
+	// Current version of the connector.
 	Version *string `pulumi:"version"`
-	// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+	// Worker configuration to use with the connector. See `workerConfiguration` Block for details.
 	WorkerConfiguration *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
 }
 
@@ -236,23 +236,23 @@ type ConnectorState struct {
 	Arn pulumi.StringPtrInput
 	// Information about the capacity allocated to the connector. See `capacity` Block for details.
 	Capacity ConnectorCapacityPtrInput
-	// A map of keys to values that represent the configuration for the connector.
+	// Map of keys to values that represent the configuration for the connector.
 	ConnectorConfiguration pulumi.StringMapInput
-	// A summary description of the connector.
+	// Summary description of the connector.
 	Description pulumi.StringPtrInput
-	// Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+	// Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
 	KafkaCluster ConnectorKafkaClusterPtrInput
 	// Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthenticationPtrInput
 	// Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
 	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransitPtrInput
-	// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+	// Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaconnectVersion pulumi.StringPtrInput
 	// Details about log delivery. See `logDelivery` Block for details.
 	LogDelivery ConnectorLogDeliveryPtrInput
-	// The name of the connector.
+	// Name of the connector.
 	Name pulumi.StringPtrInput
-	// Specifies which plugins to use for the connector. See `plugin` Block for details.
+	// Plugins to use for the connector. See `plugin` Block for details.
 	Plugins ConnectorPluginArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -260,13 +260,13 @@ type ConnectorState struct {
 	//
 	// The following arguments are optional:
 	ServiceExecutionRoleArn pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The current version of the connector.
+	// Current version of the connector.
 	Version pulumi.StringPtrInput
-	// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+	// Worker configuration to use with the connector. See `workerConfiguration` Block for details.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrInput
 }
 
@@ -277,23 +277,23 @@ func (ConnectorState) ElementType() reflect.Type {
 type connectorArgs struct {
 	// Information about the capacity allocated to the connector. See `capacity` Block for details.
 	Capacity ConnectorCapacity `pulumi:"capacity"`
-	// A map of keys to values that represent the configuration for the connector.
+	// Map of keys to values that represent the configuration for the connector.
 	ConnectorConfiguration map[string]string `pulumi:"connectorConfiguration"`
-	// A summary description of the connector.
+	// Summary description of the connector.
 	Description *string `pulumi:"description"`
-	// Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+	// Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
 	KafkaCluster ConnectorKafkaCluster `pulumi:"kafkaCluster"`
 	// Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthentication `pulumi:"kafkaClusterClientAuthentication"`
 	// Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
 	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransit `pulumi:"kafkaClusterEncryptionInTransit"`
-	// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+	// Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaconnectVersion string `pulumi:"kafkaconnectVersion"`
 	// Details about log delivery. See `logDelivery` Block for details.
 	LogDelivery *ConnectorLogDelivery `pulumi:"logDelivery"`
-	// The name of the connector.
+	// Name of the connector.
 	Name *string `pulumi:"name"`
-	// Specifies which plugins to use for the connector. See `plugin` Block for details.
+	// Plugins to use for the connector. See `plugin` Block for details.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -301,9 +301,9 @@ type connectorArgs struct {
 	//
 	// The following arguments are optional:
 	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+	// Worker configuration to use with the connector. See `workerConfiguration` Block for details.
 	WorkerConfiguration *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
 }
 
@@ -311,23 +311,23 @@ type connectorArgs struct {
 type ConnectorArgs struct {
 	// Information about the capacity allocated to the connector. See `capacity` Block for details.
 	Capacity ConnectorCapacityInput
-	// A map of keys to values that represent the configuration for the connector.
+	// Map of keys to values that represent the configuration for the connector.
 	ConnectorConfiguration pulumi.StringMapInput
-	// A summary description of the connector.
+	// Summary description of the connector.
 	Description pulumi.StringPtrInput
-	// Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+	// Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
 	KafkaCluster ConnectorKafkaClusterInput
 	// Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthenticationInput
 	// Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
 	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransitInput
-	// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+	// Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaconnectVersion pulumi.StringInput
 	// Details about log delivery. See `logDelivery` Block for details.
 	LogDelivery ConnectorLogDeliveryPtrInput
-	// The name of the connector.
+	// Name of the connector.
 	Name pulumi.StringPtrInput
-	// Specifies which plugins to use for the connector. See `plugin` Block for details.
+	// Plugins to use for the connector. See `plugin` Block for details.
 	Plugins ConnectorPluginArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -335,9 +335,9 @@ type ConnectorArgs struct {
 	//
 	// The following arguments are optional:
 	ServiceExecutionRoleArn pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+	// Worker configuration to use with the connector. See `workerConfiguration` Block for details.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrInput
 }
 
@@ -438,17 +438,17 @@ func (o ConnectorOutput) Capacity() ConnectorCapacityOutput {
 	return o.ApplyT(func(v *Connector) ConnectorCapacityOutput { return v.Capacity }).(ConnectorCapacityOutput)
 }
 
-// A map of keys to values that represent the configuration for the connector.
+// Map of keys to values that represent the configuration for the connector.
 func (o ConnectorOutput) ConnectorConfiguration() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.ConnectorConfiguration }).(pulumi.StringMapOutput)
 }
 
-// A summary description of the connector.
+// Summary description of the connector.
 func (o ConnectorOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+// Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
 func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterOutput { return v.KafkaCluster }).(ConnectorKafkaClusterOutput)
 }
@@ -467,7 +467,7 @@ func (o ConnectorOutput) KafkaClusterEncryptionInTransit() ConnectorKafkaCluster
 	}).(ConnectorKafkaClusterEncryptionInTransitOutput)
 }
 
-// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+// Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 func (o ConnectorOutput) KafkaconnectVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.KafkaconnectVersion }).(pulumi.StringOutput)
 }
@@ -477,12 +477,12 @@ func (o ConnectorOutput) LogDelivery() ConnectorLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorLogDeliveryPtrOutput { return v.LogDelivery }).(ConnectorLogDeliveryPtrOutput)
 }
 
-// The name of the connector.
+// Name of the connector.
 func (o ConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies which plugins to use for the connector. See `plugin` Block for details.
+// Plugins to use for the connector. See `plugin` Block for details.
 func (o ConnectorOutput) Plugins() ConnectorPluginArrayOutput {
 	return o.ApplyT(func(v *Connector) ConnectorPluginArrayOutput { return v.Plugins }).(ConnectorPluginArrayOutput)
 }
@@ -499,22 +499,22 @@ func (o ConnectorOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ServiceExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The current version of the connector.
+// Current version of the connector.
 func (o ConnectorOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+// Worker configuration to use with the connector. See `workerConfiguration` Block for details.
 func (o ConnectorOutput) WorkerConfiguration() ConnectorWorkerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorWorkerConfigurationPtrOutput { return v.WorkerConfiguration }).(ConnectorWorkerConfigurationPtrOutput)
 }

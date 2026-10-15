@@ -129,14 +129,14 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
     }
 
     /**
-     * Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
      * 
      */
     @Import(name="ssmParameterConfigurations")
     private @Nullable Output<List<DistributionConfigurationDistributionSsmParameterConfigurationArgs>> ssmParameterConfigurations;
 
     /**
-     * @return Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * @return Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
      * 
      */
     public Optional<Output<List<DistributionConfigurationDistributionSsmParameterConfigurationArgs>>> ssmParameterConfigurations() {
@@ -352,7 +352,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
          * 
          * @return builder
          * 

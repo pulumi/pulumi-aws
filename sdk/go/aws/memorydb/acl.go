@@ -55,9 +55,9 @@ import (
 type Acl struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the ACL.
+	// ARN of the ACL.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The minimum engine version supported by the ACL.
+	// Minimum engine version supported by the ACL.
 	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
 	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -65,9 +65,9 @@ type Acl struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Set of MemoryDB user names to be included in this ACL.
 	UserNames pulumi.StringArrayOutput `pulumi:"userNames"`
@@ -103,9 +103,9 @@ func GetAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Acl resources.
 type aclState struct {
-	// The ARN of the ACL.
+	// ARN of the ACL.
 	Arn *string `pulumi:"arn"`
-	// The minimum engine version supported by the ACL.
+	// Minimum engine version supported by the ACL.
 	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
 	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -113,18 +113,18 @@ type aclState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Set of MemoryDB user names to be included in this ACL.
 	UserNames []string `pulumi:"userNames"`
 }
 
 type AclState struct {
-	// The ARN of the ACL.
+	// ARN of the ACL.
 	Arn pulumi.StringPtrInput
-	// The minimum engine version supported by the ACL.
+	// Minimum engine version supported by the ACL.
 	MinimumEngineVersion pulumi.StringPtrInput
 	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -132,9 +132,9 @@ type AclState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Set of MemoryDB user names to be included in this ACL.
 	UserNames pulumi.StringArrayInput
@@ -151,7 +151,7 @@ type aclArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Set of MemoryDB user names to be included in this ACL.
 	UserNames []string `pulumi:"userNames"`
@@ -165,7 +165,7 @@ type AclArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Set of MemoryDB user names to be included in this ACL.
 	UserNames pulumi.StringArrayInput
@@ -258,12 +258,12 @@ func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return o
 }
 
-// The ARN of the ACL.
+// ARN of the ACL.
 func (o AclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The minimum engine version supported by the ACL.
+// Minimum engine version supported by the ACL.
 func (o AclOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
@@ -283,12 +283,12 @@ func (o AclOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AclOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

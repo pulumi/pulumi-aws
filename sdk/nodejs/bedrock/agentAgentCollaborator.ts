@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Bedrock Agents Agent Collaborator.
+ * Manages an AWS Bedrock Agents Agent Collaborator.
  *
  * ## Example Usage
  *
@@ -54,8 +54,8 @@ import * as utilities from "../utilities";
  *                 "bedrock:InvokeAgent",
  *             ],
  *             resources: [
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent/*`,
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent-alias/*`,
+ *                 `arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent/*`,
+ *                 `arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent-alias/*`,
  *             ],
  *         },
  *     ],
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *     agentResourceRoleArn: example.arn,
  *     idleSessionTtlInSeconds: 500,
  *     foundationModel: "anthropic.claude-3-5-sonnet-20241022-v2:0",
- *     instruction: "do what the supervisor tells you to do",
+ *     instruction: "You are a collaborator agent. Do what the supervisor tells you to do.",
  * });
  * const exampleSupervisor = new aws.bedrock.AgentAgent("example_supervisor", {
  *     agentName: "my-agent-supervisor",
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *     agentCollaboration: "SUPERVISOR",
  *     idleSessionTtlInSeconds: 500,
  *     foundationModel: "anthropic.claude-3-5-sonnet-20241022-v2:0",
- *     instruction: "tell the sub agent what to do",
+ *     instruction: "You are a supervisor agent. Tell the sub agent what to do.",
  *     prepareAgent: false,
  * });
  * const exampleAgentAgentAlias = new aws.bedrock.AgentAgentAlias("example", {
@@ -136,13 +136,16 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentAgentCollaborator.__pulumiType;
     }
 
+    /**
+     * Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     */
     declare public readonly agentDescriptor: pulumi.Output<outputs.bedrock.AgentAgentCollaboratorAgentDescriptor>;
     /**
-     * ID if the agent to associate the collaborator.
+     * ID of the agent to associate the collaborator with.
      */
     declare public readonly agentId: pulumi.Output<string>;
     /**
-     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      */
     declare public readonly agentVersion: pulumi.Output<string>;
     /**
@@ -230,13 +233,16 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentAgentCollaborator resources.
  */
 export interface AgentAgentCollaboratorState {
+    /**
+     * Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     */
     agentDescriptor?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorAgentDescriptor | undefined>;
     /**
-     * ID if the agent to associate the collaborator.
+     * ID of the agent to associate the collaborator with.
      */
     agentId?: pulumi.Input<string | undefined>;
     /**
-     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      */
     agentVersion?: pulumi.Input<string | undefined>;
     /**
@@ -272,13 +278,16 @@ export interface AgentAgentCollaboratorState {
  * The set of arguments for constructing a AgentAgentCollaborator resource.
  */
 export interface AgentAgentCollaboratorArgs {
+    /**
+     * Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     */
     agentDescriptor: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorAgentDescriptor>;
     /**
-     * ID if the agent to associate the collaborator.
+     * ID of the agent to associate the collaborator with.
      */
     agentId: pulumi.Input<string>;
     /**
-     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      */
     agentVersion?: pulumi.Input<string | undefined>;
     /**

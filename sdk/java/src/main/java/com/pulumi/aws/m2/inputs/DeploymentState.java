@@ -48,9 +48,17 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.applicationVersion);
     }
 
+    /**
+     * Unique identifier of the deployment.
+     * 
+     */
     @Import(name="deploymentId")
     private @Nullable Output<String> deploymentId;
 
+    /**
+     * @return Unique identifier of the deployment.
+     * 
+     */
     public Optional<Output<String>> deploymentId() {
         return Optional.ofNullable(this.deploymentId);
     }
@@ -70,9 +78,17 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.environmentId);
     }
 
+    /**
+     * Stop the application during deployment, even if it is running.
+     * 
+     */
     @Import(name="forceStop")
     private @Nullable Output<Boolean> forceStop;
 
+    /**
+     * @return Stop the application during deployment, even if it is running.
+     * 
+     */
     public Optional<Output<Boolean>> forceStop() {
         return Optional.ofNullable(this.forceStop);
     }
@@ -187,11 +203,23 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
             return applicationVersion(Output.of(applicationVersion));
         }
 
+        /**
+         * @param deploymentId Unique identifier of the deployment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentId(@Nullable Output<String> deploymentId) {
             $.deploymentId = deploymentId;
             return this;
         }
 
+        /**
+         * @param deploymentId Unique identifier of the deployment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentId(String deploymentId) {
             return deploymentId(Output.of(deploymentId));
         }
@@ -217,11 +245,23 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
             return environmentId(Output.of(environmentId));
         }
 
+        /**
+         * @param forceStop Stop the application during deployment, even if it is running.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceStop(@Nullable Output<Boolean> forceStop) {
             $.forceStop = forceStop;
             return this;
         }
 
+        /**
+         * @param forceStop Stop the application during deployment, even if it is running.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceStop(Boolean forceStop) {
             return forceStop(Output.of(forceStop));
         }

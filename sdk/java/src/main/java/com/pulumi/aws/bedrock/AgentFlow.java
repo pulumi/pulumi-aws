@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Bedrock Agents Flow.
+ * Manages an AWS Bedrock Agents Flow.
  * 
  * ## Example Usage
  * 

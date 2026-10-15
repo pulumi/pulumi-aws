@@ -60,7 +60,7 @@ export interface GetPoliciesForTargetResult {
      */
     readonly id: string;
     /**
-     * List of all the policy ids found.
+     * List of all the policy IDs found.
      */
     readonly ids: string[];
     readonly targetId: string;

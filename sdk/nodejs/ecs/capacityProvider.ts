@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
  *
- * > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+ * > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling group will automatically add the `AmazonECSManaged` tag to the Auto Scaling group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent Terraform from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
  *
  * > **NOTE:** You must specify exactly one of `autoScalingGroupProvider` or `managedInstancesProvider`. When using `managedInstancesProvider`, the `cluster` parameter is required. When using `autoScalingGroupProvider`, the `cluster` parameter must not be set.
  *
@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Auto Scaling Group Provider
+ * ### Auto Scaling group Provider
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -133,7 +133,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     * Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      */
     declare public readonly autoScalingGroupProvider: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface CapacityProviderState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     * Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      */
     autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface CapacityProviderState {
  */
 export interface CapacityProviderArgs {
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     * Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      */
     autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
     /**

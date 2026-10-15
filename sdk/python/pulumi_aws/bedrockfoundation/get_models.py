@@ -114,7 +114,7 @@ def get_models(by_customization_type: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelsResult:
     """
-    Data source for managing AWS Bedrock Foundation Models.
+    Provides details about AWS Bedrock Foundation Models.
 
     ## Example Usage
 
@@ -124,7 +124,7 @@ def get_models(by_customization_type: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrockfoundation.get_models()
+    example = aws.bedrockfoundation.get_models()
     ```
 
     ### Filter by Inference Type
@@ -133,11 +133,11 @@ def get_models(by_customization_type: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
+    example = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
     ```
 
 
-    :param _builtins.str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
+    :param _builtins.str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
     :param _builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param _builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param _builtins.str by_provider: Model provider to filter on.
@@ -167,7 +167,7 @@ def get_models_output(by_customization_type: pulumi.Input[Optional[Optional[_bui
                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelsResult]:
     """
-    Data source for managing AWS Bedrock Foundation Models.
+    Provides details about AWS Bedrock Foundation Models.
 
     ## Example Usage
 
@@ -177,7 +177,7 @@ def get_models_output(by_customization_type: pulumi.Input[Optional[Optional[_bui
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrockfoundation.get_models()
+    example = aws.bedrockfoundation.get_models()
     ```
 
     ### Filter by Inference Type
@@ -186,11 +186,11 @@ def get_models_output(by_customization_type: pulumi.Input[Optional[Optional[_bui
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
+    example = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
     ```
 
 
-    :param _builtins.str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
+    :param _builtins.str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
     :param _builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param _builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param _builtins.str by_provider: Model provider to filter on.

@@ -90,14 +90,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+     * Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     @Import(name="environments")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentArgs>> environments;
 
     /**
-     * @return Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+     * @return Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentArgs>>> environments() {
@@ -120,14 +120,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+     * Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
      * 
      */
     @Import(name="harnessName", required=true)
     private Output<String> harnessName;
 
     /**
-     * @return Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+     * @return Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
      * 
      */
     public Output<String> harnessName() {
@@ -150,14 +150,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Maximum number of tokens in the model response.
+     * Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
      * 
      */
     @Import(name="maxTokens")
     private @Nullable Output<Integer> maxTokens;
 
     /**
-     * @return Maximum number of tokens in the model response.
+     * @return Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
      * 
      */
     public Optional<Output<Integer>> maxTokens() {
@@ -447,7 +447,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+         * @param environments Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+         * @param environments Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+         * @param environments Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param harnessName Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+         * @param harnessName Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param harnessName Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+         * @param harnessName Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param maxTokens Maximum number of tokens in the model response.
+         * @param maxTokens Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param maxTokens Maximum number of tokens in the model response.
+         * @param maxTokens Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
          * 
          * @return builder
          * 

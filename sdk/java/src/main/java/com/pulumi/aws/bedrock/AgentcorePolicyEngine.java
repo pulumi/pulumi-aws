@@ -136,12 +136,12 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `policyEngineId` (String) Policy engine ID.
+ * * `policyEngineId` (String) Policy engine ID.
  * 
  * #### Optional
  * 
- * * `accountId` (String) AWS account ID for this resource.
- * * `region` (String) AWS Region for this resource.
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import a Bedrock AgentCore Policy Engine by policy engine ID. For example:
  * 
@@ -167,14 +167,14 @@ public class AgentcorePolicyEngine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+     * ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
      * 
      */
     @Export(name="encryptionKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptionKeyArn;
 
     /**
-     * @return ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+     * @return ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
      * 
      */
     public Output<Optional<String>> encryptionKeyArn() {

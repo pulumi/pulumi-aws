@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Connect
         public string? Name { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Quick Connect by Quick Connect id
+        /// Returns information on a specific Quick Connect by Quick Connect ID
         /// </summary>
         [Input("quickConnectId")]
         public string? QuickConnectId { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Quick Connect by Quick Connect id
+        /// Returns information on a specific Quick Connect by Quick Connect ID
         /// </summary>
         [Input("quickConnectId")]
         public Input<string>? QuickConnectId { get; set; }

@@ -88,7 +88,7 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[Union['GetVpcIpamPoolsFilterAr
     `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
 
     This resource can prove useful when IPAM pools are created in another root
-    module and you need the pool ids as input variables. For example, pools
+    module and you need the pool IDs as input variables. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
 
     ## Example Usage
@@ -131,7 +131,7 @@ def get_vpc_ipam_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
 
     This resource can prove useful when IPAM pools are created in another root
-    module and you need the pool ids as input variables. For example, pools
+    module and you need the pool IDs as input variables. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
 
     ## Example Usage

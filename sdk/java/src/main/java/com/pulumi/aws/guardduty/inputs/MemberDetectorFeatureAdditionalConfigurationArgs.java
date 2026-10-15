@@ -15,14 +15,14 @@ public final class MemberDetectorFeatureAdditionalConfigurationArgs extends com.
     public static final MemberDetectorFeatureAdditionalConfigurationArgs Empty = new MemberDetectorFeatureAdditionalConfigurationArgs();
 
     /**
-     * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+     * Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+     * @return Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class MemberDetectorFeatureAdditionalConfigurationArgs extends com.
     }
 
     /**
-     * The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+     * Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Output<String> status() {
@@ -70,7 +70,7 @@ public final class MemberDetectorFeatureAdditionalConfigurationArgs extends com.
         }
 
         /**
-         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+         * @param name Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class MemberDetectorFeatureAdditionalConfigurationArgs extends com.
         }
 
         /**
-         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+         * @param name Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class MemberDetectorFeatureAdditionalConfigurationArgs extends com.
         }
 
         /**
-         * @param status The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+         * @param status Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class MemberDetectorFeatureAdditionalConfigurationArgs extends com.
         }
 
         /**
-         * @param status The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+         * @param status Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 

@@ -62,7 +62,7 @@ class GetStateMachineResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Set to the arn of the state function.
+        Set to the ARN of the state function.
         """
         return pulumi.get(self, "arn")
 

@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings {
+    /**
+     * @return Settings to configure Nielsen watermarks in the audio encode. See `nielsenWatermarksSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings nielsenWatermarksSettings;
 
     private ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings() {}
+    /**
+     * @return Settings to configure Nielsen watermarks in the audio encode. See `nielsenWatermarksSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings> nielsenWatermarksSettings() {
         return Optional.ofNullable(this.nielsenWatermarksSettings);
     }

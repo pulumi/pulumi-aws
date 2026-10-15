@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     networkConfiguration: {
  *         networkMode: "PUBLIC",
  *     },
- *     name: "example-browser",
+ *     name: "example_browser",
  *     description: "Browser for web data extraction",
  * });
  * ```
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *         },
  *         networkMode: "VPC",
  *     },
- *     name: "vpc-browser",
+ *     name: "vpc_browser",
  *     description: "Browser with VPC configuration",
  * });
  * ```
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *         },
  *         enabled: true,
  *     },
- *     name: "example-browser",
+ *     name: "example_browser",
  *     description: "Browser with recording enabled",
  *     executionRoleArn: example.arn,
  * });

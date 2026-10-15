@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAcceleratorIpSet {
+    /**
+     * @return List of IP addresses in the IP address set.
+     * 
+     */
     private List<String> ipAddresses;
+    /**
+     * @return Type of IP addresses included in this IP set.
+     * 
+     */
     private String ipFamily;
 
     private GetAcceleratorIpSet() {}
+    /**
+     * @return List of IP addresses in the IP address set.
+     * 
+     */
     public List<String> ipAddresses() {
         return this.ipAddresses;
     }
+    /**
+     * @return Type of IP addresses included in this IP set.
+     * 
+     */
     public String ipFamily() {
         return this.ipFamily;
     }

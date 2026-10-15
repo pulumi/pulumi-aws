@@ -82,7 +82,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetHttpNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the http namespace.
+        /// Name of the HTTP namespace.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetHttpNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the http namespace.
+        /// Name of the HTTP namespace.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// Set of values that are accepted for the given field.
-        /// A COIP Pool will be selected if any one of the given values matches.
+        /// A CoIP Pool will be selected if any one of the given values matches.
         /// </summary>
         public List<string> Values
         {

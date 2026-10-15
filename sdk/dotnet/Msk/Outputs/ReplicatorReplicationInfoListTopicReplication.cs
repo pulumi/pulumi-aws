@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly bool? DetectAndCopyNewTopics;
         /// <summary>
-        /// Configuration for specifying the position in the topics to start replicating from.
+        /// Configuration for specifying the position in the topics to start replicating from. See `StartingPosition` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition? StartingPosition;
         /// <summary>
-        /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `TopicNameConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration? TopicNameConfiguration;
         /// <summary>

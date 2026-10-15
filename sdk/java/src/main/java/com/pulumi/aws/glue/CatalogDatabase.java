@@ -136,14 +136,14 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
         return this.catalogId;
     }
     /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      * 
      */
     @Export(name="createTableDefaultPermissions", refs={List.class,CatalogDatabaseCreateTableDefaultPermission.class}, tree="[0,1]")
     private Output<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions;
 
     /**
-     * @return Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * @return Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      * 
      */
     public Output<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions() {
@@ -164,14 +164,14 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      * 
      */
     @Export(name="federatedDatabase", refs={CatalogDatabaseFederatedDatabase.class}, tree="[0]")
     private Output</* @Nullable */ CatalogDatabaseFederatedDatabase> federatedDatabase;
 
     /**
-     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      * 
      */
     public Output<Optional<CatalogDatabaseFederatedDatabase>> federatedDatabase() {
@@ -248,28 +248,28 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      * 
      */
     @Export(name="targetDatabase", refs={CatalogDatabaseTargetDatabase.class}, tree="[0]")
     private Output</* @Nullable */ CatalogDatabaseTargetDatabase> targetDatabase;
 
     /**
-     * @return Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * @return Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      * 
      */
     public Output<Optional<CatalogDatabaseTargetDatabase>> targetDatabase() {

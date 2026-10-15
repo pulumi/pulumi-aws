@@ -28,13 +28,12 @@ class OrganizationConfigurationArgs:
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-               Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                
                > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -50,8 +49,7 @@ class OrganizationConfigurationArgs:
     @pulumi.getter(name="autoEnableOrganizationMembers")
     def auto_enable_organization_members(self) -> pulumi.Input[_builtins.str]:
         """
-        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-        Valid values are `ALL`, `NEW`, `NONE`.
+        Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         """
         return pulumi.get(self, "auto_enable_organization_members")
 
@@ -63,7 +61,7 @@ class OrganizationConfigurationArgs:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The detector ID of the GuardDuty account.
+        Detector ID of the GuardDuty account.
         """
         return pulumi.get(self, "detector_id")
 
@@ -76,9 +74,7 @@ class OrganizationConfigurationArgs:
     @_utilities.deprecated("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
     def datasources(self) -> pulumi.Input[Optional['OrganizationConfigurationDatasourcesArgs']]:
         """
-        Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
-
-        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+        Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
         """
         return pulumi.get(self, "datasources")
 
@@ -91,6 +87,8 @@ class OrganizationConfigurationArgs:
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+
+        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         """
         return pulumi.get(self, "region")
 
@@ -109,13 +107,12 @@ class _OrganizationConfigurationState:
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-               Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                
                > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if auto_enable_organization_members is not None:
             pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
@@ -133,8 +130,7 @@ class _OrganizationConfigurationState:
     @pulumi.getter(name="autoEnableOrganizationMembers")
     def auto_enable_organization_members(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-        Valid values are `ALL`, `NEW`, `NONE`.
+        Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         """
         return pulumi.get(self, "auto_enable_organization_members")
 
@@ -147,9 +143,7 @@ class _OrganizationConfigurationState:
     @_utilities.deprecated("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
     def datasources(self) -> pulumi.Input[Optional['OrganizationConfigurationDatasourcesArgs']]:
         """
-        Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
-
-        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+        Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
         """
         return pulumi.get(self, "datasources")
 
@@ -161,7 +155,7 @@ class _OrganizationConfigurationState:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The detector ID of the GuardDuty account.
+        Detector ID of the GuardDuty account.
         """
         return pulumi.get(self, "detector_id")
 
@@ -174,6 +168,8 @@ class _OrganizationConfigurationState:
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+
+        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         """
         return pulumi.get(self, "region")
 
@@ -238,13 +234,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-               Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']] datasources: Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                
                > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -352,13 +347,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-               Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] auto_enable_organization_members: Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']] datasources: Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty account.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                
                > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -374,8 +368,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="autoEnableOrganizationMembers")
     def auto_enable_organization_members(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-        Valid values are `ALL`, `NEW`, `NONE`.
+        Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         """
         return pulumi.get(self, "auto_enable_organization_members")
 
@@ -384,9 +377,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @_utilities.deprecated("""datasources is deprecated. Use \"guardduty.OrganizationConfigurationFeature\" resources instead.""")
     def datasources(self) -> pulumi.Output['outputs.OrganizationConfigurationDatasources']:
         """
-        Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
-
-        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+        Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
         """
         return pulumi.get(self, "datasources")
 
@@ -394,7 +385,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The detector ID of the GuardDuty account.
+        Detector ID of the GuardDuty account.
         """
         return pulumi.get(self, "detector_id")
 
@@ -403,6 +394,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def region(self) -> pulumi.Output[_builtins.str]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+
+        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         """
         return pulumi.get(self, "region")
 

@@ -215,7 +215,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
         """
-        List of associated Security Group IDS.
+        List of associated Security Group IDs.
         """
         return pulumi.get(self, "security_groups")
 

@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Macie
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.macie.FindingsFilter` using the id. For example:
+    /// Using `pulumi import`, import `aws.macie.FindingsFilter` using the ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Macie
     public partial class FindingsFilter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action to perform on findings that meet the filter criteria (`FindingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        /// Action to perform on findings that meet the filter criteria (`FindingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -79,19 +79,19 @@ namespace Pulumi.Aws.Macie
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A custom description of the filter. The description can contain as many as 512 characters.
+        /// Custom description of the filter. Can contain as many as 512 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The criteria to use to filter findings.
+        /// Criteria to use to filter findings. See `FindingCriteria` Block for details.
         /// </summary>
         [Output("findingCriteria")]
         public Output<Outputs.FindingsFilterFindingCriteria> FindingCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Macie
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        /// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
         /// </summary>
         [Output("position")]
         public Output<int> Position { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Macie
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -173,25 +173,25 @@ namespace Pulumi.Aws.Macie
     public sealed class FindingsFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to perform on findings that meet the filter criteria (`FindingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        /// Action to perform on findings that meet the filter criteria (`FindingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// A custom description of the filter. The description can contain as many as 512 characters.
+        /// Custom description of the filter. Can contain as many as 512 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The criteria to use to filter findings.
+        /// Criteria to use to filter findings. See `FindingCriteria` Block for details.
         /// </summary>
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FindingsFilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;
 
         /// <summary>
-        /// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Macie
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        /// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
         /// </summary>
         [Input("position")]
         public Input<int>? Position { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Macie
     public sealed class FindingsFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to perform on findings that meet the filter criteria (`FindingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        /// Action to perform on findings that meet the filter criteria (`FindingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -247,19 +247,19 @@ namespace Pulumi.Aws.Macie
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A custom description of the filter. The description can contain as many as 512 characters.
+        /// Custom description of the filter. Can contain as many as 512 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The criteria to use to filter findings.
+        /// Criteria to use to filter findings. See `FindingCriteria` Block for details.
         /// </summary>
         [Input("findingCriteria")]
         public Input<Inputs.FindingsFilterFindingCriteriaGetArgs>? FindingCriteria { get; set; }
 
         /// <summary>
-        /// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Macie
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        /// Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
         /// </summary>
         [Input("position")]
         public Input<int>? Position { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Macie
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

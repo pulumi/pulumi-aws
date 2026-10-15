@@ -96,7 +96,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly clusterCertificates: pulumi.Output<outputs.cloudhsmv2.ClusterClusterCertificate[]>;
     /**
-     * The id of the CloudHSM cluster.
+     * The ID of the CloudHSM cluster.
      */
     declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The id of the VPC that the CloudHSM cluster resides in.
+     * The ID of the VPC that the CloudHSM cluster resides in.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -200,7 +200,7 @@ export interface ClusterState {
      */
     clusterCertificates?: pulumi.Input<pulumi.Input<inputs.cloudhsmv2.ClusterClusterCertificate>[] | undefined>;
     /**
-     * The id of the CloudHSM cluster.
+     * The ID of the CloudHSM cluster.
      */
     clusterId?: pulumi.Input<string | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface ClusterState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The id of the VPC that the CloudHSM cluster resides in.
+     * The ID of the VPC that the CloudHSM cluster resides in.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }

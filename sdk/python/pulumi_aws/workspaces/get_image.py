@@ -128,7 +128,7 @@ def get_image(image_id: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    Use this data source to get information about a Workspaces image.
+    Use this data source to get information about a WorkSpaces image.
 
     ## Example Usage
 
@@ -162,7 +162,7 @@ def get_image_output(image_id: pulumi.Input[Optional[_builtins.str]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
-    Use this data source to get information about a Workspaces image.
+    Use this data source to get information about a WorkSpaces image.
 
     ## Example Usage
 

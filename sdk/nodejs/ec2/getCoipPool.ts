@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
 /**
  * Provides details about a specific EC2 Customer-Owned IP Pool.
  *
- * This data source can prove useful when a module accepts a coip pool id as
+ * This data source can prove useful when a module accepts a CoIP pool ID as
  * an input variable and needs to, for example, determine the CIDR block of that
- * COIP Pool.
+ * CoIP Pool.
  *
  * ## Example Usage
  *
- * The following example returns a specific coip pool ID
+ * The following example returns a specific CoIP pool ID
  */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {
     args = args || {};
@@ -36,11 +36,11 @@ export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions)
 export interface GetCoipPoolArgs {
     filters?: inputs.ec2.GetCoipPoolFilter[];
     /**
-     * Local Gateway Route Table Id assigned to desired COIP Pool
+     * Local Gateway Route Table ID assigned to desired CoIP Pool
      */
     localGatewayRouteTableId?: string;
     /**
-     * ID of the specific COIP Pool to retrieve.
+     * ID of the specific CoIP Pool to retrieve.
      */
     poolId?: string;
     /**
@@ -49,7 +49,7 @@ export interface GetCoipPoolArgs {
     region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired COIP Pool.
+     * a pair on the desired CoIP Pool.
      *
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -62,7 +62,7 @@ export interface GetCoipPoolArgs {
  */
 export interface GetCoipPoolResult {
     /**
-     * ARN of the COIP pool
+     * ARN of the CoIP pool
      */
     readonly arn: string;
     readonly filters?: outputs.ec2.GetCoipPoolFilter[];
@@ -82,13 +82,13 @@ export interface GetCoipPoolResult {
 /**
  * Provides details about a specific EC2 Customer-Owned IP Pool.
  *
- * This data source can prove useful when a module accepts a coip pool id as
+ * This data source can prove useful when a module accepts a CoIP pool ID as
  * an input variable and needs to, for example, determine the CIDR block of that
- * COIP Pool.
+ * CoIP Pool.
  *
  * ## Example Usage
  *
- * The following example returns a specific coip pool ID
+ * The following example returns a specific CoIP pool ID
  */
 export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCoipPoolResult> {
     args = args || {};
@@ -108,11 +108,11 @@ export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.In
 export interface GetCoipPoolOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolFilterArgs>[] | undefined>;
     /**
-     * Local Gateway Route Table Id assigned to desired COIP Pool
+     * Local Gateway Route Table ID assigned to desired CoIP Pool
      */
     localGatewayRouteTableId?: pulumi.Input<string | undefined>;
     /**
-     * ID of the specific COIP Pool to retrieve.
+     * ID of the specific CoIP Pool to retrieve.
      */
     poolId?: pulumi.Input<string | undefined>;
     /**
@@ -121,7 +121,7 @@ export interface GetCoipPoolOutputArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired COIP Pool.
+     * a pair on the desired CoIP Pool.
      *
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:

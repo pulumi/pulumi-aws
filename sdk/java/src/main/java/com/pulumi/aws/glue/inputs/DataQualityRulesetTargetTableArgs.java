@@ -17,14 +17,14 @@ public final class DataQualityRulesetTargetTableArgs extends com.pulumi.resource
     public static final DataQualityRulesetTargetTableArgs Empty = new DataQualityRulesetTargetTableArgs();
 
     /**
-     * The catalog id where the AWS Glue table exists.
+     * Catalog ID where the AWS Glue table exists.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return The catalog id where the AWS Glue table exists.
+     * @return Catalog ID where the AWS Glue table exists.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -88,7 +88,7 @@ public final class DataQualityRulesetTargetTableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param catalogId The catalog id where the AWS Glue table exists.
+         * @param catalogId Catalog ID where the AWS Glue table exists.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DataQualityRulesetTargetTableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param catalogId The catalog id where the AWS Glue table exists.
+         * @param catalogId Catalog ID where the AWS Glue table exists.
          * 
          * @return builder
          * 

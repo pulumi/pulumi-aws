@@ -94,7 +94,7 @@ type TrafficMirrorSession struct {
 	TrafficMirrorFilterId pulumi.StringOutput `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId pulumi.StringOutput `pulumi:"trafficMirrorTargetId"`
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
 	VirtualNetworkId pulumi.IntOutput `pulumi:"virtualNetworkId"`
 }
 
@@ -162,7 +162,7 @@ type trafficMirrorSessionState struct {
 	TrafficMirrorFilterId *string `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId *string `pulumi:"trafficMirrorTargetId"`
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
 	VirtualNetworkId *int `pulumi:"virtualNetworkId"`
 }
 
@@ -189,7 +189,7 @@ type TrafficMirrorSessionState struct {
 	TrafficMirrorFilterId pulumi.StringPtrInput
 	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId pulumi.StringPtrInput
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
 	VirtualNetworkId pulumi.IntPtrInput
 }
 
@@ -214,7 +214,7 @@ type trafficMirrorSessionArgs struct {
 	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId string `pulumi:"trafficMirrorTargetId"`
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
 	VirtualNetworkId *int `pulumi:"virtualNetworkId"`
 }
 
@@ -236,7 +236,7 @@ type TrafficMirrorSessionArgs struct {
 	TrafficMirrorFilterId pulumi.StringInput
 	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId pulumi.StringInput
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
 	VirtualNetworkId pulumi.IntPtrInput
 }
 
@@ -382,7 +382,7 @@ func (o TrafficMirrorSessionOutput) TrafficMirrorTargetId() pulumi.StringOutput 
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.TrafficMirrorTargetId }).(pulumi.StringOutput)
 }
 
-// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
 func (o TrafficMirrorSessionOutput) VirtualNetworkId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.VirtualNetworkId }).(pulumi.IntOutput)
 }

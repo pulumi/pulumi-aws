@@ -53,7 +53,7 @@ import (
 //
 // ```
 //
-// ### Oidc Usage
+// ### OIDC Usage
 //
 // ```go
 // package main

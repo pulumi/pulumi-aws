@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? AdaptiveQuantization { get; set; }
 
         /// <summary>
-        /// Indicates that AFD values will be written into the output stream.
+        /// Whether AFD values are written into the output stream.
         /// </summary>
         [Input("afdSignaling")]
         public Input<string>? AfdSignaling { get; set; }
@@ -30,17 +30,20 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("bitrate")]
         public Input<int>? Bitrate { get; set; }
 
+        /// <summary>
+        /// Percentage of the buffer that should initially be filled.
+        /// </summary>
         [Input("bufFillPct")]
         public Input<int>? BufFillPct { get; set; }
 
         /// <summary>
-        /// Size of buffer in bits.
+        /// Size of the buffer in bits.
         /// </summary>
         [Input("bufSize")]
         public Input<int>? BufSize { get; set; }
 
         /// <summary>
-        /// Includes color space metadata in the output.
+        /// Whether color space metadata is included in the output.
         /// </summary>
         [Input("colorMetadata")]
         public Input<string>? ColorMetadata { get; set; }
@@ -52,28 +55,31 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? EntropyEncoding { get; set; }
 
         /// <summary>
-        /// Filters to apply to an encode. See H264 Filter Settings for more details.
+        /// Filters to apply to an encode. See `FilterSettings` Block for details.
         /// </summary>
         [Input("filterSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsGetArgs>? FilterSettings { get; set; }
 
         /// <summary>
-        /// Four bit AFD value to write on all frames of video in the output stream.
+        /// Four-bit AFD value to write on all frames of video in the output stream.
         /// </summary>
         [Input("fixedAfd")]
         public Input<string>? FixedAfd { get; set; }
 
+        /// <summary>
+        /// Makes adjustments within each frame to reduce flicker on the I-frames.
+        /// </summary>
         [Input("flickerAq")]
         public Input<string>? FlickerAq { get; set; }
 
         /// <summary>
-        /// Controls whether coding is performed on a field basis or on a frame basis.
+        /// Whether coding is performed on a field basis or on a frame basis.
         /// </summary>
         [Input("forceFieldPictures")]
         public Input<string>? ForceFieldPictures { get; set; }
 
         /// <summary>
-        /// Indicates how the output video frame rate is specified.
+        /// How the output video frame rate is specified.
         /// </summary>
         [Input("framerateControl")]
         public Input<string>? FramerateControl { get; set; }
@@ -109,13 +115,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? GopNumBFrames { get; set; }
 
         /// <summary>
-        /// GOP size in units of either frames of seconds per `GopSizeUnits`.
+        /// GOP size in units of either frames or seconds per `GopSizeUnits`.
         /// </summary>
         [Input("gopSize")]
         public Input<double>? GopSize { get; set; }
 
         /// <summary>
-        /// Indicates if the `GopSize` is specified in frames or seconds.
+        /// Whether `GopSize` is specified in frames or seconds.
         /// </summary>
         [Input("gopSizeUnits")]
         public Input<string>? GopSizeUnits { get; set; }
@@ -133,13 +139,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? LookAheadRateControl { get; set; }
 
         /// <summary>
-        /// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        /// Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
         /// </summary>
         [Input("maxBitrate")]
         public Input<int>? MaxBitrate { get; set; }
 
         /// <summary>
-        /// Min interval.
+        /// Minimum interval, in frames, between two I-frames.
         /// </summary>
         [Input("minIInterval")]
         public Input<int>? MinIInterval { get; set; }
@@ -151,19 +157,19 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? NumRefFrames { get; set; }
 
         /// <summary>
-        /// Indicates how the output pixel aspect ratio is specified.
+        /// How the output pixel aspect ratio is specified.
         /// </summary>
         [Input("parControl")]
         public Input<string>? ParControl { get; set; }
 
         /// <summary>
-        /// Pixel Aspect Ratio denominator.
+        /// Pixel aspect ratio denominator.
         /// </summary>
         [Input("parDenominator")]
         public Input<int>? ParDenominator { get; set; }
 
         /// <summary>
-        /// Pixel Aspect Ratio numerator.
+        /// Pixel aspect ratio numerator.
         /// </summary>
         [Input("parNumerator")]
         public Input<int>? ParNumerator { get; set; }
@@ -181,7 +187,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? QualityLevel { get; set; }
 
         /// <summary>
-        /// Controls the target quality for the video encode.
+        /// Target quality for the video encode.
         /// </summary>
         [Input("qvbrQualityLevel")]
         public Input<int>? QvbrQualityLevel { get; set; }
@@ -193,7 +199,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? RateControlMode { get; set; }
 
         /// <summary>
-        /// Sets the scan type of the output.
+        /// Scan type of the output.
         /// </summary>
         [Input("scanType")]
         public Input<string>? ScanType { get; set; }
@@ -241,7 +247,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? TemporalAq { get; set; }
 
         /// <summary>
-        /// Determines how timecodes should be inserted into the video elementary stream.
+        /// How timecodes are inserted into the video elementary stream.
         /// </summary>
         [Input("timecodeInsertion")]
         public Input<string>? TimecodeInsertion { get; set; }

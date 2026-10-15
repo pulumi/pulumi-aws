@@ -1094,7 +1094,7 @@ func (o DataLakeConfigurationPtrOutput) ReplicationConfiguration() DataLakeConfi
 }
 
 type DataLakeConfigurationEncryptionConfiguration struct {
-	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+	// The ID of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -1110,7 +1110,7 @@ type DataLakeConfigurationEncryptionConfigurationInput interface {
 }
 
 type DataLakeConfigurationEncryptionConfigurationArgs struct {
-	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+	// The ID of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -1165,7 +1165,7 @@ func (o DataLakeConfigurationEncryptionConfigurationOutput) ToDataLakeConfigurat
 	return o
 }
 
-// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+// The ID of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
 func (o DataLakeConfigurationEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeConfigurationEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

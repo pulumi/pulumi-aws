@@ -786,14 +786,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.listStepsStates);
     }
     /**
-     * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+     * AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      * 
      */
     @Export(name="logEncryptionKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logEncryptionKmsKeyId;
 
     /**
-     * @return AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+     * @return AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      * 
      */
     public Output<Optional<String>> logEncryptionKmsKeyId() {

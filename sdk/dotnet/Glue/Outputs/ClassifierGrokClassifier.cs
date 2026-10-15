@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class ClassifierGrokClassifier
     {
         /// <summary>
-        /// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+        /// Identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
         /// </summary>
         public readonly string Classification;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? CustomPatterns;
         /// <summary>
-        /// The grok pattern used by this classifier.
+        /// Grok pattern used by this classifier.
         /// </summary>
         public readonly string GrokPattern;
 

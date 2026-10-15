@@ -101,21 +101,29 @@ public class CustomRoutingListener extends com.pulumi.resources.CustomResource {
     public Output<String> acceleratorArn() {
         return this.acceleratorArn;
     }
+    /**
+     * ARN of the custom routing listener.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the custom routing listener.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     @Export(name="portRanges", refs={List.class,CustomRoutingListenerPortRange.class}, tree="[0,1]")
     private Output<List<CustomRoutingListenerPortRange>> portRanges;
 
     /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * @return Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     public Output<List<CustomRoutingListenerPortRange>> portRanges() {

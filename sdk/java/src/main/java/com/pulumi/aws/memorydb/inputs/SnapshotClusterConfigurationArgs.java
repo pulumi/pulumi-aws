@@ -32,14 +32,14 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The engine that will run on cluster nodes.
+     * Engine that will run on cluster nodes.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The engine that will run on cluster nodes.
+     * @return Engine that will run on cluster nodes.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -62,14 +62,14 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The weekly time range during which maintenance on the cluster is performed.
+     * Weekly time range during which maintenance on the cluster is performed.
      * 
      */
     @Import(name="maintenanceWindow")
     private @Nullable Output<String> maintenanceWindow;
 
     /**
-     * @return The weekly time range during which maintenance on the cluster is performed.
+     * @return Weekly time range during which maintenance on the cluster is performed.
      * 
      */
     public Optional<Output<String>> maintenanceWindow() {
@@ -167,14 +167,14 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+     * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
     @Import(name="snapshotWindow")
     private @Nullable Output<String> snapshotWindow;
 
     /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
     public Optional<Output<String>> snapshotWindow() {
@@ -212,14 +212,14 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The VPC in which the cluster exists.
+     * VPC in which the cluster exists.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The VPC in which the cluster exists.
+     * @return VPC in which the cluster exists.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -285,7 +285,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param engine The engine that will run on cluster nodes.
+         * @param engine Engine that will run on cluster nodes.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param engine The engine that will run on cluster nodes.
+         * @param engine Engine that will run on cluster nodes.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param maintenanceWindow The weekly time range during which maintenance on the cluster is performed.
+         * @param maintenanceWindow Weekly time range during which maintenance on the cluster is performed.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param maintenanceWindow The weekly time range during which maintenance on the cluster is performed.
+         * @param maintenanceWindow Weekly time range during which maintenance on the cluster is performed.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param snapshotWindow The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+         * @param snapshotWindow Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param snapshotWindow The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+         * @param snapshotWindow Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param vpcId The VPC in which the cluster exists.
+         * @param vpcId VPC in which the cluster exists.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param vpcId The VPC in which the cluster exists.
+         * @param vpcId VPC in which the cluster exists.
          * 
          * @return builder
          * 

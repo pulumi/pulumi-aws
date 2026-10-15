@@ -68,7 +68,7 @@ class GetOriginAccessIdentitiesResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        Set of ids of the matched origin access identities.
+        Set of IDs of the matched origin access identities.
         """
         return pulumi.get(self, "ids")
 
@@ -97,7 +97,7 @@ class AwaitableGetOriginAccessIdentitiesResult(GetOriginAccessIdentitiesResult):
 def get_origin_access_identities(comments: Optional[Sequence[_builtins.str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginAccessIdentitiesResult:
     """
-    Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+    Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
 
     ## Example Usage
 
@@ -141,7 +141,7 @@ def get_origin_access_identities(comments: Optional[Sequence[_builtins.str]] = N
 def get_origin_access_identities_output(comments: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessIdentitiesResult]:
     """
-    Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+    Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
 
     ## Example Usage
 

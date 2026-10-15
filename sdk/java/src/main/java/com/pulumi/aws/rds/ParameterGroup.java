@@ -265,14 +265,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the db parameter group.
+     * ARN of the DB parameter group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the db parameter group.
+     * @return ARN of the DB parameter group.
      * 
      */
     public Output<String> arn() {

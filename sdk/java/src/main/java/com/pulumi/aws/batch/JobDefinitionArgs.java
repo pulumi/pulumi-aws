@@ -69,14 +69,14 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Import(name="eksProperties")
     private @Nullable Output<JobDefinitionEksPropertiesArgs> eksProperties;
 
     /**
-     * @return Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * @return Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Optional<Output<JobDefinitionEksPropertiesArgs>> eksProperties() {
@@ -354,7 +354,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eksProperties Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+         * @param eksProperties Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eksProperties Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+         * @param eksProperties Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 

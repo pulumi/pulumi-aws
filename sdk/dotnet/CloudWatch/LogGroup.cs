@@ -48,7 +48,7 @@ namespace Pulumi.Aws.CloudWatch
     /// * `AccountId` (String) AWS Account where this resource is managed.
     /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// Using `pulumi import`, import Cloudwatch Log Groups using the `Name`. For example:
+    /// Using `pulumi import`, import CloudWatch Log Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/logGroup:LogGroup example yada

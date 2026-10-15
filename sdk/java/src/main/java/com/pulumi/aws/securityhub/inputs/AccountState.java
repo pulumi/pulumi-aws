@@ -17,14 +17,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     public static final AccountState Empty = new AccountState();
 
     /**
-     * ARN of the SecurityHub Hub created in the account.
+     * ARN of the Security Hub Hub created in the account.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the SecurityHub Hub created in the account.
+     * @return ARN of the Security Hub Hub created in the account.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -120,7 +120,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the SecurityHub Hub created in the account.
+         * @param arn ARN of the Security Hub Hub created in the account.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the SecurityHub Hub created in the account.
+         * @param arn ARN of the Security Hub Hub created in the account.
          * 
          * @return builder
          * 

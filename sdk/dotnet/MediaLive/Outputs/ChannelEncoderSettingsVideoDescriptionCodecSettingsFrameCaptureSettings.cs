@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings
     {
         /// <summary>
-        /// The frequency at which to capture frames for inclusion in the output.
+        /// Frequency at which to capture frames for inclusion in the output.
         /// </summary>
         public readonly int? CaptureInterval;
         /// <summary>

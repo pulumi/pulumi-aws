@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Details about the guardrail associated with the agent. See `GuardrailConfiguration` Block
+        /// Details about the guardrail associated with the agent. See `GuardrailConfiguration` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult> GuardrailConfigurations;
         /// <summary>

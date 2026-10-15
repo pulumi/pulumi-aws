@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDetectorFeatureAdditionalConfiguration {
     /**
-     * @return The name of the detector feature.
+     * @return Name of the detector feature.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetDetectorFeatureAdditionalConfiguration {
 
     private GetDetectorFeatureAdditionalConfiguration() {}
     /**
-     * @return The name of the detector feature.
+     * @return Name of the detector feature.
      * 
      */
     public String name() {

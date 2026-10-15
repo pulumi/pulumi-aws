@@ -14,23 +14,23 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings
     {
         /// <summary>
-        /// Sets the colorspace metadata to be passed through.
+        /// Sets the colorspace metadata to be passed through. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings? ColorSpacePassthroughSettings;
         /// <summary>
-        /// Set the colorspace to Dolby Vision81.
+        /// Sets the colorspace to Dolby Vision81. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings? DolbyVision81Settings;
         /// <summary>
-        /// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        /// Sets the colorspace to be HDR10. See `Hdr10Settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings? Hdr10Settings;
         /// <summary>
-        /// Set the colorspace to Rec. 601.
+        /// Sets the colorspace to Rec. 601. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings? Rec601Settings;
         /// <summary>
-        /// Set the colorspace to Rec. 709.
+        /// Sets the colorspace to Rec. 709. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings? Rec709Settings;
 

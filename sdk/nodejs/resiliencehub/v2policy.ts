@@ -73,6 +73,24 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Organization Sharing Enabled
+ *
+ * Sharing is only available when the policy owner is the organization's management account or a delegated administrator.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.resiliencehub.V2Policy("example", {
+ *     availabilitySlo: {
+ *         target: 99.9,
+ *     },
+ *     name: "example-shared-policy",
+ *     description: "Baseline policy shared with member accounts",
+ *     sharingEnabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -154,6 +172,10 @@ export class V2Policy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+     */
+    declare public readonly sharingEnabled: pulumi.Output<boolean>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -184,6 +206,7 @@ export class V2Policy extends pulumi.CustomResource {
             resourceInputs["multiRegion"] = state?.multiRegion;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
+            resourceInputs["sharingEnabled"] = state?.sharingEnabled;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
@@ -196,6 +219,7 @@ export class V2Policy extends pulumi.CustomResource {
             resourceInputs["multiRegion"] = args?.multiRegion;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
+            resourceInputs["sharingEnabled"] = args?.sharingEnabled;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -248,6 +272,10 @@ export interface V2PolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
+     * Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+     */
+    sharingEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -295,6 +323,10 @@ export interface V2PolicyArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `false`.
+     */
+    sharingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

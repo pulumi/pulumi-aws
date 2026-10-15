@@ -96,14 +96,14 @@ public final class DataSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Parameters for connecting to AWS IOT Analytics.
+     * Parameters for connecting to AWS IoT Analytics.
      * 
      */
     @Import(name="awsIotAnalytics")
     private @Nullable Output<DataSourceParametersAwsIotAnalyticsArgs> awsIotAnalytics;
 
     /**
-     * @return Parameters for connecting to AWS IOT Analytics.
+     * @return Parameters for connecting to AWS IoT Analytics.
      * 
      */
     public Optional<Output<DataSourceParametersAwsIotAnalyticsArgs>> awsIotAnalytics() {
@@ -479,7 +479,7 @@ public final class DataSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsIotAnalytics Parameters for connecting to AWS IOT Analytics.
+         * @param awsIotAnalytics Parameters for connecting to AWS IoT Analytics.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class DataSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param awsIotAnalytics Parameters for connecting to AWS IOT Analytics.
+         * @param awsIotAnalytics Parameters for connecting to AWS IoT Analytics.
          * 
          * @return builder
          * 

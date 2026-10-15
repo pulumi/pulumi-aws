@@ -2500,7 +2500,7 @@ class TopicRuleErrorActionIotAnalytics(dict):
                  role_arn: _builtins.str,
                  batch_mode: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str channel_name: Name of AWS IOT Analytics channel.
+        :param _builtins.str channel_name: Name of AWS IoT Analytics channel.
         :param _builtins.str role_arn: The ARN of the IAM role that grants access.
         :param _builtins.bool batch_mode: The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
@@ -2513,7 +2513,7 @@ class TopicRuleErrorActionIotAnalytics(dict):
     @pulumi.getter(name="channelName")
     def channel_name(self) -> _builtins.str:
         """
-        Name of AWS IOT Analytics channel.
+        Name of AWS IoT Analytics channel.
         """
         return pulumi.get(self, "channel_name")
 
@@ -3481,7 +3481,7 @@ class TopicRuleIotAnalytic(dict):
                  role_arn: _builtins.str,
                  batch_mode: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str channel_name: Name of AWS IOT Analytics channel.
+        :param _builtins.str channel_name: Name of AWS IoT Analytics channel.
         :param _builtins.str role_arn: The ARN of the IAM role that grants access.
         :param _builtins.bool batch_mode: The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
@@ -3494,7 +3494,7 @@ class TopicRuleIotAnalytic(dict):
     @pulumi.getter(name="channelName")
     def channel_name(self) -> _builtins.str:
         """
-        Name of AWS IOT Analytics channel.
+        Name of AWS IoT Analytics channel.
         """
         return pulumi.get(self, "channel_name")
 

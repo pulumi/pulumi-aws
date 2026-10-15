@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
+ * Manages an AWS Agents for Amazon Bedrock Agent Alias.
  * 
  * ## Example Usage
  * 
@@ -112,8 +112,9 @@ import javax.annotation.Nullable;
  *         var exampleAgentAgent = new AgentAgent("exampleAgentAgent", AgentAgentArgs.builder()
  *             .agentName("my-agent-name")
  *             .agentResourceRoleArn(example.arn())
- *             .idleTtl(500)
+ *             .idleSessionTtlInSeconds(500)
  *             .foundationModel("anthropic.claude-v2")
+ *             .instruction("You are a friendly assistant who helps answer questions.")
  *             .build());
  * 
  *         var exampleAgentAgentAlias = new AgentAgentAlias("exampleAgentAgentAlias", AgentAgentAliasArgs.builder()

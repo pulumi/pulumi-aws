@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class GetMultiRegionAccessPointPublicAccessBlockResult
     {
         /// <summary>
-        /// Whether Amazon S3 should block public access control lists (ACLs). When set to `True`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+        /// Whether Amazon S3 should block public access control lists (ACLs). When set to `True`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
         /// </summary>
         public readonly bool BlockPublicAcls;
         /// <summary>

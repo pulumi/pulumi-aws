@@ -261,17 +261,9 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     * 
-     */
     @Import(name="lastLaunchedTime")
     private @Nullable Output<String> lastLaunchedTime;
 
-    /**
-     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     * 
-     */
     public Optional<Output<String>> lastLaunchedTime() {
         return Optional.ofNullable(this.lastLaunchedTime);
     }
@@ -381,7 +373,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of the AMI to copy. This id must be valid in the region
+     * ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      * 
      */
@@ -389,7 +381,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> sourceAmiId;
 
     /**
-     * @return Id of the AMI to copy. This id must be valid in the region
+     * @return ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      * 
      */
@@ -922,23 +914,11 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param lastLaunchedTime Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastLaunchedTime(@Nullable Output<String> lastLaunchedTime) {
             $.lastLaunchedTime = lastLaunchedTime;
             return this;
         }
 
-        /**
-         * @param lastLaunchedTime Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastLaunchedTime(String lastLaunchedTime) {
             return lastLaunchedTime(Output.of(lastLaunchedTime));
         }
@@ -1084,7 +1064,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiId Id of the AMI to copy. This id must be valid in the region
+         * @param sourceAmiId ID of the AMI to copy. This ID must be valid in the region
          * given by `sourceAmiRegion`.
          * 
          * @return builder
@@ -1096,7 +1076,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiId Id of the AMI to copy. This id must be valid in the region
+         * @param sourceAmiId ID of the AMI to copy. This ID must be valid in the region
          * given by `sourceAmiRegion`.
          * 
          * @return builder

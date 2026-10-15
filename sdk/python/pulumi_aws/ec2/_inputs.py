@@ -9567,7 +9567,7 @@ class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
     """
     associate_public_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Associate a public ip address with the network interface. Boolean value, can be left unset.
+    Associate a public IP address with the network interface. Boolean value, can be left unset.
     """
     connection_tracking_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgsDict']]]
     """
@@ -9682,7 +9682,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
-        :param pulumi.Input[_builtins.str] associate_public_ip_address: Associate a public ip address with the network interface. Boolean value, can be left unset.
+        :param pulumi.Input[_builtins.str] associate_public_ip_address: Associate a public IP address with the network interface. Boolean value, can be left unset.
         :param pulumi.Input['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs'] connection_tracking_specification: The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
         :param pulumi.Input[_builtins.str] delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param pulumi.Input[_builtins.str] description: Description of the network interface.
@@ -9768,7 +9768,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Associate a public ip address with the network interface. Boolean value, can be left unset.
+        Associate a public IP address with the network interface. Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_public_ip_address")
 
@@ -20760,11 +20760,11 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgsDict(Ty
     """
     version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+    Template version. Unlike the AutoScaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 
     **Note:** The specified launch template can specify only a subset of the
     inputs of `ec2.LaunchTemplate`.  There are limitations on
-    what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
+    what you can specify as spot fleet does not support all the attributes that are supported by Auto Scaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
     """
 
 @pulumi.input_type
@@ -20776,11 +20776,11 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
         """
         :param pulumi.Input[_builtins.str] id: The ID of the launch template. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] name: The name of the launch template. Conflicts with `id`.
-        :param pulumi.Input[_builtins.str] version: Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+        :param pulumi.Input[_builtins.str] version: Template version. Unlike the AutoScaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
                
                **Note:** The specified launch template can specify only a subset of the
                inputs of `ec2.LaunchTemplate`.  There are limitations on
-               what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
+               what you can specify as spot fleet does not support all the attributes that are supported by Auto Scaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -20817,11 +20817,11 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+        Template version. Unlike the AutoScaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 
         **Note:** The specified launch template can specify only a subset of the
         inputs of `ec2.LaunchTemplate`.  There are limitations on
-        what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
+        what you can specify as spot fleet does not support all the attributes that are supported by Auto Scaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
         """
         return pulumi.get(self, "version")
 
@@ -25135,7 +25135,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     """
     bgp_log_output_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+    Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
     """
     log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -25147,7 +25147,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     """
     log_output_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+    Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
     """
 
 @pulumi.input_type
@@ -25162,10 +25162,10 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
         """
         :param pulumi.Input[_builtins.bool] bgp_log_enabled: Whether to enable the BGP logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] bgp_log_group_arn: ARN of the CloudWatch log group to send BGP logs to.
-        :param pulumi.Input[_builtins.str] bgp_log_output_format: Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        :param pulumi.Input[_builtins.str] bgp_log_output_format: Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         :param pulumi.Input[_builtins.bool] log_enabled: Whether to enable the VPN tunnel logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] log_group_arn: ARN of the CloudWatch log group to send logs to.
-        :param pulumi.Input[_builtins.str] log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        :param pulumi.Input[_builtins.str] log_output_format: Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         """
         if bgp_log_enabled is not None:
             pulumi.set(__self__, "bgp_log_enabled", bgp_log_enabled)
@@ -25208,7 +25208,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="bgpLogOutputFormat")
     def bgp_log_output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         """
         return pulumi.get(self, "bgp_log_output_format")
 
@@ -25244,7 +25244,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="logOutputFormat")
     def log_output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         """
         return pulumi.get(self, "log_output_format")
 
@@ -25293,7 +25293,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     """
     bgp_log_output_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+    Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
     """
     log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -25305,7 +25305,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     """
     log_output_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+    Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
     """
 
 @pulumi.input_type
@@ -25320,10 +25320,10 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
         """
         :param pulumi.Input[_builtins.bool] bgp_log_enabled: Whether to enable the BGP logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] bgp_log_group_arn: ARN of the CloudWatch log group to send BGP logs to.
-        :param pulumi.Input[_builtins.str] bgp_log_output_format: Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        :param pulumi.Input[_builtins.str] bgp_log_output_format: Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         :param pulumi.Input[_builtins.bool] log_enabled: Whether to enable the VPN tunnel logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] log_group_arn: ARN of the CloudWatch log group to send logs to.
-        :param pulumi.Input[_builtins.str] log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        :param pulumi.Input[_builtins.str] log_output_format: Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         """
         if bgp_log_enabled is not None:
             pulumi.set(__self__, "bgp_log_enabled", bgp_log_enabled)
@@ -25366,7 +25366,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="bgpLogOutputFormat")
     def bgp_log_output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         """
         return pulumi.get(self, "bgp_log_output_format")
 
@@ -25402,7 +25402,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="logOutputFormat")
     def log_output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
         """
         return pulumi.get(self, "log_output_format")
 
@@ -25690,7 +25690,7 @@ class GetCoipPoolFilterArgsDict(TypedDict):
     values: Sequence[_builtins.str]
     """
     Set of values that are accepted for the given field.
-    A COIP Pool will be selected if any one of the given values matches.
+    A CoIP Pool will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -25702,7 +25702,7 @@ class GetCoipPoolFilterArgs:
         :param _builtins.str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
         :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A COIP Pool will be selected if any one of the given values matches.
+               A CoIP Pool will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -25725,7 +25725,7 @@ class GetCoipPoolFilterArgs:
     def values(self) -> Sequence[_builtins.str]:
         """
         Set of values that are accepted for the given field.
-        A COIP Pool will be selected if any one of the given values matches.
+        A CoIP Pool will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -25743,7 +25743,7 @@ class GetCoipPoolsFilterArgsDict(TypedDict):
     values: Sequence[_builtins.str]
     """
     Set of values that are accepted for the given field.
-    A COIP Pool will be selected if any one of the given values matches.
+    A CoIP Pool will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -25755,7 +25755,7 @@ class GetCoipPoolsFilterArgs:
         :param _builtins.str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
         :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A COIP Pool will be selected if any one of the given values matches.
+               A CoIP Pool will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -25778,7 +25778,7 @@ class GetCoipPoolsFilterArgs:
     def values(self) -> Sequence[_builtins.str]:
         """
         Set of values that are accepted for the given field.
-        A COIP Pool will be selected if any one of the given values matches.
+        A CoIP Pool will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Appsync Types using the `id`. For example:
+ * Using `pulumi import`, import AppSync Types using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:appsync/type:Type example api-id:format:name

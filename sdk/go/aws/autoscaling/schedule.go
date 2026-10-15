@@ -85,7 +85,7 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// ARN assigned by AWS to the autoscaling schedule.
+	// ARN assigned by AWS to the Auto Scaling schedule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
@@ -149,7 +149,7 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// ARN assigned by AWS to the autoscaling schedule.
+	// ARN assigned by AWS to the Auto Scaling schedule.
 	Arn *string `pulumi:"arn"`
 	// The name of the Auto Scaling group.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
@@ -178,7 +178,7 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
-	// ARN assigned by AWS to the autoscaling schedule.
+	// ARN assigned by AWS to the Auto Scaling schedule.
 	Arn pulumi.StringPtrInput
 	// The name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringPtrInput
@@ -352,7 +352,7 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
-// ARN assigned by AWS to the autoscaling schedule.
+// ARN assigned by AWS to the Auto Scaling schedule.
 func (o ScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

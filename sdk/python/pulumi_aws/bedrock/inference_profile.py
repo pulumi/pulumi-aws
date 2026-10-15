@@ -153,6 +153,7 @@ class _InferenceProfileState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         :param pulumi.Input[_builtins.str] updated_at: Time at which the inference profile was last updated.
         """
@@ -296,6 +297,9 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -350,7 +354,7 @@ class InferenceProfile(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict', 'outputs.InferenceProfileTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Inference Profile.
+        Manages an AWS Bedrock Inference Profile.
 
         ## Example Usage
 
@@ -374,7 +378,7 @@ class InferenceProfile(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
+        Using `pulumi import`, import Bedrock Inference Profile using the `id`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
@@ -398,7 +402,7 @@ class InferenceProfile(pulumi.CustomResource):
                  args: Optional[InferenceProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Inference Profile.
+        Manages an AWS Bedrock Inference Profile.
 
         ## Example Usage
 
@@ -422,7 +426,7 @@ class InferenceProfile(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
+        Using `pulumi import`, import Bedrock Inference Profile using the `id`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
@@ -513,6 +517,7 @@ class InferenceProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         :param pulumi.Input[_builtins.str] updated_at: Time at which the inference profile was last updated.
         """
@@ -612,6 +617,9 @@ class InferenceProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

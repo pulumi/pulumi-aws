@@ -128,14 +128,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      * 
      */
     @Import(name="cloudExadataInfrastructureId")
     private @Nullable Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * @return Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      * 
      */
     public Optional<Output<String>> cloudExadataInfrastructureId() {
@@ -1053,7 +1053,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cloudExadataInfrastructureId Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+         * @param cloudExadataInfrastructureId Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
          * 
          * @return builder
          * 
@@ -1064,7 +1064,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cloudExadataInfrastructureId Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+         * @param cloudExadataInfrastructureId Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
          * 
          * @return builder
          * 

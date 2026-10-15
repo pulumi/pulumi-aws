@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting {
+    /**
+     * @return Location of the license server used for protecting content. See `keyProviderServer` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer keyProviderServer;
+    /**
+     * @return Static key value as a 32-character hexadecimal string.
+     * 
+     */
     private String staticKeyValue;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting() {}
+    /**
+     * @return Location of the license server used for protecting content. See `keyProviderServer` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer> keyProviderServer() {
         return Optional.ofNullable(this.keyProviderServer);
     }
+    /**
+     * @return Static key value as a 32-character hexadecimal string.
+     * 
+     */
     public String staticKeyValue() {
         return this.staticKeyValue;
     }

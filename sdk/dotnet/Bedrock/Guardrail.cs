@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an Amazon Bedrock Guardrail.
+    /// Manages an Amazon Bedrock Guardrail.
     /// 
     /// ## Example Usage
     /// 
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Bedrock
     ///             {
     ///                 new Aws.Bedrock.Inputs.GuardrailContentPolicyConfigTierConfigArgs
     ///                 {
-    ///                     TierName = "STANDARD",
+    ///                     TierName = "CLASSIC",
     ///                 },
     ///             },
     ///         },
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `GuardrailId` and `Version`. For example:
+    /// Using `pulumi import`, import Amazon Bedrock Guardrail using a comma-delimited string of `GuardrailId` and `Version`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
@@ -159,13 +159,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.GuardrailContextualGroundingPolicyConfig?> ContextualGroundingPolicyConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Unix epoch timestamp in seconds for when the Guardrail was created.
+        /// Date and time the Guardrail was created, in RFC3339 format.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         /// </summary>
         [Output("crossRegionConfig")]
         public Output<Outputs.GuardrailCrossRegionConfig?> CrossRegionConfig { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.GuardrailSensitiveInformationPolicyConfig?> SensitiveInformationPolicyConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+        /// Status of the Bedrock Guardrail.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -226,6 +226,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -239,7 +242,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.GuardrailTopicPolicyConfig?> TopicPolicyConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Date and time that the Guardrail list was last updated.
+        /// Date and time that the Guardrail was last updated, in RFC3339 format.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -327,7 +330,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
 
         /// <summary>
-        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         /// </summary>
         [Input("crossRegionConfig")]
         public Input<Inputs.GuardrailCrossRegionConfigArgs>? CrossRegionConfig { get; set; }
@@ -424,13 +427,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigGetArgs>? ContextualGroundingPolicyConfig { get; set; }
 
         /// <summary>
-        /// Unix epoch timestamp in seconds for when the Guardrail was created.
+        /// Date and time the Guardrail was created, in RFC3339 format.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         /// </summary>
         [Input("crossRegionConfig")]
         public Input<Inputs.GuardrailCrossRegionConfigGetArgs>? CrossRegionConfig { get; set; }
@@ -480,7 +483,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.GuardrailSensitiveInformationPolicyConfigGetArgs>? SensitiveInformationPolicyConfig { get; set; }
 
         /// <summary>
-        /// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+        /// Status of the Bedrock Guardrail.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -499,6 +502,10 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -515,7 +522,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.GuardrailTopicPolicyConfigGetArgs>? TopicPolicyConfig { get; set; }
 
         /// <summary>
-        /// Date and time that the Guardrail list was last updated.
+        /// Date and time that the Guardrail was last updated, in RFC3339 format.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

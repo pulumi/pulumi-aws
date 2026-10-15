@@ -63,7 +63,7 @@ export interface GetSecurityProfileArgs {
      */
     region?: string;
     /**
-     * Returns information on a specific Security Profile by Security Profile id
+     * Returns information on a specific Security Profile by Security Profile ID
      */
     securityProfileId?: string;
     /**
@@ -164,7 +164,7 @@ export interface GetSecurityProfileOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Returns information on a specific Security Profile by Security Profile id
+     * Returns information on a specific Security Profile by Security Profile ID
      */
     securityProfileId?: pulumi.Input<string | undefined>;
     /**

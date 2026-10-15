@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerJdbcTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
+        /// Name of the connection to use to connect to the JDBC target.
         /// </summary>
         [Input("connectionName", required: true)]
         public Input<string> ConnectionName { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _exclusions;
 
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
+        /// List of glob patterns used to exclude from the crawl.
         /// </summary>
         public InputList<string> Exclusions
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The path of the JDBC target.
+        /// Path of the JDBC target.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

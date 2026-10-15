@@ -18,14 +18,14 @@ public final class NodeGroupResourceArgs extends com.pulumi.resources.ResourceAr
     public static final NodeGroupResourceArgs Empty = new NodeGroupResourceArgs();
 
     /**
-     * List of objects containing information about AutoScaling Groups.
+     * List of objects containing information about Auto Scaling groups.
      * 
      */
     @Import(name="autoscalingGroups")
     private @Nullable Output<List<NodeGroupResourceAutoscalingGroupArgs>> autoscalingGroups;
 
     /**
-     * @return List of objects containing information about AutoScaling Groups.
+     * @return List of objects containing information about Auto Scaling groups.
      * 
      */
     public Optional<Output<List<NodeGroupResourceAutoscalingGroupArgs>>> autoscalingGroups() {
@@ -73,7 +73,7 @@ public final class NodeGroupResourceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoscalingGroups List of objects containing information about AutoScaling Groups.
+         * @param autoscalingGroups List of objects containing information about Auto Scaling groups.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class NodeGroupResourceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoscalingGroups List of objects containing information about AutoScaling Groups.
+         * @param autoscalingGroups List of objects containing information about Auto Scaling groups.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class NodeGroupResourceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoscalingGroups List of objects containing information about AutoScaling Groups.
+         * @param autoscalingGroups List of objects containing information about Auto Scaling groups.
          * 
          * @return builder
          * 

@@ -728,7 +728,7 @@ class Association(pulumi.CustomResource):
             schedule_expression="cron(0 2 ? * SUN *)")
         ```
 
-        ### Create an association with multiple instances with their instance ids
+        ### Create an association with multiple instances with their instance IDs
 
         ```python
         import pulumi
@@ -987,7 +987,7 @@ class Association(pulumi.CustomResource):
             schedule_expression="cron(0 2 ? * SUN *)")
         ```
 
-        ### Create an association with multiple instances with their instance ids
+        ### Create an association with multiple instances with their instance IDs
 
         ```python
         import pulumi

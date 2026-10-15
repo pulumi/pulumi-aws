@@ -19,14 +19,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     public static final SubnetGroupState Empty = new SubnetGroupState();
 
     /**
-     * The ARN of the docDB subnet group.
+     * The ARN of the DocDB subnet group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the docDB subnet group.
+     * @return The ARN of the DocDB subnet group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * @return The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * The network type of the DocDB subnet group (`IPV4` or `DUAL`).
      * 
      */
     @Import(name="supportedNetworkTypes")
     private @Nullable Output<List<String>> supportedNetworkTypes;
 
     /**
-     * @return The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * @return The network type of the DocDB subnet group (`IPV4` or `DUAL`).
      * 
      */
     public Optional<Output<List<String>>> supportedNetworkTypes() {
@@ -186,7 +186,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the docDB subnet group.
+         * @param arn The ARN of the DocDB subnet group.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the docDB subnet group.
+         * @param arn The ARN of the DocDB subnet group.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+         * @param name The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+         * @param name The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes The network type of the docDB subnet group (`IPV4` or `DUAL`).
+         * @param supportedNetworkTypes The network type of the DocDB subnet group (`IPV4` or `DUAL`).
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes The network type of the docDB subnet group (`IPV4` or `DUAL`).
+         * @param supportedNetworkTypes The network type of the DocDB subnet group (`IPV4` or `DUAL`).
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes The network type of the docDB subnet group (`IPV4` or `DUAL`).
+         * @param supportedNetworkTypes The network type of the DocDB subnet group (`IPV4` or `DUAL`).
          * 
          * @return builder
          * 

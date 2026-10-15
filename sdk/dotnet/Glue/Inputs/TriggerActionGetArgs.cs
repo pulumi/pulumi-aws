@@ -25,31 +25,31 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `JobName`.
+        /// Name of the crawler to be executed. Conflicts with `JobName`.
         /// </summary>
         [Input("crawlerName")]
         public Input<string>? CrawlerName { get; set; }
 
         /// <summary>
-        /// The name of a job to be executed. Conflicts with `CrawlerName`.
+        /// Name of a job to be executed. Conflicts with `CrawlerName`.
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
 
         /// <summary>
-        /// Specifies configuration properties of a job run notification. See Notification Property details below.
+        /// Configuration properties of a job run notification. See `NotificationProperty` details below.
         /// </summary>
         [Input("notificationProperty")]
         public Input<Inputs.TriggerActionNotificationPropertyGetArgs>? NotificationProperty { get; set; }
 
         /// <summary>
-        /// The name of the Security Configuration structure to be used with this action.
+        /// Name of the Security Configuration structure to be used with this action.
         /// </summary>
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
 
         /// <summary>
-        /// The job run timeout in minutes. It overrides the timeout value of the job.
+        /// Job run timeout in minutes. It overrides the timeout value of the job.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

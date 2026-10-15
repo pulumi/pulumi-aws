@@ -42,7 +42,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `macie2.Account` using the id. For example:
+// Using `pulumi import`, import `macie2.Account` using the ID. For example:
 //
 // ```sh
 // $ pulumi import aws:macie2/account:Account example abcd1
@@ -50,17 +50,17 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+	// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
 	FindingPublishingFrequency pulumi.StringOutput `pulumi:"findingPublishingFrequency"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+	// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+	// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -94,32 +94,32 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+	// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
 	ServiceRole *string `pulumi:"serviceRole"`
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+	// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status *string `pulumi:"status"`
-	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+	// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type AccountState struct {
-	// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
 	CreatedAt pulumi.StringPtrInput
-	// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+	// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
 	FindingPublishingFrequency pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
 	ServiceRole pulumi.StringPtrInput
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+	// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringPtrInput
-	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+	// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
 	UpdatedAt pulumi.StringPtrInput
 }
 
@@ -128,21 +128,21 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+	// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+	// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+	// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
 	FindingPublishingFrequency pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+	// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringPtrInput
 }
 
@@ -233,12 +233,12 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+// Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
 func (o AccountOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
 func (o AccountOutput) FindingPublishingFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FindingPublishingFrequency }).(pulumi.StringOutput)
 }
@@ -253,12 +253,12 @@ func (o AccountOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
 }
 
-// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 func (o AccountOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
 func (o AccountOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

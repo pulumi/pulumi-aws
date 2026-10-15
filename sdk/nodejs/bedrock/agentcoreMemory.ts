@@ -55,7 +55,6 @@ import * as utilities from "../utilities";
  *     eventExpiryDuration: 60,
  *     encryptionKeyArn: example.arn,
  *     memoryExecutionRoleArn: exampleAwsIamRole.arn,
- *     clientToken: "unique-client-token",
  * });
  * ```
  *
@@ -69,7 +68,7 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `accountId` (String) Account ID where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import memories using `id`. For example:

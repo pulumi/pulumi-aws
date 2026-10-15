@@ -34,18 +34,14 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
+     * MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
      * 
      */
     @Import(name="multiplexProgramSettings")
     private @Nullable Output<MultiplexProgramMultiplexProgramSettingsArgs> multiplexProgramSettings;
 
     /**
-     * @return MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
+     * @return MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
      * 
      */
     public Optional<Output<MultiplexProgramMultiplexProgramSettingsArgs>> multiplexProgramSettings() {
@@ -55,12 +51,16 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
     /**
      * Unique program name.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="programName", required=true)
     private Output<String> programName;
 
     /**
      * @return Unique program name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> programName() {
@@ -139,9 +139,7 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param multiplexProgramSettings MultiplexProgram settings. See Multiplex Program Settings for more details.
-         * 
-         * The following arguments are optional:
+         * @param multiplexProgramSettings MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
          * 
          * @return builder
          * 
@@ -152,9 +150,7 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param multiplexProgramSettings MultiplexProgram settings. See Multiplex Program Settings for more details.
-         * 
-         * The following arguments are optional:
+         * @param multiplexProgramSettings MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
          * 
          * @return builder
          * 
@@ -166,6 +162,8 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param programName Unique program name.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -176,6 +174,8 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param programName Unique program name.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

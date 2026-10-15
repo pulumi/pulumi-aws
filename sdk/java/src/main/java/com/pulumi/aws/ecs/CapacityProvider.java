@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
  * 
- * &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+ * &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling group will automatically add the `AmazonECSManaged` tag to the Auto Scaling group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent Terraform from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
  * 
  * &gt; **NOTE:** You must specify exactly one of `autoScalingGroupProvider` or `managedInstancesProvider`. When using `managedInstancesProvider`, the `cluster` parameter is required. When using `autoScalingGroupProvider`, the `cluster` parameter must not be set.
  * 
@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Auto Scaling Group Provider
+ * ### Auto Scaling group Provider
  * 
  * <pre>
  * {@code
@@ -186,14 +186,14 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     * Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     @Export(name="autoScalingGroupProvider", refs={CapacityProviderAutoScalingGroupProvider.class}, tree="[0]")
     private Output</* @Nullable */ CapacityProviderAutoScalingGroupProvider> autoScalingGroupProvider;
 
     /**
-     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     * @return Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     public Output<Optional<CapacityProviderAutoScalingGroupProvider>> autoScalingGroupProvider() {

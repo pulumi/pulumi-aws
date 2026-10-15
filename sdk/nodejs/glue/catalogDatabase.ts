@@ -81,7 +81,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     declare public readonly catalogId: pulumi.Output<string>;
     /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      */
     declare public readonly createTableDefaultPermissions: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[]>;
     /**
@@ -89,7 +89,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      */
     declare public readonly federatedDatabase: pulumi.Output<outputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
     /**
@@ -113,11 +113,11 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      */
     declare public readonly targetDatabase: pulumi.Output<outputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 
@@ -179,7 +179,7 @@ export interface CatalogDatabaseState {
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[] | undefined>;
     /**
@@ -187,7 +187,7 @@ export interface CatalogDatabaseState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      */
     federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
     /**
@@ -211,11 +211,11 @@ export interface CatalogDatabaseState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      */
     targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 }
@@ -229,7 +229,7 @@ export interface CatalogDatabaseArgs {
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[] | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface CatalogDatabaseArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      */
     federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface CatalogDatabaseArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      */
     targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 }

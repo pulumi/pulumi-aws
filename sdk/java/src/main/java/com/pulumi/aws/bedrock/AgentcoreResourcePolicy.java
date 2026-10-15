@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages an AWS Bedrock Agent Core Resource Policy. Resource-based policies in Amazon Bedrock Agent Core allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock Agent Core Runtime and Gateway resources.
+ * Manages an AWS Bedrock AgentCore Resource Policy. Resource-based policies in Amazon Bedrock AgentCore allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock AgentCore Runtime and Gateway resources.
  * 
  * ## Example Usage
  * 
@@ -84,9 +84,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * * `resourceArn` - ARN of the resource to which the Resource Policy is attached.
+ * * `resourceArn` (String) ARN of the resource to which the Resource Policy is attached.
  * 
- * Using `pulumi import`, import Bedrock Agent Core Resource Policy using the `resourceArn`. For example:
+ * Using `pulumi import`, import Bedrock AgentCore Resource Policy using the `resourceArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy example arn:aws:bedrock-agentcore:us-west-2:012345678901:runtime/abcd1234
@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy")
 public class AgentcoreResourcePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Resource policy definition
+     * Resource policy document in JSON format.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return Resource policy definition
+     * @return Resource policy document in JSON format.
      * 
      */
     public Output<String> policy() {

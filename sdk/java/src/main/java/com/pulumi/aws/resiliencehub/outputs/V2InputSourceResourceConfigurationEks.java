@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.resiliencehub.outputs;
 
+import com.pulumi.aws.resiliencehub.outputs.V2InputSourceResourceConfigurationEksLabelSelector;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class V2InputSourceResourceConfigurationEks {
@@ -16,6 +19,11 @@ public final class V2InputSourceResourceConfigurationEks {
      * 
      */
     private String clusterArn;
+    /**
+     * @return Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+     * 
+     */
+    private @Nullable V2InputSourceResourceConfigurationEksLabelSelector labelSelector;
     /**
      * @return List of Kubernetes namespaces within the EKS cluster.
      * 
@@ -29,6 +37,13 @@ public final class V2InputSourceResourceConfigurationEks {
      */
     public String clusterArn() {
         return this.clusterArn;
+    }
+    /**
+     * @return Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+     * 
+     */
+    public Optional<V2InputSourceResourceConfigurationEksLabelSelector> labelSelector() {
+        return Optional.ofNullable(this.labelSelector);
     }
     /**
      * @return List of Kubernetes namespaces within the EKS cluster.
@@ -48,11 +63,13 @@ public final class V2InputSourceResourceConfigurationEks {
     @CustomType.Builder
     public static final class Builder {
         private String clusterArn;
+        private @Nullable V2InputSourceResourceConfigurationEksLabelSelector labelSelector;
         private List<String> namespaces;
         public Builder() {}
         public Builder(V2InputSourceResourceConfigurationEks defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterArn = defaults.clusterArn;
+    	      this.labelSelector = defaults.labelSelector;
     	      this.namespaces = defaults.namespaces;
         }
 
@@ -62,6 +79,12 @@ public final class V2InputSourceResourceConfigurationEks {
               throw new MissingRequiredPropertyException("V2InputSourceResourceConfigurationEks", "clusterArn");
             }
             this.clusterArn = clusterArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder labelSelector(@Nullable V2InputSourceResourceConfigurationEksLabelSelector labelSelector) {
+
+            this.labelSelector = labelSelector;
             return this;
         }
         @CustomType.Setter
@@ -78,6 +101,7 @@ public final class V2InputSourceResourceConfigurationEks {
         public V2InputSourceResourceConfigurationEks build() {
             final var _resultValue = new V2InputSourceResourceConfigurationEks();
             _resultValue.clusterArn = clusterArn;
+            _resultValue.labelSelector = labelSelector;
             _resultValue.namespaces = namespaces;
             return _resultValue;
         }

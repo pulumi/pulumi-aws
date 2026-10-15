@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
     /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+     * @return Property-based condition that defines a property, operator, and one or more values for including or excluding an S3 bucket from the job. See `includes.simple_criterion` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion simpleCriterion;
     /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+     * @return Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 bucket from the job. See `includes.tag_criterion` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion tagCriterion;
 
     private ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd() {}
     /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+     * @return Property-based condition that defines a property, operator, and one or more values for including or excluding an S3 bucket from the job. See `includes.simple_criterion` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion> simpleCriterion() {
         return Optional.ofNullable(this.simpleCriterion);
     }
     /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+     * @return Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 bucket from the job. See `includes.tag_criterion` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion> tagCriterion() {

@@ -76,7 +76,7 @@ type LookupCloudAutonomousVmClusterResult struct {
 	AvailableCpus float64 `pulumi:"availableCpus"`
 	// Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureArn string `pulumi:"cloudExadataInfrastructureArn"`
-	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+	// Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
 	// Compute model of the Autonomous VM cluster: ECPU or OCPU.
 	ComputeModel string `pulumi:"computeModel"`
@@ -235,7 +235,7 @@ func (o LookupCloudAutonomousVmClusterResultOutput) CloudExadataInfrastructureAr
 	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) string { return v.CloudExadataInfrastructureArn }).(pulumi.StringOutput)
 }
 
-// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+// Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
 func (o LookupCloudAutonomousVmClusterResultOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) string { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }

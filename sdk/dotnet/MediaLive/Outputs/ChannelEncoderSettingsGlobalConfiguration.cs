@@ -14,27 +14,27 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsGlobalConfiguration
     {
         /// <summary>
-        /// Value to set the initial audio gain for the Live Event.
+        /// Value to set the initial audio gain for the live event.
         /// </summary>
         public readonly int? InitialAudioGain;
         /// <summary>
-        /// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+        /// Action to take when the current input completes. When `switchAndLoopInputs` is configured, the encoder restarts at the beginning of the first input. When `None` is configured, the encoder transcodes black, a solid color, or a user-specified slate image per the input loss behavior configuration until the next input switch occurs, which is controlled through the Channel Schedule API.
         /// </summary>
         public readonly string? InputEndAction;
         /// <summary>
-        /// Settings for system actions when input is lost. See Input Loss Behavior for more details.
+        /// Settings for system actions when input is lost. See `InputLossBehavior` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior? InputLossBehavior;
         /// <summary>
-        /// Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+        /// How MediaLive pipelines are synchronized. `PIPELINE_LOCKING` attempts to synchronize the output of each pipeline to the other. `EPOCH_LOCKING` attempts to synchronize the output of each pipeline to the Unix epoch.
         /// </summary>
         public readonly string? OutputLockingMode;
         /// <summary>
-        /// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+        /// Whether the rate of frames emitted by the live encoder is paced by its system clock, which optionally may be locked to another source via NTP, or locked to the clock of the input source.
         /// </summary>
         public readonly string? OutputTimingSource;
         /// <summary>
-        /// Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+        /// Adjusts the video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
         /// </summary>
         public readonly string? SupportLowFramerateInputs;
 

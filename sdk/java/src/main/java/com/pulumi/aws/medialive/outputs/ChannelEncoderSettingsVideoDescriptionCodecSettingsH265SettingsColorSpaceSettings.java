@@ -16,62 +16,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
     /**
-     * @return Sets the colorspace metadata to be passed through.
+     * @return Sets the colorspace metadata to be passed through. Can be set as an empty block.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings colorSpacePassthroughSettings;
     /**
-     * @return Set the colorspace to Dolby Vision81.
+     * @return Sets the colorspace to Dolby Vision81. Can be set as an empty block.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings dolbyVision81Settings;
     /**
-     * @return Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+     * @return Sets the colorspace to be HDR10. See `hdr10Settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings hdr10Settings;
     /**
-     * @return Set the colorspace to Rec. 601.
+     * @return Sets the colorspace to Rec. 601. Can be set as an empty block.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings rec601Settings;
     /**
-     * @return Set the colorspace to Rec. 709.
+     * @return Sets the colorspace to Rec. 709. Can be set as an empty block.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings rec709Settings;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings() {}
     /**
-     * @return Sets the colorspace metadata to be passed through.
+     * @return Sets the colorspace metadata to be passed through. Can be set as an empty block.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings> colorSpacePassthroughSettings() {
         return Optional.ofNullable(this.colorSpacePassthroughSettings);
     }
     /**
-     * @return Set the colorspace to Dolby Vision81.
+     * @return Sets the colorspace to Dolby Vision81. Can be set as an empty block.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings> dolbyVision81Settings() {
         return Optional.ofNullable(this.dolbyVision81Settings);
     }
     /**
-     * @return Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+     * @return Sets the colorspace to be HDR10. See `hdr10Settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings> hdr10Settings() {
         return Optional.ofNullable(this.hdr10Settings);
     }
     /**
-     * @return Set the colorspace to Rec. 601.
+     * @return Sets the colorspace to Rec. 601. Can be set as an empty block.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings> rec601Settings() {
         return Optional.ofNullable(this.rec601Settings);
     }
     /**
-     * @return Set the colorspace to Rec. 709.
+     * @return Sets the colorspace to Rec. 709. Can be set as an empty block.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings> rec709Settings() {

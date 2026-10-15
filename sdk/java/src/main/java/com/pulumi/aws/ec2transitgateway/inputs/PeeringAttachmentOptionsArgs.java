@@ -16,14 +16,14 @@ public final class PeeringAttachmentOptionsArgs extends com.pulumi.resources.Res
     public static final PeeringAttachmentOptionsArgs Empty = new PeeringAttachmentOptionsArgs();
 
     /**
-     * Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+     * Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
      * 
      */
     @Import(name="dynamicRouting")
     private @Nullable Output<String> dynamicRouting;
 
     /**
-     * @return Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+     * @return Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
      * 
      */
     public Optional<Output<String>> dynamicRouting() {
@@ -55,7 +55,7 @@ public final class PeeringAttachmentOptionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dynamicRouting Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+         * @param dynamicRouting Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PeeringAttachmentOptionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dynamicRouting Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+         * @param dynamicRouting Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
          * 
          * @return builder
          * 

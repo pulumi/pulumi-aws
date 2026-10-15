@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? BgpLogGroupArn { get; set; }
 
         /// <summary>
-        /// Set BGP log format. Default format is json. Possible values are: `Json` and `Text`. The default is `Json`.
+        /// Set BGP log format. Default format is JSON. Possible values are: `Json` and `Text`. The default is `Json`.
         /// </summary>
         [Input("bgpLogOutputFormat")]
         public Input<string>? BgpLogOutputFormat { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? LogGroupArn { get; set; }
 
         /// <summary>
-        /// Set log format. Default format is json. Possible values are: `Json` and `Text`. The default is `Json`.
+        /// Set log format. Default format is JSON. Possible values are: `Json` and `Text`. The default is `Json`.
         /// </summary>
         [Input("logOutputFormat")]
         public Input<string>? LogOutputFormat { get; set; }

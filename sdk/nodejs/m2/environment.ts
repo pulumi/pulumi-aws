@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### FSX Filesystem
+ * ### FSx Filesystem
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -135,22 +135,28 @@ export class Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Environment.__pulumiType;
     }
 
+    /**
+     * Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+     */
     declare public readonly applyChangesDuringMaintenanceWindow: pulumi.Output<boolean | undefined>;
     /**
      * ARN of the Environment.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Description of the runtime environment.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Engine type must be `microfocus` or `bluage`.
      */
     declare public readonly engineType: pulumi.Output<string>;
     /**
-     * The specific version of the engine for the Environment.
+     * Specific version of the engine for the Environment.
      */
     declare public readonly engineVersion: pulumi.Output<string>;
     /**
-     * The id of the Environment.
+     * ID of the Environment.
      */
     declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
@@ -160,8 +166,6 @@ export class Environment extends pulumi.CustomResource {
     declare public readonly highAvailabilityConfig: pulumi.Output<outputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * M2 Instance Type.
-     *
-     * The following arguments are optional:
      */
     declare public readonly instanceType: pulumi.Output<string>;
     /**
@@ -174,6 +178,8 @@ export class Environment extends pulumi.CustomResource {
     declare public /*out*/ readonly loadBalancerArn: pulumi.Output<string>;
     /**
      * Name of the runtime environment. Must be unique within the account.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -189,12 +195,12 @@ export class Environment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * List of security group ids.
+     * List of security group IDs.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     declare public readonly storageConfiguration: pulumi.Output<outputs.m2.EnvironmentStorageConfiguration | undefined>;
     /**
-     * List of subnet ids to deploy environment to.
+     * List of subnet IDs to deploy environment to.
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
@@ -277,22 +283,28 @@ export class Environment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Environment resources.
  */
 export interface EnvironmentState {
+    /**
+     * Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+     */
     applyChangesDuringMaintenanceWindow?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the Environment.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Description of the runtime environment.
+     */
     description?: pulumi.Input<string | undefined>;
     /**
      * Engine type must be `microfocus` or `bluage`.
      */
     engineType?: pulumi.Input<string | undefined>;
     /**
-     * The specific version of the engine for the Environment.
+     * Specific version of the engine for the Environment.
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**
-     * The id of the Environment.
+     * ID of the Environment.
      */
     environmentId?: pulumi.Input<string | undefined>;
     /**
@@ -302,8 +314,6 @@ export interface EnvironmentState {
     highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * M2 Instance Type.
-     *
-     * The following arguments are optional:
      */
     instanceType?: pulumi.Input<string | undefined>;
     /**
@@ -316,6 +326,8 @@ export interface EnvironmentState {
     loadBalancerArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the runtime environment. Must be unique within the account.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -331,12 +343,12 @@ export interface EnvironmentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of security group ids.
+     * List of security group IDs.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration | undefined>;
     /**
-     * List of subnet ids to deploy environment to.
+     * List of subnet IDs to deploy environment to.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -351,14 +363,20 @@ export interface EnvironmentState {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+     */
     applyChangesDuringMaintenanceWindow?: pulumi.Input<boolean | undefined>;
+    /**
+     * Description of the runtime environment.
+     */
     description?: pulumi.Input<string | undefined>;
     /**
      * Engine type must be `microfocus` or `bluage`.
      */
     engineType: pulumi.Input<string>;
     /**
-     * The specific version of the engine for the Environment.
+     * Specific version of the engine for the Environment.
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**
@@ -368,8 +386,6 @@ export interface EnvironmentArgs {
     highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * M2 Instance Type.
-     *
-     * The following arguments are optional:
      */
     instanceType: pulumi.Input<string>;
     /**
@@ -378,6 +394,8 @@ export interface EnvironmentArgs {
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the runtime environment. Must be unique within the account.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -393,12 +411,12 @@ export interface EnvironmentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of security group ids.
+     * List of security group IDs.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration | undefined>;
     /**
-     * List of subnet ids to deploy environment to.
+     * List of subnet IDs to deploy environment to.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

@@ -2389,7 +2389,7 @@ public final class CloudfrontFunctions {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", TypeShape.of(GetOriginAccessControlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
      * 
@@ -2467,7 +2467,7 @@ public final class CloudfrontFunctions {
         return getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
      * 
@@ -2545,7 +2545,7 @@ public final class CloudfrontFunctions {
         return getOriginAccessIdentitiesPlain(GetOriginAccessIdentitiesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
      * 
@@ -2623,7 +2623,7 @@ public final class CloudfrontFunctions {
         return getOriginAccessIdentities(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
      * 
@@ -2701,7 +2701,7 @@ public final class CloudfrontFunctions {
         return getOriginAccessIdentitiesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
      * 
@@ -2779,7 +2779,7 @@ public final class CloudfrontFunctions {
         return Deployment.getInstance().invoke("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", TypeShape.of(GetOriginAccessIdentitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
      * 
@@ -2857,7 +2857,7 @@ public final class CloudfrontFunctions {
         return Deployment.getInstance().invoke("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", TypeShape.of(GetOriginAccessIdentitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
      * 

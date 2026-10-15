@@ -15,29 +15,45 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs();
 
+    /**
+     * Caption channel to install in the output.
+     * 
+     */
     @Import(name="captionChannel", required=true)
     private Output<Integer> captionChannel;
 
+    /**
+     * @return Caption channel to install in the output.
+     * 
+     */
     public Output<Integer> captionChannel() {
         return this.captionChannel;
     }
 
+    /**
+     * Three-character ISO 639-2 language code.
+     * 
+     */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
+    /**
+     * @return Three-character ISO 639-2 language code.
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
 
     /**
-     * Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * Textual description of the language.
      * 
      */
     @Import(name="languageDescription", required=true)
     private Output<String> languageDescription;
 
     /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * @return Textual description of the language.
      * 
      */
     public Output<String> languageDescription() {
@@ -70,26 +86,50 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param captionChannel Caption channel to install in the output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captionChannel(Output<Integer> captionChannel) {
             $.captionChannel = captionChannel;
             return this;
         }
 
+        /**
+         * @param captionChannel Caption channel to install in the output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captionChannel(Integer captionChannel) {
             return captionChannel(Output.of(captionChannel));
         }
 
+        /**
+         * @param languageCode Three-character ISO 639-2 language code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode Three-character ISO 639-2 language code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
         /**
-         * @param languageDescription Human readable information to indicate captions available for players (eg. English, or Spanish).
+         * @param languageDescription Textual description of the language.
          * 
          * @return builder
          * 
@@ -100,7 +140,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param languageDescription Human readable information to indicate captions available for players (eg. English, or Spanish).
+         * @param languageDescription Textual description of the language.
          * 
          * @return builder
          * 

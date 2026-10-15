@@ -27,7 +27,7 @@ class LoggingOptionsArgs:
         The set of arguments for constructing a LoggingOptions resource.
 
         :param pulumi.Input[_builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to CloudWatch logs.
         :param pulumi.Input[_builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -54,7 +54,7 @@ class LoggingOptionsArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the role that allows IoT to write to Cloudwatch logs.
+        The ARN of the role that allows IoT to write to CloudWatch logs.
         """
         return pulumi.get(self, "role_arn")
 
@@ -100,7 +100,7 @@ class _LoggingOptionsState:
         :param pulumi.Input[_builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[_builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to CloudWatch logs.
         """
         if default_log_level is not None:
             pulumi.set(__self__, "default_log_level", default_log_level)
@@ -151,7 +151,7 @@ class _LoggingOptionsState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the role that allows IoT to write to Cloudwatch logs.
+        The ARN of the role that allows IoT to write to CloudWatch logs.
         """
         return pulumi.get(self, "role_arn")
 
@@ -191,7 +191,7 @@ class LoggingOptions(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[_builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to CloudWatch logs.
         """
         ...
     @overload
@@ -274,7 +274,7 @@ class LoggingOptions(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[_builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to CloudWatch logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -314,7 +314,7 @@ class LoggingOptions(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the role that allows IoT to write to Cloudwatch logs.
+        The ARN of the role that allows IoT to write to CloudWatch logs.
         """
         return pulumi.get(self, "role_arn")
 

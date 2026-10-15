@@ -66,11 +66,11 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
     declare public readonly catalogId: pulumi.Output<string>;
     /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
+     * Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      */
     declare public readonly dataCatalogEncryptionSettings: pulumi.Output<outputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
     /**
@@ -113,11 +113,11 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
  */
 export interface DataCatalogEncryptionSettingsState {
     /**
-     * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
+     * Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      */
     dataCatalogEncryptionSettings?: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings | undefined>;
     /**
@@ -131,11 +131,11 @@ export interface DataCatalogEncryptionSettingsState {
  */
 export interface DataCatalogEncryptionSettingsArgs {
     /**
-     * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
+     * Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      */
     dataCatalogEncryptionSettings: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
     /**

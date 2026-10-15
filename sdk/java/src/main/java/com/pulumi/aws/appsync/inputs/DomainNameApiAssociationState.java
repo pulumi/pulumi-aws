@@ -31,14 +31,14 @@ public final class DomainNameApiAssociationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Appsync domain name.
+     * AppSync domain name.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return Appsync domain name.
+     * @return AppSync domain name.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -108,7 +108,7 @@ public final class DomainNameApiAssociationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param domainName Appsync domain name.
+         * @param domainName AppSync domain name.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DomainNameApiAssociationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param domainName Appsync domain name.
+         * @param domainName AppSync domain name.
          * 
          * @return builder
          * 

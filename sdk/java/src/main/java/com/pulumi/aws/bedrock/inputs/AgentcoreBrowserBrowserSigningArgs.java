@@ -15,14 +15,14 @@ public final class AgentcoreBrowserBrowserSigningArgs extends com.pulumi.resourc
     public static final AgentcoreBrowserBrowserSigningArgs Empty = new AgentcoreBrowserBrowserSigningArgs();
 
     /**
-     * Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+     * Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+     * @return Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
      * 
      */
     public Output<Boolean> enabled() {
@@ -54,7 +54,7 @@ public final class AgentcoreBrowserBrowserSigningArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+         * @param enabled Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentcoreBrowserBrowserSigningArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+         * @param enabled Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
          * 
          * @return builder
          * 

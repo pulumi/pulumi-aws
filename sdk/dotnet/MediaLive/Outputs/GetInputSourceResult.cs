@@ -13,8 +13,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class GetInputSourceResult
     {
+        /// <summary>
+        /// Key used to extract the password from EC2 Parameter store.
+        /// </summary>
         public readonly string PasswordParam;
+        /// <summary>
+        /// URL where the stream is pulled from.
+        /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// Username for the input source.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

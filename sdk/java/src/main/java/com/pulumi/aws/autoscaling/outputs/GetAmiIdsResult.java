@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAmiIdsResult {
     /**
-     * @return List of the Autoscaling Groups Arns in the current region.
+     * @return List of the Auto Scaling groups ARNs in the current region.
      * 
      */
     private List<String> arns;
@@ -25,7 +25,7 @@ public final class GetAmiIdsResult {
      */
     private String id;
     /**
-     * @return List of the Autoscaling Groups in the current region.
+     * @return List of the Auto Scaling groups in the current region.
      * 
      */
     private List<String> names;
@@ -33,7 +33,7 @@ public final class GetAmiIdsResult {
 
     private GetAmiIdsResult() {}
     /**
-     * @return List of the Autoscaling Groups Arns in the current region.
+     * @return List of the Auto Scaling groups ARNs in the current region.
      * 
      */
     public List<String> arns() {
@@ -50,7 +50,7 @@ public final class GetAmiIdsResult {
         return this.id;
     }
     /**
-     * @return List of the Autoscaling Groups in the current region.
+     * @return List of the Auto Scaling groups in the current region.
      * 
      */
     public List<String> names() {

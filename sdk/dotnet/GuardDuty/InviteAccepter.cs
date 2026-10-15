@@ -61,7 +61,7 @@ namespace Pulumi.Aws.GuardDuty
     public partial class InviteAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The detector ID of the member GuardDuty account.
+        /// Detector ID of the member GuardDuty account.
         /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class InviteAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The detector ID of the member GuardDuty account.
+        /// Detector ID of the member GuardDuty account.
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class InviteAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The detector ID of the member GuardDuty account.
+        /// Detector ID of the member GuardDuty account.
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }

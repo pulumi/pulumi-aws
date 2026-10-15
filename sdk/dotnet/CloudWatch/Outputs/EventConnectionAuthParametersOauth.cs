@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string HttpMethod;
         /// <summary>
-        /// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        /// OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         /// </summary>
         public readonly Outputs.EventConnectionAuthParametersOauthOauthHttpParameters OauthHttpParameters;
 

@@ -1058,8 +1058,8 @@ class _VpnConnectionState:
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] transport_transit_gateway_attachment_id: Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outside_ip_address_type` is set to `PrivateIpv4`. The ID is obtained through a data source only.
         :param pulumi.Input[_builtins.str] tunnel1_address: Public IP address of the first VPN tunnel.
-        :param pulumi.Input[_builtins.str] tunnel1_bgp_asn: Bgp asn number of the first VPN tunnel.
-        :param pulumi.Input[_builtins.int] tunnel1_bgp_holdtime: Bgp holdtime of the first VPN tunnel.
+        :param pulumi.Input[_builtins.str] tunnel1_bgp_asn: BGP ASN number of the first VPN tunnel.
+        :param pulumi.Input[_builtins.int] tunnel1_bgp_holdtime: BGP holdtime of the first VPN tunnel.
         :param pulumi.Input[_builtins.str] tunnel1_cgw_inside_address: RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[_builtins.str] tunnel1_dpd_timeout_action: Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[_builtins.int] tunnel1_dpd_timeout_seconds: Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
@@ -1083,8 +1083,8 @@ class _VpnConnectionState:
         :param pulumi.Input[_builtins.str] tunnel1_startup_action: Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         :param pulumi.Input[_builtins.str] tunnel1_vgw_inside_address: RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
         :param pulumi.Input[_builtins.str] tunnel2_address: Public IP address of the second VPN tunnel.
-        :param pulumi.Input[_builtins.str] tunnel2_bgp_asn: Bgp asn number of the second VPN tunnel.
-        :param pulumi.Input[_builtins.int] tunnel2_bgp_holdtime: Bgp holdtime of the second VPN tunnel.
+        :param pulumi.Input[_builtins.str] tunnel2_bgp_asn: BGP ASN number of the second VPN tunnel.
+        :param pulumi.Input[_builtins.int] tunnel2_bgp_holdtime: BGP holdtime of the second VPN tunnel.
         :param pulumi.Input[_builtins.str] tunnel2_cgw_inside_address: RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[_builtins.str] tunnel2_dpd_timeout_action: Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[_builtins.int] tunnel2_dpd_timeout_seconds: Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
@@ -1537,7 +1537,7 @@ class _VpnConnectionState:
     @pulumi.getter(name="tunnel1BgpAsn")
     def tunnel1_bgp_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Bgp asn number of the first VPN tunnel.
+        BGP ASN number of the first VPN tunnel.
         """
         return pulumi.get(self, "tunnel1_bgp_asn")
 
@@ -1549,7 +1549,7 @@ class _VpnConnectionState:
     @pulumi.getter(name="tunnel1BgpHoldtime")
     def tunnel1_bgp_holdtime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Bgp holdtime of the first VPN tunnel.
+        BGP holdtime of the first VPN tunnel.
         """
         return pulumi.get(self, "tunnel1_bgp_holdtime")
 
@@ -1837,7 +1837,7 @@ class _VpnConnectionState:
     @pulumi.getter(name="tunnel2BgpAsn")
     def tunnel2_bgp_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Bgp asn number of the second VPN tunnel.
+        BGP ASN number of the second VPN tunnel.
         """
         return pulumi.get(self, "tunnel2_bgp_asn")
 
@@ -1849,7 +1849,7 @@ class _VpnConnectionState:
     @pulumi.getter(name="tunnel2BgpHoldtime")
     def tunnel2_bgp_holdtime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Bgp holdtime of the second VPN tunnel.
+        BGP holdtime of the second VPN tunnel.
         """
         return pulumi.get(self, "tunnel2_bgp_holdtime")
 
@@ -2789,8 +2789,8 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] transport_transit_gateway_attachment_id: Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outside_ip_address_type` is set to `PrivateIpv4`. The ID is obtained through a data source only.
         :param pulumi.Input[_builtins.str] tunnel1_address: Public IP address of the first VPN tunnel.
-        :param pulumi.Input[_builtins.str] tunnel1_bgp_asn: Bgp asn number of the first VPN tunnel.
-        :param pulumi.Input[_builtins.int] tunnel1_bgp_holdtime: Bgp holdtime of the first VPN tunnel.
+        :param pulumi.Input[_builtins.str] tunnel1_bgp_asn: BGP ASN number of the first VPN tunnel.
+        :param pulumi.Input[_builtins.int] tunnel1_bgp_holdtime: BGP holdtime of the first VPN tunnel.
         :param pulumi.Input[_builtins.str] tunnel1_cgw_inside_address: RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[_builtins.str] tunnel1_dpd_timeout_action: Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[_builtins.int] tunnel1_dpd_timeout_seconds: Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
@@ -2814,8 +2814,8 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] tunnel1_startup_action: Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         :param pulumi.Input[_builtins.str] tunnel1_vgw_inside_address: RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
         :param pulumi.Input[_builtins.str] tunnel2_address: Public IP address of the second VPN tunnel.
-        :param pulumi.Input[_builtins.str] tunnel2_bgp_asn: Bgp asn number of the second VPN tunnel.
-        :param pulumi.Input[_builtins.int] tunnel2_bgp_holdtime: Bgp holdtime of the second VPN tunnel.
+        :param pulumi.Input[_builtins.str] tunnel2_bgp_asn: BGP ASN number of the second VPN tunnel.
+        :param pulumi.Input[_builtins.int] tunnel2_bgp_holdtime: BGP holdtime of the second VPN tunnel.
         :param pulumi.Input[_builtins.str] tunnel2_cgw_inside_address: RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[_builtins.str] tunnel2_dpd_timeout_action: Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[_builtins.int] tunnel2_dpd_timeout_seconds: Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
@@ -3108,7 +3108,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="tunnel1BgpAsn")
     def tunnel1_bgp_asn(self) -> pulumi.Output[_builtins.str]:
         """
-        Bgp asn number of the first VPN tunnel.
+        BGP ASN number of the first VPN tunnel.
         """
         return pulumi.get(self, "tunnel1_bgp_asn")
 
@@ -3116,7 +3116,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="tunnel1BgpHoldtime")
     def tunnel1_bgp_holdtime(self) -> pulumi.Output[_builtins.int]:
         """
-        Bgp holdtime of the first VPN tunnel.
+        BGP holdtime of the first VPN tunnel.
         """
         return pulumi.get(self, "tunnel1_bgp_holdtime")
 
@@ -3308,7 +3308,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="tunnel2BgpAsn")
     def tunnel2_bgp_asn(self) -> pulumi.Output[_builtins.str]:
         """
-        Bgp asn number of the second VPN tunnel.
+        BGP ASN number of the second VPN tunnel.
         """
         return pulumi.get(self, "tunnel2_bgp_asn")
 
@@ -3316,7 +3316,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="tunnel2BgpHoldtime")
     def tunnel2_bgp_holdtime(self) -> pulumi.Output[_builtins.int]:
         """
-        Bgp holdtime of the second VPN tunnel.
+        BGP holdtime of the second VPN tunnel.
         """
         return pulumi.get(self, "tunnel2_bgp_holdtime")
 

@@ -19,14 +19,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs();
 
     /**
-     * Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+     * Parameters that control the interactions with the CDN. See `archiveCdnSettings` Block for details.
      * 
      */
     @Import(name="archiveCdnSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs> archiveCdnSettings;
 
     /**
-     * @return Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+     * @return Parameters that control the interactions with the CDN. See `archiveCdnSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs>> archiveCdnSettings() {
@@ -34,14 +34,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
     }
 
     /**
-     * A director and base filename where archive files should be written. See Destination for more details.
+     * Directory and base filename where archive files are written. See `destination` Block for details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination;
 
     /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
+     * @return Directory and base filename where archive files are written. See `destination` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination() {
@@ -49,14 +49,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
     }
 
     /**
-     * Number of seconds to write to archive file before closing and starting a new one.
+     * Number of seconds to write to an archive file before closing and starting a new one.
      * 
      */
     @Import(name="rolloverInterval")
     private @Nullable Output<Integer> rolloverInterval;
 
     /**
-     * @return Number of seconds to write to archive file before closing and starting a new one.
+     * @return Number of seconds to write to an archive file before closing and starting a new one.
      * 
      */
     public Optional<Output<Integer>> rolloverInterval() {
@@ -90,7 +90,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param archiveCdnSettings Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+         * @param archiveCdnSettings Parameters that control the interactions with the CDN. See `archiveCdnSettings` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param archiveCdnSettings Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+         * @param archiveCdnSettings Parameters that control the interactions with the CDN. See `archiveCdnSettings` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
+         * @param destination Directory and base filename where archive files are written. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
+         * @param destination Directory and base filename where archive files are written. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param rolloverInterval Number of seconds to write to archive file before closing and starting a new one.
+         * @param rolloverInterval Number of seconds to write to an archive file before closing and starting a new one.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param rolloverInterval Number of seconds to write to archive file before closing and starting a new one.
+         * @param rolloverInterval Number of seconds to write to an archive file before closing and starting a new one.
          * 
          * @return builder
          * 

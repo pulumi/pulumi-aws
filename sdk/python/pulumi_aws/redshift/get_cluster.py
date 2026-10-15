@@ -473,7 +473,7 @@ class GetClusterResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
         """
-        VPC Id associated with the cluster
+        VPC ID associated with the cluster
         """
         return pulumi.get(self, "vpc_id")
 
@@ -481,7 +481,7 @@ class GetClusterResult:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[_builtins.str]:
         """
-        The VPC security group Ids associated with the cluster
+        The VPC security group IDs associated with the cluster
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

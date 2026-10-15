@@ -139,7 +139,7 @@ type ResourceSetResourceDnsTargetResource struct {
 	DomainName string `pulumi:"domainName"`
 	// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
 	HostedZoneArn *string `pulumi:"hostedZoneArn"`
-	// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
+	// Route53 record set ID to uniquely identify a record given a `domainName` and a `recordType`.
 	RecordSetId *string `pulumi:"recordSetId"`
 	// Type of DNS Record of target resource.
 	RecordType *string `pulumi:"recordType"`
@@ -163,7 +163,7 @@ type ResourceSetResourceDnsTargetResourceArgs struct {
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
 	HostedZoneArn pulumi.StringPtrInput `pulumi:"hostedZoneArn"`
-	// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
+	// Route53 record set ID to uniquely identify a record given a `domainName` and a `recordType`.
 	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
 	// Type of DNS Record of target resource.
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
@@ -258,7 +258,7 @@ func (o ResourceSetResourceDnsTargetResourceOutput) HostedZoneArn() pulumi.Strin
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *string { return v.HostedZoneArn }).(pulumi.StringPtrOutput)
 }
 
-// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
+// Route53 record set ID to uniquely identify a record given a `domainName` and a `recordType`.
 func (o ResourceSetResourceDnsTargetResourceOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
@@ -319,7 +319,7 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) HostedZoneArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
+// Route53 record set ID to uniquely identify a record given a `domainName` and a `recordType`.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *string {
 		if v == nil {

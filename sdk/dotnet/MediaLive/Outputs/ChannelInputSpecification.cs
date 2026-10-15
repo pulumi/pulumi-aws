@@ -13,8 +13,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputSpecification
     {
+        /// <summary>
+        /// Codec to use for the input.
+        /// </summary>
         public readonly string Codec;
+        /// <summary>
+        /// Maximum input resolution.
+        /// </summary>
         public readonly string InputResolution;
+        /// <summary>
+        /// Maximum input bitrate for an input.
+        /// </summary>
         public readonly string MaximumBitrate;
 
         [OutputConstructor]

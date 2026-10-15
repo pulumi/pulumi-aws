@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Shield
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+        /// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Shield
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+        /// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Shield
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+        /// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

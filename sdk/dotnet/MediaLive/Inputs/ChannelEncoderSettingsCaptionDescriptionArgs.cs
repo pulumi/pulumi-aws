@@ -13,19 +13,19 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsCaptionDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+        /// Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
         /// </summary>
         [Input("accessibility")]
         public Input<string>? Accessibility { get; set; }
 
         /// <summary>
-        /// Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+        /// Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
         /// </summary>
         [Input("captionSelectorName", required: true)]
         public Input<string> CaptionSelectorName { get; set; } = null!;
 
         /// <summary>
-        /// Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        /// Additional settings for the captions destination that depend on the destination type. See `DestinationSettings` Block for details.
         /// </summary>
         [Input("destinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs>? DestinationSettings { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? LanguageCode { get; set; }
 
         /// <summary>
-        /// Human readable information to indicate captions available for players (eg. English, or Spanish).
+        /// Human-readable information to indicate the captions available for players. For example, English or Spanish.
         /// </summary>
         [Input("languageDescription")]
         public Input<string>? LanguageDescription { get; set; }
 
         /// <summary>
-        /// Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+        /// Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### FSX Filesystem
+ * ### FSx Filesystem
  * 
  * <pre>
  * {@code
@@ -212,9 +212,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:m2/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+     * 
+     */
     @Export(name="applyChangesDuringMaintenanceWindow", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyChangesDuringMaintenanceWindow;
 
+    /**
+     * @return Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+     * 
+     */
     public Output<Optional<Boolean>> applyChangesDuringMaintenanceWindow() {
         return Codegen.optional(this.applyChangesDuringMaintenanceWindow);
     }
@@ -232,9 +240,17 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description of the runtime environment.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the runtime environment.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -253,28 +269,28 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.engineType;
     }
     /**
-     * The specific version of the engine for the Environment.
+     * Specific version of the engine for the Environment.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The specific version of the engine for the Environment.
+     * @return Specific version of the engine for the Environment.
      * 
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
     /**
-     * The id of the Environment.
+     * ID of the Environment.
      * 
      */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
     /**
-     * @return The id of the Environment.
+     * @return ID of the Environment.
      * 
      */
     public Output<String> environmentId() {
@@ -303,16 +319,12 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * M2 Instance Type.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
      * @return M2 Instance Type.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> instanceType() {
@@ -349,12 +361,16 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * Name of the runtime environment. Must be unique within the account.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the runtime environment. Must be unique within the account.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -403,14 +419,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * List of security group ids.
+     * List of security group IDs.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return List of security group ids.
+     * @return List of security group IDs.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -423,14 +439,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageConfiguration);
     }
     /**
-     * List of subnet ids to deploy environment to.
+     * List of subnet IDs to deploy environment to.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return List of subnet ids to deploy environment to.
+     * @return List of subnet IDs to deploy environment to.
      * 
      */
     public Output<List<String>> subnetIds() {

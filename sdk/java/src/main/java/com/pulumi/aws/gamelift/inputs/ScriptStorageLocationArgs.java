@@ -47,14 +47,14 @@ public final class ScriptStorageLocationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A specific version of the file. If not set, the latest version of the file is retrieved.
+     * Specific version of the file. If not set, the latest version of the file is retrieved.
      * 
      */
     @Import(name="objectVersion")
     private @Nullable Output<String> objectVersion;
 
     /**
-     * @return A specific version of the file. If not set, the latest version of the file is retrieved.
+     * @return Specific version of the file. If not set, the latest version of the file is retrieved.
      * 
      */
     public Optional<Output<String>> objectVersion() {
@@ -146,7 +146,7 @@ public final class ScriptStorageLocationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param objectVersion A specific version of the file. If not set, the latest version of the file is retrieved.
+         * @param objectVersion Specific version of the file. If not set, the latest version of the file is retrieved.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ScriptStorageLocationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param objectVersion A specific version of the file. If not set, the latest version of the file is retrieved.
+         * @param objectVersion Specific version of the file. If not set, the latest version of the file is retrieved.
          * 
          * @return builder
          * 

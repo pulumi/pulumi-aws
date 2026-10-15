@@ -144,14 +144,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of instance ids to place in the ELB pool.
+     * A list of instance IDs to place in the ELB pool.
      * 
      */
     @Import(name="instances")
     private @Nullable Output<List<String>> instances;
 
     /**
-     * @return A list of instance ids to place in the ELB pool.
+     * @return A list of instance IDs to place in the ELB pool.
      * 
      */
     public Optional<Output<List<String>>> instances() {
@@ -527,7 +527,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instances A list of instance ids to place in the ELB pool.
+         * @param instances A list of instance IDs to place in the ELB pool.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instances A list of instance ids to place in the ELB pool.
+         * @param instances A list of instance IDs to place in the ELB pool.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instances A list of instance ids to place in the ELB pool.
+         * @param instances A list of instance IDs to place in the ELB pool.
          * 
          * @return builder
          * 

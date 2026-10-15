@@ -26,7 +26,7 @@ class DomainNameApiAssociationArgs:
         The set of arguments for constructing a DomainNameApiAssociation resource.
 
         :param pulumi.Input[_builtins.str] api_id: API ID.
-        :param pulumi.Input[_builtins.str] domain_name: Appsync domain name.
+        :param pulumi.Input[_builtins.str] domain_name: AppSync domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -50,7 +50,7 @@ class DomainNameApiAssociationArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Appsync domain name.
+        AppSync domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -81,7 +81,7 @@ class _DomainNameApiAssociationState:
         Input properties used for looking up and filtering DomainNameApiAssociation resources.
 
         :param pulumi.Input[_builtins.str] api_id: API ID.
-        :param pulumi.Input[_builtins.str] domain_name: Appsync domain name.
+        :param pulumi.Input[_builtins.str] domain_name: AppSync domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_id is not None:
@@ -107,7 +107,7 @@ class _DomainNameApiAssociationState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Appsync domain name.
+        AppSync domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -164,7 +164,7 @@ class DomainNameApiAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API ID.
-        :param pulumi.Input[_builtins.str] domain_name: Appsync domain name.
+        :param pulumi.Input[_builtins.str] domain_name: AppSync domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -251,7 +251,7 @@ class DomainNameApiAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API ID.
-        :param pulumi.Input[_builtins.str] domain_name: Appsync domain name.
+        :param pulumi.Input[_builtins.str] domain_name: AppSync domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -275,7 +275,7 @@ class DomainNameApiAssociation(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Appsync domain name.
+        AppSync domain name.
         """
         return pulumi.get(self, "domain_name")
 

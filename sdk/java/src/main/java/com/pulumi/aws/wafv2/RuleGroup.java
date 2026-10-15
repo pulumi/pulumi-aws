@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.wafv2.RuleGroupArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupState;
 import com.pulumi.aws.wafv2.outputs.RuleGroupCustomResponseBody;
+import com.pulumi.aws.wafv2.outputs.RuleGroupMonetizationConfig;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRule;
 import com.pulumi.aws.wafv2.outputs.RuleGroupVisibilityConfig;
 import com.pulumi.core.Output;
@@ -189,33 +190,31 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("notStatement", Map.of("statements", Arrays.asList(Map.of("andStatement", RuleGroupRuleStatementAndStatementArgs.builder()
- *                         .statements(                        
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
- *                                     .countryCodes("US")
- *                                     .build())
- *                                 .build(),
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .byteMatchStatement(RuleGroupRuleStatementByteMatchStatementArgs.builder()
- *                                     .fieldToMatch(RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs.builder()
- *                                         .allQueryArguments(RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs.builder()
- *                                             .build())
- *                                         .build())
- *                                     .textTransformations(                                    
- *                                         RuleGroupRuleStatementByteMatchStatementTextTransformationArgs.builder()
- *                                             .priority(5)
- *                                             .type("CMD_LINE")
- *                                             .build(),
- *                                         RuleGroupRuleStatementByteMatchStatementTextTransformationArgs.builder()
- *                                             .priority(2)
- *                                             .type("LOWERCASE")
- *                                             .build())
- *                                     .positionalConstraint("CONTAINS")
- *                                     .searchString("word")
- *                                     .build())
+ *                     .statement(Map.of("notStatement", Map.of("statements", Arrays.asList(Map.of("andStatement", Map.of("statements", Arrays.asList(                    
+ *                         RuleGroupRuleStatementArgs.builder()
+ *                             .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("US")
  *                                 .build())
- *                         .build())))))
+ *                             .build(),
+ *                         RuleGroupRuleStatementArgs.builder()
+ *                             .byteMatchStatement(RuleGroupRuleStatementByteMatchStatementArgs.builder()
+ *                                 .fieldToMatch(RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs.builder()
+ *                                     .allQueryArguments(RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs.builder()
+ *                                         .build())
+ *                                     .build())
+ *                                 .textTransformations(                                
+ *                                     RuleGroupRuleStatementByteMatchStatementTextTransformationArgs.builder()
+ *                                         .priority(5)
+ *                                         .type("CMD_LINE")
+ *                                         .build(),
+ *                                     RuleGroupRuleStatementByteMatchStatementTextTransformationArgs.builder()
+ *                                         .priority(2)
+ *                                         .type("LOWERCASE")
+ *                                         .build())
+ *                                 .positionalConstraint("CONTAINS")
+ *                                 .searchString("word")
+ *                                 .build())
+ *                             .build())))))))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-1")
@@ -512,6 +511,20 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
 
     public Output<String> lockToken() {
         return this.lockToken;
+    }
+    /**
+     * Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    @Export(name="monetizationConfig", refs={RuleGroupMonetizationConfig.class}, tree="[0]")
+    private Output</* @Nullable */ RuleGroupMonetizationConfig> monetizationConfig;
+
+    /**
+     * @return Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    public Output<Optional<RuleGroupMonetizationConfig>> monetizationConfig() {
+        return Codegen.optional(this.monetizationConfig);
     }
     /**
      * Friendly name of the rule group.

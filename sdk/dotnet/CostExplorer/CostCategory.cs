@@ -99,7 +99,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// - `Arn` (String) ARN of the Cost Explorer cost category.
     /// 
-    /// Using `pulumi import`, import `aws.costexplorer.CostCategory` using the id. For example:
+    /// Using `pulumi import`, import `aws.costexplorer.CostCategory` using the ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN

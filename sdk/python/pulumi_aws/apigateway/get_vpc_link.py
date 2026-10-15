@@ -144,7 +144,7 @@ def get_vpc_link(name: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcLinkResult:
     """
-    Use this data source to get the id of a VPC Link in
+    Use this data source to get the ID of a VPC Link in
     API Gateway. To fetch the VPC Link you must provide a name to match against.
     As there is no unique name constraint on API Gateway VPC Links this data source will
     error if there is more than one match.
@@ -185,7 +185,7 @@ def get_vpc_link_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
-    Use this data source to get the id of a VPC Link in
+    Use this data source to get the ID of a VPC Link in
     API Gateway. To fetch the VPC Link you must provide a name to match against.
     As there is no unique name constraint on API Gateway VPC Links this data source will
     error if there is more than one match.

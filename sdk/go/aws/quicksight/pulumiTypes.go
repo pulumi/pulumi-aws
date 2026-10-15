@@ -1307,8 +1307,16 @@ func (o AnalysisSourceEntitySourceTemplateDataSetReferenceArrayOutput) Index(i p
 }
 
 type CustomPermissionsCapabilities struct {
+	// Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+	Action *string `pulumi:"action"`
 	// Ability to add or run anomaly detection. Valid values: `DENY`.
 	AddOrRunAnomalyDetectionForAnalyses *string `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
+	// Ability to perform analysis-related actions. Valid values: `DENY`.
+	Analysis *string `pulumi:"analysis"`
+	// Ability to perform automate-related actions. Valid values: `DENY`.
+	Automate *string `pulumi:"automate"`
+	// Ability to perform chat-related actions. Valid values: `DENY`.
+	ChatAgent *string `pulumi:"chatAgent"`
 	// Ability to create and update email reports. Valid values: `DENY`.
 	CreateAndUpdateDashboardEmailReports *string `pulumi:"createAndUpdateDashboardEmailReports"`
 	// Ability to create and update data sources. Valid values: `DENY`.
@@ -1319,10 +1327,14 @@ type CustomPermissionsCapabilities struct {
 	CreateAndUpdateThemes *string `pulumi:"createAndUpdateThemes"`
 	// Ability to create and update threshold alerts. Valid values: `DENY`.
 	CreateAndUpdateThresholdAlerts *string `pulumi:"createAndUpdateThresholdAlerts"`
+	// Ability to create chat agents. Valid values: `DENY`.
+	CreateChatAgents *string `pulumi:"createChatAgents"`
 	// Ability to create shared folders. Valid values: `DENY`.
 	CreateSharedFolders *string `pulumi:"createSharedFolders"`
 	// Ability to create a SPICE dataset. Valid values: `DENY`.
 	CreateSpiceDataset *string `pulumi:"createSpiceDataset"`
+	// Ability to perform dashboard-related actions. Valid values: `DENY`.
+	Dashboard *string `pulumi:"dashboard"`
 	// Ability to export to CSV files from the UI. Valid values: `DENY`.
 	ExportToCsv *string `pulumi:"exportToCsv"`
 	// Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
@@ -1335,12 +1347,22 @@ type CustomPermissionsCapabilities struct {
 	ExportToPdf *string `pulumi:"exportToPdf"`
 	// Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
 	ExportToPdfInScheduledReports *string `pulumi:"exportToPdfInScheduledReports"`
+	// Ability to perform flow-related actions. Valid values: `DENY`.
+	Flow *string `pulumi:"flow"`
 	// Ability to include content in scheduled email reports. Valid values: `DENY`.
 	IncludeContentInScheduledReportsEmail *string `pulumi:"includeContentInScheduledReportsEmail"`
+	// Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+	KnowledgeBase *string `pulumi:"knowledgeBase"`
+	// Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+	PerformFlowUiTask *string `pulumi:"performFlowUiTask"`
 	// Ability to print reports. Valid values: `DENY`.
 	PrintReports *string `pulumi:"printReports"`
+	// Ability to enable approvals for flow share. Valid values: `DENY`.
+	PublishWithoutApproval *string `pulumi:"publishWithoutApproval"`
 	// Ability to rename shared folders. Valid values: `DENY`.
 	RenameSharedFolders *string `pulumi:"renameSharedFolders"`
+	// Ability to perform research-related actions. Valid values: `DENY`.
+	Research *string `pulumi:"research"`
 	// Ability to share analyses. Valid values: `DENY`.
 	ShareAnalyses *string `pulumi:"shareAnalyses"`
 	// Ability to share dashboards. Valid values: `DENY`.
@@ -1349,8 +1371,14 @@ type CustomPermissionsCapabilities struct {
 	ShareDataSources *string `pulumi:"shareDataSources"`
 	// Ability to share datasets. Valid values: `DENY`.
 	ShareDatasets *string `pulumi:"shareDatasets"`
+	// Ability to perform space-related actions. Valid values: `DENY`.
+	Space *string `pulumi:"space"`
 	// Ability to subscribe to email reports. Valid values: `DENY`.
 	SubscribeDashboardEmailReports *string `pulumi:"subscribeDashboardEmailReports"`
+	// Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+	UseAgentWebSearch *string `pulumi:"useAgentWebSearch"`
+	// Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+	UseBedrockModels *string `pulumi:"useBedrockModels"`
 	// Ability to view account SPICE capacity. Valid values: `DENY`.
 	ViewAccountSpiceCapacity *string `pulumi:"viewAccountSpiceCapacity"`
 }
@@ -1367,8 +1395,16 @@ type CustomPermissionsCapabilitiesInput interface {
 }
 
 type CustomPermissionsCapabilitiesArgs struct {
+	// Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Ability to add or run anomaly detection. Valid values: `DENY`.
 	AddOrRunAnomalyDetectionForAnalyses pulumi.StringPtrInput `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
+	// Ability to perform analysis-related actions. Valid values: `DENY`.
+	Analysis pulumi.StringPtrInput `pulumi:"analysis"`
+	// Ability to perform automate-related actions. Valid values: `DENY`.
+	Automate pulumi.StringPtrInput `pulumi:"automate"`
+	// Ability to perform chat-related actions. Valid values: `DENY`.
+	ChatAgent pulumi.StringPtrInput `pulumi:"chatAgent"`
 	// Ability to create and update email reports. Valid values: `DENY`.
 	CreateAndUpdateDashboardEmailReports pulumi.StringPtrInput `pulumi:"createAndUpdateDashboardEmailReports"`
 	// Ability to create and update data sources. Valid values: `DENY`.
@@ -1379,10 +1415,14 @@ type CustomPermissionsCapabilitiesArgs struct {
 	CreateAndUpdateThemes pulumi.StringPtrInput `pulumi:"createAndUpdateThemes"`
 	// Ability to create and update threshold alerts. Valid values: `DENY`.
 	CreateAndUpdateThresholdAlerts pulumi.StringPtrInput `pulumi:"createAndUpdateThresholdAlerts"`
+	// Ability to create chat agents. Valid values: `DENY`.
+	CreateChatAgents pulumi.StringPtrInput `pulumi:"createChatAgents"`
 	// Ability to create shared folders. Valid values: `DENY`.
 	CreateSharedFolders pulumi.StringPtrInput `pulumi:"createSharedFolders"`
 	// Ability to create a SPICE dataset. Valid values: `DENY`.
 	CreateSpiceDataset pulumi.StringPtrInput `pulumi:"createSpiceDataset"`
+	// Ability to perform dashboard-related actions. Valid values: `DENY`.
+	Dashboard pulumi.StringPtrInput `pulumi:"dashboard"`
 	// Ability to export to CSV files from the UI. Valid values: `DENY`.
 	ExportToCsv pulumi.StringPtrInput `pulumi:"exportToCsv"`
 	// Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
@@ -1395,12 +1435,22 @@ type CustomPermissionsCapabilitiesArgs struct {
 	ExportToPdf pulumi.StringPtrInput `pulumi:"exportToPdf"`
 	// Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
 	ExportToPdfInScheduledReports pulumi.StringPtrInput `pulumi:"exportToPdfInScheduledReports"`
+	// Ability to perform flow-related actions. Valid values: `DENY`.
+	Flow pulumi.StringPtrInput `pulumi:"flow"`
 	// Ability to include content in scheduled email reports. Valid values: `DENY`.
 	IncludeContentInScheduledReportsEmail pulumi.StringPtrInput `pulumi:"includeContentInScheduledReportsEmail"`
+	// Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+	KnowledgeBase pulumi.StringPtrInput `pulumi:"knowledgeBase"`
+	// Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+	PerformFlowUiTask pulumi.StringPtrInput `pulumi:"performFlowUiTask"`
 	// Ability to print reports. Valid values: `DENY`.
 	PrintReports pulumi.StringPtrInput `pulumi:"printReports"`
+	// Ability to enable approvals for flow share. Valid values: `DENY`.
+	PublishWithoutApproval pulumi.StringPtrInput `pulumi:"publishWithoutApproval"`
 	// Ability to rename shared folders. Valid values: `DENY`.
 	RenameSharedFolders pulumi.StringPtrInput `pulumi:"renameSharedFolders"`
+	// Ability to perform research-related actions. Valid values: `DENY`.
+	Research pulumi.StringPtrInput `pulumi:"research"`
 	// Ability to share analyses. Valid values: `DENY`.
 	ShareAnalyses pulumi.StringPtrInput `pulumi:"shareAnalyses"`
 	// Ability to share dashboards. Valid values: `DENY`.
@@ -1409,8 +1459,14 @@ type CustomPermissionsCapabilitiesArgs struct {
 	ShareDataSources pulumi.StringPtrInput `pulumi:"shareDataSources"`
 	// Ability to share datasets. Valid values: `DENY`.
 	ShareDatasets pulumi.StringPtrInput `pulumi:"shareDatasets"`
+	// Ability to perform space-related actions. Valid values: `DENY`.
+	Space pulumi.StringPtrInput `pulumi:"space"`
 	// Ability to subscribe to email reports. Valid values: `DENY`.
 	SubscribeDashboardEmailReports pulumi.StringPtrInput `pulumi:"subscribeDashboardEmailReports"`
+	// Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+	UseAgentWebSearch pulumi.StringPtrInput `pulumi:"useAgentWebSearch"`
+	// Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+	UseBedrockModels pulumi.StringPtrInput `pulumi:"useBedrockModels"`
 	// Ability to view account SPICE capacity. Valid values: `DENY`.
 	ViewAccountSpiceCapacity pulumi.StringPtrInput `pulumi:"viewAccountSpiceCapacity"`
 }
@@ -1492,9 +1548,29 @@ func (o CustomPermissionsCapabilitiesOutput) ToCustomPermissionsCapabilitiesPtrO
 	}).(CustomPermissionsCapabilitiesPtrOutput)
 }
 
+// Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
 // Ability to add or run anomaly detection. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) AddOrRunAnomalyDetectionForAnalyses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.AddOrRunAnomalyDetectionForAnalyses }).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform analysis-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) Analysis() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.Analysis }).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform automate-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) Automate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.Automate }).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform chat-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) ChatAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ChatAgent }).(pulumi.StringPtrOutput)
 }
 
 // Ability to create and update email reports. Valid values: `DENY`.
@@ -1522,6 +1598,11 @@ func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateThresholdAlerts() pu
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateThresholdAlerts }).(pulumi.StringPtrOutput)
 }
 
+// Ability to create chat agents. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) CreateChatAgents() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateChatAgents }).(pulumi.StringPtrOutput)
+}
+
 // Ability to create shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateSharedFolders }).(pulumi.StringPtrOutput)
@@ -1530,6 +1611,11 @@ func (o CustomPermissionsCapabilitiesOutput) CreateSharedFolders() pulumi.String
 // Ability to create a SPICE dataset. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateSpiceDataset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateSpiceDataset }).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform dashboard-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) Dashboard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.Dashboard }).(pulumi.StringPtrOutput)
 }
 
 // Ability to export to CSV files from the UI. Valid values: `DENY`.
@@ -1562,9 +1648,24 @@ func (o CustomPermissionsCapabilitiesOutput) ExportToPdfInScheduledReports() pul
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToPdfInScheduledReports }).(pulumi.StringPtrOutput)
 }
 
+// Ability to perform flow-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) Flow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.Flow }).(pulumi.StringPtrOutput)
+}
+
 // Ability to include content in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) IncludeContentInScheduledReportsEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.IncludeContentInScheduledReportsEmail }).(pulumi.StringPtrOutput)
+}
+
+// Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) KnowledgeBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.KnowledgeBase }).(pulumi.StringPtrOutput)
+}
+
+// Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) PerformFlowUiTask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.PerformFlowUiTask }).(pulumi.StringPtrOutput)
 }
 
 // Ability to print reports. Valid values: `DENY`.
@@ -1572,9 +1673,19 @@ func (o CustomPermissionsCapabilitiesOutput) PrintReports() pulumi.StringPtrOutp
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.PrintReports }).(pulumi.StringPtrOutput)
 }
 
+// Ability to enable approvals for flow share. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) PublishWithoutApproval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.PublishWithoutApproval }).(pulumi.StringPtrOutput)
+}
+
 // Ability to rename shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) RenameSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.RenameSharedFolders }).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform research-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) Research() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.Research }).(pulumi.StringPtrOutput)
 }
 
 // Ability to share analyses. Valid values: `DENY`.
@@ -1597,9 +1708,24 @@ func (o CustomPermissionsCapabilitiesOutput) ShareDatasets() pulumi.StringPtrOut
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareDatasets }).(pulumi.StringPtrOutput)
 }
 
+// Ability to perform space-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) Space() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.Space }).(pulumi.StringPtrOutput)
+}
+
 // Ability to subscribe to email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) SubscribeDashboardEmailReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.SubscribeDashboardEmailReports }).(pulumi.StringPtrOutput)
+}
+
+// Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) UseAgentWebSearch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.UseAgentWebSearch }).(pulumi.StringPtrOutput)
+}
+
+// Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesOutput) UseBedrockModels() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.UseBedrockModels }).(pulumi.StringPtrOutput)
 }
 
 // Ability to view account SPICE capacity. Valid values: `DENY`.
@@ -1631,6 +1757,16 @@ func (o CustomPermissionsCapabilitiesPtrOutput) Elem() CustomPermissionsCapabili
 	}).(CustomPermissionsCapabilitiesOutput)
 }
 
+// Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
 // Ability to add or run anomaly detection. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) AddOrRunAnomalyDetectionForAnalyses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
@@ -1638,6 +1774,36 @@ func (o CustomPermissionsCapabilitiesPtrOutput) AddOrRunAnomalyDetectionForAnaly
 			return nil
 		}
 		return v.AddOrRunAnomalyDetectionForAnalyses
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform analysis-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) Analysis() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform automate-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) Automate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Automate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform chat-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) ChatAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChatAgent
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1691,6 +1857,16 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThresholdAlerts()
 	}).(pulumi.StringPtrOutput)
 }
 
+// Ability to create chat agents. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) CreateChatAgents() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateChatAgents
+	}).(pulumi.StringPtrOutput)
+}
+
 // Ability to create shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
@@ -1708,6 +1884,16 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateSpiceDataset() pulumi.Stri
 			return nil
 		}
 		return v.CreateSpiceDataset
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform dashboard-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) Dashboard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Dashboard
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1771,6 +1957,16 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ExportToPdfInScheduledReports() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Ability to perform flow-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) Flow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Flow
+	}).(pulumi.StringPtrOutput)
+}
+
 // Ability to include content in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) IncludeContentInScheduledReportsEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
@@ -1778,6 +1974,26 @@ func (o CustomPermissionsCapabilitiesPtrOutput) IncludeContentInScheduledReports
 			return nil
 		}
 		return v.IncludeContentInScheduledReportsEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) KnowledgeBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KnowledgeBase
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) PerformFlowUiTask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PerformFlowUiTask
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1791,6 +2007,16 @@ func (o CustomPermissionsCapabilitiesPtrOutput) PrintReports() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Ability to enable approvals for flow share. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) PublishWithoutApproval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublishWithoutApproval
+	}).(pulumi.StringPtrOutput)
+}
+
 // Ability to rename shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) RenameSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
@@ -1798,6 +2024,16 @@ func (o CustomPermissionsCapabilitiesPtrOutput) RenameSharedFolders() pulumi.Str
 			return nil
 		}
 		return v.RenameSharedFolders
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to perform research-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) Research() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Research
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1841,6 +2077,16 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareDatasets() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Ability to perform space-related actions. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) Space() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Space
+	}).(pulumi.StringPtrOutput)
+}
+
 // Ability to subscribe to email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) SubscribeDashboardEmailReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
@@ -1848,6 +2094,26 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SubscribeDashboardEmailReports()
 			return nil
 		}
 		return v.SubscribeDashboardEmailReports
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) UseAgentWebSearch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UseAgentWebSearch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+func (o CustomPermissionsCapabilitiesPtrOutput) UseBedrockModels() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UseBedrockModels
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1870,7 +2136,7 @@ type DashboardDashboardPublishOptions struct {
 	DataPointMenuLabelOption *DashboardDashboardPublishOptionsDataPointMenuLabelOption `pulumi:"dataPointMenuLabelOption"`
 	// Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
 	DataPointTooltipOption *DashboardDashboardPublishOptionsDataPointTooltipOption `pulumi:"dataPointTooltipOption"`
-	// Export to .csv option. See `exportToCsvOption`.
+	// Export to `.csv` option. See `exportToCsvOption`.
 	ExportToCsvOption *DashboardDashboardPublishOptionsExportToCsvOption `pulumi:"exportToCsvOption"`
 	// Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
 	ExportWithHiddenFieldsOption *DashboardDashboardPublishOptionsExportWithHiddenFieldsOption `pulumi:"exportWithHiddenFieldsOption"`
@@ -1904,7 +2170,7 @@ type DashboardDashboardPublishOptionsArgs struct {
 	DataPointMenuLabelOption DashboardDashboardPublishOptionsDataPointMenuLabelOptionPtrInput `pulumi:"dataPointMenuLabelOption"`
 	// Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
 	DataPointTooltipOption DashboardDashboardPublishOptionsDataPointTooltipOptionPtrInput `pulumi:"dataPointTooltipOption"`
-	// Export to .csv option. See `exportToCsvOption`.
+	// Export to `.csv` option. See `exportToCsvOption`.
 	ExportToCsvOption DashboardDashboardPublishOptionsExportToCsvOptionPtrInput `pulumi:"exportToCsvOption"`
 	// Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
 	ExportWithHiddenFieldsOption DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionPtrInput `pulumi:"exportWithHiddenFieldsOption"`
@@ -2023,7 +2289,7 @@ func (o DashboardDashboardPublishOptionsOutput) DataPointTooltipOption() Dashboa
 	}).(DashboardDashboardPublishOptionsDataPointTooltipOptionPtrOutput)
 }
 
-// Export to .csv option. See `exportToCsvOption`.
+// Export to `.csv` option. See `exportToCsvOption`.
 func (o DashboardDashboardPublishOptionsOutput) ExportToCsvOption() DashboardDashboardPublishOptionsExportToCsvOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsExportToCsvOption {
 		return v.ExportToCsvOption
@@ -2129,7 +2395,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) DataPointTooltipOption() Dash
 	}).(DashboardDashboardPublishOptionsDataPointTooltipOptionPtrOutput)
 }
 
-// Export to .csv option. See `exportToCsvOption`.
+// Export to `.csv` option. See `exportToCsvOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) ExportToCsvOption() DashboardDashboardPublishOptionsExportToCsvOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsExportToCsvOption {
 		if v == nil {
@@ -10526,7 +10792,7 @@ type DataSourceParameters struct {
 	Aurora *DataSourceParametersAurora `pulumi:"aurora"`
 	// Parameters for connecting to Aurora Postgresql.
 	AuroraPostgresql *DataSourceParametersAuroraPostgresql `pulumi:"auroraPostgresql"`
-	// Parameters for connecting to AWS IOT Analytics.
+	// Parameters for connecting to AWS IoT Analytics.
 	AwsIotAnalytics *DataSourceParametersAwsIotAnalytics `pulumi:"awsIotAnalytics"`
 	// Parameters for connecting to Databricks.
 	Databricks *DataSourceParametersDatabricks `pulumi:"databricks"`
@@ -10582,7 +10848,7 @@ type DataSourceParametersArgs struct {
 	Aurora DataSourceParametersAuroraPtrInput `pulumi:"aurora"`
 	// Parameters for connecting to Aurora Postgresql.
 	AuroraPostgresql DataSourceParametersAuroraPostgresqlPtrInput `pulumi:"auroraPostgresql"`
-	// Parameters for connecting to AWS IOT Analytics.
+	// Parameters for connecting to AWS IoT Analytics.
 	AwsIotAnalytics DataSourceParametersAwsIotAnalyticsPtrInput `pulumi:"awsIotAnalytics"`
 	// Parameters for connecting to Databricks.
 	Databricks DataSourceParametersDatabricksPtrInput `pulumi:"databricks"`
@@ -10715,7 +10981,7 @@ func (o DataSourceParametersOutput) AuroraPostgresql() DataSourceParametersAuror
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAuroraPostgresql { return v.AuroraPostgresql }).(DataSourceParametersAuroraPostgresqlPtrOutput)
 }
 
-// Parameters for connecting to AWS IOT Analytics.
+// Parameters for connecting to AWS IoT Analytics.
 func (o DataSourceParametersOutput) AwsIotAnalytics() DataSourceParametersAwsIotAnalyticsPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAwsIotAnalytics { return v.AwsIotAnalytics }).(DataSourceParametersAwsIotAnalyticsPtrOutput)
 }
@@ -10864,7 +11130,7 @@ func (o DataSourceParametersPtrOutput) AuroraPostgresql() DataSourceParametersAu
 	}).(DataSourceParametersAuroraPostgresqlPtrOutput)
 }
 
-// Parameters for connecting to AWS IOT Analytics.
+// Parameters for connecting to AWS IoT Analytics.
 func (o DataSourceParametersPtrOutput) AwsIotAnalytics() DataSourceParametersAwsIotAnalyticsPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAwsIotAnalytics {
 		if v == nil {
@@ -15126,9 +15392,9 @@ func (o FolderPermissionArrayOutput) Index(i pulumi.IntInput) FolderPermissionOu
 }
 
 type IamPolicyAssignmentIdentities struct {
-	// Array of Quicksight group names to assign the policy to.
+	// Array of QuickSight group names to assign the policy to.
 	Groups []string `pulumi:"groups"`
-	// Array of Quicksight user names to assign the policy to.
+	// Array of QuickSight user names to assign the policy to.
 	Users []string `pulumi:"users"`
 }
 
@@ -15144,9 +15410,9 @@ type IamPolicyAssignmentIdentitiesInput interface {
 }
 
 type IamPolicyAssignmentIdentitiesArgs struct {
-	// Array of Quicksight group names to assign the policy to.
+	// Array of QuickSight group names to assign the policy to.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// Array of Quicksight user names to assign the policy to.
+	// Array of QuickSight user names to assign the policy to.
 	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
@@ -15227,12 +15493,12 @@ func (o IamPolicyAssignmentIdentitiesOutput) ToIamPolicyAssignmentIdentitiesPtrO
 	}).(IamPolicyAssignmentIdentitiesPtrOutput)
 }
 
-// Array of Quicksight group names to assign the policy to.
+// Array of QuickSight group names to assign the policy to.
 func (o IamPolicyAssignmentIdentitiesOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IamPolicyAssignmentIdentities) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// Array of Quicksight user names to assign the policy to.
+// Array of QuickSight user names to assign the policy to.
 func (o IamPolicyAssignmentIdentitiesOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IamPolicyAssignmentIdentities) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
@@ -15261,7 +15527,7 @@ func (o IamPolicyAssignmentIdentitiesPtrOutput) Elem() IamPolicyAssignmentIdenti
 	}).(IamPolicyAssignmentIdentitiesOutput)
 }
 
-// Array of Quicksight group names to assign the policy to.
+// Array of QuickSight group names to assign the policy to.
 func (o IamPolicyAssignmentIdentitiesPtrOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IamPolicyAssignmentIdentities) []string {
 		if v == nil {
@@ -15271,7 +15537,7 @@ func (o IamPolicyAssignmentIdentitiesPtrOutput) Groups() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Array of Quicksight user names to assign the policy to.
+// Array of QuickSight user names to assign the policy to.
 func (o IamPolicyAssignmentIdentitiesPtrOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IamPolicyAssignmentIdentities) []string {
 		if v == nil {

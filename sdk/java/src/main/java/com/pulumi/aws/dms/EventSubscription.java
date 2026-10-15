@@ -143,28 +143,28 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * SNS topic arn to send events on.
+     * SNS topic ARN to send events on.
      * 
      */
     @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output<String> snsTopicArn;
 
     /**
-     * @return SNS topic arn to send events on.
+     * @return SNS topic ARN to send events on.
      * 
      */
     public Output<String> snsTopicArn() {
         return this.snsTopicArn;
     }
     /**
-     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+     * IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     @Export(name="sourceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+     * @return IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     public Output<Optional<List<String>>> sourceIds() {

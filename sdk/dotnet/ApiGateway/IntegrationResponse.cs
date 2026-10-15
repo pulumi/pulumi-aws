@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an HTTP Method Integration Response for an API Gateway Resource.
     /// 
-    /// &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your rest api. To ensure this
+    /// &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your REST API. To ensure this
     /// you might need to add an explicit `DependsOn` for clean runs.
     /// 
     /// ## Example Usage

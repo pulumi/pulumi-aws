@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Provides an AutoScaling Scaling Policy resource.
  *
  * > **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
- * when using autoscaling policies. It's good practice to pick either
+ * when using Auto Scaling policies. It's good practice to pick either
  * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
  * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
  * (policy-based) scaling.
@@ -244,7 +244,7 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Name of the autoscaling group.
+     * Name of the Auto Scaling group.
      */
     declare public readonly autoscalingGroupName: pulumi.Output<string>;
     /**
@@ -404,7 +404,7 @@ export interface PolicyState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Name of the autoscaling group.
+     * Name of the Auto Scaling group.
      */
     autoscalingGroupName?: pulumi.Input<string | undefined>;
     /**
@@ -507,7 +507,7 @@ export interface PolicyArgs {
      */
     adjustmentType?: pulumi.Input<string | undefined>;
     /**
-     * Name of the autoscaling group.
+     * Name of the Auto Scaling group.
      */
     autoscalingGroupName: pulumi.Input<string>;
     /**

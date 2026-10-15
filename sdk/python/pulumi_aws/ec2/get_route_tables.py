@@ -65,7 +65,7 @@ class GetRouteTablesResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the route table ids found.
+        List of all the route table IDs found.
         """
         return pulumi.get(self, "ids")
 
@@ -105,12 +105,12 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
                      vpc_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTablesResult:
     """
-    This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+    This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
 
     ## Example Usage
 
-    The following adds a route for a particular cidr block to every (private
-    kops) route table in a specified vpc to use a particular vpc peering
+    The following adds a route for a particular CIDR block to every (private
+    kops) route table in a specified VPC to use a particular VPC peering
     connection.
 
     ```python
@@ -162,12 +162,12 @@ def get_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
                             vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTablesResult]:
     """
-    This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+    This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
 
     ## Example Usage
 
-    The following adds a route for a particular cidr block to every (private
-    kops) route table in a specified vpc to use a particular vpc peering
+    The following adds a route for a particular CIDR block to every (private
+    kops) route table in a specified VPC to use a particular VPC peering
     connection.
 
     ```python

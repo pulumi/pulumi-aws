@@ -14,24 +14,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelector {
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Name of the audio selector.
      * 
      */
     private String name;
+    /**
+     * @return Audio selector settings. See `audio_selector.selector_settings` Block for details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings selectorSettings;
 
     private ChannelInputAttachmentInputSettingsAudioSelector() {}
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Name of the audio selector.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Audio selector settings. See `audio_selector.selector_settings` Block for details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }

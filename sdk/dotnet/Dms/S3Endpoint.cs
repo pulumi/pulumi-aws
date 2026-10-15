@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Dms
     public partial class S3Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to add column name information to the .csv output file. Default is `False`.
+        /// Whether to add column name information to the `.csv` output file. Default is `False`.
         /// </summary>
         [Output("addColumnName")]
         public Output<bool?> AddColumnName { get; private set; } = null!;
@@ -162,13 +162,13 @@ namespace Pulumi.Aws.Dms
         public Output<string?> CannedAclForObjects { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to write insert and update operations to .csv or .parquet output files. Default is `False`.
+        /// Whether to write insert and update operations to `.csv` or .parquet output files. Default is `False`.
         /// </summary>
         [Output("cdcInsertsAndUpdates")]
         public Output<bool?> CdcInsertsAndUpdates { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to write insert operations to .csv or .parquet output files. Default is `False`.
+        /// Whether to write insert operations to `.csv` or .parquet output files. Default is `False`.
         /// </summary>
         [Output("cdcInsertsOnly")]
         public Output<bool?> CdcInsertsOnly { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> CsvDelimiter { get; private set; } = null!;
 
         /// <summary>
-        /// Only applies if output files for a CDC load are written in .csv format. If `UseCsvNoSupValue` is set to `True`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `UseCsvNoSupValue`. (Ignored for source endpoints.)
+        /// Only applies if output files for a CDC load are written in `.csv` format. If `UseCsvNoSupValue` is set to `True`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `UseCsvNoSupValue`. (Ignored for source endpoints.)
         /// </summary>
         [Output("csvNoSupValue")]
         public Output<string?> CsvNoSupValue { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> EncodingType { get; private set; } = null!;
 
         /// <summary>
-        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        /// Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         /// </summary>
         [Output("encryptionMode")]
         public Output<string?> EncryptionMode { get; private set; } = null!;
@@ -342,13 +342,13 @@ namespace Pulumi.Aws.Dms
         public Output<bool?> GlueCatalogGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        /// When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
         /// </summary>
         [Output("ignoreHeaderRows")]
         public Output<int?> IgnoreHeaderRows { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `False`.
+        /// Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `False`.
         /// </summary>
         [Output("includeOpForFullLoad")]
         public Output<bool?> IncludeOpForFullLoad { get; private set; } = null!;
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        /// Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         /// </summary>
         [Output("maxFileSize")]
         public Output<int?> MaxFileSize { get; private set; } = null!;
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.Dms
     public sealed class S3EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to add column name information to the .csv output file. Default is `False`.
+        /// Whether to add column name information to the `.csv` output file. Default is `False`.
         /// </summary>
         [Input("addColumnName")]
         public Input<bool>? AddColumnName { get; set; }
@@ -534,13 +534,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CannedAclForObjects { get; set; }
 
         /// <summary>
-        /// Whether to write insert and update operations to .csv or .parquet output files. Default is `False`.
+        /// Whether to write insert and update operations to `.csv` or .parquet output files. Default is `False`.
         /// </summary>
         [Input("cdcInsertsAndUpdates")]
         public Input<bool>? CdcInsertsAndUpdates { get; set; }
 
         /// <summary>
-        /// Whether to write insert operations to .csv or .parquet output files. Default is `False`.
+        /// Whether to write insert operations to `.csv` or .parquet output files. Default is `False`.
         /// </summary>
         [Input("cdcInsertsOnly")]
         public Input<bool>? CdcInsertsOnly { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CsvDelimiter { get; set; }
 
         /// <summary>
-        /// Only applies if output files for a CDC load are written in .csv format. If `UseCsvNoSupValue` is set to `True`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `UseCsvNoSupValue`. (Ignored for source endpoints.)
+        /// Only applies if output files for a CDC load are written in `.csv` format. If `UseCsvNoSupValue` is set to `True`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `UseCsvNoSupValue`. (Ignored for source endpoints.)
         /// </summary>
         [Input("csvNoSupValue")]
         public Input<string>? CsvNoSupValue { get; set; }
@@ -660,7 +660,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EncodingType { get; set; }
 
         /// <summary>
-        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        /// Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
@@ -696,13 +696,13 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? GlueCatalogGeneration { get; set; }
 
         /// <summary>
-        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        /// When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
         /// </summary>
         [Input("ignoreHeaderRows")]
         public Input<int>? IgnoreHeaderRows { get; set; }
 
         /// <summary>
-        /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `False`.
+        /// Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `False`.
         /// </summary>
         [Input("includeOpForFullLoad")]
         public Input<bool>? IncludeOpForFullLoad { get; set; }
@@ -714,7 +714,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        /// Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         /// </summary>
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }
@@ -814,7 +814,7 @@ namespace Pulumi.Aws.Dms
     public sealed class S3EndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to add column name information to the .csv output file. Default is `False`.
+        /// Whether to add column name information to the `.csv` output file. Default is `False`.
         /// </summary>
         [Input("addColumnName")]
         public Input<bool>? AddColumnName { get; set; }
@@ -844,13 +844,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CannedAclForObjects { get; set; }
 
         /// <summary>
-        /// Whether to write insert and update operations to .csv or .parquet output files. Default is `False`.
+        /// Whether to write insert and update operations to `.csv` or .parquet output files. Default is `False`.
         /// </summary>
         [Input("cdcInsertsAndUpdates")]
         public Input<bool>? CdcInsertsAndUpdates { get; set; }
 
         /// <summary>
-        /// Whether to write insert operations to .csv or .parquet output files. Default is `False`.
+        /// Whether to write insert operations to `.csv` or .parquet output files. Default is `False`.
         /// </summary>
         [Input("cdcInsertsOnly")]
         public Input<bool>? CdcInsertsOnly { get; set; }
@@ -892,7 +892,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CsvDelimiter { get; set; }
 
         /// <summary>
-        /// Only applies if output files for a CDC load are written in .csv format. If `UseCsvNoSupValue` is set to `True`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `UseCsvNoSupValue`. (Ignored for source endpoints.)
+        /// Only applies if output files for a CDC load are written in `.csv` format. If `UseCsvNoSupValue` is set to `True`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `UseCsvNoSupValue`. (Ignored for source endpoints.)
         /// </summary>
         [Input("csvNoSupValue")]
         public Input<string>? CsvNoSupValue { get; set; }
@@ -970,7 +970,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EncodingType { get; set; }
 
         /// <summary>
-        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        /// Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
@@ -1024,13 +1024,13 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? GlueCatalogGeneration { get; set; }
 
         /// <summary>
-        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        /// When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
         /// </summary>
         [Input("ignoreHeaderRows")]
         public Input<int>? IgnoreHeaderRows { get; set; }
 
         /// <summary>
-        /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `False`.
+        /// Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `False`.
         /// </summary>
         [Input("includeOpForFullLoad")]
         public Input<bool>? IncludeOpForFullLoad { get; set; }
@@ -1042,7 +1042,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        /// Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         /// </summary>
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }

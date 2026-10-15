@@ -41,7 +41,7 @@ public final class DashboardDashboardPublishOptions {
      */
     private @Nullable DashboardDashboardPublishOptionsDataPointTooltipOption dataPointTooltipOption;
     /**
-     * @return Export to .csv option. See `exportToCsvOption`.
+     * @return Export to `.csv` option. See `exportToCsvOption`.
      * 
      */
     private @Nullable DashboardDashboardPublishOptionsExportToCsvOption exportToCsvOption;
@@ -101,7 +101,7 @@ public final class DashboardDashboardPublishOptions {
         return Optional.ofNullable(this.dataPointTooltipOption);
     }
     /**
-     * @return Export to .csv option. See `exportToCsvOption`.
+     * @return Export to `.csv` option. See `exportToCsvOption`.
      * 
      */
     public Optional<DashboardDashboardPublishOptionsExportToCsvOption> exportToCsvOption() {

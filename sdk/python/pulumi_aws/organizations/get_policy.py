@@ -138,7 +138,7 @@ def get_policy(policy_id: Optional[_builtins.str] = None,
     ## Example Usage
 
 
-    :param _builtins.str policy_id: The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+    :param _builtins.str policy_id: The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
     """
     __args__ = dict()
     __args__['policyId'] = policy_id
@@ -162,7 +162,7 @@ def get_policy_output(policy_id: pulumi.Input[Optional[_builtins.str]] = None,
     ## Example Usage
 
 
-    :param _builtins.str policy_id: The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+    :param _builtins.str policy_id: The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
     """
     __args__ = dict()
     __args__['policyId'] = policy_id

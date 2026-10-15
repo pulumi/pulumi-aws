@@ -25,7 +25,7 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
         public Input<string>? EncryptionOption { get; set; }
 
         /// <summary>
-        /// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+        /// KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

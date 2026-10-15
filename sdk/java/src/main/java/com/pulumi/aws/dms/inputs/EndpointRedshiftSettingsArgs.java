@@ -46,14 +46,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
     /**
-     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     public Optional<Output<String>> encryptionMode() {
@@ -61,14 +61,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+     * ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+     * @return ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
@@ -161,7 +161,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+         * @param serverSideEncryptionKmsKeyId ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+         * @param serverSideEncryptionKmsKeyId ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
          * 
          * @return builder
          * 

@@ -165,7 +165,7 @@ def get_public_key(grant_tokens: Optional[Sequence[_builtins.str]] = None,
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicKeyResult:
     """
-    Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+    Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
 
     ## Example Usage
 
@@ -208,7 +208,7 @@ def get_public_key_output(grant_tokens: pulumi.Input[Optional[Optional[Sequence[
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
-    Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+    Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
 
     ## Example Usage
 

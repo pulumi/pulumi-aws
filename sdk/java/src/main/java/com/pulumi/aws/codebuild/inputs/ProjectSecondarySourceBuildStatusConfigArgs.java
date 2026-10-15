@@ -33,7 +33,7 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
     }
 
     /**
-     * Specifies the target url of the build status CodeBuild sends to the source provider. The
+     * Specifies the target URL of the build status CodeBuild sends to the source provider. The
      * usage of this parameter depends on the source provider.
      * 
      */
@@ -41,7 +41,7 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
     private @Nullable Output<String> targetUrl;
 
     /**
-     * @return Specifies the target url of the build status CodeBuild sends to the source provider. The
+     * @return Specifies the target URL of the build status CodeBuild sends to the source provider. The
      * usage of this parameter depends on the source provider.
      * 
      */
@@ -98,7 +98,7 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The
+         * @param targetUrl Specifies the target URL of the build status CodeBuild sends to the source provider. The
          * usage of this parameter depends on the source provider.
          * 
          * @return builder
@@ -110,7 +110,7 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The
+         * @param targetUrl Specifies the target URL of the build status CodeBuild sends to the source provider. The
          * usage of this parameter depends on the source provider.
          * 
          * @return builder

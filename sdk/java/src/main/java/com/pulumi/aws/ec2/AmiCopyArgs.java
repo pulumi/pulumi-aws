@@ -163,7 +163,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of the AMI to copy. This id must be valid in the region
+     * ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      * 
      */
@@ -171,7 +171,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> sourceAmiId;
 
     /**
-     * @return Id of the AMI to copy. This id must be valid in the region
+     * @return ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      * 
      */
@@ -464,7 +464,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiId Id of the AMI to copy. This id must be valid in the region
+         * @param sourceAmiId ID of the AMI to copy. This ID must be valid in the region
          * given by `sourceAmiRegion`.
          * 
          * @return builder
@@ -476,7 +476,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiId Id of the AMI to copy. This id must be valid in the region
+         * @param sourceAmiId ID of the AMI to copy. This ID must be valid in the region
          * given by `sourceAmiRegion`.
          * 
          * @return builder

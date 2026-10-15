@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The revision of the custom plugin.
+        /// Revision of the custom plugin.
         /// </summary>
         public readonly int Revision;
 

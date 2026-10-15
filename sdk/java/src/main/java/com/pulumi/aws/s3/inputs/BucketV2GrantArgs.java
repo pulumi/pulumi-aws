@@ -18,14 +18,14 @@ public final class BucketV2GrantArgs extends com.pulumi.resources.ResourceArgs {
     public static final BucketV2GrantArgs Empty = new BucketV2GrantArgs();
 
     /**
-     * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+     * Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+     * @return Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -63,14 +63,14 @@ public final class BucketV2GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Uri address to grant for. Used only when `type` is `Group`.
+     * URI address to grant for. Used only when `type` is `Group`.
      * 
      */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
     /**
-     * @return Uri address to grant for. Used only when `type` is `Group`.
+     * @return URI address to grant for. Used only when `type` is `Group`.
      * 
      */
     public Optional<Output<String>> uri() {
@@ -105,7 +105,7 @@ public final class BucketV2GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param id Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+         * @param id Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class BucketV2GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param id Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+         * @param id Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BucketV2GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uri Uri address to grant for. Used only when `type` is `Group`.
+         * @param uri URI address to grant for. Used only when `type` is `Group`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class BucketV2GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uri Uri address to grant for. Used only when `type` is `Group`.
+         * @param uri URI address to grant for. Used only when `type` is `Group`.
          * 
          * @return builder
          * 

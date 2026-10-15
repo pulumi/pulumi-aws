@@ -91,14 +91,14 @@ public class Revision extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The dataset id.
+     * The dataset ID.
      * 
      */
     @Export(name="dataSetId", refs={String.class}, tree="[0]")
     private Output<String> dataSetId;
 
     /**
-     * @return The dataset id.
+     * @return The dataset ID.
      * 
      */
     public Output<String> dataSetId() {
@@ -119,14 +119,14 @@ public class Revision extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Id of the revision.
+     * The ID of the revision.
      * 
      */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
     /**
-     * @return The Id of the revision.
+     * @return The ID of the revision.
      * 
      */
     public Output<String> revisionId() {

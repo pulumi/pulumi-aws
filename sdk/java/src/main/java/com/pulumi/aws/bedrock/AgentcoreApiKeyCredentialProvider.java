@@ -159,14 +159,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider")
 public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.CustomResource {
     /**
-     * API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+     * @return API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
      * 
      */
     public Output<Optional<String>> apiKey() {
@@ -231,14 +231,14 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
         return Codegen.optional(this.apiKeyWo);
     }
     /**
-     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+     * Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     @Export(name="apiKeyWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> apiKeyWoVersion;
 
     /**
-     * @return Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+     * @return Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     public Output<Optional<Integer>> apiKeyWoVersion() {

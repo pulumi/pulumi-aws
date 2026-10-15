@@ -93,15 +93,15 @@ type LicenseAssociation struct {
 
 	// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
 	FreeTrialExpiration pulumi.StringOutput `pulumi:"freeTrialExpiration"`
-	// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+	// Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
 	GrafanaToken pulumi.StringPtrOutput `pulumi:"grafanaToken"`
 	// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
 	LicenseExpiration pulumi.StringOutput `pulumi:"licenseExpiration"`
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+	// Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The workspace id.
+	// Workspace ID.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -143,30 +143,30 @@ func GetLicenseAssociation(ctx *pulumi.Context,
 type licenseAssociationState struct {
 	// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
 	FreeTrialExpiration *string `pulumi:"freeTrialExpiration"`
-	// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+	// Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
 	GrafanaToken *string `pulumi:"grafanaToken"`
 	// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
 	LicenseExpiration *string `pulumi:"licenseExpiration"`
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+	// Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The workspace id.
+	// Workspace ID.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type LicenseAssociationState struct {
 	// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
 	FreeTrialExpiration pulumi.StringPtrInput
-	// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+	// Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
 	GrafanaToken pulumi.StringPtrInput
 	// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
 	LicenseExpiration pulumi.StringPtrInput
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+	// Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The workspace id.
+	// Workspace ID.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -175,25 +175,25 @@ func (LicenseAssociationState) ElementType() reflect.Type {
 }
 
 type licenseAssociationArgs struct {
-	// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+	// Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
 	GrafanaToken *string `pulumi:"grafanaToken"`
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+	// Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType string `pulumi:"licenseType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The workspace id.
+	// Workspace ID.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a LicenseAssociation resource.
 type LicenseAssociationArgs struct {
-	// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+	// Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
 	GrafanaToken pulumi.StringPtrInput
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+	// Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The workspace id.
+	// Workspace ID.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -289,7 +289,7 @@ func (o LicenseAssociationOutput) FreeTrialExpiration() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.FreeTrialExpiration }).(pulumi.StringOutput)
 }
 
-// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+// Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
 func (o LicenseAssociationOutput) GrafanaToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringPtrOutput { return v.GrafanaToken }).(pulumi.StringPtrOutput)
 }
@@ -299,7 +299,7 @@ func (o LicenseAssociationOutput) LicenseExpiration() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.LicenseExpiration }).(pulumi.StringOutput)
 }
 
-// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+// Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 func (o LicenseAssociationOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
 }
@@ -309,7 +309,7 @@ func (o LicenseAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The workspace id.
+// Workspace ID.
 func (o LicenseAssociationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

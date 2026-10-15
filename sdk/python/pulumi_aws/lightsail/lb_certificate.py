@@ -305,7 +305,7 @@ class LbCertificate(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `lightsail.LbCertificate` using the id attribute. For example:
+        Using `pulumi import`, import `lightsail.LbCertificate` using the `id` attribute. For example:
 
         ```sh
         $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate
@@ -354,7 +354,7 @@ class LbCertificate(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `lightsail.LbCertificate` using the id attribute. For example:
+        Using `pulumi import`, import `lightsail.LbCertificate` using the `id` attribute. For example:
 
         ```sh
         $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate

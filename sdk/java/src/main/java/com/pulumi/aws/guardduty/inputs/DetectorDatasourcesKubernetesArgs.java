@@ -15,16 +15,14 @@ public final class DetectorDatasourcesKubernetesArgs extends com.pulumi.resource
     public static final DetectorDatasourcesKubernetesArgs Empty = new DetectorDatasourcesKubernetesArgs();
 
     /**
-     * Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
+     * Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
      * 
      */
     @Import(name="auditLogs", required=true)
     private Output<DetectorDatasourcesKubernetesAuditLogsArgs> auditLogs;
 
     /**
-     * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
+     * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
      * 
      */
     public Output<DetectorDatasourcesKubernetesAuditLogsArgs> auditLogs() {
@@ -56,8 +54,7 @@ public final class DetectorDatasourcesKubernetesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param auditLogs Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
+         * @param auditLogs Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
          * 
          * @return builder
          * 
@@ -68,8 +65,7 @@ public final class DetectorDatasourcesKubernetesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param auditLogs Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
+         * @param auditLogs Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
          * 
          * @return builder
          * 

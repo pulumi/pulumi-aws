@@ -54,11 +54,11 @@ type Revision struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An optional comment about the revision.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The dataset id.
+	// The dataset ID.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Id of the revision.
+	// The ID of the revision.
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -103,11 +103,11 @@ type revisionState struct {
 	Arn *string `pulumi:"arn"`
 	// An optional comment about the revision.
 	Comment *string `pulumi:"comment"`
-	// The dataset id.
+	// The dataset ID.
 	DataSetId *string `pulumi:"dataSetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Id of the revision.
+	// The ID of the revision.
 	RevisionId *string `pulumi:"revisionId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -120,11 +120,11 @@ type RevisionState struct {
 	Arn pulumi.StringPtrInput
 	// An optional comment about the revision.
 	Comment pulumi.StringPtrInput
-	// The dataset id.
+	// The dataset ID.
 	DataSetId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Id of the revision.
+	// The ID of the revision.
 	RevisionId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -139,7 +139,7 @@ func (RevisionState) ElementType() reflect.Type {
 type revisionArgs struct {
 	// An optional comment about the revision.
 	Comment *string `pulumi:"comment"`
-	// The dataset id.
+	// The dataset ID.
 	DataSetId string `pulumi:"dataSetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -151,7 +151,7 @@ type revisionArgs struct {
 type RevisionArgs struct {
 	// An optional comment about the revision.
 	Comment pulumi.StringPtrInput
-	// The dataset id.
+	// The dataset ID.
 	DataSetId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -256,7 +256,7 @@ func (o RevisionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The dataset id.
+// The dataset ID.
 func (o RevisionOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
@@ -266,7 +266,7 @@ func (o RevisionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Id of the revision.
+// The ID of the revision.
 func (o RevisionOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }

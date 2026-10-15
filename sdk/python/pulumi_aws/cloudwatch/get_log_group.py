@@ -62,7 +62,7 @@ class GetLogGroupResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+        ARN of the CloudWatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         """
         return pulumi.get(self, "arn")
 
@@ -156,7 +156,7 @@ def get_log_group(name: Optional[_builtins.str] = None,
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogGroupResult:
     """
-    Use this data source to get information about an AWS Cloudwatch Log Group
+    Use this data source to get information about an AWS CloudWatch Log Group
 
     ## Example Usage
 
@@ -168,7 +168,7 @@ def get_log_group(name: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str name: Name of the Cloudwatch log group
+    :param _builtins.str name: Name of the CloudWatch log group
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags to assign to the resource.
     """
@@ -195,7 +195,7 @@ def get_log_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
     """
-    Use this data source to get information about an AWS Cloudwatch Log Group
+    Use this data source to get information about an AWS CloudWatch Log Group
 
     ## Example Usage
 
@@ -207,7 +207,7 @@ def get_log_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str name: Name of the Cloudwatch log group
+    :param _builtins.str name: Name of the CloudWatch log group
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags to assign to the resource.
     """

@@ -55,13 +55,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        /// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         /// </summary>
         [Output("authentication")]
         public Output<string> Authentication { get; private set; } = null!;
 
         /// <summary>
-        /// The list of subnets in the client VPC to connect to.
+        /// List of subnets in the client VPC to connect to.
         /// </summary>
         [Output("clientSubnets")]
         public Output<ImmutableArray<string>> ClientSubnets { get; private set; } = null!;
@@ -73,19 +73,19 @@ namespace Pulumi.Aws.Msk
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The security groups to attach to the ENIs for the broker nodes.
+        /// Security groups to attach to the ENIs for the broker nodes.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> TargetClusterArn { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID of the remote client.
+        /// VPC ID of the remote client.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Msk
     public sealed class VpcConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        /// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         /// </summary>
         [Input("authentication", required: true)]
         public Input<string> Authentication { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Msk
         private InputList<string>? _clientSubnets;
 
         /// <summary>
-        /// The list of subnets in the client VPC to connect to.
+        /// List of subnets in the client VPC to connect to.
         /// </summary>
         public InputList<string> ClientSubnets
         {
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Msk
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// The security groups to attach to the ENIs for the broker nodes.
+        /// Security groups to attach to the ENIs for the broker nodes.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Msk
         public Input<string> TargetClusterArn { get; set; } = null!;
 
         /// <summary>
-        /// The VPC ID of the remote client.
+        /// VPC ID of the remote client.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        /// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         /// </summary>
         [Input("authentication")]
         public Input<string>? Authentication { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Msk
         private InputList<string>? _clientSubnets;
 
         /// <summary>
-        /// The list of subnets in the client VPC to connect to.
+        /// List of subnets in the client VPC to connect to.
         /// </summary>
         public InputList<string> ClientSubnets
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Msk
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// The security groups to attach to the ENIs for the broker nodes.
+        /// Security groups to attach to the ENIs for the broker nodes.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? TargetClusterArn { get; set; }
 
         /// <summary>
-        /// The VPC ID of the remote client.
+        /// VPC ID of the remote client.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

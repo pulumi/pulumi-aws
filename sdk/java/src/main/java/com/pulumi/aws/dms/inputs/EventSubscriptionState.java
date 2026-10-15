@@ -94,14 +94,14 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * SNS topic arn to send events on.
+     * SNS topic ARN to send events on.
      * 
      */
     @Import(name="snsTopicArn")
     private @Nullable Output<String> snsTopicArn;
 
     /**
-     * @return SNS topic arn to send events on.
+     * @return SNS topic ARN to send events on.
      * 
      */
     public Optional<Output<String>> snsTopicArn() {
@@ -109,14 +109,14 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+     * IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     @Import(name="sourceIds")
     private @Nullable Output<List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+     * @return IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     public Optional<Output<List<String>>> sourceIds() {
@@ -317,7 +317,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param snsTopicArn SNS topic arn to send events on.
+         * @param snsTopicArn SNS topic ARN to send events on.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param snsTopicArn SNS topic arn to send events on.
+         * @param snsTopicArn SNS topic ARN to send events on.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+         * @param sourceIds IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+         * @param sourceIds IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+         * @param sourceIds IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 

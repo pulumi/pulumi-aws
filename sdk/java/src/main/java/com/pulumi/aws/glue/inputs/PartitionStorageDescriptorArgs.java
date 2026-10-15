@@ -39,14 +39,14 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+     * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
     @Import(name="bucketColumns")
     private @Nullable Output<List<String>> bucketColumns;
 
     /**
-     * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+     * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
     public Optional<Output<List<String>>> bucketColumns() {
@@ -54,14 +54,14 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A list of the Columns in the table.
+     * List of the `columns` in the table.
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<PartitionStorageDescriptorColumnArgs>> columns;
 
     /**
-     * @return A list of the Columns in the table.
+     * @return List of the `columns` in the table.
      * 
      */
     public Optional<Output<List<PartitionStorageDescriptorColumnArgs>>> columns() {
@@ -84,14 +84,14 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+     * Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
     @Import(name="inputFormat")
     private @Nullable Output<String> inputFormat;
 
     /**
-     * @return The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+     * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
     public Optional<Output<String>> inputFormat() {
@@ -99,14 +99,14 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+     * Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+     * @return Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
     public Optional<Output<String>> location() {
@@ -129,14 +129,14 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+     * Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
     @Import(name="outputFormat")
     private @Nullable Output<String> outputFormat;
 
     /**
-     * @return The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+     * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
     public Optional<Output<String>> outputFormat() {
@@ -189,14 +189,14 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A list of Order objects specifying the sort order of each bucket in the table.
+     * List of `sortColumns` objects specifying the sort order of each bucket in the table.
      * 
      */
     @Import(name="sortColumns")
     private @Nullable Output<List<PartitionStorageDescriptorSortColumnArgs>> sortColumns;
 
     /**
-     * @return A list of Order objects specifying the sort order of each bucket in the table.
+     * @return List of `sortColumns` objects specifying the sort order of each bucket in the table.
      * 
      */
     public Optional<Output<List<PartitionStorageDescriptorSortColumnArgs>>> sortColumns() {
@@ -286,7 +286,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param bucketColumns A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         * @param bucketColumns List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param bucketColumns A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         * @param bucketColumns List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param bucketColumns A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         * @param bucketColumns List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param columns A list of the Columns in the table.
+         * @param columns List of the `columns` in the table.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param columns A list of the Columns in the table.
+         * @param columns List of the `columns` in the table.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param columns A list of the Columns in the table.
+         * @param columns List of the `columns` in the table.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param inputFormat The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         * @param inputFormat Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param inputFormat The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         * @param inputFormat Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param location The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         * @param location Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param location The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         * @param location Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param outputFormat The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         * @param outputFormat Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param outputFormat The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         * @param outputFormat Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sortColumns A list of Order objects specifying the sort order of each bucket in the table.
+         * @param sortColumns List of `sortColumns` objects specifying the sort order of each bucket in the table.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sortColumns A list of Order objects specifying the sort order of each bucket in the table.
+         * @param sortColumns List of `sortColumns` objects specifying the sort order of each bucket in the table.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sortColumns A list of Order objects specifying the sort order of each bucket in the table.
+         * @param sortColumns List of `sortColumns` objects specifying the sort order of each bucket in the table.
          * 
          * @return builder
          * 

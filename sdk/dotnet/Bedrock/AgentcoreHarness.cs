@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// - `HarnessId` (String) ID of the harness.
+    /// * `HarnessId` (String) ID of the harness.
     /// 
     /// #### Optional
     /// 
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` Block below.If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        /// Compute environment configuration. See `Environment` Block below. If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         /// </summary>
         [Output("environments")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessEnvironment>> Environments { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> HarnessId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        /// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         /// </summary>
         [Output("harnessName")]
         public Output<string> HarnessName { get; private set; } = null!;
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<int> MaxIterations { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum number of tokens in the model response.
+        /// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         /// </summary>
         [Output("maxTokens")]
         public Output<int> MaxTokens { get; private set; } = null!;
@@ -500,7 +500,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessEnvironmentArgs>? _environments;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` Block below.If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        /// Compute environment configuration. See `Environment` Block below. If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentArgs> Environments
         {
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        /// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         /// </summary>
         [Input("harnessName", required: true)]
         public Input<string> HarnessName { get; set; } = null!;
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? MaxIterations { get; set; }
 
         /// <summary>
-        /// Maximum number of tokens in the model response.
+        /// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         /// </summary>
         [Input("maxTokens")]
         public Input<int>? MaxTokens { get; set; }
@@ -691,7 +691,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessEnvironmentGetArgs>? _environments;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` Block below.If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        /// Compute environment configuration. See `Environment` Block below. If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentGetArgs> Environments
         {
@@ -712,7 +712,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? HarnessId { get; set; }
 
         /// <summary>
-        /// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        /// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         /// </summary>
         [Input("harnessName")]
         public Input<string>? HarnessName { get; set; }
@@ -724,7 +724,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? MaxIterations { get; set; }
 
         /// <summary>
-        /// Maximum number of tokens in the model response.
+        /// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         /// </summary>
         [Input("maxTokens")]
         public Input<int>? MaxTokens { get; set; }

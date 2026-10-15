@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CustomRoutingListenerPortRange {
     /**
-     * @return The first port in the range of ports, inclusive.
+     * @return First port in the range of ports, inclusive.
      * 
      */
     private @Nullable Integer fromPort;
     /**
-     * @return The last port in the range of ports, inclusive.
+     * @return Last port in the range of ports, inclusive.
      * 
      */
     private @Nullable Integer toPort;
 
     private CustomRoutingListenerPortRange() {}
     /**
-     * @return The first port in the range of ports, inclusive.
+     * @return First port in the range of ports, inclusive.
      * 
      */
     public Optional<Integer> fromPort() {
         return Optional.ofNullable(this.fromPort);
     }
     /**
-     * @return The last port in the range of ports, inclusive.
+     * @return Last port in the range of ports, inclusive.
      * 
      */
     public Optional<Integer> toPort() {

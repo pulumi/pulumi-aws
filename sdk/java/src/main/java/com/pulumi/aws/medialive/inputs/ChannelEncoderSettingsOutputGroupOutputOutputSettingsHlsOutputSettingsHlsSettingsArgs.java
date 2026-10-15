@@ -18,30 +18,62 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs();
 
+    /**
+     * Audio-only HLS settings. See `audioOnlyHlsSettings` Block for details.
+     * 
+     */
     @Import(name="audioOnlyHlsSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs> audioOnlyHlsSettings;
 
+    /**
+     * @return Audio-only HLS settings. See `audioOnlyHlsSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs>> audioOnlyHlsSettings() {
         return Optional.ofNullable(this.audioOnlyHlsSettings);
     }
 
+    /**
+     * fMP4 HLS settings. See `fmp4HlsSettings` Block for details.
+     * 
+     */
     @Import(name="fmp4HlsSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs> fmp4HlsSettings;
 
+    /**
+     * @return fMP4 HLS settings. See `fmp4HlsSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs>> fmp4HlsSettings() {
         return Optional.ofNullable(this.fmp4HlsSettings);
     }
 
+    /**
+     * Frame capture HLS settings. Can be set as an empty block.
+     * 
+     */
     @Import(name="frameCaptureHlsSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs> frameCaptureHlsSettings;
 
+    /**
+     * @return Frame capture HLS settings. Can be set as an empty block.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs>> frameCaptureHlsSettings() {
         return Optional.ofNullable(this.frameCaptureHlsSettings);
     }
 
+    /**
+     * Standard HLS settings. See `standardHlsSettings` Block for details.
+     * 
+     */
     @Import(name="standardHlsSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs> standardHlsSettings;
 
+    /**
+     * @return Standard HLS settings. See `standardHlsSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs>> standardHlsSettings() {
         return Optional.ofNullable(this.standardHlsSettings);
     }
@@ -73,38 +105,86 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audioOnlyHlsSettings Audio-only HLS settings. See `audioOnlyHlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioOnlyHlsSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs> audioOnlyHlsSettings) {
             $.audioOnlyHlsSettings = audioOnlyHlsSettings;
             return this;
         }
 
+        /**
+         * @param audioOnlyHlsSettings Audio-only HLS settings. See `audioOnlyHlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioOnlyHlsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs audioOnlyHlsSettings) {
             return audioOnlyHlsSettings(Output.of(audioOnlyHlsSettings));
         }
 
+        /**
+         * @param fmp4HlsSettings fMP4 HLS settings. See `fmp4HlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fmp4HlsSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs> fmp4HlsSettings) {
             $.fmp4HlsSettings = fmp4HlsSettings;
             return this;
         }
 
+        /**
+         * @param fmp4HlsSettings fMP4 HLS settings. See `fmp4HlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fmp4HlsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs fmp4HlsSettings) {
             return fmp4HlsSettings(Output.of(fmp4HlsSettings));
         }
 
+        /**
+         * @param frameCaptureHlsSettings Frame capture HLS settings. Can be set as an empty block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureHlsSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs> frameCaptureHlsSettings) {
             $.frameCaptureHlsSettings = frameCaptureHlsSettings;
             return this;
         }
 
+        /**
+         * @param frameCaptureHlsSettings Frame capture HLS settings. Can be set as an empty block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureHlsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs frameCaptureHlsSettings) {
             return frameCaptureHlsSettings(Output.of(frameCaptureHlsSettings));
         }
 
+        /**
+         * @param standardHlsSettings Standard HLS settings. See `standardHlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder standardHlsSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs> standardHlsSettings) {
             $.standardHlsSettings = standardHlsSettings;
             return this;
         }
 
+        /**
+         * @param standardHlsSettings Standard HLS settings. See `standardHlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder standardHlsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs standardHlsSettings) {
             return standardHlsSettings(Output.of(standardHlsSettings));
         }

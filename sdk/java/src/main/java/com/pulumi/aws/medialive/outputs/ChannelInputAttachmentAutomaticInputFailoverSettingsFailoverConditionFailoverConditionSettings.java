@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
     /**
-     * @return MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+     * @return MediaLive fails over if the specified audio selector is silent for the specified period. See `audioSilenceSettings` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings audioSilenceSettings;
     /**
-     * @return MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+     * @return MediaLive fails over if content is not detected in this input for the specified period. See `inputLossSettings` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings inputLossSettings;
     /**
-     * @return MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+     * @return MediaLive fails over if content is considered black for the specified period. See `videoBlackSettings` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings videoBlackSettings;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings() {}
     /**
-     * @return MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+     * @return MediaLive fails over if the specified audio selector is silent for the specified period. See `audioSilenceSettings` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings> audioSilenceSettings() {
         return Optional.ofNullable(this.audioSilenceSettings);
     }
     /**
-     * @return MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+     * @return MediaLive fails over if content is not detected in this input for the specified period. See `inputLossSettings` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings> inputLossSettings() {
         return Optional.ofNullable(this.inputLossSettings);
     }
     /**
-     * @return MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+     * @return MediaLive fails over if content is considered black for the specified period. See `videoBlackSettings` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings> videoBlackSettings() {

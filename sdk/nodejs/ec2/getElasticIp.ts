@@ -125,7 +125,7 @@ export interface GetElasticIpResult {
      */
     readonly customerOwnedIpv4Pool: string;
     /**
-     * Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+     * Whether the address is for use in EC2-Classic (`standard`) or in a VPC (`vpc`).
      */
     readonly domain: string;
     readonly filters?: outputs.ec2.GetElasticIpFilter[];

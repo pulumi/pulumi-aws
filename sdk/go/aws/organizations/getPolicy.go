@@ -26,7 +26,7 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyArgs struct {
-	// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+	// The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
 	PolicyId string `pulumi:"policyId"`
 }
 
@@ -56,7 +56,7 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyOutputArgs struct {
-	// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+	// The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
 	PolicyId pulumi.StringInput `pulumi:"policyId"`
 }
 

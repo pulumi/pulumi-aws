@@ -128,9 +128,6 @@ export class AmiCopy extends pulumi.CustomResource {
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     */
     declare public /*out*/ readonly lastLaunchedTime: pulumi.Output<string>;
     declare public /*out*/ readonly manageEbsSnapshots: pulumi.Output<boolean>;
     /**
@@ -156,7 +153,7 @@ export class AmiCopy extends pulumi.CustomResource {
     declare public /*out*/ readonly rootDeviceName: pulumi.Output<string>;
     declare public /*out*/ readonly rootSnapshotId: pulumi.Output<string>;
     /**
-     * Id of the AMI to copy. This id must be valid in the region
+     * ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      */
     declare public readonly sourceAmiId: pulumi.Output<string>;
@@ -360,9 +357,6 @@ export interface AmiCopyState {
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
-    /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     */
     lastLaunchedTime?: pulumi.Input<string | undefined>;
     manageEbsSnapshots?: pulumi.Input<boolean | undefined>;
     /**
@@ -388,7 +382,7 @@ export interface AmiCopyState {
     rootDeviceName?: pulumi.Input<string | undefined>;
     rootSnapshotId?: pulumi.Input<string | undefined>;
     /**
-     * Id of the AMI to copy. This id must be valid in the region
+     * ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      */
     sourceAmiId?: pulumi.Input<string | undefined>;
@@ -468,7 +462,7 @@ export interface AmiCopyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Id of the AMI to copy. This id must be valid in the region
+     * ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      */
     sourceAmiId: pulumi.Input<string>;

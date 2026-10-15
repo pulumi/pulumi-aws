@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+    /**
+     * @return SASL authentication configuration for VPC connectivity. See `sasl` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl> sasls;
+    /**
+     * @return Whether TLS authentication is enabled for VPC connectivity.
+     * 
+     */
     private Boolean tls;
 
     private GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication() {}
+    /**
+     * @return SASL authentication configuration for VPC connectivity. See `sasl` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl> sasls() {
         return this.sasls;
     }
+    /**
+     * @return Whether TLS authentication is enabled for VPC connectivity.
+     * 
+     */
     public Boolean tls() {
         return this.tls;
     }

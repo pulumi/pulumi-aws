@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
+ * Manages an AWS Agents for Amazon Bedrock Agent Alias.
  *
  * ## Example Usage
  *
@@ -59,8 +59,9 @@ import * as utilities from "../utilities";
  * const exampleAgentAgent = new aws.bedrock.AgentAgent("example", {
  *     agentName: "my-agent-name",
  *     agentResourceRoleArn: example.arn,
- *     idleTtl: 500,
+ *     idleSessionTtlInSeconds: 500,
  *     foundationModel: "anthropic.claude-v2",
+ *     instruction: "You are a friendly assistant who helps answer questions.",
  * });
  * const exampleAgentAgentAlias = new aws.bedrock.AgentAgentAlias("example", {
  *     agentAliasName: "my-agent-alias",

@@ -39,19 +39,19 @@ namespace Pulumi.Aws.Grafana
     public partial class WorkspaceApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+        /// Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the API key. Key names must be unique to the workspace.
+        /// Name of the API key. Key names must be unique to the workspace.
         /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+        /// Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         /// </summary>
         [Output("keyRole")]
         public Output<string> KeyRole { get; private set; } = null!;
@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+        /// Time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
         [Output("secondsToLive")]
         public Output<int> SecondsToLive { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the workspace that the API key is valid for.
+        /// ID of the workspace that the API key is valid for.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Aws.Grafana
     public sealed class WorkspaceApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the API key. Key names must be unique to the workspace.
+        /// Name of the API key. Key names must be unique to the workspace.
         /// </summary>
         [Input("keyName", required: true)]
         public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+        /// Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         /// </summary>
         [Input("keyRole", required: true)]
         public Input<string> KeyRole { get; set; } = null!;
@@ -143,13 +143,13 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+        /// Time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
         [Input("secondsToLive", required: true)]
         public Input<int> SecondsToLive { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the workspace that the API key is valid for.
+        /// ID of the workspace that the API key is valid for.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Grafana
         private Input<string>? _key;
 
         /// <summary>
-        /// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+        /// Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         /// </summary>
         public Input<string>? Key
         {
@@ -179,13 +179,13 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// Specifies the name of the API key. Key names must be unique to the workspace.
+        /// Name of the API key. Key names must be unique to the workspace.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+        /// Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         /// </summary>
         [Input("keyRole")]
         public Input<string>? KeyRole { get; set; }
@@ -197,13 +197,13 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+        /// Time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
         [Input("secondsToLive")]
         public Input<int>? SecondsToLive { get; set; }
 
         /// <summary>
-        /// The ID of the workspace that the API key is valid for.
+        /// ID of the workspace that the API key is valid for.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

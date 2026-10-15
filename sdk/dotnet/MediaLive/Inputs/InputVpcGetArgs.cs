@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+        /// List of up to 5 EC2 VPC security group IDs to attach to the Input.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of 2 VPC subnet IDs from the same VPC.
+        /// List of 2 VPC subnet IDs from the same VPC.
         /// </summary>
         public InputList<string> SubnetIds
         {

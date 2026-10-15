@@ -74,28 +74,27 @@ namespace Pulumi.Aws.GuardDuty
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-        /// Valid values are `ALL`, `NEW`, `NONE`.
+        /// Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
         [Output("autoEnableOrganizationMembers")]
         public Output<string> AutoEnableOrganizationMembers { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-        /// 
-        /// &gt; **NOTE:** One of `AutoEnable` or `AutoEnableOrganizationMembers` must be specified.
+        /// Configuration for the collected datasources. See `Datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
         [Output("datasources")]
         public Output<Outputs.OrganizationConfigurationDatasources> Datasources { get; private set; } = null!;
 
         /// <summary>
-        /// The detector ID of the GuardDuty account.
+        /// Detector ID of the GuardDuty account.
         /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// 
+        /// &gt; **NOTE:** One of `AutoEnable` or `AutoEnableOrganizationMembers` must be specified.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -147,28 +146,27 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-        /// Valid values are `ALL`, `NEW`, `NONE`.
+        /// Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
         [Input("autoEnableOrganizationMembers", required: true)]
         public Input<string> AutoEnableOrganizationMembers { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-        /// 
-        /// &gt; **NOTE:** One of `AutoEnable` or `AutoEnableOrganizationMembers` must be specified.
+        /// Configuration for the collected datasources. See `Datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
         [Input("datasources")]
         public Input<Inputs.OrganizationConfigurationDatasourcesArgs>? Datasources { get; set; }
 
         /// <summary>
-        /// The detector ID of the GuardDuty account.
+        /// Detector ID of the GuardDuty account.
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// 
+        /// &gt; **NOTE:** One of `AutoEnable` or `AutoEnableOrganizationMembers` must be specified.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -182,28 +180,27 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-        /// Valid values are `ALL`, `NEW`, `NONE`.
+        /// Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
         [Input("autoEnableOrganizationMembers")]
         public Input<string>? AutoEnableOrganizationMembers { get; set; }
 
         /// <summary>
-        /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-        /// 
-        /// &gt; **NOTE:** One of `AutoEnable` or `AutoEnableOrganizationMembers` must be specified.
+        /// Configuration for the collected datasources. See `Datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
         [Input("datasources")]
         public Input<Inputs.OrganizationConfigurationDatasourcesGetArgs>? Datasources { get; set; }
 
         /// <summary>
-        /// The detector ID of the GuardDuty account.
+        /// Detector ID of the GuardDuty account.
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// 
+        /// &gt; **NOTE:** One of `AutoEnable` or `AutoEnableOrganizationMembers` must be specified.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

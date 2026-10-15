@@ -21,12 +21,12 @@ public final class ChannelEncoderSettingsOutputGroup {
      */
     private @Nullable String name;
     /**
-     * @return Settings associated with the output group. See Output Group Settings for more details.
+     * @return Settings associated with the output group. See `outputGroupSettings` Block for details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettings outputGroupSettings;
     /**
-     * @return List of outputs. See Outputs for more details.
+     * @return List of outputs. See `outputs` Block for details.
      * 
      */
     private List<ChannelEncoderSettingsOutputGroupOutput> outputs;
@@ -40,14 +40,14 @@ public final class ChannelEncoderSettingsOutputGroup {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Settings associated with the output group. See Output Group Settings for more details.
+     * @return Settings associated with the output group. See `outputGroupSettings` Block for details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettings outputGroupSettings() {
         return this.outputGroupSettings;
     }
     /**
-     * @return List of outputs. See Outputs for more details.
+     * @return List of outputs. See `outputs` Block for details.
      * 
      */
     public List<ChannelEncoderSettingsOutputGroupOutput> outputs() {

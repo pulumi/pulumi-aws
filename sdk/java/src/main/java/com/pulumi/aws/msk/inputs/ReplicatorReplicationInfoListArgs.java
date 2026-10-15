@@ -20,36 +20,44 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
     public static final ReplicatorReplicationInfoListArgs Empty = new ReplicatorReplicationInfoListArgs();
 
     /**
-     * Configuration relating to consumer group replication.
+     * Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
      * 
      */
     @Import(name="consumerGroupReplications", required=true)
     private Output<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications;
 
     /**
-     * @return Configuration relating to consumer group replication.
+     * @return Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
      * 
      */
     public Output<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications() {
         return this.consumerGroupReplications;
     }
 
+    /**
+     * Alias of the source Kafka cluster.
+     * 
+     */
     @Import(name="sourceKafkaClusterAlias")
     private @Nullable Output<String> sourceKafkaClusterAlias;
 
+    /**
+     * @return Alias of the source Kafka cluster.
+     * 
+     */
     public Optional<Output<String>> sourceKafkaClusterAlias() {
         return Optional.ofNullable(this.sourceKafkaClusterAlias);
     }
 
     /**
-     * The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     @Import(name="sourceKafkaClusterArn")
     private @Nullable Output<String> sourceKafkaClusterArn;
 
     /**
-     * @return The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * @return ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     public Optional<Output<String>> sourceKafkaClusterArn() {
@@ -57,14 +65,14 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
     }
 
     /**
-     * The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     @Import(name="sourceKafkaClusterId")
     private @Nullable Output<String> sourceKafkaClusterId;
 
     /**
-     * @return The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * @return Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     public Optional<Output<String>> sourceKafkaClusterId() {
@@ -72,36 +80,44 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
     }
 
     /**
-     * The type of compression to use writing records to target Kafka cluster.
+     * Type of compression to use writing records to target Kafka cluster.
      * 
      */
     @Import(name="targetCompressionType", required=true)
     private Output<String> targetCompressionType;
 
     /**
-     * @return The type of compression to use writing records to target Kafka cluster.
+     * @return Type of compression to use writing records to target Kafka cluster.
      * 
      */
     public Output<String> targetCompressionType() {
         return this.targetCompressionType;
     }
 
+    /**
+     * Alias of the target Kafka cluster.
+     * 
+     */
     @Import(name="targetKafkaClusterAlias")
     private @Nullable Output<String> targetKafkaClusterAlias;
 
+    /**
+     * @return Alias of the target Kafka cluster.
+     * 
+     */
     public Optional<Output<String>> targetKafkaClusterAlias() {
         return Optional.ofNullable(this.targetKafkaClusterAlias);
     }
 
     /**
-     * The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     @Import(name="targetKafkaClusterArn")
     private @Nullable Output<String> targetKafkaClusterArn;
 
     /**
-     * @return The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * @return ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     public Optional<Output<String>> targetKafkaClusterArn() {
@@ -109,14 +125,14 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
     }
 
     /**
-     * The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     @Import(name="targetKafkaClusterId")
     private @Nullable Output<String> targetKafkaClusterId;
 
     /**
-     * @return The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * @return Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     public Optional<Output<String>> targetKafkaClusterId() {
@@ -124,14 +140,14 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
     }
 
     /**
-     * Configuration relating to topic replication.
+     * Configuration relating to topic replication. See `topicReplication` Block below.
      * 
      */
     @Import(name="topicReplications", required=true)
     private Output<List<ReplicatorReplicationInfoListTopicReplicationArgs>> topicReplications;
 
     /**
-     * @return Configuration relating to topic replication.
+     * @return Configuration relating to topic replication. See `topicReplication` Block below.
      * 
      */
     public Output<List<ReplicatorReplicationInfoListTopicReplicationArgs>> topicReplications() {
@@ -171,7 +187,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param consumerGroupReplications Configuration relating to consumer group replication.
+         * @param consumerGroupReplications Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
          * 
          * @return builder
          * 
@@ -182,7 +198,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param consumerGroupReplications Configuration relating to consumer group replication.
+         * @param consumerGroupReplications Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
          * 
          * @return builder
          * 
@@ -192,7 +208,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param consumerGroupReplications Configuration relating to consumer group replication.
+         * @param consumerGroupReplications Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
          * 
          * @return builder
          * 
@@ -201,17 +217,29 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
             return consumerGroupReplications(List.of(consumerGroupReplications));
         }
 
+        /**
+         * @param sourceKafkaClusterAlias Alias of the source Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceKafkaClusterAlias(@Nullable Output<String> sourceKafkaClusterAlias) {
             $.sourceKafkaClusterAlias = sourceKafkaClusterAlias;
             return this;
         }
 
+        /**
+         * @param sourceKafkaClusterAlias Alias of the source Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceKafkaClusterAlias(String sourceKafkaClusterAlias) {
             return sourceKafkaClusterAlias(Output.of(sourceKafkaClusterAlias));
         }
 
         /**
-         * @param sourceKafkaClusterArn The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+         * @param sourceKafkaClusterArn ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -222,7 +250,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceKafkaClusterArn The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+         * @param sourceKafkaClusterArn ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -232,7 +260,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceKafkaClusterId The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+         * @param sourceKafkaClusterId Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -243,7 +271,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceKafkaClusterId The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+         * @param sourceKafkaClusterId Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -253,7 +281,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetCompressionType The type of compression to use writing records to target Kafka cluster.
+         * @param targetCompressionType Type of compression to use writing records to target Kafka cluster.
          * 
          * @return builder
          * 
@@ -264,7 +292,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetCompressionType The type of compression to use writing records to target Kafka cluster.
+         * @param targetCompressionType Type of compression to use writing records to target Kafka cluster.
          * 
          * @return builder
          * 
@@ -273,17 +301,29 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
             return targetCompressionType(Output.of(targetCompressionType));
         }
 
+        /**
+         * @param targetKafkaClusterAlias Alias of the target Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetKafkaClusterAlias(@Nullable Output<String> targetKafkaClusterAlias) {
             $.targetKafkaClusterAlias = targetKafkaClusterAlias;
             return this;
         }
 
+        /**
+         * @param targetKafkaClusterAlias Alias of the target Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetKafkaClusterAlias(String targetKafkaClusterAlias) {
             return targetKafkaClusterAlias(Output.of(targetKafkaClusterAlias));
         }
 
         /**
-         * @param targetKafkaClusterArn The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+         * @param targetKafkaClusterArn ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -294,7 +334,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetKafkaClusterArn The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+         * @param targetKafkaClusterArn ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -304,7 +344,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetKafkaClusterId The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+         * @param targetKafkaClusterId Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -315,7 +355,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetKafkaClusterId The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+         * @param targetKafkaClusterId Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
          * 
          * @return builder
          * 
@@ -325,7 +365,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param topicReplications Configuration relating to topic replication.
+         * @param topicReplications Configuration relating to topic replication. See `topicReplication` Block below.
          * 
          * @return builder
          * 
@@ -336,7 +376,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param topicReplications Configuration relating to topic replication.
+         * @param topicReplications Configuration relating to topic replication. See `topicReplication` Block below.
          * 
          * @return builder
          * 
@@ -346,7 +386,7 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         /**
-         * @param topicReplications Configuration relating to topic replication.
+         * @param topicReplications Configuration relating to topic replication. See `topicReplication` Block below.
          * 
          * @return builder
          * 

@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterClientAuthentication {
     /**
-     * @return Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+     * @return Configuration block for specifying SASL client authentication. See `sasl` Block below.
      * 
      */
     private @Nullable ClusterClientAuthenticationSasl sasl;
     /**
-     * @return Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+     * @return Configuration block for specifying TLS client authentication. See `tls` Block below.
      * 
      */
     private @Nullable ClusterClientAuthenticationTls tls;
     /**
-     * @return Enables unauthenticated access.
+     * @return Whether to enable unauthenticated access.
      * 
      */
     private @Nullable Boolean unauthenticated;
 
     private ClusterClientAuthentication() {}
     /**
-     * @return Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+     * @return Configuration block for specifying SASL client authentication. See `sasl` Block below.
      * 
      */
     public Optional<ClusterClientAuthenticationSasl> sasl() {
         return Optional.ofNullable(this.sasl);
     }
     /**
-     * @return Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+     * @return Configuration block for specifying TLS client authentication. See `tls` Block below.
      * 
      */
     public Optional<ClusterClientAuthenticationTls> tls() {
         return Optional.ofNullable(this.tls);
     }
     /**
-     * @return Enables unauthenticated access.
+     * @return Whether to enable unauthenticated access.
      * 
      */
     public Optional<Boolean> unauthenticated() {

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GuardrailTopicPolicyConfigTierConfig {
     /**
-     * @return Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
+     * @return Name of the topic policy tier. Valid values: `CLASSIC`, `STANDARD`. `STANDARD` requires `crossRegionConfig`.
      * 
      */
     private String tierName;
 
     private GuardrailTopicPolicyConfigTierConfig() {}
     /**
-     * @return Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
+     * @return Name of the topic policy tier. Valid values: `CLASSIC`, `STANDARD`. `STANDARD` requires `crossRegionConfig`.
      * 
      */
     public String tierName() {

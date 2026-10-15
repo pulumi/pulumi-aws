@@ -47,7 +47,7 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[_builtins.str] instance_type: The size of instance to launch.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
+        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public IP address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[_builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
@@ -60,7 +60,7 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[_builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDs.
         :param pulumi.Input[_builtins.str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[_builtins.str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -132,7 +132,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Associate a public ip address with an instance in a VPC.
+        Associate a public IP address with an instance in a VPC.
         """
         return pulumi.get(self, "associate_public_ip_address")
 
@@ -288,7 +288,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of associated security group IDS.
+        A list of associated security group IDs.
         """
         return pulumi.get(self, "security_groups")
 
@@ -360,7 +360,7 @@ class _LaunchConfigurationState:
         Input properties used for looking up and filtering LaunchConfiguration resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the launch configuration.
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
+        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public IP address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[_builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
@@ -377,7 +377,7 @@ class _LaunchConfigurationState:
         :param pulumi.Input[_builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDs.
         :param pulumi.Input[_builtins.str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[_builtins.str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -439,7 +439,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Associate a public ip address with an instance in a VPC.
+        Associate a public IP address with an instance in a VPC.
         """
         return pulumi.get(self, "associate_public_ip_address")
 
@@ -621,7 +621,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of associated security group IDS.
+        A list of associated security group IDs.
         """
         return pulumi.get(self, "security_groups")
 
@@ -693,11 +693,11 @@ class LaunchConfiguration(pulumi.CustomResource):
                  user_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to create a new launch configuration, used for autoscaling groups.
+        Provides a resource to create a new launch configuration, used for Auto Scaling groups.
 
         > **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
 
-        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
+        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Pulumi lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
 
         ## Example Usage
 
@@ -737,7 +737,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
+        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public IP address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict', 'outputs.LaunchConfigurationEbsBlockDevice']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[_builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
@@ -754,7 +754,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict', 'outputs.LaunchConfigurationRootBlockDevice']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDs.
         :param pulumi.Input[_builtins.str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[_builtins.str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -766,11 +766,11 @@ class LaunchConfiguration(pulumi.CustomResource):
                  args: LaunchConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create a new launch configuration, used for autoscaling groups.
+        Provides a resource to create a new launch configuration, used for Auto Scaling groups.
 
         > **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
 
-        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
+        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Pulumi lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
 
         ## Example Usage
 
@@ -913,7 +913,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the launch configuration.
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
+        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public IP address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict', 'outputs.LaunchConfigurationEbsBlockDevice']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[_builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
@@ -930,7 +930,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict', 'outputs.LaunchConfigurationRootBlockDevice']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of associated security group IDs.
         :param pulumi.Input[_builtins.str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[_builtins.str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -973,7 +973,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Associate a public ip address with an instance in a VPC.
+        Associate a public IP address with an instance in a VPC.
         """
         return pulumi.get(self, "associate_public_ip_address")
 
@@ -1095,7 +1095,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of associated security group IDS.
+        A list of associated security group IDs.
         """
         return pulumi.get(self, "security_groups")
 

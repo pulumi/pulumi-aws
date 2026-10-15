@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about an EC2 Local Gateway Route Table.
         /// 
-        /// This data source can prove useful when a module accepts a local gateway route table id as
+        /// This data source can prove useful when a module accepts a local gateway route table ID as
         /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
         /// 
         /// ## Example Usage
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about an EC2 Local Gateway Route Table.
         /// 
-        /// This data source can prove useful when a module accepts a local gateway route table id as
+        /// This data source can prove useful when a module accepts a local gateway route table ID as
         /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
         /// 
         /// ## Example Usage
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about an EC2 Local Gateway Route Table.
         /// 
-        /// This data source can prove useful when a module accepts a local gateway route table id as
+        /// This data source can prove useful when a module accepts a local gateway route table ID as
         /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
         /// 
         /// ## Example Usage
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Ec2
         public string? LocalGatewayId { get; set; }
 
         /// <summary>
-        /// Local Gateway Route Table Id assigned to desired local gateway route table
+        /// Local Gateway Route Table ID assigned to desired local gateway route table
         /// </summary>
         [Input("localGatewayRouteTableId")]
         public string? LocalGatewayRouteTableId { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LocalGatewayId { get; set; }
 
         /// <summary>
-        /// Local Gateway Route Table Id assigned to desired local gateway route table
+        /// Local Gateway Route Table ID assigned to desired local gateway route table
         /// </summary>
         [Input("localGatewayRouteTableId")]
         public Input<string>? LocalGatewayRouteTableId { get; set; }

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Macie2.Inputs
     public sealed class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tag key.
+        /// Tag key.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The tag value.
+        /// Tag value.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

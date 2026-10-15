@@ -43,12 +43,12 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `name` - (String) Name of the workload identity.
+ * * `name` (String) Name of the workload identity.
  *
  * #### Optional
  *
- * * `accountId` - (String) AWS Account where this resource is managed.
- * * `region` - (String) Region where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
  *

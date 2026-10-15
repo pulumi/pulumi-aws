@@ -17,14 +17,14 @@ public final class GetUserHierarchyGroupPlainArgs extends com.pulumi.resources.I
     public static final GetUserHierarchyGroupPlainArgs Empty = new GetUserHierarchyGroupPlainArgs();
 
     /**
-     * Returns information on a specific hierarchy group by hierarchy group id
+     * Returns information on a specific hierarchy group by hierarchy group ID
      * 
      */
     @Import(name="hierarchyGroupId")
     private @Nullable String hierarchyGroupId;
 
     /**
-     * @return Returns information on a specific hierarchy group by hierarchy group id
+     * @return Returns information on a specific hierarchy group by hierarchy group ID
      * 
      */
     public Optional<String> hierarchyGroupId() {
@@ -124,7 +124,7 @@ public final class GetUserHierarchyGroupPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param hierarchyGroupId Returns information on a specific hierarchy group by hierarchy group id
+         * @param hierarchyGroupId Returns information on a specific hierarchy group by hierarchy group ID
          * 
          * @return builder
          * 

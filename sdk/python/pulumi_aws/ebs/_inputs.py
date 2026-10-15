@@ -184,7 +184,7 @@ class SnapshotImportDiskContainerArgsDict(TypedDict):
     """
     url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+    The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `user_bucket` must be set.
     """
     user_bucket: NotRequired[pulumi.Input[Optional['SnapshotImportDiskContainerUserBucketArgsDict']]]
     """
@@ -201,7 +201,7 @@ class SnapshotImportDiskContainerArgs:
         """
         :param pulumi.Input[_builtins.str] format: The format of the disk image being imported. One of `VHD` or `VMDK`.
         :param pulumi.Input[_builtins.str] description: The description of the disk image being imported.
-        :param pulumi.Input[_builtins.str] url: The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+        :param pulumi.Input[_builtins.str] url: The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `user_bucket` must be set.
         :param pulumi.Input['SnapshotImportDiskContainerUserBucketArgs'] user_bucket: The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         """
         pulumi.set(__self__, "format", format)
@@ -240,7 +240,7 @@ class SnapshotImportDiskContainerArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+        The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `user_bucket` must be set.
         """
         return pulumi.get(self, "url")
 

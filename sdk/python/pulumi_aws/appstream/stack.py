@@ -263,7 +263,7 @@ class _StackState:
 
         :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
         :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence. See `application_settings` below.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream stack.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream stack.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         :param pulumi.Input[_builtins.str] description: Description for the AppStream stack.
         :param pulumi.Input[_builtins.str] display_name: Stack name to display.
@@ -340,7 +340,7 @@ class _StackState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the appstream stack.
+        ARN of the AppStream stack.
         """
         return pulumi.get(self, "arn")
 
@@ -587,7 +587,7 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `appstream.Stack` using the id. For example:
+        Using `pulumi import`, import `appstream.Stack` using the ID. For example:
 
         ```sh
         $ pulumi import aws:appstream/stack:Stack example stackID
@@ -681,7 +681,7 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `appstream.Stack` using the id. For example:
+        Using `pulumi import`, import `appstream.Stack` using the ID. For example:
 
         ```sh
         $ pulumi import aws:appstream/stack:Stack example stackID
@@ -776,7 +776,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict', 'outputs.StackAccessEndpoint']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
         :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict', 'outputs.StackApplicationSettings']] application_settings: Settings for application settings persistence. See `application_settings` below.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream stack.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream stack.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         :param pulumi.Input[_builtins.str] description: Description for the AppStream stack.
         :param pulumi.Input[_builtins.str] display_name: Stack name to display.
@@ -834,7 +834,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the appstream stack.
+        ARN of the AppStream stack.
         """
         return pulumi.get(self, "arn")
 

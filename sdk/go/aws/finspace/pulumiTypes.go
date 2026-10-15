@@ -915,7 +915,7 @@ func (o KxClusterDatabaseCacheConfigurationArrayOutput) Index(i pulumi.IntInput)
 type KxClusterSavedownStorageConfiguration struct {
 	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size *int `pulumi:"size"`
-	// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+	// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
 	Type *string `pulumi:"type"`
 	// Name of the kdb volume that you want to use as writeable save-down storage for clusters.
 	VolumeName *string `pulumi:"volumeName"`
@@ -935,7 +935,7 @@ type KxClusterSavedownStorageConfigurationInput interface {
 type KxClusterSavedownStorageConfigurationArgs struct {
 	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size pulumi.IntPtrInput `pulumi:"size"`
-	// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+	// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Name of the kdb volume that you want to use as writeable save-down storage for clusters.
 	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
@@ -1023,7 +1023,7 @@ func (o KxClusterSavedownStorageConfigurationOutput) Size() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
 func (o KxClusterSavedownStorageConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1067,7 +1067,7 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) Size() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
 func (o KxClusterSavedownStorageConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxClusterSavedownStorageConfiguration) *string {
 		if v == nil {

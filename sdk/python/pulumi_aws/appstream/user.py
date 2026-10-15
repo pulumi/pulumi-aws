@@ -154,7 +154,7 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
 
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream user.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream user.
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
         :param pulumi.Input[_builtins.bool] enabled: Whether the user in the user pool is enabled.
@@ -189,7 +189,7 @@ class _UserState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the appstream user.
+        ARN of the AppStream user.
         """
         return pulumi.get(self, "arn")
 
@@ -448,7 +448,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream user.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream user.
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
         :param pulumi.Input[_builtins.bool] enabled: Whether the user in the user pool is enabled.
@@ -479,7 +479,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the appstream user.
+        ARN of the AppStream user.
         """
         return pulumi.get(self, "arn")
 

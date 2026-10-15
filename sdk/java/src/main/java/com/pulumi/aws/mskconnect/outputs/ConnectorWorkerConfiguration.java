@@ -17,7 +17,7 @@ public final class ConnectorWorkerConfiguration {
      */
     private String arn;
     /**
-     * @return The revision of the worker configuration.
+     * @return Revision of the worker configuration.
      * 
      */
     private Integer revision;
@@ -31,7 +31,7 @@ public final class ConnectorWorkerConfiguration {
         return this.arn;
     }
     /**
-     * @return The revision of the worker configuration.
+     * @return Revision of the worker configuration.
      * 
      */
     public Integer revision() {

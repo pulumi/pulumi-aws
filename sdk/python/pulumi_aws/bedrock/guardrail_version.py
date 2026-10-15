@@ -34,7 +34,7 @@ class GuardrailVersionArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the Guardrail version.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
         """
         pulumi.set(__self__, "guardrail_arn", guardrail_arn)
         if description is not None:
@@ -88,7 +88,7 @@ class GuardrailVersionArgs:
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
         """
         return pulumi.get(self, "skip_destroy")
 
@@ -123,7 +123,7 @@ class _GuardrailVersionState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
         :param pulumi.Input[_builtins.str] version: Guardrail version.
         """
         if description is not None:
@@ -181,7 +181,7 @@ class _GuardrailVersionState:
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
         """
         return pulumi.get(self, "skip_destroy")
 
@@ -224,7 +224,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict', 'outputs.GuardrailVersionTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Guardrail Version.
+        Manages an AWS Bedrock Guardrail Version.
 
         ## Example Usage
 
@@ -236,16 +236,16 @@ class GuardrailVersion(pulumi.CustomResource):
 
         example = aws.bedrock.GuardrailVersion("example",
             description="example",
-            guardrail_arn=test["guardrailArn"],
+            guardrail_arn=example_aws_bedrock_guardrail["guardrailArn"],
             skip_destroy=True)
         ```
 
         ## Import
 
-        Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
+        Using `pulumi import`, import Amazon Bedrock Guardrail Version using a comma-delimited string of `guardrail_arn` and `version`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
+        $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail/guardrail-id-12345678,1
         ```
 
 
@@ -256,7 +256,7 @@ class GuardrailVersion(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
         """
         ...
     @overload
@@ -265,7 +265,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  args: GuardrailVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Guardrail Version.
+        Manages an AWS Bedrock Guardrail Version.
 
         ## Example Usage
 
@@ -277,16 +277,16 @@ class GuardrailVersion(pulumi.CustomResource):
 
         example = aws.bedrock.GuardrailVersion("example",
             description="example",
-            guardrail_arn=test["guardrailArn"],
+            guardrail_arn=example_aws_bedrock_guardrail["guardrailArn"],
             skip_destroy=True)
         ```
 
         ## Import
 
-        Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
+        Using `pulumi import`, import Amazon Bedrock Guardrail Version using a comma-delimited string of `guardrail_arn` and `version`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
+        $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail/guardrail-id-12345678,1
         ```
 
 
@@ -355,7 +355,7 @@ class GuardrailVersion(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
         :param pulumi.Input[_builtins.str] version: Guardrail version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -400,7 +400,7 @@ class GuardrailVersion(pulumi.CustomResource):
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
         """
         return pulumi.get(self, "skip_destroy")
 

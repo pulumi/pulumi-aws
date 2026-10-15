@@ -80,14 +80,14 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
     @Import(name="notificationTarget")
     private @Nullable Output<String> notificationTarget;
 
     /**
-     * @return An SNS topic ARN that is set up to receive game session placement notifications.
+     * @return SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
     public Optional<Output<String>> notificationTarget() {
@@ -140,14 +140,14 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -297,7 +297,7 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notificationTarget An SNS topic ARN that is set up to receive game session placement notifications.
+         * @param notificationTarget SNS topic ARN that is set up to receive game session placement notifications.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notificationTarget An SNS topic ARN that is set up to receive game session placement notifications.
+         * @param notificationTarget SNS topic ARN that is set up to receive game session placement notifications.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

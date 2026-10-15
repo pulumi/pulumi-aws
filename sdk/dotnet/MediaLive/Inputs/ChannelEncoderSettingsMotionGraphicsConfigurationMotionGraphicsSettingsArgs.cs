@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Html Motion Graphics Settings.
+        /// HTML motion graphics settings. Can be set as an empty block.
         /// </summary>
         [Input("htmlMotionGraphicsSettings")]
         public Input<Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs>? HtmlMotionGraphicsSettings { get; set; }

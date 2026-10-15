@@ -19,7 +19,7 @@ public final class CatalogCreateTableDefaultPermission {
      */
     private @Nullable List<String> permissions;
     /**
-     * @return Principal who is granted permissions. See `principal` below.
+     * @return Principal who is granted permissions. See `principal` Block below.
      * 
      */
     private @Nullable CatalogCreateTableDefaultPermissionPrincipal principal;
@@ -33,7 +33,7 @@ public final class CatalogCreateTableDefaultPermission {
         return this.permissions == null ? List.of() : this.permissions;
     }
     /**
-     * @return Principal who is granted permissions. See `principal` below.
+     * @return Principal who is granted permissions. See `principal` Block below.
      * 
      */
     public Optional<CatalogCreateTableDefaultPermissionPrincipal> principal() {

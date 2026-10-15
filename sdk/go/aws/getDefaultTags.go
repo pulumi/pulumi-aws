@@ -41,7 +41,7 @@ import (
 //
 // ```
 //
-// ### Dynamically Apply Default Tags to Auto Scaling Group
+// ### Dynamically Apply Default Tags to Auto Scaling group
 func GetDefaultTags(ctx *pulumi.Context, args *GetDefaultTagsArgs, opts ...pulumi.InvokeOption) (*GetDefaultTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultTagsResult

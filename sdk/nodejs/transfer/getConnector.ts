@@ -65,7 +65,7 @@ export interface GetConnectorResult {
     readonly egressConfigs: outputs.transfer.GetConnectorEgressConfig[];
     readonly id: string;
     /**
-     * ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
+     * ARN of the IAM role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
      */
     readonly loggingRole: string;
     readonly region: string;
@@ -74,7 +74,7 @@ export interface GetConnectorResult {
      */
     readonly securityPolicyName: string;
     /**
-     * List of egress Ip addresses.
+     * List of egress IP addresses.
      */
     readonly serviceManagedEgressIpAddresses: string[];
     /**

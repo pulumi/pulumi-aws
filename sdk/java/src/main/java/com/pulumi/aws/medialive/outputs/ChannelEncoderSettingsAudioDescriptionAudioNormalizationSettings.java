@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings {
     /**
-     * @return Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+     * @return Audio normalization algorithm to use. `itu17701` conforms to the CALM Act specification; `itu17702` conforms to the EBU R-128 specification.
      * 
      */
     private @Nullable String algorithm;
@@ -30,7 +30,7 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSetti
 
     private ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings() {}
     /**
-     * @return Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+     * @return Audio normalization algorithm to use. `itu17701` conforms to the CALM Act specification; `itu17702` conforms to the EBU R-128 specification.
      * 
      */
     public Optional<String> algorithm() {

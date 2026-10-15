@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNodeGroupResource {
     /**
-     * @return List of objects containing information about AutoScaling Groups.
+     * @return List of objects containing information about Auto Scaling groups.
      * 
      */
     private List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups;
@@ -25,7 +25,7 @@ public final class GetNodeGroupResource {
 
     private GetNodeGroupResource() {}
     /**
-     * @return List of objects containing information about AutoScaling Groups.
+     * @return List of objects containing information about Auto Scaling groups.
      * 
      */
     public List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups() {

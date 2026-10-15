@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings {
     /**
-     * @return Sets the attenuation control.
+     * @return Attenuation control.
      * 
      */
     private @Nullable String attenuationControl;
@@ -24,7 +24,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
      */
     private @Nullable Double bitrate;
     /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * @return Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     private @Nullable String bitstreamMode;
@@ -33,7 +33,15 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
      * 
      */
     private @Nullable String codingMode;
+    /**
+     * @return Whether to activate a DC filter for the channels.
+     * 
+     */
     private @Nullable String dcFilter;
+    /**
+     * @return Sets the dialnorm for the output.
+     * 
+     */
     private @Nullable Integer dialnorm;
     /**
      * @return Sets the Dolby dynamic range compression profile.
@@ -41,34 +49,74 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
      */
     private @Nullable String drcLine;
     /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * @return Profile for heavy Dolby dynamic range compression.
      * 
      */
     private @Nullable String drcRf;
+    /**
+     * @return When set to `lfe`, the EAC3 output contains an LFE channel.
+     * 
+     */
     private @Nullable String lfeControl;
     /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * @return When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     private @Nullable String lfeFilter;
+    /**
+     * @return Left total/right total center mix level.
+     * 
+     */
     private @Nullable Double loRoCenterMixLevel;
+    /**
+     * @return Left total/right total surround mix level.
+     * 
+     */
     private @Nullable Double loRoSurroundMixLevel;
+    /**
+     * @return Left only/right only center mix level.
+     * 
+     */
     private @Nullable Double ltRtCenterMixLevel;
+    /**
+     * @return Left only/right only surround mix level.
+     * 
+     */
     private @Nullable Double ltRtSurroundMixLevel;
     /**
      * @return Metadata control.
      * 
      */
     private @Nullable String metadataControl;
+    /**
+     * @return When set to `whenPossible`, input DD+ audio is passed through if present.
+     * 
+     */
     private @Nullable String passthroughControl;
+    /**
+     * @return Whether to invert the phase of the surround channels.
+     * 
+     */
     private @Nullable String phaseControl;
+    /**
+     * @return Stereo downmix preference.
+     * 
+     */
     private @Nullable String stereoDownmix;
+    /**
+     * @return Whether to encode the stream as Dolby Digital EX.
+     * 
+     */
     private @Nullable String surroundExMode;
+    /**
+     * @return Whether to encode the stream as a surround sound stream.
+     * 
+     */
     private @Nullable String surroundMode;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings() {}
     /**
-     * @return Sets the attenuation control.
+     * @return Attenuation control.
      * 
      */
     public Optional<String> attenuationControl() {
@@ -82,7 +130,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.bitrate);
     }
     /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * @return Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     public Optional<String> bitstreamMode() {
@@ -95,9 +143,17 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
+    /**
+     * @return Whether to activate a DC filter for the channels.
+     * 
+     */
     public Optional<String> dcFilter() {
         return Optional.ofNullable(this.dcFilter);
     }
+    /**
+     * @return Sets the dialnorm for the output.
+     * 
+     */
     public Optional<Integer> dialnorm() {
         return Optional.ofNullable(this.dialnorm);
     }
@@ -109,31 +165,51 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.drcLine);
     }
     /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * @return Profile for heavy Dolby dynamic range compression.
      * 
      */
     public Optional<String> drcRf() {
         return Optional.ofNullable(this.drcRf);
     }
+    /**
+     * @return When set to `lfe`, the EAC3 output contains an LFE channel.
+     * 
+     */
     public Optional<String> lfeControl() {
         return Optional.ofNullable(this.lfeControl);
     }
     /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * @return When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     public Optional<String> lfeFilter() {
         return Optional.ofNullable(this.lfeFilter);
     }
+    /**
+     * @return Left total/right total center mix level.
+     * 
+     */
     public Optional<Double> loRoCenterMixLevel() {
         return Optional.ofNullable(this.loRoCenterMixLevel);
     }
+    /**
+     * @return Left total/right total surround mix level.
+     * 
+     */
     public Optional<Double> loRoSurroundMixLevel() {
         return Optional.ofNullable(this.loRoSurroundMixLevel);
     }
+    /**
+     * @return Left only/right only center mix level.
+     * 
+     */
     public Optional<Double> ltRtCenterMixLevel() {
         return Optional.ofNullable(this.ltRtCenterMixLevel);
     }
+    /**
+     * @return Left only/right only surround mix level.
+     * 
+     */
     public Optional<Double> ltRtSurroundMixLevel() {
         return Optional.ofNullable(this.ltRtSurroundMixLevel);
     }
@@ -144,18 +220,38 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
     public Optional<String> metadataControl() {
         return Optional.ofNullable(this.metadataControl);
     }
+    /**
+     * @return When set to `whenPossible`, input DD+ audio is passed through if present.
+     * 
+     */
     public Optional<String> passthroughControl() {
         return Optional.ofNullable(this.passthroughControl);
     }
+    /**
+     * @return Whether to invert the phase of the surround channels.
+     * 
+     */
     public Optional<String> phaseControl() {
         return Optional.ofNullable(this.phaseControl);
     }
+    /**
+     * @return Stereo downmix preference.
+     * 
+     */
     public Optional<String> stereoDownmix() {
         return Optional.ofNullable(this.stereoDownmix);
     }
+    /**
+     * @return Whether to encode the stream as Dolby Digital EX.
+     * 
+     */
     public Optional<String> surroundExMode() {
         return Optional.ofNullable(this.surroundExMode);
     }
+    /**
+     * @return Whether to encode the stream as a surround sound stream.
+     * 
+     */
     public Optional<String> surroundMode() {
         return Optional.ofNullable(this.surroundMode);
     }

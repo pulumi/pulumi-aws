@@ -19,14 +19,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     public static final ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs Empty = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs();
 
     /**
-     * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+     * Justification of the caption text. When no explicit `xPosition` or `yPosition` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `xPosition` and `yPosition` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles.
      * 
      */
     @Import(name="alignment")
     private @Nullable Output<String> alignment;
 
     /**
-     * @return If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+     * @return Justification of the caption text. When no explicit `xPosition` or `yPosition` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `xPosition` and `yPosition` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles.
      * 
      */
     public Optional<Output<String>> alignment() {
@@ -34,14 +34,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+     * Color of the rectangle behind the captions.
      * 
      */
     @Import(name="backgroundColor")
     private @Nullable Output<String> backgroundColor;
 
     /**
-     * @return Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+     * @return Color of the rectangle behind the captions.
      * 
      */
     public Optional<Output<String>> backgroundColor() {
@@ -49,14 +49,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     * Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
      * 
      */
     @Import(name="backgroundOpacity")
     private @Nullable Output<Integer> backgroundOpacity;
 
     /**
-     * @return Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     * @return Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
      * 
      */
     public Optional<Output<Integer>> backgroundOpacity() {
@@ -64,14 +64,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+     * External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
      * 
      */
     @Import(name="font")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs> font;
 
     /**
-     * @return External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+     * @return External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs>> font() {
@@ -79,14 +79,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     * Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
      * 
      */
     @Import(name="fontColor")
     private @Nullable Output<String> fontColor;
 
     /**
-     * @return Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     * @return Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
      * 
      */
     public Optional<Output<String>> fontColor() {
@@ -94,14 +94,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+     * Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
      * 
      */
     @Import(name="fontOpacity")
     private @Nullable Output<Integer> fontOpacity;
 
     /**
-     * @return Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+     * @return Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
      * 
      */
     public Optional<Output<Integer>> fontOpacity() {
@@ -109,14 +109,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+     * Font resolution in DPI (dots per inch). Default is 96 dpi.
      * 
      */
     @Import(name="fontResolution")
     private @Nullable Output<Integer> fontResolution;
 
     /**
-     * @return Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+     * @return Font resolution in DPI (dots per inch). Default is 96 dpi.
      * 
      */
     public Optional<Output<Integer>> fontResolution() {
@@ -124,14 +124,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+     * When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
      * 
      */
     @Import(name="fontSize")
     private @Nullable Output<String> fontSize;
 
     /**
-     * @return When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+     * @return When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
      * 
      */
     public Optional<Output<String>> fontSize() {
@@ -139,14 +139,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     * Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
      * 
      */
     @Import(name="outlineColor", required=true)
     private Output<String> outlineColor;
 
     /**
-     * @return Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     * @return Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
      * 
      */
     public Output<String> outlineColor() {
@@ -154,14 +154,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     * Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
      * 
      */
     @Import(name="outlineSize")
     private @Nullable Output<Integer> outlineSize;
 
     /**
-     * @return Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     * @return Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
      * 
      */
     public Optional<Output<Integer>> outlineSize() {
@@ -169,14 +169,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+     * Color of the shadow cast by the captions.
      * 
      */
     @Import(name="shadowColor")
     private @Nullable Output<String> shadowColor;
 
     /**
-     * @return Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+     * @return Color of the shadow cast by the captions.
      * 
      */
     public Optional<Output<String>> shadowColor() {
@@ -184,14 +184,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     * Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
      * 
      */
     @Import(name="shadowOpacity")
     private @Nullable Output<Integer> shadowOpacity;
 
     /**
-     * @return Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     * @return Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
      * 
      */
     public Optional<Output<Integer>> shadowOpacity() {
@@ -199,14 +199,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+     * Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
      * 
      */
     @Import(name="shadowXOffset")
     private @Nullable Output<Integer> shadowXOffset;
 
     /**
-     * @return Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+     * @return Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
      * 
      */
     public Optional<Output<Integer>> shadowXOffset() {
@@ -214,14 +214,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+     * Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
      * 
      */
     @Import(name="shadowYOffset")
     private @Nullable Output<Integer> shadowYOffset;
 
     /**
-     * @return Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+     * @return Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
      * 
      */
     public Optional<Output<Integer>> shadowYOffset() {
@@ -229,14 +229,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+     * Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
      * 
      */
     @Import(name="teletextGridControl", required=true)
     private Output<String> teletextGridControl;
 
     /**
-     * @return Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+     * @return Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
      * 
      */
     public Output<String> teletextGridControl() {
@@ -244,14 +244,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+     * Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `xPosition` is provided, the horizontal caption position is determined by the alignment parameter.
      * 
      */
     @Import(name="xPosition")
     private @Nullable Output<Integer> xPosition;
 
     /**
-     * @return Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+     * @return Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `xPosition` is provided, the horizontal caption position is determined by the alignment parameter.
      * 
      */
     public Optional<Output<Integer>> xPosition() {
@@ -259,14 +259,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
     }
 
     /**
-     * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+     * Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `yPosition` is provided, the caption is positioned towards the bottom of the output.
      * 
      */
     @Import(name="yPosition")
     private @Nullable Output<Integer> yPosition;
 
     /**
-     * @return Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+     * @return Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `yPosition` is provided, the caption is positioned towards the bottom of the output.
      * 
      */
     public Optional<Output<Integer>> yPosition() {
@@ -314,7 +314,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param alignment If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+         * @param alignment Justification of the caption text. When no explicit `xPosition` or `yPosition` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `xPosition` and `yPosition` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param alignment If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+         * @param alignment Justification of the caption text. When no explicit `xPosition` or `yPosition` is provided, `centered` places the captions at the bottom center of the output and `left` aligns captions to the bottom left. If `xPosition` and `yPosition` are given with the alignment parameter, the font is justified (left or centered) relative to those coordinates. Selecting `smart` justification left-justifies live subtitles and center-justifies pre-recorded subtitles.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param backgroundColor Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+         * @param backgroundColor Color of the rectangle behind the captions.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param backgroundColor Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+         * @param backgroundColor Color of the rectangle behind the captions.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param backgroundOpacity Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         * @param backgroundOpacity Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param backgroundOpacity Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         * @param backgroundOpacity Opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param font External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+         * @param font External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param font External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+         * @param font External font file used for caption burn-in. File extension must be `ttf` or `tte`. Although you can select output fonts for many different types of input captions, embedded, STL, and teletext sources use a strict grid system; using external fonts with these caption sources could cause unexpected display of proportional fonts. See `font` Block for details.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontColor Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         * @param fontColor Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontColor Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         * @param fontColor Color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded, or teletext. These source settings are already pre-defined by the caption stream.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontOpacity Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+         * @param fontOpacity Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontOpacity Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+         * @param fontOpacity Opacity of the burned-in captions. 255 is opaque; 0 is transparent.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontResolution Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+         * @param fontResolution Font resolution in DPI (dots per inch). Default is 96 dpi.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontResolution Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+         * @param fontResolution Font resolution in DPI (dots per inch). Default is 96 dpi.
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontSize When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+         * @param fontSize When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param fontSize When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+         * @param fontSize When set to `auto`, font size scales depending on the size of the output. A positive integer sets the exact font size in points.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param outlineColor Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         * @param outlineColor Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param outlineColor Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         * @param outlineColor Font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param outlineSize Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         * @param outlineSize Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param outlineSize Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         * @param outlineSize Font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowColor Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+         * @param shadowColor Color of the shadow cast by the captions.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowColor Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+         * @param shadowColor Color of the shadow cast by the captions.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowOpacity Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         * @param shadowOpacity Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowOpacity Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         * @param shadowOpacity Opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowXOffset Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+         * @param shadowXOffset Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowXOffset Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+         * @param shadowXOffset Horizontal offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels to the left.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowYOffset Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+         * @param shadowYOffset Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param shadowYOffset Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+         * @param shadowYOffset Vertical offset, in pixels, of the shadow relative to the captions. A value of -2 results in a shadow offset 2 pixels above the text.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param teletextGridControl Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+         * @param teletextGridControl Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param teletextGridControl Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+         * @param teletextGridControl Whether a fixed grid size is used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
          * 
          * @return builder
          * 
@@ -629,7 +629,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param xPosition Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+         * @param xPosition Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `xPosition` is provided, the horizontal caption position is determined by the alignment parameter.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param xPosition Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+         * @param xPosition Horizontal position, in pixels, of the caption relative to the left side of the output. A value of 10 results in the captions starting 10 pixels from the left of the output. If no explicit `xPosition` is provided, the horizontal caption position is determined by the alignment parameter.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param yPosition Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+         * @param yPosition Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `yPosition` is provided, the caption is positioned towards the bottom of the output.
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         /**
-         * @param yPosition Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+         * @param yPosition Vertical position, in pixels, of the caption relative to the top of the output. A value of 10 results in the captions starting 10 pixels from the top of the output. If no explicit `yPosition` is provided, the caption is positioned towards the bottom of the output.
          * 
          * @return builder
          * 

@@ -604,7 +604,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### Cloudwatch Log Group Usage
+    /// ### CloudWatch Log Group Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -1005,7 +1005,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetSqsTarget?> SqsTarget { get; private set; } = null!;
 
         /// <summary>
-        /// The unique target assignment ID. If missing, will generate a random, unique id.
+        /// The unique target assignment ID. If missing, will generate a random, unique ID.
         /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
@@ -1186,7 +1186,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetSqsTargetArgs>? SqsTarget { get; set; }
 
         /// <summary>
-        /// The unique target assignment ID. If missing, will generate a random, unique id.
+        /// The unique target assignment ID. If missing, will generate a random, unique ID.
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
@@ -1329,7 +1329,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetSqsTargetGetArgs>? SqsTarget { get; set; }
 
         /// <summary>
-        /// The unique target assignment ID. If missing, will generate a random, unique id.
+        /// The unique target assignment ID. If missing, will generate a random, unique ID.
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }

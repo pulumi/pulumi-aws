@@ -12,7 +12,7 @@ namespace Pulumi.Aws.WafRegional
     public static class GetRule
     {
         /// <summary>
-        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.WafRegional
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:wafregional/getRule:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.WafRegional
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws:wafregional/getRule:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 

@@ -65,7 +65,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the parameter group.
+     * ARN of the parameter group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -73,7 +73,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The engine version that the parameter group can be used with.
+     * Engine version that the parameter group can be used with.
      *
      * The following arguments are optional:
      */
@@ -95,11 +95,11 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -150,7 +150,7 @@ export class ParameterGroup extends pulumi.CustomResource {
  */
 export interface ParameterGroupState {
     /**
-     * The ARN of the parameter group.
+     * ARN of the parameter group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface ParameterGroupState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The engine version that the parameter group can be used with.
+     * Engine version that the parameter group can be used with.
      *
      * The following arguments are optional:
      */
@@ -180,11 +180,11 @@ export interface ParameterGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -198,7 +198,7 @@ export interface ParameterGroupArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The engine version that the parameter group can be used with.
+     * Engine version that the parameter group can be used with.
      *
      * The following arguments are optional:
      */
@@ -220,7 +220,7 @@ export interface ParameterGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

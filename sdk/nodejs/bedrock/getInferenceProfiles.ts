@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing AWS Bedrock Inference Profiles.
+ * Provides details about AWS Bedrock Inference Profiles.
  *
  * ## Example Usage
  *
@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getInferenceProfiles({});
+ * const example = aws.bedrock.getInferenceProfiles({});
  * ```
  *
  * ### Filter by Type
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getInferenceProfiles({
+ * const example = aws.bedrock.getInferenceProfiles({
  *     type: "APPLICATION",
  * });
  * ```
@@ -70,7 +70,7 @@ export interface GetInferenceProfilesResult {
     readonly type?: string;
 }
 /**
- * Data source for managing AWS Bedrock Inference Profiles.
+ * Provides details about AWS Bedrock Inference Profiles.
  *
  * ## Example Usage
  *
@@ -80,7 +80,7 @@ export interface GetInferenceProfilesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getInferenceProfiles({});
+ * const example = aws.bedrock.getInferenceProfiles({});
  * ```
  *
  * ### Filter by Type
@@ -89,7 +89,7 @@ export interface GetInferenceProfilesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getInferenceProfiles({
+ * const example = aws.bedrock.getInferenceProfiles({
  *     type: "APPLICATION",
  * });
  * ```

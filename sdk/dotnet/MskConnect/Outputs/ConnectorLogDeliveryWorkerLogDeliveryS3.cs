@@ -14,15 +14,15 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryS3
     {
         /// <summary>
-        /// The name of the S3 bucket that is the destination for log delivery.
+        /// Name of the S3 bucket that is the destination for log delivery.
         /// </summary>
         public readonly string? Bucket;
         /// <summary>
-        /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        /// Whether connector logs get sent to the specified Amazon S3 destination.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The S3 prefix that is the destination for log delivery.
+        /// S3 prefix that is the destination for log delivery.
         /// </summary>
         public readonly string? Prefix;
 

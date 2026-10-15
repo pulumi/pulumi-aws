@@ -16,14 +16,14 @@ public final class ChannelEncoderSettingsNielsenConfigurationArgs extends com.pu
     public static final ChannelEncoderSettingsNielsenConfigurationArgs Empty = new ChannelEncoderSettingsNielsenConfigurationArgs();
 
     /**
-     * Enter the Distributor ID assigned to your organization by Nielsen.
+     * Distributor ID assigned to your organization by Nielsen.
      * 
      */
     @Import(name="distributorId")
     private @Nullable Output<String> distributorId;
 
     /**
-     * @return Enter the Distributor ID assigned to your organization by Nielsen.
+     * @return Distributor ID assigned to your organization by Nielsen.
      * 
      */
     public Optional<Output<String>> distributorId() {
@@ -71,7 +71,7 @@ public final class ChannelEncoderSettingsNielsenConfigurationArgs extends com.pu
         }
 
         /**
-         * @param distributorId Enter the Distributor ID assigned to your organization by Nielsen.
+         * @param distributorId Distributor ID assigned to your organization by Nielsen.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ChannelEncoderSettingsNielsenConfigurationArgs extends com.pu
         }
 
         /**
-         * @param distributorId Enter the Distributor ID assigned to your organization by Nielsen.
+         * @param distributorId Distributor ID assigned to your organization by Nielsen.
          * 
          * @return builder
          * 

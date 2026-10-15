@@ -159,14 +159,14 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+     * Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      * 
      */
     @Import(name="sourceSecurityGroupId")
     private @Nullable Output<String> sourceSecurityGroupId;
 
     /**
-     * @return Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+     * @return Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      * 
      */
     public Optional<Output<String>> sourceSecurityGroupId() {
@@ -486,7 +486,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceSecurityGroupId Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+         * @param sourceSecurityGroupId Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceSecurityGroupId Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+         * @param sourceSecurityGroupId Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
          * 
          * @return builder
          * 

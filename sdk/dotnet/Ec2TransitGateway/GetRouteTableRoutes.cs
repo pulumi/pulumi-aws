@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public static class GetRouteTableRoutes
     {
         /// <summary>
-        /// Provides informations for routes of a specific transit gateway, such as state, type, cidr
+        /// Provides informations for routes of a specific transit gateway, such as state, type, CIDR
         /// 
         /// ## Example Usage
         /// 
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableRoutesResult>("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", args ?? new GetRouteTableRoutesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides informations for routes of a specific transit gateway, such as state, type, cidr
+        /// Provides informations for routes of a specific transit gateway, such as state, type, CIDR
         /// 
         /// ## Example Usage
         /// 
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableRoutesResult>("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", args ?? new GetRouteTableRoutesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides informations for routes of a specific transit gateway, such as state, type, cidr
+        /// Provides informations for routes of a specific transit gateway, such as state, type, CIDR
         /// 
         /// ## Example Usage
         /// 

@@ -75,10 +75,11 @@ export class User extends pulumi.CustomResource {
     declare public readonly accessString: pulumi.Output<string>;
     /**
      * ARN of the user.
+     * * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Denotes the user's authentication properties. Detailed below.
+     * Authentication properties for the user. Detailed below.
      */
     declare public readonly authenticationMode: pulumi.Output<outputs.memorydb.UserAuthenticationMode>;
     /**
@@ -90,11 +91,11 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -160,10 +161,11 @@ export interface UserState {
     accessString?: pulumi.Input<string | undefined>;
     /**
      * ARN of the user.
+     * * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Denotes the user's authentication properties. Detailed below.
+     * Authentication properties for the user. Detailed below.
      */
     authenticationMode?: pulumi.Input<inputs.memorydb.UserAuthenticationMode | undefined>;
     /**
@@ -175,11 +177,11 @@ export interface UserState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -199,7 +201,7 @@ export interface UserArgs {
      */
     accessString: pulumi.Input<string>;
     /**
-     * Denotes the user's authentication properties. Detailed below.
+     * Authentication properties for the user. Detailed below.
      */
     authenticationMode: pulumi.Input<inputs.memorydb.UserAuthenticationMode>;
     /**
@@ -207,7 +209,7 @@ export interface UserArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

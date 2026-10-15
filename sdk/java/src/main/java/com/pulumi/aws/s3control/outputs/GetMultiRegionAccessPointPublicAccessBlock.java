@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetMultiRegionAccessPointPublicAccessBlock {
     /**
-     * @return Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+     * @return Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
     private Boolean blockPublicAcls;
@@ -33,7 +33,7 @@ public final class GetMultiRegionAccessPointPublicAccessBlock {
 
     private GetMultiRegionAccessPointPublicAccessBlock() {}
     /**
-     * @return Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+     * @return Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
     public Boolean blockPublicAcls() {

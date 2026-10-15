@@ -238,14 +238,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
-     * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     @Export(name="enableCloudwatchLogsExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enableCloudwatchLogsExports;
 
     /**
-     * @return List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * @return List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     public Output<Optional<List<String>>> enableCloudwatchLogsExports() {

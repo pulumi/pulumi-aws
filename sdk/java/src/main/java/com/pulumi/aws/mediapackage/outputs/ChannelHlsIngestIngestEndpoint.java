@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelHlsIngestIngestEndpoint {
     /**
-     * @return The password
+     * @return Password
      * 
      */
     private @Nullable String password;
     /**
-     * @return The URL
+     * @return URL
      * 
      */
     private @Nullable String url;
     /**
-     * @return The username
+     * @return Username
      * 
      */
     private @Nullable String username;
 
     private ChannelHlsIngestIngestEndpoint() {}
     /**
-     * @return The password
+     * @return Password
      * 
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The URL
+     * @return URL
      * 
      */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }
     /**
-     * @return The username
+     * @return Username
      * 
      */
     public Optional<String> username() {

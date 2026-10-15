@@ -15,14 +15,14 @@ public final class ReplicatorKafkaClusterApacheKafkaClusterArgs extends com.pulu
     public static final ReplicatorKafkaClusterApacheKafkaClusterArgs Empty = new ReplicatorKafkaClusterApacheKafkaClusterArgs();
 
     /**
-     * The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+     * Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
      * 
      */
     @Import(name="apacheKafkaClusterId", required=true)
     private Output<String> apacheKafkaClusterId;
 
     /**
-     * @return The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+     * @return Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
      * 
      */
     public Output<String> apacheKafkaClusterId() {
@@ -30,14 +30,14 @@ public final class ReplicatorKafkaClusterApacheKafkaClusterArgs extends com.pulu
     }
 
     /**
-     * The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+     * Bootstrap broker connection string used to connect to the Apache Kafka cluster.
      * 
      */
     @Import(name="bootstrapBrokerString", required=true)
     private Output<String> bootstrapBrokerString;
 
     /**
-     * @return The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+     * @return Bootstrap broker connection string used to connect to the Apache Kafka cluster.
      * 
      */
     public Output<String> bootstrapBrokerString() {
@@ -70,7 +70,7 @@ public final class ReplicatorKafkaClusterApacheKafkaClusterArgs extends com.pulu
         }
 
         /**
-         * @param apacheKafkaClusterId The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+         * @param apacheKafkaClusterId Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ReplicatorKafkaClusterApacheKafkaClusterArgs extends com.pulu
         }
 
         /**
-         * @param apacheKafkaClusterId The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+         * @param apacheKafkaClusterId Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ReplicatorKafkaClusterApacheKafkaClusterArgs extends com.pulu
         }
 
         /**
-         * @param bootstrapBrokerString The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+         * @param bootstrapBrokerString Bootstrap broker connection string used to connect to the Apache Kafka cluster.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ReplicatorKafkaClusterApacheKafkaClusterArgs extends com.pulu
         }
 
         /**
-         * @param bootstrapBrokerString The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+         * @param bootstrapBrokerString Bootstrap broker connection string used to connect to the Apache Kafka cluster.
          * 
          * @return builder
          * 

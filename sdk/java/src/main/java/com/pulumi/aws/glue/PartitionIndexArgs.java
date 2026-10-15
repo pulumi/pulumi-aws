@@ -18,14 +18,14 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
     public static final PartitionIndexArgs Empty = new PartitionIndexArgs();
 
     /**
-     * The catalog ID where the table resides.
+     * Catalog ID where the table resides.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return The catalog ID where the table resides.
+     * @return Catalog ID where the table resides.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -48,14 +48,14 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for a partition index. See `partitionIndex` below.
+     * Configuration block for a partition index. See `partitionIndex` Block below.
      * 
      */
     @Import(name="partitionIndex", required=true)
     private Output<PartitionIndexPartitionIndexArgs> partitionIndex;
 
     /**
-     * @return Configuration block for a partition index. See `partitionIndex` below.
+     * @return Configuration block for a partition index. See `partitionIndex` Block below.
      * 
      */
     public Output<PartitionIndexPartitionIndexArgs> partitionIndex() {
@@ -121,7 +121,7 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param catalogId The catalog ID where the table resides.
+         * @param catalogId Catalog ID where the table resides.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param catalogId The catalog ID where the table resides.
+         * @param catalogId Catalog ID where the table resides.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` below.
+         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` Block below.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` below.
+         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` Block below.
          * 
          * @return builder
          * 

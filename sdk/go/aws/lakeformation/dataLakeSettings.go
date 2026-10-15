@@ -93,7 +93,7 @@ import (
 //
 // ```
 //
-// ### Enable EMR access to LakeFormation resources
+// ### Enable EMR access to Lake Formation resources
 //
 // ```go
 // package main

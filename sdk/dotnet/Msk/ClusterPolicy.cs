@@ -83,6 +83,9 @@ namespace Pulumi.Aws.Msk
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the policy.
+        /// </summary>
         [Output("currentVersion")]
         public Output<string> CurrentVersion { get; private set; } = null!;
 
@@ -176,6 +179,9 @@ namespace Pulumi.Aws.Msk
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
+        /// <summary>
+        /// Current version of the policy.
+        /// </summary>
         [Input("currentVersion")]
         public Input<string>? CurrentVersion { get; set; }
 

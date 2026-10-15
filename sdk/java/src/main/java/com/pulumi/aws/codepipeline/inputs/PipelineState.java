@@ -23,14 +23,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     public static final PipelineState Empty = new PipelineState();
 
     /**
-     * Codepipeline ARN.
+     * CodePipeline ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Codepipeline ARN.
+     * @return CodePipeline ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -258,7 +258,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Codepipeline ARN.
+         * @param arn CodePipeline ARN.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Codepipeline ARN.
+         * @param arn CodePipeline ARN.
          * 
          * @return builder
          * 

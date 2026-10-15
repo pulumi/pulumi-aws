@@ -15,14 +15,14 @@ public final class ReplicatorKafkaClusterClientAuthenticationMtlsArgs extends co
     public static final ReplicatorKafkaClusterClientAuthenticationMtlsArgs Empty = new ReplicatorKafkaClusterClientAuthenticationMtlsArgs();
 
     /**
-     * The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+     * ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
      * 
      */
     @Import(name="secretArn", required=true)
     private Output<String> secretArn;
 
     /**
-     * @return The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+     * @return ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
      * 
      */
     public Output<String> secretArn() {
@@ -54,7 +54,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationMtlsArgs extends co
         }
 
         /**
-         * @param secretArn The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         * @param secretArn ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationMtlsArgs extends co
         }
 
         /**
-         * @param secretArn The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         * @param secretArn ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
          * 
          * @return builder
          * 

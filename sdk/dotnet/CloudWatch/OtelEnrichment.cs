@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **NOTE:** This resource requires the `aws.observabilityadmin.TelemetryEnrichment` resource to be configured first. Without telemetry enrichment enabled, OTel enrichment will not function properly even if the API accepts the configuration.
     /// 
+    /// &gt; **NOTE:** Creating this Terraform resource starts AWS CloudWatch OTel enrichment and deleting this Terraform resource stops AWS CloudWatch OTel enrichment.
+    /// 
+    /// Filters are evaluated as follows. `IncludeFilter` is applied first, then the `ExcludeFilter` match set is subtracted from the result. Exclusion always wins, so a metric matched by both is not enriched. An inactive direction is permissive: with no `IncludeFilter`, every supported namespace is in scope, and with no `ExcludeFilter`, nothing is removed. Namespaces and metric names are matched exactly and case-sensitively, with no wildcards or prefixes, so `AWS/EC2` matches only `AWS/EC2`. At most 100 selectors are allowed across `IncludeFilter` and `ExcludeFilter` **combined**. Two lists of 60 selectors each satisfy the per-list limit but are rejected together.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Enable OTel Enrichment
@@ -30,6 +34,61 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var exampleOtelEnrichment = new Aws.CloudWatch.OtelEnrichment("example", new()
     ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Filter Enrichment by Namespace and Metric
+    /// 
+    /// By default every namespace that CloudWatch supports is enriched. Narrow that scope with `IncludeFilter` and `ExcludeFilter`. The configuration below enriches all of `AWS/EC2` except two network metrics, plus exactly two `AWS/RDS` metrics, and nothing else.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Observabilityadmin.TelemetryEnrichment("example");
+    /// 
+    ///     var exampleOtelEnrichment = new Aws.CloudWatch.OtelEnrichment("example", new()
+    ///     {
+    ///         ExcludeFilters = new[]
+    ///         {
+    ///             new Aws.CloudWatch.Inputs.OtelEnrichmentExcludeFilterArgs
+    ///             {
+    ///                 Namespace = "AWS/EC2",
+    ///                 MetricNames = new[]
+    ///                 {
+    ///                     "NetworkPacketsIn",
+    ///                     "NetworkPacketsOut",
+    ///                 },
+    ///             },
+    ///         },
+    ///         IncludeFilters = new[]
+    ///         {
+    ///             new Aws.CloudWatch.Inputs.OtelEnrichmentIncludeFilterArgs
+    ///             {
+    ///                 Namespace = "AWS/EC2",
+    ///             },
+    ///             new Aws.CloudWatch.Inputs.OtelEnrichmentIncludeFilterArgs
+    ///             {
+    ///                 Namespace = "AWS/RDS",
+    ///                 MetricNames = new[]
+    ///                 {
+    ///                     "CPUUtilization",
+    ///                     "DatabaseConnections",
+    ///                 },
+    ///             },
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -63,6 +122,18 @@ namespace Pulumi.Aws.CloudWatch
     [AwsResourceType("aws:cloudwatch/otelEnrichment:OtelEnrichment")]
     public partial class OtelEnrichment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Namespaces and metric names to leave unenriched. See below.
+        /// </summary>
+        [Output("excludeFilters")]
+        public Output<ImmutableArray<Outputs.OtelEnrichmentExcludeFilter>> ExcludeFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// Namespaces and metric names to enrich. See below.
+        /// </summary>
+        [Output("includeFilters")]
+        public Output<ImmutableArray<Outputs.OtelEnrichmentIncludeFilter>> IncludeFilters { get; private set; } = null!;
+
         /// <summary>
         /// AWS region where this resource is managed.
         /// </summary>
@@ -118,6 +189,30 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class OtelEnrichmentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("excludeFilters")]
+        private InputList<Inputs.OtelEnrichmentExcludeFilterArgs>? _excludeFilters;
+
+        /// <summary>
+        /// Namespaces and metric names to leave unenriched. See below.
+        /// </summary>
+        public InputList<Inputs.OtelEnrichmentExcludeFilterArgs> ExcludeFilters
+        {
+            get => _excludeFilters ?? (_excludeFilters = new InputList<Inputs.OtelEnrichmentExcludeFilterArgs>());
+            set => _excludeFilters = value;
+        }
+
+        [Input("includeFilters")]
+        private InputList<Inputs.OtelEnrichmentIncludeFilterArgs>? _includeFilters;
+
+        /// <summary>
+        /// Namespaces and metric names to enrich. See below.
+        /// </summary>
+        public InputList<Inputs.OtelEnrichmentIncludeFilterArgs> IncludeFilters
+        {
+            get => _includeFilters ?? (_includeFilters = new InputList<Inputs.OtelEnrichmentIncludeFilterArgs>());
+            set => _includeFilters = value;
+        }
+
         /// <summary>
         /// AWS region where this resource is managed.
         /// </summary>
@@ -135,6 +230,30 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class OtelEnrichmentState : global::Pulumi.ResourceArgs
     {
+        [Input("excludeFilters")]
+        private InputList<Inputs.OtelEnrichmentExcludeFilterGetArgs>? _excludeFilters;
+
+        /// <summary>
+        /// Namespaces and metric names to leave unenriched. See below.
+        /// </summary>
+        public InputList<Inputs.OtelEnrichmentExcludeFilterGetArgs> ExcludeFilters
+        {
+            get => _excludeFilters ?? (_excludeFilters = new InputList<Inputs.OtelEnrichmentExcludeFilterGetArgs>());
+            set => _excludeFilters = value;
+        }
+
+        [Input("includeFilters")]
+        private InputList<Inputs.OtelEnrichmentIncludeFilterGetArgs>? _includeFilters;
+
+        /// <summary>
+        /// Namespaces and metric names to enrich. See below.
+        /// </summary>
+        public InputList<Inputs.OtelEnrichmentIncludeFilterGetArgs> IncludeFilters
+        {
+            get => _includeFilters ?? (_includeFilters = new InputList<Inputs.OtelEnrichmentIncludeFilterGetArgs>());
+            set => _includeFilters = value;
+        }
+
         /// <summary>
         /// AWS region where this resource is managed.
         /// </summary>

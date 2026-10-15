@@ -17,14 +17,14 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
     public static final GetContactFlowModulePlainArgs Empty = new GetContactFlowModulePlainArgs();
 
     /**
-     * Returns information on a specific Contact Flow Module by contact flow module id
+     * Returns information on a specific Contact Flow Module by contact flow module ID
      * 
      */
     @Import(name="contactFlowModuleId")
     private @Nullable String contactFlowModuleId;
 
     /**
-     * @return Returns information on a specific Contact Flow Module by contact flow module id
+     * @return Returns information on a specific Contact Flow Module by contact flow module ID
      * 
      */
     public Optional<String> contactFlowModuleId() {
@@ -124,7 +124,7 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param contactFlowModuleId Returns information on a specific Contact Flow Module by contact flow module id
+         * @param contactFlowModuleId Returns information on a specific Contact Flow Module by contact flow module ID
          * 
          * @return builder
          * 

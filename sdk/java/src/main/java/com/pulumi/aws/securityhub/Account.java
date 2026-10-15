@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:securityhub/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the SecurityHub Hub created in the account.
+     * ARN of the Security Hub Hub created in the account.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the SecurityHub Hub created in the account.
+     * @return ARN of the Security Hub Hub created in the account.
      * 
      */
     public Output<String> arn() {

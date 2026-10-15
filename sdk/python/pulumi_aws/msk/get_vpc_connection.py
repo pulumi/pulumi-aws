@@ -64,7 +64,7 @@ class GetVpcConnectionResult:
     @pulumi.getter
     def authentication(self) -> _builtins.str:
         """
-        The authentication type for the client VPC Connection.
+        Authentication type for the client VPC Connection.
         """
         return pulumi.get(self, "authentication")
 
@@ -72,7 +72,7 @@ class GetVpcConnectionResult:
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> Sequence[_builtins.str]:
         """
-        The list of subnets in the client VPC.
+        List of subnets in the client VPC.
         """
         return pulumi.get(self, "client_subnets")
 
@@ -93,7 +93,7 @@ class GetVpcConnectionResult:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
         """
-        The security groups attached to the ENIs for the broker nodes.
+        Security groups attached to the ENIs for the broker nodes.
         """
         return pulumi.get(self, "security_groups")
 
@@ -117,7 +117,7 @@ class GetVpcConnectionResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
         """
-        The VPC ID of the remote client.
+        VPC ID of the remote client.
         """
         return pulumi.get(self, "vpc_id")
 

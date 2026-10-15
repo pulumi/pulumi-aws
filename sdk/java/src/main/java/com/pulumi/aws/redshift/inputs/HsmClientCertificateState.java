@@ -17,14 +17,14 @@ public final class HsmClientCertificateState extends com.pulumi.resources.Resour
     public static final HsmClientCertificateState Empty = new HsmClientCertificateState();
 
     /**
-     * ARN of the Hsm Client Certificate.
+     * ARN of the HSM Client Certificate.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the Hsm Client Certificate.
+     * @return ARN of the HSM Client Certificate.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -136,7 +136,7 @@ public final class HsmClientCertificateState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn ARN of the Hsm Client Certificate.
+         * @param arn ARN of the HSM Client Certificate.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class HsmClientCertificateState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn ARN of the Hsm Client Certificate.
+         * @param arn ARN of the HSM Client Certificate.
          * 
          * @return builder
          * 

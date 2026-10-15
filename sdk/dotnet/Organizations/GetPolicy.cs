@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+        /// The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
         /// </summary>
         [Input("policyId", required: true)]
         public string PolicyId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+        /// The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;

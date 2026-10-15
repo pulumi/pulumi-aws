@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserAuthenticationMode {
-    /**
-     * @return Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     private @Nullable Integer passwordCount;
     /**
      * @return Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
@@ -25,16 +21,12 @@ public final class UserAuthenticationMode {
      */
     private @Nullable List<String> passwords;
     /**
-     * @return Specifies the authentication type. Valid values are: `password` or `iam`.
+     * @return Type of authentication. Valid values are `password` or `iam`.
      * 
      */
     private String type;
 
     private UserAuthenticationMode() {}
-    /**
-     * @return Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     public Optional<Integer> passwordCount() {
         return Optional.ofNullable(this.passwordCount);
     }
@@ -46,7 +38,7 @@ public final class UserAuthenticationMode {
         return this.passwords == null ? List.of() : this.passwords;
     }
     /**
-     * @return Specifies the authentication type. Valid values are: `password` or `iam`.
+     * @return Type of authentication. Valid values are `password` or `iam`.
      * 
      */
     public String type() {

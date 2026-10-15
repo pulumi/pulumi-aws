@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption
     {
         /// <summary>
-        /// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+        /// KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
         /// </summary>
         public readonly string? AwsKmsKeyId;
         /// <summary>

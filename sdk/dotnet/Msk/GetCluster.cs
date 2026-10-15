@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string BootstrapBrokersTls;
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster.
+        /// Configuration block for the broker nodes of the Kafka cluster. See `BrokerNodeGroupInfo` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoResult> BrokerNodeGroupInfos;
         public readonly string ClusterName;
@@ -222,11 +222,11 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         public readonly string ZookeeperConnectString;
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         public readonly string ZookeeperConnectStringTls;
 

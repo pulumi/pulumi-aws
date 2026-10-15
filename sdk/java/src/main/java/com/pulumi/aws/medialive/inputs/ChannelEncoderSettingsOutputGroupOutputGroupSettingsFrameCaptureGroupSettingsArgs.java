@@ -17,16 +17,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs();
 
+    /**
+     * Parameters that identify where to write the frame captures. See `destination` Block for details.
+     * 
+     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination;
 
+    /**
+     * @return Parameters that identify where to write the frame captures. See `destination` Block for details.
+     * 
+     */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination() {
         return this.destination;
     }
 
+    /**
+     * Parameters that control the interactions with the CDN. See `frameCaptureCdnSettings` Block for details.
+     * 
+     */
     @Import(name="frameCaptureCdnSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs> frameCaptureCdnSettings;
 
+    /**
+     * @return Parameters that control the interactions with the CDN. See `frameCaptureCdnSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs>> frameCaptureCdnSettings() {
         return Optional.ofNullable(this.frameCaptureCdnSettings);
     }
@@ -56,20 +72,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destination Parameters that identify where to write the frame captures. See `destination` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
+        /**
+         * @param destination Parameters that identify where to write the frame captures. See `destination` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
+        /**
+         * @param frameCaptureCdnSettings Parameters that control the interactions with the CDN. See `frameCaptureCdnSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureCdnSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs> frameCaptureCdnSettings) {
             $.frameCaptureCdnSettings = frameCaptureCdnSettings;
             return this;
         }
 
+        /**
+         * @param frameCaptureCdnSettings Parameters that control the interactions with the CDN. See `frameCaptureCdnSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureCdnSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs frameCaptureCdnSettings) {
             return frameCaptureCdnSettings(Output.of(frameCaptureCdnSettings));
         }

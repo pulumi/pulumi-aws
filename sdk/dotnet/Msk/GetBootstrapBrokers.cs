@@ -174,15 +174,15 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string BootstrapBrokersTlsIpv6;
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
         /// </summary>
         public readonly string BootstrapBrokersVpcConnectivitySaslIam;
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
         /// </summary>
         public readonly string BootstrapBrokersVpcConnectivitySaslScram;
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
+        /// One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
         /// </summary>
         public readonly string BootstrapBrokersVpcConnectivityTls;
         public readonly string ClusterArn;

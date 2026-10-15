@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock
     public static class GetAgentAgentVersions
     {
         /// <summary>
-        /// Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+        /// Provides details about AWS Bedrock Agents Agent Versions.
         /// 
         /// ## Example Usage
         /// 
@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetAgentAgentVersions.Invoke(new()
+        ///     var example = Aws.Bedrock.GetAgentAgentVersions.Invoke(new()
         ///     {
-        ///         AgentId = testAwsBedrockagentAgent.AgentId,
+        ///         AgentId = exampleAwsBedrockagentAgent.AgentId,
         ///     });
         /// 
         /// });
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentAgentVersionsResult>("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args ?? new GetAgentAgentVersionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+        /// Provides details about AWS Bedrock Agents Agent Versions.
         /// 
         /// ## Example Usage
         /// 
@@ -52,9 +52,9 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetAgentAgentVersions.Invoke(new()
+        ///     var example = Aws.Bedrock.GetAgentAgentVersions.Invoke(new()
         ///     {
-        ///         AgentId = testAwsBedrockagentAgent.AgentId,
+        ///         AgentId = exampleAwsBedrockagentAgent.AgentId,
         ///     });
         /// 
         /// });
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentAgentVersionsResult>("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args ?? new GetAgentAgentVersionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+        /// Provides details about AWS Bedrock Agents Agent Versions.
         /// 
         /// ## Example Usage
         /// 
@@ -78,9 +78,9 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetAgentAgentVersions.Invoke(new()
+        ///     var example = Aws.Bedrock.GetAgentAgentVersions.Invoke(new()
         ///     {
-        ///         AgentId = testAwsBedrockagentAgent.AgentId,
+        ///         AgentId = exampleAwsBedrockagentAgent.AgentId,
         ///     });
         /// 
         /// });
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Bedrock
         private List<Inputs.GetAgentAgentVersionsAgentVersionSummaryArgs>? _agentVersionSummaries;
 
         /// <summary>
-        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block
+        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block.
         /// </summary>
         public List<Inputs.GetAgentAgentVersionsAgentVersionSummaryArgs> AgentVersionSummaries
         {
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.GetAgentAgentVersionsAgentVersionSummaryInputArgs>? _agentVersionSummaries;
 
         /// <summary>
-        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block
+        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block.
         /// </summary>
         public InputList<Inputs.GetAgentAgentVersionsAgentVersionSummaryInputArgs> AgentVersionSummaries
         {
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Bedrock
     {
         public readonly string AgentId;
         /// <summary>
-        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block
+        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAgentAgentVersionsAgentVersionSummaryResult> AgentVersionSummaries;
         public readonly string Region;

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class NodeGroupResourceAutoscalingGroup
     {
         /// <summary>
-        /// Name of the AutoScaling Group.
+        /// Name of the Auto Scaling group.
         /// </summary>
         public readonly string? Name;
 

@@ -205,14 +205,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Import(name="bootstrapBrokersVpcConnectivitySaslIam")
     private @Nullable Output<String> bootstrapBrokersVpcConnectivitySaslIam;
 
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     public Optional<Output<String>> bootstrapBrokersVpcConnectivitySaslIam() {
@@ -220,14 +220,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Import(name="bootstrapBrokersVpcConnectivitySaslScram")
     private @Nullable Output<String> bootstrapBrokersVpcConnectivitySaslScram;
 
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     public Optional<Output<String>> bootstrapBrokersVpcConnectivitySaslScram() {
@@ -235,14 +235,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Import(name="bootstrapBrokersVpcConnectivityTls")
     private @Nullable Output<String> bootstrapBrokersVpcConnectivityTls;
 
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * @return One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     public Optional<Output<String>> bootstrapBrokersVpcConnectivityTls() {
@@ -250,14 +250,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      * 
      */
     @Import(name="brokerNodeGroupInfo")
     private @Nullable Output<ClusterBrokerNodeGroupInfoArgs> brokerNodeGroupInfo;
 
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoArgs>> brokerNodeGroupInfo() {
@@ -265,14 +265,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      * 
      */
     @Import(name="clientAuthentication")
     private @Nullable Output<ClusterClientAuthenticationArgs> clientAuthentication;
 
     /**
-     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * @return Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      * 
      */
     public Optional<Output<ClusterClientAuthenticationArgs>> clientAuthentication() {
@@ -310,14 +310,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      * 
      */
     @Import(name="configurationInfo")
     private @Nullable Output<ClusterConfigurationInfoArgs> configurationInfo;
 
     /**
-     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      * 
      */
     public Optional<Output<ClusterConfigurationInfoArgs>> configurationInfo() {
@@ -355,14 +355,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * Configuration block for specifying encryption. See `encryptionInfo` Block below.
      * 
      */
     @Import(name="encryptionInfo")
     private @Nullable Output<ClusterEncryptionInfoArgs> encryptionInfo;
 
     /**
-     * @return Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * @return Configuration block for specifying encryption. See `encryptionInfo` Block below.
      * 
      */
     public Optional<Output<ClusterEncryptionInfoArgs>> encryptionInfo() {
@@ -370,14 +370,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      * 
      */
     @Import(name="enhancedMonitoring")
     private @Nullable Output<String> enhancedMonitoring;
 
     /**
-     * @return Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * @return Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      * 
      */
     public Optional<Output<String>> enhancedMonitoring() {
@@ -385,14 +385,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the desired Kafka software version.
+     * Desired Kafka software version.
      * 
      */
     @Import(name="kafkaVersion")
     private @Nullable Output<String> kafkaVersion;
 
     /**
-     * @return Specify the desired Kafka software version.
+     * @return Desired Kafka software version.
      * 
      */
     public Optional<Output<String>> kafkaVersion() {
@@ -400,14 +400,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      * 
      */
     @Import(name="loggingInfo")
     private @Nullable Output<ClusterLoggingInfoArgs> loggingInfo;
 
     /**
-     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      * 
      */
     public Optional<Output<ClusterLoggingInfoArgs>> loggingInfo() {
@@ -415,14 +415,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      * 
      */
     @Import(name="numberOfBrokerNodes")
     private @Nullable Output<Integer> numberOfBrokerNodes;
 
     /**
-     * @return The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * @return Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      * 
      */
     public Optional<Output<Integer>> numberOfBrokerNodes() {
@@ -430,14 +430,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      * 
      */
     @Import(name="openMonitoring")
     private @Nullable Output<ClusterOpenMonitoringArgs> openMonitoring;
 
     /**
-     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      * 
      */
     public Optional<Output<ClusterOpenMonitoringArgs>> openMonitoring() {
@@ -445,14 +445,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      * 
      */
     @Import(name="rebalancing")
     private @Nullable Output<ClusterRebalancingArgs> rebalancing;
 
     /**
-     * @return Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * @return Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      * 
      */
     public Optional<Output<ClusterRebalancingArgs>> rebalancing() {
@@ -490,14 +490,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -505,14 +505,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -520,14 +520,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     @Import(name="zookeeperConnectString")
     private @Nullable Output<String> zookeeperConnectString;
 
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     public Optional<Output<String>> zookeeperConnectString() {
@@ -535,14 +535,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     @Import(name="zookeeperConnectStringTls")
     private @Nullable Output<String> zookeeperConnectStringTls;
 
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     public Optional<Output<String>> zookeeperConnectStringTls() {
@@ -860,7 +860,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapBrokersVpcConnectivitySaslIam A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * @param bootstrapBrokersVpcConnectivitySaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapBrokersVpcConnectivitySaslIam A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * @param bootstrapBrokersVpcConnectivitySaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
          * 
@@ -881,7 +881,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapBrokersVpcConnectivitySaslScram A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * @param bootstrapBrokersVpcConnectivitySaslScram One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
          * 
@@ -892,7 +892,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapBrokersVpcConnectivitySaslScram A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * @param bootstrapBrokersVpcConnectivitySaslScram One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
          * 
@@ -902,7 +902,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapBrokersVpcConnectivityTls A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * @param bootstrapBrokersVpcConnectivityTls One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
          * 
@@ -913,7 +913,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapBrokersVpcConnectivityTls A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * @param bootstrapBrokersVpcConnectivityTls One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
          * 
@@ -923,7 +923,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
          * 
          * @return builder
          * 
@@ -934,7 +934,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
          * 
          * @return builder
          * 
@@ -944,7 +944,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+         * @param clientAuthentication Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -955,7 +955,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+         * @param clientAuthentication Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -1007,7 +1007,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
          * 
          * @return builder
          * 
@@ -1018,7 +1018,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
          * 
          * @return builder
          * 
@@ -1070,7 +1070,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionInfo Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+         * @param encryptionInfo Configuration block for specifying encryption. See `encryptionInfo` Block below.
          * 
          * @return builder
          * 
@@ -1081,7 +1081,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionInfo Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+         * @param encryptionInfo Configuration block for specifying encryption. See `encryptionInfo` Block below.
          * 
          * @return builder
          * 
@@ -1091,7 +1091,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedMonitoring Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+         * @param enhancedMonitoring Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
          * 
          * @return builder
          * 
@@ -1102,7 +1102,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedMonitoring Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+         * @param enhancedMonitoring Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
          * 
          * @return builder
          * 
@@ -1112,7 +1112,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaVersion Specify the desired Kafka software version.
+         * @param kafkaVersion Desired Kafka software version.
          * 
          * @return builder
          * 
@@ -1123,7 +1123,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaVersion Specify the desired Kafka software version.
+         * @param kafkaVersion Desired Kafka software version.
          * 
          * @return builder
          * 
@@ -1133,7 +1133,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
          * 
          * @return builder
          * 
@@ -1144,7 +1144,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
          * 
          * @return builder
          * 
@@ -1154,7 +1154,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfBrokerNodes The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+         * @param numberOfBrokerNodes Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
          * 
          * @return builder
          * 
@@ -1165,7 +1165,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfBrokerNodes The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+         * @param numberOfBrokerNodes Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
          * 
          * @return builder
          * 
@@ -1175,7 +1175,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
          * 
          * @return builder
          * 
@@ -1186,7 +1186,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
          * 
          * @return builder
          * 
@@ -1196,7 +1196,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rebalancing Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+         * @param rebalancing Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
          * 
          * @return builder
          * 
@@ -1207,7 +1207,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rebalancing Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+         * @param rebalancing Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
          * 
          * @return builder
          * 
@@ -1259,7 +1259,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1270,7 +1270,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1280,7 +1280,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1291,7 +1291,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1301,7 +1301,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zookeeperConnectString A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+         * @param zookeeperConnectString Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
          * 
          * @return builder
          * 
@@ -1312,7 +1312,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zookeeperConnectString A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+         * @param zookeeperConnectString Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
          * 
          * @return builder
          * 
@@ -1322,7 +1322,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zookeeperConnectStringTls A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+         * @param zookeeperConnectStringTls Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
          * 
          * @return builder
          * 
@@ -1333,7 +1333,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zookeeperConnectStringTls A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+         * @param zookeeperConnectStringTls Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
          * 
          * @return builder
          * 

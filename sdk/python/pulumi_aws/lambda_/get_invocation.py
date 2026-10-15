@@ -173,7 +173,7 @@ def get_invocation(function_name: Optional[_builtins.str] = None,
            The following arguments are optional:
     :param _builtins.str qualifier: Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str tenant_id: Tenant Id to serve invocations from specified tenant.
+    :param _builtins.str tenant_id: Tenant ID to serve invocations from specified tenant.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -259,7 +259,7 @@ def get_invocation_output(function_name: pulumi.Input[Optional[_builtins.str]] =
            The following arguments are optional:
     :param _builtins.str qualifier: Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str tenant_id: Tenant Id to serve invocations from specified tenant.
+    :param _builtins.str tenant_id: Tenant ID to serve invocations from specified tenant.
     """
     __args__ = dict()
     __args__['functionName'] = function_name

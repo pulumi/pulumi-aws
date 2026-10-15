@@ -28,12 +28,12 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
      */
     private @Nullable Double dialnorm;
     /**
-     * @return Sets the Dolby dynamic range compression profile.
+     * @return Dolby dynamic range compression profile.
      * 
      */
     private @Nullable String drcLine;
     /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * @return Profile for heavy Dolby dynamic range compression.
      * 
      */
     private @Nullable String drcRf;
@@ -71,14 +71,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         return Optional.ofNullable(this.dialnorm);
     }
     /**
-     * @return Sets the Dolby dynamic range compression profile.
+     * @return Dolby dynamic range compression profile.
      * 
      */
     public Optional<String> drcLine() {
         return Optional.ofNullable(this.drcLine);
     }
     /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * @return Profile for heavy Dolby dynamic range compression.
      * 
      */
     public Optional<String> drcRf() {

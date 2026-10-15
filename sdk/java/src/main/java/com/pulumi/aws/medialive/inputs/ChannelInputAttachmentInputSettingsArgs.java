@@ -22,14 +22,14 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
     public static final ChannelInputAttachmentInputSettingsArgs Empty = new ChannelInputAttachmentInputSettingsArgs();
 
     /**
-     * Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * Select the audio stream to decode for inputs that have multiple. See `audioSelector` Block for details.
      * 
      */
     @Import(name="audioSelectors")
     private @Nullable Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>> audioSelectors;
 
     /**
-     * @return Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * @return Select the audio stream to decode for inputs that have multiple. See `audioSelector` Block for details.
      * 
      */
     public Optional<Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>>> audioSelectors() {
@@ -37,14 +37,14 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
     }
 
     /**
-     * Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * Select the caption input to use for inputs that have multiple available. See `captionSelector` Block for details.
      * 
      */
     @Import(name="captionSelectors")
     private @Nullable Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>> captionSelectors;
 
     /**
-     * @return Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * @return Select the caption input to use for inputs that have multiple available. See `captionSelector` Block for details.
      * 
      */
     public Optional<Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>>> captionSelectors() {
@@ -52,14 +52,14 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
     }
 
     /**
-     * Enable or disable the deblock filter when filtering.
+     * Whether to enable the deblock filter when filtering.
      * 
      */
     @Import(name="deblockFilter")
     private @Nullable Output<String> deblockFilter;
 
     /**
-     * @return Enable or disable the deblock filter when filtering.
+     * @return Whether to enable the deblock filter when filtering.
      * 
      */
     public Optional<Output<String>> deblockFilter() {
@@ -67,14 +67,14 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
     }
 
     /**
-     * Enable or disable the denoise filter when filtering.
+     * Whether to enable the denoise filter when filtering.
      * 
      */
     @Import(name="denoiseFilter")
     private @Nullable Output<String> denoiseFilter;
 
     /**
-     * @return Enable or disable the denoise filter when filtering.
+     * @return Whether to enable the denoise filter when filtering.
      * 
      */
     public Optional<Output<String>> denoiseFilter() {
@@ -82,14 +82,14 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
     }
 
     /**
-     * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+     * Magnitude of filtering from 1 (minimal) to 5 (strongest).
      * 
      */
     @Import(name="filterStrength")
     private @Nullable Output<Integer> filterStrength;
 
     /**
-     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+     * @return Magnitude of filtering from 1 (minimal) to 5 (strongest).
      * 
      */
     public Optional<Output<Integer>> filterStrength() {
@@ -112,14 +112,14 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
     }
 
     /**
-     * Input settings. See Network Input Settings for more details.
+     * Input settings. See `networkInputSettings` Block for details.
      * 
      */
     @Import(name="networkInputSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs> networkInputSettings;
 
     /**
-     * @return Input settings. See Network Input Settings for more details.
+     * @return Input settings. See `networkInputSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs>> networkInputSettings() {
@@ -142,14 +142,14 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
     }
 
     /**
-     * Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+     * Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
      * 
      */
     @Import(name="smpte2038DataPreference")
     private @Nullable Output<String> smpte2038DataPreference;
 
     /**
-     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+     * @return Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
      * 
      */
     public Optional<Output<String>> smpte2038DataPreference() {
@@ -171,9 +171,17 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         return Optional.ofNullable(this.sourceEndBehavior);
     }
 
+    /**
+     * Information about one video to extract from the input. See `videoSelector` Block for details.
+     * 
+     */
     @Import(name="videoSelector")
     private @Nullable Output<ChannelInputAttachmentInputSettingsVideoSelectorArgs> videoSelector;
 
+    /**
+     * @return Information about one video to extract from the input. See `videoSelector` Block for details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsVideoSelectorArgs>> videoSelector() {
         return Optional.ofNullable(this.videoSelector);
     }
@@ -213,7 +221,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+         * @param audioSelectors Select the audio stream to decode for inputs that have multiple. See `audioSelector` Block for details.
          * 
          * @return builder
          * 
@@ -224,7 +232,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+         * @param audioSelectors Select the audio stream to decode for inputs that have multiple. See `audioSelector` Block for details.
          * 
          * @return builder
          * 
@@ -234,7 +242,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+         * @param audioSelectors Select the audio stream to decode for inputs that have multiple. See `audioSelector` Block for details.
          * 
          * @return builder
          * 
@@ -244,7 +252,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+         * @param captionSelectors Select the caption input to use for inputs that have multiple available. See `captionSelector` Block for details.
          * 
          * @return builder
          * 
@@ -255,7 +263,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+         * @param captionSelectors Select the caption input to use for inputs that have multiple available. See `captionSelector` Block for details.
          * 
          * @return builder
          * 
@@ -265,7 +273,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+         * @param captionSelectors Select the caption input to use for inputs that have multiple available. See `captionSelector` Block for details.
          * 
          * @return builder
          * 
@@ -275,7 +283,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param deblockFilter Enable or disable the deblock filter when filtering.
+         * @param deblockFilter Whether to enable the deblock filter when filtering.
          * 
          * @return builder
          * 
@@ -286,7 +294,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param deblockFilter Enable or disable the deblock filter when filtering.
+         * @param deblockFilter Whether to enable the deblock filter when filtering.
          * 
          * @return builder
          * 
@@ -296,7 +304,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param denoiseFilter Enable or disable the denoise filter when filtering.
+         * @param denoiseFilter Whether to enable the denoise filter when filtering.
          * 
          * @return builder
          * 
@@ -307,7 +315,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param denoiseFilter Enable or disable the denoise filter when filtering.
+         * @param denoiseFilter Whether to enable the denoise filter when filtering.
          * 
          * @return builder
          * 
@@ -317,7 +325,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param filterStrength Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+         * @param filterStrength Magnitude of filtering from 1 (minimal) to 5 (strongest).
          * 
          * @return builder
          * 
@@ -328,7 +336,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param filterStrength Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+         * @param filterStrength Magnitude of filtering from 1 (minimal) to 5 (strongest).
          * 
          * @return builder
          * 
@@ -359,7 +367,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param networkInputSettings Input settings. See Network Input Settings for more details.
+         * @param networkInputSettings Input settings. See `networkInputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -370,7 +378,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param networkInputSettings Input settings. See Network Input Settings for more details.
+         * @param networkInputSettings Input settings. See `networkInputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -401,7 +409,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param smpte2038DataPreference Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+         * @param smpte2038DataPreference Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
          * 
          * @return builder
          * 
@@ -412,7 +420,7 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param smpte2038DataPreference Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+         * @param smpte2038DataPreference Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
          * 
          * @return builder
          * 
@@ -442,11 +450,23 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
             return sourceEndBehavior(Output.of(sourceEndBehavior));
         }
 
+        /**
+         * @param videoSelector Information about one video to extract from the input. See `videoSelector` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder videoSelector(@Nullable Output<ChannelInputAttachmentInputSettingsVideoSelectorArgs> videoSelector) {
             $.videoSelector = videoSelector;
             return this;
         }
 
+        /**
+         * @param videoSelector Information about one video to extract from the input. See `videoSelector` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder videoSelector(ChannelInputAttachmentInputSettingsVideoSelectorArgs videoSelector) {
             return videoSelector(Output.of(videoSelector));
         }

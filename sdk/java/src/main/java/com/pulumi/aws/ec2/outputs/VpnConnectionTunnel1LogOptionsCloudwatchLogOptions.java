@@ -23,7 +23,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
      */
     private @Nullable String bgpLogGroupArn;
     /**
-     * @return Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * @return Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     private @Nullable String bgpLogOutputFormat;
@@ -38,7 +38,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
      */
     private @Nullable String logGroupArn;
     /**
-     * @return Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * @return Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     private @Nullable String logOutputFormat;
@@ -59,7 +59,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
         return Optional.ofNullable(this.bgpLogGroupArn);
     }
     /**
-     * @return Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * @return Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     public Optional<String> bgpLogOutputFormat() {
@@ -80,7 +80,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
         return Optional.ofNullable(this.logGroupArn);
     }
     /**
-     * @return Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * @return Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
     public Optional<String> logOutputFormat() {

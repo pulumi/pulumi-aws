@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
         /// <summary>
         /// Catalog ID, database name, and table name, separated by colons (`:`).
-        /// * `partition_index[*].index_status` - Status of the partition index.
         /// </summary>
         [Input("id", required: true)]
         public Input<int> Id { get; set; } = null!;

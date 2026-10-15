@@ -89,14 +89,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:msk/serverlessCluster:ServerlessCluster")
 public class ServerlessCluster extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the serverless cluster.
+     * ARN of the serverless cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the serverless cluster.
+     * @return ARN of the serverless cluster.
      * 
      */
     public Output<String> arn() {
@@ -117,28 +117,28 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
         return this.bootstrapBrokersSaslIam;
     }
     /**
-     * Specifies client authentication information for the serverless cluster. See below.
+     * Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
      * 
      */
     @Export(name="clientAuthentication", refs={ServerlessClusterClientAuthentication.class}, tree="[0]")
     private Output<ServerlessClusterClientAuthentication> clientAuthentication;
 
     /**
-     * @return Specifies client authentication information for the serverless cluster. See below.
+     * @return Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
      * 
      */
     public Output<ServerlessClusterClientAuthentication> clientAuthentication() {
         return this.clientAuthentication;
     }
     /**
-     * The name of the serverless cluster.
+     * Name of the serverless cluster.
      * 
      */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
-     * @return The name of the serverless cluster.
+     * @return Name of the serverless cluster.
      * 
      */
     public Output<String> clusterName() {
@@ -173,42 +173,42 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * VPC configuration information. See below.
+     * VPC configuration information. See `vpcConfig` Block below.
      * 
      */
     @Export(name="vpcConfigs", refs={List.class,ServerlessClusterVpcConfig.class}, tree="[0,1]")
     private Output<List<ServerlessClusterVpcConfig>> vpcConfigs;
 
     /**
-     * @return VPC configuration information. See below.
+     * @return VPC configuration information. See `vpcConfig` Block below.
      * 
      */
     public Output<List<ServerlessClusterVpcConfig>> vpcConfigs() {

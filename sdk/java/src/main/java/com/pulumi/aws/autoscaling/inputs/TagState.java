@@ -17,14 +17,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     public static final TagState Empty = new TagState();
 
     /**
-     * Name of the Autoscaling Group to apply the tag to.
+     * Name of the Auto Scaling group to apply the tag to.
      * 
      */
     @Import(name="autoscalingGroupName")
     private @Nullable Output<String> autoscalingGroupName;
 
     /**
-     * @return Name of the Autoscaling Group to apply the tag to.
+     * @return Name of the Auto Scaling group to apply the tag to.
      * 
      */
     public Optional<Output<String>> autoscalingGroupName() {
@@ -88,7 +88,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
+         * @param autoscalingGroupName Name of the Auto Scaling group to apply the tag to.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
+         * @param autoscalingGroupName Name of the Auto Scaling group to apply the tag to.
          * 
          * @return builder
          * 

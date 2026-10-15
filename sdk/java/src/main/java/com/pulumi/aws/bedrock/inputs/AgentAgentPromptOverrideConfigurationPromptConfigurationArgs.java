@@ -17,14 +17,14 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs 
     public static final AgentAgentPromptOverrideConfigurationPromptConfigurationArgs Empty = new AgentAgentPromptOverrideConfigurationPromptConfigurationArgs();
 
     /**
-     * prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+     * Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
      * 
      */
     @Import(name="basePromptTemplate", required=true)
     private Output<String> basePromptTemplate;
 
     /**
-     * @return prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+     * @return Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
      * 
      */
     public Output<String> basePromptTemplate() {
@@ -92,14 +92,14 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs 
     }
 
     /**
-     * Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+     * Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
      * 
      */
     @Import(name="promptType", required=true)
     private Output<String> promptType;
 
     /**
-     * @return Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+     * @return Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
      * 
      */
     public Output<String> promptType() {
@@ -136,7 +136,7 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs 
         }
 
         /**
-         * @param basePromptTemplate prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+         * @param basePromptTemplate Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs 
         }
 
         /**
-         * @param basePromptTemplate prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+         * @param basePromptTemplate Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs 
         }
 
         /**
-         * @param promptType Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+         * @param promptType Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs 
         }
 
         /**
-         * @param promptType Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+         * @param promptType Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
          * 
          * @return builder
          * 

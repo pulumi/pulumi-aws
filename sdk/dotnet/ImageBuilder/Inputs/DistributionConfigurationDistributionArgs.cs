@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         private InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationArgs>? _ssmParameterConfigurations;
 
         /// <summary>
-        /// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        /// Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
         /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationArgs> SsmParameterConfigurations
         {

@@ -72,7 +72,7 @@ type GameSessionQueue struct {
 	Destinations pulumi.StringArrayOutput `pulumi:"destinations"`
 	// Name of the session queue.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An SNS topic ARN that is set up to receive game session placement notifications.
+	// SNS topic ARN that is set up to receive game session placement notifications.
 	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
@@ -80,7 +80,7 @@ type GameSessionQueue struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
@@ -124,7 +124,7 @@ type gameSessionQueueState struct {
 	Destinations []string `pulumi:"destinations"`
 	// Name of the session queue.
 	Name *string `pulumi:"name"`
-	// An SNS topic ARN that is set up to receive game session placement notifications.
+	// SNS topic ARN that is set up to receive game session placement notifications.
 	NotificationTarget *string `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
@@ -132,7 +132,7 @@ type gameSessionQueueState struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
@@ -147,7 +147,7 @@ type GameSessionQueueState struct {
 	Destinations pulumi.StringArrayInput
 	// Name of the session queue.
 	Name pulumi.StringPtrInput
-	// An SNS topic ARN that is set up to receive game session placement notifications.
+	// SNS topic ARN that is set up to receive game session placement notifications.
 	NotificationTarget pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
@@ -155,7 +155,7 @@ type GameSessionQueueState struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds pulumi.IntPtrInput
@@ -172,7 +172,7 @@ type gameSessionQueueArgs struct {
 	Destinations []string `pulumi:"destinations"`
 	// Name of the session queue.
 	Name *string `pulumi:"name"`
-	// An SNS topic ARN that is set up to receive game session placement notifications.
+	// SNS topic ARN that is set up to receive game session placement notifications.
 	NotificationTarget *string `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
@@ -192,7 +192,7 @@ type GameSessionQueueArgs struct {
 	Destinations pulumi.StringArrayInput
 	// Name of the session queue.
 	Name pulumi.StringPtrInput
-	// An SNS topic ARN that is set up to receive game session placement notifications.
+	// SNS topic ARN that is set up to receive game session placement notifications.
 	NotificationTarget pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
@@ -311,7 +311,7 @@ func (o GameSessionQueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An SNS topic ARN that is set up to receive game session placement notifications.
+// SNS topic ARN that is set up to receive game session placement notifications.
 func (o GameSessionQueueOutput) NotificationTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
 }
@@ -333,7 +333,7 @@ func (o GameSessionQueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GameSessionQueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

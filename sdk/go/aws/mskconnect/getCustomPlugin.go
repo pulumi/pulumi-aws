@@ -54,7 +54,7 @@ type LookupCustomPluginArgs struct {
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -72,7 +72,7 @@ type LookupCustomPluginResult struct {
 	Region         string `pulumi:"region"`
 	// the state of the custom plugin.
 	State string `pulumi:"state"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -87,7 +87,7 @@ type LookupCustomPluginOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -143,7 +143,7 @@ func (o LookupCustomPluginResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource.
+// Map of tags assigned to the resource.
 func (o LookupCustomPluginResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -88,13 +88,13 @@ namespace Pulumi.Aws.Dms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// SNS topic arn to send events on.
+        /// SNS topic ARN to send events on.
         /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+        /// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         [Output("sourceIds")]
         public Output<ImmutableArray<string>> SourceIds { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// SNS topic arn to send events on.
+        /// SNS topic ARN to send events on.
         /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Dms
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+        /// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         public InputList<string> SourceIds
         {
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// SNS topic arn to send events on.
+        /// SNS topic ARN to send events on.
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Dms
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+        /// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         public InputList<string> SourceIds
         {

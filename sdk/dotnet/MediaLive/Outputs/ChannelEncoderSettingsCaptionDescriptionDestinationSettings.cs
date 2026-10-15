@@ -14,55 +14,55 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsCaptionDescriptionDestinationSettings
     {
         /// <summary>
-        /// ARIB Destination Settings.
+        /// ARIB destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings? AribDestinationSettings;
         /// <summary>
-        /// Burn In Destination Settings. See Burn In Destination Settings for more details.
+        /// Burn-in destination settings. See `BurnInDestinationSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings? BurnInDestinationSettings;
         /// <summary>
-        /// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+        /// DVB Sub destination settings. See `DvbSubDestinationSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings? DvbSubDestinationSettings;
         /// <summary>
-        /// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
+        /// EBU TT D destination settings. See `EbuTtDDestinationSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings? EbuTtDDestinationSettings;
         /// <summary>
-        /// Embedded Destination Settings.
+        /// Embedded destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings? EmbeddedDestinationSettings;
         /// <summary>
-        /// Embedded Plus SCTE20 Destination Settings.
+        /// Embedded Plus SCTE-20 destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings? EmbeddedPlusScte20DestinationSettings;
         /// <summary>
-        /// RTMP Caption Info Destination Settings.
+        /// RTMP caption info destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings? RtmpCaptionInfoDestinationSettings;
         /// <summary>
-        /// SCTE20 Plus Embedded Destination Settings.
+        /// SCTE-20 Plus Embedded destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings? Scte20PlusEmbeddedDestinationSettings;
         /// <summary>
-        /// SCTE27 Destination Settings.
+        /// SCTE-27 destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings? Scte27DestinationSettings;
         /// <summary>
-        /// SMPTE TT Destination Settings.
+        /// SMPTE TT destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings? SmpteTtDestinationSettings;
         /// <summary>
-        /// Teletext Destination Settings.
+        /// Teletext destination settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings? TeletextDestinationSettings;
         /// <summary>
-        /// TTML Destination Settings. See TTML Destination Settings for more details.
+        /// TTML destination settings. See `TtmlDestinationSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings? TtmlDestinationSettings;
         /// <summary>
-        /// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+        /// WebVTT destination settings. See `WebvttDestinationSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings? WebvttDestinationSettings;
 

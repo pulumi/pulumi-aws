@@ -17,14 +17,14 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
     public static final InviteAccepterArgs Empty = new InviteAccepterArgs();
 
     /**
-     * The detector ID of the member GuardDuty account.
+     * Detector ID of the member GuardDuty account.
      * 
      */
     @Import(name="detectorId", required=true)
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the member GuardDuty account.
+     * @return Detector ID of the member GuardDuty account.
      * 
      */
     public Output<String> detectorId() {
@@ -88,7 +88,7 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param detectorId The detector ID of the member GuardDuty account.
+         * @param detectorId Detector ID of the member GuardDuty account.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param detectorId The detector ID of the member GuardDuty account.
+         * @param detectorId Detector ID of the member GuardDuty account.
          * 
          * @return builder
          * 

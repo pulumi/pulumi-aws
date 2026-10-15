@@ -170,11 +170,11 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
-     * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
-     * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     declare public readonly expectedSourceBucketOwner: pulumi.Output<string | undefined>;
     /**
@@ -530,11 +530,11 @@ export interface ObjectCopyState {
      */
     etag?: pulumi.Input<string | undefined>;
     /**
-     * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
-     * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedSourceBucketOwner?: pulumi.Input<string | undefined>;
     /**
@@ -723,11 +723,11 @@ export interface ObjectCopyArgs {
      */
     customerKeyMd5?: pulumi.Input<string | undefined>;
     /**
-     * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
-     * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedSourceBucketOwner?: pulumi.Input<string | undefined>;
     /**

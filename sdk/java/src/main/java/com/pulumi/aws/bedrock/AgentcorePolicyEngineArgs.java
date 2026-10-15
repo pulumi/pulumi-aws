@@ -33,14 +33,14 @@ public final class AgentcorePolicyEngineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+     * ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
      * 
      */
     @Import(name="encryptionKeyArn")
     private @Nullable Output<String> encryptionKeyArn;
 
     /**
-     * @return ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+     * @return ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
      * 
      */
     public Optional<Output<String>> encryptionKeyArn() {
@@ -154,7 +154,7 @@ public final class AgentcorePolicyEngineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param encryptionKeyArn ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+         * @param encryptionKeyArn ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AgentcorePolicyEngineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param encryptionKeyArn ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+         * @param encryptionKeyArn ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
          * 
          * @return builder
          * 

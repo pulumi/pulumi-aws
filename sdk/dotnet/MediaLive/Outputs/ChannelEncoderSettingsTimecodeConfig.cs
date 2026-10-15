@@ -14,11 +14,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsTimecodeConfig
     {
         /// <summary>
-        /// The source for the timecode that will be associated with the events outputs.
+        /// Source for the timecode associated with the event outputs.
         /// </summary>
         public readonly string Source;
         /// <summary>
-        /// Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+        /// Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
         /// </summary>
         public readonly int? SyncThreshold;
 

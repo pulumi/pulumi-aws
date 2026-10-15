@@ -139,7 +139,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         * `account_id` (String) AWS Account where this resource is managed.
 
-        Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
+        Using `pulumi import`, import IAM group policy attachments using the group name and policy ARN separated by `/`. For example:
 
         ```sh
         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
@@ -191,7 +191,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         * `account_id` (String) AWS Account where this resource is managed.
 
-        Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
+        Using `pulumi import`, import IAM group policy attachments using the group name and policy ARN separated by `/`. For example:
 
         ```sh
         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy

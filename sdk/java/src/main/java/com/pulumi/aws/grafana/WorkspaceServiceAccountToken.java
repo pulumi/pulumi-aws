@@ -71,56 +71,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")
 public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies when the service account token was created.
+     * When the service account token was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Specifies when the service account token was created.
+     * @return When the service account token was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * Specifies when the service account token will expire.
+     * When the service account token will expire.
      * 
      */
     @Export(name="expiresAt", refs={String.class}, tree="[0]")
     private Output<String> expiresAt;
 
     /**
-     * @return Specifies when the service account token will expire.
+     * @return When the service account token will expire.
      * 
      */
     public Output<String> expiresAt() {
         return this.expiresAt;
     }
     /**
-     * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+     * Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+     * @return Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * A name for the token to create. The name must be unique within the workspace.
+     * Name for the token to create. The name must be unique within the workspace.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the token to create. The name must be unique within the workspace.
+     * @return Name for the token to create. The name must be unique within the workspace.
      * 
      */
     public Output<String> name() {
@@ -155,14 +155,14 @@ public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomRes
         return this.secondsToLive;
     }
     /**
-     * The ID of the service account for which to create a token.
+     * ID of the service account for which to create a token.
      * 
      */
     @Export(name="serviceAccountId", refs={String.class}, tree="[0]")
     private Output<String> serviceAccountId;
 
     /**
-     * @return The ID of the service account for which to create a token.
+     * @return ID of the service account for which to create a token.
      * 
      */
     public Output<String> serviceAccountId() {
@@ -183,14 +183,14 @@ public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomRes
         return this.serviceAccountTokenId;
     }
     /**
-     * The Grafana workspace with which the service account token is associated.
+     * Grafana workspace with which the service account token is associated.
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return The Grafana workspace with which the service account token is associated.
+     * @return Grafana workspace with which the service account token is associated.
      * 
      */
     public Output<String> workspaceId() {

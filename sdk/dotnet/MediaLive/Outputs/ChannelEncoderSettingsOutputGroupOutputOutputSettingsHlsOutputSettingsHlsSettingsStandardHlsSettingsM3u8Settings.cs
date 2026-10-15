@@ -13,25 +13,73 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings
     {
+        /// <summary>
+        /// Number of audio frames to insert for each PES packet.
+        /// </summary>
         public readonly int? AudioFramesPerPes;
+        /// <summary>
+        /// Packet identifier (PID) of the elementary audio streams in the transport stream.
+        /// </summary>
         public readonly string? AudioPids;
+        /// <summary>
+        /// Packet identifier (PID) for ECM in the transport stream.
+        /// </summary>
         public readonly string? EcmPid;
+        /// <summary>
+        /// When set to `Passthrough`, passes through Nielsen ID3.
+        /// </summary>
         public readonly string? NielsenId3Behavior;
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         public readonly int? PatInterval;
+        /// <summary>
+        /// When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        /// </summary>
         public readonly string? PcrControl;
+        /// <summary>
+        /// Maximum time, in milliseconds, between Program Clock References.
+        /// </summary>
         public readonly int? PcrPeriod;
+        /// <summary>
+        /// Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        /// </summary>
         public readonly string? PcrPid;
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         public readonly int? PmtInterval;
+        /// <summary>
+        /// Packet identifier (PID) for the Program Map Table in the transport stream.
+        /// </summary>
         public readonly string? PmtPid;
+        /// <summary>
+        /// Value of the program number field in the Program Map Table.
+        /// </summary>
         public readonly int? ProgramNum;
+        /// <summary>
+        /// When set to `Passthrough`, passes through SCTE-35.
+        /// </summary>
         public readonly string? Scte35Behavior;
         /// <summary>
-        /// PID from which to read SCTE-35 messages.
+        /// Packet identifier (PID) of the SCTE-35 stream in the transport stream.
         /// </summary>
         public readonly string? Scte35Pid;
+        /// <summary>
+        /// When set to `Passthrough`, passes through timed metadata.
+        /// </summary>
         public readonly string? TimedMetadataBehavior;
+        /// <summary>
+        /// Packet identifier (PID) of the timed metadata stream in the transport stream.
+        /// </summary>
         public readonly string? TimedMetadataPid;
+        /// <summary>
+        /// Value of the transport stream ID field in the Program Map Table.
+        /// </summary>
         public readonly int? TransportStreamId;
+        /// <summary>
+        /// Packet identifier (PID) of the elementary video stream in the transport stream.
+        /// </summary>
         public readonly string? VideoPid;
 
         [OutputConstructor]

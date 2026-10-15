@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachment
     {
         /// <summary>
-        /// User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+        /// Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `AutomaticInputFailoverSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentAutomaticInputFailoverSettings? AutomaticInputFailoverSettings;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string InputAttachmentName;
         /// <summary>
-        /// The ID of the input.
+        /// ID of the input.
         /// </summary>
         public readonly string InputId;
         /// <summary>
-        /// Settings of an input. See Input Settings for more details.
+        /// Settings of an input. See `InputSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettings? InputSettings;
 

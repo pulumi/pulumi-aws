@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
     /**
-     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * @return Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication clientAuthentication;
 
     private ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity() {}
     /**
-     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * @return Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication> clientAuthentication() {

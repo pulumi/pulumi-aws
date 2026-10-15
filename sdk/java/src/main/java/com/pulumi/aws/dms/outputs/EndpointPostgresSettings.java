@@ -84,7 +84,7 @@ public final class EndpointPostgresSettings {
      */
     private @Nullable String mapLongVarcharAs;
     /**
-     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * @return Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
      * 
      */
     private @Nullable Integer maxFileSize;
@@ -204,7 +204,7 @@ public final class EndpointPostgresSettings {
         return Optional.ofNullable(this.mapLongVarcharAs);
     }
     /**
-     * @return Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+     * @return Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
      * 
      */
     public Optional<Integer> maxFileSize() {

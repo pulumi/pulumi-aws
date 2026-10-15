@@ -18,14 +18,14 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
     public static final CatalogDatabaseCreateTableDefaultPermissionArgs Empty = new CatalogDatabaseCreateTableDefaultPermissionArgs();
 
     /**
-     * The permissions that are granted to the principal.
+     * Permissions that are granted to the principal.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<String>> permissions;
 
     /**
-     * @return The permissions that are granted to the principal.
+     * @return Permissions that are granted to the principal.
      * 
      */
     public Optional<Output<List<String>>> permissions() {
@@ -33,14 +33,14 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
     }
 
     /**
-     * The principal who is granted permissions.. See `principal` below.
+     * Principal who is granted permissions.. See `principal` Block below.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs> principal;
 
     /**
-     * @return The principal who is granted permissions.. See `principal` below.
+     * @return Principal who is granted permissions.. See `principal` Block below.
      * 
      */
     public Optional<Output<CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs>> principal() {
@@ -73,7 +73,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
         }
 
         /**
-         * @param permissions The permissions that are granted to the principal.
+         * @param permissions Permissions that are granted to the principal.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
         }
 
         /**
-         * @param permissions The permissions that are granted to the principal.
+         * @param permissions Permissions that are granted to the principal.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
         }
 
         /**
-         * @param permissions The permissions that are granted to the principal.
+         * @param permissions Permissions that are granted to the principal.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
         }
 
         /**
-         * @param principal The principal who is granted permissions.. See `principal` below.
+         * @param principal Principal who is granted permissions.. See `principal` Block below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
         }
 
         /**
-         * @param principal The principal who is granted permissions.. See `principal` below.
+         * @param principal Principal who is granted permissions.. See `principal` Block below.
          * 
          * @return builder
          * 

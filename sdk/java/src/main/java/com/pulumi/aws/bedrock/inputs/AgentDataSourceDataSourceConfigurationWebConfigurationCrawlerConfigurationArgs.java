@@ -33,14 +33,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     }
 
     /**
-     * List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
      * 
      */
     @Import(name="exclusionFilters")
     private @Nullable Output<List<String>> exclusionFilters;
 
     /**
-     * @return List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
      * 
      */
     public Optional<Output<List<String>>> exclusionFilters() {
@@ -48,14 +48,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     }
 
     /**
-     * List of one or more inclusion regular expression patterns to include object types that match the pattern.
+     * List of one or more inclusion regular expression patterns to include URLs that match the pattern.
      * 
      */
     @Import(name="inclusionFilters")
     private @Nullable Output<List<String>> inclusionFilters;
 
     /**
-     * @return List of one or more inclusion regular expression patterns to include object types that match the pattern.
+     * @return List of one or more inclusion regular expression patterns to include URLs that match the pattern.
      * 
      */
     public Optional<Output<List<String>>> inclusionFilters() {
@@ -78,14 +78,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     }
 
     /**
-     * String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
      * 
      */
     @Import(name="userAgent")
     private @Nullable Output<String> userAgent;
 
     /**
-     * @return String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * @return Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
      * 
      */
     public Optional<Output<String>> userAgent() {
@@ -142,7 +142,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param inclusionFilters List of one or more inclusion regular expression patterns to include object types that match the pattern.
+         * @param inclusionFilters List of one or more inclusion regular expression patterns to include URLs that match the pattern.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param inclusionFilters List of one or more inclusion regular expression patterns to include object types that match the pattern.
+         * @param inclusionFilters List of one or more inclusion regular expression patterns to include URLs that match the pattern.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param inclusionFilters List of one or more inclusion regular expression patterns to include object types that match the pattern.
+         * @param inclusionFilters List of one or more inclusion regular expression patterns to include URLs that match the pattern.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param userAgent String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+         * @param userAgent Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param userAgent String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+         * @param userAgent Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
          * 
          * @return builder
          * 

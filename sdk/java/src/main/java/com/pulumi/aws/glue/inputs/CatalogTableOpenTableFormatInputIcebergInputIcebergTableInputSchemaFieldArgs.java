@@ -35,7 +35,6 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
     /**
      * Catalog ID, database name, and table name, separated by colons (`:`).
-     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     @Import(name="id", required=true)
@@ -43,7 +42,6 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
     /**
      * @return Catalog ID, database name, and table name, separated by colons (`:`).
-     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     public Output<Integer> id() {
@@ -174,7 +172,6 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
         /**
          * @param id Catalog ID, database name, and table name, separated by colons (`:`).
-         * * `partition_index[*].index_status` - Status of the partition index.
          * 
          * @return builder
          * 
@@ -186,7 +183,6 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
         /**
          * @param id Catalog ID, database name, and table name, separated by colons (`:`).
-         * * `partition_index[*].index_status` - Status of the partition index.
          * 
          * @return builder
          * 

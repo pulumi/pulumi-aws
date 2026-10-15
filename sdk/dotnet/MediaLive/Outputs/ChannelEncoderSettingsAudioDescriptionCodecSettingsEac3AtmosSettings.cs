@@ -26,11 +26,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly double? Dialnorm;
         /// <summary>
-        /// Sets the Dolby dynamic range compression profile.
+        /// Dolby dynamic range compression profile.
         /// </summary>
         public readonly string? DrcLine;
         /// <summary>
-        /// Sets the profile for heavy Dolby dynamic range compression.
+        /// Profile for heavy Dolby dynamic range compression.
         /// </summary>
         public readonly string? DrcRf;
         /// <summary>

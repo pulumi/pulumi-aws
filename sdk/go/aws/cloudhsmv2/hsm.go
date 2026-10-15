@@ -63,9 +63,9 @@ type Hsm struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The ID of Cloud HSM v2 cluster to which HSM will be added.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
-	// The id of the ENI interface allocated for HSM module.
+	// The ID of the ENI interface allocated for HSM module.
 	HsmEniId pulumi.StringOutput `pulumi:"hsmEniId"`
-	// The id of the HSM module.
+	// The ID of the HSM module.
 	HsmId pulumi.StringOutput `pulumi:"hsmId"`
 	// The state of the HSM module.
 	HsmState pulumi.StringOutput `pulumi:"hsmState"`
@@ -116,9 +116,9 @@ type hsmState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The ID of Cloud HSM v2 cluster to which HSM will be added.
 	ClusterId *string `pulumi:"clusterId"`
-	// The id of the ENI interface allocated for HSM module.
+	// The ID of the ENI interface allocated for HSM module.
 	HsmEniId *string `pulumi:"hsmEniId"`
-	// The id of the HSM module.
+	// The ID of the HSM module.
 	HsmId *string `pulumi:"hsmId"`
 	// The state of the HSM module.
 	HsmState *string `pulumi:"hsmState"`
@@ -137,9 +137,9 @@ type HsmState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The ID of Cloud HSM v2 cluster to which HSM will be added.
 	ClusterId pulumi.StringPtrInput
-	// The id of the ENI interface allocated for HSM module.
+	// The ID of the ENI interface allocated for HSM module.
 	HsmEniId pulumi.StringPtrInput
-	// The id of the HSM module.
+	// The ID of the HSM module.
 	HsmId pulumi.StringPtrInput
 	// The state of the HSM module.
 	HsmState pulumi.StringPtrInput
@@ -285,12 +285,12 @@ func (o HsmOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
 }
 
-// The id of the ENI interface allocated for HSM module.
+// The ID of the ENI interface allocated for HSM module.
 func (o HsmOutput) HsmEniId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.HsmEniId }).(pulumi.StringOutput)
 }
 
-// The id of the HSM module.
+// The ID of the HSM module.
 func (o HsmOutput) HsmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.HsmId }).(pulumi.StringOutput)
 }

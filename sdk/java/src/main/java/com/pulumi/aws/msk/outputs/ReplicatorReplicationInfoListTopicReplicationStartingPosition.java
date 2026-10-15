@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorReplicationInfoListTopicReplicationStartingPosition {
     /**
-     * @return The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+     * @return Type of replication starting position. Supports `LATEST` and `EARLIEST`.
      * 
      */
     private @Nullable String type;
 
     private ReplicatorReplicationInfoListTopicReplicationStartingPosition() {}
     /**
-     * @return The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+     * @return Type of replication starting position. Supports `LATEST` and `EARLIEST`.
      * 
      */
     public Optional<String> type() {

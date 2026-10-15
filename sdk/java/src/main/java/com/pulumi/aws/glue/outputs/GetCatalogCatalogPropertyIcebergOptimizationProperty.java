@@ -11,21 +11,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogCatalogPropertyIcebergOptimizationProperty {
+    /**
+     * @return Map of key-value pairs for compaction settings.
+     * 
+     */
     private Map<String,String> compaction;
+    /**
+     * @return Map of key-value pairs for orphan file deletion settings.
+     * 
+     */
     private Map<String,String> orphanFileDeletion;
+    /**
+     * @return Map of key-value pairs for retention settings.
+     * 
+     */
     private Map<String,String> retention;
+    /**
+     * @return ARN of the IAM role for Iceberg optimization.
+     * 
+     */
     private String roleArn;
 
     private GetCatalogCatalogPropertyIcebergOptimizationProperty() {}
+    /**
+     * @return Map of key-value pairs for compaction settings.
+     * 
+     */
     public Map<String,String> compaction() {
         return this.compaction;
     }
+    /**
+     * @return Map of key-value pairs for orphan file deletion settings.
+     * 
+     */
     public Map<String,String> orphanFileDeletion() {
         return this.orphanFileDeletion;
     }
+    /**
+     * @return Map of key-value pairs for retention settings.
+     * 
+     */
     public Map<String,String> retention() {
         return this.retention;
     }
+    /**
+     * @return ARN of the IAM role for Iceberg optimization.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }

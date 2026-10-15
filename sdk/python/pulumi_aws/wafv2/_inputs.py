@@ -19,6 +19,14 @@ __all__ = [
     'RegexPatternSetRegularExpressionArgsDict',
     'RuleGroupCustomResponseBodyArgs',
     'RuleGroupCustomResponseBodyArgsDict',
+    'RuleGroupMonetizationConfigArgs',
+    'RuleGroupMonetizationConfigArgsDict',
+    'RuleGroupMonetizationConfigCryptoConfigArgs',
+    'RuleGroupMonetizationConfigCryptoConfigArgsDict',
+    'RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs',
+    'RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgsDict',
+    'RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs',
+    'RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgsDict',
     'RuleGroupRuleArgs',
     'RuleGroupRuleArgsDict',
     'RuleGroupRuleActionArgs',
@@ -53,6 +61,8 @@ __all__ = [
     'RuleGroupRuleActionCountCustomRequestHandlingArgsDict',
     'RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs',
     'RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgsDict',
+    'RuleGroupRuleActionMonetizeArgs',
+    'RuleGroupRuleActionMonetizeArgsDict',
     'RuleGroupRuleCaptchaConfigArgs',
     'RuleGroupRuleCaptchaConfigArgsDict',
     'RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs',
@@ -787,6 +797,14 @@ __all__ = [
     'WebAclLoggingConfigurationRedactedFieldSingleHeaderArgsDict',
     'WebAclLoggingConfigurationRedactedFieldUriPathArgs',
     'WebAclLoggingConfigurationRedactedFieldUriPathArgsDict',
+    'WebAclMonetizationConfigArgs',
+    'WebAclMonetizationConfigArgsDict',
+    'WebAclMonetizationConfigCryptoConfigArgs',
+    'WebAclMonetizationConfigCryptoConfigArgsDict',
+    'WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs',
+    'WebAclMonetizationConfigCryptoConfigPaymentNetworkArgsDict',
+    'WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs',
+    'WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgsDict',
     'WebAclRuleArgs',
     'WebAclRuleArgsDict',
     'WebAclRuleActionArgs',
@@ -2135,6 +2153,196 @@ class RuleGroupCustomResponseBodyArgs:
         pulumi.set(self, "key", value)
 
 
+class RuleGroupMonetizationConfigArgsDict(TypedDict):
+    crypto_config: NotRequired[pulumi.Input[Optional['RuleGroupMonetizationConfigCryptoConfigArgsDict']]]
+    """
+    Cryptocurrency payment configuration for the rule group. See `crypto_config` below for details.
+    """
+    currency_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+    """
+
+@pulumi.input_type
+class RuleGroupMonetizationConfigArgs:
+    def __init__(__self__, *,
+                 crypto_config: pulumi.Input[Optional['RuleGroupMonetizationConfigCryptoConfigArgs']] = None,
+                 currency_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['RuleGroupMonetizationConfigCryptoConfigArgs'] crypto_config: Cryptocurrency payment configuration for the rule group. See `crypto_config` below for details.
+        :param pulumi.Input[_builtins.str] currency_mode: Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> pulumi.Input[Optional['RuleGroupMonetizationConfigCryptoConfigArgs']]:
+        """
+        Cryptocurrency payment configuration for the rule group. See `crypto_config` below for details.
+        """
+        return pulumi.get(self, "crypto_config")
+
+    @crypto_config.setter
+    def crypto_config(self, value: pulumi.Input[Optional['RuleGroupMonetizationConfigCryptoConfigArgs']]):
+        pulumi.set(self, "crypto_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        return pulumi.get(self, "currency_mode")
+
+    @currency_mode.setter
+    def currency_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "currency_mode", value)
+
+
+class RuleGroupMonetizationConfigCryptoConfigArgsDict(TypedDict):
+    payment_networks: pulumi.Input[Sequence[pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgsDict']]]
+    """
+    Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+    """
+
+@pulumi.input_type
+class RuleGroupMonetizationConfigCryptoConfigArgs:
+    def __init__(__self__, *,
+                 payment_networks: pulumi.Input[Sequence[pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs']]] payment_networks: Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs']]]:
+        """
+        Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        return pulumi.get(self, "payment_networks")
+
+    @payment_networks.setter
+    def payment_networks(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs']]]):
+        pulumi.set(self, "payment_networks", value)
+
+
+class RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgsDict(TypedDict):
+    chain: pulumi.Input[_builtins.str]
+    """
+    Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+    """
+    prices: pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgsDict']
+    """
+    Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+    """
+    wallet_address: pulumi.Input[_builtins.str]
+    """
+    Payee wallet address on the specified blockchain that receives payments.
+    """
+
+@pulumi.input_type
+class RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs:
+    def __init__(__self__, *,
+                 chain: pulumi.Input[_builtins.str],
+                 prices: pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs'],
+                 wallet_address: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] chain: Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        :param pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs'] prices: Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        :param pulumi.Input[_builtins.str] wallet_address: Payee wallet address on the specified blockchain that receives payments.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> pulumi.Input[_builtins.str]:
+        """
+        Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        """
+        return pulumi.get(self, "chain")
+
+    @chain.setter
+    def chain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "chain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs']:
+        """
+        Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        """
+        return pulumi.get(self, "prices")
+
+    @prices.setter
+    def prices(self, value: pulumi.Input['RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs']):
+        pulumi.set(self, "prices", value)
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        Payee wallet address on the specified blockchain that receives payments.
+        """
+        return pulumi.get(self, "wallet_address")
+
+    @wallet_address.setter
+    def wallet_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "wallet_address", value)
+
+
+class RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgsDict(TypedDict):
+    amount: pulumi.Input[_builtins.str]
+    """
+    Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+    """
+    currency: pulumi.Input[_builtins.str]
+    """
+    Currency of the price amount. Valid value is `USDC`.
+    """
+
+@pulumi.input_type
+class RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[_builtins.str],
+                 currency: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] amount: Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        :param pulumi.Input[_builtins.str] currency: Currency of the price amount. Valid value is `USDC`.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[_builtins.str]:
+        """
+        Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        """
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> pulumi.Input[_builtins.str]:
+        """
+        Currency of the price amount. Valid value is `USDC`.
+        """
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "currency", value)
+
+
 class RuleGroupRuleArgsDict(TypedDict):
     action: pulumi.Input['RuleGroupRuleActionArgsDict']
     """
@@ -2300,6 +2508,10 @@ class RuleGroupRuleActionArgsDict(TypedDict):
     """
     Instructs AWS WAF to count the web request and allow it. See Count below for details.
     """
+    monetize: NotRequired[pulumi.Input[Optional['RuleGroupRuleActionMonetizeArgsDict']]]
+    """
+    Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetization_config`. See Monetize below for details.
+    """
 
 @pulumi.input_type
 class RuleGroupRuleActionArgs:
@@ -2308,13 +2520,15 @@ class RuleGroupRuleActionArgs:
                  block: pulumi.Input[Optional['RuleGroupRuleActionBlockArgs']] = None,
                  captcha: pulumi.Input[Optional['RuleGroupRuleActionCaptchaArgs']] = None,
                  challenge: pulumi.Input[Optional['RuleGroupRuleActionChallengeArgs']] = None,
-                 count: pulumi.Input[Optional['RuleGroupRuleActionCountArgs']] = None):
+                 count: pulumi.Input[Optional['RuleGroupRuleActionCountArgs']] = None,
+                 monetize: pulumi.Input[Optional['RuleGroupRuleActionMonetizeArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleActionAllowArgs'] allow: Instructs AWS WAF to allow the web request. See Allow below for details.
         :param pulumi.Input['RuleGroupRuleActionBlockArgs'] block: Instructs AWS WAF to block the web request. See Block below for details.
         :param pulumi.Input['RuleGroupRuleActionCaptchaArgs'] captcha: Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
         :param pulumi.Input['RuleGroupRuleActionChallengeArgs'] challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
         :param pulumi.Input['RuleGroupRuleActionCountArgs'] count: Instructs AWS WAF to count the web request and allow it. See Count below for details.
+        :param pulumi.Input['RuleGroupRuleActionMonetizeArgs'] monetize: Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetization_config`. See Monetize below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -2326,6 +2540,8 @@ class RuleGroupRuleActionArgs:
             pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if monetize is not None:
+            pulumi.set(__self__, "monetize", monetize)
 
     @_builtins.property
     @pulumi.getter
@@ -2386,6 +2602,18 @@ class RuleGroupRuleActionArgs:
     @count.setter
     def count(self, value: pulumi.Input[Optional['RuleGroupRuleActionCountArgs']]):
         pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def monetize(self) -> pulumi.Input[Optional['RuleGroupRuleActionMonetizeArgs']]:
+        """
+        Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetization_config`. See Monetize below for details.
+        """
+        return pulumi.get(self, "monetize")
+
+    @monetize.setter
+    def monetize(self, value: pulumi.Input[Optional['RuleGroupRuleActionMonetizeArgs']]):
+        pulumi.set(self, "monetize", value)
 
 
 class RuleGroupRuleActionAllowArgsDict(TypedDict):
@@ -2946,6 +3174,35 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class RuleGroupRuleActionMonetizeArgsDict(TypedDict):
+    price_multiplier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Integer multiplier applied to the base price defined in the rule group's `monetization_config` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+    """
+
+@pulumi.input_type
+class RuleGroupRuleActionMonetizeArgs:
+    def __init__(__self__, *,
+                 price_multiplier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] price_multiplier: Integer multiplier applied to the base price defined in the rule group's `monetization_config` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+        """
+        if price_multiplier is not None:
+            pulumi.set(__self__, "price_multiplier", price_multiplier)
+
+    @_builtins.property
+    @pulumi.getter(name="priceMultiplier")
+    def price_multiplier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Integer multiplier applied to the base price defined in the rule group's `monetization_config` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+        """
+        return pulumi.get(self, "price_multiplier")
+
+    @price_multiplier.setter
+    def price_multiplier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "price_multiplier", value)
 
 
 class RuleGroupRuleCaptchaConfigArgsDict(TypedDict):
@@ -20174,6 +20431,196 @@ class WebAclLoggingConfigurationRedactedFieldUriPathArgsDict(TypedDict):
 class WebAclLoggingConfigurationRedactedFieldUriPathArgs:
     def __init__(__self__):
         pass
+
+
+class WebAclMonetizationConfigArgsDict(TypedDict):
+    crypto_config: NotRequired[pulumi.Input[Optional['WebAclMonetizationConfigCryptoConfigArgsDict']]]
+    """
+    Cryptocurrency payment configuration for the web ACL. See `crypto_config` below for details.
+    """
+    currency_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+    """
+
+@pulumi.input_type
+class WebAclMonetizationConfigArgs:
+    def __init__(__self__, *,
+                 crypto_config: pulumi.Input[Optional['WebAclMonetizationConfigCryptoConfigArgs']] = None,
+                 currency_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['WebAclMonetizationConfigCryptoConfigArgs'] crypto_config: Cryptocurrency payment configuration for the web ACL. See `crypto_config` below for details.
+        :param pulumi.Input[_builtins.str] currency_mode: Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> pulumi.Input[Optional['WebAclMonetizationConfigCryptoConfigArgs']]:
+        """
+        Cryptocurrency payment configuration for the web ACL. See `crypto_config` below for details.
+        """
+        return pulumi.get(self, "crypto_config")
+
+    @crypto_config.setter
+    def crypto_config(self, value: pulumi.Input[Optional['WebAclMonetizationConfigCryptoConfigArgs']]):
+        pulumi.set(self, "crypto_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+        """
+        return pulumi.get(self, "currency_mode")
+
+    @currency_mode.setter
+    def currency_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "currency_mode", value)
+
+
+class WebAclMonetizationConfigCryptoConfigArgsDict(TypedDict):
+    payment_networks: pulumi.Input[Sequence[pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkArgsDict']]]
+    """
+    Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+    """
+
+@pulumi.input_type
+class WebAclMonetizationConfigCryptoConfigArgs:
+    def __init__(__self__, *,
+                 payment_networks: pulumi.Input[Sequence[pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs']]] payment_networks: Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs']]]:
+        """
+        Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `payment_network` below for details.
+        """
+        return pulumi.get(self, "payment_networks")
+
+    @payment_networks.setter
+    def payment_networks(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs']]]):
+        pulumi.set(self, "payment_networks", value)
+
+
+class WebAclMonetizationConfigCryptoConfigPaymentNetworkArgsDict(TypedDict):
+    chain: pulumi.Input[_builtins.str]
+    """
+    Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+    """
+    prices: pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgsDict']
+    """
+    Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+    """
+    wallet_address: pulumi.Input[_builtins.str]
+    """
+    Payee wallet address on the specified blockchain that receives payments.
+    """
+
+@pulumi.input_type
+class WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs:
+    def __init__(__self__, *,
+                 chain: pulumi.Input[_builtins.str],
+                 prices: pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs'],
+                 wallet_address: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] chain: Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        :param pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs'] prices: Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        :param pulumi.Input[_builtins.str] wallet_address: Payee wallet address on the specified blockchain that receives payments.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> pulumi.Input[_builtins.str]:
+        """
+        Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+        """
+        return pulumi.get(self, "chain")
+
+    @chain.setter
+    def chain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "chain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs']:
+        """
+        Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+        """
+        return pulumi.get(self, "prices")
+
+    @prices.setter
+    def prices(self, value: pulumi.Input['WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs']):
+        pulumi.set(self, "prices", value)
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        Payee wallet address on the specified blockchain that receives payments.
+        """
+        return pulumi.get(self, "wallet_address")
+
+    @wallet_address.setter
+    def wallet_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "wallet_address", value)
+
+
+class WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgsDict(TypedDict):
+    amount: pulumi.Input[_builtins.str]
+    """
+    Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+    """
+    currency: pulumi.Input[_builtins.str]
+    """
+    Currency of the price amount. Valid value is `USDC`.
+    """
+
+@pulumi.input_type
+class WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[_builtins.str],
+                 currency: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] amount: Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        :param pulumi.Input[_builtins.str] currency: Currency of the price amount. Valid value is `USDC`.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[_builtins.str]:
+        """
+        Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+        """
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> pulumi.Input[_builtins.str]:
+        """
+        Currency of the price amount. Valid value is `USDC`.
+        """
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "currency", value)
 
 
 class WebAclRuleArgsDict(TypedDict):

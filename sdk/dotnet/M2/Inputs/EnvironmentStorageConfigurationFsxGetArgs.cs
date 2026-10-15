@@ -13,7 +13,7 @@ namespace Pulumi.Aws.M2.Inputs
     public sealed class EnvironmentStorageConfigurationFsxGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of the FSX filesystem to mount.
+        /// ID of the FSx filesystem to mount.
         /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;

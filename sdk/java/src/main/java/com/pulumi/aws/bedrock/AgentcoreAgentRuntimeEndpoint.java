@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreAgentRuntimeEndpoint("example", AgentcoreAgentRuntimeEndpointArgs.builder()
- *             .name("example-endpoint")
+ *             .name("example_endpoint")
  *             .agentRuntimeId(exampleAwsBedrockagentcoreAgentRuntime.agentRuntimeId())
  *             .description("Endpoint for agent runtime communication")
  *             .build());
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agentRuntimeId` and `name` separated by a comma. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
+ * $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example_endpoint
  * ```
  * 
  */

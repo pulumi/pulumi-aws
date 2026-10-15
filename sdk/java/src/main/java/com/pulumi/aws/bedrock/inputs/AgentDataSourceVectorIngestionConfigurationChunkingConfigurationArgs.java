@@ -20,14 +20,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs();
 
     /**
-     * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+     * Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
      * 
      */
     @Import(name="chunkingStrategy", required=true)
     private Output<String> chunkingStrategy;
 
     /**
-     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+     * @return Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
      * 
      */
     public Output<String> chunkingStrategy() {
@@ -107,7 +107,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param chunkingStrategy Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+         * @param chunkingStrategy Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param chunkingStrategy Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+         * @param chunkingStrategy Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
          * 
          * @return builder
          * 

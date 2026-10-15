@@ -136,14 +136,14 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
     @Export(name="notificationTarget", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationTarget;
 
     /**
-     * @return An SNS topic ARN that is set up to receive game session placement notifications.
+     * @return SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
     public Output<Optional<String>> notificationTarget() {
@@ -192,14 +192,14 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

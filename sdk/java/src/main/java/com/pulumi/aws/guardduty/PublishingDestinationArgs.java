@@ -18,14 +18,14 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
     public static final PublishingDestinationArgs Empty = new PublishingDestinationArgs();
 
     /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
     /**
-     * @return The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * @return Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
     public Output<String> destinationArn() {
@@ -48,14 +48,14 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      * 
      */
     @Import(name="detectorId", required=true)
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty.
+     * @return Detector ID of the GuardDuty.
      * 
      */
     public Output<String> detectorId() {
@@ -63,14 +63,14 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * @return ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -141,7 +141,7 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param destinationArn The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+         * @param destinationArn Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param destinationArn The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+         * @param destinationArn Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyArn The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyArn The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
          * 
          * @return builder
          * 

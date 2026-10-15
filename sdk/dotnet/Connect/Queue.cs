@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Connect
         public Output<string> QueueId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        /// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         /// </summary>
         [Output("quickConnectIds")]
         public Output<ImmutableArray<string>> QuickConnectIds { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Connect
         private InputList<string>? _quickConnectIds;
 
         /// <summary>
-        /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        /// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         /// </summary>
         public InputList<string> QuickConnectIds
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Connect
         private InputList<string>? _quickConnectIds;
 
         /// <summary>
-        /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        /// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         /// </summary>
         public InputList<string> QuickConnectIds
         {

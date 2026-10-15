@@ -17,14 +17,14 @@ public final class TriggerEventBatchingConditionArgs extends com.pulumi.resource
     public static final TriggerEventBatchingConditionArgs Empty = new TriggerEventBatchingConditionArgs();
 
     /**
-     * Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+     * Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
      * 
      */
     @Import(name="batchSize", required=true)
     private Output<Integer> batchSize;
 
     /**
-     * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+     * @return Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
      * 
      */
     public Output<Integer> batchSize() {
@@ -72,7 +72,7 @@ public final class TriggerEventBatchingConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param batchSize Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+         * @param batchSize Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TriggerEventBatchingConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param batchSize Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+         * @param batchSize Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
          * 
          * @return builder
          * 

@@ -105,14 +105,14 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
      * 
      */
     @Export(name="gatewayLoadBalancerEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gatewayLoadBalancerEndpointId;
 
     /**
-     * @return The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * @return The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
      * 
      */
     public Output<Optional<String>> gatewayLoadBalancerEndpointId() {

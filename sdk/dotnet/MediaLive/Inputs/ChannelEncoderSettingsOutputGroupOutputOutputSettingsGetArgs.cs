@@ -13,40 +13,49 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Archive output settings. See Archive Output Settings for more details.
+        /// Archive output settings. See `ArchiveOutputSettings` Block for details.
         /// </summary>
         [Input("archiveOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsGetArgs>? ArchiveOutputSettings { get; set; }
 
+        /// <summary>
+        /// Frame capture output settings. See `FrameCaptureOutputSettings` Block for details.
+        /// </summary>
         [Input("frameCaptureOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsGetArgs>? FrameCaptureOutputSettings { get; set; }
 
+        /// <summary>
+        /// HLS output settings. See `HlsOutputSettings` Block for details.
+        /// </summary>
         [Input("hlsOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsGetArgs>? HlsOutputSettings { get; set; }
 
         /// <summary>
-        /// Media package output settings. This can be set as an empty block.
+        /// Media package output settings. Can be set as an empty block.
         /// </summary>
         [Input("mediaPackageOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsGetArgs>? MediaPackageOutputSettings { get; set; }
 
+        /// <summary>
+        /// Microsoft Smooth output settings. See `MsSmoothOutputSettings` Block for details.
+        /// </summary>
         [Input("msSmoothOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsGetArgs>? MsSmoothOutputSettings { get; set; }
 
         /// <summary>
-        /// Multiplex output settings. See Multiplex Output Settings for more details.
+        /// Multiplex output settings. See `MultiplexOutputSettings` Block for details.
         /// </summary>
         [Input("multiplexOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsGetArgs>? MultiplexOutputSettings { get; set; }
 
         /// <summary>
-        /// RTMP output settings. See RTMP Output Settings for more details.
+        /// RTMP output settings. See `RtmpOutputSettings` Block for details.
         /// </summary>
         [Input("rtmpOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsGetArgs>? RtmpOutputSettings { get; set; }
 
         /// <summary>
-        /// UDP output settings. See UDP Output Settings for more details.
+        /// UDP output settings. See `UdpOutputSettings` Block for details.
         /// </summary>
         [Input("udpOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsGetArgs>? UdpOutputSettings { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodeBuild
     /// Provides a CodeBuild Source Credentials Resource.
     /// 
     /// &gt; **NOTE:
-    /// ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
+    /// ** [CodeBuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
     /// Therefore, when you define `aws.codebuild.SourceCredential`,
     /// `aws.codebuild.Project` resource defined in the same module will use it.
     /// 
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// - `Arn` (String) ARN of the CodeBuild source credential.
     /// 
-    /// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
+    /// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         /// repository. Valid values are `BASIC_AUTH`,
-        /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         /// </summary>
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         /// repository. Valid values are `BASIC_AUTH`,
-        /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         /// repository. Valid values are `BASIC_AUTH`,
-        /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }

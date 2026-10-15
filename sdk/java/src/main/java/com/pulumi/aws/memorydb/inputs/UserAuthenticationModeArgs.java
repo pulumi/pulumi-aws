@@ -18,17 +18,9 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
 
     public static final UserAuthenticationModeArgs Empty = new UserAuthenticationModeArgs();
 
-    /**
-     * Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     @Import(name="passwordCount")
     private @Nullable Output<Integer> passwordCount;
 
-    /**
-     * @return Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     public Optional<Output<Integer>> passwordCount() {
         return Optional.ofNullable(this.passwordCount);
     }
@@ -49,14 +41,14 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the authentication type. Valid values are: `password` or `iam`.
+     * Type of authentication. Valid values are `password` or `iam`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the authentication type. Valid values are: `password` or `iam`.
+     * @return Type of authentication. Valid values are `password` or `iam`.
      * 
      */
     public Output<String> type() {
@@ -89,23 +81,11 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
             $ = new UserAuthenticationModeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passwordCount Number of passwords belonging to the user if `type` is set to `password`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordCount(@Nullable Output<Integer> passwordCount) {
             $.passwordCount = passwordCount;
             return this;
         }
 
-        /**
-         * @param passwordCount Number of passwords belonging to the user if `type` is set to `password`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordCount(Integer passwordCount) {
             return passwordCount(Output.of(passwordCount));
         }
@@ -142,7 +122,7 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the authentication type. Valid values are: `password` or `iam`.
+         * @param type Type of authentication. Valid values are `password` or `iam`.
          * 
          * @return builder
          * 
@@ -153,7 +133,7 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the authentication type. Valid values are: `password` or `iam`.
+         * @param type Type of authentication. Valid values are `password` or `iam`.
          * 
          * @return builder
          * 

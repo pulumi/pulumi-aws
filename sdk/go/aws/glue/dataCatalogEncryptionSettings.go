@@ -60,9 +60,9 @@ import (
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput `pulumi:"dataCatalogEncryptionSettings"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -101,18 +101,18 @@ func GetDataCatalogEncryptionSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCatalogEncryptionSettings resources.
 type dataCatalogEncryptionSettingsState struct {
-	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 	DataCatalogEncryptionSettings *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type DataCatalogEncryptionSettingsState struct {
-	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -123,9 +123,9 @@ func (DataCatalogEncryptionSettingsState) ElementType() reflect.Type {
 }
 
 type dataCatalogEncryptionSettingsArgs struct {
-	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -133,9 +133,9 @@ type dataCatalogEncryptionSettingsArgs struct {
 
 // The set of arguments for constructing a DataCatalogEncryptionSettings resource.
 type DataCatalogEncryptionSettingsArgs struct {
-	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -228,12 +228,12 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 	return o
 }
 
-// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 func (o DataCatalogEncryptionSettingsOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// The security configuration to set. see Data Catalog Encryption Settings.
+// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 func (o DataCatalogEncryptionSettingsOutput) DataCatalogEncryptionSettings() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
 		return v.DataCatalogEncryptionSettings

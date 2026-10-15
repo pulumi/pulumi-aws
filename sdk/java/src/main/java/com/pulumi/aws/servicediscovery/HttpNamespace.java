@@ -104,14 +104,14 @@ public class HttpNamespace extends com.pulumi.resources.CustomResource {
         return this.httpName;
     }
     /**
-     * The name of the http namespace.
+     * The name of the HTTP namespace.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the http namespace.
+     * @return The name of the HTTP namespace.
      * 
      */
     public Output<String> name() {

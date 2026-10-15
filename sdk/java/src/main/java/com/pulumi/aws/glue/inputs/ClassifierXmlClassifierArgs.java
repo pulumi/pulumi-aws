@@ -15,14 +15,14 @@ public final class ClassifierXmlClassifierArgs extends com.pulumi.resources.Reso
     public static final ClassifierXmlClassifierArgs Empty = new ClassifierXmlClassifierArgs();
 
     /**
-     * An identifier of the data format that the classifier matches.
+     * Identifier of the data format that the classifier matches.
      * 
      */
     @Import(name="classification", required=true)
     private Output<String> classification;
 
     /**
-     * @return An identifier of the data format that the classifier matches.
+     * @return Identifier of the data format that the classifier matches.
      * 
      */
     public Output<String> classification() {
@@ -30,14 +30,14 @@ public final class ClassifierXmlClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
+     * XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
      * 
      */
     @Import(name="rowTag", required=true)
     private Output<String> rowTag;
 
     /**
-     * @return The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
+     * @return XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
      * 
      */
     public Output<String> rowTag() {
@@ -70,7 +70,7 @@ public final class ClassifierXmlClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param classification An identifier of the data format that the classifier matches.
+         * @param classification Identifier of the data format that the classifier matches.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ClassifierXmlClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param classification An identifier of the data format that the classifier matches.
+         * @param classification Identifier of the data format that the classifier matches.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ClassifierXmlClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param rowTag The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
+         * @param rowTag XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ClassifierXmlClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param rowTag The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
+         * @param rowTag XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
          * 
          * @return builder
          * 

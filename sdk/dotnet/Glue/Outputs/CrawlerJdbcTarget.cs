@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerJdbcTarget
     {
         /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
+        /// Name of the connection to use to connect to the JDBC target.
         /// </summary>
         public readonly string ConnectionName;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> EnableAdditionalMetadatas;
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
+        /// List of glob patterns used to exclude from the crawl.
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The path of the JDBC target.
+        /// Path of the JDBC target.
         /// </summary>
         public readonly string Path;
 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glacier.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Events;
         /// <summary>
-        /// The SNS Topic ARN.
+        /// SNS Topic ARN.
         /// </summary>
         public readonly string SnsTopic;
 

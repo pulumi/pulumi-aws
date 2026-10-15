@@ -13,7 +13,7 @@ import java.util.Objects;
 public final class GetResourceResult {
     private String arn;
     /**
-     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * @return Flag to enable AWS Lake Formation hybrid access permission mode.
      * 
      */
     private Boolean hybridAccessEnabled;
@@ -49,7 +49,7 @@ public final class GetResourceResult {
         return this.arn;
     }
     /**
-     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * @return Flag to enable AWS Lake Formation hybrid access permission mode.
      * 
      */
     public Boolean hybridAccessEnabled() {

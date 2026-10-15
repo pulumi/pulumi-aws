@@ -14,15 +14,15 @@ namespace Pulumi.Aws.MediaPackage.Outputs
     public sealed class ChannelHlsIngestIngestEndpoint
     {
         /// <summary>
-        /// The password
+        /// Password
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The URL
+        /// URL
         /// </summary>
         public readonly string? Url;
         /// <summary>
-        /// The username
+        /// Username
         /// </summary>
         public readonly string? Username;
 

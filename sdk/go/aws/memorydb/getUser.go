@@ -64,7 +64,7 @@ type LookupUserResult struct {
 	AccessString string `pulumi:"accessString"`
 	// ARN of the user.
 	Arn string `pulumi:"arn"`
-	// Denotes the user's authentication properties.
+	// Authentication properties for the user.
 	AuthenticationModes []GetUserAuthenticationMode `pulumi:"authenticationModes"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -120,7 +120,7 @@ func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Denotes the user's authentication properties.
+// Authentication properties for the user.
 func (o LookupUserResultOutput) AuthenticationModes() GetUserAuthenticationModeArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserAuthenticationMode { return v.AuthenticationModes }).(GetUserAuthenticationModeArrayOutput)
 }

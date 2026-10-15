@@ -77,7 +77,7 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     declare public readonly appstreamAgentVersion: pulumi.Output<string>;
     /**
-     * ARN of the appstream image builder.
+     * ARN of the AppStream image builder.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -216,7 +216,7 @@ export interface ImageBuilderState {
      */
     appstreamAgentVersion?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the appstream image builder.
+     * ARN of the AppStream image builder.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

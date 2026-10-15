@@ -120,11 +120,11 @@ class ConnectorCapacityAutoscaling(dict):
                  scale_in_policy: Optional['outputs.ConnectorCapacityAutoscalingScaleInPolicy'] = None,
                  scale_out_policy: Optional['outputs.ConnectorCapacityAutoscalingScaleOutPolicy'] = None):
         """
-        :param _builtins.int max_worker_count: The maximum number of workers allocated to the connector.
-        :param _builtins.int min_worker_count: The minimum number of workers allocated to the connector.
-        :param _builtins.int mcu_count: The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-        :param 'ConnectorCapacityAutoscalingScaleInPolicyArgs' scale_in_policy: The scale-in policy for the connector. See `scale_in_policy` Block for details.
-        :param 'ConnectorCapacityAutoscalingScaleOutPolicyArgs' scale_out_policy: The scale-out policy for the connector. See `scale_out_policy` Block for details.
+        :param _builtins.int max_worker_count: Maximum number of workers allocated to the connector.
+        :param _builtins.int min_worker_count: Minimum number of workers allocated to the connector.
+        :param _builtins.int mcu_count: Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+        :param 'ConnectorCapacityAutoscalingScaleInPolicyArgs' scale_in_policy: Scale-in policy for the connector. See `scale_in_policy` Block for details.
+        :param 'ConnectorCapacityAutoscalingScaleOutPolicyArgs' scale_out_policy: Scale-out policy for the connector. See `scale_out_policy` Block for details.
         """
         pulumi.set(__self__, "max_worker_count", max_worker_count)
         pulumi.set(__self__, "min_worker_count", min_worker_count)
@@ -139,7 +139,7 @@ class ConnectorCapacityAutoscaling(dict):
     @pulumi.getter(name="maxWorkerCount")
     def max_worker_count(self) -> _builtins.int:
         """
-        The maximum number of workers allocated to the connector.
+        Maximum number of workers allocated to the connector.
         """
         return pulumi.get(self, "max_worker_count")
 
@@ -147,7 +147,7 @@ class ConnectorCapacityAutoscaling(dict):
     @pulumi.getter(name="minWorkerCount")
     def min_worker_count(self) -> _builtins.int:
         """
-        The minimum number of workers allocated to the connector.
+        Minimum number of workers allocated to the connector.
         """
         return pulumi.get(self, "min_worker_count")
 
@@ -155,7 +155,7 @@ class ConnectorCapacityAutoscaling(dict):
     @pulumi.getter(name="mcuCount")
     def mcu_count(self) -> Optional[_builtins.int]:
         """
-        The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+        Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         """
         return pulumi.get(self, "mcu_count")
 
@@ -163,7 +163,7 @@ class ConnectorCapacityAutoscaling(dict):
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> Optional['outputs.ConnectorCapacityAutoscalingScaleInPolicy']:
         """
-        The scale-in policy for the connector. See `scale_in_policy` Block for details.
+        Scale-in policy for the connector. See `scale_in_policy` Block for details.
         """
         return pulumi.get(self, "scale_in_policy")
 
@@ -171,7 +171,7 @@ class ConnectorCapacityAutoscaling(dict):
     @pulumi.getter(name="scaleOutPolicy")
     def scale_out_policy(self) -> Optional['outputs.ConnectorCapacityAutoscalingScaleOutPolicy']:
         """
-        The scale-out policy for the connector. See `scale_out_policy` Block for details.
+        Scale-out policy for the connector. See `scale_out_policy` Block for details.
         """
         return pulumi.get(self, "scale_out_policy")
 
@@ -198,7 +198,7 @@ class ConnectorCapacityAutoscalingScaleInPolicy(dict):
     def __init__(__self__, *,
                  cpu_utilization_percentage: Optional[_builtins.int] = None):
         """
-        :param _builtins.int cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
+        :param _builtins.int cpu_utilization_percentage: CPU utilization percentage threshold at which you want connector scale in to be triggered.
         """
         if cpu_utilization_percentage is not None:
             pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
@@ -207,7 +207,7 @@ class ConnectorCapacityAutoscalingScaleInPolicy(dict):
     @pulumi.getter(name="cpuUtilizationPercentage")
     def cpu_utilization_percentage(self) -> Optional[_builtins.int]:
         """
-        Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
+        CPU utilization percentage threshold at which you want connector scale in to be triggered.
         """
         return pulumi.get(self, "cpu_utilization_percentage")
 
@@ -234,7 +234,7 @@ class ConnectorCapacityAutoscalingScaleOutPolicy(dict):
     def __init__(__self__, *,
                  cpu_utilization_percentage: Optional[_builtins.int] = None):
         """
-        :param _builtins.int cpu_utilization_percentage: The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+        :param _builtins.int cpu_utilization_percentage: CPU utilization percentage threshold at which you want connector scale out to be triggered.
         """
         if cpu_utilization_percentage is not None:
             pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
@@ -243,7 +243,7 @@ class ConnectorCapacityAutoscalingScaleOutPolicy(dict):
     @pulumi.getter(name="cpuUtilizationPercentage")
     def cpu_utilization_percentage(self) -> Optional[_builtins.int]:
         """
-        The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+        CPU utilization percentage threshold at which you want connector scale out to be triggered.
         """
         return pulumi.get(self, "cpu_utilization_percentage")
 
@@ -273,8 +273,8 @@ class ConnectorCapacityProvisionedCapacity(dict):
                  worker_count: _builtins.int,
                  mcu_count: Optional[_builtins.int] = None):
         """
-        :param _builtins.int worker_count: The number of workers that are allocated to the connector.
-        :param _builtins.int mcu_count: The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+        :param _builtins.int worker_count: Number of workers that are allocated to the connector.
+        :param _builtins.int mcu_count: Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         """
         pulumi.set(__self__, "worker_count", worker_count)
         if mcu_count is not None:
@@ -284,7 +284,7 @@ class ConnectorCapacityProvisionedCapacity(dict):
     @pulumi.getter(name="workerCount")
     def worker_count(self) -> _builtins.int:
         """
-        The number of workers that are allocated to the connector.
+        Number of workers that are allocated to the connector.
         """
         return pulumi.get(self, "worker_count")
 
@@ -292,7 +292,7 @@ class ConnectorCapacityProvisionedCapacity(dict):
     @pulumi.getter(name="mcuCount")
     def mcu_count(self) -> Optional[_builtins.int]:
         """
-        The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+        Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         """
         return pulumi.get(self, "mcu_count")
 
@@ -319,7 +319,7 @@ class ConnectorKafkaCluster(dict):
     def __init__(__self__, *,
                  apache_kafka_cluster: 'outputs.ConnectorKafkaClusterApacheKafkaCluster'):
         """
-        :param 'ConnectorKafkaClusterApacheKafkaClusterArgs' apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
+        :param 'ConnectorKafkaClusterApacheKafkaClusterArgs' apache_kafka_cluster: Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
         """
         pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
 
@@ -327,7 +327,7 @@ class ConnectorKafkaCluster(dict):
     @pulumi.getter(name="apacheKafkaCluster")
     def apache_kafka_cluster(self) -> 'outputs.ConnectorKafkaClusterApacheKafkaCluster':
         """
-        The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
+        Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
         """
         return pulumi.get(self, "apache_kafka_cluster")
 
@@ -355,7 +355,7 @@ class ConnectorKafkaClusterApacheKafkaCluster(dict):
                  bootstrap_servers: _builtins.str,
                  vpc: 'outputs.ConnectorKafkaClusterApacheKafkaClusterVpc'):
         """
-        :param _builtins.str bootstrap_servers: The bootstrap servers of the cluster.
+        :param _builtins.str bootstrap_servers: Bootstrap servers of the cluster.
         :param 'ConnectorKafkaClusterApacheKafkaClusterVpcArgs' vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
         """
         pulumi.set(__self__, "bootstrap_servers", bootstrap_servers)
@@ -365,7 +365,7 @@ class ConnectorKafkaClusterApacheKafkaCluster(dict):
     @pulumi.getter(name="bootstrapServers")
     def bootstrap_servers(self) -> _builtins.str:
         """
-        The bootstrap servers of the cluster.
+        Bootstrap servers of the cluster.
         """
         return pulumi.get(self, "bootstrap_servers")
 
@@ -401,8 +401,8 @@ class ConnectorKafkaClusterApacheKafkaClusterVpc(dict):
                  security_groups: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] security_groups: The security groups for the connector.
-        :param Sequence[_builtins.str] subnets: The subnets for the connector.
+        :param Sequence[_builtins.str] security_groups: Security groups for the connector.
+        :param Sequence[_builtins.str] subnets: Subnets for the connector.
         """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
@@ -411,7 +411,7 @@ class ConnectorKafkaClusterApacheKafkaClusterVpc(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
         """
-        The security groups for the connector.
+        Security groups for the connector.
         """
         return pulumi.get(self, "security_groups")
 
@@ -419,7 +419,7 @@ class ConnectorKafkaClusterApacheKafkaClusterVpc(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
         """
-        The subnets for the connector.
+        Subnets for the connector.
         """
         return pulumi.get(self, "subnets")
 
@@ -446,7 +446,7 @@ class ConnectorKafkaClusterClientAuthentication(dict):
     def __init__(__self__, *,
                  authentication_type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str authentication_type: The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+        :param _builtins.str authentication_type: Type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
         """
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
@@ -455,7 +455,7 @@ class ConnectorKafkaClusterClientAuthentication(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[_builtins.str]:
         """
-        The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+        Type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -482,7 +482,7 @@ class ConnectorKafkaClusterEncryptionInTransit(dict):
     def __init__(__self__, *,
                  encryption_type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str encryption_type: The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+        :param _builtins.str encryption_type: Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
         """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
@@ -491,7 +491,7 @@ class ConnectorKafkaClusterEncryptionInTransit(dict):
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> Optional[_builtins.str]:
         """
-        The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+        Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -518,7 +518,7 @@ class ConnectorLogDelivery(dict):
     def __init__(__self__, *,
                  worker_log_delivery: 'outputs.ConnectorLogDeliveryWorkerLogDelivery'):
         """
-        :param 'ConnectorLogDeliveryWorkerLogDeliveryArgs' worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
+        :param 'ConnectorLogDeliveryWorkerLogDeliveryArgs' worker_log_delivery: Workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
         """
         pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
 
@@ -526,7 +526,7 @@ class ConnectorLogDelivery(dict):
     @pulumi.getter(name="workerLogDelivery")
     def worker_log_delivery(self) -> 'outputs.ConnectorLogDeliveryWorkerLogDelivery':
         """
-        The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
+        Workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
         """
         return pulumi.get(self, "worker_log_delivery")
 
@@ -615,7 +615,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs(dict):
                  log_group: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Whether log delivery to Amazon CloudWatch Logs is enabled.
-        :param _builtins.str log_group: The name of the CloudWatch log group that is the destination for log delivery.
+        :param _builtins.str log_group: Name of the CloudWatch log group that is the destination for log delivery.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_group is not None:
@@ -633,7 +633,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs(dict):
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[_builtins.str]:
         """
-        The name of the CloudWatch log group that is the destination for log delivery.
+        Name of the CloudWatch log group that is the destination for log delivery.
         """
         return pulumi.get(self, "log_group")
 
@@ -661,8 +661,8 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehose(dict):
                  enabled: _builtins.bool,
                  delivery_stream: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool enabled: Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-        :param _builtins.str delivery_stream: The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+        :param _builtins.bool enabled: Whether connector logs get delivered to Amazon Kinesis Data Firehose.
+        :param _builtins.str delivery_stream: Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
         pulumi.set(__self__, "enabled", enabled)
         if delivery_stream is not None:
@@ -672,7 +672,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehose(dict):
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
-        Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
+        Whether connector logs get delivered to Amazon Kinesis Data Firehose.
         """
         return pulumi.get(self, "enabled")
 
@@ -680,7 +680,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehose(dict):
     @pulumi.getter(name="deliveryStream")
     def delivery_stream(self) -> Optional[_builtins.str]:
         """
-        The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+        Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
         return pulumi.get(self, "delivery_stream")
 
@@ -692,9 +692,9 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
                  bucket: Optional[_builtins.str] = None,
                  prefix: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool enabled: Specifies whether connector logs get sent to the specified Amazon S3 destination.
-        :param _builtins.str bucket: The name of the S3 bucket that is the destination for log delivery.
-        :param _builtins.str prefix: The S3 prefix that is the destination for log delivery.
+        :param _builtins.bool enabled: Whether connector logs get sent to the specified Amazon S3 destination.
+        :param _builtins.str bucket: Name of the S3 bucket that is the destination for log delivery.
+        :param _builtins.str prefix: S3 prefix that is the destination for log delivery.
         """
         pulumi.set(__self__, "enabled", enabled)
         if bucket is not None:
@@ -706,7 +706,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
-        Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        Whether connector logs get sent to the specified Amazon S3 destination.
         """
         return pulumi.get(self, "enabled")
 
@@ -714,7 +714,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
     @pulumi.getter
     def bucket(self) -> Optional[_builtins.str]:
         """
-        The name of the S3 bucket that is the destination for log delivery.
+        Name of the S3 bucket that is the destination for log delivery.
         """
         return pulumi.get(self, "bucket")
 
@@ -722,7 +722,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
         """
-        The S3 prefix that is the destination for log delivery.
+        S3 prefix that is the destination for log delivery.
         """
         return pulumi.get(self, "prefix")
 
@@ -769,7 +769,7 @@ class ConnectorPluginCustomPlugin(dict):
                  revision: _builtins.int):
         """
         :param _builtins.str arn: ARN of the custom plugin.
-        :param _builtins.int revision: The revision of the custom plugin.
+        :param _builtins.int revision: Revision of the custom plugin.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "revision", revision)
@@ -786,7 +786,7 @@ class ConnectorPluginCustomPlugin(dict):
     @pulumi.getter
     def revision(self) -> _builtins.int:
         """
-        The revision of the custom plugin.
+        Revision of the custom plugin.
         """
         return pulumi.get(self, "revision")
 
@@ -798,7 +798,7 @@ class ConnectorWorkerConfiguration(dict):
                  revision: _builtins.int):
         """
         :param _builtins.str arn: ARN of the worker configuration.
-        :param _builtins.int revision: The revision of the worker configuration.
+        :param _builtins.int revision: Revision of the worker configuration.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "revision", revision)
@@ -815,7 +815,7 @@ class ConnectorWorkerConfiguration(dict):
     @pulumi.getter
     def revision(self) -> _builtins.int:
         """
-        The revision of the worker configuration.
+        Revision of the worker configuration.
         """
         return pulumi.get(self, "revision")
 
@@ -867,8 +867,8 @@ class CustomPluginLocationS3(dict):
                  object_version: Optional[_builtins.str] = None):
         """
         :param _builtins.str bucket_arn: ARN of an S3 bucket.
-        :param _builtins.str file_key: The file key for an object in an S3 bucket.
-        :param _builtins.str object_version: The version of an object in an S3 bucket.
+        :param _builtins.str file_key: File key for an object in an S3 bucket.
+        :param _builtins.str object_version: Version of an object in an S3 bucket.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "file_key", file_key)
@@ -887,7 +887,7 @@ class CustomPluginLocationS3(dict):
     @pulumi.getter(name="fileKey")
     def file_key(self) -> _builtins.str:
         """
-        The file key for an object in an S3 bucket.
+        File key for an object in an S3 bucket.
         """
         return pulumi.get(self, "file_key")
 
@@ -895,7 +895,7 @@ class CustomPluginLocationS3(dict):
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[_builtins.str]:
         """
-        The version of an object in an S3 bucket.
+        Version of an object in an S3 bucket.
         """
         return pulumi.get(self, "object_version")
 

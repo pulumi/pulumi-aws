@@ -19,14 +19,14 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
     public static final FindingsFilterState Empty = new FindingsFilterState();
 
     /**
-     * The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
+     * Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
+     * @return Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
      * 
      */
     public Optional<Output<String>> action() {
@@ -49,14 +49,14 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A custom description of the filter. The description can contain as many as 512 characters.
+     * Custom description of the filter. Can contain as many as 512 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A custom description of the filter. The description can contain as many as 512 characters.
+     * @return Custom description of the filter. Can contain as many as 512 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,14 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The criteria to use to filter findings.
+     * Criteria to use to filter findings. See `findingCriteria` Block for details.
      * 
      */
     @Import(name="findingCriteria")
     private @Nullable Output<FindingsFilterFindingCriteriaArgs> findingCriteria;
 
     /**
-     * @return The criteria to use to filter findings.
+     * @return Criteria to use to filter findings. See `findingCriteria` Block for details.
      * 
      */
     public Optional<Output<FindingsFilterFindingCriteriaArgs>> findingCriteria() {
@@ -79,14 +79,14 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+     * Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
     @Import(name="position")
     private @Nullable Output<Integer> position;
 
     /**
-     * @return The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+     * @return Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
     public Optional<Output<Integer>> position() {
@@ -154,14 +154,14 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -202,7 +202,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param action The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
+         * @param action Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param action The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
+         * @param action Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A custom description of the filter. The description can contain as many as 512 characters.
+         * @param description Custom description of the filter. Can contain as many as 512 characters.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A custom description of the filter. The description can contain as many as 512 characters.
+         * @param description Custom description of the filter. Can contain as many as 512 characters.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param findingCriteria The criteria to use to filter findings.
+         * @param findingCriteria Criteria to use to filter findings. See `findingCriteria` Block for details.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param findingCriteria The criteria to use to filter findings.
+         * @param findingCriteria Criteria to use to filter findings. See `findingCriteria` Block for details.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param position The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+         * @param position Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param position The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+         * @param position Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

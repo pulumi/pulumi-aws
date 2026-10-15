@@ -176,14 +176,14 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
     /**
-     * @return The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * @return Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
     public Output<String> destinationArn() {
@@ -218,28 +218,28 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.destinationType);
     }
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      * 
      */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty.
+     * @return Detector ID of the GuardDuty.
      * 
      */
     public Output<String> detectorId() {
         return this.detectorId;
     }
     /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * @return ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -278,14 +278,14 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

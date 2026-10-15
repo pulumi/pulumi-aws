@@ -363,6 +363,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         gateway_assume = aws.iam.get_policy_document(statements=[{
@@ -393,6 +394,15 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             role=lambda_role.arn,
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X)
+        gateway_lambda_invoke = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["lambda:InvokeFunction"],
+            "resources": [example.arn],
+        }])
+        gateway_lambda_invoke_role_policy = aws.iam.RolePolicy("gateway_lambda_invoke",
+            name="example-gateway-lambda-invoke",
+            role=gateway_role.id,
+            policy=gateway_lambda_invoke.json)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
@@ -400,7 +410,8 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 },
             },
             name="example-gateway",
-            role_arn=gateway_role.arn)
+            role_arn=gateway_role.arn,
+            authorizer_type="CUSTOM_JWT")
         example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
             credential_provider_configuration={
                 "gateway_iam_role": {},
@@ -425,11 +436,11 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                                     "type": "string",
                                                 },
                                                 {
-                                                    "items": [{
-                                                        "type": "string",
-                                                    }],
                                                     "name": "tags",
                                                     "type": "array",
+                                                    "items_json": json.dumps({
+                                                        "type": "string",
+                                                    }),
                                                 },
                                             ],
                                             "name": "options",
@@ -464,98 +475,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             name="example-target",
             gateway_identifier=example_agentcore_gateway.gateway_id,
             description="Lambda function target for processing requests")
-        ```
-
-        ### Target with API Key Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        api_key_example = aws.bedrock.AgentcoreGatewayTarget("api_key_example",
-            credential_provider_configuration={
-                "api_key": {
-                    "provider_arn": "arn:aws:iam::123456789012:oidc-provider/example.com",
-                    "credential_location": "HEADER",
-                    "credential_parameter_name": "X-API-Key",
-                    "credential_prefix": "Bearer",
-                },
-            },
-            target_configuration={
-                "mcp": {
-                    "lambda_": {
-                        "tool_schema": {
-                            "inline_payloads": [{
-                                "input_schema": {
-                                    "type": "string",
-                                    "description": "Simple string input for API calls",
-                                },
-                                "name": "api_tool",
-                                "description": "External API integration tool",
-                            }],
-                        },
-                        "lambda_arn": example["arn"],
-                    },
-                },
-            },
-            name="api-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            description="External API target with API key authentication")
-        ```
-
-        ### Target with OAuth Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        oauth_example = aws.bedrock.AgentcoreGatewayTarget("oauth_example",
-            credential_provider_configuration={
-                "oauth": {
-                    "provider_arn": "arn:aws:iam::123456789012:oidc-provider/oauth.example.com",
-                    "scopes": [
-                        "read",
-                        "write",
-                    ],
-                    "grant_type": "authorization_code",
-                    "default_return_url": "https://myapp.example.com/callback",
-                    "custom_parameters": {
-                        "client_type": "confidential",
-                    },
-                },
-            },
-            target_configuration={
-                "mcp": {
-                    "lambda_": {
-                        "tool_schema": {
-                            "inline_payloads": [{
-                                "input_schema": {
-                                    "items": {
-                                        "properties": [
-                                            {
-                                                "name": "id",
-                                                "type": "string",
-                                                "required": True,
-                                            },
-                                            {
-                                                "name": "value",
-                                                "type": "number",
-                                            },
-                                        ],
-                                        "type": "object",
-                                    },
-                                    "type": "array",
-                                },
-                                "name": "oauth_tool",
-                                "description": "OAuth-authenticated service",
-                            }],
-                        },
-                        "lambda_arn": example["arn"],
-                    },
-                },
-            },
-            name="oauth-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### Target with IAM SigV4 Authentication (MCP Server)
@@ -757,7 +676,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
         #### Optional
 
-        * `account_id` (String) Account ID where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import gateway targets using `gateway_identifier` and `target_id` separated by a comma (`,`). For example:
@@ -795,6 +714,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         gateway_assume = aws.iam.get_policy_document(statements=[{
@@ -825,6 +745,15 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             role=lambda_role.arn,
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X)
+        gateway_lambda_invoke = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["lambda:InvokeFunction"],
+            "resources": [example.arn],
+        }])
+        gateway_lambda_invoke_role_policy = aws.iam.RolePolicy("gateway_lambda_invoke",
+            name="example-gateway-lambda-invoke",
+            role=gateway_role.id,
+            policy=gateway_lambda_invoke.json)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
@@ -832,7 +761,8 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 },
             },
             name="example-gateway",
-            role_arn=gateway_role.arn)
+            role_arn=gateway_role.arn,
+            authorizer_type="CUSTOM_JWT")
         example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
             credential_provider_configuration={
                 "gateway_iam_role": {},
@@ -857,11 +787,11 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                                     "type": "string",
                                                 },
                                                 {
-                                                    "items": [{
-                                                        "type": "string",
-                                                    }],
                                                     "name": "tags",
                                                     "type": "array",
+                                                    "items_json": json.dumps({
+                                                        "type": "string",
+                                                    }),
                                                 },
                                             ],
                                             "name": "options",
@@ -896,98 +826,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             name="example-target",
             gateway_identifier=example_agentcore_gateway.gateway_id,
             description="Lambda function target for processing requests")
-        ```
-
-        ### Target with API Key Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        api_key_example = aws.bedrock.AgentcoreGatewayTarget("api_key_example",
-            credential_provider_configuration={
-                "api_key": {
-                    "provider_arn": "arn:aws:iam::123456789012:oidc-provider/example.com",
-                    "credential_location": "HEADER",
-                    "credential_parameter_name": "X-API-Key",
-                    "credential_prefix": "Bearer",
-                },
-            },
-            target_configuration={
-                "mcp": {
-                    "lambda_": {
-                        "tool_schema": {
-                            "inline_payloads": [{
-                                "input_schema": {
-                                    "type": "string",
-                                    "description": "Simple string input for API calls",
-                                },
-                                "name": "api_tool",
-                                "description": "External API integration tool",
-                            }],
-                        },
-                        "lambda_arn": example["arn"],
-                    },
-                },
-            },
-            name="api-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            description="External API target with API key authentication")
-        ```
-
-        ### Target with OAuth Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        oauth_example = aws.bedrock.AgentcoreGatewayTarget("oauth_example",
-            credential_provider_configuration={
-                "oauth": {
-                    "provider_arn": "arn:aws:iam::123456789012:oidc-provider/oauth.example.com",
-                    "scopes": [
-                        "read",
-                        "write",
-                    ],
-                    "grant_type": "authorization_code",
-                    "default_return_url": "https://myapp.example.com/callback",
-                    "custom_parameters": {
-                        "client_type": "confidential",
-                    },
-                },
-            },
-            target_configuration={
-                "mcp": {
-                    "lambda_": {
-                        "tool_schema": {
-                            "inline_payloads": [{
-                                "input_schema": {
-                                    "items": {
-                                        "properties": [
-                                            {
-                                                "name": "id",
-                                                "type": "string",
-                                                "required": True,
-                                            },
-                                            {
-                                                "name": "value",
-                                                "type": "number",
-                                            },
-                                        ],
-                                        "type": "object",
-                                    },
-                                    "type": "array",
-                                },
-                                "name": "oauth_tool",
-                                "description": "OAuth-authenticated service",
-                            }],
-                        },
-                        "lambda_arn": example["arn"],
-                    },
-                },
-            },
-            name="oauth-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### Target with IAM SigV4 Authentication (MCP Server)
@@ -1189,7 +1027,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
         #### Optional
 
-        * `account_id` (String) Account ID where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import gateway targets using `gateway_identifier` and `target_id` separated by a comma (`,`). For example:

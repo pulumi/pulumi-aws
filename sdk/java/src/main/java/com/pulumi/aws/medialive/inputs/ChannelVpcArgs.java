@@ -32,14 +32,14 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+     * List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
      * 
      */
     @Import(name="publicAddressAllocationIds", required=true)
     private Output<List<String>> publicAddressAllocationIds;
 
     /**
-     * @return List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+     * @return List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
      * 
      */
     public Output<List<String>> publicAddressAllocationIds() {
@@ -47,14 +47,14 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+     * List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+     * @return List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -62,14 +62,14 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+     * List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+     * @return List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -131,7 +131,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicAddressAllocationIds List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+         * @param publicAddressAllocationIds List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicAddressAllocationIds List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+         * @param publicAddressAllocationIds List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicAddressAllocationIds List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+         * @param publicAddressAllocationIds List of public address allocation IDs to associate with ENIs created in the output VPC. Specify one for `SINGLE_PIPELINE`, two for `STANDARD` channels.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+         * @param securityGroupIds List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+         * @param securityGroupIds List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+         * @param securityGroupIds List of up to 5 EC2 VPC security group IDs to attach to the output VPC network interfaces. The VPC default security group is used if none are specified.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+         * @param subnetIds List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+         * @param subnetIds List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+         * @param subnetIds List of VPC subnet IDs from the same VPC. For a `STANDARD` channel, subnet IDs must map to two unique availability zones.
          * 
          * @return builder
          * 

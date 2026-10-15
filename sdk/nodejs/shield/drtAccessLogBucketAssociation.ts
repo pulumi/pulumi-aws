@@ -67,7 +67,7 @@ export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
      */
     declare public readonly logBucket: pulumi.Output<string>;
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * The ID of the Role ARN association used for allowing Shield DRT Access.
      */
     declare public readonly roleArnAssociationId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
@@ -114,7 +114,7 @@ export interface DrtAccessLogBucketAssociationState {
      */
     logBucket?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * The ID of the Role ARN association used for allowing Shield DRT Access.
      */
     roleArnAssociationId?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
@@ -129,7 +129,7 @@ export interface DrtAccessLogBucketAssociationArgs {
      */
     logBucket: pulumi.Input<string>;
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * The ID of the Role ARN association used for allowing Shield DRT Access.
      */
     roleArnAssociationId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;

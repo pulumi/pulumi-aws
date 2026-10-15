@@ -12,7 +12,7 @@ namespace Pulumi.Aws.GuardDuty
     public static class GetFindingIds
     {
         /// <summary>
-        /// Data source for managing an AWS GuardDuty Finding Ids.
+        /// Data source for managing an AWS GuardDuty Finding IDs.
         /// 
         /// ## Example Usage
         /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.GuardDuty
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFindingIdsResult>("aws:guardduty/getFindingIds:getFindingIds", args ?? new GetFindingIdsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS GuardDuty Finding Ids.
+        /// Data source for managing an AWS GuardDuty Finding IDs.
         /// 
         /// ## Example Usage
         /// 
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.GuardDuty
             => global::Pulumi.Deployment.Instance.Invoke<GetFindingIdsResult>("aws:guardduty/getFindingIds:getFindingIds", args ?? new GetFindingIdsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS GuardDuty Finding Ids.
+        /// Data source for managing an AWS GuardDuty Finding IDs.
         /// 
         /// ## Example Usage
         /// 
@@ -137,11 +137,11 @@ namespace Pulumi.Aws.GuardDuty
     {
         public readonly string DetectorId;
         /// <summary>
-        /// A list of finding IDs for the specified detector.
+        /// List of finding IDs for the specified detector.
         /// </summary>
         public readonly ImmutableArray<string> FindingIds;
         /// <summary>
-        /// Indicates whether findings are present for the specified detector.
+        /// Whether findings are present for the specified detector.
         /// </summary>
         public readonly bool HasFindings;
         public readonly string Id;

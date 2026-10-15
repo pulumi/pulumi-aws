@@ -31,14 +31,14 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Stream name RTMP destinations (URLs of type rtmp://)
+     * Stream name for RTMP destinations (URLs of type `rtmp://`).
      * 
      */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
     /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * @return Stream name for RTMP destinations (URLs of type `rtmp://`).
      * 
      */
     public Optional<Output<String>> streamName() {
@@ -46,14 +46,14 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A URL specifying a destination.
+     * URL for the destination.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return A URL specifying a destination.
+     * @return URL for the destination.
      * 
      */
     public Optional<Output<String>> url() {
@@ -61,14 +61,14 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Username for destination.
+     * Username for the destination.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return Username for destination.
+     * @return Username for the destination.
      * 
      */
     public Optional<Output<String>> username() {
@@ -124,7 +124,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
+         * @param streamName Stream name for RTMP destinations (URLs of type `rtmp://`).
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
+         * @param streamName Stream name for RTMP destinations (URLs of type `rtmp://`).
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param url A URL specifying a destination.
+         * @param url URL for the destination.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param url A URL specifying a destination.
+         * @param url URL for the destination.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param username Username for destination.
+         * @param username Username for the destination.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param username Username for destination.
+         * @param username Username for the destination.
          * 
          * @return builder
          * 

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides details about an EC2 Local Gateway Route Table.
  *
- * This data source can prove useful when a module accepts a local gateway route table id as
+ * This data source can prove useful when a module accepts a local gateway route table ID as
  * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
  *
  * ## Example Usage
@@ -52,7 +52,7 @@ export interface GetLocalGatewayRouteTableArgs {
      */
     localGatewayId?: string;
     /**
-     * Local Gateway Route Table Id assigned to desired local gateway route table
+     * Local Gateway Route Table ID assigned to desired local gateway route table
      */
     localGatewayRouteTableId?: string;
     /**
@@ -97,7 +97,7 @@ export interface GetLocalGatewayRouteTableResult {
 /**
  * Provides details about an EC2 Local Gateway Route Table.
  *
- * This data source can prove useful when a module accepts a local gateway route table id as
+ * This data source can prove useful when a module accepts a local gateway route table ID as
  * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
  *
  * ## Example Usage
@@ -139,7 +139,7 @@ export interface GetLocalGatewayRouteTableOutputArgs {
      */
     localGatewayId?: pulumi.Input<string | undefined>;
     /**
-     * Local Gateway Route Table Id assigned to desired local gateway route table
+     * Local Gateway Route Table ID assigned to desired local gateway route table
      */
     localGatewayRouteTableId?: pulumi.Input<string | undefined>;
     /**

@@ -12,7 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
+    /**
+     * @return Bits per sample.
+     * 
+     */
     private @Nullable Double bitDepth;
+    /**
+     * @return WAV coding mode.
+     * 
+     */
     private @Nullable String codingMode;
     /**
      * @return Sample rate in Hz.
@@ -21,9 +29,17 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSetting
     private @Nullable Double sampleRate;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings() {}
+    /**
+     * @return Bits per sample.
+     * 
+     */
     public Optional<Double> bitDepth() {
         return Optional.ofNullable(this.bitDepth);
     }
+    /**
+     * @return WAV coding mode.
+     * 
+     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }

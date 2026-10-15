@@ -62,7 +62,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The detector ID of the GuardDuty account where you want to create member accounts.
+        /// Detector ID of the GuardDuty account where you want to create member accounts.
         /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+        /// Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         /// </summary>
         [Output("relationshipStatus")]
         public Output<string> RelationshipStatus { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The detector ID of the GuardDuty account where you want to create member accounts.
+        /// Detector ID of the GuardDuty account where you want to create member accounts.
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The detector ID of the GuardDuty account where you want to create member accounts.
+        /// Detector ID of the GuardDuty account where you want to create member accounts.
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+        /// Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         /// </summary>
         [Input("relationshipStatus")]
         public Input<string>? RelationshipStatus { get; set; }

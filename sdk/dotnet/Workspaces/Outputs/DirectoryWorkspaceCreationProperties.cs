@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
     public sealed class DirectoryWorkspaceCreationProperties
     {
         /// <summary>
-        /// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        /// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         /// </summary>
         public readonly string? CustomSecurityGroupId;
         /// <summary>

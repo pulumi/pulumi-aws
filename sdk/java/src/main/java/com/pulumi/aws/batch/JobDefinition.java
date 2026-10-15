@@ -503,14 +503,14 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ecsProperties);
     }
     /**
-     * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Export(name="eksProperties", refs={JobDefinitionEksProperties.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionEksProperties> eksProperties;
 
     /**
-     * @return Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * @return Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Output<Optional<JobDefinitionEksProperties>> eksProperties() {

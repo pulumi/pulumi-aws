@@ -17,14 +17,14 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
     public static final WorkspaceApiKeyState Empty = new WorkspaceApiKeyState();
 
     /**
-     * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+     * Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+     * @return Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      * 
      */
     public Optional<Output<String>> key() {
@@ -32,14 +32,14 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the name of the API key. Key names must be unique to the workspace.
+     * Name of the API key. Key names must be unique to the workspace.
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return Specifies the name of the API key. Key names must be unique to the workspace.
+     * @return Name of the API key. Key names must be unique to the workspace.
      * 
      */
     public Optional<Output<String>> keyName() {
@@ -47,14 +47,14 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+     * Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      * 
      */
     @Import(name="keyRole")
     private @Nullable Output<String> keyRole;
 
     /**
-     * @return Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+     * @return Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      * 
      */
     public Optional<Output<String>> keyRole() {
@@ -77,14 +77,14 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+     * Time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */
     @Import(name="secondsToLive")
     private @Nullable Output<Integer> secondsToLive;
 
     /**
-     * @return Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+     * @return Time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */
     public Optional<Output<Integer>> secondsToLive() {
@@ -92,14 +92,14 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the workspace that the API key is valid for.
+     * ID of the workspace that the API key is valid for.
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The ID of the workspace that the API key is valid for.
+     * @return ID of the workspace that the API key is valid for.
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -136,7 +136,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param key The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+         * @param key Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param key The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+         * @param key Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyName Specifies the name of the API key. Key names must be unique to the workspace.
+         * @param keyName Name of the API key. Key names must be unique to the workspace.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyName Specifies the name of the API key. Key names must be unique to the workspace.
+         * @param keyName Name of the API key. Key names must be unique to the workspace.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyRole Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+         * @param keyRole Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyRole Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+         * @param keyRole Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secondsToLive Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+         * @param secondsToLive Time in seconds until the API key expires. Keys can be valid for up to 30 days.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secondsToLive Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+         * @param secondsToLive Time in seconds until the API key expires. Keys can be valid for up to 30 days.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workspaceId The ID of the workspace that the API key is valid for.
+         * @param workspaceId ID of the workspace that the API key is valid for.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class WorkspaceApiKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workspaceId The ID of the workspace that the API key is valid for.
+         * @param workspaceId ID of the workspace that the API key is valid for.
          * 
          * @return builder
          * 

@@ -104,9 +104,17 @@ public class ClusterPolicy extends com.pulumi.resources.CustomResource {
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
+    /**
+     * Current version of the policy.
+     * 
+     */
     @Export(name="currentVersion", refs={String.class}, tree="[0]")
     private Output<String> currentVersion;
 
+    /**
+     * @return Current version of the policy.
+     * 
+     */
     public Output<String> currentVersion() {
         return this.currentVersion;
     }

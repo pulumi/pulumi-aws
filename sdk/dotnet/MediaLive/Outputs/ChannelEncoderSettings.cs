@@ -14,39 +14,39 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettings
     {
         /// <summary>
-        /// Audio descriptions for the channel. See Audio Descriptions for more details.
+        /// Audio descriptions for the channel. See `AudioDescriptions` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsAudioDescription> AudioDescriptions;
         /// <summary>
-        /// Settings for ad avail blanking. See Avail Blanking for more details.
+        /// Settings for ad avail blanking. See `AvailBlanking` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAvailBlanking? AvailBlanking;
         /// <summary>
-        /// Caption Descriptions. See Caption Descriptions for more details.
+        /// Caption descriptions for the channel. See `CaptionDescriptions` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsCaptionDescription> CaptionDescriptions;
         /// <summary>
-        /// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        /// Configuration settings that apply to the event as a whole. See `GlobalConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsGlobalConfiguration? GlobalConfiguration;
         /// <summary>
-        /// Settings for motion graphics. See Motion Graphics Configuration for more details.
+        /// Settings for motion graphics. See `MotionGraphicsConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsMotionGraphicsConfiguration? MotionGraphicsConfiguration;
         /// <summary>
-        /// Nielsen configuration settings. See Nielsen Configuration for more details.
+        /// Nielsen configuration settings. See `NielsenConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsNielsenConfiguration? NielsenConfiguration;
         /// <summary>
-        /// Output groups for the channel. See Output Groups for more details.
+        /// Output groups for the channel. See `OutputGroups` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> OutputGroups;
         /// <summary>
-        /// Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        /// Settings used to acquire and adjust timecode information from inputs. See `TimecodeConfig` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsTimecodeConfig TimecodeConfig;
         /// <summary>
-        /// Video Descriptions. See Video Descriptions for more details.
+        /// Video descriptions for the channel. See `VideoDescriptions` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsVideoDescription> VideoDescriptions;
 

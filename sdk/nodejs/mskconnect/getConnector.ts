@@ -40,7 +40,7 @@ export interface GetConnectorArgs {
      */
     region?: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -64,7 +64,7 @@ export interface GetConnectorResult {
     readonly name: string;
     readonly region: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -108,7 +108,7 @@ export interface GetConnectorOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

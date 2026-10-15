@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Msk.Inputs
         public Input<bool>? DetectAndCopyNewTopics { get; set; }
 
         /// <summary>
-        /// Configuration for specifying the position in the topics to start replicating from.
+        /// Configuration for specifying the position in the topics to start replicating from. See `StartingPosition` Block below.
         /// </summary>
         [Input("startingPosition")]
         public Input<Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs>? StartingPosition { get; set; }
 
         /// <summary>
-        /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `TopicNameConfiguration` Block below.
         /// </summary>
         [Input("topicNameConfiguration")]
         public Input<Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs>? TopicNameConfiguration { get; set; }

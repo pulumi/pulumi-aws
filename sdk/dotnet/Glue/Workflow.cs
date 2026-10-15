@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        /// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
         [Output("defaultRunProperties")]
         public Output<ImmutableDictionary<string, string>?> DefaultRunProperties { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Glue
         public Output<int?> MaxConcurrentRuns { get; private set; } = null!;
 
         /// <summary>
-        /// The name you assign to this workflow.
+        /// Name you assign to this workflow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _defaultRunProperties;
 
         /// <summary>
-        /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        /// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
         public InputMap<string> DefaultRunProperties
         {
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? MaxConcurrentRuns { get; set; }
 
         /// <summary>
-        /// The name you assign to this workflow.
+        /// Name you assign to this workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _defaultRunProperties;
 
         /// <summary>
-        /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        /// Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
         public InputMap<string> DefaultRunProperties
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? MaxConcurrentRuns { get; set; }
 
         /// <summary>
-        /// The name you assign to this workflow.
+        /// Name you assign to this workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Agents for Amazon Bedrock Agent.
+    /// Manages an AWS Agents for Amazon Bedrock Agent.
     /// 
     /// ## Example Usage
     /// 
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Instruction { get; private set; } = null!;
 
         /// <summary>
-        /// Configurations for the agent's ability to retain the conversational context.
+        /// Configurations for the agent's ability to retain the conversational context. See `MemoryConfiguration` Block for details.
         /// </summary>
         [Output("memoryConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentMemoryConfiguration>> MemoryConfigurations { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the in-use check is skipped when deleting the agent.
+        /// Whether to skip the in-use check when deleting the agent. Defaults to `False`.
         /// </summary>
         [Output("skipResourceInUseCheck")]
         public Output<bool> SkipResourceInUseCheck { get; private set; } = null!;
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentMemoryConfigurationArgs>? _memoryConfigurations;
 
         /// <summary>
-        /// Configurations for the agent's ability to retain the conversational context.
+        /// Configurations for the agent's ability to retain the conversational context. See `MemoryConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentMemoryConfigurationArgs> MemoryConfigurations
         {
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether the in-use check is skipped when deleting the agent.
+        /// Whether to skip the in-use check when deleting the agent. Defaults to `False`.
         /// </summary>
         [Input("skipResourceInUseCheck")]
         public Input<bool>? SkipResourceInUseCheck { get; set; }
@@ -511,7 +511,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentMemoryConfigurationGetArgs>? _memoryConfigurations;
 
         /// <summary>
-        /// Configurations for the agent's ability to retain the conversational context.
+        /// Configurations for the agent's ability to retain the conversational context. See `MemoryConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentMemoryConfigurationGetArgs> MemoryConfigurations
         {
@@ -550,7 +550,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether the in-use check is skipped when deleting the agent.
+        /// Whether to skip the in-use check when deleting the agent. Defaults to `False`.
         /// </summary>
         [Input("skipResourceInUseCheck")]
         public Input<bool>? SkipResourceInUseCheck { get; set; }

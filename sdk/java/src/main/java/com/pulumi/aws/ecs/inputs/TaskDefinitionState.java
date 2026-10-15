@@ -70,14 +70,14 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
-     * @return Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * @return Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     public Optional<Output<String>> cpu() {
@@ -507,7 +507,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cpu Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+         * @param cpu Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cpu Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+         * @param cpu Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
          * 
          * @return builder
          * 

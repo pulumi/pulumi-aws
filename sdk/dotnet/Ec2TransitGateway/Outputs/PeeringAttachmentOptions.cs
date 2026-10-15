@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
     public sealed class PeeringAttachmentOptions
     {
         /// <summary>
-        /// Indicates whether dynamic routing is enabled or disabled.. Supports `Enable` and `Disable`.
+        /// Indicates whether dynamic routing is enabled or disabled. Supports `Enable` and `Disable`. If not configured, the value is populated from the API.
         /// </summary>
         public readonly string? DynamicRouting;
 

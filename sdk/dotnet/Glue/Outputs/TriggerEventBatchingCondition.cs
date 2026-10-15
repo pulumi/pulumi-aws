@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class TriggerEventBatchingCondition
     {
         /// <summary>
-        /// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+        /// Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
         /// </summary>
         public readonly int BatchSize;
         /// <summary>

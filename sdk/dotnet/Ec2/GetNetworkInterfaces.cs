@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ## Example Usage
         /// 
-        /// The following shows outputting all network interface ids in a region.
+        /// The following shows outputting all network interface IDs in a region.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `Test`.
+        /// The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `Test`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a network interface ids which associated
+        /// The following example retrieves a network interface IDs which associated
         /// with specific subnet.
         /// 
         /// ```csharp
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ## Example Usage
         /// 
-        /// The following shows outputting all network interface ids in a region.
+        /// The following shows outputting all network interface IDs in a region.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `Test`.
+        /// The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `Test`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a network interface ids which associated
+        /// The following example retrieves a network interface IDs which associated
         /// with specific subnet.
         /// 
         /// ```csharp
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ## Example Usage
         /// 
-        /// The following shows outputting all network interface ids in a region.
+        /// The following shows outputting all network interface IDs in a region.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `Test`.
+        /// The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `Test`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a network interface ids which associated
+        /// The following example retrieves a network interface IDs which associated
         /// with specific subnet.
         /// 
         /// ```csharp
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the network interface ids found.
+        /// List of all the network interface IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

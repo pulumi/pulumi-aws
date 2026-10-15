@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<string>? _adMarkers;
 
         /// <summary>
-        /// The ad marker type for this output group.
+        /// List of markers used to insert ad avail markers in the HLS output.
         /// </summary>
         public InputList<string> AdMarkers
         {
@@ -24,139 +24,261 @@ namespace Pulumi.Aws.MediaLive.Inputs
             set => _adMarkers = value;
         }
 
+        /// <summary>
+        /// Prepends a value to the URI of each media (segment) file in the manifest.
+        /// </summary>
         [Input("baseUrlContent")]
         public Input<string>? BaseUrlContent { get; set; }
 
+        /// <summary>
+        /// Alternate base URL for content, used for redundant manifest configurations.
+        /// </summary>
         [Input("baseUrlContent1")]
         public Input<string>? BaseUrlContent1 { get; set; }
 
+        /// <summary>
+        /// Prepends a value to the URI of each variant manifest file in the master manifest.
+        /// </summary>
         [Input("baseUrlManifest")]
         public Input<string>? BaseUrlManifest { get; set; }
 
+        /// <summary>
+        /// Alternate base URL for manifests, used for redundant manifest configurations.
+        /// </summary>
         [Input("baseUrlManifest1")]
         public Input<string>? BaseUrlManifest1 { get; set; }
 
         [Input("captionLanguageMappings")]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingGetArgs>? _captionLanguageMappings;
+
+        /// <summary>
+        /// Mapping of up to 4 caption channels to caption languages. See `CaptionLanguageMappings` Block for details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingGetArgs> CaptionLanguageMappings
         {
             get => _captionLanguageMappings ?? (_captionLanguageMappings = new InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingGetArgs>());
             set => _captionLanguageMappings = value;
         }
 
+        /// <summary>
+        /// How audio and caption language setting tags are written in the manifest.
+        /// </summary>
         [Input("captionLanguageSetting")]
         public Input<string>? CaptionLanguageSetting { get; set; }
 
+        /// <summary>
+        /// When set to `Disabled`, sets the `#EXT-X-ALLOW-CACHE:no` tag in the manifest.
+        /// </summary>
         [Input("clientCache")]
         public Input<string>? ClientCache { get; set; }
 
+        /// <summary>
+        /// Specification to use for the codec in the manifest.
+        /// </summary>
         [Input("codecSpecification")]
         public Input<string>? CodecSpecification { get; set; }
 
+        /// <summary>
+        /// 128-bit, 16-byte hex value represented by a 32-character text string, used with the key for encrypting blocks.
+        /// </summary>
         [Input("constantIv")]
         public Input<string>? ConstantIv { get; set; }
 
+        /// <summary>
+        /// Place where the segments and manifests are written. See `Destination` Block for details.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationGetArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// Place for the media and manifest files.
+        /// </summary>
         [Input("directoryStructure")]
         public Input<string>? DirectoryStructure { get; set; }
 
+        /// <summary>
+        /// How the `EXT-X-DISCONTINUITY` tags are inserted.
+        /// </summary>
         [Input("discontinuityTags")]
         public Input<string>? DiscontinuityTags { get; set; }
 
+        /// <summary>
+        /// Encryption type.
+        /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }
 
         [Input("hlsCdnSettings")]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingGetArgs>? _hlsCdnSettings;
+
+        /// <summary>
+        /// Parameters that control the interactions with the CDN. See `HlsCdnSettings` Block for details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingGetArgs> HlsCdnSettings
         {
             get => _hlsCdnSettings ?? (_hlsCdnSettings = new InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingGetArgs>());
             set => _hlsCdnSettings = value;
         }
 
+        /// <summary>
+        /// State of HLS ID3 segment tagging.
+        /// </summary>
         [Input("hlsId3SegmentTagging")]
         public Input<string>? HlsId3SegmentTagging { get; set; }
 
+        /// <summary>
+        /// When set to `Standard`, an I-Frame only playlist is written out for each video output in the output group.
+        /// </summary>
         [Input("iframeOnlyPlaylists")]
         public Input<string>? IframeOnlyPlaylists { get; set; }
 
+        /// <summary>
+        /// Behavior of the segment that is in progress at a channel restart or input switch.
+        /// </summary>
         [Input("incompleteSegmentBehavior")]
         public Input<string>? IncompleteSegmentBehavior { get; set; }
 
+        /// <summary>
+        /// Number of segments to keep in the manifest.
+        /// </summary>
         [Input("indexNSegments")]
         public Input<int>? IndexNSegments { get; set; }
 
+        /// <summary>
+        /// Parameter that controls output group behavior on an input loss.
+        /// </summary>
         [Input("inputLossAction")]
         public Input<string>? InputLossAction { get; set; }
 
+        /// <summary>
+        /// Whether the initialization vector is included in the key method on the segment.
+        /// </summary>
         [Input("ivInManifest")]
         public Input<string>? IvInManifest { get; set; }
 
+        /// <summary>
+        /// Whether the initialization vector follows the segment number or is from the group.
+        /// </summary>
         [Input("ivSource")]
         public Input<string>? IvSource { get; set; }
 
+        /// <summary>
+        /// Number of segments to retain in the destination directory.
+        /// </summary>
         [Input("keepSegments")]
         public Input<int>? KeepSegments { get; set; }
 
+        /// <summary>
+        /// Value for the key URI format in the key method.
+        /// </summary>
         [Input("keyFormat")]
         public Input<string>? KeyFormat { get; set; }
 
+        /// <summary>
+        /// Versions of the key format in the key method.
+        /// </summary>
         [Input("keyFormatVersions")]
         public Input<string>? KeyFormatVersions { get; set; }
 
+        /// <summary>
+        /// Key provider settings. See `KeyProviderSettings` Block for details.
+        /// </summary>
         [Input("keyProviderSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsGetArgs>? KeyProviderSettings { get; set; }
 
+        /// <summary>
+        /// Whether the manifest is compressed with gzip.
+        /// </summary>
         [Input("manifestCompression")]
         public Input<string>? ManifestCompression { get; set; }
 
+        /// <summary>
+        /// Format of the segment duration in the manifest.
+        /// </summary>
         [Input("manifestDurationFormat")]
         public Input<string>? ManifestDurationFormat { get; set; }
 
+        /// <summary>
+        /// Minimum length, in seconds, for each segment.
+        /// </summary>
         [Input("minSegmentLength")]
         public Input<int>? MinSegmentLength { get; set; }
 
+        /// <summary>
+        /// HLS mode.
+        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
+        /// <summary>
+        /// Generation of the manifest and segments or only variant manifests.
+        /// </summary>
         [Input("outputSelection")]
         public Input<string>? OutputSelection { get; set; }
 
+        /// <summary>
+        /// Whether to include an `EXT-X-PROGRAM-DATE-TIME` tag.
+        /// </summary>
         [Input("programDateTime")]
         public Input<string>? ProgramDateTime { get; set; }
 
+        /// <summary>
+        /// Clock source for the `EXT-X-PROGRAM-DATE-TIME` tag.
+        /// </summary>
         [Input("programDateTimeClock")]
         public Input<string>? ProgramDateTimeClock { get; set; }
 
+        /// <summary>
+        /// Period, in seconds, between `EXT-X-PROGRAM-DATE-TIME` tags.
+        /// </summary>
         [Input("programDateTimePeriod")]
         public Input<int>? ProgramDateTimePeriod { get; set; }
 
+        /// <summary>
+        /// When set to `Enabled`, writes a secondary manifest for each output group.
+        /// </summary>
         [Input("redundantManifest")]
         public Input<string>? RedundantManifest { get; set; }
 
+        /// <summary>
+        /// Length, in seconds, of each segment.
+        /// </summary>
         [Input("segmentLength")]
         public Input<int>? SegmentLength { get; set; }
 
+        /// <summary>
+        /// Number of segments to write to a subdirectory before starting a new one.
+        /// </summary>
         [Input("segmentsPerSubdirectory")]
         public Input<int>? SegmentsPerSubdirectory { get; set; }
 
+        /// <summary>
+        /// Whether to include the resolution in the `EXT-X-STREAM-INF` tag.
+        /// </summary>
         [Input("streamInfResolution")]
         public Input<string>? StreamInfResolution { get; set; }
 
         /// <summary>
-        /// Indicates ID3 frame that has the timecode.
+        /// ID3 frame used for timed metadata.
         /// </summary>
         [Input("timedMetadataId3Frame")]
         public Input<string>? TimedMetadataId3Frame { get; set; }
 
+        /// <summary>
+        /// Period, in seconds, between ID3 frames for timed metadata.
+        /// </summary>
         [Input("timedMetadataId3Period")]
         public Input<int>? TimedMetadataId3Period { get; set; }
 
+        /// <summary>
+        /// Value, in milliseconds, to offset the program date time from the input timestamp.
+        /// </summary>
         [Input("timestampDeltaMilliseconds")]
         public Input<int>? TimestampDeltaMilliseconds { get; set; }
 
+        /// <summary>
+        /// Whether segments are placed in subdirectories.
+        /// </summary>
         [Input("tsFileMode")]
         public Input<string>? TsFileMode { get; set; }
 

@@ -107,7 +107,7 @@ export class VaultLock extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The name of the Glacier Vault.
+     * Name of the Glacier Vault.
      */
     declare public readonly vaultName: pulumi.Output<string>;
 
@@ -172,7 +172,7 @@ export interface VaultLockState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Glacier Vault.
+     * Name of the Glacier Vault.
      */
     vaultName?: pulumi.Input<string | undefined>;
 }
@@ -198,7 +198,7 @@ export interface VaultLockArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Glacier Vault.
+     * Name of the Glacier Vault.
      */
     vaultName: pulumi.Input<string>;
 }

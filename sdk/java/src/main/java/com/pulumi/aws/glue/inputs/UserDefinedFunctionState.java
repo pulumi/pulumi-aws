@@ -18,14 +18,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     public static final UserDefinedFunctionState Empty = new UserDefinedFunctionState();
 
     /**
-     * The ARN of the Glue User Defined Function.
+     * ARN of the Glue User Defined Function.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Glue User Defined Function.
+     * @return ARN of the Glue User Defined Function.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Java class that contains the function code.
+     * Java class that contains the function code.
      * 
      */
     @Import(name="className")
     private @Nullable Output<String> className;
 
     /**
-     * @return The Java class that contains the function code.
+     * @return Java class that contains the function code.
      * 
      */
     public Optional<Output<String>> className() {
@@ -63,14 +63,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The time at which the function was created.
+     * Time at which the function was created.
      * 
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
-     * @return The time at which the function was created.
+     * @return Time at which the function was created.
      * 
      */
     public Optional<Output<String>> createTime() {
@@ -78,14 +78,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the Database to create the Function.
+     * Name of the Database to create the Function.
      * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
-     * @return The name of the Database to create the Function.
+     * @return Name of the Database to create the Function.
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -93,14 +93,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the function.
+     * Name of the function.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the function.
+     * @return Name of the function.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The owner of the function.
+     * Owner of the function.
      * 
      */
     @Import(name="ownerName")
     private @Nullable Output<String> ownerName;
 
     /**
-     * @return The owner of the function.
+     * @return Owner of the function.
      * 
      */
     public Optional<Output<String>> ownerName() {
@@ -123,14 +123,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
     @Import(name="ownerType")
     private @Nullable Output<String> ownerType;
 
     /**
-     * @return The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * @return Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
     public Optional<Output<String>> ownerType() {
@@ -153,14 +153,14 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
+     * Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      * 
      */
     @Import(name="resourceUris")
     private @Nullable Output<List<UserDefinedFunctionResourceUriArgs>> resourceUris;
 
     /**
-     * @return The configuration block for Resource URIs. See resource uris below for more details.
+     * @return Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      * 
      */
     public Optional<Output<List<UserDefinedFunctionResourceUriArgs>>> resourceUris() {
@@ -201,7 +201,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The ARN of the Glue User Defined Function.
+         * @param arn ARN of the Glue User Defined Function.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The ARN of the Glue User Defined Function.
+         * @param arn ARN of the Glue User Defined Function.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param className The Java class that contains the function code.
+         * @param className Java class that contains the function code.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param className The Java class that contains the function code.
+         * @param className Java class that contains the function code.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param createTime The time at which the function was created.
+         * @param createTime Time at which the function was created.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param createTime The time at which the function was created.
+         * @param createTime Time at which the function was created.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param databaseName The name of the Database to create the Function.
+         * @param databaseName Name of the Database to create the Function.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param databaseName The name of the Database to create the Function.
+         * @param databaseName Name of the Database to create the Function.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the function.
+         * @param name Name of the function.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the function.
+         * @param name Name of the function.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ownerName The owner of the function.
+         * @param ownerName Owner of the function.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ownerName The owner of the function.
+         * @param ownerName Owner of the function.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ownerType The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+         * @param ownerType Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ownerType The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+         * @param ownerType Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceUris The configuration block for Resource URIs. See resource uris below for more details.
+         * @param resourceUris Configuration block for Resource URIs. See `resourceUris` Block below for more details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceUris The configuration block for Resource URIs. See resource uris below for more details.
+         * @param resourceUris Configuration block for Resource URIs. See `resourceUris` Block below for more details.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceUris The configuration block for Resource URIs. See resource uris below for more details.
+         * @param resourceUris Configuration block for Resource URIs. See `resourceUris` Block below for more details.
          * 
          * @return builder
          * 

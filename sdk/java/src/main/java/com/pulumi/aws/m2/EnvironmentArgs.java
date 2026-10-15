@@ -22,16 +22,32 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EnvironmentArgs Empty = new EnvironmentArgs();
 
+    /**
+     * Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+     * 
+     */
     @Import(name="applyChangesDuringMaintenanceWindow")
     private @Nullable Output<Boolean> applyChangesDuringMaintenanceWindow;
 
+    /**
+     * @return Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+     * 
+     */
     public Optional<Output<Boolean>> applyChangesDuringMaintenanceWindow() {
         return Optional.ofNullable(this.applyChangesDuringMaintenanceWindow);
     }
 
+    /**
+     * Description of the runtime environment.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the runtime environment.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -52,14 +68,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The specific version of the engine for the Environment.
+     * Specific version of the engine for the Environment.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The specific version of the engine for the Environment.
+     * @return Specific version of the engine for the Environment.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -91,16 +107,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * M2 Instance Type.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
     /**
      * @return M2 Instance Type.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> instanceType() {
@@ -125,12 +137,16 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the runtime environment. Must be unique within the account.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the runtime environment. Must be unique within the account.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -183,14 +199,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of security group ids.
+     * List of security group IDs.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return List of security group ids.
+     * @return List of security group IDs.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -205,14 +221,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of subnet ids to deploy environment to.
+     * List of subnet IDs to deploy environment to.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return List of subnet ids to deploy environment to.
+     * @return List of subnet IDs to deploy environment to.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -281,20 +297,44 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applyChangesDuringMaintenanceWindow Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applyChangesDuringMaintenanceWindow(@Nullable Output<Boolean> applyChangesDuringMaintenanceWindow) {
             $.applyChangesDuringMaintenanceWindow = applyChangesDuringMaintenanceWindow;
             return this;
         }
 
+        /**
+         * @param applyChangesDuringMaintenanceWindow Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applyChangesDuringMaintenanceWindow(Boolean applyChangesDuringMaintenanceWindow) {
             return applyChangesDuringMaintenanceWindow(Output.of(applyChangesDuringMaintenanceWindow));
         }
 
+        /**
+         * @param description Description of the runtime environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the runtime environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -321,7 +361,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The specific version of the engine for the Environment.
+         * @param engineVersion Specific version of the engine for the Environment.
          * 
          * @return builder
          * 
@@ -332,7 +372,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The specific version of the engine for the Environment.
+         * @param engineVersion Specific version of the engine for the Environment.
          * 
          * @return builder
          * 
@@ -374,8 +414,6 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param instanceType M2 Instance Type.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -386,8 +424,6 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceType M2 Instance Type.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -420,6 +456,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the runtime environment. Must be unique within the account.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -430,6 +468,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Name of the runtime environment. Must be unique within the account.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -502,7 +542,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds List of security group ids.
+         * @param securityGroupIds List of security group IDs.
          * 
          * @return builder
          * 
@@ -513,7 +553,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds List of security group ids.
+         * @param securityGroupIds List of security group IDs.
          * 
          * @return builder
          * 
@@ -523,7 +563,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds List of security group ids.
+         * @param securityGroupIds List of security group IDs.
          * 
          * @return builder
          * 
@@ -542,7 +582,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds List of subnet ids to deploy environment to.
+         * @param subnetIds List of subnet IDs to deploy environment to.
          * 
          * @return builder
          * 
@@ -553,7 +593,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds List of subnet ids to deploy environment to.
+         * @param subnetIds List of subnet IDs to deploy environment to.
          * 
          * @return builder
          * 
@@ -563,7 +603,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds List of subnet ids to deploy environment to.
+         * @param subnetIds List of subnet IDs to deploy environment to.
          * 
          * @return builder
          * 

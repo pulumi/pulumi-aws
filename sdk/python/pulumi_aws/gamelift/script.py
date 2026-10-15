@@ -35,7 +35,7 @@ class ScriptArgs:
         :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this script.
-        :param pulumi.Input[_builtins.str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        :param pulumi.Input[_builtins.str] zip_file: Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -114,7 +114,7 @@ class ScriptArgs:
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         return pulumi.get(self, "zip_file")
 
@@ -142,9 +142,9 @@ class _ScriptState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this script.
-        :param pulumi.Input[_builtins.str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        :param pulumi.Input[_builtins.str] zip_file: Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -227,7 +227,7 @@ class _ScriptState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -251,7 +251,7 @@ class _ScriptState:
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         return pulumi.get(self, "zip_file")
 
@@ -307,7 +307,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict', 'outputs.ScriptStorageLocation']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this script.
-        :param pulumi.Input[_builtins.str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        :param pulumi.Input[_builtins.str] zip_file: Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         ...
     @overload
@@ -410,9 +410,9 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict', 'outputs.ScriptStorageLocation']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this script.
-        :param pulumi.Input[_builtins.str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        :param pulumi.Input[_builtins.str] zip_file: Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -472,7 +472,7 @@ class Script(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -488,7 +488,7 @@ class Script(pulumi.CustomResource):
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         return pulumi.get(self, "zip_file")
 

@@ -158,7 +158,7 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<string?> ComputePlatform { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Assigned deployment config id
+        /// The AWS Assigned deployment config ID
         /// </summary>
         [Output("deploymentConfigId")]
         public Output<string> DeploymentConfigId { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<string>? ComputePlatform { get; set; }
 
         /// <summary>
-        /// The AWS Assigned deployment config id
+        /// The AWS Assigned deployment config ID
         /// </summary>
         [Input("deploymentConfigId")]
         public Input<string>? DeploymentConfigId { get; set; }

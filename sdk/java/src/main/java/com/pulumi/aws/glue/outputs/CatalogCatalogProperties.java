@@ -20,12 +20,12 @@ public final class CatalogCatalogProperties {
      */
     private @Nullable Map<String,String> customProperties;
     /**
-     * @return Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+     * @return Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
      * 
      */
     private @Nullable CatalogCatalogPropertiesDataLakeAccessProperties dataLakeAccessProperties;
     /**
-     * @return Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+     * @return Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
      * 
      */
     private @Nullable CatalogCatalogPropertiesIcebergOptimizationProperties icebergOptimizationProperties;
@@ -39,14 +39,14 @@ public final class CatalogCatalogProperties {
         return this.customProperties == null ? Map.of() : this.customProperties;
     }
     /**
-     * @return Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+     * @return Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
      * 
      */
     public Optional<CatalogCatalogPropertiesDataLakeAccessProperties> dataLakeAccessProperties() {
         return Optional.ofNullable(this.dataLakeAccessProperties);
     }
     /**
-     * @return Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+     * @return Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
      * 
      */
     public Optional<CatalogCatalogPropertiesIcebergOptimizationProperties> icebergOptimizationProperties() {

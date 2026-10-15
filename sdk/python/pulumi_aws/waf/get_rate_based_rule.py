@@ -61,7 +61,7 @@ class AwaitableGetRateBasedRuleResult(GetRateBasedRuleResult):
 def get_rate_based_rule(name: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRateBasedRuleResult:
     """
-    `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+    `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
 
     ## Example Usage
 
@@ -86,7 +86,7 @@ def get_rate_based_rule(name: Optional[_builtins.str] = None,
 def get_rate_based_rule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRateBasedRuleResult]:
     """
-    `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+    `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
 
     ## Example Usage
 

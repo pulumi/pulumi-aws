@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling
     /// Provides an AutoScaling Scaling Policy resource.
     /// 
     /// &gt; **NOTE:** You may want to omit `DesiredCapacity` attribute from attached `aws.autoscaling.Group`
-    /// when using autoscaling policies. It's good practice to pick either
+    /// when using Auto Scaling policies. It's good practice to pick either
     /// [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
     /// or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
     /// (policy-based) scaling.
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the autoscaling group.
+        /// Name of the Auto Scaling group.
         /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
@@ -501,7 +501,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? AdjustmentType { get; set; }
 
         /// <summary>
-        /// Name of the autoscaling group.
+        /// Name of the Auto Scaling group.
         /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
@@ -669,7 +669,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name of the autoscaling group.
+        /// Name of the Auto Scaling group.
         /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }

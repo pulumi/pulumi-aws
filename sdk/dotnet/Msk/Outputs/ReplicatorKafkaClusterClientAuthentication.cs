@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorKafkaClusterClientAuthentication
     {
         /// <summary>
-        /// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+        /// Details of the mTLS client authentication used by the Kafka cluster. See `Mtls` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorKafkaClusterClientAuthenticationMtls? Mtls;
         /// <summary>
-        /// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+        /// Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `SaslScram` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorKafkaClusterClientAuthenticationSaslScram? SaslScram;
 

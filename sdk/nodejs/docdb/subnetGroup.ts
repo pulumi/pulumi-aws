@@ -62,15 +62,15 @@ export class SubnetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the docDB subnet group.
+     * The ARN of the DocDB subnet group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+     * The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
-     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * The network type of the DocDB subnet group (`IPV4` or `DUAL`).
      */
     declare public /*out*/ readonly supportedNetworkTypes: pulumi.Output<string[]>;
     /**
@@ -145,15 +145,15 @@ export class SubnetGroup extends pulumi.CustomResource {
  */
 export interface SubnetGroupState {
     /**
-     * The ARN of the docDB subnet group.
+     * The ARN of the DocDB subnet group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+     * The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface SubnetGroupState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * The network type of the DocDB subnet group (`IPV4` or `DUAL`).
      */
     supportedNetworkTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -187,11 +187,11 @@ export interface SubnetGroupState {
  */
 export interface SubnetGroupArgs {
     /**
-     * The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+     * The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string | undefined>;
     /**

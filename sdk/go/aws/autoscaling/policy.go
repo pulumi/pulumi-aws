@@ -15,7 +15,7 @@ import (
 // Provides an AutoScaling Scaling Policy resource.
 //
 // > **NOTE:** You may want to omit `desiredCapacity` attribute from attached `autoscaling.Group`
-// when using autoscaling policies. It's good practice to pick either
+// when using Auto Scaling policies. It's good practice to pick either
 // [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
 // or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
 // (policy-based) scaling.
@@ -295,7 +295,7 @@ type Policy struct {
 	AdjustmentType pulumi.StringPtrOutput `pulumi:"adjustmentType"`
 	// ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the autoscaling group.
+	// Name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrOutput `pulumi:"cooldown"`
@@ -429,7 +429,7 @@ type policyState struct {
 	AdjustmentType *string `pulumi:"adjustmentType"`
 	// ARN assigned by AWS to the scaling policy.
 	Arn *string `pulumi:"arn"`
-	// Name of the autoscaling group.
+	// Name of the Auto Scaling group.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
@@ -531,7 +531,7 @@ type PolicyState struct {
 	AdjustmentType pulumi.StringPtrInput
 	// ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringPtrInput
-	// Name of the autoscaling group.
+	// Name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringPtrInput
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
@@ -635,7 +635,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType *string `pulumi:"adjustmentType"`
-	// Name of the autoscaling group.
+	// Name of the Auto Scaling group.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
@@ -736,7 +736,7 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType pulumi.StringPtrInput
-	// Name of the autoscaling group.
+	// Name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringInput
 	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
@@ -930,7 +930,7 @@ func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the autoscaling group.
+// Name of the Auto Scaling group.
 func (o PolicyOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }

@@ -86,7 +86,7 @@ type LookupQueueArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
 	Name *string `pulumi:"name"`
-	// Returns information on a specific Queue by Queue id
+	// Returns information on a specific Queue by Queue ID
 	QueueId *string `pulumi:"queueId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -132,7 +132,7 @@ type LookupQueueOutputArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Returns information on a specific Queue by Queue id
+	// Returns information on a specific Queue by Queue ID
 	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

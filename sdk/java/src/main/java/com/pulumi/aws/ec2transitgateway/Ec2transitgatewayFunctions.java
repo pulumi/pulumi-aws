@@ -4317,7 +4317,7 @@ public final class Ec2transitgatewayFunctions {
         return Deployment.getInstance().invokeAsync("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", TypeShape.of(GetRouteTablePropagationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * Provides informations for routes of a specific transit gateway, such as state, type, CIDR
      * 
      * ## Example Usage
      * 
@@ -4362,7 +4362,7 @@ public final class Ec2transitgatewayFunctions {
         return getRouteTableRoutes(args, InvokeOptions.Empty);
     }
     /**
-     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * Provides informations for routes of a specific transit gateway, such as state, type, CIDR
      * 
      * ## Example Usage
      * 
@@ -4407,7 +4407,7 @@ public final class Ec2transitgatewayFunctions {
         return getRouteTableRoutesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * Provides informations for routes of a specific transit gateway, such as state, type, CIDR
      * 
      * ## Example Usage
      * 
@@ -4452,7 +4452,7 @@ public final class Ec2transitgatewayFunctions {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", TypeShape.of(GetRouteTableRoutesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * Provides informations for routes of a specific transit gateway, such as state, type, CIDR
      * 
      * ## Example Usage
      * 
@@ -4497,7 +4497,7 @@ public final class Ec2transitgatewayFunctions {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", TypeShape.of(GetRouteTableRoutesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * Provides informations for routes of a specific transit gateway, such as state, type, CIDR
      * 
      * ## Example Usage
      * 

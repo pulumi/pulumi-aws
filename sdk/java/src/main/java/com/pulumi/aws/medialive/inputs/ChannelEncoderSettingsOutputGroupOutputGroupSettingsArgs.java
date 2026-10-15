@@ -24,81 +24,121 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs();
 
     /**
-     * Archive group settings. See Archive Group Settings for more details.
+     * Archive group settings. See `archiveGroupSettings` Block for details.
      * 
      */
     @Import(name="archiveGroupSettings")
     private @Nullable Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs>> archiveGroupSettings;
 
     /**
-     * @return Archive group settings. See Archive Group Settings for more details.
+     * @return Archive group settings. See `archiveGroupSettings` Block for details.
      * 
      */
     public Optional<Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs>>> archiveGroupSettings() {
         return Optional.ofNullable(this.archiveGroupSettings);
     }
 
+    /**
+     * Frame capture group settings. See `frameCaptureGroupSettings` Block for details.
+     * 
+     */
     @Import(name="frameCaptureGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs> frameCaptureGroupSettings;
 
+    /**
+     * @return Frame capture group settings. See `frameCaptureGroupSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs>> frameCaptureGroupSettings() {
         return Optional.ofNullable(this.frameCaptureGroupSettings);
     }
 
+    /**
+     * HLS group settings. See `hlsGroupSettings` Block for details.
+     * 
+     */
     @Import(name="hlsGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs> hlsGroupSettings;
 
+    /**
+     * @return HLS group settings. See `hlsGroupSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs>> hlsGroupSettings() {
         return Optional.ofNullable(this.hlsGroupSettings);
     }
 
     /**
-     * Media package group settings. See Media Package Group Settings for more details.
+     * Media package group settings. See `mediaPackageGroupSettings` Block for details.
      * 
      */
     @Import(name="mediaPackageGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs> mediaPackageGroupSettings;
 
     /**
-     * @return Media package group settings. See Media Package Group Settings for more details.
+     * @return Media package group settings. See `mediaPackageGroupSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs>> mediaPackageGroupSettings() {
         return Optional.ofNullable(this.mediaPackageGroupSettings);
     }
 
+    /**
+     * Microsoft Smooth group settings. See `msSmoothGroupSettings` Block for details.
+     * 
+     */
     @Import(name="msSmoothGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs> msSmoothGroupSettings;
 
+    /**
+     * @return Microsoft Smooth group settings. See `msSmoothGroupSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs>> msSmoothGroupSettings() {
         return Optional.ofNullable(this.msSmoothGroupSettings);
     }
 
+    /**
+     * Multiplex group settings. Can be set as an empty block.
+     * 
+     */
     @Import(name="multiplexGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs> multiplexGroupSettings;
 
+    /**
+     * @return Multiplex group settings. Can be set as an empty block.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs>> multiplexGroupSettings() {
         return Optional.ofNullable(this.multiplexGroupSettings);
     }
 
     /**
-     * RTMP group settings. See RTMP Group Settings for more details.
+     * RTMP group settings. See `rtmpGroupSettings` Block for details.
      * 
      */
     @Import(name="rtmpGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs> rtmpGroupSettings;
 
     /**
-     * @return RTMP group settings. See RTMP Group Settings for more details.
+     * @return RTMP group settings. See `rtmpGroupSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs>> rtmpGroupSettings() {
         return Optional.ofNullable(this.rtmpGroupSettings);
     }
 
+    /**
+     * UDP group settings. See `udpGroupSettings` Block for details.
+     * 
+     */
     @Import(name="udpGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs> udpGroupSettings;
 
+    /**
+     * @return UDP group settings. See `udpGroupSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs>> udpGroupSettings() {
         return Optional.ofNullable(this.udpGroupSettings);
     }
@@ -135,7 +175,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
         }
 
         /**
-         * @param archiveGroupSettings Archive group settings. See Archive Group Settings for more details.
+         * @param archiveGroupSettings Archive group settings. See `archiveGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -146,7 +186,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
         }
 
         /**
-         * @param archiveGroupSettings Archive group settings. See Archive Group Settings for more details.
+         * @param archiveGroupSettings Archive group settings. See `archiveGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -156,7 +196,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
         }
 
         /**
-         * @param archiveGroupSettings Archive group settings. See Archive Group Settings for more details.
+         * @param archiveGroupSettings Archive group settings. See `archiveGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -165,26 +205,50 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
             return archiveGroupSettings(List.of(archiveGroupSettings));
         }
 
+        /**
+         * @param frameCaptureGroupSettings Frame capture group settings. See `frameCaptureGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureGroupSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs> frameCaptureGroupSettings) {
             $.frameCaptureGroupSettings = frameCaptureGroupSettings;
             return this;
         }
 
+        /**
+         * @param frameCaptureGroupSettings Frame capture group settings. See `frameCaptureGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs frameCaptureGroupSettings) {
             return frameCaptureGroupSettings(Output.of(frameCaptureGroupSettings));
         }
 
+        /**
+         * @param hlsGroupSettings HLS group settings. See `hlsGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsGroupSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs> hlsGroupSettings) {
             $.hlsGroupSettings = hlsGroupSettings;
             return this;
         }
 
+        /**
+         * @param hlsGroupSettings HLS group settings. See `hlsGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs hlsGroupSettings) {
             return hlsGroupSettings(Output.of(hlsGroupSettings));
         }
 
         /**
-         * @param mediaPackageGroupSettings Media package group settings. See Media Package Group Settings for more details.
+         * @param mediaPackageGroupSettings Media package group settings. See `mediaPackageGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -195,7 +259,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
         }
 
         /**
-         * @param mediaPackageGroupSettings Media package group settings. See Media Package Group Settings for more details.
+         * @param mediaPackageGroupSettings Media package group settings. See `mediaPackageGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -204,26 +268,50 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
             return mediaPackageGroupSettings(Output.of(mediaPackageGroupSettings));
         }
 
+        /**
+         * @param msSmoothGroupSettings Microsoft Smooth group settings. See `msSmoothGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder msSmoothGroupSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs> msSmoothGroupSettings) {
             $.msSmoothGroupSettings = msSmoothGroupSettings;
             return this;
         }
 
+        /**
+         * @param msSmoothGroupSettings Microsoft Smooth group settings. See `msSmoothGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder msSmoothGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs msSmoothGroupSettings) {
             return msSmoothGroupSettings(Output.of(msSmoothGroupSettings));
         }
 
+        /**
+         * @param multiplexGroupSettings Multiplex group settings. Can be set as an empty block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiplexGroupSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs> multiplexGroupSettings) {
             $.multiplexGroupSettings = multiplexGroupSettings;
             return this;
         }
 
+        /**
+         * @param multiplexGroupSettings Multiplex group settings. Can be set as an empty block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiplexGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs multiplexGroupSettings) {
             return multiplexGroupSettings(Output.of(multiplexGroupSettings));
         }
 
         /**
-         * @param rtmpGroupSettings RTMP group settings. See RTMP Group Settings for more details.
+         * @param rtmpGroupSettings RTMP group settings. See `rtmpGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -234,7 +322,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
         }
 
         /**
-         * @param rtmpGroupSettings RTMP group settings. See RTMP Group Settings for more details.
+         * @param rtmpGroupSettings RTMP group settings. See `rtmpGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -243,11 +331,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
             return rtmpGroupSettings(Output.of(rtmpGroupSettings));
         }
 
+        /**
+         * @param udpGroupSettings UDP group settings. See `udpGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder udpGroupSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs> udpGroupSettings) {
             $.udpGroupSettings = udpGroupSettings;
             return this;
         }
 
+        /**
+         * @param udpGroupSettings UDP group settings. See `udpGroupSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder udpGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs udpGroupSettings) {
             return udpGroupSettings(Output.of(udpGroupSettings));
         }

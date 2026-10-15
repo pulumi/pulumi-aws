@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobCommand {
     /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+     * @return Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+     * @return Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
      * 
      */
     private @Nullable String pythonVersion;
@@ -28,21 +28,21 @@ public final class JobCommand {
      */
     private @Nullable String runtime;
     /**
-     * @return Specifies the S3 path to a script that executes a job.
+     * @return S3 path to a script that executes a job.
      * 
      */
     private String scriptLocation;
 
     private JobCommand() {}
     /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+     * @return Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+     * @return Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
      * 
      */
     public Optional<String> pythonVersion() {
@@ -56,7 +56,7 @@ public final class JobCommand {
         return Optional.ofNullable(this.runtime);
     }
     /**
-     * @return Specifies the S3 path to a script that executes a job.
+     * @return S3 path to a script that executes a job.
      * 
      */
     public String scriptLocation() {

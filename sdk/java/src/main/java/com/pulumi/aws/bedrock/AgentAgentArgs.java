@@ -164,14 +164,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configurations for the agent&#39;s ability to retain the conversational context.
+     * Configurations for the agent&#39;s ability to retain the conversational context. See `memoryConfiguration` Block for details.
      * 
      */
     @Import(name="memoryConfigurations")
     private @Nullable Output<List<AgentAgentMemoryConfigurationArgs>> memoryConfigurations;
 
     /**
-     * @return Configurations for the agent&#39;s ability to retain the conversational context.
+     * @return Configurations for the agent&#39;s ability to retain the conversational context. See `memoryConfiguration` Block for details.
      * 
      */
     public Optional<Output<List<AgentAgentMemoryConfigurationArgs>>> memoryConfigurations() {
@@ -224,14 +224,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the in-use check is skipped when deleting the agent.
+     * Whether to skip the in-use check when deleting the agent. Defaults to `false`.
      * 
      */
     @Import(name="skipResourceInUseCheck")
     private @Nullable Output<Boolean> skipResourceInUseCheck;
 
     /**
-     * @return Whether the in-use check is skipped when deleting the agent.
+     * @return Whether to skip the in-use check when deleting the agent. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> skipResourceInUseCheck() {
@@ -503,7 +503,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context.
+         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context. See `memoryConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context.
+         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context. See `memoryConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context.
+         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context. See `memoryConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the agent.
+         * @param skipResourceInUseCheck Whether to skip the in-use check when deleting the agent. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the agent.
+         * @param skipResourceInUseCheck Whether to skip the in-use check when deleting the agent. Defaults to `false`.
          * 
          * @return builder
          * 

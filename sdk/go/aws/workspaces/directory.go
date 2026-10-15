@@ -384,7 +384,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Workspaces directory using the directory ID. For example:
+// Using `pulumi import`, import WorkSpaces directory using the directory ID. For example:
 //
 // ```sh
 // $ pulumi import aws:workspaces/directory:Directory main d-4444444444

@@ -4940,7 +4940,7 @@ class DataQualityJobDefinitionDataQualityAppSpecificationArgsDict(TypedDict):
     """
     record_preprocessor_source_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+    An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
     """
 
 @pulumi.input_type
@@ -4954,7 +4954,7 @@ class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
         :param pulumi.Input[_builtins.str] image_uri: The container image that the data quality monitoring job runs.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment: Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
         :param pulumi.Input[_builtins.str] post_analytics_processor_source_uri: An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-        :param pulumi.Input[_builtins.str] record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+        :param pulumi.Input[_builtins.str] record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
         """
         pulumi.set(__self__, "image_uri", image_uri)
         if environment is not None:
@@ -5004,7 +5004,7 @@ class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
     @pulumi.getter(name="recordPreprocessorSourceUri")
     def record_preprocessor_source_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
         """
         return pulumi.get(self, "record_preprocessor_source_uri")
 
@@ -5357,7 +5357,7 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
 class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgsDict(TypedDict):
     line: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Indicates if the file should be read as a json object per line.
+    Indicates if the file should be read as a JSON object per line.
     """
 
 @pulumi.input_type
@@ -5365,7 +5365,7 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
     def __init__(__self__, *,
                  line: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] line: Indicates if the file should be read as a json object per line.
+        :param pulumi.Input[_builtins.bool] line: Indicates if the file should be read as a JSON object per line.
         """
         if line is not None:
             pulumi.set(__self__, "line", line)
@@ -5374,7 +5374,7 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
     @pulumi.getter
     def line(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates if the file should be read as a json object per line.
+        Indicates if the file should be read as a JSON object per line.
         """
         return pulumi.get(self, "line")
 
@@ -13255,7 +13255,7 @@ class FeatureGroupOnlineStoreConfigArgsDict(TypedDict):
     """
     ttl_duration: NotRequired[pulumi.Input[Optional['FeatureGroupOnlineStoreConfigTtlDurationArgsDict']]]
     """
-    Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+    Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
     """
 
 @pulumi.input_type
@@ -13269,7 +13269,7 @@ class FeatureGroupOnlineStoreConfigArgs:
         :param pulumi.Input[_builtins.bool] enable_online_store: Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs'] security_config: Security config for at-rest encryption of your OnlineStore. See Security Config Below.
         :param pulumi.Input[_builtins.str] storage_type: Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
-        :param pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs'] ttl_duration: Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+        :param pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs'] ttl_duration: Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
         """
         if enable_online_store is not None:
             pulumi.set(__self__, "enable_online_store", enable_online_store)
@@ -13320,7 +13320,7 @@ class FeatureGroupOnlineStoreConfigArgs:
     @pulumi.getter(name="ttlDuration")
     def ttl_duration(self) -> pulumi.Input[Optional['FeatureGroupOnlineStoreConfigTtlDurationArgs']]:
         """
-        Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+        Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
         """
         return pulumi.get(self, "ttl_duration")
 
@@ -18841,7 +18841,7 @@ class ModelContainerImageConfigArgsDict(TypedDict):
     """
     repository_auth_config: NotRequired[pulumi.Input[Optional['ModelContainerImageConfigRepositoryAuthConfigArgsDict']]]
     """
-    Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+    Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
     """
 
 @pulumi.input_type
@@ -18851,7 +18851,7 @@ class ModelContainerImageConfigArgs:
                  repository_auth_config: pulumi.Input[Optional['ModelContainerImageConfigRepositoryAuthConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] repository_access_mode: Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
-        :param pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        :param pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         pulumi.set(__self__, "repository_access_mode", repository_access_mode)
         if repository_auth_config is not None:
@@ -18873,7 +18873,7 @@ class ModelContainerImageConfigArgs:
     @pulumi.getter(name="repositoryAuthConfig")
     def repository_auth_config(self) -> pulumi.Input[Optional['ModelContainerImageConfigRepositoryAuthConfigArgs']]:
         """
-        Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         return pulumi.get(self, "repository_auth_config")
 
@@ -19502,7 +19502,7 @@ class ModelPrimaryContainerImageConfigArgsDict(TypedDict):
     """
     repository_auth_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgsDict']]]
     """
-    Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+    Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
     """
 
 @pulumi.input_type
@@ -19512,7 +19512,7 @@ class ModelPrimaryContainerImageConfigArgs:
                  repository_auth_config: pulumi.Input[Optional['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] repository_access_mode: Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
-        :param pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        :param pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         pulumi.set(__self__, "repository_access_mode", repository_access_mode)
         if repository_auth_config is not None:
@@ -19534,7 +19534,7 @@ class ModelPrimaryContainerImageConfigArgs:
     @pulumi.getter(name="repositoryAuthConfig")
     def repository_auth_config(self) -> pulumi.Input[Optional['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs']]:
         """
-        Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         return pulumi.get(self, "repository_auth_config")
 
@@ -21400,7 +21400,7 @@ class PipelinePipelineDefinitionS3LocationArgsDict(TypedDict):
     """
     version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
+    Version ID of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
     """
 
 @pulumi.input_type
@@ -21412,7 +21412,7 @@ class PipelinePipelineDefinitionS3LocationArgs:
         """
         :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[_builtins.str] object_key: The object key (or key name) uniquely identifies the object in an S3 bucket.
-        :param pulumi.Input[_builtins.str] version_id: Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
+        :param pulumi.Input[_builtins.str] version_id: Version ID of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "object_key", object_key)
@@ -21447,7 +21447,7 @@ class PipelinePipelineDefinitionS3LocationArgs:
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
+        Version ID of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         """
         return pulumi.get(self, "version_id")
 
@@ -25339,7 +25339,7 @@ class UserProfileUserSettingsArgsDict(TypedDict):
     """
     custom_posix_user_config: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCustomPosixUserConfigArgsDict']]]
     """
-    Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+    Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
     """
     default_landing_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -25417,7 +25417,7 @@ class UserProfileUserSettingsArgs:
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsArgs'] canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
         :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
-        :param pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        :param pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
         :param pulumi.Input[_builtins.str] default_landing_uri: The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
         :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
         :param pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
@@ -25531,7 +25531,7 @@ class UserProfileUserSettingsArgs:
     @pulumi.getter(name="customPosixUserConfig")
     def custom_posix_user_config(self) -> pulumi.Input[Optional['UserProfileUserSettingsCustomPosixUserConfigArgs']]:
         """
-        Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
         """
         return pulumi.get(self, "custom_posix_user_config")
 

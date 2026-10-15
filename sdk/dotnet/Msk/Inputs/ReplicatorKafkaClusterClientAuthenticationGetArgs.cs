@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ReplicatorKafkaClusterClientAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+        /// Details of the mTLS client authentication used by the Kafka cluster. See `Mtls` Block below.
         /// </summary>
         [Input("mtls")]
         public Input<Inputs.ReplicatorKafkaClusterClientAuthenticationMtlsGetArgs>? Mtls { get; set; }
 
         /// <summary>
-        /// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+        /// Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `SaslScram` Block below.
         /// </summary>
         [Input("saslScram")]
         public Input<Inputs.ReplicatorKafkaClusterClientAuthenticationSaslScramGetArgs>? SaslScram { get; set; }

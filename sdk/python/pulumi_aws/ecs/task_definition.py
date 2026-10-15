@@ -48,7 +48,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[_builtins.str] family: Unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
@@ -140,7 +140,7 @@ class TaskDefinitionArgs:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         """
         return pulumi.get(self, "cpu")
 
@@ -390,7 +390,7 @@ class _TaskDefinitionState:
         :param pulumi.Input[_builtins.str] arn: Full ARN of the Task Definition (including both `family` and `revision`).
         :param pulumi.Input[_builtins.str] arn_without_revision: ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         :param pulumi.Input[_builtins.str] container_definitions: List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-        :param pulumi.Input[_builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
@@ -507,7 +507,7 @@ class _TaskDefinitionState:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         """
         return pulumi.get(self, "cpu")
 
@@ -837,7 +837,7 @@ class TaskDefinition(pulumi.CustomResource):
             ]))
         ```
 
-        ### With AppMesh Proxy
+        ### With App Mesh Proxy
 
         ```python
         import pulumi
@@ -1023,7 +1023,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_definitions: List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-        :param pulumi.Input[_builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
         :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
@@ -1103,7 +1103,7 @@ class TaskDefinition(pulumi.CustomResource):
             ]))
         ```
 
-        ### With AppMesh Proxy
+        ### With App Mesh Proxy
 
         ```python
         import pulumi
@@ -1402,7 +1402,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: Full ARN of the Task Definition (including both `family` and `revision`).
         :param pulumi.Input[_builtins.str] arn_without_revision: ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         :param pulumi.Input[_builtins.str] container_definitions: List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-        :param pulumi.Input[_builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
         :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
@@ -1488,7 +1488,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter
     def cpu(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         """
         return pulumi.get(self, "cpu")
 

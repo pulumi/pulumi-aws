@@ -47,7 +47,7 @@ export interface GetStateMachineArgs {
  */
 export interface GetStateMachineResult {
     /**
-     * Set to the arn of the state function.
+     * Set to the ARN of the state function.
      */
     readonly arn: string;
     /**

@@ -55,15 +55,39 @@ export interface GetAcceleratorArgs {
  */
 export interface GetAcceleratorResult {
     readonly arn: string;
+    /**
+     * Attributes of the accelerator. See `attributes` below.
+     */
     readonly attributes: outputs.globalaccelerator.GetAcceleratorAttribute[];
+    /**
+     * DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     */
     readonly dnsName: string;
+    /**
+     * DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
+     */
     readonly dualStackDnsName: string;
+    /**
+     * Whether the accelerator is enabled.
+     */
     readonly enabled: boolean;
+    /**
+     * Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+     */
     readonly hostedZoneId: string;
     readonly id: string;
+    /**
+     * Value for the address type.
+     */
     readonly ipAddressType: string;
+    /**
+     * IP address set associated with the accelerator. See `ipSets` below.
+     */
     readonly ipSets: outputs.globalaccelerator.GetAcceleratorIpSet[];
     readonly name: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
 }
 /**

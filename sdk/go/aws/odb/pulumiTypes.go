@@ -7618,7 +7618,7 @@ func (o GetCloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput) Index(i pu
 type GetCloudAutonomousVmClustersCloudAutonomousVmCluster struct {
 	// ARN for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
-	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+	// Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
 	// Display name of the Autonomous VM cluster.
 	DisplayName string `pulumi:"displayName"`
@@ -7648,7 +7648,7 @@ type GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput interface {
 type GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs struct {
 	// ARN for the Exadata infrastructure.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+	// Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
 	// Display name of the Autonomous VM cluster.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
@@ -7720,7 +7720,7 @@ func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Arn() pulumi
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+// Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string {
 		return v.CloudExadataInfrastructureId

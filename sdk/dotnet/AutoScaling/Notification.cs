@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
-    /// Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
+    /// Provides an Auto Scaling group with Notification support, via SNS Topics. Each of
     /// the `Notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
-    /// Services, and are applied to each AutoScaling Group you supply.
+    /// Services, and are applied to each Auto Scaling group you supply.
     /// 
     /// ## Example Usage
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Notification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of AutoScaling Group Names
+        /// List of Auto Scaling group Names
         /// </summary>
         [Output("groupNames")]
         public Output<ImmutableArray<string>> GroupNames { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _groupNames;
 
         /// <summary>
-        /// List of AutoScaling Group Names
+        /// List of Auto Scaling group Names
         /// </summary>
         public InputList<string> GroupNames
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _groupNames;
 
         /// <summary>
-        /// List of AutoScaling Group Names
+        /// List of Auto Scaling group Names
         /// </summary>
         public InputList<string> GroupNames
         {

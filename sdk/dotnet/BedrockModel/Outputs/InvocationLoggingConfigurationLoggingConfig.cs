@@ -18,11 +18,11 @@ namespace Pulumi.Aws.BedrockModel.Outputs
         /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig? CloudwatchConfig;
         /// <summary>
-        /// Set to include embeddings data in the log delivery. Defaults to `True`.
+        /// Whether to include embeddings data in the log delivery. Defaults to `True`.
         /// </summary>
         public readonly bool? EmbeddingDataDeliveryEnabled;
         /// <summary>
-        /// Set to include image data in the log delivery. Defaults to `True`.
+        /// Whether to include image data in the log delivery. Defaults to `True`.
         /// </summary>
         public readonly bool? ImageDataDeliveryEnabled;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.BedrockModel.Outputs
         /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigS3Config? S3Config;
         /// <summary>
-        /// Set to include text data in the log delivery. Defaults to `True`.
+        /// Whether to include text data in the log delivery. Defaults to `True`.
         /// </summary>
         public readonly bool? TextDataDeliveryEnabled;
         /// <summary>
-        /// Set to include text data in the log delivery. Defaults to `True`.
+        /// Whether to include video data in the log delivery. Defaults to `True`.
         /// </summary>
         public readonly bool? VideoDataDeliveryEnabled;
 

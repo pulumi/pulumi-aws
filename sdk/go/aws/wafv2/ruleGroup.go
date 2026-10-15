@@ -423,6 +423,8 @@ type RuleGroup struct {
 	// Friendly description of the rule group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
+	// Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig RuleGroupMonetizationConfigPtrOutput `pulumi:"monetizationConfig"`
 	// Friendly name of the rule group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -491,6 +493,8 @@ type ruleGroupState struct {
 	// Friendly description of the rule group.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
+	// Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig *RuleGroupMonetizationConfig `pulumi:"monetizationConfig"`
 	// Friendly name of the rule group.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -521,6 +525,8 @@ type RuleGroupState struct {
 	// Friendly description of the rule group.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
+	// Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig RuleGroupMonetizationConfigPtrInput
 	// Friendly name of the rule group.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -552,6 +558,8 @@ type ruleGroupArgs struct {
 	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
 	// Friendly description of the rule group.
 	Description *string `pulumi:"description"`
+	// Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig *RuleGroupMonetizationConfig `pulumi:"monetizationConfig"`
 	// Friendly name of the rule group.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -578,6 +586,8 @@ type RuleGroupArgs struct {
 	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
 	// Friendly description of the rule group.
 	Description pulumi.StringPtrInput
+	// Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig RuleGroupMonetizationConfigPtrInput
 	// Friendly name of the rule group.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -705,6 +715,11 @@ func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
 
 func (o RuleGroupOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
+}
+
+// Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+func (o RuleGroupOutput) MonetizationConfig() RuleGroupMonetizationConfigPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupMonetizationConfigPtrOutput { return v.MonetizationConfig }).(RuleGroupMonetizationConfigPtrOutput)
 }
 
 // Friendly name of the rule group.

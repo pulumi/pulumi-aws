@@ -532,7 +532,7 @@ class DistributionConfigurationDistribution(dict):
         :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param Sequence[_builtins.str] license_configuration_arns: Set of ARNs of License Manager License Configurations.
         :param 'DistributionConfigurationDistributionS3ExportConfigurationArgs' s3_export_configuration: Configuration block with S3 export settings. Detailed below.
-        :param Sequence['DistributionConfigurationDistributionSsmParameterConfigurationArgs'] ssm_parameter_configurations: Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionSsmParameterConfigurationArgs'] ssm_parameter_configurations: Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -610,7 +610,7 @@ class DistributionConfigurationDistribution(dict):
     @pulumi.getter(name="ssmParameterConfigurations")
     def ssm_parameter_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationDistributionSsmParameterConfiguration']]:
         """
-        Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
         """
         return pulumi.get(self, "ssm_parameter_configurations")
 
@@ -4235,7 +4235,7 @@ class GetImagePipelineImageScanningConfigurationResult(dict):
                  ecr_configurations: Sequence['outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult'],
                  image_scanning_enabled: _builtins.bool):
         """
-        :param Sequence['GetImagePipelineImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: List if an object with ecr configuration for image scanning
+        :param Sequence['GetImagePipelineImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: List if an object with ECR configuration for image scanning
         :param _builtins.bool image_scanning_enabled: Whether image scanning is enabled.
         """
         pulumi.set(__self__, "ecr_configurations", ecr_configurations)
@@ -4245,7 +4245,7 @@ class GetImagePipelineImageScanningConfigurationResult(dict):
     @pulumi.getter(name="ecrConfigurations")
     def ecr_configurations(self) -> Sequence['outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult']:
         """
-        List if an object with ecr configuration for image scanning
+        List if an object with ECR configuration for image scanning
         """
         return pulumi.get(self, "ecr_configurations")
 

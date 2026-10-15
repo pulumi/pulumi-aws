@@ -16,14 +16,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs();
 
     /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
      * 
      */
     @Import(name="clientAuthentication")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs> clientAuthentication;
 
     /**
-     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * @return Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs>> clientAuthentication() {
@@ -55,7 +55,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+         * @param clientAuthentication Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+         * @param clientAuthentication Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
          * 
          * @return builder
          * 

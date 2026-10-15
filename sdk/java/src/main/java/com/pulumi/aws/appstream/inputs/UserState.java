@@ -17,14 +17,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     public static final UserState Empty = new UserState();
 
     /**
-     * ARN of the appstream user.
+     * ARN of the AppStream user.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the appstream user.
+     * @return ARN of the AppStream user.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -188,7 +188,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream user.
+         * @param arn ARN of the AppStream user.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream user.
+         * @param arn ARN of the AppStream user.
          * 
          * @return builder
          * 

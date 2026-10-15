@@ -95,7 +95,7 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
                            transit_gateway_route_table_id: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableRoutesResult:
     """
-    Provides informations for routes of a specific transit gateway, such as state, type, cidr
+    Provides informations for routes of a specific transit gateway, such as state, type, CIDR
 
     ## Example Usage
 
@@ -136,7 +136,7 @@ def get_route_table_routes_output(filters: pulumi.Input[Optional[Sequence[Union[
                                   transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
     """
-    Provides informations for routes of a specific transit gateway, such as state, type, cidr
+    Provides informations for routes of a specific transit gateway, such as state, type, CIDR
 
     ## Example Usage
 

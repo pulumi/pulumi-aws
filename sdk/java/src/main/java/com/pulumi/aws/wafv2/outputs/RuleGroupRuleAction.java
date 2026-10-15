@@ -8,6 +8,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionBlock;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionCaptcha;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionChallenge;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionCount;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionMonetize;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -40,6 +41,11 @@ public final class RuleGroupRuleAction {
      * 
      */
     private @Nullable RuleGroupRuleActionCount count;
+    /**
+     * @return Instructs AWS WAF to monetize the web request, charging per request according to the rule group&#39;s `monetizationConfig`. See Monetize below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleActionMonetize monetize;
 
     private RuleGroupRuleAction() {}
     /**
@@ -77,6 +83,13 @@ public final class RuleGroupRuleAction {
     public Optional<RuleGroupRuleActionCount> count() {
         return Optional.ofNullable(this.count);
     }
+    /**
+     * @return Instructs AWS WAF to monetize the web request, charging per request according to the rule group&#39;s `monetizationConfig`. See Monetize below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleActionMonetize> monetize() {
+        return Optional.ofNullable(this.monetize);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -92,6 +105,7 @@ public final class RuleGroupRuleAction {
         private @Nullable RuleGroupRuleActionCaptcha captcha;
         private @Nullable RuleGroupRuleActionChallenge challenge;
         private @Nullable RuleGroupRuleActionCount count;
+        private @Nullable RuleGroupRuleActionMonetize monetize;
         public Builder() {}
         public Builder(RuleGroupRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -100,6 +114,7 @@ public final class RuleGroupRuleAction {
     	      this.captcha = defaults.captcha;
     	      this.challenge = defaults.challenge;
     	      this.count = defaults.count;
+    	      this.monetize = defaults.monetize;
         }
 
         @CustomType.Setter
@@ -132,6 +147,12 @@ public final class RuleGroupRuleAction {
             this.count = count;
             return this;
         }
+        @CustomType.Setter
+        public Builder monetize(@Nullable RuleGroupRuleActionMonetize monetize) {
+
+            this.monetize = monetize;
+            return this;
+        }
         public RuleGroupRuleAction build() {
             final var _resultValue = new RuleGroupRuleAction();
             _resultValue.allow = allow;
@@ -139,6 +160,7 @@ public final class RuleGroupRuleAction {
             _resultValue.captcha = captcha;
             _resultValue.challenge = challenge;
             _resultValue.count = count;
+            _resultValue.monetize = monetize;
             return _resultValue;
         }
     }

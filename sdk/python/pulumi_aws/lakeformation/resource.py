@@ -32,7 +32,7 @@ class ResourceArgs:
         :param pulumi.Input[_builtins.str] arn: ARN of the resource.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
+        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS Lake Formation hybrid access permission mode.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[_builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
@@ -73,7 +73,7 @@ class ResourceArgs:
     @pulumi.getter(name="hybridAccessEnabled")
     def hybrid_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Flag to enable AWS LakeFormation hybrid access permission mode.
+        Flag to enable AWS Lake Formation hybrid access permission mode.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 
@@ -161,7 +161,7 @@ class _ResourceState:
         :param pulumi.Input[_builtins.str] arn: ARN of the resource.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
+        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS Lake Formation hybrid access permission mode.
         :param pulumi.Input[_builtins.str] last_modified: Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: Role that has read/write access to the resource.
@@ -206,7 +206,7 @@ class _ResourceState:
     @pulumi.getter(name="hybridAccessEnabled")
     def hybrid_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Flag to enable AWS LakeFormation hybrid access permission mode.
+        Flag to enable AWS Lake Formation hybrid access permission mode.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 
@@ -327,7 +327,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the resource.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
+        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS Lake Formation hybrid access permission mode.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[_builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
@@ -430,7 +430,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the resource.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
+        :param pulumi.Input[_builtins.bool] hybrid_access_enabled: Flag to enable AWS Lake Formation hybrid access permission mode.
         :param pulumi.Input[_builtins.str] last_modified: Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: Role that has read/write access to the resource.
@@ -468,7 +468,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="hybridAccessEnabled")
     def hybrid_access_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        Flag to enable AWS LakeFormation hybrid access permission mode.
+        Flag to enable AWS Lake Formation hybrid access permission mode.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 

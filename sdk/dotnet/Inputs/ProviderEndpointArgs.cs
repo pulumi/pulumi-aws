@@ -1437,6 +1437,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("pricingplanmanager")]
+        public Input<string>? Pricingplanmanager { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("prometheus")]
         public Input<string>? Prometheus { get; set; }
 

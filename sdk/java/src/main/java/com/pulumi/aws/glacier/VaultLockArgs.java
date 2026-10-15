@@ -78,14 +78,14 @@ public final class VaultLockArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Glacier Vault.
+     * Name of the Glacier Vault.
      * 
      */
     @Import(name="vaultName", required=true)
     private Output<String> vaultName;
 
     /**
-     * @return The name of the Glacier Vault.
+     * @return Name of the Glacier Vault.
      * 
      */
     public Output<String> vaultName() {
@@ -205,7 +205,7 @@ public final class VaultLockArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultName The name of the Glacier Vault.
+         * @param vaultName Name of the Glacier Vault.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class VaultLockArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultName The name of the Glacier Vault.
+         * @param vaultName Name of the Glacier Vault.
          * 
          * @return builder
          * 

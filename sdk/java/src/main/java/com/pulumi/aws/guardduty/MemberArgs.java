@@ -33,14 +33,14 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The detector ID of the GuardDuty account where you want to create member accounts.
+     * Detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
     @Import(name="detectorId", required=true)
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty account where you want to create member accounts.
+     * @return Detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
     public Output<String> detectorId() {
@@ -174,7 +174,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty account where you want to create member accounts.
+         * @param detectorId Detector ID of the GuardDuty account where you want to create member accounts.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty account where you want to create member accounts.
+         * @param detectorId Detector ID of the GuardDuty account where you want to create member accounts.
          * 
          * @return builder
          * 

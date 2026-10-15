@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an Amazon Bedrock Guardrail.
+ * Manages an Amazon Bedrock Guardrail.
  *
  * ## Example Usage
  *
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *             type: "HATE",
  *         }],
  *         tierConfigs: [{
- *             tierName: "STANDARD",
+ *             tierName: "CLASSIC",
  *         }],
  *     },
  *     sensitiveInformationPolicyConfig: {
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `guardrailId` and `version`. For example:
+ * Using `pulumi import`, import Amazon Bedrock Guardrail using a comma-delimited string of `guardrailId` and `version`. For example:
  *
  * ```sh
  * $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
@@ -128,11 +128,11 @@ export class Guardrail extends pulumi.CustomResource {
      */
     declare public readonly contextualGroundingPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
     /**
-     * Unix epoch timestamp in seconds for when the Guardrail was created.
+     * Date and time the Guardrail was created, in RFC3339 format.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      */
     declare public readonly crossRegionConfig: pulumi.Output<outputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
@@ -166,13 +166,16 @@ export class Guardrail extends pulumi.CustomResource {
      */
     declare public readonly sensitiveInformationPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
     /**
-     * Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+     * Status of the Bedrock Guardrail.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.GuardrailTimeouts | undefined>;
     /**
@@ -180,7 +183,7 @@ export class Guardrail extends pulumi.CustomResource {
      */
     declare public readonly topicPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
     /**
-     * Date and time that the Guardrail list was last updated.
+     * Date and time that the Guardrail was last updated, in RFC3339 format.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
@@ -282,11 +285,11 @@ export interface GuardrailState {
      */
     contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
     /**
-     * Unix epoch timestamp in seconds for when the Guardrail was created.
+     * Date and time the Guardrail was created, in RFC3339 format.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      */
     crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
@@ -320,13 +323,16 @@ export interface GuardrailState {
      */
     sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
     /**
-     * Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+     * Status of the Bedrock Guardrail.
      */
     status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.GuardrailTimeouts | undefined>;
     /**
@@ -334,7 +340,7 @@ export interface GuardrailState {
      */
     topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
     /**
-     * Date and time that the Guardrail list was last updated.
+     * Date and time that the Guardrail was last updated, in RFC3339 format.
      */
     updatedAt?: pulumi.Input<string | undefined>;
     /**
@@ -368,7 +374,7 @@ export interface GuardrailArgs {
      */
     contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
     /**
-     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      */
     crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**

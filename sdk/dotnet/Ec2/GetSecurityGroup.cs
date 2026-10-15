@@ -14,13 +14,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.SecurityGroup` provides details about a specific Security Group.
         /// 
-        /// This resource can prove useful when a module accepts a Security Group id as
-        /// an input variable and needs to, for example, determine the id of the
+        /// This resource can prove useful when a module accepts a Security Group ID as
+        /// an input variable and needs to, for example, determine the ID of the
         /// VPC that the security group belongs to.
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a Security Group id as a variable
+        /// The following example shows how one might accept a Security Group ID as a variable
         /// and use this data source to obtain the data necessary to create a subnet.
         /// 
         /// ```csharp
@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.SecurityGroup` provides details about a specific Security Group.
         /// 
-        /// This resource can prove useful when a module accepts a Security Group id as
-        /// an input variable and needs to, for example, determine the id of the
+        /// This resource can prove useful when a module accepts a Security Group ID as
+        /// an input variable and needs to, for example, determine the ID of the
         /// VPC that the security group belongs to.
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a Security Group id as a variable
+        /// The following example shows how one might accept a Security Group ID as a variable
         /// and use this data source to obtain the data necessary to create a subnet.
         /// 
         /// ```csharp
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.SecurityGroup` provides details about a specific Security Group.
         /// 
-        /// This resource can prove useful when a module accepts a Security Group id as
-        /// an input variable and needs to, for example, determine the id of the
+        /// This resource can prove useful when a module accepts a Security Group ID as
+        /// an input variable and needs to, for example, determine the ID of the
         /// VPC that the security group belongs to.
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a Security Group id as a variable
+        /// The following example shows how one might accept a Security Group ID as a variable
         /// and use this data source to obtain the data necessary to create a subnet.
         /// 
         /// ```csharp
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Id of the specific security group to retrieve.
+        /// ID of the specific security group to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Id of the VPC that the desired security group belongs to.
+        /// ID of the VPC that the desired security group belongs to.
         /// 
         /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Id of the specific security group to retrieve.
+        /// ID of the specific security group to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Id of the VPC that the desired security group belongs to.
+        /// ID of the VPC that the desired security group belongs to.
         /// 
         /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:

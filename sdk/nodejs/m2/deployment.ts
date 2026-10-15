@@ -70,11 +70,17 @@ export class Deployment extends pulumi.CustomResource {
      * Version to application to deploy
      */
     declare public readonly applicationVersion: pulumi.Output<number>;
+    /**
+     * Unique identifier of the deployment.
+     */
     declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * Environment to deploy application to.
      */
     declare public readonly environmentId: pulumi.Output<string>;
+    /**
+     * Stop the application during deployment, even if it is running.
+     */
     declare public readonly forceStop: pulumi.Output<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -147,11 +153,17 @@ export interface DeploymentState {
      * Version to application to deploy
      */
     applicationVersion?: pulumi.Input<number | undefined>;
+    /**
+     * Unique identifier of the deployment.
+     */
     deploymentId?: pulumi.Input<string | undefined>;
     /**
      * Environment to deploy application to.
      */
     environmentId?: pulumi.Input<string | undefined>;
+    /**
+     * Stop the application during deployment, even if it is running.
+     */
     forceStop?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -180,6 +192,9 @@ export interface DeploymentArgs {
      * Environment to deploy application to.
      */
     environmentId: pulumi.Input<string>;
+    /**
+     * Stop the application during deployment, even if it is running.
+     */
     forceStop?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

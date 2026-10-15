@@ -328,7 +328,7 @@ func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput 
 type BrokerInstance struct {
 	// URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
 	ConsoleUrl *string `pulumi:"consoleUrl"`
-	// `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+	// Broker's wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
 	Endpoints []string `pulumi:"endpoints"`
 	// IP Address of the broker.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -348,7 +348,7 @@ type BrokerInstanceInput interface {
 type BrokerInstanceArgs struct {
 	// URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
 	ConsoleUrl pulumi.StringPtrInput `pulumi:"consoleUrl"`
-	// `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+	// Broker's wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
 	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
 	// IP Address of the broker.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -410,7 +410,7 @@ func (o BrokerInstanceOutput) ConsoleUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerInstance) *string { return v.ConsoleUrl }).(pulumi.StringPtrOutput)
 }
 
-// `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+// Broker's wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
 func (o BrokerInstanceOutput) Endpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BrokerInstance) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }

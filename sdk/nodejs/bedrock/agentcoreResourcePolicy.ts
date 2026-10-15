@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an AWS Bedrock Agent Core Resource Policy. Resource-based policies in Amazon Bedrock Agent Core allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock Agent Core Runtime and Gateway resources.
+ * Manages an AWS Bedrock AgentCore Resource Policy. Resource-based policies in Amazon Bedrock AgentCore allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock AgentCore Runtime and Gateway resources.
  *
  * ## Example Usage
  *
@@ -45,9 +45,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `resourceArn` - ARN of the resource to which the Resource Policy is attached.
+ * * `resourceArn` (String) ARN of the resource to which the Resource Policy is attached.
  *
- * Using `pulumi import`, import Bedrock Agent Core Resource Policy using the `resourceArn`. For example:
+ * Using `pulumi import`, import Bedrock AgentCore Resource Policy using the `resourceArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy example arn:aws:bedrock-agentcore:us-west-2:012345678901:runtime/abcd1234
@@ -82,7 +82,7 @@ export class AgentcoreResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Resource policy definition
+     * Resource policy document in JSON format.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -134,7 +134,7 @@ export class AgentcoreResourcePolicy extends pulumi.CustomResource {
  */
 export interface AgentcoreResourcePolicyState {
     /**
-     * Resource policy definition
+     * Resource policy document in JSON format.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface AgentcoreResourcePolicyState {
  */
 export interface AgentcoreResourcePolicyArgs {
     /**
-     * Resource policy definition
+     * Resource policy document in JSON format.
      */
     policy: pulumi.Input<string>;
     /**

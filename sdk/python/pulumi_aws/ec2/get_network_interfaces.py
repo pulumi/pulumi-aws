@@ -62,7 +62,7 @@ class GetNetworkInterfacesResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the network interface ids found.
+        List of all the network interface IDs found.
         """
         return pulumi.get(self, "ids")
 
@@ -97,7 +97,7 @@ def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterface
     """
     ## Example Usage
 
-    The following shows outputting all network interface ids in a region.
+    The following shows outputting all network interface IDs in a region.
 
     ```python
     import pulumi
@@ -107,7 +107,7 @@ def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterface
     pulumi.export("example", example.ids)
     ```
 
-    The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+    The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
 
     ```python
     import pulumi
@@ -119,7 +119,7 @@ def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterface
     pulumi.export("example1", example.ids)
     ```
 
-    The following example retrieves a network interface ids which associated
+    The following example retrieves a network interface IDs which associated
     with specific subnet.
 
     ```python
@@ -159,7 +159,7 @@ def get_network_interfaces_output(filters: pulumi.Input[Optional[Optional[Sequen
     """
     ## Example Usage
 
-    The following shows outputting all network interface ids in a region.
+    The following shows outputting all network interface IDs in a region.
 
     ```python
     import pulumi
@@ -169,7 +169,7 @@ def get_network_interfaces_output(filters: pulumi.Input[Optional[Optional[Sequen
     pulumi.export("example", example.ids)
     ```
 
-    The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+    The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
 
     ```python
     import pulumi
@@ -181,7 +181,7 @@ def get_network_interfaces_output(filters: pulumi.Input[Optional[Optional[Sequen
     pulumi.export("example1", example.ids)
     ```
 
-    The following example retrieves a network interface ids which associated
+    The following example retrieves a network interface IDs which associated
     with specific subnet.
 
     ```python

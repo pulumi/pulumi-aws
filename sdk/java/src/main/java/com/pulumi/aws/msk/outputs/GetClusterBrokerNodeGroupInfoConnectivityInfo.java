@@ -13,17 +13,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoConnectivityInfo {
+    /**
+     * @return Network type of the cluster.
+     * 
+     */
     private String networkType;
+    /**
+     * @return Public access configuration. See `publicAccess` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccesses;
+    /**
+     * @return VPC connectivity configuration. See `vpcConnectivity` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity> vpcConnectivities;
 
     private GetClusterBrokerNodeGroupInfoConnectivityInfo() {}
+    /**
+     * @return Network type of the cluster.
+     * 
+     */
     public String networkType() {
         return this.networkType;
     }
+    /**
+     * @return Public access configuration. See `publicAccess` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccesses() {
         return this.publicAccesses;
     }
+    /**
+     * @return VPC connectivity configuration. See `vpcConnectivity` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity> vpcConnectivities() {
         return this.vpcConnectivities;
     }

@@ -26,14 +26,14 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Local Gateway Route Table Id assigned to desired COIP Pool
+     * Local Gateway Route Table ID assigned to desired CoIP Pool
      * 
      */
     @Import(name="localGatewayRouteTableId")
     private @Nullable Output<String> localGatewayRouteTableId;
 
     /**
-     * @return Local Gateway Route Table Id assigned to desired COIP Pool
+     * @return Local Gateway Route Table ID assigned to desired CoIP Pool
      * 
      */
     public Optional<Output<String>> localGatewayRouteTableId() {
@@ -41,14 +41,14 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID of the specific COIP Pool to retrieve.
+     * ID of the specific CoIP Pool to retrieve.
      * 
      */
     @Import(name="poolId")
     private @Nullable Output<String> poolId;
 
     /**
-     * @return ID of the specific COIP Pool to retrieve.
+     * @return ID of the specific CoIP Pool to retrieve.
      * 
      */
     public Optional<Output<String>> poolId() {
@@ -72,7 +72,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired COIP Pool.
+     * a pair on the desired CoIP Pool.
      * 
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -83,7 +83,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired COIP Pool.
+     * a pair on the desired CoIP Pool.
      * 
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -135,7 +135,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired COIP Pool
+         * @param localGatewayRouteTableId Local Gateway Route Table ID assigned to desired CoIP Pool
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired COIP Pool
+         * @param localGatewayRouteTableId Local Gateway Route Table ID assigned to desired CoIP Pool
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param poolId ID of the specific COIP Pool to retrieve.
+         * @param poolId ID of the specific CoIP Pool to retrieve.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param poolId ID of the specific COIP Pool to retrieve.
+         * @param poolId ID of the specific CoIP Pool to retrieve.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired COIP Pool.
+         * a pair on the desired CoIP Pool.
          * 
          * More complex filters can be expressed using one or more `filter` sub-blocks,
          * which take the following arguments:
@@ -214,7 +214,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired COIP Pool.
+         * a pair on the desired CoIP Pool.
          * 
          * More complex filters can be expressed using one or more `filter` sub-blocks,
          * which take the following arguments:

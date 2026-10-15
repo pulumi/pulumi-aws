@@ -241,14 +241,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mwaa/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
     /**
-     * The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+     * Airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      * 
      */
     @Export(name="airflowConfigurationOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> airflowConfigurationOptions;
 
     /**
-     * @return The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+     * @return Airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      * 
      */
     public Output<Optional<Map<String,String>>> airflowConfigurationOptions() {
@@ -269,72 +269,70 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.airflowVersion;
     }
     /**
-     * The ARN of the MWAA Environment
+     * ARN of the MWAA Environment.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the MWAA Environment
+     * @return ARN of the MWAA Environment.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Created At date of the MWAA Environment
+     * Date and time the environment was last updated.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The Created At date of the MWAA Environment
+     * @return Date and time the environment was last updated.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * Relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     @Export(name="dagS3Path", refs={String.class}, tree="[0]")
     private Output<String> dagS3Path;
 
     /**
-     * @return The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * @return Relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     public Output<String> dagS3Path() {
         return this.dagS3Path;
     }
     /**
-     * The VPC endpoint for the environment&#39;s Amazon RDS database
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * VPC endpoint for the environment&#39;s Amazon RDS database.
      * 
      */
     @Export(name="databaseVpcEndpointService", refs={String.class}, tree="[0]")
     private Output<String> databaseVpcEndpointService;
 
     /**
-     * @return The VPC endpoint for the environment&#39;s Amazon RDS database
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * @return VPC endpoint for the environment&#39;s Amazon RDS database.
      * 
      */
     public Output<String> databaseVpcEndpointService() {
         return this.databaseVpcEndpointService;
     }
     /**
-     * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * Whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
      * 
      */
     @Export(name="endpointManagement", refs={String.class}, tree="[0]")
     private Output<String> endpointManagement;
 
     /**
-     * @return Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * @return Whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
      * 
      */
     public Output<String> endpointManagement() {
@@ -382,133 +380,141 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> kmsKey() {
         return Codegen.optional(this.kmsKey);
     }
+    /**
+     * Information about the last update of the environment. See `lastUpdated` Block for details.
+     * 
+     */
     @Export(name="lastUpdateds", refs={List.class,EnvironmentLastUpdated.class}, tree="[0,1]")
     private Output<List<EnvironmentLastUpdated>> lastUpdateds;
 
+    /**
+     * @return Information about the last update of the environment. See `lastUpdated` Block for details.
+     * 
+     */
     public Output<List<EnvironmentLastUpdated>> lastUpdateds() {
         return this.lastUpdateds;
     }
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
+     * Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      * 
      */
     @Export(name="loggingConfiguration", refs={EnvironmentLoggingConfiguration.class}, tree="[0]")
     private Output<EnvironmentLoggingConfiguration> loggingConfiguration;
 
     /**
-     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
+     * @return Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      * 
      */
     public Output<EnvironmentLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
     /**
-     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
+     * Maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Export(name="maxWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxWebservers;
 
     /**
-     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
+     * @return Maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Output<Integer> maxWebservers() {
         return this.maxWebservers;
     }
     /**
-     * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+     * Maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
      */
     @Export(name="maxWorkers", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxWorkers;
 
     /**
-     * @return The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+     * @return Maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
      */
     public Output<Integer> maxWorkers() {
         return this.maxWorkers;
     }
     /**
-     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
+     * Minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Export(name="minWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> minWebservers;
 
     /**
-     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
+     * @return Minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Output<Integer> minWebservers() {
         return this.minWebservers;
     }
     /**
-     * The minimum number of workers that you want to run in your environment. Will be `1` by default.
+     * Minimum number of workers that you want to run in your environment. Will be `1` by default.
      * 
      */
     @Export(name="minWorkers", refs={Integer.class}, tree="[0]")
     private Output<Integer> minWorkers;
 
     /**
-     * @return The minimum number of workers that you want to run in your environment. Will be `1` by default.
+     * @return Minimum number of workers that you want to run in your environment. Will be `1` by default.
      * 
      */
     public Output<Integer> minWorkers() {
         return this.minWorkers;
     }
     /**
-     * The name of the Apache Airflow Environment
+     * Name of the Apache Airflow Environment.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Apache Airflow Environment
+     * @return Name of the Apache Airflow Environment.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
+     * Network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      * 
      */
     @Export(name="networkConfiguration", refs={EnvironmentNetworkConfiguration.class}, tree="[0]")
     private Output<EnvironmentNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
+     * @return Network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      * 
      */
     public Output<EnvironmentNetworkConfiguration> networkConfiguration() {
         return this.networkConfiguration;
     }
     /**
-     * The plugins.zip file version you want to use.
+     * Version of the plugins.zip file you want to use.
      * 
      */
     @Export(name="pluginsS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output<String> pluginsS3ObjectVersion;
 
     /**
-     * @return The plugins.zip file version you want to use.
+     * @return Version of the plugins.zip file you want to use.
      * 
      */
     public Output<String> pluginsS3ObjectVersion() {
         return this.pluginsS3ObjectVersion;
     }
     /**
-     * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * Relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     @Export(name="pluginsS3Path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pluginsS3Path;
 
     /**
-     * @return The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * @return Relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     public Output<Optional<String>> pluginsS3Path() {
@@ -529,56 +535,56 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The requirements.txt file version you want to use.
+     * Version of the requirements.txt file you want to use.
      * 
      */
     @Export(name="requirementsS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output<String> requirementsS3ObjectVersion;
 
     /**
-     * @return The requirements.txt file version you want to use.
+     * @return Version of the requirements.txt file you want to use.
      * 
      */
     public Output<String> requirementsS3ObjectVersion() {
         return this.requirementsS3ObjectVersion;
     }
     /**
-     * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * Relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     @Export(name="requirementsS3Path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requirementsS3Path;
 
     /**
-     * @return The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+     * @return Relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
     public Output<Optional<String>> requirementsS3Path() {
         return Codegen.optional(this.requirementsS3Path);
     }
     /**
-     * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+     * Number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      * 
      */
     @Export(name="schedulers", refs={Integer.class}, tree="[0]")
     private Output<Integer> schedulers;
 
     /**
-     * @return The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+     * @return Number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      * 
      */
     public Output<Integer> schedulers() {
         return this.schedulers;
     }
     /**
-     * The Service Role ARN of the Amazon MWAA Environment
+     * Service Role ARN of the Amazon MWAA Environment.
      * 
      */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceRoleArn;
 
     /**
-     * @return The Service Role ARN of the Amazon MWAA Environment
+     * @return Service Role ARN of the Amazon MWAA Environment.
      * 
      */
     public Output<String> serviceRoleArn() {
@@ -599,126 +605,126 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.sourceBucketArn;
     }
     /**
-     * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     * Version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      * 
      */
     @Export(name="startupScriptS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output<String> startupScriptS3ObjectVersion;
 
     /**
-     * @return The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     * @return Version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      * 
      */
     public Output<String> startupScriptS3ObjectVersion() {
         return this.startupScriptS3ObjectVersion;
     }
     /**
-     * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     * Relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
      * 
      */
     @Export(name="startupScriptS3Path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startupScriptS3Path;
 
     /**
-     * @return The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     * @return Relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
      * 
      */
     public Output<Optional<String>> startupScriptS3Path() {
         return Codegen.optional(this.startupScriptS3Path);
     }
     /**
-     * The status of the Amazon MWAA Environment
+     * Status of the last update.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the Amazon MWAA Environment
+     * @return Status of the last update.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
+     * Whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
      * 
      */
     @Export(name="webserverAccessMode", refs={String.class}, tree="[0]")
     private Output<String> webserverAccessMode;
 
     /**
-     * @return Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
+     * @return Whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
      * 
      */
     public Output<String> webserverAccessMode() {
         return this.webserverAccessMode;
     }
     /**
-     * The webserver URL of the MWAA Environment
+     * Webserver URL of the MWAA Environment.
      * 
      */
     @Export(name="webserverUrl", refs={String.class}, tree="[0]")
     private Output<String> webserverUrl;
 
     /**
-     * @return The webserver URL of the MWAA Environment
+     * @return Webserver URL of the MWAA Environment.
      * 
      */
     public Output<String> webserverUrl() {
         return this.webserverUrl;
     }
     /**
-     * The VPC endpoint for the environment&#39;s web server
+     * VPC endpoint for the environment&#39;s web server.
      * 
      */
     @Export(name="webserverVpcEndpointService", refs={String.class}, tree="[0]")
     private Output<String> webserverVpcEndpointService;
 
     /**
-     * @return The VPC endpoint for the environment&#39;s web server
+     * @return VPC endpoint for the environment&#39;s web server.
      * 
      */
     public Output<String> webserverVpcEndpointService() {
         return this.webserverVpcEndpointService;
     }
     /**
-     * Specifies the start date for the weekly maintenance window.
+     * Start date for the weekly maintenance window.
      * 
      */
     @Export(name="weeklyMaintenanceWindowStart", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceWindowStart;
 
     /**
-     * @return Specifies the start date for the weekly maintenance window.
+     * @return Start date for the weekly maintenance window.
      * 
      */
     public Output<String> weeklyMaintenanceWindowStart() {

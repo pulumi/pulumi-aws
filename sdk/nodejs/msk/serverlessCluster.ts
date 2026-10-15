@@ -77,7 +77,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the serverless cluster.
+     * ARN of the serverless cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -85,11 +85,11 @@ export class ServerlessCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly bootstrapBrokersSaslIam: pulumi.Output<string>;
     /**
-     * Specifies client authentication information for the serverless cluster. See below.
+     * Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
      */
     declare public readonly clientAuthentication: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
     /**
-     * The name of the serverless cluster.
+     * Name of the serverless cluster.
      */
     declare public readonly clusterName: pulumi.Output<string>;
     /**
@@ -101,15 +101,15 @@ export class ServerlessCluster extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * VPC configuration information. See below.
+     * VPC configuration information. See `vpcConfig` Block below.
      */
     declare public readonly vpcConfigs: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
 
@@ -163,7 +163,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
  */
 export interface ServerlessClusterState {
     /**
-     * The ARN of the serverless cluster.
+     * ARN of the serverless cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -171,11 +171,11 @@ export interface ServerlessClusterState {
      */
     bootstrapBrokersSaslIam?: pulumi.Input<string | undefined>;
     /**
-     * Specifies client authentication information for the serverless cluster. See below.
+     * Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
      */
     clientAuthentication?: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication | undefined>;
     /**
-     * The name of the serverless cluster.
+     * Name of the serverless cluster.
      */
     clusterName?: pulumi.Input<string | undefined>;
     /**
@@ -187,15 +187,15 @@ export interface ServerlessClusterState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * VPC configuration information. See below.
+     * VPC configuration information. See `vpcConfig` Block below.
      */
     vpcConfigs?: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[] | undefined>;
 }
@@ -205,11 +205,11 @@ export interface ServerlessClusterState {
  */
 export interface ServerlessClusterArgs {
     /**
-     * Specifies client authentication information for the serverless cluster. See below.
+     * Client authentication information for the serverless cluster. See `clientAuthentication` Block below.
      */
     clientAuthentication: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication>;
     /**
-     * The name of the serverless cluster.
+     * Name of the serverless cluster.
      */
     clusterName?: pulumi.Input<string | undefined>;
     /**
@@ -217,11 +217,11 @@ export interface ServerlessClusterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * VPC configuration information. See below.
+     * VPC configuration information. See `vpcConfig` Block below.
      */
     vpcConfigs: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[]>;
 }

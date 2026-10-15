@@ -80,11 +80,11 @@ export class ContainerPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the container.
+     * Name of the container.
      */
     declare public readonly containerName: pulumi.Output<string>;
     /**
-     * The contents of the policy.
+     * Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -130,11 +130,11 @@ export class ContainerPolicy extends pulumi.CustomResource {
  */
 export interface ContainerPolicyState {
     /**
-     * The name of the container.
+     * Name of the container.
      */
     containerName?: pulumi.Input<string | undefined>;
     /**
-     * The contents of the policy.
+     * Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -148,11 +148,11 @@ export interface ContainerPolicyState {
  */
 export interface ContainerPolicyArgs {
     /**
-     * The name of the container.
+     * Name of the container.
      */
     containerName: pulumi.Input<string>;
     /**
-     * The contents of the policy.
+     * Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
     policy: pulumi.Input<string>;
     /**

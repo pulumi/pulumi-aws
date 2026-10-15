@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -62,12 +63,28 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         return Optional.ofNullable(this.mediaExtractionConfiguration);
     }
 
+    /**
+     * Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+     * 
+     */
+    @Import(name="syncSchedule")
+    private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs> syncSchedule;
+
+    /**
+     * @return Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs>> syncSchedule() {
+        return Optional.ofNullable(this.syncSchedule);
+    }
+
     private AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs() {}
 
     private AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs $) {
         this.connectorParameters = $.connectorParameters;
         this.deletionProtectionConfiguration = $.deletionProtectionConfiguration;
         this.mediaExtractionConfiguration = $.mediaExtractionConfiguration;
+        this.syncSchedule = $.syncSchedule;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
          */
         public Builder mediaExtractionConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs mediaExtractionConfiguration) {
             return mediaExtractionConfiguration(Output.of(mediaExtractionConfiguration));
+        }
+
+        /**
+         * @param syncSchedule Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncSchedule(@Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs> syncSchedule) {
+            $.syncSchedule = syncSchedule;
+            return this;
+        }
+
+        /**
+         * @param syncSchedule Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncSchedule(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs syncSchedule) {
+            return syncSchedule(Output.of(syncSchedule));
         }
 
         public AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs build() {

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOptimizerConfigurationCompactionConfiguration {
     /**
-     * @return The configuration for an Iceberg compaction optimizer.
+     * @return Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     private @Nullable CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration icebergConfiguration;
 
     private CatalogTableOptimizerConfigurationCompactionConfiguration() {}
     /**
-     * @return The configuration for an Iceberg compaction optimizer.
+     * @return Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     public Optional<CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration> icebergConfiguration() {

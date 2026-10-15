@@ -79,24 +79,23 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-     * Valid values are `ALL`, `NEW`, `NONE`.
+     * Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      */
     declare public readonly autoEnableOrganizationMembers: pulumi.Output<string>;
     /**
-     * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-     *
-     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     * Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
     declare public readonly datasources: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources>;
     /**
-     * The detector ID of the GuardDuty account.
+     * Detector ID of the GuardDuty account.
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
      */
     declare public readonly region: pulumi.Output<string>;
 
@@ -140,24 +139,23 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
  */
 export interface OrganizationConfigurationState {
     /**
-     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-     * Valid values are `ALL`, `NEW`, `NONE`.
+     * Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      */
     autoEnableOrganizationMembers?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-     *
-     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     * Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources | undefined>;
     /**
-     * The detector ID of the GuardDuty account.
+     * Detector ID of the GuardDuty account.
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
      */
     region?: pulumi.Input<string | undefined>;
 }
@@ -167,24 +165,23 @@ export interface OrganizationConfigurationState {
  */
 export interface OrganizationConfigurationArgs {
     /**
-     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-     * Valid values are `ALL`, `NEW`, `NONE`.
+     * Auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      */
     autoEnableOrganizationMembers: pulumi.Input<string>;
     /**
-     * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-     *
-     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     * Configuration for the collected datasources. See `datasources` below. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources | undefined>;
     /**
-     * The detector ID of the GuardDuty account.
+     * Detector ID of the GuardDuty account.
      */
     detectorId: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
      */
     region?: pulumi.Input<string | undefined>;
 }

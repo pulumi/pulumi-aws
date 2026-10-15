@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings
     {
         /// <summary>
-        /// Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        /// Settings to insert watermarks of type Nielsen CBET. See `NielsenCbetSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings? NielsenCbetSettings;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? NielsenDistributionType;
         /// <summary>
-        /// Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        /// Settings to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See `NielsenNaesIiNwSettings` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> NielsenNaesIiNwSettings;
 

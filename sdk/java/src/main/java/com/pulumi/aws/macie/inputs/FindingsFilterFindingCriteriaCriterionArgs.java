@@ -18,14 +18,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     public static final FindingsFilterFindingCriteriaCriterionArgs Empty = new FindingsFilterFindingCriteriaCriterionArgs();
 
     /**
-     * The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+     * Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
      * 
      */
     @Import(name="eqExactMatches")
     private @Nullable Output<List<String>> eqExactMatches;
 
     /**
-     * @return The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+     * @return Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
      * 
      */
     public Optional<Output<List<String>>> eqExactMatches() {
@@ -33,14 +33,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     }
 
     /**
-     * The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+     * Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
     @Import(name="eqs")
     private @Nullable Output<List<String>> eqs;
 
     /**
-     * @return The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+     * @return Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
     public Optional<Output<List<String>>> eqs() {
@@ -48,14 +48,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     }
 
     /**
-     * The name of the field to be evaluated.
+     * Name of the field to be evaluated.
      * 
      */
     @Import(name="field", required=true)
     private Output<String> field;
 
     /**
-     * @return The name of the field to be evaluated.
+     * @return Name of the field to be evaluated.
      * 
      */
     public Output<String> field() {
@@ -63,14 +63,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     }
 
     /**
-     * The value for the property is greater than the specified value.
+     * Value for the property is greater than the specified value.
      * 
      */
     @Import(name="gt")
     private @Nullable Output<String> gt;
 
     /**
-     * @return The value for the property is greater than the specified value.
+     * @return Value for the property is greater than the specified value.
      * 
      */
     public Optional<Output<String>> gt() {
@@ -78,14 +78,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     }
 
     /**
-     * The value for the property is greater than or equal to the specified value.
+     * Value for the property is greater than or equal to the specified value.
      * 
      */
     @Import(name="gte")
     private @Nullable Output<String> gte;
 
     /**
-     * @return The value for the property is greater than or equal to the specified value.
+     * @return Value for the property is greater than or equal to the specified value.
      * 
      */
     public Optional<Output<String>> gte() {
@@ -93,14 +93,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     }
 
     /**
-     * The value for the property is less than the specified value.
+     * Value for the property is less than the specified value.
      * 
      */
     @Import(name="lt")
     private @Nullable Output<String> lt;
 
     /**
-     * @return The value for the property is less than the specified value.
+     * @return Value for the property is less than the specified value.
      * 
      */
     public Optional<Output<String>> lt() {
@@ -108,14 +108,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     }
 
     /**
-     * The value for the property is less than or equal to the specified value.
+     * Value for the property is less than or equal to the specified value.
      * 
      */
     @Import(name="lte")
     private @Nullable Output<String> lte;
 
     /**
-     * @return The value for the property is less than or equal to the specified value.
+     * @return Value for the property is less than or equal to the specified value.
      * 
      */
     public Optional<Output<String>> lte() {
@@ -123,14 +123,14 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
     }
 
     /**
-     * The value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+     * Value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
     @Import(name="neqs")
     private @Nullable Output<List<String>> neqs;
 
     /**
-     * @return The value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+     * @return Value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
     public Optional<Output<List<String>>> neqs() {
@@ -169,7 +169,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param eqExactMatches The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+         * @param eqExactMatches Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param eqExactMatches The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+         * @param eqExactMatches Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param eqExactMatches The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+         * @param eqExactMatches Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param eqs The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         * @param eqs Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param eqs The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         * @param eqs Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param eqs The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         * @param eqs Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param field The name of the field to be evaluated.
+         * @param field Name of the field to be evaluated.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param field The name of the field to be evaluated.
+         * @param field Name of the field to be evaluated.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param gt The value for the property is greater than the specified value.
+         * @param gt Value for the property is greater than the specified value.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param gt The value for the property is greater than the specified value.
+         * @param gt Value for the property is greater than the specified value.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param gte The value for the property is greater than or equal to the specified value.
+         * @param gte Value for the property is greater than or equal to the specified value.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param gte The value for the property is greater than or equal to the specified value.
+         * @param gte Value for the property is greater than or equal to the specified value.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param lt The value for the property is less than the specified value.
+         * @param lt Value for the property is less than the specified value.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param lt The value for the property is less than the specified value.
+         * @param lt Value for the property is less than the specified value.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param lte The value for the property is less than or equal to the specified value.
+         * @param lte Value for the property is less than or equal to the specified value.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param lte The value for the property is less than or equal to the specified value.
+         * @param lte Value for the property is less than or equal to the specified value.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param neqs The value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         * @param neqs Value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param neqs The value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         * @param neqs Value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class FindingsFilterFindingCriteriaCriterionArgs extends com.pulumi
         }
 
         /**
-         * @param neqs The value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         * @param neqs Value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
          * 
          * @return builder
          * 

@@ -169,7 +169,7 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
+    :param _builtins.str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group ID
     :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param _builtins.str name: Returns information on a specific hierarchy group by name
            
@@ -228,7 +228,7 @@ def get_user_hierarchy_group_output(hierarchy_group_id: pulumi.Input[Optional[Op
     ```
 
 
-    :param _builtins.str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
+    :param _builtins.str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group ID
     :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param _builtins.str name: Returns information on a specific hierarchy group by name
            

@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string CustomerOwnedIpv4Pool;
         /// <summary>
-        /// Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+        /// Whether the address is for use in EC2-Classic (`Standard`) or in a VPC (`Vpc`).
         /// </summary>
         public readonly string Domain;
         public readonly ImmutableArray<Outputs.GetElasticIpFilterResult> Filters;

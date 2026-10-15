@@ -23,7 +23,7 @@ public final class GetAclResult {
      */
     private String id;
     /**
-     * @return The minimum engine version supported by the ACL.
+     * @return Minimum engine version supported by the ACL.
      * 
      */
     private String minimumEngineVersion;
@@ -56,7 +56,7 @@ public final class GetAclResult {
         return this.id;
     }
     /**
-     * @return The minimum engine version supported by the ACL.
+     * @return Minimum engine version supported by the ACL.
      * 
      */
     public String minimumEngineVersion() {

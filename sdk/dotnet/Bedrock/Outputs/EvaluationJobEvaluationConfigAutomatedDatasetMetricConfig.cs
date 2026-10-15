@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableArray<string> MetricNames;
         /// <summary>
-        /// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+        /// Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
         /// </summary>
         public readonly string TaskType;
 

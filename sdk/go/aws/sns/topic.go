@@ -168,7 +168,7 @@ type Topic struct {
 	ApplicationSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"applicationSuccessFeedbackSampleRate"`
 	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
 	ArchivePolicy pulumi.StringPtrOutput `pulumi:"archivePolicy"`
-	// The ARN of the SNS topic, as a more obvious property (clone of id)
+	// The ARN of the SNS topic, as a more obvious property (clone of `id`)
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
 	BeginningArchiveTime pulumi.StringOutput `pulumi:"beginningArchiveTime"`
@@ -268,7 +268,7 @@ type topicState struct {
 	ApplicationSuccessFeedbackSampleRate *int `pulumi:"applicationSuccessFeedbackSampleRate"`
 	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
 	ArchivePolicy *string `pulumi:"archivePolicy"`
-	// The ARN of the SNS topic, as a more obvious property (clone of id)
+	// The ARN of the SNS topic, as a more obvious property (clone of `id`)
 	Arn *string `pulumi:"arn"`
 	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
 	BeginningArchiveTime *string `pulumi:"beginningArchiveTime"`
@@ -339,7 +339,7 @@ type TopicState struct {
 	ApplicationSuccessFeedbackSampleRate pulumi.IntPtrInput
 	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
 	ArchivePolicy pulumi.StringPtrInput
-	// The ARN of the SNS topic, as a more obvious property (clone of id)
+	// The ARN of the SNS topic, as a more obvious property (clone of `id`)
 	Arn pulumi.StringPtrInput
 	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
 	BeginningArchiveTime pulumi.StringPtrInput
@@ -639,7 +639,7 @@ func (o TopicOutput) ArchivePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.ArchivePolicy }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the SNS topic, as a more obvious property (clone of id)
+// The ARN of the SNS topic, as a more obvious property (clone of `id`)
 func (o TopicOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

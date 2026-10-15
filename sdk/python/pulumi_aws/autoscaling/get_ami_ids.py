@@ -49,7 +49,7 @@ class GetAmiIdsResult:
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
         """
-        List of the Autoscaling Groups Arns in the current region.
+        List of the Auto Scaling groups ARNs in the current region.
         """
         return pulumi.get(self, "arns")
 
@@ -70,7 +70,7 @@ class GetAmiIdsResult:
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
         """
-        List of the Autoscaling Groups in the current region.
+        List of the Auto Scaling groups in the current region.
         """
         return pulumi.get(self, "names")
 
@@ -98,8 +98,8 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
-    The Autoscaling Groups data source allows access to the list of AWS
-    ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+    The Auto Scaling groups data source allows access to the list of AWS
+    ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
 
     ## Example Usage
 
@@ -130,7 +130,7 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
 
 
     :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-    :param Sequence[_builtins.str] names: List of autoscaling group names
+    :param Sequence[_builtins.str] names: List of Auto Scaling group names
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -151,8 +151,8 @@ def get_ami_ids_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
-    The Autoscaling Groups data source allows access to the list of AWS
-    ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+    The Auto Scaling groups data source allows access to the list of AWS
+    ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
 
     ## Example Usage
 
@@ -183,7 +183,7 @@ def get_ami_ids_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
 
 
     :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-    :param Sequence[_builtins.str] names: List of autoscaling group names
+    :param Sequence[_builtins.str] names: List of Auto Scaling group names
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

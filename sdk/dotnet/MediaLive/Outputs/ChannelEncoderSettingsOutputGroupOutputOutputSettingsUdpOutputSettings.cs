@@ -14,17 +14,20 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings
     {
         /// <summary>
-        /// UDP output buffering in milliseconds.
+        /// UDP output buffering, in milliseconds.
         /// </summary>
         public readonly int? BufferMsec;
         /// <summary>
-        /// UDP container settings. See Container Settings for more details.
+        /// UDP container settings. See `udp_output_settings.container_settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings ContainerSettings;
         /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
+        /// Destination address and port number for RTP or UDP packets. See `Destination` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination Destination;
+        /// <summary>
+        /// Settings for enabling and adjusting Forward Error Correction on UDP outputs. See `FecOutputSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings? FecOutputSettings;
 
         [OutputConstructor]

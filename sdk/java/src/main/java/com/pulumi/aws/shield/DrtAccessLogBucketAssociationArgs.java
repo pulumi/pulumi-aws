@@ -33,14 +33,14 @@ public final class DrtAccessLogBucketAssociationArgs extends com.pulumi.resource
     }
 
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * The ID of the Role ARN association used for allowing Shield DRT Access.
      * 
      */
     @Import(name="roleArnAssociationId", required=true)
     private Output<String> roleArnAssociationId;
 
     /**
-     * @return The ID of the Role Arn association used for allowing Shield DRT Access.
+     * @return The ID of the Role ARN association used for allowing Shield DRT Access.
      * 
      */
     public Output<String> roleArnAssociationId() {
@@ -102,7 +102,7 @@ public final class DrtAccessLogBucketAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param roleArnAssociationId The ID of the Role Arn association used for allowing Shield DRT Access.
+         * @param roleArnAssociationId The ID of the Role ARN association used for allowing Shield DRT Access.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class DrtAccessLogBucketAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param roleArnAssociationId The ID of the Role Arn association used for allowing Shield DRT Access.
+         * @param roleArnAssociationId The ID of the Role ARN association used for allowing Shield DRT Access.
          * 
          * @return builder
          * 

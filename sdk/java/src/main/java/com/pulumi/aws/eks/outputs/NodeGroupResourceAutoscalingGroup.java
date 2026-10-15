@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NodeGroupResourceAutoscalingGroup {
     /**
-     * @return Name of the AutoScaling Group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     private @Nullable String name;
 
     private NodeGroupResourceAutoscalingGroup() {}
     /**
-     * @return Name of the AutoScaling Group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     public Optional<String> name() {

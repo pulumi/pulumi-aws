@@ -58,7 +58,7 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
     }
 
     /**
-     * AWS account id to which these options apply.
+     * AWS account ID to which these options apply.
      */
     declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
  */
 export interface VpcBlockPublicAccessOptionsState {
     /**
-     * AWS account id to which these options apply.
+     * AWS account ID to which these options apply.
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**

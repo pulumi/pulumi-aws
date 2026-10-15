@@ -53,7 +53,7 @@ export class HsmClientCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the Hsm Client Certificate.
+     * ARN of the HSM Client Certificate.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -118,7 +118,7 @@ export class HsmClientCertificate extends pulumi.CustomResource {
  */
 export interface HsmClientCertificateState {
     /**
-     * ARN of the Hsm Client Certificate.
+     * ARN of the HSM Client Certificate.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

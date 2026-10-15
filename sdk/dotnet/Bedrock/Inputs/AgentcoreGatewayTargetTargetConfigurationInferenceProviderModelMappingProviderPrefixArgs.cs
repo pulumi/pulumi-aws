@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? Separator { get; set; }
 
         /// <summary>
-        /// Whether clients can omit the provider prefix from model IDs. If `True`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `False`.
+        /// Whether to allow clients to omit the provider prefix from model IDs. If `True`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `False`.
         /// </summary>
         [Input("strip")]
         public Input<bool>? Strip { get; set; }

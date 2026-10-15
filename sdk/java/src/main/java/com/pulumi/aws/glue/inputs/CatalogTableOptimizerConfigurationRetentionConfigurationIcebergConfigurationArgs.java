@@ -32,14 +32,14 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
     }
 
     /**
-     * The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+     * Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     @Import(name="numberOfSnapshotsToRetain")
     private @Nullable Output<Integer> numberOfSnapshotsToRetain;
 
     /**
-     * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+     * @return Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     public Optional<Output<Integer>> numberOfSnapshotsToRetain() {
@@ -62,14 +62,14 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
     }
 
     /**
-     * The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+     * Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     @Import(name="snapshotRetentionPeriodInDays")
     private @Nullable Output<Integer> snapshotRetentionPeriodInDays;
 
     /**
-     * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+     * @return Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
     public Optional<Output<Integer>> snapshotRetentionPeriodInDays() {
@@ -125,7 +125,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
         }
 
         /**
-         * @param numberOfSnapshotsToRetain The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+         * @param numberOfSnapshotsToRetain Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
         }
 
         /**
-         * @param numberOfSnapshotsToRetain The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+         * @param numberOfSnapshotsToRetain Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
         }
 
         /**
-         * @param snapshotRetentionPeriodInDays The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+         * @param snapshotRetentionPeriodInDays Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
         }
 
         /**
-         * @param snapshotRetentionPeriodInDays The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+         * @param snapshotRetentionPeriodInDays Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
          * 
          * @return builder
          * 

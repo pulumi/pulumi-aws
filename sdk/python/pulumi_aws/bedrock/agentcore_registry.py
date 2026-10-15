@@ -35,7 +35,7 @@ class AgentcoreRegistryArgs:
         :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationArgs'] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
         :param pulumi.Input[_builtins.str] description: Description of the registry.
-        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -107,7 +107,7 @@ class AgentcoreRegistryArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 
         The following arguments are optional:
         """
@@ -158,7 +158,7 @@ class _AgentcoreRegistryState:
         :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationArgs'] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
         :param pulumi.Input[_builtins.str] description: Description of the registry.
-        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -236,7 +236,7 @@ class _AgentcoreRegistryState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 
         The following arguments are optional:
         """
@@ -329,9 +329,11 @@ class AgentcoreRegistry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreRegistry("example",
+            approval_configurations=[{
+                "auto_approval": True,
+            }],
             name="example_registry",
-            description="MCP servers and tools for the platform team",
-            auto_approval=True)
+            description="MCP servers and tools for the platform team")
         ```
 
         ### With Custom JWT Authorizer
@@ -358,12 +360,12 @@ class AgentcoreRegistry(pulumi.CustomResource):
 
         #### Required
 
-        - `registry_id` (String) Registry ID.
+        * `registry_id` (String) Registry ID.
 
         #### Optional
 
-        * `account_id` (String) AWS account ID for this resource.
-        * `region` (String) AWS Region for this resource.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import a Bedrock AgentCore Registry by registry ID. For example:
 
@@ -378,7 +380,7 @@ class AgentcoreRegistry(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict', 'outputs.AgentcoreRegistryAuthorizerConfiguration']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
         :param pulumi.Input[_builtins.str] description: Description of the registry.
-        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -412,9 +414,11 @@ class AgentcoreRegistry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreRegistry("example",
+            approval_configurations=[{
+                "auto_approval": True,
+            }],
             name="example_registry",
-            description="MCP servers and tools for the platform team",
-            auto_approval=True)
+            description="MCP servers and tools for the platform team")
         ```
 
         ### With Custom JWT Authorizer
@@ -441,12 +445,12 @@ class AgentcoreRegistry(pulumi.CustomResource):
 
         #### Required
 
-        - `registry_id` (String) Registry ID.
+        * `registry_id` (String) Registry ID.
 
         #### Optional
 
-        * `account_id` (String) AWS account ID for this resource.
-        * `region` (String) AWS Region for this resource.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import a Bedrock AgentCore Registry by registry ID. For example:
 
@@ -525,7 +529,7 @@ class AgentcoreRegistry(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict', 'outputs.AgentcoreRegistryAuthorizerConfiguration']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
         :param pulumi.Input[_builtins.str] description: Description of the registry.
-        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -583,7 +587,7 @@ class AgentcoreRegistry(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 
         The following arguments are optional:
         """

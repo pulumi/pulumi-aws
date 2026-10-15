@@ -18,7 +18,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import IOT Role Alias using the alias. For example:
+// Using `pulumi import`, import IoT Role Alias using the alias. For example:
 //
 // ```sh
 // $ pulumi import aws:iot/roleAlias:RoleAlias example myalias

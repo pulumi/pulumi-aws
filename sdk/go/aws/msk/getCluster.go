@@ -78,7 +78,7 @@ type LookupClusterResult struct {
 	BootstrapBrokersSaslScram string `pulumi:"bootstrapBrokersSaslScram"`
 	// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
-	// Configuration block for the broker nodes of the Kafka cluster.
+	// Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block for details.
 	BrokerNodeGroupInfos []GetClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfos"`
 	ClusterName          string                          `pulumi:"clusterName"`
 	// UUID of the MSK cluster, for use in IAM policies.
@@ -94,9 +94,9 @@ type LookupClusterResult struct {
 	Region              string `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+	// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString string `pulumi:"zookeeperConnectString"`
-	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+	// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectStringTls string `pulumi:"zookeeperConnectStringTls"`
 }
 
@@ -174,7 +174,7 @@ func (o LookupClusterResultOutput) BootstrapBrokersTls() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.BootstrapBrokersTls }).(pulumi.StringOutput)
 }
 
-// Configuration block for the broker nodes of the Kafka cluster.
+// Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block for details.
 func (o LookupClusterResultOutput) BrokerNodeGroupInfos() GetClusterBrokerNodeGroupInfoArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterBrokerNodeGroupInfo { return v.BrokerNodeGroupInfos }).(GetClusterBrokerNodeGroupInfoArrayOutput)
 }
@@ -217,12 +217,12 @@ func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 func (o LookupClusterResultOutput) ZookeeperConnectString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ZookeeperConnectString }).(pulumi.StringOutput)
 }
 
-// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 func (o LookupClusterResultOutput) ZookeeperConnectStringTls() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ZookeeperConnectStringTls }).(pulumi.StringOutput)
 }

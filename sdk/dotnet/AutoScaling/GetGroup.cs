@@ -12,7 +12,7 @@ namespace Pulumi.Aws.AutoScaling
     public static class GetGroup
     {
         /// <summary>
-        /// Use this data source to get information on an existing autoscaling group.
+        /// Use this data source to get information on an existing Auto Scaling group.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.AutoScaling
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:autoscaling/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information on an existing autoscaling group.
+        /// Use this data source to get information on an existing Auto Scaling group.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.AutoScaling
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws:autoscaling/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information on an existing autoscaling group.
+        /// Use this data source to get information on an existing Auto Scaling group.
         /// 
         /// ## Example Usage
         /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify the exact name of the desired autoscaling group.
+        /// Specify the exact name of the desired Auto Scaling group.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specify the exact name of the desired autoscaling group.
+        /// Specify the exact name of the desired Auto Scaling group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyResult> MixedInstancesPolicies;
         /// <summary>
-        /// Name of the Auto Scaling Group.
+        /// Name of the Auto Scaling group.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// List of processes suspended processes for the Auto Scaling Group.
+        /// List of processes suspended processes for the Auto Scaling group.
         /// </summary>
         public readonly ImmutableArray<string> SuspendedProcesses;
         /// <summary>

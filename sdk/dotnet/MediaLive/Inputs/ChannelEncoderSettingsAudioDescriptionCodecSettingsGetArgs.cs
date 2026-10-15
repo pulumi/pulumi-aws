@@ -13,35 +13,44 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Aac Settings. See AAC Settings for more details.
+        /// AAC settings. See `AacSettings` Block for details.
         /// </summary>
         [Input("aacSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsGetArgs>? AacSettings { get; set; }
 
         /// <summary>
-        /// Ac3 Settings. See AC3 Settings for more details.
+        /// AC3 settings. See `Ac3Settings` Block for details.
         /// </summary>
         [Input("ac3Settings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsGetArgs>? Ac3Settings { get; set; }
 
         /// <summary>
-        /// Eac3 Atmos Settings. See EAC3 Atmos Settings
+        /// EAC3 Atmos settings. See `Eac3AtmosSettings` Block for details.
         /// </summary>
         [Input("eac3AtmosSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsGetArgs>? Eac3AtmosSettings { get; set; }
 
         /// <summary>
-        /// Eac3 Settings. See EAC3 Settings
+        /// EAC3 settings. See `Eac3Settings` Block for details.
         /// </summary>
         [Input("eac3Settings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsGetArgs>? Eac3Settings { get; set; }
 
+        /// <summary>
+        /// MP2 settings. See `Mp2Settings` Block for details.
+        /// </summary>
         [Input("mp2Settings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsGetArgs>? Mp2Settings { get; set; }
 
+        /// <summary>
+        /// Pass-through settings. Can be set as an empty block.
+        /// </summary>
         [Input("passThroughSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsGetArgs>? PassThroughSettings { get; set; }
 
+        /// <summary>
+        /// WAV settings. See `WavSettings` Block for details.
+        /// </summary>
         [Input("wavSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsGetArgs>? WavSettings { get; set; }
 

@@ -72,7 +72,7 @@ type Environment struct {
 	// to be deployed
 	Application pulumi.StringOutput `pulumi:"application"`
 	Arn         pulumi.StringOutput `pulumi:"arn"`
-	// The autoscaling groups used by this Environment.
+	// The Auto Scaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
 	Cname pulumi.StringOutput `pulumi:"cname"`
@@ -121,7 +121,7 @@ type Environment struct {
 	// Elastic Beanstalk Environment tier. Valid values are `Worker`
 	// or `WebServer`. If tier is left blank `WebServer` will be used.
 	Tier pulumi.StringPtrOutput `pulumi:"tier"`
-	// Autoscaling triggers in use by this Environment.
+	// Auto Scaling triggers in use by this Environment.
 	Triggers pulumi.StringArrayOutput `pulumi:"triggers"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
@@ -174,7 +174,7 @@ type environmentState struct {
 	// to be deployed
 	Application interface{} `pulumi:"application"`
 	Arn         *string     `pulumi:"arn"`
-	// The autoscaling groups used by this Environment.
+	// The Auto Scaling groups used by this Environment.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
 	Cname *string `pulumi:"cname"`
@@ -223,7 +223,7 @@ type environmentState struct {
 	// Elastic Beanstalk Environment tier. Valid values are `Worker`
 	// or `WebServer`. If tier is left blank `WebServer` will be used.
 	Tier *string `pulumi:"tier"`
-	// Autoscaling triggers in use by this Environment.
+	// Auto Scaling triggers in use by this Environment.
 	Triggers []string `pulumi:"triggers"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
@@ -244,7 +244,7 @@ type EnvironmentState struct {
 	// to be deployed
 	Application pulumi.Input
 	Arn         pulumi.StringPtrInput
-	// The autoscaling groups used by this Environment.
+	// The Auto Scaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayInput
 	// Fully qualified DNS name for this Environment.
 	Cname pulumi.StringPtrInput
@@ -293,7 +293,7 @@ type EnvironmentState struct {
 	// Elastic Beanstalk Environment tier. Valid values are `Worker`
 	// or `WebServer`. If tier is left blank `WebServer` will be used.
 	Tier pulumi.StringPtrInput
-	// Autoscaling triggers in use by this Environment.
+	// Auto Scaling triggers in use by this Environment.
 	Triggers pulumi.StringArrayInput
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
@@ -508,7 +508,7 @@ func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The autoscaling groups used by this Environment.
+// The Auto Scaling groups used by this Environment.
 func (o EnvironmentOutput) AutoscalingGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.AutoscalingGroups }).(pulumi.StringArrayOutput)
 }
@@ -614,7 +614,7 @@ func (o EnvironmentOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-// Autoscaling triggers in use by this Environment.
+// Auto Scaling triggers in use by this Environment.
 func (o EnvironmentOutput) Triggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.Triggers }).(pulumi.StringArrayOutput)
 }

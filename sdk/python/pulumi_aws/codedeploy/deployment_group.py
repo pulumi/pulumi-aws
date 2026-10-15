@@ -48,7 +48,7 @@ class DeploymentGroupArgs:
         :param pulumi.Input[_builtins.str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input['DeploymentGroupAlarmConfigurationArgs'] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
         :param pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs'] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Auto Scaling groups associated with the deployment group.
         :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs'] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
         :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         :param pulumi.Input['DeploymentGroupDeploymentStyleArgs'] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
@@ -163,7 +163,7 @@ class DeploymentGroupArgs:
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Autoscaling groups associated with the deployment group.
+        Auto Scaling groups associated with the deployment group.
         """
         return pulumi.get(self, "autoscaling_groups")
 
@@ -361,7 +361,7 @@ class _DeploymentGroupState:
         :param pulumi.Input[_builtins.str] app_name: The name of the application.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CodeDeploy deployment group.
         :param pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs'] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Auto Scaling groups associated with the deployment group.
         :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs'] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
         :param pulumi.Input[_builtins.str] compute_platform: The destination platform type for the deployment.
         :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
@@ -480,7 +480,7 @@ class _DeploymentGroupState:
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Autoscaling groups associated with the deployment group.
+        Auto Scaling groups associated with the deployment group.
         """
         return pulumi.get(self, "autoscaling_groups")
 
@@ -892,7 +892,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict', 'outputs.DeploymentGroupAlarmConfiguration']] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
         :param pulumi.Input[_builtins.str] app_name: The name of the application.
         :param pulumi.Input[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict', 'outputs.DeploymentGroupAutoRollbackConfiguration']] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Auto Scaling groups associated with the deployment group.
         :param pulumi.Input[Union['DeploymentGroupBlueGreenDeploymentConfigArgs', 'DeploymentGroupBlueGreenDeploymentConfigArgsDict', 'outputs.DeploymentGroupBlueGreenDeploymentConfig']] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
         :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         :param pulumi.Input[_builtins.str] deployment_group_name: The name of the deployment group.
@@ -1187,7 +1187,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_name: The name of the application.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CodeDeploy deployment group.
         :param pulumi.Input[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict', 'outputs.DeploymentGroupAutoRollbackConfiguration']] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Auto Scaling groups associated with the deployment group.
         :param pulumi.Input[Union['DeploymentGroupBlueGreenDeploymentConfigArgs', 'DeploymentGroupBlueGreenDeploymentConfigArgsDict', 'outputs.DeploymentGroupBlueGreenDeploymentConfig']] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
         :param pulumi.Input[_builtins.str] compute_platform: The destination platform type for the deployment.
         :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
@@ -1272,7 +1272,7 @@ class DeploymentGroup(pulumi.CustomResource):
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Autoscaling groups associated with the deployment group.
+        Auto Scaling groups associated with the deployment group.
         """
         return pulumi.get(self, "autoscaling_groups")
 

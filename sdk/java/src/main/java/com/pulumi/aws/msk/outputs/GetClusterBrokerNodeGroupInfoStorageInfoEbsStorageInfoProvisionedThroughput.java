@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
+    /**
+     * @return Whether provisioned throughput is enabled.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+     * 
+     */
     private Integer volumeThroughput;
 
     private GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput() {}
+    /**
+     * @return Whether provisioned throughput is enabled.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+     * 
+     */
     public Integer volumeThroughput() {
         return this.volumeThroughput;
     }

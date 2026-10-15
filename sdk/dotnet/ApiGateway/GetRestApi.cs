@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ApiGateway
     public static class GetRestApi
     {
         /// <summary>
-        /// Use this data source to get the id and RootResourceId of a REST API in
+        /// Use this data source to get the ID and RootResourceId of a REST API in
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.ApiGateway
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the id and RootResourceId of a REST API in
+        /// Use this data source to get the ID and RootResourceId of a REST API in
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ApiGateway
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the id and RootResourceId of a REST API in
+        /// Use this data source to get the ID and RootResourceId of a REST API in
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.

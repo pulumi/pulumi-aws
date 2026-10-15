@@ -14,13 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CapacityProviderAutoScalingGroupProvider struct {
-	// ARN of the associated auto scaling group.
+	// ARN of the associated Auto Scaling group.
 	AutoScalingGroupArn string `pulumi:"autoScalingGroupArn"`
 	// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
 	ManagedDraining *string `pulumi:"managedDraining"`
 	// Configuration block defining the parameters of the auto scaling. Detailed below.
 	ManagedScaling *CapacityProviderAutoScalingGroupProviderManagedScaling `pulumi:"managedScaling"`
-	// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+	// Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 	ManagedTerminationProtection *string `pulumi:"managedTerminationProtection"`
 }
 
@@ -36,13 +36,13 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderArgs struct {
-	// ARN of the associated auto scaling group.
+	// ARN of the associated Auto Scaling group.
 	AutoScalingGroupArn pulumi.StringInput `pulumi:"autoScalingGroupArn"`
 	// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
 	ManagedDraining pulumi.StringPtrInput `pulumi:"managedDraining"`
 	// Configuration block defining the parameters of the auto scaling. Detailed below.
 	ManagedScaling CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput `pulumi:"managedScaling"`
-	// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+	// Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 	ManagedTerminationProtection pulumi.StringPtrInput `pulumi:"managedTerminationProtection"`
 }
 
@@ -123,7 +123,7 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoSc
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
-// ARN of the associated auto scaling group.
+// ARN of the associated Auto Scaling group.
 func (o CapacityProviderAutoScalingGroupProviderOutput) AutoScalingGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
 }
@@ -140,7 +140,7 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() Capacit
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
 
-// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+// Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *string { return v.ManagedTerminationProtection }).(pulumi.StringPtrOutput)
 }
@@ -169,7 +169,7 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
-// ARN of the associated auto scaling group.
+// ARN of the associated Auto Scaling group.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
 		if v == nil {
@@ -199,7 +199,7 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() Capa
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
 
-// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+// Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
 		if v == nil {
@@ -14837,7 +14837,7 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 }
 
 type TaskDefinitionRuntimePlatform struct {
-	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
 	CpuArchitecture *string `pulumi:"cpuArchitecture"`
 	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
 	OperatingSystemFamily *string `pulumi:"operatingSystemFamily"`
@@ -14855,7 +14855,7 @@ type TaskDefinitionRuntimePlatformInput interface {
 }
 
 type TaskDefinitionRuntimePlatformArgs struct {
-	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
 	CpuArchitecture pulumi.StringPtrInput `pulumi:"cpuArchitecture"`
 	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
 	OperatingSystemFamily pulumi.StringPtrInput `pulumi:"operatingSystemFamily"`
@@ -14938,7 +14938,7 @@ func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformPtrO
 	}).(TaskDefinitionRuntimePlatformPtrOutput)
 }
 
-// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
 func (o TaskDefinitionRuntimePlatformOutput) CpuArchitecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionRuntimePlatform) *string { return v.CpuArchitecture }).(pulumi.StringPtrOutput)
 }
@@ -14972,7 +14972,7 @@ func (o TaskDefinitionRuntimePlatformPtrOutput) Elem() TaskDefinitionRuntimePlat
 	}).(TaskDefinitionRuntimePlatformOutput)
 }
 
-// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
 func (o TaskDefinitionRuntimePlatformPtrOutput) CpuArchitecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) *string {
 		if v == nil {
@@ -14999,7 +14999,7 @@ type TaskDefinitionVolume struct {
 	DockerVolumeConfiguration *TaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
 	// Configuration block for an EFS volume. Detailed below.
 	EfsVolumeConfiguration *TaskDefinitionVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
-	// Configuration block for an FSX Windows File Server volume. Detailed below.
+	// Configuration block for an FSx Windows File Server volume. Detailed below.
 	FsxWindowsFileServerVolumeConfiguration *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration `pulumi:"fsxWindowsFileServerVolumeConfiguration"`
 	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath *string `pulumi:"hostPath"`
@@ -15027,7 +15027,7 @@ type TaskDefinitionVolumeArgs struct {
 	DockerVolumeConfiguration TaskDefinitionVolumeDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
 	// Configuration block for an EFS volume. Detailed below.
 	EfsVolumeConfiguration TaskDefinitionVolumeEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
-	// Configuration block for an FSX Windows File Server volume. Detailed below.
+	// Configuration block for an FSx Windows File Server volume. Detailed below.
 	FsxWindowsFileServerVolumeConfiguration TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput `pulumi:"fsxWindowsFileServerVolumeConfiguration"`
 	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath pulumi.StringPtrInput `pulumi:"hostPath"`
@@ -15107,7 +15107,7 @@ func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionVolum
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
 }
 
-// Configuration block for an FSX Windows File Server volume. Detailed below.
+// Configuration block for an FSx Windows File Server volume. Detailed below.
 func (o TaskDefinitionVolumeOutput) FsxWindowsFileServerVolumeConfiguration() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
 		return v.FsxWindowsFileServerVolumeConfiguration
@@ -19777,7 +19777,7 @@ func (o GetTaskDefinitionProxyConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetTaskDefinitionRuntimePlatform struct {
-	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
 	CpuArchitecture string `pulumi:"cpuArchitecture"`
 	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
 	OperatingSystemFamily string `pulumi:"operatingSystemFamily"`
@@ -19795,7 +19795,7 @@ type GetTaskDefinitionRuntimePlatformInput interface {
 }
 
 type GetTaskDefinitionRuntimePlatformArgs struct {
-	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
 	CpuArchitecture pulumi.StringInput `pulumi:"cpuArchitecture"`
 	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
 	OperatingSystemFamily pulumi.StringInput `pulumi:"operatingSystemFamily"`
@@ -19852,7 +19852,7 @@ func (o GetTaskDefinitionRuntimePlatformOutput) ToGetTaskDefinitionRuntimePlatfo
 	return o
 }
 
-// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
 func (o GetTaskDefinitionRuntimePlatformOutput) CpuArchitecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionRuntimePlatform) string { return v.CpuArchitecture }).(pulumi.StringOutput)
 }
@@ -21276,7 +21276,7 @@ func (o GetTaskExecutionOverridesPtrOutput) TaskRoleArn() pulumi.StringPtrOutput
 type GetTaskExecutionOverridesContainerOverride struct {
 	// Command to send to the container that overrides the default command from the Docker image or the task definition.
 	Commands []string `pulumi:"commands"`
-	// Number of cpu units reserved for the container, instead of the default value from the task definition.
+	// Number of CPU units reserved for the container, instead of the default value from the task definition.
 	Cpu *int `pulumi:"cpu"`
 	// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
 	Environments []GetTaskExecutionOverridesContainerOverrideEnvironment `pulumi:"environments"`
@@ -21304,7 +21304,7 @@ type GetTaskExecutionOverridesContainerOverrideInput interface {
 type GetTaskExecutionOverridesContainerOverrideArgs struct {
 	// Command to send to the container that overrides the default command from the Docker image or the task definition.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Number of cpu units reserved for the container, instead of the default value from the task definition.
+	// Number of CPU units reserved for the container, instead of the default value from the task definition.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
 	// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
 	Environments GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput `pulumi:"environments"`
@@ -21374,7 +21374,7 @@ func (o GetTaskExecutionOverridesContainerOverrideOutput) Commands() pulumi.Stri
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Number of cpu units reserved for the container, instead of the default value from the task definition.
+// Number of CPU units reserved for the container, instead of the default value from the task definition.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }

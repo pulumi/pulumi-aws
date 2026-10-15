@@ -59,7 +59,7 @@ export class Resource extends pulumi.CustomResource {
      */
     declare public readonly arn: pulumi.Output<string>;
     /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * Flag to enable AWS Lake Formation hybrid access permission mode.
      */
     declare public readonly hybridAccessEnabled: pulumi.Output<boolean>;
     /**
@@ -140,7 +140,7 @@ export interface ResourceState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * Flag to enable AWS Lake Formation hybrid access permission mode.
      */
     hybridAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface ResourceArgs {
      */
     arn: pulumi.Input<string>;
     /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * Flag to enable AWS Lake Formation hybrid access permission mode.
      */
     hybridAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**

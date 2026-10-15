@@ -23,7 +23,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent.
+ * Manages an AWS Agents for Amazon Bedrock Agent.
  * 
  * ## Example Usage
  * 
@@ -308,14 +308,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.instruction;
     }
     /**
-     * Configurations for the agent&#39;s ability to retain the conversational context.
+     * Configurations for the agent&#39;s ability to retain the conversational context. See `memoryConfiguration` Block for details.
      * 
      */
     @Export(name="memoryConfigurations", refs={List.class,AgentAgentMemoryConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentMemoryConfiguration>> memoryConfigurations;
 
     /**
-     * @return Configurations for the agent&#39;s ability to retain the conversational context.
+     * @return Configurations for the agent&#39;s ability to retain the conversational context. See `memoryConfiguration` Block for details.
      * 
      */
     public Output<List<AgentAgentMemoryConfiguration>> memoryConfigurations() {
@@ -378,14 +378,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Whether the in-use check is skipped when deleting the agent.
+     * Whether to skip the in-use check when deleting the agent. Defaults to `false`.
      * 
      */
     @Export(name="skipResourceInUseCheck", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> skipResourceInUseCheck;
 
     /**
-     * @return Whether the in-use check is skipped when deleting the agent.
+     * @return Whether to skip the in-use check when deleting the agent. Defaults to `false`.
      * 
      */
     public Output<Boolean> skipResourceInUseCheck() {

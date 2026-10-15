@@ -30,11 +30,11 @@ class CatalogTableOptimizerArgs:
         """
         The set of arguments for constructing a CatalogTableOptimizer resource.
 
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        :param pulumi.Input[_builtins.str] catalog_id: Catalog ID of the table.
+        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database in the catalog in which the table resides.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
+        :param pulumi.Input[_builtins.str] type: Type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -49,7 +49,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Catalog ID of the table.
+        Catalog ID of the table.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -61,7 +61,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input['CatalogTableOptimizerConfigurationArgs']:
         """
-        A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
         """
         return pulumi.get(self, "configuration")
 
@@ -73,7 +73,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the database in the catalog in which the table resides.
+        Name of the database in the catalog in which the table resides.
         """
         return pulumi.get(self, "database_name")
 
@@ -85,7 +85,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the table.
+        Name of the table.
         """
         return pulumi.get(self, "table_name")
 
@@ -97,7 +97,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        Type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         return pulumi.get(self, "type")
 
@@ -130,12 +130,12 @@ class _CatalogTableOptimizerState:
         """
         Input properties used for looking up and filtering CatalogTableOptimizer resources.
 
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
+        :param pulumi.Input[_builtins.str] catalog_id: Catalog ID of the table.
+        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database in the catalog in which the table resides.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
+        :param pulumi.Input[_builtins.str] type: Type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -154,7 +154,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Catalog ID of the table.
+        Catalog ID of the table.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -166,7 +166,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['CatalogTableOptimizerConfigurationArgs']]:
         """
-        A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
         """
         return pulumi.get(self, "configuration")
 
@@ -178,7 +178,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the database in the catalog in which the table resides.
+        Name of the database in the catalog in which the table resides.
         """
         return pulumi.get(self, "database_name")
 
@@ -202,7 +202,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the table.
+        Name of the table.
         """
         return pulumi.get(self, "table_name")
 
@@ -214,7 +214,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        Type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         return pulumi.get(self, "type")
 
@@ -323,12 +323,12 @@ class CatalogTableOptimizer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
+        :param pulumi.Input[_builtins.str] catalog_id: Catalog ID of the table.
+        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']] configuration: Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database in the catalog in which the table resides.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
+        :param pulumi.Input[_builtins.str] type: Type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         ...
     @overload
@@ -490,12 +490,12 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
+        :param pulumi.Input[_builtins.str] catalog_id: Catalog ID of the table.
+        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']] configuration: Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database in the catalog in which the table resides.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
+        :param pulumi.Input[_builtins.str] type: Type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -513,7 +513,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Catalog ID of the table.
+        Catalog ID of the table.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -521,7 +521,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.CatalogTableOptimizerConfiguration']:
         """
-        A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
         """
         return pulumi.get(self, "configuration")
 
@@ -529,7 +529,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the database in the catalog in which the table resides.
+        Name of the database in the catalog in which the table resides.
         """
         return pulumi.get(self, "database_name")
 
@@ -545,7 +545,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the table.
+        Name of the table.
         """
         return pulumi.get(self, "table_name")
 
@@ -553,7 +553,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        Type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         return pulumi.get(self, "type")
 

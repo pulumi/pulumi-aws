@@ -14,7 +14,7 @@ import java.util.Objects;
 public final class GetDataCatalogEncryptionSettingsResult {
     private String catalogId;
     /**
-     * @return The security configuration to set. see Data Catalog Encryption Settings.
+     * @return Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      * 
      */
     private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
@@ -30,7 +30,7 @@ public final class GetDataCatalogEncryptionSettingsResult {
         return this.catalogId;
     }
     /**
-     * @return The security configuration to set. see Data Catalog Encryption Settings.
+     * @return Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      * 
      */
     public List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings() {

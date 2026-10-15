@@ -549,7 +549,7 @@ namespace Pulumi.Aws.Emr
         public Output<ImmutableArray<string>> ListStepsStates { get; private set; } = null!;
 
         /// <summary>
-        /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        /// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         /// </summary>
         [Output("logEncryptionKmsKeyId")]
         public Output<string?> LogEncryptionKmsKeyId { get; private set; } = null!;
@@ -859,7 +859,7 @@ namespace Pulumi.Aws.Emr
         }
 
         /// <summary>
-        /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        /// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         /// </summary>
         [Input("logEncryptionKmsKeyId")]
         public Input<string>? LogEncryptionKmsKeyId { get; set; }
@@ -1146,7 +1146,7 @@ namespace Pulumi.Aws.Emr
         }
 
         /// <summary>
-        /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        /// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         /// </summary>
         [Input("logEncryptionKmsKeyId")]
         public Input<string>? LogEncryptionKmsKeyId { get; set; }

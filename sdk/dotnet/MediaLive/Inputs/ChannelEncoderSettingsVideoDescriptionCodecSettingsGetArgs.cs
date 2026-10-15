@@ -13,17 +13,20 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Frame capture settings. See Frame Capture Settings for more details.
+        /// Frame capture settings. See `FrameCaptureSettings` Block for details.
         /// </summary>
         [Input("frameCaptureSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsGetArgs>? FrameCaptureSettings { get; set; }
 
         /// <summary>
-        /// H264 settings. See H264 Settings for more details.
+        /// H264 settings. See `H264Settings` Block for details.
         /// </summary>
         [Input("h264Settings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsGetArgs>? H264Settings { get; set; }
 
+        /// <summary>
+        /// H265 settings. See `H265Settings` Block for details.
+        /// </summary>
         [Input("h265Settings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsGetArgs>? H265Settings { get; set; }
 

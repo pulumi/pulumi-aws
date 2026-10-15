@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings
     {
+        /// <summary>
+        /// List of audio rendition sets, separated by commas.
+        /// </summary>
         public readonly string? AudioRenditionSets;
+        /// <summary>
+        /// Settings for the M3U8 container. See `M3u8Settings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings M3u8Settings;
 
         [OutputConstructor]

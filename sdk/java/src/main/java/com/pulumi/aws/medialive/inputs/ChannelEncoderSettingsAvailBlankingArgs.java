@@ -17,14 +17,14 @@ public final class ChannelEncoderSettingsAvailBlankingArgs extends com.pulumi.re
     public static final ChannelEncoderSettingsAvailBlankingArgs Empty = new ChannelEncoderSettingsAvailBlankingArgs();
 
     /**
-     * Blanking image to be used. See Avail Blanking Image for more details.
+     * Blanking image to be used. See `availBlankingImage` Block for details.
      * 
      */
     @Import(name="availBlankingImage")
     private @Nullable Output<ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs> availBlankingImage;
 
     /**
-     * @return Blanking image to be used. See Avail Blanking Image for more details.
+     * @return Blanking image to be used. See `availBlankingImage` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs>> availBlankingImage() {
@@ -32,14 +32,14 @@ public final class ChannelEncoderSettingsAvailBlankingArgs extends com.pulumi.re
     }
 
     /**
-     * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+     * When set to `enabled`, causes video, audio, and captions to be blanked when insertion metadata is added.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+     * @return When set to `enabled`, causes video, audio, and captions to be blanked when insertion metadata is added.
      * 
      */
     public Optional<Output<String>> state() {
@@ -72,7 +72,7 @@ public final class ChannelEncoderSettingsAvailBlankingArgs extends com.pulumi.re
         }
 
         /**
-         * @param availBlankingImage Blanking image to be used. See Avail Blanking Image for more details.
+         * @param availBlankingImage Blanking image to be used. See `availBlankingImage` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelEncoderSettingsAvailBlankingArgs extends com.pulumi.re
         }
 
         /**
-         * @param availBlankingImage Blanking image to be used. See Avail Blanking Image for more details.
+         * @param availBlankingImage Blanking image to be used. See `availBlankingImage` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ChannelEncoderSettingsAvailBlankingArgs extends com.pulumi.re
         }
 
         /**
-         * @param state When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+         * @param state When set to `enabled`, causes video, audio, and captions to be blanked when insertion metadata is added.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ChannelEncoderSettingsAvailBlankingArgs extends com.pulumi.re
         }
 
         /**
-         * @param state When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+         * @param state When set to `enabled`, causes video, audio, and captions to be blanked when insertion metadata is added.
          * 
          * @return builder
          * 

@@ -34,14 +34,14 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
     }
 
     /**
-     * Toggles guardrail evaluation on input.
+     * Whether to enable guardrail evaluation on input.
      * 
      */
     @Import(name="inputEnabled")
     private @Nullable Output<Boolean> inputEnabled;
 
     /**
-     * @return Toggles guardrail evaluation on input.
+     * @return Whether to enable guardrail evaluation on input.
      * 
      */
     public Optional<Output<Boolean>> inputEnabled() {
@@ -94,14 +94,14 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
     }
 
     /**
-     * Toggles guardrail evaluation on output.
+     * Whether to enable guardrail evaluation on output.
      * 
      */
     @Import(name="outputEnabled")
     private @Nullable Output<Boolean> outputEnabled;
 
     /**
-     * @return Toggles guardrail evaluation on output.
+     * @return Whether to enable guardrail evaluation on output.
      * 
      */
     public Optional<Output<Boolean>> outputEnabled() {
@@ -207,7 +207,7 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param inputEnabled Toggles guardrail evaluation on input.
+         * @param inputEnabled Whether to enable guardrail evaluation on input.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param inputEnabled Toggles guardrail evaluation on input.
+         * @param inputEnabled Whether to enable guardrail evaluation on input.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param outputEnabled Toggles guardrail evaluation on output.
+         * @param outputEnabled Whether to enable guardrail evaluation on output.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs extends com.pul
         }
 
         /**
-         * @param outputEnabled Toggles guardrail evaluation on output.
+         * @param outputEnabled Whether to enable guardrail evaluation on output.
          * 
          * @return builder
          * 

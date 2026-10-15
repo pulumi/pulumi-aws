@@ -646,7 +646,7 @@ class Eip(pulumi.CustomResource):
             associate_with_private_ip="10.0.0.11")
         ```
 
-        ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
+        ### Attaching an EIP to an Instance with a pre-assigned private IP (VPC Only)
 
         ```python
         import pulumi
@@ -784,7 +784,7 @@ class Eip(pulumi.CustomResource):
             associate_with_private_ip="10.0.0.11")
         ```
 
-        ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
+        ### Attaching an EIP to an Instance with a pre-assigned private IP (VPC Only)
 
         ```python
         import pulumi

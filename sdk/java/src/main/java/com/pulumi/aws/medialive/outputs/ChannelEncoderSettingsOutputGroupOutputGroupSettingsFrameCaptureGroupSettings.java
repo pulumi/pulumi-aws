@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings {
+    /**
+     * @return Parameters that identify where to write the frame captures. See `destination` Block for details.
+     * 
+     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination;
+    /**
+     * @return Parameters that control the interactions with the CDN. See `frameCaptureCdnSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings frameCaptureCdnSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings() {}
+    /**
+     * @return Parameters that identify where to write the frame captures. See `destination` Block for details.
+     * 
+     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination() {
         return this.destination;
     }
+    /**
+     * @return Parameters that control the interactions with the CDN. See `frameCaptureCdnSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings> frameCaptureCdnSettings() {
         return Optional.ofNullable(this.frameCaptureCdnSettings);
     }

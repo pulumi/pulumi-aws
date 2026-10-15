@@ -18,7 +18,7 @@ public final class LocationFsxOntapFileSystemProtocol {
      */
     private @Nullable LocationFsxOntapFileSystemProtocolNfs nfs;
     /**
-     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
      * 
      */
     private @Nullable LocationFsxOntapFileSystemProtocolSmb smb;
@@ -32,7 +32,7 @@ public final class LocationFsxOntapFileSystemProtocol {
         return Optional.ofNullable(this.nfs);
     }
     /**
-     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
      * 
      */
     public Optional<LocationFsxOntapFileSystemProtocolSmb> smb() {

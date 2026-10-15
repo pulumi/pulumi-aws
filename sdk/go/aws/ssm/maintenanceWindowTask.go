@@ -267,7 +267,7 @@ type MaintenanceWindowTask struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+	// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayOutput `pulumi:"targets"`
 	// The ARN of the task to execute.
 	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
@@ -275,7 +275,7 @@ type MaintenanceWindowTask struct {
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrOutput `pulumi:"taskInvocationParameters"`
 	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType pulumi.StringOutput `pulumi:"taskType"`
-	// The Id of the maintenance window to register the task with.
+	// The ID of the maintenance window to register the task with.
 	WindowId pulumi.StringOutput `pulumi:"windowId"`
 	// The ID of the maintenance window task.
 	WindowTaskId pulumi.StringOutput `pulumi:"windowTaskId"`
@@ -338,7 +338,7 @@ type maintenanceWindowTaskState struct {
 	Region *string `pulumi:"region"`
 	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+	// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
 	// The ARN of the task to execute.
 	TaskArn *string `pulumi:"taskArn"`
@@ -346,7 +346,7 @@ type maintenanceWindowTaskState struct {
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
 	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType *string `pulumi:"taskType"`
-	// The Id of the maintenance window to register the task with.
+	// The ID of the maintenance window to register the task with.
 	WindowId *string `pulumi:"windowId"`
 	// The ID of the maintenance window task.
 	WindowTaskId *string `pulumi:"windowTaskId"`
@@ -371,7 +371,7 @@ type MaintenanceWindowTaskState struct {
 	Region pulumi.StringPtrInput
 	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn pulumi.StringPtrInput
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+	// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayInput
 	// The ARN of the task to execute.
 	TaskArn pulumi.StringPtrInput
@@ -379,7 +379,7 @@ type MaintenanceWindowTaskState struct {
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
 	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType pulumi.StringPtrInput
-	// The Id of the maintenance window to register the task with.
+	// The ID of the maintenance window to register the task with.
 	WindowId pulumi.StringPtrInput
 	// The ID of the maintenance window task.
 	WindowTaskId pulumi.StringPtrInput
@@ -406,7 +406,7 @@ type maintenanceWindowTaskArgs struct {
 	Region *string `pulumi:"region"`
 	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+	// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
 	// The ARN of the task to execute.
 	TaskArn string `pulumi:"taskArn"`
@@ -414,7 +414,7 @@ type maintenanceWindowTaskArgs struct {
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
 	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType string `pulumi:"taskType"`
-	// The Id of the maintenance window to register the task with.
+	// The ID of the maintenance window to register the task with.
 	WindowId string `pulumi:"windowId"`
 }
 
@@ -436,7 +436,7 @@ type MaintenanceWindowTaskArgs struct {
 	Region pulumi.StringPtrInput
 	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 	ServiceRoleArn pulumi.StringPtrInput
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+	// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayInput
 	// The ARN of the task to execute.
 	TaskArn pulumi.StringInput
@@ -444,7 +444,7 @@ type MaintenanceWindowTaskArgs struct {
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
 	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 	TaskType pulumi.StringInput
-	// The Id of the maintenance window to register the task with.
+	// The ID of the maintenance window to register the task with.
 	WindowId pulumi.StringInput
 }
 
@@ -580,7 +580,7 @@ func (o MaintenanceWindowTaskOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }
 
-// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 func (o MaintenanceWindowTaskOutput) Targets() MaintenanceWindowTaskTargetArrayOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) MaintenanceWindowTaskTargetArrayOutput { return v.Targets }).(MaintenanceWindowTaskTargetArrayOutput)
 }
@@ -602,7 +602,7 @@ func (o MaintenanceWindowTaskOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.TaskType }).(pulumi.StringOutput)
 }
 
-// The Id of the maintenance window to register the task with.
+// The ID of the maintenance window to register the task with.
 func (o MaintenanceWindowTaskOutput) WindowId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.WindowId }).(pulumi.StringOutput)
 }

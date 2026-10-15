@@ -16,94 +16,110 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorReplicationInfoList {
     /**
-     * @return Configuration relating to consumer group replication.
+     * @return Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
      * 
      */
     private List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications;
+    /**
+     * @return Alias of the source Kafka cluster.
+     * 
+     */
     private @Nullable String sourceKafkaClusterAlias;
     /**
-     * @return The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * @return ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     private @Nullable String sourceKafkaClusterArn;
     /**
-     * @return The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * @return Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     private @Nullable String sourceKafkaClusterId;
     /**
-     * @return The type of compression to use writing records to target Kafka cluster.
+     * @return Type of compression to use writing records to target Kafka cluster.
      * 
      */
     private String targetCompressionType;
+    /**
+     * @return Alias of the target Kafka cluster.
+     * 
+     */
     private @Nullable String targetKafkaClusterAlias;
     /**
-     * @return The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * @return ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     private @Nullable String targetKafkaClusterArn;
     /**
-     * @return The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * @return Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     private @Nullable String targetKafkaClusterId;
     /**
-     * @return Configuration relating to topic replication.
+     * @return Configuration relating to topic replication. See `topicReplication` Block below.
      * 
      */
     private List<ReplicatorReplicationInfoListTopicReplication> topicReplications;
 
     private ReplicatorReplicationInfoList() {}
     /**
-     * @return Configuration relating to consumer group replication.
+     * @return Configuration relating to consumer group replication. See `consumerGroupReplication` Block below.
      * 
      */
     public List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications() {
         return this.consumerGroupReplications;
     }
+    /**
+     * @return Alias of the source Kafka cluster.
+     * 
+     */
     public Optional<String> sourceKafkaClusterAlias() {
         return Optional.ofNullable(this.sourceKafkaClusterAlias);
     }
     /**
-     * @return The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * @return ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     public Optional<String> sourceKafkaClusterArn() {
         return Optional.ofNullable(this.sourceKafkaClusterArn);
     }
     /**
-     * @return The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * @return Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
     public Optional<String> sourceKafkaClusterId() {
         return Optional.ofNullable(this.sourceKafkaClusterId);
     }
     /**
-     * @return The type of compression to use writing records to target Kafka cluster.
+     * @return Type of compression to use writing records to target Kafka cluster.
      * 
      */
     public String targetCompressionType() {
         return this.targetCompressionType;
     }
+    /**
+     * @return Alias of the target Kafka cluster.
+     * 
+     */
     public Optional<String> targetKafkaClusterAlias() {
         return Optional.ofNullable(this.targetKafkaClusterAlias);
     }
     /**
-     * @return The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * @return ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     public Optional<String> targetKafkaClusterArn() {
         return Optional.ofNullable(this.targetKafkaClusterArn);
     }
     /**
-     * @return The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * @return Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
     public Optional<String> targetKafkaClusterId() {
         return Optional.ofNullable(this.targetKafkaClusterId);
     }
     /**
-     * @return Configuration relating to topic replication.
+     * @return Configuration relating to topic replication. See `topicReplication` Block below.
      * 
      */
     public List<ReplicatorReplicationInfoListTopicReplication> topicReplications() {

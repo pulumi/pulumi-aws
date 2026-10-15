@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the id of a VPC Link in
+// Use this data source to get the ID of a VPC Link in
 // API Gateway. To fetch the VPC Link you must provide a name to match against.
 // As there is no unique name constraint on API Gateway VPC Links this data source will
 // error if there is more than one match.

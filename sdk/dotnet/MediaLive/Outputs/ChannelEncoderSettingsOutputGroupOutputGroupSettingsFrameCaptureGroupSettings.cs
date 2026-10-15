@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings
     {
+        /// <summary>
+        /// Parameters that identify where to write the frame captures. See `Destination` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination Destination;
+        /// <summary>
+        /// Parameters that control the interactions with the CDN. See `FrameCaptureCdnSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings? FrameCaptureCdnSettings;
 
         [OutputConstructor]

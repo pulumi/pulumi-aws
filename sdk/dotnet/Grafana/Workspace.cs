@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Grafana
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
+        /// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
         /// </summary>
         [Output("accountAccessType")]
         public Output<string> AccountAccessType { get; private set; } = null!;
@@ -125,79 +125,79 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        /// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         /// </summary>
         [Output("authenticationProviders")]
         public Output<ImmutableArray<string>> AuthenticationProviders { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        /// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         /// </summary>
         [Output("configuration")]
         public Output<string> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+        /// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         /// </summary>
         [Output("dataSources")]
         public Output<ImmutableArray<string>> DataSources { get; private set; } = null!;
 
         /// <summary>
-        /// The workspace description.
+        /// Workspace description.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint of the Grafana workspace.
+        /// Endpoint of the Grafana workspace.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+        /// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
         /// </summary>
         [Output("grafanaVersion")]
         public Output<string> GrafanaVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS KMS key for encrypting workspace data.
+        /// ARN of the AWS KMS key for encrypting workspace data.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The Grafana workspace name.
+        /// Grafana workspace name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for network access to your workspace.See Network Access Control below.
+        /// Configuration for network access to your workspace. See `NetworkAccessControl` Block below.
         /// </summary>
         [Output("networkAccessControl")]
         public Output<Outputs.WorkspaceNetworkAccessControl?> NetworkAccessControl { get; private set; } = null!;
 
         /// <summary>
-        /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+        /// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         /// </summary>
         [Output("notificationDestinations")]
         public Output<ImmutableArray<string>> NotificationDestinations { get; private set; } = null!;
 
         /// <summary>
-        /// The role name that the workspace uses to access resources through Amazon Organizations.
+        /// Role name that the workspace uses to access resources through Amazon Organizations.
         /// </summary>
         [Output("organizationRoleName")]
         public Output<string?> OrganizationRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+        /// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         /// </summary>
         [Output("organizationalUnits")]
         public Output<ImmutableArray<string>> OrganizationalUnits { get; private set; } = null!;
 
         /// <summary>
-        /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+        /// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -211,16 +211,19 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM role ARN that the workspace assumes.
+        /// IAM role ARN that the workspace assumes.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of the SAML configuration.
+        /// </summary>
         [Output("samlConfigurationStatus")]
         public Output<string> SamlConfigurationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+        /// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         /// </summary>
         [Output("stackSetName")]
         public Output<string?> StackSetName { get; private set; } = null!;
@@ -238,7 +241,7 @@ namespace Pulumi.Aws.Grafana
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        /// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `VpcConfiguration` Block below.
         /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.WorkspaceVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
@@ -290,7 +293,7 @@ namespace Pulumi.Aws.Grafana
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
+        /// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
         /// </summary>
         [Input("accountAccessType", required: true)]
         public Input<string> AccountAccessType { get; set; } = null!;
@@ -299,7 +302,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _authenticationProviders;
 
         /// <summary>
-        /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        /// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         /// </summary>
         public InputList<string> AuthenticationProviders
         {
@@ -308,7 +311,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        /// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }
@@ -317,7 +320,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _dataSources;
 
         /// <summary>
-        /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+        /// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         /// </summary>
         public InputList<string> DataSources
         {
@@ -326,31 +329,31 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The workspace description.
+        /// Workspace description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+        /// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS KMS key for encrypting workspace data.
+        /// ARN of the AWS KMS key for encrypting workspace data.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The Grafana workspace name.
+        /// Grafana workspace name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration for network access to your workspace.See Network Access Control below.
+        /// Configuration for network access to your workspace. See `NetworkAccessControl` Block below.
         /// </summary>
         [Input("networkAccessControl")]
         public Input<Inputs.WorkspaceNetworkAccessControlArgs>? NetworkAccessControl { get; set; }
@@ -359,7 +362,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _notificationDestinations;
 
         /// <summary>
-        /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+        /// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         /// </summary>
         public InputList<string> NotificationDestinations
         {
@@ -368,7 +371,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The role name that the workspace uses to access resources through Amazon Organizations.
+        /// Role name that the workspace uses to access resources through Amazon Organizations.
         /// </summary>
         [Input("organizationRoleName")]
         public Input<string>? OrganizationRoleName { get; set; }
@@ -377,7 +380,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _organizationalUnits;
 
         /// <summary>
-        /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+        /// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         /// </summary>
         public InputList<string> OrganizationalUnits
         {
@@ -386,7 +389,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+        /// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -400,13 +403,13 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM role ARN that the workspace assumes.
+        /// IAM role ARN that the workspace assumes.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+        /// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         /// </summary>
         [Input("stackSetName")]
         public Input<string>? StackSetName { get; set; }
@@ -424,7 +427,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        /// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `VpcConfiguration` Block below.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.WorkspaceVpcConfigurationArgs>? VpcConfiguration { get; set; }
@@ -438,7 +441,7 @@ namespace Pulumi.Aws.Grafana
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
+        /// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
         /// </summary>
         [Input("accountAccessType")]
         public Input<string>? AccountAccessType { get; set; }
@@ -453,7 +456,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _authenticationProviders;
 
         /// <summary>
-        /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        /// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         /// </summary>
         public InputList<string> AuthenticationProviders
         {
@@ -462,7 +465,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        /// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }
@@ -471,7 +474,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _dataSources;
 
         /// <summary>
-        /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+        /// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         /// </summary>
         public InputList<string> DataSources
         {
@@ -480,37 +483,37 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The workspace description.
+        /// Workspace description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The endpoint of the Grafana workspace.
+        /// Endpoint of the Grafana workspace.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+        /// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS KMS key for encrypting workspace data.
+        /// ARN of the AWS KMS key for encrypting workspace data.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The Grafana workspace name.
+        /// Grafana workspace name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration for network access to your workspace.See Network Access Control below.
+        /// Configuration for network access to your workspace. See `NetworkAccessControl` Block below.
         /// </summary>
         [Input("networkAccessControl")]
         public Input<Inputs.WorkspaceNetworkAccessControlGetArgs>? NetworkAccessControl { get; set; }
@@ -519,7 +522,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _notificationDestinations;
 
         /// <summary>
-        /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+        /// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         /// </summary>
         public InputList<string> NotificationDestinations
         {
@@ -528,7 +531,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The role name that the workspace uses to access resources through Amazon Organizations.
+        /// Role name that the workspace uses to access resources through Amazon Organizations.
         /// </summary>
         [Input("organizationRoleName")]
         public Input<string>? OrganizationRoleName { get; set; }
@@ -537,7 +540,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _organizationalUnits;
 
         /// <summary>
-        /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+        /// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         /// </summary>
         public InputList<string> OrganizationalUnits
         {
@@ -546,7 +549,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+        /// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -560,16 +563,19 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM role ARN that the workspace assumes.
+        /// IAM role ARN that the workspace assumes.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// Status of the SAML configuration.
+        /// </summary>
         [Input("samlConfigurationStatus")]
         public Input<string>? SamlConfigurationStatus { get; set; }
 
         /// <summary>
-        /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+        /// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         /// </summary>
         [Input("stackSetName")]
         public Input<string>? StackSetName { get; set; }
@@ -599,7 +605,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        /// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `VpcConfiguration` Block below.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.WorkspaceVpcConfigurationGetArgs>? VpcConfiguration { get; set; }

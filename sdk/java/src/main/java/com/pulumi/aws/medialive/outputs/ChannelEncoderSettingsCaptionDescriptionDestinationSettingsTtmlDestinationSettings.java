@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
     /**
-     * @return This field is not currently supported and will not affect the output styling. Leave the default value.
+     * @return Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
      * 
      */
     private String styleControl;
 
     private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings() {}
     /**
-     * @return This field is not currently supported and will not affect the output styling. Leave the default value.
+     * @return Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
      * 
      */
     public String styleControl() {

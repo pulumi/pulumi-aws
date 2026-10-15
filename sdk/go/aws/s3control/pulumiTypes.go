@@ -1247,7 +1247,7 @@ func (o MultiRegionAccessPointDetailsPtrOutput) Regions() MultiRegionAccessPoint
 }
 
 type MultiRegionAccessPointDetailsPublicAccessBlock struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
 	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
@@ -1269,7 +1269,7 @@ type MultiRegionAccessPointDetailsPublicAccessBlockInput interface {
 }
 
 type MultiRegionAccessPointDetailsPublicAccessBlockArgs struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
 	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
@@ -1356,7 +1356,7 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAcces
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
@@ -1400,7 +1400,7 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) Elem() MultiReg
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -8451,7 +8451,7 @@ func (o GetAccessPointsAccessPointVpcConfigurationArrayOutput) Index(i pulumi.In
 }
 
 type GetMultiRegionAccessPointPublicAccessBlock struct {
-	// Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls bool `pulumi:"blockPublicAcls"`
 	// Whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy bool `pulumi:"blockPublicPolicy"`
@@ -8473,7 +8473,7 @@ type GetMultiRegionAccessPointPublicAccessBlockInput interface {
 }
 
 type GetMultiRegionAccessPointPublicAccessBlockArgs struct {
-	// Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls pulumi.BoolInput `pulumi:"blockPublicAcls"`
 	// Whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy pulumi.BoolInput `pulumi:"blockPublicPolicy"`
@@ -8534,7 +8534,7 @@ func (o GetMultiRegionAccessPointPublicAccessBlockOutput) ToGetMultiRegionAccess
 	return o
 }
 
-// Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+// Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 func (o GetMultiRegionAccessPointPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.BlockPublicAcls }).(pulumi.BoolOutput)
 }

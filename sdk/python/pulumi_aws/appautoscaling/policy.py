@@ -370,19 +370,19 @@ class Policy(pulumi.CustomResource):
                  target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict', 'outputs.PolicyTargetTrackingScalingPolicyConfiguration']]] = None,
                  __props__=None):
         """
-        Provides an Application AutoScaling Policy resource.
+        Provides an Application Auto Scaling Policy resource.
 
         ## Example Usage
 
-        ### DynamoDB Table Autoscaling
+        ### DynamoDB Table AutoScaling
 
-        ### ECS Service Autoscaling
+        ### ECS Service AutoScaling
 
         ### Preserve desired count when updating an autoscaled ECS Service
 
         > To preserve the `desiredCount` of an autoscaled ECS Service during updates, use the [`ignoreChanges` resource option](https://www.pulumi.com/docs/concepts/options/ignorechanges/). This prevents Pulumi from resetting the count that autoscaling has set:
 
-        ### Aurora Read Replica Autoscaling
+        ### Aurora Read Replica AutoScaling
 
         ### Create target tracking scaling policy using metric math
 
@@ -406,7 +406,7 @@ class Policy(pulumi.CustomResource):
         * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
-        Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
+        Using `pulumi import`, import Application Auto Scaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
@@ -431,19 +431,19 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Application AutoScaling Policy resource.
+        Provides an Application Auto Scaling Policy resource.
 
         ## Example Usage
 
-        ### DynamoDB Table Autoscaling
+        ### DynamoDB Table AutoScaling
 
-        ### ECS Service Autoscaling
+        ### ECS Service AutoScaling
 
         ### Preserve desired count when updating an autoscaled ECS Service
 
         > To preserve the `desiredCount` of an autoscaled ECS Service during updates, use the [`ignoreChanges` resource option](https://www.pulumi.com/docs/concepts/options/ignorechanges/). This prevents Pulumi from resetting the count that autoscaling has set:
 
-        ### Aurora Read Replica Autoscaling
+        ### Aurora Read Replica AutoScaling
 
         ### Create target tracking scaling policy using metric math
 
@@ -467,7 +467,7 @@ class Policy(pulumi.CustomResource):
         * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
-        Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
+        Using `pulumi import`, import Application Auto Scaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name

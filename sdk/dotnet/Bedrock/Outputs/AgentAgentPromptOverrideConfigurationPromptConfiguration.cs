@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentAgentPromptOverrideConfigurationPromptConfiguration
     {
         /// <summary>
-        /// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        /// Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
         /// </summary>
         public readonly string BasePromptTemplate;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string PromptState;
         /// <summary>
-        /// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        /// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
         /// </summary>
         public readonly string PromptType;
 

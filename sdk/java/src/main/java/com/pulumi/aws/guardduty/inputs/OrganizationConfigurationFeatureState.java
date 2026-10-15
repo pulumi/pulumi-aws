@@ -33,14 +33,14 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
     }
 
     /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+     * Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      * 
      */
     @Import(name="autoEnable")
     private @Nullable Output<String> autoEnable;
 
     /**
-     * @return The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+     * @return Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      * 
      */
     public Optional<Output<String>> autoEnable() {
@@ -48,14 +48,14 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
     }
 
     /**
-     * The ID of the detector that configures the delegated administrator.
+     * ID of the detector that configures the delegated administrator.
      * 
      */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
     /**
-     * @return The ID of the detector that configures the delegated administrator.
+     * @return ID of the detector that configures the delegated administrator.
      * 
      */
     public Optional<Output<String>> detectorId() {
@@ -63,14 +63,14 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
     }
 
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+     * Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+     * @return Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
     public Optional<Output<String>> name() {
@@ -152,7 +152,7 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
         }
 
         /**
-         * @param autoEnable The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+         * @param autoEnable Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
         }
 
         /**
-         * @param autoEnable The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+         * @param autoEnable Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
         }
 
         /**
-         * @param detectorId The ID of the detector that configures the delegated administrator.
+         * @param detectorId ID of the detector that configures the delegated administrator.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
         }
 
         /**
-         * @param detectorId The ID of the detector that configures the delegated administrator.
+         * @param detectorId ID of the detector that configures the delegated administrator.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
         }
 
         /**
-         * @param name The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+         * @param name Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class OrganizationConfigurationFeatureState extends com.pulumi.reso
         }
 
         /**
-         * @param name The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+         * @param name Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 

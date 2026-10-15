@@ -71,9 +71,9 @@ import (
 type InvitationAccepter struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the account that sent the invitation.
+	// AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringOutput `pulumi:"administratorAccountId"`
-	// The unique identifier for the invitation.
+	// Unique identifier for the invitation.
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -112,18 +112,18 @@ func GetInvitationAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InvitationAccepter resources.
 type invitationAccepterState struct {
-	// The AWS account ID for the account that sent the invitation.
+	// AWS account ID for the account that sent the invitation.
 	AdministratorAccountId *string `pulumi:"administratorAccountId"`
-	// The unique identifier for the invitation.
+	// Unique identifier for the invitation.
 	InvitationId *string `pulumi:"invitationId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type InvitationAccepterState struct {
-	// The AWS account ID for the account that sent the invitation.
+	// AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringPtrInput
-	// The unique identifier for the invitation.
+	// Unique identifier for the invitation.
 	InvitationId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 }
 
 type invitationAccepterArgs struct {
-	// The AWS account ID for the account that sent the invitation.
+	// AWS account ID for the account that sent the invitation.
 	AdministratorAccountId string `pulumi:"administratorAccountId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -142,7 +142,7 @@ type invitationAccepterArgs struct {
 
 // The set of arguments for constructing a InvitationAccepter resource.
 type InvitationAccepterArgs struct {
-	// The AWS account ID for the account that sent the invitation.
+	// AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -235,12 +235,12 @@ func (o InvitationAccepterOutput) ToInvitationAccepterOutputWithContext(ctx cont
 	return o
 }
 
-// The AWS account ID for the account that sent the invitation.
+// AWS account ID for the account that sent the invitation.
 func (o InvitationAccepterOutput) AdministratorAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.AdministratorAccountId }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the invitation.
+// Unique identifier for the invitation.
 func (o InvitationAccepterOutput) InvitationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
 }

@@ -6056,7 +6056,7 @@ func (o TopicRuleErrorActionHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) 
 type TopicRuleErrorActionIotAnalytics struct {
 	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
 	BatchMode *bool `pulumi:"batchMode"`
-	// Name of AWS IOT Analytics channel.
+	// Name of AWS IoT Analytics channel.
 	ChannelName string `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
@@ -6076,7 +6076,7 @@ type TopicRuleErrorActionIotAnalyticsInput interface {
 type TopicRuleErrorActionIotAnalyticsArgs struct {
 	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
 	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
-	// Name of AWS IOT Analytics channel.
+	// Name of AWS IoT Analytics channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -6164,7 +6164,7 @@ func (o TopicRuleErrorActionIotAnalyticsOutput) BatchMode() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v TopicRuleErrorActionIotAnalytics) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
-// Name of AWS IOT Analytics channel.
+// Name of AWS IoT Analytics channel.
 func (o TopicRuleErrorActionIotAnalyticsOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotAnalytics) string { return v.ChannelName }).(pulumi.StringOutput)
 }
@@ -6208,7 +6208,7 @@ func (o TopicRuleErrorActionIotAnalyticsPtrOutput) BatchMode() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of AWS IOT Analytics channel.
+// Name of AWS IoT Analytics channel.
 func (o TopicRuleErrorActionIotAnalyticsPtrOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionIotAnalytics) *string {
 		if v == nil {
@@ -8789,7 +8789,7 @@ func (o TopicRuleHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleHt
 type TopicRuleIotAnalytic struct {
 	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
 	BatchMode *bool `pulumi:"batchMode"`
-	// Name of AWS IOT Analytics channel.
+	// Name of AWS IoT Analytics channel.
 	ChannelName string `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
@@ -8809,7 +8809,7 @@ type TopicRuleIotAnalyticInput interface {
 type TopicRuleIotAnalyticArgs struct {
 	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
 	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
-	// Name of AWS IOT Analytics channel.
+	// Name of AWS IoT Analytics channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -8871,7 +8871,7 @@ func (o TopicRuleIotAnalyticOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalytic) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
-// Name of AWS IOT Analytics channel.
+// Name of AWS IoT Analytics channel.
 func (o TopicRuleIotAnalyticOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalytic) string { return v.ChannelName }).(pulumi.StringOutput)
 }

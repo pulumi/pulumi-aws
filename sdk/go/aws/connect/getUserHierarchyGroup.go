@@ -80,7 +80,7 @@ func LookupUserHierarchyGroup(ctx *pulumi.Context, args *LookupUserHierarchyGrou
 
 // A collection of arguments for invoking getUserHierarchyGroup.
 type LookupUserHierarchyGroupArgs struct {
-	// Returns information on a specific hierarchy group by hierarchy group id
+	// Returns information on a specific hierarchy group by hierarchy group ID
 	HierarchyGroupId *string `pulumi:"hierarchyGroupId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
@@ -120,7 +120,7 @@ func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarch
 
 // A collection of arguments for invoking getUserHierarchyGroup.
 type LookupUserHierarchyGroupOutputArgs struct {
-	// Returns information on a specific hierarchy group by hierarchy group id
+	// Returns information on a specific hierarchy group by hierarchy group ID
 	HierarchyGroupId pulumi.StringPtrInput `pulumi:"hierarchyGroupId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`

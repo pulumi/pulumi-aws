@@ -47,14 +47,14 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs ext
     }
 
     /**
-     * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+     * Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
      * 
      */
     @Import(name="taskType", required=true)
     private Output<String> taskType;
 
     /**
-     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+     * @return Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
      * 
      */
     public Output<String> taskType() {
@@ -140,7 +140,7 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs ext
         }
 
         /**
-         * @param taskType Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+         * @param taskType Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs ext
         }
 
         /**
-         * @param taskType Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+         * @param taskType Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
          * 
          * @return builder
          * 

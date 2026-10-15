@@ -33,14 +33,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+     * Whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
      * 
      */
     @Import(name="containsHeader")
     private @Nullable Output<String> containsHeader;
 
     /**
-     * @return Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+     * @return Whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
      * 
      */
     public Optional<Output<String>> containsHeader() {
@@ -63,14 +63,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
      * 
      */
     @Import(name="customDatatypes")
     private @Nullable Output<List<String>> customDatatypes;
 
     /**
-     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * @return List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
      * 
      */
     public Optional<Output<List<String>>> customDatatypes() {
@@ -78,14 +78,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The delimiter used in the CSV to separate columns.
+     * Delimiter used in the CSV to separate columns.
      * 
      */
     @Import(name="delimiter")
     private @Nullable Output<String> delimiter;
 
     /**
-     * @return The delimiter used in the CSV to separate columns.
+     * @return Delimiter used in the CSV to separate columns.
      * 
      */
     public Optional<Output<String>> delimiter() {
@@ -93,14 +93,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies whether to trim column values.
+     * Whether to trim column values.
      * 
      */
     @Import(name="disableValueTrimming")
     private @Nullable Output<Boolean> disableValueTrimming;
 
     /**
-     * @return Specifies whether to trim column values.
+     * @return Whether to trim column values.
      * 
      */
     public Optional<Output<Boolean>> disableValueTrimming() {
@@ -108,14 +108,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of strings representing column names.
+     * List of strings representing column names.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<String>> headers;
 
     /**
-     * @return A list of strings representing column names.
+     * @return List of strings representing column names.
      * 
      */
     public Optional<Output<List<String>>> headers() {
@@ -123,14 +123,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
      * 
      */
     @Import(name="quoteSymbol")
     private @Nullable Output<String> quoteSymbol;
 
     /**
-     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * @return Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
      * 
      */
     public Optional<Output<String>> quoteSymbol() {
@@ -138,14 +138,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
      * 
      */
     @Import(name="serde")
     private @Nullable Output<String> serde;
 
     /**
-     * @return The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * @return SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
      * 
      */
     public Optional<Output<String>> serde() {
@@ -206,7 +206,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param containsHeader Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+         * @param containsHeader Whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param containsHeader Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+         * @param containsHeader Whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customDatatypes A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+         * @param customDatatypes List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customDatatypes A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+         * @param customDatatypes List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customDatatypes A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+         * @param customDatatypes List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param delimiter The delimiter used in the CSV to separate columns.
+         * @param delimiter Delimiter used in the CSV to separate columns.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param delimiter The delimiter used in the CSV to separate columns.
+         * @param delimiter Delimiter used in the CSV to separate columns.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param disableValueTrimming Specifies whether to trim column values.
+         * @param disableValueTrimming Whether to trim column values.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param disableValueTrimming Specifies whether to trim column values.
+         * @param disableValueTrimming Whether to trim column values.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param headers A list of strings representing column names.
+         * @param headers List of strings representing column names.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param headers A list of strings representing column names.
+         * @param headers List of strings representing column names.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param headers A list of strings representing column names.
+         * @param headers List of strings representing column names.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param quoteSymbol A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         * @param quoteSymbol Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param quoteSymbol A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         * @param quoteSymbol Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serde The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+         * @param serde SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serde The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+         * @param serde SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
          * 
          * @return builder
          * 

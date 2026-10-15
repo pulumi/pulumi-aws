@@ -249,12 +249,12 @@ public final class InsightFilters {
      */
     private @Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains;
     /**
-     * @return The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s;
     /**
-     * @return The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s;
@@ -279,12 +279,12 @@ public final class InsightFilters {
      */
     private @Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains;
     /**
-     * @return The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s;
     /**
-     * @return The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s;
@@ -389,12 +389,12 @@ public final class InsightFilters {
      */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds;
     /**
-     * @return The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+     * @return The IPv4 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses;
     /**
-     * @return The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+     * @return The IPv6 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses;
@@ -774,14 +774,14 @@ public final class InsightFilters {
         return this.networkDestinationDomains == null ? List.of() : this.networkDestinationDomains;
     }
     /**
-     * @return The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s() {
         return this.networkDestinationIpv4s == null ? List.of() : this.networkDestinationIpv4s;
     }
     /**
-     * @return The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s() {
@@ -816,14 +816,14 @@ public final class InsightFilters {
         return this.networkSourceDomains == null ? List.of() : this.networkSourceDomains;
     }
     /**
-     * @return The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s() {
         return this.networkSourceIpv4s == null ? List.of() : this.networkSourceIpv4s;
     }
     /**
-     * @return The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s() {
@@ -970,14 +970,14 @@ public final class InsightFilters {
         return this.resourceAwsEc2InstanceImageIds == null ? List.of() : this.resourceAwsEc2InstanceImageIds;
     }
     /**
-     * @return The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+     * @return The IPv4 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     public List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses() {
         return this.resourceAwsEc2InstanceIpv4Addresses == null ? List.of() : this.resourceAwsEc2InstanceIpv4Addresses;
     }
     /**
-     * @return The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+     * @return The IPv6 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     public List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses() {

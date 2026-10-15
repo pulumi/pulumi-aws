@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The KMS key id used to encrypt data at rest.
+        /// The KMS key ID used to encrypt data at rest.
         /// </summary>
         public readonly string KmsKeyId;
 

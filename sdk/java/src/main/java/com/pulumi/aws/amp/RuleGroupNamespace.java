@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * - `arn` (String) ARN of the Prometheus rule group namespace.
  * 
- * Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
+ * Using `pulumi import`, import the prometheus rule group namespace using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name

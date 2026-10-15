@@ -73,9 +73,9 @@ type EventSubscription struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// SNS topic arn to send events on.
+	// SNS topic ARN to send events on.
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+	// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
@@ -134,9 +134,9 @@ type eventSubscriptionState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// SNS topic arn to send events on.
+	// SNS topic ARN to send events on.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+	// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType *string `pulumi:"sourceType"`
@@ -157,9 +157,9 @@ type EventSubscriptionState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// SNS topic arn to send events on.
+	// SNS topic ARN to send events on.
 	SnsTopicArn pulumi.StringPtrInput
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+	// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
@@ -182,9 +182,9 @@ type eventSubscriptionArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// SNS topic arn to send events on.
+	// SNS topic ARN to send events on.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+	// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType string `pulumi:"sourceType"`
@@ -202,9 +202,9 @@ type EventSubscriptionArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// SNS topic arn to send events on.
+	// SNS topic ARN to send events on.
 	SnsTopicArn pulumi.StringInput
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+	// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringInput
@@ -324,12 +324,12 @@ func (o EventSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// SNS topic arn to send events on.
+// SNS topic ARN to send events on.
 func (o EventSubscriptionOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
-// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+// IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIds }).(pulumi.StringArrayOutput)
 }

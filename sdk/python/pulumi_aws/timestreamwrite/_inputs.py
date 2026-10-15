@@ -118,7 +118,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+    KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
     """
     object_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -135,7 +135,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
         """
         :param pulumi.Input[_builtins.str] bucket_name: Bucket name of the customer S3 bucket.
         :param pulumi.Input[_builtins.str] encryption_option: Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
         :param pulumi.Input[_builtins.str] object_key_prefix: Object key prefix for the customer S3 location.
         """
         if bucket_name is not None:
@@ -175,7 +175,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+        KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
         """
         return pulumi.get(self, "kms_key_id")
 

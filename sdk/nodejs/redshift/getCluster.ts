@@ -227,11 +227,11 @@ export interface GetClusterResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * VPC Id associated with the cluster
+     * VPC ID associated with the cluster
      */
     readonly vpcId: string;
     /**
-     * The VPC security group Ids associated with the cluster
+     * The VPC security group IDs associated with the cluster
      */
     readonly vpcSecurityGroupIds: string[];
 }

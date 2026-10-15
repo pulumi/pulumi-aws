@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetIndexArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific Index by id.
+        /// Returns information on a specific Index by ID.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific Index by id.
+        /// Returns information on a specific Index by ID.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -18,12 +18,12 @@ public final class CustomPluginLocationS3 {
      */
     private String bucketArn;
     /**
-     * @return The file key for an object in an S3 bucket.
+     * @return File key for an object in an S3 bucket.
      * 
      */
     private String fileKey;
     /**
-     * @return The version of an object in an S3 bucket.
+     * @return Version of an object in an S3 bucket.
      * 
      */
     private @Nullable String objectVersion;
@@ -37,14 +37,14 @@ public final class CustomPluginLocationS3 {
         return this.bucketArn;
     }
     /**
-     * @return The file key for an object in an S3 bucket.
+     * @return File key for an object in an S3 bucket.
      * 
      */
     public String fileKey() {
         return this.fileKey;
     }
     /**
-     * @return The version of an object in an S3 bucket.
+     * @return Version of an object in an S3 bucket.
      * 
      */
     public Optional<String> objectVersion() {

@@ -73,7 +73,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the db subnet group.
+     * ARN of the DB subnet group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
-     * Network type of the db subnet group.
+     * Network type of the DB subnet group.
      */
     declare public /*out*/ readonly supportedNetworkTypes: pulumi.Output<string[]>;
     /**
@@ -162,7 +162,7 @@ export class SubnetGroup extends pulumi.CustomResource {
  */
 export interface SubnetGroupState {
     /**
-     * ARN of the db subnet group.
+     * ARN of the DB subnet group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface SubnetGroupState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Network type of the db subnet group.
+     * Network type of the DB subnet group.
      */
     supportedNetworkTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

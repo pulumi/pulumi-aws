@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+ * Provides informations for routes of a specific transit gateway, such as state, type, CIDR
  *
  * ## Example Usage
  *
@@ -72,7 +72,7 @@ export interface GetRouteTableRoutesResult {
     readonly transitGatewayRouteTableId: string;
 }
 /**
- * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+ * Provides informations for routes of a specific transit gateway, such as state, type, CIDR
  *
  * ## Example Usage
  *

@@ -16,14 +16,14 @@ public final class FleetCertificateConfigurationArgs extends com.pulumi.resource
     public static final FleetCertificateConfigurationArgs Empty = new FleetCertificateConfigurationArgs();
 
     /**
-     * Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+     * Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
      * 
      */
     @Import(name="certificateType")
     private @Nullable Output<String> certificateType;
 
     /**
-     * @return Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+     * @return Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
      * 
      */
     public Optional<Output<String>> certificateType() {
@@ -55,7 +55,7 @@ public final class FleetCertificateConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param certificateType Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+         * @param certificateType Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class FleetCertificateConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param certificateType Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+         * @param certificateType Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
          * 
          * @return builder
          * 

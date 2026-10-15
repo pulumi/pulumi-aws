@@ -19,6 +19,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
         public readonly string EventType;
         /// <summary>
         /// ARN of the CloudFront function.
+        /// 
+        /// #### `GRPC` config arguments
         /// </summary>
         public readonly string FunctionArn;
 

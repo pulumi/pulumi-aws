@@ -18,14 +18,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs();
 
     /**
-     * Sets the attenuation control.
+     * Attenuation control.
      * 
      */
     @Import(name="attenuationControl")
     private @Nullable Output<String> attenuationControl;
 
     /**
-     * @return Sets the attenuation control.
+     * @return Attenuation control.
      * 
      */
     public Optional<Output<String>> attenuationControl() {
@@ -48,14 +48,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
     }
 
     /**
-     * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     @Import(name="bitstreamMode")
     private @Nullable Output<String> bitstreamMode;
 
     /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * @return Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     public Optional<Output<String>> bitstreamMode() {
@@ -77,16 +77,32 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.codingMode);
     }
 
+    /**
+     * Whether to activate a DC filter for the channels.
+     * 
+     */
     @Import(name="dcFilter")
     private @Nullable Output<String> dcFilter;
 
+    /**
+     * @return Whether to activate a DC filter for the channels.
+     * 
+     */
     public Optional<Output<String>> dcFilter() {
         return Optional.ofNullable(this.dcFilter);
     }
 
+    /**
+     * Sets the dialnorm for the output.
+     * 
+     */
     @Import(name="dialnorm")
     private @Nullable Output<Integer> dialnorm;
 
+    /**
+     * @return Sets the dialnorm for the output.
+     * 
+     */
     public Optional<Output<Integer>> dialnorm() {
         return Optional.ofNullable(this.dialnorm);
     }
@@ -107,66 +123,106 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
     }
 
     /**
-     * Sets the profile for heavy Dolby dynamic range compression.
+     * Profile for heavy Dolby dynamic range compression.
      * 
      */
     @Import(name="drcRf")
     private @Nullable Output<String> drcRf;
 
     /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * @return Profile for heavy Dolby dynamic range compression.
      * 
      */
     public Optional<Output<String>> drcRf() {
         return Optional.ofNullable(this.drcRf);
     }
 
+    /**
+     * When set to `lfe`, the EAC3 output contains an LFE channel.
+     * 
+     */
     @Import(name="lfeControl")
     private @Nullable Output<String> lfeControl;
 
+    /**
+     * @return When set to `lfe`, the EAC3 output contains an LFE channel.
+     * 
+     */
     public Optional<Output<String>> lfeControl() {
         return Optional.ofNullable(this.lfeControl);
     }
 
     /**
-     * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     @Import(name="lfeFilter")
     private @Nullable Output<String> lfeFilter;
 
     /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * @return When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     public Optional<Output<String>> lfeFilter() {
         return Optional.ofNullable(this.lfeFilter);
     }
 
+    /**
+     * Left total/right total center mix level.
+     * 
+     */
     @Import(name="loRoCenterMixLevel")
     private @Nullable Output<Double> loRoCenterMixLevel;
 
+    /**
+     * @return Left total/right total center mix level.
+     * 
+     */
     public Optional<Output<Double>> loRoCenterMixLevel() {
         return Optional.ofNullable(this.loRoCenterMixLevel);
     }
 
+    /**
+     * Left total/right total surround mix level.
+     * 
+     */
     @Import(name="loRoSurroundMixLevel")
     private @Nullable Output<Double> loRoSurroundMixLevel;
 
+    /**
+     * @return Left total/right total surround mix level.
+     * 
+     */
     public Optional<Output<Double>> loRoSurroundMixLevel() {
         return Optional.ofNullable(this.loRoSurroundMixLevel);
     }
 
+    /**
+     * Left only/right only center mix level.
+     * 
+     */
     @Import(name="ltRtCenterMixLevel")
     private @Nullable Output<Double> ltRtCenterMixLevel;
 
+    /**
+     * @return Left only/right only center mix level.
+     * 
+     */
     public Optional<Output<Double>> ltRtCenterMixLevel() {
         return Optional.ofNullable(this.ltRtCenterMixLevel);
     }
 
+    /**
+     * Left only/right only surround mix level.
+     * 
+     */
     @Import(name="ltRtSurroundMixLevel")
     private @Nullable Output<Double> ltRtSurroundMixLevel;
 
+    /**
+     * @return Left only/right only surround mix level.
+     * 
+     */
     public Optional<Output<Double>> ltRtSurroundMixLevel() {
         return Optional.ofNullable(this.ltRtSurroundMixLevel);
     }
@@ -186,37 +242,77 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.metadataControl);
     }
 
+    /**
+     * When set to `whenPossible`, input DD+ audio is passed through if present.
+     * 
+     */
     @Import(name="passthroughControl")
     private @Nullable Output<String> passthroughControl;
 
+    /**
+     * @return When set to `whenPossible`, input DD+ audio is passed through if present.
+     * 
+     */
     public Optional<Output<String>> passthroughControl() {
         return Optional.ofNullable(this.passthroughControl);
     }
 
+    /**
+     * Whether to invert the phase of the surround channels.
+     * 
+     */
     @Import(name="phaseControl")
     private @Nullable Output<String> phaseControl;
 
+    /**
+     * @return Whether to invert the phase of the surround channels.
+     * 
+     */
     public Optional<Output<String>> phaseControl() {
         return Optional.ofNullable(this.phaseControl);
     }
 
+    /**
+     * Stereo downmix preference.
+     * 
+     */
     @Import(name="stereoDownmix")
     private @Nullable Output<String> stereoDownmix;
 
+    /**
+     * @return Stereo downmix preference.
+     * 
+     */
     public Optional<Output<String>> stereoDownmix() {
         return Optional.ofNullable(this.stereoDownmix);
     }
 
+    /**
+     * Whether to encode the stream as Dolby Digital EX.
+     * 
+     */
     @Import(name="surroundExMode")
     private @Nullable Output<String> surroundExMode;
 
+    /**
+     * @return Whether to encode the stream as Dolby Digital EX.
+     * 
+     */
     public Optional<Output<String>> surroundExMode() {
         return Optional.ofNullable(this.surroundExMode);
     }
 
+    /**
+     * Whether to encode the stream as a surround sound stream.
+     * 
+     */
     @Import(name="surroundMode")
     private @Nullable Output<String> surroundMode;
 
+    /**
+     * @return Whether to encode the stream as a surround sound stream.
+     * 
+     */
     public Optional<Output<String>> surroundMode() {
         return Optional.ofNullable(this.surroundMode);
     }
@@ -265,7 +361,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         }
 
         /**
-         * @param attenuationControl Sets the attenuation control.
+         * @param attenuationControl Attenuation control.
          * 
          * @return builder
          * 
@@ -276,7 +372,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         }
 
         /**
-         * @param attenuationControl Sets the attenuation control.
+         * @param attenuationControl Attenuation control.
          * 
          * @return builder
          * 
@@ -307,7 +403,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         }
 
         /**
-         * @param bitstreamMode Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+         * @param bitstreamMode Bitstream mode (bsmod) for the emitted AC-3 stream.
          * 
          * @return builder
          * 
@@ -318,7 +414,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         }
 
         /**
-         * @param bitstreamMode Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+         * @param bitstreamMode Bitstream mode (bsmod) for the emitted AC-3 stream.
          * 
          * @return builder
          * 
@@ -348,20 +444,44 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return codingMode(Output.of(codingMode));
         }
 
+        /**
+         * @param dcFilter Whether to activate a DC filter for the channels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dcFilter(@Nullable Output<String> dcFilter) {
             $.dcFilter = dcFilter;
             return this;
         }
 
+        /**
+         * @param dcFilter Whether to activate a DC filter for the channels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dcFilter(String dcFilter) {
             return dcFilter(Output.of(dcFilter));
         }
 
+        /**
+         * @param dialnorm Sets the dialnorm for the output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dialnorm(@Nullable Output<Integer> dialnorm) {
             $.dialnorm = dialnorm;
             return this;
         }
 
+        /**
+         * @param dialnorm Sets the dialnorm for the output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dialnorm(Integer dialnorm) {
             return dialnorm(Output.of(dialnorm));
         }
@@ -388,7 +508,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         }
 
         /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
+         * @param drcRf Profile for heavy Dolby dynamic range compression.
          * 
          * @return builder
          * 
@@ -399,7 +519,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         }
 
         /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
+         * @param drcRf Profile for heavy Dolby dynamic range compression.
          * 
          * @return builder
          * 
@@ -408,17 +528,29 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return drcRf(Output.of(drcRf));
         }
 
+        /**
+         * @param lfeControl When set to `lfe`, the EAC3 output contains an LFE channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lfeControl(@Nullable Output<String> lfeControl) {
             $.lfeControl = lfeControl;
             return this;
         }
 
+        /**
+         * @param lfeControl When set to `lfe`, the EAC3 output contains an LFE channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lfeControl(String lfeControl) {
             return lfeControl(Output.of(lfeControl));
         }
 
         /**
-         * @param lfeFilter When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+         * @param lfeFilter When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
          * 
          * @return builder
          * 
@@ -429,7 +561,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         }
 
         /**
-         * @param lfeFilter When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+         * @param lfeFilter When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
          * 
          * @return builder
          * 
@@ -438,38 +570,86 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return lfeFilter(Output.of(lfeFilter));
         }
 
+        /**
+         * @param loRoCenterMixLevel Left total/right total center mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loRoCenterMixLevel(@Nullable Output<Double> loRoCenterMixLevel) {
             $.loRoCenterMixLevel = loRoCenterMixLevel;
             return this;
         }
 
+        /**
+         * @param loRoCenterMixLevel Left total/right total center mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loRoCenterMixLevel(Double loRoCenterMixLevel) {
             return loRoCenterMixLevel(Output.of(loRoCenterMixLevel));
         }
 
+        /**
+         * @param loRoSurroundMixLevel Left total/right total surround mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loRoSurroundMixLevel(@Nullable Output<Double> loRoSurroundMixLevel) {
             $.loRoSurroundMixLevel = loRoSurroundMixLevel;
             return this;
         }
 
+        /**
+         * @param loRoSurroundMixLevel Left total/right total surround mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loRoSurroundMixLevel(Double loRoSurroundMixLevel) {
             return loRoSurroundMixLevel(Output.of(loRoSurroundMixLevel));
         }
 
+        /**
+         * @param ltRtCenterMixLevel Left only/right only center mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ltRtCenterMixLevel(@Nullable Output<Double> ltRtCenterMixLevel) {
             $.ltRtCenterMixLevel = ltRtCenterMixLevel;
             return this;
         }
 
+        /**
+         * @param ltRtCenterMixLevel Left only/right only center mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ltRtCenterMixLevel(Double ltRtCenterMixLevel) {
             return ltRtCenterMixLevel(Output.of(ltRtCenterMixLevel));
         }
 
+        /**
+         * @param ltRtSurroundMixLevel Left only/right only surround mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ltRtSurroundMixLevel(@Nullable Output<Double> ltRtSurroundMixLevel) {
             $.ltRtSurroundMixLevel = ltRtSurroundMixLevel;
             return this;
         }
 
+        /**
+         * @param ltRtSurroundMixLevel Left only/right only surround mix level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ltRtSurroundMixLevel(Double ltRtSurroundMixLevel) {
             return ltRtSurroundMixLevel(Output.of(ltRtSurroundMixLevel));
         }
@@ -495,47 +675,107 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return metadataControl(Output.of(metadataControl));
         }
 
+        /**
+         * @param passthroughControl When set to `whenPossible`, input DD+ audio is passed through if present.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passthroughControl(@Nullable Output<String> passthroughControl) {
             $.passthroughControl = passthroughControl;
             return this;
         }
 
+        /**
+         * @param passthroughControl When set to `whenPossible`, input DD+ audio is passed through if present.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passthroughControl(String passthroughControl) {
             return passthroughControl(Output.of(passthroughControl));
         }
 
+        /**
+         * @param phaseControl Whether to invert the phase of the surround channels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder phaseControl(@Nullable Output<String> phaseControl) {
             $.phaseControl = phaseControl;
             return this;
         }
 
+        /**
+         * @param phaseControl Whether to invert the phase of the surround channels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder phaseControl(String phaseControl) {
             return phaseControl(Output.of(phaseControl));
         }
 
+        /**
+         * @param stereoDownmix Stereo downmix preference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stereoDownmix(@Nullable Output<String> stereoDownmix) {
             $.stereoDownmix = stereoDownmix;
             return this;
         }
 
+        /**
+         * @param stereoDownmix Stereo downmix preference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stereoDownmix(String stereoDownmix) {
             return stereoDownmix(Output.of(stereoDownmix));
         }
 
+        /**
+         * @param surroundExMode Whether to encode the stream as Dolby Digital EX.
+         * 
+         * @return builder
+         * 
+         */
         public Builder surroundExMode(@Nullable Output<String> surroundExMode) {
             $.surroundExMode = surroundExMode;
             return this;
         }
 
+        /**
+         * @param surroundExMode Whether to encode the stream as Dolby Digital EX.
+         * 
+         * @return builder
+         * 
+         */
         public Builder surroundExMode(String surroundExMode) {
             return surroundExMode(Output.of(surroundExMode));
         }
 
+        /**
+         * @param surroundMode Whether to encode the stream as a surround sound stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder surroundMode(@Nullable Output<String> surroundMode) {
             $.surroundMode = surroundMode;
             return this;
         }
 
+        /**
+         * @param surroundMode Whether to encode the stream as a surround sound stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder surroundMode(String surroundMode) {
             return surroundMode(Output.of(surroundMode));
         }

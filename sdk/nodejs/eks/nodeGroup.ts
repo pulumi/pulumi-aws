@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
+ * Manages an EKS Node Group, which can provision and optionally update an Auto Scaling group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
  *
  * ## Example Usage
  *
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ### Ignoring Changes to Desired Size
  *
- * You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * You can utilize the Pulumi `ignoreChanges` resource option to create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g., Application Auto Scaling).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

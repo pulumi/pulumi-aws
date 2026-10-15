@@ -63,15 +63,15 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
      */
     declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration[] | undefined>;
     /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+     * Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      */
     declare public readonly autoEnable: pulumi.Output<string>;
     /**
-     * The ID of the detector that configures the delegated administrator.
+     * ID of the detector that configures the delegated administrator.
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+     * Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -125,15 +125,15 @@ export interface OrganizationConfigurationFeatureState {
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[] | undefined>;
     /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+     * Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      */
     autoEnable?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the detector that configures the delegated administrator.
+     * ID of the detector that configures the delegated administrator.
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+     * Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -151,15 +151,15 @@ export interface OrganizationConfigurationFeatureArgs {
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[] | undefined>;
     /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+     * Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      */
     autoEnable: pulumi.Input<string>;
     /**
-     * The ID of the detector that configures the delegated administrator.
+     * ID of the detector that configures the delegated administrator.
      */
     detectorId: pulumi.Input<string>;
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+     * Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     name?: pulumi.Input<string | undefined>;
     /**

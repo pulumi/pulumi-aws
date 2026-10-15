@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TaskDefinitionRuntimePlatform {
     /**
-     * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+     * @return Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
     private @Nullable String cpuArchitecture;
@@ -24,7 +24,7 @@ public final class TaskDefinitionRuntimePlatform {
 
     private TaskDefinitionRuntimePlatform() {}
     /**
-     * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+     * @return Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
     public Optional<String> cpuArchitecture() {

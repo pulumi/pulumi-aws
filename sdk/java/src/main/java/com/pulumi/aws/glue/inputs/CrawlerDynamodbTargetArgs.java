@@ -19,14 +19,14 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
     public static final CrawlerDynamodbTargetArgs Empty = new CrawlerDynamodbTargetArgs();
 
     /**
-     * The name of the DynamoDB table to crawl.
+     * Name of the DynamoDB table to crawl.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The name of the DynamoDB table to crawl.
+     * @return Name of the DynamoDB table to crawl.
      * 
      */
     public Output<String> path() {
@@ -34,14 +34,14 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+     * Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
      * 
      */
     @Import(name="scanAll")
     private @Nullable Output<Boolean> scanAll;
 
     /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+     * @return Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> scanAll() {
@@ -49,14 +49,14 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+     * Percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
      * 
      */
     @Import(name="scanRate")
     private @Nullable Output<Double> scanRate;
 
     /**
-     * @return The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+     * @return Percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
      * 
      */
     public Optional<Output<Double>> scanRate() {
@@ -90,7 +90,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param path The name of the DynamoDB table to crawl.
+         * @param path Name of the DynamoDB table to crawl.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param path The name of the DynamoDB table to crawl.
+         * @param path Name of the DynamoDB table to crawl.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+         * @param scanAll Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+         * @param scanAll Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scanRate The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+         * @param scanRate Percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scanRate The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+         * @param scanRate Percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
          * 
          * @return builder
          * 

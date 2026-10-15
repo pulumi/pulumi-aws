@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? AssociateCarrierIpAddress { get; set; }
 
         /// <summary>
-        /// Associate a public ip address with the network interface. Boolean value, can be left unset.
+        /// Associate a public IP address with the network interface. Boolean value, can be left unset.
         /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<string>? AssociatePublicIpAddress { get; set; }

@@ -16,14 +16,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs();
 
     /**
-     * Failover condition type-specific settings. See Failover Condition Settings for more details.
+     * Failover condition type-specific settings. See `failoverConditionSettings` Block for details.
      * 
      */
     @Import(name="failoverConditionSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs> failoverConditionSettings;
 
     /**
-     * @return Failover condition type-specific settings. See Failover Condition Settings for more details.
+     * @return Failover condition type-specific settings. See `failoverConditionSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs>> failoverConditionSettings() {
@@ -55,7 +55,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param failoverConditionSettings Failover condition type-specific settings. See Failover Condition Settings for more details.
+         * @param failoverConditionSettings Failover condition type-specific settings. See `failoverConditionSettings` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param failoverConditionSettings Failover condition type-specific settings. See Failover Condition Settings for more details.
+         * @param failoverConditionSettings Failover condition type-specific settings. See `failoverConditionSettings` Block for details.
          * 
          * @return builder
          * 

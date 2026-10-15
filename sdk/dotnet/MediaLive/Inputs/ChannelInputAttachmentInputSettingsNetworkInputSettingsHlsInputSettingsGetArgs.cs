@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bitrate is specified in bits per second, as in an HLS manifest.
+        /// Bitrate, in bits per second, as in an HLS manifest.
         /// </summary>
         [Input("bandwidth")]
         public Input<int>? Bandwidth { get; set; }
@@ -25,17 +25,20 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? BufferSegments { get; set; }
 
         /// <summary>
-        /// The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        /// Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
         /// </summary>
         [Input("retries")]
         public Input<int>? Retries { get; set; }
 
         /// <summary>
-        /// The number of seconds between retries when an attempt to read a manifest or segment fails.
+        /// Number of seconds between retries when an attempt to read a manifest or segment fails.
         /// </summary>
         [Input("retryInterval")]
         public Input<int>? RetryInterval { get; set; }
 
+        /// <summary>
+        /// Source for the SCTE-35 messages that MediaLive ingests.
+        /// </summary>
         [Input("scte35Source")]
         public Input<string>? Scte35Source { get; set; }
 

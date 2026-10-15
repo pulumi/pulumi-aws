@@ -19,7 +19,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<string> EntityId { get; set; } = null!;
 
         /// <summary>
-        /// Metadata of the SAML application in xml format.
+        /// Metadata of the SAML application in XML format.
         /// </summary>
         [Input("metadataContent", required: true)]
         public Input<string> MetadataContent { get; set; } = null!;

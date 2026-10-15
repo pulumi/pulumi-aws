@@ -99,7 +99,7 @@ export interface GetInvocationArgs {
      */
     region?: string;
     /**
-     * Tenant Id to serve invocations from specified tenant.
+     * Tenant ID to serve invocations from specified tenant.
      */
     tenantId?: string;
 }
@@ -217,7 +217,7 @@ export interface GetInvocationOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Tenant Id to serve invocations from specified tenant.
+     * Tenant ID to serve invocations from specified tenant.
      */
     tenantId?: pulumi.Input<string | undefined>;
 }

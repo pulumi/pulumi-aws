@@ -64,26 +64,25 @@ type EndpointGroup struct {
 
 	// ARN of the endpoint group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayOutput `pulumi:"endpointConfigurations"`
-	// The name of the AWS Region where the endpoint group is located.
+	// AWS Region where the endpoint group is located.
 	EndpointGroupRegion pulumi.StringOutput `pulumi:"endpointGroupRegion"`
-	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+	// Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrOutput `pulumi:"healthCheckIntervalSeconds"`
 	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPath pulumi.StringOutput `pulumi:"healthCheckPath"`
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	// the provider will only perform drift detection of its value when present in a configuration.
+	// Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPort pulumi.IntOutput `pulumi:"healthCheckPort"`
-	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+	// Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrOutput `pulumi:"healthCheckProtocol"`
 	// ARN of the listener.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
-	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
 	PortOverrides EndpointGroupPortOverrideArrayOutput `pulumi:"portOverrides"`
-	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+	// Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrOutput `pulumi:"thresholdCount"`
-	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+	// Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
 	TrafficDialPercentage pulumi.Float64PtrOutput `pulumi:"trafficDialPercentage"`
 }
 
@@ -122,52 +121,50 @@ func GetEndpointGroup(ctx *pulumi.Context,
 type endpointGroupState struct {
 	// ARN of the endpoint group.
 	Arn *string `pulumi:"arn"`
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations []EndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
-	// The name of the AWS Region where the endpoint group is located.
+	// AWS Region where the endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
-	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+	// Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
 	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	// the provider will only perform drift detection of its value when present in a configuration.
+	// Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPort *int `pulumi:"healthCheckPort"`
-	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+	// Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
 	// ARN of the listener.
 	ListenerArn *string `pulumi:"listenerArn"`
-	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
-	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+	// Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount *int `pulumi:"thresholdCount"`
-	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+	// Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
 	TrafficDialPercentage *float64 `pulumi:"trafficDialPercentage"`
 }
 
 type EndpointGroupState struct {
 	// ARN of the endpoint group.
 	Arn pulumi.StringPtrInput
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayInput
-	// The name of the AWS Region where the endpoint group is located.
+	// AWS Region where the endpoint group is located.
 	EndpointGroupRegion pulumi.StringPtrInput
-	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+	// Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrInput
 	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPath pulumi.StringPtrInput
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	// the provider will only perform drift detection of its value when present in a configuration.
+	// Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPort pulumi.IntPtrInput
-	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+	// Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrInput
 	// ARN of the listener.
 	ListenerArn pulumi.StringPtrInput
-	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
 	PortOverrides EndpointGroupPortOverrideArrayInput
-	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+	// Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrInput
-	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+	// Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
 	TrafficDialPercentage pulumi.Float64PtrInput
 }
 
@@ -176,51 +173,49 @@ func (EndpointGroupState) ElementType() reflect.Type {
 }
 
 type endpointGroupArgs struct {
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations []EndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
-	// The name of the AWS Region where the endpoint group is located.
+	// AWS Region where the endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
-	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+	// Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
 	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	// the provider will only perform drift detection of its value when present in a configuration.
+	// Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPort *int `pulumi:"healthCheckPort"`
-	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+	// Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
 	// ARN of the listener.
 	ListenerArn string `pulumi:"listenerArn"`
-	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
-	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+	// Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount *int `pulumi:"thresholdCount"`
-	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+	// Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
 	TrafficDialPercentage *float64 `pulumi:"trafficDialPercentage"`
 }
 
 // The set of arguments for constructing a EndpointGroup resource.
 type EndpointGroupArgs struct {
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayInput
-	// The name of the AWS Region where the endpoint group is located.
+	// AWS Region where the endpoint group is located.
 	EndpointGroupRegion pulumi.StringPtrInput
-	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+	// Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrInput
 	// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPath pulumi.StringPtrInput
-	// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-	// the provider will only perform drift detection of its value when present in a configuration.
+	// Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
 	HealthCheckPort pulumi.IntPtrInput
-	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+	// Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrInput
 	// ARN of the listener.
 	ListenerArn pulumi.StringInput
-	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
 	PortOverrides EndpointGroupPortOverrideArrayInput
-	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+	// Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrInput
-	// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+	// Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
 	TrafficDialPercentage pulumi.Float64PtrInput
 }
 
@@ -316,17 +311,17 @@ func (o EndpointGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The list of endpoint objects. Fields documented below.
+// Endpoint objects. See `endpointConfiguration` below.
 func (o EndpointGroupOutput) EndpointConfigurations() EndpointGroupEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v *EndpointGroup) EndpointGroupEndpointConfigurationArrayOutput { return v.EndpointConfigurations }).(EndpointGroupEndpointConfigurationArrayOutput)
 }
 
-// The name of the AWS Region where the endpoint group is located.
+// AWS Region where the endpoint group is located.
 func (o EndpointGroupOutput) EndpointGroupRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.EndpointGroupRegion }).(pulumi.StringOutput)
 }
 
-// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+// Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 func (o EndpointGroupOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.IntPtrOutput { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
 }
@@ -336,13 +331,12 @@ func (o EndpointGroupOutput) HealthCheckPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.HealthCheckPath }).(pulumi.StringOutput)
 }
 
-// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-// the provider will only perform drift detection of its value when present in a configuration.
+// Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
 func (o EndpointGroupOutput) HealthCheckPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.IntOutput { return v.HealthCheckPort }).(pulumi.IntOutput)
 }
 
-// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+// Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 func (o EndpointGroupOutput) HealthCheckProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringPtrOutput { return v.HealthCheckProtocol }).(pulumi.StringPtrOutput)
 }
@@ -352,17 +346,17 @@ func (o EndpointGroupOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
-// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
 func (o EndpointGroupOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
 	return o.ApplyT(func(v *EndpointGroup) EndpointGroupPortOverrideArrayOutput { return v.PortOverrides }).(EndpointGroupPortOverrideArrayOutput)
 }
 
-// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+// Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 func (o EndpointGroupOutput) ThresholdCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.IntPtrOutput { return v.ThresholdCount }).(pulumi.IntPtrOutput)
 }
 
-// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+// Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
 func (o EndpointGroupOutput) TrafficDialPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.Float64PtrOutput { return v.TrafficDialPercentage }).(pulumi.Float64PtrOutput)
 }

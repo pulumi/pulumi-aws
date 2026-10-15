@@ -84,13 +84,13 @@ namespace Pulumi.Aws.Glue
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        /// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
         /// </summary>
         [Output("enableHybrid")]
         public Output<string?> EnableHybrid { get; private set; } = null!;
 
         /// <summary>
-        /// The policy to be applied to the aws glue data catalog.
+        /// Policy to be applied to the aws glue data catalog.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -148,13 +148,13 @@ namespace Pulumi.Aws.Glue
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        /// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
         /// </summary>
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
 
         /// <summary>
-        /// The policy to be applied to the aws glue data catalog.
+        /// Policy to be applied to the aws glue data catalog.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -174,13 +174,13 @@ namespace Pulumi.Aws.Glue
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        /// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
         /// </summary>
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
 
         /// <summary>
-        /// The policy to be applied to the aws glue data catalog.
+        /// Policy to be applied to the aws glue data catalog.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

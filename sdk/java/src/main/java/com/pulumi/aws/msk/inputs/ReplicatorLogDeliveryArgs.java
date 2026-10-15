@@ -16,14 +16,14 @@ public final class ReplicatorLogDeliveryArgs extends com.pulumi.resources.Resour
     public static final ReplicatorLogDeliveryArgs Empty = new ReplicatorLogDeliveryArgs();
 
     /**
-     * Configuration block for replicator log delivery. Detailed below.
+     * Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
      * 
      */
     @Import(name="replicatorLogDelivery")
     private @Nullable Output<ReplicatorLogDeliveryReplicatorLogDeliveryArgs> replicatorLogDelivery;
 
     /**
-     * @return Configuration block for replicator log delivery. Detailed below.
+     * @return Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
      * 
      */
     public Optional<Output<ReplicatorLogDeliveryReplicatorLogDeliveryArgs>> replicatorLogDelivery() {
@@ -55,7 +55,7 @@ public final class ReplicatorLogDeliveryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param replicatorLogDelivery Configuration block for replicator log delivery. Detailed below.
+         * @param replicatorLogDelivery Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ReplicatorLogDeliveryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param replicatorLogDelivery Configuration block for replicator log delivery. Detailed below.
+         * @param replicatorLogDelivery Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
          * 
          * @return builder
          * 

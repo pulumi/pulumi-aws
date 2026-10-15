@@ -103,6 +103,32 @@ namespace Pulumi.Aws.ResilienceHub
     /// });
     /// ```
     /// 
+    /// ### With Organization Sharing Enabled
+    /// 
+    /// Sharing is only available when the policy owner is the organization's management account or a delegated administrator.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ResilienceHub.V2Policy("example", new()
+    ///     {
+    ///         AvailabilitySlo = new Aws.ResilienceHub.Inputs.V2PolicyAvailabilitySloArgs
+    ///         {
+    ///             Target = 99.9,
+    ///         },
+    ///         Name = "example-shared-policy",
+    ///         Description = "Baseline policy shared with member accounts",
+    ///         SharingEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -175,6 +201,12 @@ namespace Pulumi.Aws.ResilienceHub
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `False`.
+        /// </summary>
+        [Output("sharingEnabled")]
+        public Output<bool> SharingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -284,6 +316,12 @@ namespace Pulumi.Aws.ResilienceHub
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `False`.
+        /// </summary>
+        [Input("sharingEnabled")]
+        public Input<bool>? SharingEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -359,6 +397,12 @@ namespace Pulumi.Aws.ResilienceHub
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Whether the policy is shared with other member accounts of the organization. Only applicable if the policy owner is a management account or delegated administrator. Defaults to `False`.
+        /// </summary>
+        [Input("sharingEnabled")]
+        public Input<bool>? SharingEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/subnetGroup:SubnetGroup")
 public class SubnetGroup extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the db subnet group.
+     * ARN of the DB subnet group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the db subnet group.
+     * @return ARN of the DB subnet group.
      * 
      */
     public Output<String> arn() {
@@ -163,14 +163,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * Network type of the db subnet group.
+     * Network type of the DB subnet group.
      * 
      */
     @Export(name="supportedNetworkTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> supportedNetworkTypes;
 
     /**
-     * @return Network type of the db subnet group.
+     * @return Network type of the DB subnet group.
      * 
      */
     public Output<List<String>> supportedNetworkTypes() {

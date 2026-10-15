@@ -145,7 +145,7 @@ import (
 //
 // ```
 //
-// ### Example Usage Invocation Http Parameters
+// ### Example Usage Invocation HTTP Parameters
 //
 // ```go
 // package main

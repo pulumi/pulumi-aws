@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string DbSubnetGroup;
         /// <summary>
-        /// List of log types to export to cloudwatch.
+        /// List of log types to export to CloudWatch.
         /// </summary>
         public readonly ImmutableArray<string> EnabledCloudwatchLogsExports;
         /// <summary>

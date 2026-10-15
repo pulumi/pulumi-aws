@@ -92,7 +92,7 @@ class GetInferenceProfileResult:
     @pulumi.getter(name="inferenceProfileName")
     def inference_profile_name(self) -> _builtins.str:
         """
-        Unique identifier of the inference profile.
+        Name of the inference profile.
         """
         return pulumi.get(self, "inference_profile_name")
 
@@ -156,7 +156,7 @@ def get_inference_profile(inference_profile_id: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceProfileResult:
     """
-    Data source for managing an AWS Bedrock Inference Profile.
+    Provides details about an AWS Bedrock Inference Profile.
 
     ## Example Usage
 
@@ -166,8 +166,8 @@ def get_inference_profile(inference_profile_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_inference_profiles()
-    test_get_inference_profile = aws.bedrock.get_inference_profile(inference_profile_id=test.inference_profile_summaries[0].inference_profile_id)
+    example = aws.bedrock.get_inference_profiles()
+    example_get_inference_profile = aws.bedrock.get_inference_profile(inference_profile_id=example.inference_profile_summaries[0].inference_profile_id)
     ```
 
 
@@ -195,7 +195,7 @@ def get_inference_profile_output(inference_profile_id: pulumi.Input[Optional[_bu
                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceProfileResult]:
     """
-    Data source for managing an AWS Bedrock Inference Profile.
+    Provides details about an AWS Bedrock Inference Profile.
 
     ## Example Usage
 
@@ -205,8 +205,8 @@ def get_inference_profile_output(inference_profile_id: pulumi.Input[Optional[_bu
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_inference_profiles()
-    test_get_inference_profile = aws.bedrock.get_inference_profile(inference_profile_id=test.inference_profile_summaries[0].inference_profile_id)
+    example = aws.bedrock.get_inference_profiles()
+    example_get_inference_profile = aws.bedrock.get_inference_profile(inference_profile_id=example.inference_profile_summaries[0].inference_profile_id)
     ```
 
 

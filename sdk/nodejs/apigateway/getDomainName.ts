@@ -74,7 +74,7 @@ export interface GetDomainNameResult {
      */
     readonly certificateUploadDate: string;
     /**
-     * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+     * Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
      */
     readonly cloudfrontDomainName: string;
     /**

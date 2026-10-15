@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> MapBlockKey { get; set; } = null!;
 
         /// <summary>
-        /// Whether the parameter is required for the agent to complete the function for action group invocation.
+        /// Whether to require the parameter for the agent to complete the function for action group invocation.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }

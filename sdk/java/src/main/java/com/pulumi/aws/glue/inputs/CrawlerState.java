@@ -30,14 +30,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     public static final CrawlerState Empty = new CrawlerState();
 
     /**
-     * The ARN of the crawler
+     * ARN of the crawler
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the crawler
+     * @return ARN of the crawler
      * 
      */
     public Optional<Output<String>> arn() {
@@ -45,14 +45,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
      * 
      */
     @Import(name="catalogTargets")
     private @Nullable Output<List<CrawlerCatalogTargetArgs>> catalogTargets;
 
     /**
-     * @return List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * @return List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
      * 
      */
     public Optional<Output<List<CrawlerCatalogTargetArgs>>> catalogTargets() {
@@ -105,14 +105,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested Delta Lake target arguments. See Delta Target below.
+     * List of nested Delta Lake target arguments. See `deltaTarget` below.
      * 
      */
     @Import(name="deltaTargets")
     private @Nullable Output<List<CrawlerDeltaTargetArgs>> deltaTargets;
 
     /**
-     * @return List of nested Delta Lake target arguments. See Delta Target below.
+     * @return List of nested Delta Lake target arguments. See `deltaTarget` below.
      * 
      */
     public Optional<Output<List<CrawlerDeltaTargetArgs>>> deltaTargets() {
@@ -135,14 +135,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested DynamoDB target arguments. See Dynamodb Target below.
+     * List of nested DynamoDB target arguments. See `dynamodbTarget` below.
      * 
      */
     @Import(name="dynamodbTargets")
     private @Nullable Output<List<CrawlerDynamodbTargetArgs>> dynamodbTargets;
 
     /**
-     * @return List of nested DynamoDB target arguments. See Dynamodb Target below.
+     * @return List of nested DynamoDB target arguments. See `dynamodbTarget` below.
      * 
      */
     public Optional<Output<List<CrawlerDynamodbTargetArgs>>> dynamodbTargets() {
@@ -150,14 +150,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested Hudi target arguments. See Iceberg Target below.
+     * List of nested Hudi target arguments. See `hudiTarget` below.
      * 
      */
     @Import(name="hudiTargets")
     private @Nullable Output<List<CrawlerHudiTargetArgs>> hudiTargets;
 
     /**
-     * @return List of nested Hudi target arguments. See Iceberg Target below.
+     * @return List of nested Hudi target arguments. See `hudiTarget` below.
      * 
      */
     public Optional<Output<List<CrawlerHudiTargetArgs>>> hudiTargets() {
@@ -165,14 +165,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested Iceberg target arguments. See Iceberg Target below.
+     * List of nested Iceberg target arguments. See `icebergTarget` below.
      * 
      */
     @Import(name="icebergTargets")
     private @Nullable Output<List<CrawlerIcebergTargetArgs>> icebergTargets;
 
     /**
-     * @return List of nested Iceberg target arguments. See Iceberg Target below.
+     * @return List of nested Iceberg target arguments. See `icebergTarget` below.
      * 
      */
     public Optional<Output<List<CrawlerIcebergTargetArgs>>> icebergTargets() {
@@ -180,14 +180,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested JDBC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See `jdbcTarget` below.
      * 
      */
     @Import(name="jdbcTargets")
     private @Nullable Output<List<CrawlerJdbcTargetArgs>> jdbcTargets;
 
     /**
-     * @return List of nested JDBC target arguments. See JDBC Target below.
+     * @return List of nested JDBC target arguments. See `jdbcTarget` below.
      * 
      */
     public Optional<Output<List<CrawlerJdbcTargetArgs>>> jdbcTargets() {
@@ -195,14 +195,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * Lake Formation configuration settings for the crawler. See `lakeFormationConfiguration` below.
      * 
      */
     @Import(name="lakeFormationConfiguration")
     private @Nullable Output<CrawlerLakeFormationConfigurationArgs> lakeFormationConfiguration;
 
     /**
-     * @return Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * @return Lake Formation configuration settings for the crawler. See `lakeFormationConfiguration` below.
      * 
      */
     public Optional<Output<CrawlerLakeFormationConfigurationArgs>> lakeFormationConfiguration() {
@@ -210,14 +210,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+     * Data lineage configuration settings for the crawler. See `lineageConfiguration` below.
      * 
      */
     @Import(name="lineageConfiguration")
     private @Nullable Output<CrawlerLineageConfigurationArgs> lineageConfiguration;
 
     /**
-     * @return Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+     * @return Data lineage configuration settings for the crawler. See `lineageConfiguration` below.
      * 
      */
     public Optional<Output<CrawlerLineageConfigurationArgs>> lineageConfiguration() {
@@ -225,14 +225,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested MongoDB target arguments. See MongoDB Target below.
+     * List of nested MongoDB target arguments. See `mongodbTarget` below.
      * 
      */
     @Import(name="mongodbTargets")
     private @Nullable Output<List<CrawlerMongodbTargetArgs>> mongodbTargets;
 
     /**
-     * @return List of nested MongoDB target arguments. See MongoDB Target below.
+     * @return List of nested MongoDB target arguments. See `mongodbTarget` below.
      * 
      */
     public Optional<Output<List<CrawlerMongodbTargetArgs>>> mongodbTargets() {
@@ -255,14 +255,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+     * Policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run. See `recrawlPolicy` below.
      * 
      */
     @Import(name="recrawlPolicy")
     private @Nullable Output<CrawlerRecrawlPolicyArgs> recrawlPolicy;
 
     /**
-     * @return A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+     * @return Policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run. See `recrawlPolicy` below.
      * 
      */
     public Optional<Output<CrawlerRecrawlPolicyArgs>> recrawlPolicy() {
@@ -285,14 +285,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+     * IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+     * @return IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      * 
      */
     public Optional<Output<String>> role() {
@@ -300,14 +300,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested Amazon S3 target arguments. See S3 Target below.
+     * List of nested Amazon S3 target arguments. See `s3Target` below.
      * 
      */
     @Import(name="s3Targets")
     private @Nullable Output<List<CrawlerS3TargetArgs>> s3Targets;
 
     /**
-     * @return List of nested Amazon S3 target arguments. See S3 Target below.
+     * @return List of nested Amazon S3 target arguments. See `s3Target` below.
      * 
      */
     public Optional<Output<List<CrawlerS3TargetArgs>>> s3Targets() {
@@ -315,14 +315,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+     * Cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<String> schedule;
 
     /**
-     * @return A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+     * @return Cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      * 
      */
     public Optional<Output<String>> schedule() {
@@ -330,14 +330,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
+     * Policy for the crawler&#39;s update and deletion behavior. See `schemaChangePolicy` below.
      * 
      */
     @Import(name="schemaChangePolicy")
     private @Nullable Output<CrawlerSchemaChangePolicyArgs> schemaChangePolicy;
 
     /**
-     * @return Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
+     * @return Policy for the crawler&#39;s update and deletion behavior. See `schemaChangePolicy` below.
      * 
      */
     public Optional<Output<CrawlerSchemaChangePolicyArgs>> schemaChangePolicy() {
@@ -345,14 +345,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of Security Configuration to be used by the crawler
+     * Name of Security Configuration to be used by the crawler.
      * 
      */
     @Import(name="securityConfiguration")
     private @Nullable Output<String> securityConfiguration;
 
     /**
-     * @return The name of Security Configuration to be used by the crawler
+     * @return Name of Security Configuration to be used by the crawler.
      * 
      */
     public Optional<Output<String>> securityConfiguration() {
@@ -360,14 +360,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The table prefix used for catalog tables that are created.
+     * Table prefix used for catalog tables that are created.
      * 
      */
     @Import(name="tablePrefix")
     private @Nullable Output<String> tablePrefix;
 
     /**
-     * @return The table prefix used for catalog tables that are created.
+     * @return Table prefix used for catalog tables that are created.
      * 
      */
     public Optional<Output<String>> tablePrefix() {
@@ -394,14 +394,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -457,7 +457,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the crawler
+         * @param arn ARN of the crawler
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the crawler
+         * @param arn ARN of the crawler
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See `catalogTarget` below.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * @param deltaTargets List of nested Delta Lake target arguments. See `deltaTarget` below.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * @param deltaTargets List of nested Delta Lake target arguments. See `deltaTarget` below.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * @param deltaTargets List of nested Delta Lake target arguments. See `deltaTarget` below.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamodbTargets List of nested DynamoDB target arguments. See Dynamodb Target below.
+         * @param dynamodbTargets List of nested DynamoDB target arguments. See `dynamodbTarget` below.
          * 
          * @return builder
          * 
@@ -645,7 +645,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamodbTargets List of nested DynamoDB target arguments. See Dynamodb Target below.
+         * @param dynamodbTargets List of nested DynamoDB target arguments. See `dynamodbTarget` below.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamodbTargets List of nested DynamoDB target arguments. See Dynamodb Target below.
+         * @param dynamodbTargets List of nested DynamoDB target arguments. See `dynamodbTarget` below.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hudiTargets List of nested Hudi target arguments. See Iceberg Target below.
+         * @param hudiTargets List of nested Hudi target arguments. See `hudiTarget` below.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hudiTargets List of nested Hudi target arguments. See Iceberg Target below.
+         * @param hudiTargets List of nested Hudi target arguments. See `hudiTarget` below.
          * 
          * @return builder
          * 
@@ -686,7 +686,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hudiTargets List of nested Hudi target arguments. See Iceberg Target below.
+         * @param hudiTargets List of nested Hudi target arguments. See `hudiTarget` below.
          * 
          * @return builder
          * 
@@ -696,7 +696,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param icebergTargets List of nested Iceberg target arguments. See Iceberg Target below.
+         * @param icebergTargets List of nested Iceberg target arguments. See `icebergTarget` below.
          * 
          * @return builder
          * 
@@ -707,7 +707,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param icebergTargets List of nested Iceberg target arguments. See Iceberg Target below.
+         * @param icebergTargets List of nested Iceberg target arguments. See `icebergTarget` below.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param icebergTargets List of nested Iceberg target arguments. See Iceberg Target below.
+         * @param icebergTargets List of nested Iceberg target arguments. See `icebergTarget` below.
          * 
          * @return builder
          * 
@@ -727,7 +727,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTargets List of nested JDBC target arguments. See JDBC Target below.
+         * @param jdbcTargets List of nested JDBC target arguments. See `jdbcTarget` below.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTargets List of nested JDBC target arguments. See JDBC Target below.
+         * @param jdbcTargets List of nested JDBC target arguments. See `jdbcTarget` below.
          * 
          * @return builder
          * 
@@ -748,7 +748,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTargets List of nested JDBC target arguments. See JDBC Target below.
+         * @param jdbcTargets List of nested JDBC target arguments. See `jdbcTarget` below.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lakeFormationConfiguration Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+         * @param lakeFormationConfiguration Lake Formation configuration settings for the crawler. See `lakeFormationConfiguration` below.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lakeFormationConfiguration Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+         * @param lakeFormationConfiguration Lake Formation configuration settings for the crawler. See `lakeFormationConfiguration` below.
          * 
          * @return builder
          * 
@@ -779,7 +779,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lineageConfiguration Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+         * @param lineageConfiguration Data lineage configuration settings for the crawler. See `lineageConfiguration` below.
          * 
          * @return builder
          * 
@@ -790,7 +790,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lineageConfiguration Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+         * @param lineageConfiguration Data lineage configuration settings for the crawler. See `lineageConfiguration` below.
          * 
          * @return builder
          * 
@@ -800,7 +800,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mongodbTargets List of nested MongoDB target arguments. See MongoDB Target below.
+         * @param mongodbTargets List of nested MongoDB target arguments. See `mongodbTarget` below.
          * 
          * @return builder
          * 
@@ -811,7 +811,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mongodbTargets List of nested MongoDB target arguments. See MongoDB Target below.
+         * @param mongodbTargets List of nested MongoDB target arguments. See `mongodbTarget` below.
          * 
          * @return builder
          * 
@@ -821,7 +821,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mongodbTargets List of nested MongoDB target arguments. See MongoDB Target below.
+         * @param mongodbTargets List of nested MongoDB target arguments. See `mongodbTarget` below.
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recrawlPolicy A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+         * @param recrawlPolicy Policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run. See `recrawlPolicy` below.
          * 
          * @return builder
          * 
@@ -863,7 +863,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recrawlPolicy A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+         * @param recrawlPolicy Policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run. See `recrawlPolicy` below.
          * 
          * @return builder
          * 
@@ -894,7 +894,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+         * @param role IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
          * 
          * @return builder
          * 
@@ -905,7 +905,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+         * @param role IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
          * 
          * @return builder
          * 
@@ -915,7 +915,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Targets List of nested Amazon S3 target arguments. See S3 Target below.
+         * @param s3Targets List of nested Amazon S3 target arguments. See `s3Target` below.
          * 
          * @return builder
          * 
@@ -926,7 +926,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Targets List of nested Amazon S3 target arguments. See S3 Target below.
+         * @param s3Targets List of nested Amazon S3 target arguments. See `s3Target` below.
          * 
          * @return builder
          * 
@@ -936,7 +936,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Targets List of nested Amazon S3 target arguments. See S3 Target below.
+         * @param s3Targets List of nested Amazon S3 target arguments. See `s3Target` below.
          * 
          * @return builder
          * 
@@ -946,7 +946,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+         * @param schedule Cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
          * 
          * @return builder
          * 
@@ -957,7 +957,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+         * @param schedule Cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
          * 
          * @return builder
          * 
@@ -967,7 +967,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaChangePolicy Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
+         * @param schemaChangePolicy Policy for the crawler&#39;s update and deletion behavior. See `schemaChangePolicy` below.
          * 
          * @return builder
          * 
@@ -978,7 +978,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaChangePolicy Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
+         * @param schemaChangePolicy Policy for the crawler&#39;s update and deletion behavior. See `schemaChangePolicy` below.
          * 
          * @return builder
          * 
@@ -988,7 +988,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityConfiguration The name of Security Configuration to be used by the crawler
+         * @param securityConfiguration Name of Security Configuration to be used by the crawler.
          * 
          * @return builder
          * 
@@ -999,7 +999,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityConfiguration The name of Security Configuration to be used by the crawler
+         * @param securityConfiguration Name of Security Configuration to be used by the crawler.
          * 
          * @return builder
          * 
@@ -1009,7 +1009,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tablePrefix The table prefix used for catalog tables that are created.
+         * @param tablePrefix Table prefix used for catalog tables that are created.
          * 
          * @return builder
          * 
@@ -1020,7 +1020,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tablePrefix The table prefix used for catalog tables that are created.
+         * @param tablePrefix Table prefix used for catalog tables that are created.
          * 
          * @return builder
          * 
@@ -1055,7 +1055,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1066,7 +1066,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

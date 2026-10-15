@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+        /// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
         /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;

@@ -22,14 +22,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     public static final TriggerState Empty = new TriggerState();
 
     /**
-     * List of actions initiated by this trigger when it fires. See Actions Below.
+     * List of actions initiated by this trigger when it fires. See `actions` below.
      * 
      */
     @Import(name="actions")
     private @Nullable Output<List<TriggerActionArgs>> actions;
 
     /**
-     * @return List of actions initiated by this trigger when it fires. See Actions Below.
+     * @return List of actions initiated by this trigger when it fires. See `actions` below.
      * 
      */
     public Optional<Output<List<TriggerActionArgs>>> actions() {
@@ -52,14 +52,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the new trigger.
+     * Description of the new trigger.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the new trigger.
+     * @return Description of the new trigger.
      * 
      */
     public Optional<Output<String>> description() {
@@ -82,14 +82,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
      * 
      */
     @Import(name="eventBatchingConditions")
     private @Nullable Output<List<TriggerEventBatchingConditionArgs>> eventBatchingConditions;
 
     /**
-     * @return Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     * @return Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
      * 
      */
     public Optional<Output<List<TriggerEventBatchingConditionArgs>>> eventBatchingConditions() {
@@ -97,14 +97,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the trigger.
+     * Name of the trigger.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the trigger.
+     * @return Name of the trigger.
      * 
      */
     public Optional<Output<String>> name() {
@@ -112,14 +112,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+     * Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
      * 
      */
     @Import(name="predicate")
     private @Nullable Output<TriggerPredicateArgs> predicate;
 
     /**
-     * @return A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+     * @return Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
      * 
      */
     public Optional<Output<TriggerPredicateArgs>> predicate() {
@@ -142,14 +142,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     * Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<String> schedule;
 
     /**
-     * @return A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     * @return Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      * 
      */
     public Optional<Output<String>> schedule() {
@@ -172,14 +172,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current state of the trigger.
+     * Current state of the trigger.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The current state of the trigger.
+     * @return Current state of the trigger.
      * 
      */
     public Optional<Output<String>> state() {
@@ -202,14 +202,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -217,14 +217,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+     * Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+     * @return Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -232,14 +232,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     * Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      * 
      */
     @Import(name="workflowName")
     private @Nullable Output<String> workflowName;
 
     /**
-     * @return A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     * @return Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      * 
      */
     public Optional<Output<String>> workflowName() {
@@ -285,7 +285,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions List of actions initiated by this trigger when it fires. See Actions Below.
+         * @param actions List of actions initiated by this trigger when it fires. See `actions` below.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions List of actions initiated by this trigger when it fires. See Actions Below.
+         * @param actions List of actions initiated by this trigger when it fires. See `actions` below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions List of actions initiated by this trigger when it fires. See Actions Below.
+         * @param actions List of actions initiated by this trigger when it fires. See `actions` below.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the new trigger.
+         * @param description Description of the new trigger.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the new trigger.
+         * @param description Description of the new trigger.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBatchingConditions Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+         * @param eventBatchingConditions Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBatchingConditions Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+         * @param eventBatchingConditions Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBatchingConditions Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+         * @param eventBatchingConditions Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the trigger.
+         * @param name Name of the trigger.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the trigger.
+         * @param name Name of the trigger.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param predicate A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+         * @param predicate Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param predicate A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+         * @param predicate Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+         * @param schedule Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+         * @param schedule Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The current state of the trigger.
+         * @param state Current state of the trigger.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The current state of the trigger.
+         * @param state Current state of the trigger.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+         * @param type Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+         * @param type Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowName A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+         * @param workflowName Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowName A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+         * @param workflowName Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
          * 
          * @return builder
          * 

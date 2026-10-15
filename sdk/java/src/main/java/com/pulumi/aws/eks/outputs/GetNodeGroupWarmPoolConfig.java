@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNodeGroupWarmPoolConfig {
     /**
-     * @return Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling Group.
+     * @return Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling group.
      * 
      */
     private Integer maxGroupPreparedCapacity;
@@ -28,14 +28,14 @@ public final class GetNodeGroupWarmPoolConfig {
      */
     private String poolState;
     /**
-     * @return Whether instances in the Auto Scaling Group are returned to the warm pool on scale in.
+     * @return Whether instances in the Auto Scaling group are returned to the warm pool on scale in.
      * 
      */
     private Boolean reuseOnScaleIn;
 
     private GetNodeGroupWarmPoolConfig() {}
     /**
-     * @return Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling Group.
+     * @return Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling group.
      * 
      */
     public Integer maxGroupPreparedCapacity() {
@@ -56,7 +56,7 @@ public final class GetNodeGroupWarmPoolConfig {
         return this.poolState;
     }
     /**
-     * @return Whether instances in the Auto Scaling Group are returned to the warm pool on scale in.
+     * @return Whether instances in the Auto Scaling group are returned to the warm pool on scale in.
      * 
      */
     public Boolean reuseOnScaleIn() {

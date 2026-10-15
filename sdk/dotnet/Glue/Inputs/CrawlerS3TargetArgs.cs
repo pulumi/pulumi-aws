@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerS3TargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of a connection which allows crawler to access data in S3 within a VPC.
+        /// Name of a connection which allows crawler to access data in S3 within a VPC.
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// The ARN of the dead-letter SQS queue.
+        /// ARN of the dead-letter SQS queue.
         /// </summary>
         [Input("dlqEventQueueArn")]
         public Input<string>? DlqEventQueueArn { get; set; }
 
         /// <summary>
-        /// The ARN of the SQS queue to receive S3 notifications from.
+        /// ARN of the SQS queue to receive S3 notifications from.
         /// </summary>
         [Input("eventQueueArn")]
         public Input<string>? EventQueueArn { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _exclusions;
 
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
+        /// List of glob patterns used to exclude from the crawl.
         /// </summary>
         public InputList<string> Exclusions
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// Path to the Amazon S3 target.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

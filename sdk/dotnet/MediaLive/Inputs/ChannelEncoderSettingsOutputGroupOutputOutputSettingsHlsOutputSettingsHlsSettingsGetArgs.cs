@@ -12,15 +12,27 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Audio-only HLS settings. See `AudioOnlyHlsSettings` Block for details.
+        /// </summary>
         [Input("audioOnlyHlsSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsGetArgs>? AudioOnlyHlsSettings { get; set; }
 
+        /// <summary>
+        /// fMP4 HLS settings. See `Fmp4HlsSettings` Block for details.
+        /// </summary>
         [Input("fmp4HlsSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsGetArgs>? Fmp4HlsSettings { get; set; }
 
+        /// <summary>
+        /// Frame capture HLS settings. Can be set as an empty block.
+        /// </summary>
         [Input("frameCaptureHlsSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsGetArgs>? FrameCaptureHlsSettings { get; set; }
 
+        /// <summary>
+        /// Standard HLS settings. See `StandardHlsSettings` Block for details.
+        /// </summary>
         [Input("standardHlsSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsGetArgs>? StandardHlsSettings { get; set; }
 

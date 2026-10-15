@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty> Properties;
         /// <summary>
-        /// Whether this property is required. Defaults to `False`.
+        /// Whether to mark this property as required. Defaults to `False`.
         /// </summary>
         public readonly bool? Required;
         /// <summary>

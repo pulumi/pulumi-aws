@@ -164,7 +164,7 @@ def get_model(model_id: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelResult:
     """
-    Data source for managing an AWS Bedrock Foundation Model.
+    Provides details about an AWS Bedrock Foundation Model.
 
     ## Example Usage
 
@@ -174,8 +174,8 @@ def get_model(model_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrockfoundation.get_models()
-    test_get_model = aws.bedrockfoundation.get_model(model_id=test.model_summaries[0].model_id)
+    example = aws.bedrockfoundation.get_models()
+    example_get_model = aws.bedrockfoundation.get_model(model_id=example.model_summaries[0].model_id)
     ```
 
 
@@ -204,7 +204,7 @@ def get_model_output(model_id: pulumi.Input[Optional[_builtins.str]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
-    Data source for managing an AWS Bedrock Foundation Model.
+    Provides details about an AWS Bedrock Foundation Model.
 
     ## Example Usage
 
@@ -214,8 +214,8 @@ def get_model_output(model_id: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrockfoundation.get_models()
-    test_get_model = aws.bedrockfoundation.get_model(model_id=test.model_summaries[0].model_id)
+    example = aws.bedrockfoundation.get_models()
+    example_get_model = aws.bedrockfoundation.get_model(model_id=example.model_summaries[0].model_id)
     ```
 
 

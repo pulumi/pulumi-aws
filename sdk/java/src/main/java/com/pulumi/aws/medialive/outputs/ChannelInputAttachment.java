@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachment {
     /**
-     * @return User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * @return Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automaticInputFailoverSettings` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettings automaticInputFailoverSettings;
@@ -25,19 +25,19 @@ public final class ChannelInputAttachment {
      */
     private String inputAttachmentName;
     /**
-     * @return The ID of the input.
+     * @return ID of the input.
      * 
      */
     private String inputId;
     /**
-     * @return Settings of an input. See Input Settings for more details.
+     * @return Settings of an input. See `inputSettings` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettings inputSettings;
 
     private ChannelInputAttachment() {}
     /**
-     * @return User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * @return Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automaticInputFailoverSettings` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentAutomaticInputFailoverSettings> automaticInputFailoverSettings() {
@@ -51,14 +51,14 @@ public final class ChannelInputAttachment {
         return this.inputAttachmentName;
     }
     /**
-     * @return The ID of the input.
+     * @return ID of the input.
      * 
      */
     public String inputId() {
         return this.inputId;
     }
     /**
-     * @return Settings of an input. See Input Settings for more details.
+     * @return Settings of an input. See `inputSettings` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettings> inputSettings() {

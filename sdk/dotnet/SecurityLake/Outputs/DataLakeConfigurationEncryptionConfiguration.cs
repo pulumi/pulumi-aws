@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     public sealed class DataLakeConfigurationEncryptionConfiguration
     {
         /// <summary>
-        /// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+        /// The ID of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
         /// </summary>
         public readonly string KmsKeyId;
 

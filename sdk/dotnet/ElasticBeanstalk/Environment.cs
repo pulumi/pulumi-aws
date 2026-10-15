@@ -73,7 +73,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The autoscaling groups used by this Environment.
+        /// The Auto Scaling groups used by this Environment.
         /// </summary>
         [Output("autoscalingGroups")]
         public Output<ImmutableArray<string>> AutoscalingGroups { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string?> Tier { get; private set; } = null!;
 
         /// <summary>
-        /// Autoscaling triggers in use by this Environment.
+        /// Auto Scaling triggers in use by this Environment.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<string>> Triggers { get; private set; } = null!;
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputList<string>? _autoscalingGroups;
 
         /// <summary>
-        /// The autoscaling groups used by this Environment.
+        /// The Auto Scaling groups used by this Environment.
         /// </summary>
         public InputList<string> AutoscalingGroups
         {
@@ -586,7 +586,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputList<string>? _triggers;
 
         /// <summary>
-        /// Autoscaling triggers in use by this Environment.
+        /// Auto Scaling triggers in use by this Environment.
         /// </summary>
         public InputList<string> Triggers
         {

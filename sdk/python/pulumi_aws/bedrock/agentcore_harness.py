@@ -44,7 +44,7 @@ class AgentcoreHarnessArgs:
         The set of arguments for constructing a AgentcoreHarness resource.
 
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
-        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
                
@@ -53,9 +53,9 @@ class AgentcoreHarnessArgs:
         :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
-        :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
+        :param pulumi.Input[_builtins.int] max_tokens: Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` Block below.
@@ -115,7 +115,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter(name="harnessName")
     def harness_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         """
         return pulumi.get(self, "harness_name")
 
@@ -201,7 +201,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]]]:
         """
-        Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         """
         return pulumi.get(self, "environments")
 
@@ -225,7 +225,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Maximum number of tokens in the model response.
+        Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         """
         return pulumi.get(self, "max_tokens")
 
@@ -363,12 +363,12 @@ class _AgentcoreHarnessState:
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]] environment_actuals: Actual deployed environment configuration. See `environment_actual` Block below.
         :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
-        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
-        :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
+        :param pulumi.Input[_builtins.int] max_tokens: Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]] memory_actuals: Actual deployed memory configuration. See `memory_actual` Block below.
         :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
@@ -508,7 +508,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]]]:
         """
-        Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         """
         return pulumi.get(self, "environments")
 
@@ -544,7 +544,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="harnessName")
     def harness_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         """
         return pulumi.get(self, "harness_name")
 
@@ -568,7 +568,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Maximum number of tokens in the model response.
+        Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         """
         return pulumi.get(self, "max_tokens")
 
@@ -882,7 +882,7 @@ class AgentcoreHarness(pulumi.CustomResource):
 
         #### Required
 
-        - `harness_id` (String) ID of the harness.
+        * `harness_id` (String) ID of the harness.
 
         #### Optional
 
@@ -902,11 +902,11 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict', 'outputs.AgentcoreHarnessAuthorizerConfiguration']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict', 'outputs.AgentcoreHarnessEnvironmentArtifact']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]] environments: Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
-        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
-        :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
+        :param pulumi.Input[_builtins.int] max_tokens: Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict', 'outputs.AgentcoreHarnessMemory']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict', 'outputs.AgentcoreHarnessModel']] model: Model configuration for the harness. See `model` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1061,7 +1061,7 @@ class AgentcoreHarness(pulumi.CustomResource):
 
         #### Required
 
-        - `harness_id` (String) ID of the harness.
+        * `harness_id` (String) ID of the harness.
 
         #### Optional
 
@@ -1199,12 +1199,12 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentActualArgs', 'AgentcoreHarnessEnvironmentActualArgsDict', 'outputs.AgentcoreHarnessEnvironmentActual']]]] environment_actuals: Actual deployed environment configuration. See `environment_actual` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict', 'outputs.AgentcoreHarnessEnvironmentArtifact']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]] environments: Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
-        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
-        :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
+        :param pulumi.Input[_builtins.int] max_tokens: Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict', 'outputs.AgentcoreHarnessMemory']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict', 'outputs.AgentcoreHarnessMemoryActual']]]] memory_actuals: Actual deployed memory configuration. See `memory_actual` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict', 'outputs.AgentcoreHarnessModel']] model: Model configuration for the harness. See `model` Block below.
@@ -1301,7 +1301,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def environments(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreHarnessEnvironment']]]:
         """
-        Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+        Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         """
         return pulumi.get(self, "environments")
 
@@ -1325,7 +1325,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="harnessName")
     def harness_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+        Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
         """
         return pulumi.get(self, "harness_name")
 
@@ -1341,7 +1341,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> pulumi.Output[_builtins.int]:
         """
-        Maximum number of tokens in the model response.
+        Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
         """
         return pulumi.get(self, "max_tokens")
 

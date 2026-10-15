@@ -64,6 +64,32 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### EKS Cluster Scoped by Labels
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.resiliencehub.V2InputSource("example", {
+ *     resourceConfiguration: {
+ *         eks: {
+ *             labelSelector: {
+ *                 matchExpressions: [{
+ *                     key: "deprecated",
+ *                     operator: "DOES_NOT_EXIST",
+ *                 }],
+ *                 matchLabels: {
+ *                     app: "payments",
+ *                 },
+ *             },
+ *             clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster",
+ *             namespaces: ["default"],
+ *         },
+ *     },
+ *     serviceArn: exampleAwsResiliencehubv2Service.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema

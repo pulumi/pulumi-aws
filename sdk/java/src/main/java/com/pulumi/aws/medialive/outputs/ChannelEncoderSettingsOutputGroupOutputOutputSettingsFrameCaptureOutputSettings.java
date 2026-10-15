@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings {
     /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * @return String concatenated to the end of the destination filename.
      * 
      */
     private @Nullable String nameModifier;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings() {}
     /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * @return String concatenated to the end of the destination filename.
      * 
      */
     public Optional<String> nameModifier() {

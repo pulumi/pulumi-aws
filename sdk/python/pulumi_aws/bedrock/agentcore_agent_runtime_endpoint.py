@@ -333,7 +333,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntimeEndpoint("example",
-            name="example-endpoint",
+            name="example_endpoint",
             agent_runtime_id=example_aws_bedrockagentcore_agent_runtime["agentRuntimeId"],
             description="Endpoint for agent runtime communication")
         ```
@@ -343,7 +343,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agent_runtime_id` and `name` separated by a comma. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
+        $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example_endpoint
         ```
 
 
@@ -376,7 +376,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntimeEndpoint("example",
-            name="example-endpoint",
+            name="example_endpoint",
             agent_runtime_id=example_aws_bedrockagentcore_agent_runtime["agentRuntimeId"],
             description="Endpoint for agent runtime communication")
         ```
@@ -386,7 +386,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agent_runtime_id` and `name` separated by a comma. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
+        $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example_endpoint
         ```
 
 

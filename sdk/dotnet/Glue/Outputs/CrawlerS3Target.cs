@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         /// <summary>
-        /// The name of a connection which allows crawler to access data in S3 within a VPC.
+        /// Name of a connection which allows crawler to access data in S3 within a VPC.
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
-        /// The ARN of the dead-letter SQS queue.
+        /// ARN of the dead-letter SQS queue.
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>
-        /// The ARN of the SQS queue to receive S3 notifications from.
+        /// ARN of the SQS queue to receive S3 notifications from.
         /// </summary>
         public readonly string? EventQueueArn;
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
+        /// List of glob patterns used to exclude from the crawl.
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// Path to the Amazon S3 target.
         /// </summary>
         public readonly string Path;
         /// <summary>

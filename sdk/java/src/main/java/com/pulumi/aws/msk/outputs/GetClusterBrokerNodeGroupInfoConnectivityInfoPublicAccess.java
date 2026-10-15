@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+    /**
+     * @return Public access type.
+     * 
+     */
     private String type;
 
     private GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess() {}
+    /**
+     * @return Public access type.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersPlacementStrategy {
     /**
-     * @return Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+     * @return Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are `cpu` and `memory`. For the random placement strategy, this field is not used. Maximum length of 255.
      * 
      */
     private @Nullable String field;
@@ -24,7 +24,7 @@ public final class PipeTargetParametersEcsTaskParametersPlacementStrategy {
 
     private PipeTargetParametersEcsTaskParametersPlacementStrategy() {}
     /**
-     * @return Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+     * @return Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are `cpu` and `memory`. For the random placement strategy, this field is not used. Maximum length of 255.
      * 
      */
     public Optional<String> field() {

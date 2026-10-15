@@ -18,14 +18,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
     public static final ChannelEncoderSettingsCaptionDescriptionArgs Empty = new ChannelEncoderSettingsCaptionDescriptionArgs();
 
     /**
-     * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+     * Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
      * 
      */
     @Import(name="accessibility")
     private @Nullable Output<String> accessibility;
 
     /**
-     * @return Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+     * @return Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
      * 
      */
     public Optional<Output<String>> accessibility() {
@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
     }
 
     /**
-     * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+     * Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
      * 
      */
     @Import(name="captionSelectorName", required=true)
     private Output<String> captionSelectorName;
 
     /**
-     * @return Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+     * @return Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
      * 
      */
     public Output<String> captionSelectorName() {
@@ -48,14 +48,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
     }
 
     /**
-     * Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+     * Additional settings for the captions destination that depend on the destination type. See `destinationSettings` Block for details.
      * 
      */
     @Import(name="destinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs> destinationSettings;
 
     /**
-     * @return Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+     * @return Additional settings for the captions destination that depend on the destination type. See `destinationSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs>> destinationSettings() {
@@ -78,14 +78,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
     }
 
     /**
-     * Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * Human-readable information to indicate the captions available for players. For example, English or Spanish.
      * 
      */
     @Import(name="languageDescription")
     private @Nullable Output<String> languageDescription;
 
     /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * @return Human-readable information to indicate the captions available for players. For example, English or Spanish.
      * 
      */
     public Optional<Output<String>> languageDescription() {
@@ -93,14 +93,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
     }
 
     /**
-     * Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+     * Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+     * @return Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
      * 
      */
     public Output<String> name() {
@@ -137,7 +137,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param accessibility Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+         * @param accessibility Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param accessibility Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+         * @param accessibility Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param captionSelectorName Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+         * @param captionSelectorName Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param captionSelectorName Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+         * @param captionSelectorName Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param destinationSettings Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+         * @param destinationSettings Additional settings for the captions destination that depend on the destination type. See `destinationSettings` Block for details.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param destinationSettings Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+         * @param destinationSettings Additional settings for the captions destination that depend on the destination type. See `destinationSettings` Block for details.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param languageDescription Human readable information to indicate captions available for players (eg. English, or Spanish).
+         * @param languageDescription Human-readable information to indicate the captions available for players. For example, English or Spanish.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param languageDescription Human readable information to indicate captions available for players (eg. English, or Spanish).
+         * @param languageDescription Human-readable information to indicate the captions available for players. For example, English or Spanish.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param name Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+         * @param name Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         /**
-         * @param name Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+         * @param name Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
          * 
          * @return builder
          * 

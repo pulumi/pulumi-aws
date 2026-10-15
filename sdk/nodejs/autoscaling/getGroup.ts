@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information on an existing autoscaling group.
+ * Use this data source to get information on an existing Auto Scaling group.
  *
  * ## Example Usage
  *
@@ -34,7 +34,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetGroupArgs {
     /**
-     * Specify the exact name of the desired autoscaling group.
+     * Specify the exact name of the desired Auto Scaling group.
      */
     name: string;
     /**
@@ -116,7 +116,7 @@ export interface GetGroupResult {
      */
     readonly mixedInstancesPolicies: outputs.autoscaling.GetGroupMixedInstancesPolicy[];
     /**
-     * Name of the Auto Scaling Group.
+     * Name of the Auto Scaling group.
      */
     readonly name: string;
     /**
@@ -141,7 +141,7 @@ export interface GetGroupResult {
      */
     readonly status: string;
     /**
-     * List of processes suspended processes for the Auto Scaling Group.
+     * List of processes suspended processes for the Auto Scaling group.
      */
     readonly suspendedProcesses: string[];
     /**
@@ -174,7 +174,7 @@ export interface GetGroupResult {
     readonly warmPools: outputs.autoscaling.GetGroupWarmPool[];
 }
 /**
- * Use this data source to get information on an existing autoscaling group.
+ * Use this data source to get information on an existing Auto Scaling group.
  *
  * ## Example Usage
  *
@@ -200,7 +200,7 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOut
  */
 export interface GetGroupOutputArgs {
     /**
-     * Specify the exact name of the desired autoscaling group.
+     * Specify the exact name of the desired Auto Scaling group.
      */
     name: pulumi.Input<string>;
     /**

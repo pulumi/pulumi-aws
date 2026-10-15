@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Macie2.Outputs
     public sealed class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue
     {
         /// <summary>
-        /// The tag key.
+        /// Tag key.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// The tag value.
+        /// Tag value.
         /// </summary>
         public readonly string? Value;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates if the file should be read as a json object per line.
+        /// Indicates if the file should be read as a JSON object per line.
         /// </summary>
         [Input("line")]
         public Input<bool>? Line { get; set; }

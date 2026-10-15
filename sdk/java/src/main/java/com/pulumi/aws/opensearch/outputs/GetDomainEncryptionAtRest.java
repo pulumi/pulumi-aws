@@ -17,7 +17,7 @@ public final class GetDomainEncryptionAtRest {
      */
     private Boolean enabled;
     /**
-     * @return KMS key id used to encrypt data at rest.
+     * @return KMS key ID used to encrypt data at rest.
      * 
      */
     private String kmsKeyId;
@@ -31,7 +31,7 @@ public final class GetDomainEncryptionAtRest {
         return this.enabled;
     }
     /**
-     * @return KMS key id used to encrypt data at rest.
+     * @return KMS key ID used to encrypt data at rest.
      * 
      */
     public String kmsKeyId() {

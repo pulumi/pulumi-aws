@@ -16,14 +16,14 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
     public static final ListenerPortRangeArgs Empty = new ListenerPortRangeArgs();
 
     /**
-     * The first port in the range of ports, inclusive.
+     * First port in the range of ports, inclusive.
      * 
      */
     @Import(name="fromPort")
     private @Nullable Output<Integer> fromPort;
 
     /**
-     * @return The first port in the range of ports, inclusive.
+     * @return First port in the range of ports, inclusive.
      * 
      */
     public Optional<Output<Integer>> fromPort() {
@@ -31,14 +31,14 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The last port in the range of ports, inclusive.
+     * Last port in the range of ports, inclusive.
      * 
      */
     @Import(name="toPort")
     private @Nullable Output<Integer> toPort;
 
     /**
-     * @return The last port in the range of ports, inclusive.
+     * @return Last port in the range of ports, inclusive.
      * 
      */
     public Optional<Output<Integer>> toPort() {
@@ -71,7 +71,7 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param fromPort The first port in the range of ports, inclusive.
+         * @param fromPort First port in the range of ports, inclusive.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param fromPort The first port in the range of ports, inclusive.
+         * @param fromPort First port in the range of ports, inclusive.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param toPort The last port in the range of ports, inclusive.
+         * @param toPort Last port in the range of ports, inclusive.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param toPort The last port in the range of ports, inclusive.
+         * @param toPort Last port in the range of ports, inclusive.
          * 
          * @return builder
          * 

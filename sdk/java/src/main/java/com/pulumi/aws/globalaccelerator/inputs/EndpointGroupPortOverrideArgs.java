@@ -15,14 +15,14 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
     public static final EndpointGroupPortOverrideArgs Empty = new EndpointGroupPortOverrideArgs();
 
     /**
-     * The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+     * Endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
      * 
      */
     @Import(name="endpointPort", required=true)
     private Output<Integer> endpointPort;
 
     /**
-     * @return The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+     * @return Endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
      * 
      */
     public Output<Integer> endpointPort() {
@@ -30,14 +30,14 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+     * Listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
      * 
      */
     @Import(name="listenerPort", required=true)
     private Output<Integer> listenerPort;
 
     /**
-     * @return The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+     * @return Listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
      * 
      */
     public Output<Integer> listenerPort() {
@@ -70,7 +70,7 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param endpointPort The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+         * @param endpointPort Endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param endpointPort The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+         * @param endpointPort Endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param listenerPort The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+         * @param listenerPort Listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param listenerPort The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+         * @param listenerPort Listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
          * 
          * @return builder
          * 

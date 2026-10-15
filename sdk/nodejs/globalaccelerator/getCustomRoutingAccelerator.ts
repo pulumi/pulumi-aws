@@ -49,6 +49,9 @@ export interface GetCustomRoutingAcceleratorArgs {
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -57,17 +60,38 @@ export interface GetCustomRoutingAcceleratorArgs {
  */
 export interface GetCustomRoutingAcceleratorResult {
     readonly arn: string;
+    /**
+     * Attributes of the accelerator. See `attributes` below.
+     */
     readonly attributes: outputs.globalaccelerator.GetCustomRoutingAcceleratorAttribute[];
+    /**
+     * DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     */
     readonly dnsName: string;
+    /**
+     * Whether the accelerator is enabled.
+     */
     readonly enabled: boolean;
+    /**
+     * Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+     */
     readonly hostedZoneId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Value for the address type.
+     */
     readonly ipAddressType: string;
+    /**
+     * IP address set associated with the accelerator. See `ipSets` below.
+     */
     readonly ipSets: outputs.globalaccelerator.GetCustomRoutingAcceleratorIpSet[];
     readonly name: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
 }
 /**
@@ -112,5 +136,8 @@ export interface GetCustomRoutingAcceleratorOutputArgs {
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

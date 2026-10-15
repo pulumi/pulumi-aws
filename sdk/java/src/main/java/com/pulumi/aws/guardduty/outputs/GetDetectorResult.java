@@ -24,7 +24,7 @@ public final class GetDetectorResult {
      */
     private List<GetDetectorFeature> features;
     /**
-     * @return The frequency of notifications sent about subsequent finding occurrences.
+     * @return Frequency of notifications sent about subsequent finding occurrences.
      * 
      */
     private String findingPublishingFrequency;
@@ -62,7 +62,7 @@ public final class GetDetectorResult {
         return this.features;
     }
     /**
-     * @return The frequency of notifications sent about subsequent finding occurrences.
+     * @return Frequency of notifications sent about subsequent finding occurrences.
      * 
      */
     public String findingPublishingFrequency() {

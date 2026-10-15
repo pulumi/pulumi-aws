@@ -122,7 +122,7 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
 
     ## Example Usage
 
-    The following example shows how one might accept a local gateway id as a variable.
+    The following example shows how one might accept a local gateway ID as a variable.
 
     ```python
     import pulumi
@@ -135,7 +135,7 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
 
 
     :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict', 'outputs.GetLocalGatewayFilterResult']] filters: Custom filter block as described below.
-    :param _builtins.str id: Id of the specific Local Gateway to retrieve.
+    :param _builtins.str id: ID of the specific Local Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.
@@ -174,7 +174,7 @@ def get_local_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Un
 
     ## Example Usage
 
-    The following example shows how one might accept a local gateway id as a variable.
+    The following example shows how one might accept a local gateway ID as a variable.
 
     ```python
     import pulumi
@@ -187,7 +187,7 @@ def get_local_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Un
 
 
     :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict', 'outputs.GetLocalGatewayFilterResult']] filters: Custom filter block as described below.
-    :param _builtins.str id: Id of the specific Local Gateway to retrieve.
+    :param _builtins.str id: ID of the specific Local Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.

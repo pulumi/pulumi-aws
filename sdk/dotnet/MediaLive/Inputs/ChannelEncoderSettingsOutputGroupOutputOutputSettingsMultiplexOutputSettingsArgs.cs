@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Destination is a multiplex. See Destination for more details.
+        /// Multiplex destination. See `Destination` Block for details.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> Destination { get; set; } = null!;

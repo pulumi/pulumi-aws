@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudfront VPC origins using the `Id`. For example:
+    /// Using `pulumi import`, import CloudFront VPC origins using the `Id`. For example:
     /// 
     /// ```sh
     /// % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly Outputs.DashboardDashboardPublishOptionsDataPointTooltipOption? DataPointTooltipOption;
         /// <summary>
-        /// Export to .csv option. See `ExportToCsvOption`.
+        /// Export to `.csv` option. See `ExportToCsvOption`.
         /// </summary>
         public readonly Outputs.DashboardDashboardPublishOptionsExportToCsvOption? ExportToCsvOption;
         /// <summary>

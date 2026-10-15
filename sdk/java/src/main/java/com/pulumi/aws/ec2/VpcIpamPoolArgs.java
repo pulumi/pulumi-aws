@@ -246,14 +246,14 @@ public final class VpcIpamPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
      * 
      */
     @Import(name="sourceResource")
     private @Nullable Output<VpcIpamPoolSourceResourceArgs> sourceResource;
 
     /**
-     * @return Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * @return Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
      * 
      */
     public Optional<Output<VpcIpamPoolSourceResourceArgs>> sourceResource() {
@@ -631,7 +631,7 @@ public final class VpcIpamPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResource Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+         * @param sourceResource Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class VpcIpamPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResource Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+         * @param sourceResource Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
          * 
          * @return builder
          * 

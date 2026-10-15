@@ -54,7 +54,7 @@ namespace Pulumi.Aws.DataExchange
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The dataset id.
+        /// The dataset ID.
         /// </summary>
         [Output("dataSetId")]
         public Output<string> DataSetId { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.DataExchange
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Id of the revision.
+        /// The ID of the revision.
         /// </summary>
         [Output("revisionId")]
         public Output<string> RevisionId { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.DataExchange
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The dataset id.
+        /// The dataset ID.
         /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.DataExchange
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The dataset id.
+        /// The dataset ID.
         /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.DataExchange
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Id of the revision.
+        /// The ID of the revision.
         /// </summary>
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }

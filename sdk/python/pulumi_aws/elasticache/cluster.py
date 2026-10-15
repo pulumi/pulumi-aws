@@ -1280,7 +1280,7 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True)
         ```
 
-        ### Elasticache Cluster in Outpost
+        ### ElastiCache Cluster in Outpost
 
         ```python
         import pulumi
@@ -1467,7 +1467,7 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True)
         ```
 
-        ### Elasticache Cluster in Outpost
+        ### ElastiCache Cluster in Outpost
 
         ```python
         import pulumi

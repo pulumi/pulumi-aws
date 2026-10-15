@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+ * `aws.waf.IpSet` Retrieves a WAF IP Set Resource ID.
  *
  * ## Example Usage
  *
@@ -46,7 +46,7 @@ export interface GetIpsetResult {
     readonly name: string;
 }
 /**
- * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+ * `aws.waf.IpSet` Retrieves a WAF IP Set Resource ID.
  *
  * ## Example Usage
  *

@@ -42,7 +42,7 @@ class VaultNotification(dict):
                  sns_topic: _builtins.str):
         """
         :param Sequence[_builtins.str] events: You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        :param _builtins.str sns_topic: The SNS Topic ARN.
+        :param _builtins.str sns_topic: SNS Topic ARN.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "sns_topic", sns_topic)
@@ -59,7 +59,7 @@ class VaultNotification(dict):
     @pulumi.getter(name="snsTopic")
     def sns_topic(self) -> _builtins.str:
         """
-        The SNS Topic ARN.
+        SNS Topic ARN.
         """
         return pulumi.get(self, "sns_topic")
 

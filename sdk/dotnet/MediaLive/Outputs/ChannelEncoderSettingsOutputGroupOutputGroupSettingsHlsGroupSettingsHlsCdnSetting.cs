@@ -13,10 +13,25 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting
     {
+        /// <summary>
+        /// Akamai settings. See `HlsAkamaiSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings? HlsAkamaiSettings;
+        /// <summary>
+        /// Basic put settings. See `HlsBasicPutSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings? HlsBasicPutSettings;
+        /// <summary>
+        /// Media store settings. See `HlsMediaStoreSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings? HlsMediaStoreSettings;
+        /// <summary>
+        /// S3 settings. See `HlsS3Settings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings? HlsS3Settings;
+        /// <summary>
+        /// WebDAV settings. See `HlsWebdavSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings? HlsWebdavSettings;
 
         [OutputConstructor]

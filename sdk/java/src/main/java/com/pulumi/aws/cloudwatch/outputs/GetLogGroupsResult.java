@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetLogGroupsResult {
     /**
-     * @return Set of ARNs of the Cloudwatch log groups
+     * @return Set of ARNs of the CloudWatch log groups
      * 
      */
     private List<String> arns;
@@ -25,7 +25,7 @@ public final class GetLogGroupsResult {
     private String id;
     private @Nullable String logGroupNamePrefix;
     /**
-     * @return Set of names of the Cloudwatch log groups
+     * @return Set of names of the CloudWatch log groups
      * 
      */
     private List<String> logGroupNames;
@@ -33,7 +33,7 @@ public final class GetLogGroupsResult {
 
     private GetLogGroupsResult() {}
     /**
-     * @return Set of ARNs of the Cloudwatch log groups
+     * @return Set of ARNs of the CloudWatch log groups
      * 
      */
     public List<String> arns() {
@@ -50,7 +50,7 @@ public final class GetLogGroupsResult {
         return Optional.ofNullable(this.logGroupNamePrefix);
     }
     /**
-     * @return Set of names of the Cloudwatch log groups
+     * @return Set of names of the CloudWatch log groups
      * 
      */
     public List<String> logGroupNames() {

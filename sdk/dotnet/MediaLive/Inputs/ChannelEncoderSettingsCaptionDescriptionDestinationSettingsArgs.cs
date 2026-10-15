@@ -13,79 +13,79 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARIB Destination Settings.
+        /// ARIB destination settings. Can be set as an empty block.
         /// </summary>
         [Input("aribDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs>? AribDestinationSettings { get; set; }
 
         /// <summary>
-        /// Burn In Destination Settings. See Burn In Destination Settings for more details.
+        /// Burn-in destination settings. See `BurnInDestinationSettings` Block for details.
         /// </summary>
         [Input("burnInDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs>? BurnInDestinationSettings { get; set; }
 
         /// <summary>
-        /// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+        /// DVB Sub destination settings. See `DvbSubDestinationSettings` Block for details.
         /// </summary>
         [Input("dvbSubDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs>? DvbSubDestinationSettings { get; set; }
 
         /// <summary>
-        /// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
+        /// EBU TT D destination settings. See `EbuTtDDestinationSettings` Block for details.
         /// </summary>
         [Input("ebuTtDDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs>? EbuTtDDestinationSettings { get; set; }
 
         /// <summary>
-        /// Embedded Destination Settings.
+        /// Embedded destination settings. Can be set as an empty block.
         /// </summary>
         [Input("embeddedDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs>? EmbeddedDestinationSettings { get; set; }
 
         /// <summary>
-        /// Embedded Plus SCTE20 Destination Settings.
+        /// Embedded Plus SCTE-20 destination settings. Can be set as an empty block.
         /// </summary>
         [Input("embeddedPlusScte20DestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs>? EmbeddedPlusScte20DestinationSettings { get; set; }
 
         /// <summary>
-        /// RTMP Caption Info Destination Settings.
+        /// RTMP caption info destination settings. Can be set as an empty block.
         /// </summary>
         [Input("rtmpCaptionInfoDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs>? RtmpCaptionInfoDestinationSettings { get; set; }
 
         /// <summary>
-        /// SCTE20 Plus Embedded Destination Settings.
+        /// SCTE-20 Plus Embedded destination settings. Can be set as an empty block.
         /// </summary>
         [Input("scte20PlusEmbeddedDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs>? Scte20PlusEmbeddedDestinationSettings { get; set; }
 
         /// <summary>
-        /// SCTE27 Destination Settings.
+        /// SCTE-27 destination settings. Can be set as an empty block.
         /// </summary>
         [Input("scte27DestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs>? Scte27DestinationSettings { get; set; }
 
         /// <summary>
-        /// SMPTE TT Destination Settings.
+        /// SMPTE TT destination settings. Can be set as an empty block.
         /// </summary>
         [Input("smpteTtDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs>? SmpteTtDestinationSettings { get; set; }
 
         /// <summary>
-        /// Teletext Destination Settings.
+        /// Teletext destination settings. Can be set as an empty block.
         /// </summary>
         [Input("teletextDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs>? TeletextDestinationSettings { get; set; }
 
         /// <summary>
-        /// TTML Destination Settings. See TTML Destination Settings for more details.
+        /// TTML destination settings. See `TtmlDestinationSettings` Block for details.
         /// </summary>
         [Input("ttmlDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs>? TtmlDestinationSettings { get; set; }
 
         /// <summary>
-        /// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+        /// WebVTT destination settings. See `WebvttDestinationSettings` Block for details.
         /// </summary>
         [Input("webvttDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs>? WebvttDestinationSettings { get; set; }

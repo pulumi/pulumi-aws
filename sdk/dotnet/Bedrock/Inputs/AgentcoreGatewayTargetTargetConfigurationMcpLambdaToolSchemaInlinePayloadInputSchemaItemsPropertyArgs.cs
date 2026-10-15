@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? PropertiesJson { get; set; }
 
         /// <summary>
-        /// Whether this property is required. Defaults to `False`.
+        /// Whether to mark this property as required. Defaults to `False`.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }

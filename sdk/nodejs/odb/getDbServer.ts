@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing db server linked to exadata infrastructure of Oracle Database@AWS.
+ * Data source for managing DB server linked to exadata infrastructure of Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *
@@ -44,7 +44,7 @@ export interface GetDbServerArgs {
      */
     cloudExadataInfrastructureId: string;
     /**
-     * Unique identifier of db node associated with vm cluster.
+     * Unique identifier of DB node associated with vm cluster.
      *
      * The following arguments are optional:
      */
@@ -140,7 +140,7 @@ export interface GetDbServerResult {
     readonly vmClusterIds: string[];
 }
 /**
- * Data source for managing db server linked to exadata infrastructure of Oracle Database@AWS.
+ * Data source for managing DB server linked to exadata infrastructure of Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *
@@ -176,7 +176,7 @@ export interface GetDbServerOutputArgs {
      */
     cloudExadataInfrastructureId: pulumi.Input<string>;
     /**
-     * Unique identifier of db node associated with vm cluster.
+     * Unique identifier of DB node associated with vm cluster.
      *
      * The following arguments are optional:
      */

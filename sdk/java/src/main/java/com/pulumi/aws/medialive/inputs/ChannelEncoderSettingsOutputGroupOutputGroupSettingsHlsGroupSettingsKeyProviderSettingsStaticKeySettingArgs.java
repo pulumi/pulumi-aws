@@ -17,16 +17,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs();
 
+    /**
+     * Location of the license server used for protecting content. See `keyProviderServer` Block for details.
+     * 
+     */
     @Import(name="keyProviderServer")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs> keyProviderServer;
 
+    /**
+     * @return Location of the license server used for protecting content. See `keyProviderServer` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs>> keyProviderServer() {
         return Optional.ofNullable(this.keyProviderServer);
     }
 
+    /**
+     * Static key value as a 32-character hexadecimal string.
+     * 
+     */
     @Import(name="staticKeyValue", required=true)
     private Output<String> staticKeyValue;
 
+    /**
+     * @return Static key value as a 32-character hexadecimal string.
+     * 
+     */
     public Output<String> staticKeyValue() {
         return this.staticKeyValue;
     }
@@ -56,20 +72,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param keyProviderServer Location of the license server used for protecting content. See `keyProviderServer` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyProviderServer(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs> keyProviderServer) {
             $.keyProviderServer = keyProviderServer;
             return this;
         }
 
+        /**
+         * @param keyProviderServer Location of the license server used for protecting content. See `keyProviderServer` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyProviderServer(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs keyProviderServer) {
             return keyProviderServer(Output.of(keyProviderServer));
         }
 
+        /**
+         * @param staticKeyValue Static key value as a 32-character hexadecimal string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticKeyValue(Output<String> staticKeyValue) {
             $.staticKeyValue = staticKeyValue;
             return this;
         }
 
+        /**
+         * @param staticKeyValue Static key value as a 32-character hexadecimal string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticKeyValue(String staticKeyValue) {
             return staticKeyValue(Output.of(staticKeyValue));
         }

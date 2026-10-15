@@ -25,9 +25,9 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
 
-        :param pulumi.Input[_builtins.str] finding_publishing_frequency: Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        :param pulumi.Input[_builtins.str] finding_publishing_frequency: How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         if finding_publishing_frequency is not None:
             pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
@@ -40,7 +40,7 @@ class AccountArgs:
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
@@ -64,7 +64,7 @@ class AccountArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -85,12 +85,12 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
 
-        :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-        :param pulumi.Input[_builtins.str] finding_publishing_frequency: Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        :param pulumi.Input[_builtins.str] created_at: Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        :param pulumi.Input[_builtins.str] finding_publishing_frequency: How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_role: ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -109,7 +109,7 @@ class _AccountState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -121,7 +121,7 @@ class _AccountState:
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
@@ -157,7 +157,7 @@ class _AccountState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -169,7 +169,7 @@ class _AccountState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+        Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         """
         return pulumi.get(self, "updated_at")
 
@@ -204,7 +204,7 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `macie2.Account` using the id. For example:
+        Using `pulumi import`, import `macie2.Account` using the ID. For example:
 
         ```sh
         $ pulumi import aws:macie2/account:Account example abcd1
@@ -213,9 +213,9 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] finding_publishing_frequency: Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        :param pulumi.Input[_builtins.str] finding_publishing_frequency: How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         ...
     @overload
@@ -239,7 +239,7 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `macie2.Account` using the id. For example:
+        Using `pulumi import`, import `macie2.Account` using the ID. For example:
 
         ```sh
         $ pulumi import aws:macie2/account:Account example abcd1
@@ -302,12 +302,12 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-        :param pulumi.Input[_builtins.str] finding_publishing_frequency: Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        :param pulumi.Input[_builtins.str] created_at: Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        :param pulumi.Input[_builtins.str] finding_publishing_frequency: How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_role: ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -325,7 +325,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -333,7 +333,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
@@ -357,7 +357,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -365,7 +365,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+        Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         """
         return pulumi.get(self, "updated_at")
 

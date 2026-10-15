@@ -27,11 +27,11 @@ public final class GroupInstanceRefresh {
     /**
      * @return Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
      * 
-     * &gt; **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
+     * &gt; **NOTE:** A refresh is started when any of the following Auto Scaling group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
      * 
      * &gt; **NOTE:** A refresh will not start when `version = &#34;$Latest&#34;` is configured in the `launchTemplate` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource.
      * 
-     * &gt; **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
+     * &gt; **NOTE:** Auto Scaling groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
      * 
      * &gt; **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
      * 
@@ -56,11 +56,11 @@ public final class GroupInstanceRefresh {
     /**
      * @return Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
      * 
-     * &gt; **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
+     * &gt; **NOTE:** A refresh is started when any of the following Auto Scaling group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
      * 
      * &gt; **NOTE:** A refresh will not start when `version = &#34;$Latest&#34;` is configured in the `launchTemplate` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource.
      * 
-     * &gt; **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
+     * &gt; **NOTE:** Auto Scaling groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
      * 
      * &gt; **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
      * 

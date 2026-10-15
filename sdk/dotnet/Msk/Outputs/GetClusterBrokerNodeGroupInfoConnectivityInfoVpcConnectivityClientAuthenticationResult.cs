@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult
     {
+        /// <summary>
+        /// SASL authentication configuration for VPC connectivity. See `Sasl` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult> Sasls;
+        /// <summary>
+        /// Whether TLS authentication is enabled for VPC connectivity.
+        /// </summary>
         public readonly bool Tls;
 
         [OutputConstructor]

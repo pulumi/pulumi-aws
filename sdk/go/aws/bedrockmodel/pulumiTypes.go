@@ -956,15 +956,15 @@ func (o InvocationJobVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 type InvocationLoggingConfigurationLoggingConfig struct {
 	// CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
 	CloudwatchConfig *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig `pulumi:"cloudwatchConfig"`
-	// Set to include embeddings data in the log delivery. Defaults to `true`.
+	// Whether to include embeddings data in the log delivery. Defaults to `true`.
 	EmbeddingDataDeliveryEnabled *bool `pulumi:"embeddingDataDeliveryEnabled"`
-	// Set to include image data in the log delivery. Defaults to `true`.
+	// Whether to include image data in the log delivery. Defaults to `true`.
 	ImageDataDeliveryEnabled *bool `pulumi:"imageDataDeliveryEnabled"`
 	// S3 configuration for storing log data. See `s3Config` Block for details.
 	S3Config *InvocationLoggingConfigurationLoggingConfigS3Config `pulumi:"s3Config"`
-	// Set to include text data in the log delivery. Defaults to `true`.
+	// Whether to include text data in the log delivery. Defaults to `true`.
 	TextDataDeliveryEnabled *bool `pulumi:"textDataDeliveryEnabled"`
-	// Set to include text data in the log delivery. Defaults to `true`.
+	// Whether to include video data in the log delivery. Defaults to `true`.
 	VideoDataDeliveryEnabled *bool `pulumi:"videoDataDeliveryEnabled"`
 }
 
@@ -982,15 +982,15 @@ type InvocationLoggingConfigurationLoggingConfigInput interface {
 type InvocationLoggingConfigurationLoggingConfigArgs struct {
 	// CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
 	CloudwatchConfig InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrInput `pulumi:"cloudwatchConfig"`
-	// Set to include embeddings data in the log delivery. Defaults to `true`.
+	// Whether to include embeddings data in the log delivery. Defaults to `true`.
 	EmbeddingDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"embeddingDataDeliveryEnabled"`
-	// Set to include image data in the log delivery. Defaults to `true`.
+	// Whether to include image data in the log delivery. Defaults to `true`.
 	ImageDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"imageDataDeliveryEnabled"`
 	// S3 configuration for storing log data. See `s3Config` Block for details.
 	S3Config InvocationLoggingConfigurationLoggingConfigS3ConfigPtrInput `pulumi:"s3Config"`
-	// Set to include text data in the log delivery. Defaults to `true`.
+	// Whether to include text data in the log delivery. Defaults to `true`.
 	TextDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"textDataDeliveryEnabled"`
-	// Set to include text data in the log delivery. Defaults to `true`.
+	// Whether to include video data in the log delivery. Defaults to `true`.
 	VideoDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"videoDataDeliveryEnabled"`
 }
 
@@ -1078,12 +1078,12 @@ func (o InvocationLoggingConfigurationLoggingConfigOutput) CloudwatchConfig() In
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput)
 }
 
-// Set to include embeddings data in the log delivery. Defaults to `true`.
+// Whether to include embeddings data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigOutput) EmbeddingDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.EmbeddingDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Set to include image data in the log delivery. Defaults to `true`.
+// Whether to include image data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigOutput) ImageDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.ImageDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1095,12 +1095,12 @@ func (o InvocationLoggingConfigurationLoggingConfigOutput) S3Config() Invocation
 	}).(InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput)
 }
 
-// Set to include text data in the log delivery. Defaults to `true`.
+// Whether to include text data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigOutput) TextDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.TextDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Set to include text data in the log delivery. Defaults to `true`.
+// Whether to include video data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigOutput) VideoDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.VideoDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1139,7 +1139,7 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) CloudwatchConfig()
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput)
 }
 
-// Set to include embeddings data in the log delivery. Defaults to `true`.
+// Whether to include embeddings data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) EmbeddingDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
 		if v == nil {
@@ -1149,7 +1149,7 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) EmbeddingDataDeliv
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set to include image data in the log delivery. Defaults to `true`.
+// Whether to include image data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) ImageDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
 		if v == nil {
@@ -1169,7 +1169,7 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) S3Config() Invocat
 	}).(InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput)
 }
 
-// Set to include text data in the log delivery. Defaults to `true`.
+// Whether to include text data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) TextDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
 		if v == nil {
@@ -1179,7 +1179,7 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) TextDataDeliveryEn
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set to include text data in the log delivery. Defaults to `true`.
+// Whether to include video data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) VideoDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
 		if v == nil {

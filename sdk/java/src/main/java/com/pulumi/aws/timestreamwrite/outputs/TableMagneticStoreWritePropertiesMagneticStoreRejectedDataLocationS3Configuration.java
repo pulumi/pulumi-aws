@@ -22,7 +22,7 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
      */
     private @Nullable String encryptionOption;
     /**
-     * @return KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+     * @return KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -48,7 +48,7 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
         return Optional.ofNullable(this.encryptionOption);
     }
     /**
-     * @return KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+     * @return KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
      * 
      */
     public Optional<String> kmsKeyId() {

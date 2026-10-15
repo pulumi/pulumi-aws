@@ -21,17 +21,37 @@ __all__ = ['TelemetryEvaluationArgs', 'TelemetryEvaluation']
 @pulumi.input_type
 class TelemetryEvaluationArgs:
     def __init__(__self__, *,
+                 all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['TelemetryEvaluationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a TelemetryEvaluation resource.
 
+        :param pulumi.Input[_builtins.bool] all_regions: Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `all_regions`.
         """
+        if all_regions is not None:
+            pulumi.set(__self__, "all_regions", all_regions)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+        """
+        return pulumi.get(self, "all_regions")
+
+    @all_regions.setter
+    def all_regions(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "all_regions", value)
 
     @_builtins.property
     @pulumi.getter
@@ -47,6 +67,18 @@ class TelemetryEvaluationArgs:
 
     @_builtins.property
     @pulumi.getter
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `all_regions`.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @_builtins.property
+    @pulumi.getter
     def timeouts(self) -> pulumi.Input[Optional['TelemetryEvaluationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -58,25 +90,45 @@ class TelemetryEvaluationArgs:
 @pulumi.input_type
 class _TelemetryEvaluationState:
     def __init__(__self__, *,
+                 all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
                  failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional['TelemetryEvaluationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering TelemetryEvaluation resources.
 
+        :param pulumi.Input[_builtins.bool] all_regions: Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
         :param pulumi.Input[_builtins.str] failure_reason: Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `all_regions`.
         :param pulumi.Input[_builtins.str] status: Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
         """
+        if all_regions is not None:
+            pulumi.set(__self__, "all_regions", all_regions)
         if failure_reason is not None:
             pulumi.set(__self__, "failure_reason", failure_reason)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+        """
+        return pulumi.get(self, "all_regions")
+
+    @all_regions.setter
+    def all_regions(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "all_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
@@ -101,6 +153,18 @@ class _TelemetryEvaluationState:
     @region.setter
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `all_regions`.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter
@@ -130,7 +194,9 @@ class TelemetryEvaluation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict', 'outputs.TelemetryEvaluationTimeouts']]] = None,
                  __props__=None):
         """
@@ -155,6 +221,27 @@ class TelemetryEvaluation(pulumi.CustomResource):
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         ```
 
+        ### All Regions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEvaluation("example", all_regions=True)
+        ```
+
+        ### Specific Regions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEvaluation("example", regions=[
+            "us-east-1",
+            "eu-west-1",
+        ])
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -173,7 +260,9 @@ class TelemetryEvaluation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] all_regions: Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `all_regions`.
         """
         ...
     @overload
@@ -201,6 +290,27 @@ class TelemetryEvaluation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
+        ```
+
+        ### All Regions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEvaluation("example", all_regions=True)
+        ```
+
+        ### Specific Regions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEvaluation("example", regions=[
+            "us-east-1",
+            "eu-west-1",
+        ])
         ```
 
         ## Import
@@ -234,7 +344,9 @@ class TelemetryEvaluation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict', 'outputs.TelemetryEvaluationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -245,7 +357,9 @@ class TelemetryEvaluation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TelemetryEvaluationArgs.__new__(TelemetryEvaluationArgs)
 
+            __props__.__dict__["all_regions"] = all_regions
             __props__.__dict__["region"] = region
+            __props__.__dict__["regions"] = regions
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["failure_reason"] = None
             __props__.__dict__["status"] = None
@@ -259,8 +373,10 @@ class TelemetryEvaluation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
             failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict', 'outputs.TelemetryEvaluationTimeouts']]] = None) -> 'TelemetryEvaluation':
         """
@@ -270,19 +386,31 @@ class TelemetryEvaluation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] all_regions: Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
         :param pulumi.Input[_builtins.str] failure_reason: Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `all_regions`.
         :param pulumi.Input[_builtins.str] status: Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _TelemetryEvaluationState.__new__(_TelemetryEvaluationState)
 
+        __props__.__dict__["all_regions"] = all_regions
         __props__.__dict__["failure_reason"] = failure_reason
         __props__.__dict__["region"] = region
+        __props__.__dict__["regions"] = regions
         __props__.__dict__["status"] = status
         __props__.__dict__["timeouts"] = timeouts
         return TelemetryEvaluation(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+        """
+        return pulumi.get(self, "all_regions")
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
@@ -299,6 +427,14 @@ class TelemetryEvaluation(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `all_regions`.
+        """
+        return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter

@@ -22,14 +22,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs();
 
     /**
-     * Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * Ancillary source settings. See `ancillarySourceSettings` Block for details.
      * 
      */
     @Import(name="ancillarySourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs> ancillarySourceSettings;
 
     /**
-     * @return Ancillary Source Settings. See Ancillary Source Settings for more details.
+     * @return Ancillary source settings. See `ancillarySourceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs>> ancillarySourceSettings() {
@@ -37,14 +37,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * ARIB Source Settings.
+     * ARIB source settings. Can be set as an empty block.
      * 
      */
     @Import(name="aribSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs> aribSourceSettings;
 
     /**
-     * @return ARIB Source Settings.
+     * @return ARIB source settings. Can be set as an empty block.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs>> aribSourceSettings() {
@@ -52,14 +52,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * DVB Sub source settings. See `dvbSubSourceSettings` Block for details.
      * 
      */
     @Import(name="dvbSubSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs> dvbSubSourceSettings;
 
     /**
-     * @return DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+     * @return DVB Sub source settings. See `dvbSubSourceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs>> dvbSubSourceSettings() {
@@ -67,14 +67,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * Embedded Source Settings. See Embedded Source Settings for more details.
+     * Embedded source settings. See `embeddedSourceSettings` Block for details.
      * 
      */
     @Import(name="embeddedSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs> embeddedSourceSettings;
 
     /**
-     * @return Embedded Source Settings. See Embedded Source Settings for more details.
+     * @return Embedded source settings. See `embeddedSourceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs>> embeddedSourceSettings() {
@@ -82,14 +82,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * SCTE-20 source settings. See `scte20SourceSettings` Block for details.
      * 
      */
     @Import(name="scte20SourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs> scte20SourceSettings;
 
     /**
-     * @return SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+     * @return SCTE-20 source settings. See `scte20SourceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs>> scte20SourceSettings() {
@@ -97,14 +97,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * SCTE-27 source settings. See `scte27SourceSettings` Block for details.
      * 
      */
     @Import(name="scte27SourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs> scte27SourceSettings;
 
     /**
-     * @return SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+     * @return SCTE-27 source settings. See `scte27SourceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs>> scte27SourceSettings() {
@@ -112,14 +112,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * Teletext Source Settings. See Teletext Source Settings for more details.
+     * Teletext source settings. See `teletextSourceSettings` Block for details.
      * 
      */
     @Import(name="teletextSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs> teletextSourceSettings;
 
     /**
-     * @return Teletext Source Settings. See Teletext Source Settings for more details.
+     * @return Teletext source settings. See `teletextSourceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs>> teletextSourceSettings() {
@@ -157,7 +157,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param ancillarySourceSettings Ancillary Source Settings. See Ancillary Source Settings for more details.
+         * @param ancillarySourceSettings Ancillary source settings. See `ancillarySourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param ancillarySourceSettings Ancillary Source Settings. See Ancillary Source Settings for more details.
+         * @param ancillarySourceSettings Ancillary source settings. See `ancillarySourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param aribSourceSettings ARIB Source Settings.
+         * @param aribSourceSettings ARIB source settings. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param aribSourceSettings ARIB Source Settings.
+         * @param aribSourceSettings ARIB source settings. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param dvbSubSourceSettings DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+         * @param dvbSubSourceSettings DVB Sub source settings. See `dvbSubSourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param dvbSubSourceSettings DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+         * @param dvbSubSourceSettings DVB Sub source settings. See `dvbSubSourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param embeddedSourceSettings Embedded Source Settings. See Embedded Source Settings for more details.
+         * @param embeddedSourceSettings Embedded source settings. See `embeddedSourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param embeddedSourceSettings Embedded Source Settings. See Embedded Source Settings for more details.
+         * @param embeddedSourceSettings Embedded source settings. See `embeddedSourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param scte20SourceSettings SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+         * @param scte20SourceSettings SCTE-20 source settings. See `scte20SourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param scte20SourceSettings SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+         * @param scte20SourceSettings SCTE-20 source settings. See `scte20SourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param scte27SourceSettings SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+         * @param scte27SourceSettings SCTE-27 source settings. See `scte27SourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param scte27SourceSettings SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+         * @param scte27SourceSettings SCTE-27 source settings. See `scte27SourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param teletextSourceSettings Teletext Source Settings. See Teletext Source Settings for more details.
+         * @param teletextSourceSettings Teletext source settings. See `teletextSourceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param teletextSourceSettings Teletext Source Settings. See Teletext Source Settings for more details.
+         * @param teletextSourceSettings Teletext source settings. See `teletextSourceSettings` Block for details.
          * 
          * @return builder
          * 

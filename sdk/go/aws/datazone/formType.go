@@ -188,9 +188,9 @@ type FormType struct {
 	Model FormTypeModelOutput `pulumi:"model"`
 	// Name of the form type. Must be the name of the structure in smithy document.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Origin domain id of the Form Type.
+	// Origin domain ID of the Form Type.
 	OriginDomainId pulumi.StringOutput `pulumi:"originDomainId"`
-	// Origin project id of the Form Type.
+	// Origin project ID of the Form Type.
 	OriginProjectId pulumi.StringOutput `pulumi:"originProjectId"`
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier pulumi.StringOutput `pulumi:"owningProjectIdentifier"`
@@ -255,9 +255,9 @@ type formTypeState struct {
 	Model *FormTypeModel `pulumi:"model"`
 	// Name of the form type. Must be the name of the structure in smithy document.
 	Name *string `pulumi:"name"`
-	// Origin domain id of the Form Type.
+	// Origin domain ID of the Form Type.
 	OriginDomainId *string `pulumi:"originDomainId"`
-	// Origin project id of the Form Type.
+	// Origin project ID of the Form Type.
 	OriginProjectId *string `pulumi:"originProjectId"`
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier *string `pulumi:"owningProjectIdentifier"`
@@ -284,9 +284,9 @@ type FormTypeState struct {
 	Model FormTypeModelPtrInput
 	// Name of the form type. Must be the name of the structure in smithy document.
 	Name pulumi.StringPtrInput
-	// Origin domain id of the Form Type.
+	// Origin domain ID of the Form Type.
 	OriginDomainId pulumi.StringPtrInput
-	// Origin project id of the Form Type.
+	// Origin project ID of the Form Type.
 	OriginProjectId pulumi.StringPtrInput
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier pulumi.StringPtrInput
@@ -461,12 +461,12 @@ func (o FormTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Origin domain id of the Form Type.
+// Origin domain ID of the Form Type.
 func (o FormTypeOutput) OriginDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.OriginDomainId }).(pulumi.StringOutput)
 }
 
-// Origin project id of the Form Type.
+// Origin project ID of the Form Type.
 func (o FormTypeOutput) OriginProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.OriginProjectId }).(pulumi.StringOutput)
 }

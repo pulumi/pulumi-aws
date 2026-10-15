@@ -31,9 +31,9 @@ class MultiplexProgramArgs:
 
         :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
         :param pulumi.Input[_builtins.str] program_name: Unique program name.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
                
                The following arguments are optional:
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See `multiplex_program_settings` Block for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "multiplex_id", multiplex_id)
@@ -62,6 +62,8 @@ class MultiplexProgramArgs:
     def program_name(self) -> pulumi.Input[_builtins.str]:
         """
         Unique program name.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "program_name")
 
@@ -73,9 +75,7 @@ class MultiplexProgramArgs:
     @pulumi.getter(name="multiplexProgramSettings")
     def multiplex_program_settings(self) -> pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsArgs']]:
         """
-        MultiplexProgram settings. See Multiplex Program Settings for more details.
-
-        The following arguments are optional:
+        MultiplexProgram settings. See `multiplex_program_settings` Block for more details.
         """
         return pulumi.get(self, "multiplex_program_settings")
 
@@ -117,10 +117,10 @@ class _MultiplexProgramState:
         Input properties used for looking up and filtering MultiplexProgram resources.
 
         :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See `multiplex_program_settings` Block for more details.
+        :param pulumi.Input[_builtins.str] program_name: Unique program name.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] program_name: Unique program name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if multiplex_id is not None:
@@ -150,9 +150,7 @@ class _MultiplexProgramState:
     @pulumi.getter(name="multiplexProgramSettings")
     def multiplex_program_settings(self) -> pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsArgs']]:
         """
-        MultiplexProgram settings. See Multiplex Program Settings for more details.
-
-        The following arguments are optional:
+        MultiplexProgram settings. See `multiplex_program_settings` Block for more details.
         """
         return pulumi.get(self, "multiplex_program_settings")
 
@@ -165,6 +163,8 @@ class _MultiplexProgramState:
     def program_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique program name.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "program_name")
 
@@ -270,10 +270,10 @@ class MultiplexProgram(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
-        :param pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict', 'outputs.MultiplexProgramMultiplexProgramSettings']] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
+        :param pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict', 'outputs.MultiplexProgramMultiplexProgramSettings']] multiplex_program_settings: MultiplexProgram settings. See `multiplex_program_settings` Block for more details.
+        :param pulumi.Input[_builtins.str] program_name: Unique program name.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] program_name: Unique program name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -404,10 +404,10 @@ class MultiplexProgram(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
-        :param pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict', 'outputs.MultiplexProgramMultiplexProgramSettings']] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
+        :param pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict', 'outputs.MultiplexProgramMultiplexProgramSettings']] multiplex_program_settings: MultiplexProgram settings. See `multiplex_program_settings` Block for more details.
+        :param pulumi.Input[_builtins.str] program_name: Unique program name.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] program_name: Unique program name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -433,9 +433,7 @@ class MultiplexProgram(pulumi.CustomResource):
     @pulumi.getter(name="multiplexProgramSettings")
     def multiplex_program_settings(self) -> pulumi.Output[Optional['outputs.MultiplexProgramMultiplexProgramSettings']]:
         """
-        MultiplexProgram settings. See Multiplex Program Settings for more details.
-
-        The following arguments are optional:
+        MultiplexProgram settings. See `multiplex_program_settings` Block for more details.
         """
         return pulumi.get(self, "multiplex_program_settings")
 
@@ -444,6 +442,8 @@ class MultiplexProgram(pulumi.CustomResource):
     def program_name(self) -> pulumi.Output[_builtins.str]:
         """
         Unique program name.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "program_name")
 

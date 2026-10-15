@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshift/hsmConfiguration:HsmConfiguration")
 public class HsmConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the Hsm Client Certificate.
+     * ARN of the HSM Client Certificate.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the Hsm Client Certificate.
+     * @return ARN of the HSM Client Certificate.
      * 
      */
     public Output<String> arn() {

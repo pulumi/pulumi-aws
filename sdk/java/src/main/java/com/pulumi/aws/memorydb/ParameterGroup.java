@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:memorydb/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the parameter group.
+     * ARN of the parameter group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the parameter group.
+     * @return ARN of the parameter group.
      * 
      */
     public Output<String> arn() {
@@ -101,7 +101,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The engine version that the parameter group can be used with.
+     * Engine version that the parameter group can be used with.
      * 
      * The following arguments are optional:
      * 
@@ -110,7 +110,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
     private Output<String> family;
 
     /**
-     * @return The engine version that the parameter group can be used with.
+     * @return Engine version that the parameter group can be used with.
      * 
      * The following arguments are optional:
      * 
@@ -175,28 +175,28 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

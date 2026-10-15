@@ -30,13 +30,13 @@ class MemberArgs:
         """
         The set of arguments for constructing a Member resource.
 
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
-        :param pulumi.Input[_builtins.str] email: The email address for the account.
-        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-        :param pulumi.Input[_builtins.str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-        :param pulumi.Input[_builtins.bool] invite: Send an invitation to a member
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the account.
+        :param pulumi.Input[_builtins.str] email: Email address for the account.
+        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[_builtins.str] invitation_message: Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[_builtins.bool] invite: Whether to send an invitation to a member.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -58,7 +58,7 @@ class MemberArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The AWS account ID for the account.
+        AWS account ID for the account.
         """
         return pulumi.get(self, "account_id")
 
@@ -70,7 +70,7 @@ class MemberArgs:
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
         """
-        The email address for the account.
+        Email address for the account.
         """
         return pulumi.get(self, "email")
 
@@ -82,7 +82,7 @@ class MemberArgs:
     @pulumi.getter(name="invitationDisableEmailNotification")
     def invitation_disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         """
         return pulumi.get(self, "invitation_disable_email_notification")
 
@@ -94,7 +94,7 @@ class MemberArgs:
     @pulumi.getter(name="invitationMessage")
     def invitation_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+        Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         """
         return pulumi.get(self, "invitation_message")
 
@@ -106,7 +106,7 @@ class MemberArgs:
     @pulumi.getter
     def invite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Send an invitation to a member
+        Whether to send an invitation to a member.
         """
         return pulumi.get(self, "invite")
 
@@ -130,7 +130,7 @@ class MemberArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -172,20 +172,21 @@ class _MemberState:
         """
         Input properties used for looking up and filtering Member resources.
 
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the administrator account.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the account.
+        :param pulumi.Input[_builtins.str] administrator_account_id: AWS account ID for the administrator account.
         :param pulumi.Input[_builtins.str] arn: ARN of the account.
-        :param pulumi.Input[_builtins.str] email: The email address for the account.
-        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-        :param pulumi.Input[_builtins.str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-        :param pulumi.Input[_builtins.bool] invite: Send an invitation to a member
-        :param pulumi.Input[_builtins.str] invited_at: The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
+        :param pulumi.Input[_builtins.str] email: Email address for the account.
+        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[_builtins.str] invitation_message: Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[_builtins.bool] invite: Whether to send an invitation to a member.
+        :param pulumi.Input[_builtins.str] invited_at: Date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
+        :param pulumi.Input[_builtins.str] master_account_id: AWS account ID for the master account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: The current status of the relationship between the account and the administrator account.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] relationship_status: Current status of the relationship between the account and the administrator account.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -222,7 +223,7 @@ class _MemberState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the account.
+        AWS account ID for the account.
         """
         return pulumi.get(self, "account_id")
 
@@ -234,7 +235,7 @@ class _MemberState:
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the administrator account.
+        AWS account ID for the administrator account.
         """
         return pulumi.get(self, "administrator_account_id")
 
@@ -258,7 +259,7 @@ class _MemberState:
     @pulumi.getter
     def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The email address for the account.
+        Email address for the account.
         """
         return pulumi.get(self, "email")
 
@@ -270,7 +271,7 @@ class _MemberState:
     @pulumi.getter(name="invitationDisableEmailNotification")
     def invitation_disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         """
         return pulumi.get(self, "invitation_disable_email_notification")
 
@@ -282,7 +283,7 @@ class _MemberState:
     @pulumi.getter(name="invitationMessage")
     def invitation_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+        Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         """
         return pulumi.get(self, "invitation_message")
 
@@ -294,7 +295,7 @@ class _MemberState:
     @pulumi.getter
     def invite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Send an invitation to a member
+        Whether to send an invitation to a member.
         """
         return pulumi.get(self, "invite")
 
@@ -306,7 +307,7 @@ class _MemberState:
     @pulumi.getter(name="invitedAt")
     def invited_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
+        Date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
         """
         return pulumi.get(self, "invited_at")
 
@@ -317,6 +318,9 @@ class _MemberState:
     @_builtins.property
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        AWS account ID for the master account.
+        """
         return pulumi.get(self, "master_account_id")
 
     @master_account_id.setter
@@ -339,7 +343,7 @@ class _MemberState:
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The current status of the relationship between the account and the administrator account.
+        Current status of the relationship between the account and the administrator account.
         """
         return pulumi.get(self, "relationship_status")
 
@@ -351,7 +355,7 @@ class _MemberState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -375,7 +379,7 @@ class _MemberState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -387,7 +391,7 @@ class _MemberState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
+        Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         """
         return pulumi.get(self, "updated_at")
 
@@ -441,13 +445,13 @@ class Member(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
-        :param pulumi.Input[_builtins.str] email: The email address for the account.
-        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-        :param pulumi.Input[_builtins.str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-        :param pulumi.Input[_builtins.bool] invite: Send an invitation to a member
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the account.
+        :param pulumi.Input[_builtins.str] email: Email address for the account.
+        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[_builtins.str] invitation_message: Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[_builtins.bool] invite: Whether to send an invitation to a member.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -567,20 +571,21 @@ class Member(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the administrator account.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the account.
+        :param pulumi.Input[_builtins.str] administrator_account_id: AWS account ID for the administrator account.
         :param pulumi.Input[_builtins.str] arn: ARN of the account.
-        :param pulumi.Input[_builtins.str] email: The email address for the account.
-        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-        :param pulumi.Input[_builtins.str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-        :param pulumi.Input[_builtins.bool] invite: Send an invitation to a member
-        :param pulumi.Input[_builtins.str] invited_at: The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
+        :param pulumi.Input[_builtins.str] email: Email address for the account.
+        :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[_builtins.str] invitation_message: Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[_builtins.bool] invite: Whether to send an invitation to a member.
+        :param pulumi.Input[_builtins.str] invited_at: Date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
+        :param pulumi.Input[_builtins.str] master_account_id: AWS account ID for the master account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: The current status of the relationship between the account and the administrator account.
-        :param pulumi.Input[_builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        :param pulumi.Input[_builtins.str] relationship_status: Current status of the relationship between the account and the administrator account.
+        :param pulumi.Input[_builtins.str] status: Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -607,7 +612,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID for the account.
+        AWS account ID for the account.
         """
         return pulumi.get(self, "account_id")
 
@@ -615,7 +620,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID for the administrator account.
+        AWS account ID for the administrator account.
         """
         return pulumi.get(self, "administrator_account_id")
 
@@ -631,7 +636,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
         """
-        The email address for the account.
+        Email address for the account.
         """
         return pulumi.get(self, "email")
 
@@ -639,7 +644,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="invitationDisableEmailNotification")
     def invitation_disable_email_notification(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        Whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         """
         return pulumi.get(self, "invitation_disable_email_notification")
 
@@ -647,7 +652,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="invitationMessage")
     def invitation_message(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
+        Custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         """
         return pulumi.get(self, "invitation_message")
 
@@ -655,7 +660,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter
     def invite(self) -> pulumi.Output[_builtins.bool]:
         """
-        Send an invitation to a member
+        Whether to send an invitation to a member.
         """
         return pulumi.get(self, "invite")
 
@@ -663,13 +668,16 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="invitedAt")
     def invited_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
+        Date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
         """
         return pulumi.get(self, "invited_at")
 
     @_builtins.property
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID for the master account.
+        """
         return pulumi.get(self, "master_account_id")
 
     @_builtins.property
@@ -684,7 +692,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The current status of the relationship between the account and the administrator account.
+        Current status of the relationship between the account and the administrator account.
         """
         return pulumi.get(self, "relationship_status")
 
@@ -692,7 +700,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -708,7 +716,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -716,7 +724,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
+        Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         """
         return pulumi.get(self, "updated_at")
 

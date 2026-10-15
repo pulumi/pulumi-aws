@@ -26,7 +26,7 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
      */
     private String mapBlockKey;
     /**
-     * @return Whether the parameter is required for the agent to complete the function for action group invocation.
+     * @return Whether to require the parameter for the agent to complete the function for action group invocation.
      * 
      */
     private @Nullable Boolean required;
@@ -54,7 +54,7 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
         return this.mapBlockKey;
     }
     /**
-     * @return Whether the parameter is required for the agent to complete the function for action group invocation.
+     * @return Whether to require the parameter for the agent to complete the function for action group invocation.
      * 
      */
     public Optional<Boolean> required() {

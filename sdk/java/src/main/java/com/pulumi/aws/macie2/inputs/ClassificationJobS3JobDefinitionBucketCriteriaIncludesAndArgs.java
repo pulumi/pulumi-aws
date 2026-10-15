@@ -17,14 +17,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
     public static final ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs();
 
     /**
-     * A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+     * Property-based condition that defines a property, operator, and one or more values for including or excluding an S3 bucket from the job. See `includes.simple_criterion` Block for details.
      * 
      */
     @Import(name="simpleCriterion")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs> simpleCriterion;
 
     /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+     * @return Property-based condition that defines a property, operator, and one or more values for including or excluding an S3 bucket from the job. See `includes.simple_criterion` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs>> simpleCriterion() {
@@ -32,14 +32,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
     }
 
     /**
-     * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+     * Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 bucket from the job. See `includes.tag_criterion` Block for details.
      * 
      */
     @Import(name="tagCriterion")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs> tagCriterion;
 
     /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+     * @return Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 bucket from the job. See `includes.tag_criterion` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs>> tagCriterion() {
@@ -72,7 +72,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
         }
 
         /**
-         * @param simpleCriterion A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+         * @param simpleCriterion Property-based condition that defines a property, operator, and one or more values for including or excluding an S3 bucket from the job. See `includes.simple_criterion` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
         }
 
         /**
-         * @param simpleCriterion A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+         * @param simpleCriterion Property-based condition that defines a property, operator, and one or more values for including or excluding an S3 bucket from the job. See `includes.simple_criterion` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
         }
 
         /**
-         * @param tagCriterion A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+         * @param tagCriterion Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 bucket from the job. See `includes.tag_criterion` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
         }
 
         /**
-         * @param tagCriterion A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+         * @param tagCriterion Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 bucket from the job. See `includes.tag_criterion` Block for details.
          * 
          * @return builder
          * 

@@ -402,7 +402,7 @@ class Workspace(pulumi.CustomResource):
                  workspace_properties: pulumi.Input[Optional[Union['WorkspaceWorkspacePropertiesArgs', 'WorkspaceWorkspacePropertiesArgsDict', 'outputs.WorkspaceWorkspaceProperties']]] = None,
                  __props__=None):
         """
-        Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
+        Provides a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
 
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 
@@ -435,7 +435,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Workspaces using their ID. For example:
+        Using `pulumi import`, import WorkSpaces using their ID. For example:
 
         ```sh
         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
@@ -461,7 +461,7 @@ class Workspace(pulumi.CustomResource):
                  args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
+        Provides a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
 
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 
@@ -494,7 +494,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Workspaces using their ID. For example:
+        Using `pulumi import`, import WorkSpaces using their ID. For example:
 
         ```sh
         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv

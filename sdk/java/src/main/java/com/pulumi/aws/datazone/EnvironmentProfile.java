@@ -189,14 +189,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datazone/environmentProfile:EnvironmentProfile")
 public class EnvironmentProfile extends com.pulumi.resources.CustomResource {
     /**
-     * Id of the AWS account being used.
+     * ID of the AWS account being used.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
-     * @return Id of the AWS account being used.
+     * @return ID of the AWS account being used.
      * 
      */
     public Output<String> awsAccountId() {

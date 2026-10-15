@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<bool>? AllowSingleColumn { get; set; }
 
         /// <summary>
-        /// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+        /// Whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
         /// </summary>
         [Input("containsHeader")]
         public Input<string>? ContainsHeader { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _customDatatypes;
 
         /// <summary>
-        /// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+        /// List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
         /// </summary>
         public InputList<string> CustomDatatypes
         {
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The delimiter used in the CSV to separate columns.
+        /// Delimiter used in the CSV to separate columns.
         /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
         /// <summary>
-        /// Specifies whether to trim column values.
+        /// Whether to trim column values.
         /// </summary>
         [Input("disableValueTrimming")]
         public Input<bool>? DisableValueTrimming { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _headers;
 
         /// <summary>
-        /// A list of strings representing column names.
+        /// List of strings representing column names.
         /// </summary>
         public InputList<string> Headers
         {
@@ -67,13 +67,13 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        /// Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         /// </summary>
         [Input("quoteSymbol")]
         public Input<string>? QuoteSymbol { get; set; }
 
         /// <summary>
-        /// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+        /// SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
         /// </summary>
         [Input("serde")]
         public Input<string>? Serde { get; set; }

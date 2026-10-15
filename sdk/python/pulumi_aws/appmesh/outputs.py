@@ -2059,7 +2059,7 @@ class RouteSpec(dict):
                  priority: Optional[_builtins.int] = None,
                  tcp_route: Optional['outputs.RouteSpecTcpRoute'] = None):
         """
-        :param 'RouteSpecGrpcRouteArgs' grpc_route: GRPC routing information for the route. See `spec.grpc_route` Block for details.
+        :param 'RouteSpecGrpcRouteArgs' grpc_route: gRPC routing information for the route. See `spec.grpc_route` Block for details.
         :param 'RouteSpecHttp2RouteArgs' http2_route: HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
         :param 'RouteSpecHttpRouteArgs' http_route: HTTP routing information for the route. See `spec.http_route` Block for details.
         :param _builtins.int priority: Priority for the route, between `0` and `1000`. Routes are matched based on the specified value, where `0` is the highest priority.
@@ -2080,7 +2080,7 @@ class RouteSpec(dict):
     @pulumi.getter(name="grpcRoute")
     def grpc_route(self) -> Optional['outputs.RouteSpecGrpcRoute']:
         """
-        GRPC routing information for the route. See `spec.grpc_route` Block for details.
+        gRPC routing information for the route. See `spec.grpc_route` Block for details.
         """
         return pulumi.get(self, "grpc_route")
 

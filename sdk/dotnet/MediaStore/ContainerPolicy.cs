@@ -99,13 +99,13 @@ namespace Pulumi.Aws.MediaStore
     public partial class ContainerPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the container.
+        /// Name of the container.
         /// </summary>
         [Output("containerName")]
         public Output<string> ContainerName { get; private set; } = null!;
 
         /// <summary>
-        /// The contents of the policy.
+        /// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.Aws.MediaStore
     public sealed class ContainerPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the container.
+        /// Name of the container.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The contents of the policy.
+        /// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -189,13 +189,13 @@ namespace Pulumi.Aws.MediaStore
     public sealed class ContainerPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the container.
+        /// Name of the container.
         /// </summary>
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
-        /// The contents of the policy.
+        /// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

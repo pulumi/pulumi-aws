@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<string>? _adMarkers;
 
         /// <summary>
-        /// The ad marker type for this output group.
+        /// List of ad markers for this output group.
         /// </summary>
         public InputList<string> AdMarkers
         {
@@ -25,31 +25,31 @@ namespace Pulumi.Aws.MediaLive.Inputs
         }
 
         /// <summary>
-        /// Authentication scheme to use when connecting with CDN.
+        /// Authentication scheme to use when connecting with the CDN.
         /// </summary>
         [Input("authenticationScheme")]
         public Input<string>? AuthenticationScheme { get; set; }
 
         /// <summary>
-        /// Controls behavior when content cache fills up.
+        /// Behavior when the content cache fills up.
         /// </summary>
         [Input("cacheFullBehavior")]
         public Input<string>? CacheFullBehavior { get; set; }
 
         /// <summary>
-        /// Cache length in seconds, is used to calculate buffer size.
+        /// Cache length, in seconds, used to calculate buffer size.
         /// </summary>
         [Input("cacheLength")]
         public Input<int>? CacheLength { get; set; }
 
         /// <summary>
-        /// Controls the types of data that passes to onCaptionInfo outputs.
+        /// Controls the types of data that pass to `onCaptionInfo` outputs.
         /// </summary>
         [Input("captionData")]
         public Input<string>? CaptionData { get; set; }
 
         /// <summary>
-        /// Controls the behavior of the RTMP group if input becomes unavailable.
+        /// Behavior of the RTMP group if the input becomes unavailable.
         /// </summary>
         [Input("inputLossAction")]
         public Input<string>? InputLossAction { get; set; }

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? CredentialPrefix { get; set; }
 
         /// <summary>
-        /// ARN of the OIDC provider for API key authentication.
+        /// ARN of the API key credential provider.
         /// </summary>
         [Input("providerArn", required: true)]
         public Input<string> ProviderArn { get; set; } = null!;

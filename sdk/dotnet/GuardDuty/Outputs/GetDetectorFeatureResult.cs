@@ -18,7 +18,7 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDetectorFeatureAdditionalConfigurationResult> AdditionalConfigurations;
         /// <summary>
-        /// The name of the detector feature.
+        /// Name of the detector feature.
         /// </summary>
         public readonly string Name;
         /// <summary>

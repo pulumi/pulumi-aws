@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ChannelHlsIngest struct {
-	// A list of the ingest endpoints
+	// List of the ingest endpoints
 	IngestEndpoints []ChannelHlsIngestIngestEndpoint `pulumi:"ingestEndpoints"`
 }
 
@@ -30,7 +30,7 @@ type ChannelHlsIngestInput interface {
 }
 
 type ChannelHlsIngestArgs struct {
-	// A list of the ingest endpoints
+	// List of the ingest endpoints
 	IngestEndpoints ChannelHlsIngestIngestEndpointArrayInput `pulumi:"ingestEndpoints"`
 }
 
@@ -85,7 +85,7 @@ func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutputWithContext(ctx context.
 	return o
 }
 
-// A list of the ingest endpoints
+// List of the ingest endpoints
 func (o ChannelHlsIngestOutput) IngestEndpoints() ChannelHlsIngestIngestEndpointArrayOutput {
 	return o.ApplyT(func(v ChannelHlsIngest) []ChannelHlsIngestIngestEndpoint { return v.IngestEndpoints }).(ChannelHlsIngestIngestEndpointArrayOutput)
 }
@@ -111,11 +111,11 @@ func (o ChannelHlsIngestArrayOutput) Index(i pulumi.IntInput) ChannelHlsIngestOu
 }
 
 type ChannelHlsIngestIngestEndpoint struct {
-	// The password
+	// Password
 	Password *string `pulumi:"password"`
-	// The URL
+	// URL
 	Url *string `pulumi:"url"`
-	// The username
+	// Username
 	Username *string `pulumi:"username"`
 }
 
@@ -131,11 +131,11 @@ type ChannelHlsIngestIngestEndpointInput interface {
 }
 
 type ChannelHlsIngestIngestEndpointArgs struct {
-	// The password
+	// Password
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The URL
+	// URL
 	Url pulumi.StringPtrInput `pulumi:"url"`
-	// The username
+	// Username
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -190,17 +190,17 @@ func (o ChannelHlsIngestIngestEndpointOutput) ToChannelHlsIngestIngestEndpointOu
 	return o
 }
 
-// The password
+// Password
 func (o ChannelHlsIngestIngestEndpointOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelHlsIngestIngestEndpoint) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The URL
+// URL
 func (o ChannelHlsIngestIngestEndpointOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelHlsIngestIngestEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// The username
+// Username
 func (o ChannelHlsIngestIngestEndpointOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelHlsIngestIngestEndpoint) *string { return v.Username }).(pulumi.StringPtrOutput)
 }

@@ -57,17 +57,17 @@ type LookupCatalogTableArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table.
 	Name string `pulumi:"name"`
-	// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+	// Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
 	QueryAsOfTime *string `pulumi:"queryAsOfTime"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The transaction ID at which to read the table contents.
+	// Transaction ID at which to read the table contents.
 	TransactionId *int `pulumi:"transactionId"`
 }
 
 // A collection of values returned by getCatalogTable.
 type LookupCatalogTableResult struct {
-	// The ARN of the Glue Table.
+	// ARN of the Glue Table.
 	Arn string `pulumi:"arn"`
 	// ID of the Data Catalog in which the table resides.
 	CatalogId string `pulumi:"catalogId"`
@@ -118,11 +118,11 @@ type LookupCatalogTableOutputArgs struct {
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+	// Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
 	QueryAsOfTime pulumi.StringPtrInput `pulumi:"queryAsOfTime"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The transaction ID at which to read the table contents.
+	// Transaction ID at which to read the table contents.
 	TransactionId pulumi.IntPtrInput `pulumi:"transactionId"`
 }
 
@@ -145,7 +145,7 @@ func (o LookupCatalogTableResultOutput) ToLookupCatalogTableResultOutputWithCont
 	return o
 }
 
-// The ARN of the Glue Table.
+// ARN of the Glue Table.
 func (o LookupCatalogTableResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCatalogTableResult) string { return v.Arn }).(pulumi.StringOutput)
 }

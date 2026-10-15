@@ -49,14 +49,14 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * DHCP options id of the desired VPC.
+     * DHCP options ID of the desired VPC.
      * 
      */
     @Import(name="dhcpOptionsId")
     private @Nullable String dhcpOptionsId;
 
     /**
-     * @return DHCP options id of the desired VPC.
+     * @return DHCP options ID of the desired VPC.
      * 
      */
     public Optional<String> dhcpOptionsId() {
@@ -192,7 +192,7 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dhcpOptionsId DHCP options id of the desired VPC.
+         * @param dhcpOptionsId DHCP options ID of the desired VPC.
          * 
          * @return builder
          * 

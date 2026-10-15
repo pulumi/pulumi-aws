@@ -15,14 +15,14 @@ public final class ServerlessClusterClientAuthenticationSaslArgs extends com.pul
     public static final ServerlessClusterClientAuthenticationSaslArgs Empty = new ServerlessClusterClientAuthenticationSaslArgs();
 
     /**
-     * Details for client authentication using IAM. See below.
+     * Details for client authentication using IAM. See `iam` Block below.
      * 
      */
     @Import(name="iam", required=true)
     private Output<ServerlessClusterClientAuthenticationSaslIamArgs> iam;
 
     /**
-     * @return Details for client authentication using IAM. See below.
+     * @return Details for client authentication using IAM. See `iam` Block below.
      * 
      */
     public Output<ServerlessClusterClientAuthenticationSaslIamArgs> iam() {
@@ -54,7 +54,7 @@ public final class ServerlessClusterClientAuthenticationSaslArgs extends com.pul
         }
 
         /**
-         * @param iam Details for client authentication using IAM. See below.
+         * @param iam Details for client authentication using IAM. See `iam` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ServerlessClusterClientAuthenticationSaslArgs extends com.pul
         }
 
         /**
-         * @param iam Details for client authentication using IAM. See below.
+         * @param iam Details for client authentication using IAM. See `iam` Block below.
          * 
          * @return builder
          * 

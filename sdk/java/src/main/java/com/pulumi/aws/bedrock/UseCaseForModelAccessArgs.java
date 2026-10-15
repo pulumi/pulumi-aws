@@ -17,16 +17,12 @@ public final class UseCaseForModelAccessArgs extends com.pulumi.resources.Resour
     /**
      * Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="formData", required=true)
     private Output<String> formData;
 
     /**
      * @return Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> formData() {
@@ -60,8 +56,6 @@ public final class UseCaseForModelAccessArgs extends com.pulumi.resources.Resour
         /**
          * @param formData Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -72,8 +66,6 @@ public final class UseCaseForModelAccessArgs extends com.pulumi.resources.Resour
 
         /**
          * @param formData Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -93,14 +93,14 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     * Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      * 
      */
     @Import(name="zipFile")
     private @Nullable Output<String> zipFile;
 
     /**
-     * @return A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     * @return Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      * 
      */
     public Optional<Output<String>> zipFile() {
@@ -242,7 +242,7 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zipFile A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+         * @param zipFile Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zipFile A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+         * @param zipFile Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
          * 
          * @return builder
          * 

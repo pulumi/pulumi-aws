@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Workspaces
 {
     /// <summary>
-    /// Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
+    /// Provides a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
     /// 
     /// &gt; **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
     /// 
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Workspaces using their ID. For example:
+    /// Using `pulumi import`, import WorkSpaces using their ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult
     {
+        /// <summary>
+        /// Client authentication configuration for VPC connectivity. See `ClientAuthentication` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult> ClientAuthentications;
 
         [OutputConstructor]

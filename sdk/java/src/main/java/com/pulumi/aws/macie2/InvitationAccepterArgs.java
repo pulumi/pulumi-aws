@@ -17,14 +17,14 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
     public static final InvitationAccepterArgs Empty = new InvitationAccepterArgs();
 
     /**
-     * The AWS account ID for the account that sent the invitation.
+     * AWS account ID for the account that sent the invitation.
      * 
      */
     @Import(name="administratorAccountId", required=true)
     private Output<String> administratorAccountId;
 
     /**
-     * @return The AWS account ID for the account that sent the invitation.
+     * @return AWS account ID for the account that sent the invitation.
      * 
      */
     public Output<String> administratorAccountId() {
@@ -72,7 +72,7 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
+         * @param administratorAccountId AWS account ID for the account that sent the invitation.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
+         * @param administratorAccountId AWS account ID for the account that sent the invitation.
          * 
          * @return builder
          * 

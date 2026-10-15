@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// ### Usage with subnet id
+    /// ### Usage with subnet ID
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

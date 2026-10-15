@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
+ * Provides an Application Auto Scaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
  *
  * > **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `defaultTags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.
  *
@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### DynamoDB Table Autoscaling
+ * ### DynamoDB Table AutoScaling
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### DynamoDB Index Autoscaling
+ * ### DynamoDB Index AutoScaling
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### ECS Service Autoscaling
+ * ### ECS Service AutoScaling
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Aurora Read Replica Autoscaling
+ * ### Aurora Read Replica AutoScaling
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
+ * Using `pulumi import`, import Application Auto Scaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
  *
  * ```sh
  * $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
@@ -178,7 +178,7 @@ export class Target extends pulumi.CustomResource {
      */
     declare public readonly resourceId: pulumi.Output<string>;
     /**
-     * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
+     * ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -285,7 +285,7 @@ export interface TargetState {
      */
     resourceId?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
+     * ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -331,7 +331,7 @@ export interface TargetArgs {
      */
     resourceId: pulumi.Input<string>;
     /**
-     * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
+     * ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**

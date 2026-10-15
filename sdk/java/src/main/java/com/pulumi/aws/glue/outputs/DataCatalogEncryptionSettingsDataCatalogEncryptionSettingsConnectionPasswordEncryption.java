@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
     /**
-     * @return A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+     * @return KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
      * 
      */
     private @Nullable String awsKmsKeyId;
@@ -26,7 +26,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsCon
 
     private DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption() {}
     /**
-     * @return A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+     * @return KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
      * 
      */
     public Optional<String> awsKmsKeyId() {

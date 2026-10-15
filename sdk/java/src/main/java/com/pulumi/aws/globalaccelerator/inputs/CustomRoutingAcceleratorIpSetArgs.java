@@ -17,14 +17,14 @@ public final class CustomRoutingAcceleratorIpSetArgs extends com.pulumi.resource
     public static final CustomRoutingAcceleratorIpSetArgs Empty = new CustomRoutingAcceleratorIpSetArgs();
 
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
     /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * @return IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     public Optional<Output<List<String>>> ipAddresses() {
@@ -32,14 +32,14 @@ public final class CustomRoutingAcceleratorIpSetArgs extends com.pulumi.resource
     }
 
     /**
-     * The type of IP addresses included in this IP set.
+     * Type of IP addresses included in this IP set.
      * 
      */
     @Import(name="ipFamily")
     private @Nullable Output<String> ipFamily;
 
     /**
-     * @return The type of IP addresses included in this IP set.
+     * @return Type of IP addresses included in this IP set.
      * 
      */
     public Optional<Output<String>> ipFamily() {
@@ -72,7 +72,7 @@ public final class CustomRoutingAcceleratorIpSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CustomRoutingAcceleratorIpSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class CustomRoutingAcceleratorIpSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CustomRoutingAcceleratorIpSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ipFamily The type of IP addresses included in this IP set.
+         * @param ipFamily Type of IP addresses included in this IP set.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class CustomRoutingAcceleratorIpSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ipFamily The type of IP addresses included in this IP set.
+         * @param ipFamily Type of IP addresses included in this IP set.
          * 
          * @return builder
          * 

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// Name of the service that hosts the MongoDB Atlas database.
+        /// Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
         /// </summary>
         public readonly string? EndpointServiceName;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping FieldMapping;
         /// <summary>
-        /// Name of the vector index.
+        /// Name of the text search index in the MongoDB collection. Required for hybrid search.
         /// </summary>
         public readonly string? TextIndexName;
         /// <summary>

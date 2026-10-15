@@ -2979,9 +2979,9 @@ type DistributionDefaultCacheBehavior struct {
 	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
 	ForwardedValues *DistributionDefaultCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
-	// A config block that triggers a cloudfront function with specific actions (maximum 2).
+	// A config block that triggers a CloudFront function with specific actions (maximum 2).
 	FunctionAssociations []DistributionDefaultCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
-	// A config block that sets the grpc config.
+	// A config block that sets the gRPC config.
 	GrpcConfig *DistributionDefaultCacheBehaviorGrpcConfig `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionDefaultCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
@@ -3033,9 +3033,9 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
 	ForwardedValues DistributionDefaultCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
-	// A config block that triggers a cloudfront function with specific actions (maximum 2).
+	// A config block that triggers a CloudFront function with specific actions (maximum 2).
 	FunctionAssociations DistributionDefaultCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
-	// A config block that sets the grpc config.
+	// A config block that sets the gRPC config.
 	GrpcConfig DistributionDefaultCacheBehaviorGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
@@ -3175,14 +3175,14 @@ func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionDe
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
 }
 
-// A config block that triggers a cloudfront function with specific actions (maximum 2).
+// A config block that triggers a CloudFront function with specific actions (maximum 2).
 func (o DistributionDefaultCacheBehaviorOutput) FunctionAssociations() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorFunctionAssociation {
 		return v.FunctionAssociations
 	}).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
 }
 
-// A config block that sets the grpc config.
+// A config block that sets the gRPC config.
 func (o DistributionDefaultCacheBehaviorOutput) GrpcConfig() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehaviorGrpcConfig {
 		return v.GrpcConfig
@@ -3340,7 +3340,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() Distributio
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
 }
 
-// A config block that triggers a cloudfront function with specific actions (maximum 2).
+// A config block that triggers a CloudFront function with specific actions (maximum 2).
 func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorFunctionAssociation {
 		if v == nil {
@@ -3350,7 +3350,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() Distri
 	}).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
 }
 
-// A config block that sets the grpc config.
+// A config block that sets the gRPC config.
 func (o DistributionDefaultCacheBehaviorPtrOutput) GrpcConfig() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehaviorGrpcConfig {
 		if v == nil {
@@ -3826,6 +3826,8 @@ type DistributionDefaultCacheBehaviorFunctionAssociation struct {
 	// Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
 	EventType string `pulumi:"eventType"`
 	// ARN of the CloudFront function.
+	//
+	// #### `GRPC` config arguments
 	FunctionArn string `pulumi:"functionArn"`
 }
 
@@ -3844,6 +3846,8 @@ type DistributionDefaultCacheBehaviorFunctionAssociationArgs struct {
 	// Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
 	EventType pulumi.StringInput `pulumi:"eventType"`
 	// ARN of the CloudFront function.
+	//
+	// #### `GRPC` config arguments
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -3904,6 +3908,8 @@ func (o DistributionDefaultCacheBehaviorFunctionAssociationOutput) EventType() p
 }
 
 // ARN of the CloudFront function.
+//
+// #### `GRPC` config arguments
 func (o DistributionDefaultCacheBehaviorFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehaviorFunctionAssociation) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -4370,9 +4376,9 @@ type DistributionOrderedCacheBehavior struct {
 	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
 	ForwardedValues *DistributionOrderedCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
-	// A config block that triggers a cloudfront function with specific actions (maximum 2).
+	// A config block that triggers a CloudFront function with specific actions (maximum 2).
 	FunctionAssociations []DistributionOrderedCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
-	// A config block that sets the grpc config.
+	// A config block that sets the gRPC config.
 	GrpcConfig *DistributionOrderedCacheBehaviorGrpcConfig `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionOrderedCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
@@ -4426,9 +4432,9 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
 	// The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
 	ForwardedValues DistributionOrderedCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
-	// A config block that triggers a cloudfront function with specific actions (maximum 2).
+	// A config block that triggers a CloudFront function with specific actions (maximum 2).
 	FunctionAssociations DistributionOrderedCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
-	// A config block that sets the grpc config.
+	// A config block that sets the gRPC config.
 	GrpcConfig DistributionOrderedCacheBehaviorGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
@@ -4544,14 +4550,14 @@ func (o DistributionOrderedCacheBehaviorOutput) ForwardedValues() DistributionOr
 	}).(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput)
 }
 
-// A config block that triggers a cloudfront function with specific actions (maximum 2).
+// A config block that triggers a CloudFront function with specific actions (maximum 2).
 func (o DistributionOrderedCacheBehaviorOutput) FunctionAssociations() DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []DistributionOrderedCacheBehaviorFunctionAssociation {
 		return v.FunctionAssociations
 	}).(DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput)
 }
 
-// A config block that sets the grpc config.
+// A config block that sets the gRPC config.
 func (o DistributionOrderedCacheBehaviorOutput) GrpcConfig() DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *DistributionOrderedCacheBehaviorGrpcConfig {
 		return v.GrpcConfig
@@ -4996,6 +5002,8 @@ type DistributionOrderedCacheBehaviorFunctionAssociation struct {
 	// Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
 	EventType string `pulumi:"eventType"`
 	// ARN of the CloudFront function.
+	//
+	// #### `GRPC` config arguments
 	FunctionArn string `pulumi:"functionArn"`
 }
 
@@ -5014,6 +5022,8 @@ type DistributionOrderedCacheBehaviorFunctionAssociationArgs struct {
 	// Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
 	EventType pulumi.StringInput `pulumi:"eventType"`
 	// ARN of the CloudFront function.
+	//
+	// #### `GRPC` config arguments
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -5074,6 +5084,8 @@ func (o DistributionOrderedCacheBehaviorFunctionAssociationOutput) EventType() p
 }
 
 // ARN of the CloudFront function.
+//
+// #### `GRPC` config arguments
 func (o DistributionOrderedCacheBehaviorFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehaviorFunctionAssociation) string { return v.FunctionArn }).(pulumi.StringOutput)
 }

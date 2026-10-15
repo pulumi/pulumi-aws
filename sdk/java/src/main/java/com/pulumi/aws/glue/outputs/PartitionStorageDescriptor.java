@@ -25,12 +25,12 @@ public final class PartitionStorageDescriptor {
      */
     private @Nullable List<String> additionalLocations;
     /**
-     * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+     * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
     private @Nullable List<String> bucketColumns;
     /**
-     * @return A list of the Columns in the table.
+     * @return List of the `columns` in the table.
      * 
      */
     private @Nullable List<PartitionStorageDescriptorColumn> columns;
@@ -40,12 +40,12 @@ public final class PartitionStorageDescriptor {
      */
     private @Nullable Boolean compressed;
     /**
-     * @return The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+     * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
     private @Nullable String inputFormat;
     /**
-     * @return The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+     * @return Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
     private @Nullable String location;
@@ -55,7 +55,7 @@ public final class PartitionStorageDescriptor {
      */
     private @Nullable Integer numberOfBuckets;
     /**
-     * @return The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+     * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
     private @Nullable String outputFormat;
@@ -75,7 +75,7 @@ public final class PartitionStorageDescriptor {
      */
     private @Nullable PartitionStorageDescriptorSkewedInfo skewedInfo;
     /**
-     * @return A list of Order objects specifying the sort order of each bucket in the table.
+     * @return List of `sortColumns` objects specifying the sort order of each bucket in the table.
      * 
      */
     private @Nullable List<PartitionStorageDescriptorSortColumn> sortColumns;
@@ -94,14 +94,14 @@ public final class PartitionStorageDescriptor {
         return this.additionalLocations == null ? List.of() : this.additionalLocations;
     }
     /**
-     * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+     * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
     public List<String> bucketColumns() {
         return this.bucketColumns == null ? List.of() : this.bucketColumns;
     }
     /**
-     * @return A list of the Columns in the table.
+     * @return List of the `columns` in the table.
      * 
      */
     public List<PartitionStorageDescriptorColumn> columns() {
@@ -115,14 +115,14 @@ public final class PartitionStorageDescriptor {
         return Optional.ofNullable(this.compressed);
     }
     /**
-     * @return The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+     * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
     public Optional<String> inputFormat() {
         return Optional.ofNullable(this.inputFormat);
     }
     /**
-     * @return The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+     * @return Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
     public Optional<String> location() {
@@ -136,7 +136,7 @@ public final class PartitionStorageDescriptor {
         return Optional.ofNullable(this.numberOfBuckets);
     }
     /**
-     * @return The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+     * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
     public Optional<String> outputFormat() {
@@ -164,7 +164,7 @@ public final class PartitionStorageDescriptor {
         return Optional.ofNullable(this.skewedInfo);
     }
     /**
-     * @return A list of Order objects specifying the sort order of each bucket in the table.
+     * @return List of `sortColumns` objects specifying the sort order of each bucket in the table.
      * 
      */
     public List<PartitionStorageDescriptorSortColumn> sortColumns() {

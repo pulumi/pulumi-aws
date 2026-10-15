@@ -33,14 +33,14 @@ public final class GetAgentAgentVersionsPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block.
      * 
      */
     @Import(name="agentVersionSummaries")
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries;
 
     /**
-     * @return List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
+     * @return List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block.
      * 
      */
     public Optional<List<GetAgentAgentVersionsAgentVersionSummary>> agentVersionSummaries() {
@@ -100,7 +100,7 @@ public final class GetAgentAgentVersionsPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
+         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class GetAgentAgentVersionsPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
+         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block.
          * 
          * @return builder
          * 

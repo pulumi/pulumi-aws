@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get a list of AWS Cloudwatch Log Groups
+// Use this data source to get a list of AWS CloudWatch Log Groups
 //
 // ## Example Usage
 //
@@ -50,7 +50,7 @@ func GetLogGroups(ctx *pulumi.Context, args *GetLogGroupsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLogGroups.
 type GetLogGroupsArgs struct {
-	// Group prefix of the Cloudwatch log groups to list
+	// Group prefix of the CloudWatch log groups to list
 	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -58,12 +58,12 @@ type GetLogGroupsArgs struct {
 
 // A collection of values returned by getLogGroups.
 type GetLogGroupsResult struct {
-	// Set of ARNs of the Cloudwatch log groups
+	// Set of ARNs of the CloudWatch log groups
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                 string  `pulumi:"id"`
 	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
-	// Set of names of the Cloudwatch log groups
+	// Set of names of the CloudWatch log groups
 	LogGroupNames []string `pulumi:"logGroupNames"`
 	Region        string   `pulumi:"region"`
 }
@@ -75,7 +75,7 @@ func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts .
 
 // A collection of arguments for invoking getLogGroups.
 type GetLogGroupsOutputArgs struct {
-	// Group prefix of the Cloudwatch log groups to list
+	// Group prefix of the CloudWatch log groups to list
 	LogGroupNamePrefix pulumi.StringPtrInput `pulumi:"logGroupNamePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -100,7 +100,7 @@ func (o GetLogGroupsResultOutput) ToGetLogGroupsResultOutputWithContext(ctx cont
 	return o
 }
 
-// Set of ARNs of the Cloudwatch log groups
+// Set of ARNs of the CloudWatch log groups
 func (o GetLogGroupsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLogGroupsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -114,7 +114,7 @@ func (o GetLogGroupsResultOutput) LogGroupNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLogGroupsResult) *string { return v.LogGroupNamePrefix }).(pulumi.StringPtrOutput)
 }
 
-// Set of names of the Cloudwatch log groups
+// Set of names of the CloudWatch log groups
 func (o GetLogGroupsResultOutput) LogGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLogGroupsResult) []string { return v.LogGroupNames }).(pulumi.StringArrayOutput)
 }

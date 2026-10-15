@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetStateMachineResult {
     /**
-     * @return Set to the arn of the state function.
+     * @return Set to the ARN of the state function.
      * 
      */
     private String arn;
@@ -51,7 +51,7 @@ public final class GetStateMachineResult {
 
     private GetStateMachineResult() {}
     /**
-     * @return Set to the arn of the state function.
+     * @return Set to the ARN of the state function.
      * 
      */
     public String arn() {

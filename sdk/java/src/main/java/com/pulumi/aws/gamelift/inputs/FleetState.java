@@ -156,9 +156,17 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.instanceRoleArn);
     }
 
+    /**
+     * List of paths from which the fleet captures logs.
+     * 
+     */
     @Import(name="logPaths")
     private @Nullable Output<List<String>> logPaths;
 
+    /**
+     * @return List of paths from which the fleet captures logs.
+     * 
+     */
     public Optional<Output<List<String>>> logPaths() {
         return Optional.ofNullable(this.logPaths);
     }
@@ -179,14 +187,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the fleet.
+     * Name of the fleet.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the fleet.
+     * @return Name of the fleet.
      * 
      */
     public Optional<Output<String>> name() {
@@ -314,14 +322,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -571,15 +579,33 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
             return instanceRoleArn(Output.of(instanceRoleArn));
         }
 
+        /**
+         * @param logPaths List of paths from which the fleet captures logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logPaths(@Nullable Output<List<String>> logPaths) {
             $.logPaths = logPaths;
             return this;
         }
 
+        /**
+         * @param logPaths List of paths from which the fleet captures logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logPaths(List<String> logPaths) {
             return logPaths(Output.of(logPaths));
         }
 
+        /**
+         * @param logPaths List of paths from which the fleet captures logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logPaths(String... logPaths) {
             return logPaths(List.of(logPaths));
         }
@@ -616,7 +642,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the fleet.
+         * @param name Name of the fleet.
          * 
          * @return builder
          * 
@@ -627,7 +653,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the fleet.
+         * @param name Name of the fleet.
          * 
          * @return builder
          * 
@@ -805,7 +831,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -816,7 +842,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

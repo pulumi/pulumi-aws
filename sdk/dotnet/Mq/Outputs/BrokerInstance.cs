@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Mq.Outputs
         /// </summary>
         public readonly string? ConsoleUrl;
         /// <summary>
-        /// `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+        /// Broker's wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
         /// </summary>
         public readonly ImmutableArray<string> Endpoints;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// &gt; **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
     /// 
-    /// &gt; **NOTE:** Deleting this resource resets security hub to a local organization configuration with auto enable false.
+    /// &gt; **NOTE:** Deleting this resource resets Security Hub to a local organization configuration with auto enable false.
     /// 
     /// ## Example Usage
     /// 

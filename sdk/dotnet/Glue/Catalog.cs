@@ -199,19 +199,19 @@ namespace Pulumi.Aws.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block of properties for the catalog. See `CatalogProperties` below.
+        /// Configuration block of properties for the catalog. See `CatalogProperties` Block below.
         /// </summary>
         [Output("catalogProperties")]
         public Output<Outputs.CatalogCatalogProperties?> CatalogProperties { get; private set; } = null!;
 
         /// <summary>
-        /// List of default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` below.
+        /// List of default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` Block below.
         /// </summary>
         [Output("createDatabaseDefaultPermissions")]
         public Output<ImmutableArray<Outputs.CatalogCreateDatabaseDefaultPermission>> CreateDatabaseDefaultPermissions { get; private set; } = null!;
 
         /// <summary>
-        /// List of default permissions on tables for principals. See `CreateTableDefaultPermissions` below.
+        /// List of default permissions on tables for principals. See `CreateTableDefaultPermissions` Block below.
         /// </summary>
         [Output("createTableDefaultPermissions")]
         public Output<ImmutableArray<Outputs.CatalogCreateTableDefaultPermission>> CreateTableDefaultPermissions { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for a federated catalog. See `FederatedCatalog` below.
+        /// Configuration block for a federated catalog. See `FederatedCatalog` Block below.
         /// </summary>
         [Output("federatedCatalog")]
         public Output<Outputs.CatalogFederatedCatalog?> FederatedCatalog { get; private set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for a target Redshift catalog. See `TargetRedshiftCatalog` below.
+        /// Configuration block for a target Redshift catalog. See `TargetRedshiftCatalog` Block below.
         /// </summary>
         [Output("targetRedshiftCatalog")]
         public Output<Outputs.CatalogTargetRedshiftCatalog?> TargetRedshiftCatalog { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? AllowFullTableExternalDataAccess { get; set; }
 
         /// <summary>
-        /// Configuration block of properties for the catalog. See `CatalogProperties` below.
+        /// Configuration block of properties for the catalog. See `CatalogProperties` Block below.
         /// </summary>
         [Input("catalogProperties")]
         public Input<Inputs.CatalogCatalogPropertiesArgs>? CatalogProperties { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogCreateDatabaseDefaultPermissionArgs>? _createDatabaseDefaultPermissions;
 
         /// <summary>
-        /// List of default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` below.
+        /// List of default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` Block below.
         /// </summary>
         public InputList<Inputs.CatalogCreateDatabaseDefaultPermissionArgs> CreateDatabaseDefaultPermissions
         {
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogCreateTableDefaultPermissionArgs>? _createTableDefaultPermissions;
 
         /// <summary>
-        /// List of default permissions on tables for principals. See `CreateTableDefaultPermissions` below.
+        /// List of default permissions on tables for principals. See `CreateTableDefaultPermissions` Block below.
         /// </summary>
         public InputList<Inputs.CatalogCreateTableDefaultPermissionArgs> CreateTableDefaultPermissions
         {
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block for a federated catalog. See `FederatedCatalog` below.
+        /// Configuration block for a federated catalog. See `FederatedCatalog` Block below.
         /// </summary>
         [Input("federatedCatalog")]
         public Input<Inputs.CatalogFederatedCatalogArgs>? FederatedCatalog { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Configuration block for a target Redshift catalog. See `TargetRedshiftCatalog` below.
+        /// Configuration block for a target Redshift catalog. See `TargetRedshiftCatalog` Block below.
         /// </summary>
         [Input("targetRedshiftCatalog")]
         public Input<Inputs.CatalogTargetRedshiftCatalogArgs>? TargetRedshiftCatalog { get; set; }
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Configuration block of properties for the catalog. See `CatalogProperties` below.
+        /// Configuration block of properties for the catalog. See `CatalogProperties` Block below.
         /// </summary>
         [Input("catalogProperties")]
         public Input<Inputs.CatalogCatalogPropertiesGetArgs>? CatalogProperties { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogCreateDatabaseDefaultPermissionGetArgs>? _createDatabaseDefaultPermissions;
 
         /// <summary>
-        /// List of default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` below.
+        /// List of default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` Block below.
         /// </summary>
         public InputList<Inputs.CatalogCreateDatabaseDefaultPermissionGetArgs> CreateDatabaseDefaultPermissions
         {
@@ -478,7 +478,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogCreateTableDefaultPermissionGetArgs>? _createTableDefaultPermissions;
 
         /// <summary>
-        /// List of default permissions on tables for principals. See `CreateTableDefaultPermissions` below.
+        /// List of default permissions on tables for principals. See `CreateTableDefaultPermissions` Block below.
         /// </summary>
         public InputList<Inputs.CatalogCreateTableDefaultPermissionGetArgs> CreateTableDefaultPermissions
         {
@@ -499,7 +499,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block for a federated catalog. See `FederatedCatalog` below.
+        /// Configuration block for a federated catalog. See `FederatedCatalog` Block below.
         /// </summary>
         [Input("federatedCatalog")]
         public Input<Inputs.CatalogFederatedCatalogGetArgs>? FederatedCatalog { get; set; }
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Configuration block for a target Redshift catalog. See `TargetRedshiftCatalog` below.
+        /// Configuration block for a target Redshift catalog. See `TargetRedshiftCatalog` Block below.
         /// </summary>
         [Input("targetRedshiftCatalog")]
         public Input<Inputs.CatalogTargetRedshiftCatalogGetArgs>? TargetRedshiftCatalog { get; set; }

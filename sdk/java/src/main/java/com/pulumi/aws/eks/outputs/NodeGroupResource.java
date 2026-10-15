@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NodeGroupResource {
     /**
-     * @return List of objects containing information about AutoScaling Groups.
+     * @return List of objects containing information about Auto Scaling groups.
      * 
      */
     private @Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups;
@@ -26,7 +26,7 @@ public final class NodeGroupResource {
 
     private NodeGroupResource() {}
     /**
-     * @return List of objects containing information about AutoScaling Groups.
+     * @return List of objects containing information about Auto Scaling groups.
      * 
      */
     public List<NodeGroupResourceAutoscalingGroup> autoscalingGroups() {

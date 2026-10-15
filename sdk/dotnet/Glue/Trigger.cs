@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Glue
     public partial class Trigger : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of actions initiated by this trigger when it fires. See Actions Below.
+        /// List of actions initiated by this trigger when it fires. See `Actions` below.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the new trigger.
+        /// Description of the new trigger.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -218,19 +218,19 @@ namespace Pulumi.Aws.Glue
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `EventBatchingCondition`.
         /// </summary>
         [Output("eventBatchingConditions")]
         public Output<ImmutableArray<Outputs.TriggerEventBatchingCondition>> EventBatchingConditions { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the trigger.
+        /// Name of the trigger.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        /// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `Predicate` below.
         /// </summary>
         [Output("predicate")]
         public Output<Outputs.TriggerPredicate?> Predicate { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        /// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         /// </summary>
         [Output("schedule")]
         public Output<string?> Schedule { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Glue
         public Output<bool?> StartOnCreation { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the trigger.
+        /// Current state of the trigger.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -266,19 +266,19 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+        /// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         /// </summary>
         [Output("workflowName")]
         public Output<string?> WorkflowName { get; private set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.TriggerActionArgs>? _actions;
 
         /// <summary>
-        /// List of actions initiated by this trigger when it fires. See Actions Below.
+        /// List of actions initiated by this trigger when it fires. See `Actions` below.
         /// </summary>
         public InputList<Inputs.TriggerActionArgs> Actions
         {
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// A description of the new trigger.
+        /// Description of the new trigger.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.TriggerEventBatchingConditionArgs>? _eventBatchingConditions;
 
         /// <summary>
-        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `EventBatchingCondition`.
         /// </summary>
         public InputList<Inputs.TriggerEventBatchingConditionArgs> EventBatchingConditions
         {
@@ -366,13 +366,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the trigger.
+        /// Name of the trigger.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        /// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `Predicate` below.
         /// </summary>
         [Input("predicate")]
         public Input<Inputs.TriggerPredicateArgs>? Predicate { get; set; }
@@ -384,7 +384,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        /// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
@@ -408,13 +408,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+        /// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         /// </summary>
         [Input("workflowName")]
         public Input<string>? WorkflowName { get; set; }
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.TriggerActionGetArgs>? _actions;
 
         /// <summary>
-        /// List of actions initiated by this trigger when it fires. See Actions Below.
+        /// List of actions initiated by this trigger when it fires. See `Actions` below.
         /// </summary>
         public InputList<Inputs.TriggerActionGetArgs> Actions
         {
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description of the new trigger.
+        /// Description of the new trigger.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.TriggerEventBatchingConditionGetArgs>? _eventBatchingConditions;
 
         /// <summary>
-        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `EventBatchingCondition`.
         /// </summary>
         public InputList<Inputs.TriggerEventBatchingConditionGetArgs> EventBatchingConditions
         {
@@ -470,13 +470,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the trigger.
+        /// Name of the trigger.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        /// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `Predicate` below.
         /// </summary>
         [Input("predicate")]
         public Input<Inputs.TriggerPredicateGetArgs>? Predicate { get; set; }
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        /// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
@@ -500,7 +500,7 @@ namespace Pulumi.Aws.Glue
         public Input<bool>? StartOnCreation { get; set; }
 
         /// <summary>
-        /// The current state of the trigger.
+        /// Current state of the trigger.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -530,13 +530,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+        /// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         /// </summary>
         [Input("workflowName")]
         public Input<string>? WorkflowName { get; set; }

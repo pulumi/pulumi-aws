@@ -32,14 +32,14 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the registry.
+     * Description of the registry.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the registry.
+     * @return Description of the registry.
      * 
      */
     public Optional<Output<String>> description() {
@@ -62,14 +62,14 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Name of the registry.
+     * Name of the registry.
      * 
      */
     @Import(name="registryName")
     private @Nullable Output<String> registryName;
 
     /**
-     * @return The Name of the registry.
+     * @return Name of the registry.
      * 
      */
     public Optional<Output<String>> registryName() {
@@ -92,14 +92,14 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -157,7 +157,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the registry.
+         * @param description Description of the registry.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the registry.
+         * @param description Description of the registry.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param registryName The Name of the registry.
+         * @param registryName Name of the registry.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param registryName The Name of the registry.
+         * @param registryName Name of the registry.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

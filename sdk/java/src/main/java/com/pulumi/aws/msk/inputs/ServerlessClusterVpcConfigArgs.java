@@ -18,14 +18,14 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
     public static final ServerlessClusterVpcConfigArgs Empty = new ServerlessClusterVpcConfigArgs();
 
     /**
-     * Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+     * Up to five security groups that control inbound and outbound traffic for the serverless cluster.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+     * @return Up to five security groups that control inbound and outbound traffic for the serverless cluster.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -33,14 +33,14 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A list of subnets in at least two different Availability Zones that host your client applications.
+     * List of subnets in at least two different Availability Zones that host your client applications.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of subnets in at least two different Availability Zones that host your client applications.
+     * @return List of subnets in at least two different Availability Zones that host your client applications.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -73,7 +73,7 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroupIds Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+         * @param securityGroupIds Up to five security groups that control inbound and outbound traffic for the serverless cluster.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroupIds Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+         * @param securityGroupIds Up to five security groups that control inbound and outbound traffic for the serverless cluster.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroupIds Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+         * @param securityGroupIds Up to five security groups that control inbound and outbound traffic for the serverless cluster.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subnetIds A list of subnets in at least two different Availability Zones that host your client applications.
+         * @param subnetIds List of subnets in at least two different Availability Zones that host your client applications.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subnetIds A list of subnets in at least two different Availability Zones that host your client applications.
+         * @param subnetIds List of subnets in at least two different Availability Zones that host your client applications.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subnetIds A list of subnets in at least two different Availability Zones that host your client applications.
+         * @param subnetIds List of subnets in at least two different Availability Zones that host your client applications.
          * 
          * @return builder
          * 

@@ -263,13 +263,13 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
     """
     `ec2.Vpc` provides details about a specific VPC.
 
-    This resource can prove useful when a module accepts a vpc id as
+    This resource can prove useful when a module accepts a VPC ID as
     an input variable and needs to, for example, determine the CIDR block of that
     VPC.
 
     ## Example Usage
 
-    The following example shows how one might accept a VPC id as a variable
+    The following example shows how one might accept a VPC ID as a variable
     and use this data source to obtain the data necessary to create a subnet
     within it.
 
@@ -292,7 +292,7 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
 
     :param _builtins.str cidr_block: CIDR block of the desired VPC.
     :param _builtins.bool default: Boolean constraint on whether the desired VPC is the default VPC for the region.
-    :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
+    :param _builtins.str dhcp_options_id: DHCP options ID of the desired VPC.
     :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict', 'outputs.GetVpcFilterResult']] filters: Custom filter block as described below. See `filter` Block below.
     :param _builtins.str id: ID of the specific VPC to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -343,13 +343,13 @@ def get_vpc_output(cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] =
     """
     `ec2.Vpc` provides details about a specific VPC.
 
-    This resource can prove useful when a module accepts a vpc id as
+    This resource can prove useful when a module accepts a VPC ID as
     an input variable and needs to, for example, determine the CIDR block of that
     VPC.
 
     ## Example Usage
 
-    The following example shows how one might accept a VPC id as a variable
+    The following example shows how one might accept a VPC ID as a variable
     and use this data source to obtain the data necessary to create a subnet
     within it.
 
@@ -372,7 +372,7 @@ def get_vpc_output(cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] =
 
     :param _builtins.str cidr_block: CIDR block of the desired VPC.
     :param _builtins.bool default: Boolean constraint on whether the desired VPC is the default VPC for the region.
-    :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
+    :param _builtins.str dhcp_options_id: DHCP options ID of the desired VPC.
     :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict', 'outputs.GetVpcFilterResult']] filters: Custom filter block as described below. See `filter` Block below.
     :param _builtins.str id: ID of the specific VPC to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

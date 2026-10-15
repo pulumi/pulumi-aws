@@ -19,188 +19,508 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings {
     /**
-     * @return The ad marker type for this output group.
+     * @return List of markers used to insert ad avail markers in the HLS output.
      * 
      */
     private @Nullable List<String> adMarkers;
+    /**
+     * @return Prepends a value to the URI of each media (segment) file in the manifest.
+     * 
+     */
     private @Nullable String baseUrlContent;
+    /**
+     * @return Alternate base URL for content, used for redundant manifest configurations.
+     * 
+     */
     private @Nullable String baseUrlContent1;
+    /**
+     * @return Prepends a value to the URI of each variant manifest file in the master manifest.
+     * 
+     */
     private @Nullable String baseUrlManifest;
+    /**
+     * @return Alternate base URL for manifests, used for redundant manifest configurations.
+     * 
+     */
     private @Nullable String baseUrlManifest1;
+    /**
+     * @return Mapping of up to 4 caption channels to caption languages. See `captionLanguageMappings` Block for details.
+     * 
+     */
     private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping> captionLanguageMappings;
+    /**
+     * @return How audio and caption language setting tags are written in the manifest.
+     * 
+     */
     private @Nullable String captionLanguageSetting;
+    /**
+     * @return When set to `disabled`, sets the `#EXT-X-ALLOW-CACHE:no` tag in the manifest.
+     * 
+     */
     private @Nullable String clientCache;
+    /**
+     * @return Specification to use for the codec in the manifest.
+     * 
+     */
     private @Nullable String codecSpecification;
+    /**
+     * @return 128-bit, 16-byte hex value represented by a 32-character text string, used with the key for encrypting blocks.
+     * 
+     */
     private @Nullable String constantIv;
+    /**
+     * @return Place where the segments and manifests are written. See `destination` Block for details.
+     * 
+     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination;
+    /**
+     * @return Place for the media and manifest files.
+     * 
+     */
     private @Nullable String directoryStructure;
+    /**
+     * @return How the `EXT-X-DISCONTINUITY` tags are inserted.
+     * 
+     */
     private @Nullable String discontinuityTags;
+    /**
+     * @return Encryption type.
+     * 
+     */
     private @Nullable String encryptionType;
+    /**
+     * @return Parameters that control the interactions with the CDN. See `hlsCdnSettings` Block for details.
+     * 
+     */
     private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> hlsCdnSettings;
+    /**
+     * @return State of HLS ID3 segment tagging.
+     * 
+     */
     private @Nullable String hlsId3SegmentTagging;
+    /**
+     * @return When set to `standard`, an I-Frame only playlist is written out for each video output in the output group.
+     * 
+     */
     private @Nullable String iframeOnlyPlaylists;
+    /**
+     * @return Behavior of the segment that is in progress at a channel restart or input switch.
+     * 
+     */
     private @Nullable String incompleteSegmentBehavior;
+    /**
+     * @return Number of segments to keep in the manifest.
+     * 
+     */
     private @Nullable Integer indexNSegments;
+    /**
+     * @return Parameter that controls output group behavior on an input loss.
+     * 
+     */
     private @Nullable String inputLossAction;
+    /**
+     * @return Whether the initialization vector is included in the key method on the segment.
+     * 
+     */
     private @Nullable String ivInManifest;
+    /**
+     * @return Whether the initialization vector follows the segment number or is from the group.
+     * 
+     */
     private @Nullable String ivSource;
+    /**
+     * @return Number of segments to retain in the destination directory.
+     * 
+     */
     private @Nullable Integer keepSegments;
+    /**
+     * @return Value for the key URI format in the key method.
+     * 
+     */
     private @Nullable String keyFormat;
+    /**
+     * @return Versions of the key format in the key method.
+     * 
+     */
     private @Nullable String keyFormatVersions;
+    /**
+     * @return Key provider settings. See `keyProviderSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings keyProviderSettings;
+    /**
+     * @return Whether the manifest is compressed with gzip.
+     * 
+     */
     private @Nullable String manifestCompression;
+    /**
+     * @return Format of the segment duration in the manifest.
+     * 
+     */
     private @Nullable String manifestDurationFormat;
+    /**
+     * @return Minimum length, in seconds, for each segment.
+     * 
+     */
     private @Nullable Integer minSegmentLength;
+    /**
+     * @return HLS mode.
+     * 
+     */
     private @Nullable String mode;
+    /**
+     * @return Generation of the manifest and segments or only variant manifests.
+     * 
+     */
     private @Nullable String outputSelection;
+    /**
+     * @return Whether to include an `EXT-X-PROGRAM-DATE-TIME` tag.
+     * 
+     */
     private @Nullable String programDateTime;
+    /**
+     * @return Clock source for the `EXT-X-PROGRAM-DATE-TIME` tag.
+     * 
+     */
     private @Nullable String programDateTimeClock;
+    /**
+     * @return Period, in seconds, between `EXT-X-PROGRAM-DATE-TIME` tags.
+     * 
+     */
     private @Nullable Integer programDateTimePeriod;
+    /**
+     * @return When set to `enabled`, writes a secondary manifest for each output group.
+     * 
+     */
     private @Nullable String redundantManifest;
+    /**
+     * @return Length, in seconds, of each segment.
+     * 
+     */
     private @Nullable Integer segmentLength;
+    /**
+     * @return Number of segments to write to a subdirectory before starting a new one.
+     * 
+     */
     private @Nullable Integer segmentsPerSubdirectory;
+    /**
+     * @return Whether to include the resolution in the `EXT-X-STREAM-INF` tag.
+     * 
+     */
     private @Nullable String streamInfResolution;
     /**
-     * @return Indicates ID3 frame that has the timecode.
+     * @return ID3 frame used for timed metadata.
      * 
      */
     private @Nullable String timedMetadataId3Frame;
+    /**
+     * @return Period, in seconds, between ID3 frames for timed metadata.
+     * 
+     */
     private @Nullable Integer timedMetadataId3Period;
+    /**
+     * @return Value, in milliseconds, to offset the program date time from the input timestamp.
+     * 
+     */
     private @Nullable Integer timestampDeltaMilliseconds;
+    /**
+     * @return Whether segments are placed in subdirectories.
+     * 
+     */
     private @Nullable String tsFileMode;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings() {}
     /**
-     * @return The ad marker type for this output group.
+     * @return List of markers used to insert ad avail markers in the HLS output.
      * 
      */
     public List<String> adMarkers() {
         return this.adMarkers == null ? List.of() : this.adMarkers;
     }
+    /**
+     * @return Prepends a value to the URI of each media (segment) file in the manifest.
+     * 
+     */
     public Optional<String> baseUrlContent() {
         return Optional.ofNullable(this.baseUrlContent);
     }
+    /**
+     * @return Alternate base URL for content, used for redundant manifest configurations.
+     * 
+     */
     public Optional<String> baseUrlContent1() {
         return Optional.ofNullable(this.baseUrlContent1);
     }
+    /**
+     * @return Prepends a value to the URI of each variant manifest file in the master manifest.
+     * 
+     */
     public Optional<String> baseUrlManifest() {
         return Optional.ofNullable(this.baseUrlManifest);
     }
+    /**
+     * @return Alternate base URL for manifests, used for redundant manifest configurations.
+     * 
+     */
     public Optional<String> baseUrlManifest1() {
         return Optional.ofNullable(this.baseUrlManifest1);
     }
+    /**
+     * @return Mapping of up to 4 caption channels to caption languages. See `captionLanguageMappings` Block for details.
+     * 
+     */
     public List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping> captionLanguageMappings() {
         return this.captionLanguageMappings == null ? List.of() : this.captionLanguageMappings;
     }
+    /**
+     * @return How audio and caption language setting tags are written in the manifest.
+     * 
+     */
     public Optional<String> captionLanguageSetting() {
         return Optional.ofNullable(this.captionLanguageSetting);
     }
+    /**
+     * @return When set to `disabled`, sets the `#EXT-X-ALLOW-CACHE:no` tag in the manifest.
+     * 
+     */
     public Optional<String> clientCache() {
         return Optional.ofNullable(this.clientCache);
     }
+    /**
+     * @return Specification to use for the codec in the manifest.
+     * 
+     */
     public Optional<String> codecSpecification() {
         return Optional.ofNullable(this.codecSpecification);
     }
+    /**
+     * @return 128-bit, 16-byte hex value represented by a 32-character text string, used with the key for encrypting blocks.
+     * 
+     */
     public Optional<String> constantIv() {
         return Optional.ofNullable(this.constantIv);
     }
+    /**
+     * @return Place where the segments and manifests are written. See `destination` Block for details.
+     * 
+     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination() {
         return this.destination;
     }
+    /**
+     * @return Place for the media and manifest files.
+     * 
+     */
     public Optional<String> directoryStructure() {
         return Optional.ofNullable(this.directoryStructure);
     }
+    /**
+     * @return How the `EXT-X-DISCONTINUITY` tags are inserted.
+     * 
+     */
     public Optional<String> discontinuityTags() {
         return Optional.ofNullable(this.discontinuityTags);
     }
+    /**
+     * @return Encryption type.
+     * 
+     */
     public Optional<String> encryptionType() {
         return Optional.ofNullable(this.encryptionType);
     }
+    /**
+     * @return Parameters that control the interactions with the CDN. See `hlsCdnSettings` Block for details.
+     * 
+     */
     public List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> hlsCdnSettings() {
         return this.hlsCdnSettings == null ? List.of() : this.hlsCdnSettings;
     }
+    /**
+     * @return State of HLS ID3 segment tagging.
+     * 
+     */
     public Optional<String> hlsId3SegmentTagging() {
         return Optional.ofNullable(this.hlsId3SegmentTagging);
     }
+    /**
+     * @return When set to `standard`, an I-Frame only playlist is written out for each video output in the output group.
+     * 
+     */
     public Optional<String> iframeOnlyPlaylists() {
         return Optional.ofNullable(this.iframeOnlyPlaylists);
     }
+    /**
+     * @return Behavior of the segment that is in progress at a channel restart or input switch.
+     * 
+     */
     public Optional<String> incompleteSegmentBehavior() {
         return Optional.ofNullable(this.incompleteSegmentBehavior);
     }
+    /**
+     * @return Number of segments to keep in the manifest.
+     * 
+     */
     public Optional<Integer> indexNSegments() {
         return Optional.ofNullable(this.indexNSegments);
     }
+    /**
+     * @return Parameter that controls output group behavior on an input loss.
+     * 
+     */
     public Optional<String> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
+    /**
+     * @return Whether the initialization vector is included in the key method on the segment.
+     * 
+     */
     public Optional<String> ivInManifest() {
         return Optional.ofNullable(this.ivInManifest);
     }
+    /**
+     * @return Whether the initialization vector follows the segment number or is from the group.
+     * 
+     */
     public Optional<String> ivSource() {
         return Optional.ofNullable(this.ivSource);
     }
+    /**
+     * @return Number of segments to retain in the destination directory.
+     * 
+     */
     public Optional<Integer> keepSegments() {
         return Optional.ofNullable(this.keepSegments);
     }
+    /**
+     * @return Value for the key URI format in the key method.
+     * 
+     */
     public Optional<String> keyFormat() {
         return Optional.ofNullable(this.keyFormat);
     }
+    /**
+     * @return Versions of the key format in the key method.
+     * 
+     */
     public Optional<String> keyFormatVersions() {
         return Optional.ofNullable(this.keyFormatVersions);
     }
+    /**
+     * @return Key provider settings. See `keyProviderSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings> keyProviderSettings() {
         return Optional.ofNullable(this.keyProviderSettings);
     }
+    /**
+     * @return Whether the manifest is compressed with gzip.
+     * 
+     */
     public Optional<String> manifestCompression() {
         return Optional.ofNullable(this.manifestCompression);
     }
+    /**
+     * @return Format of the segment duration in the manifest.
+     * 
+     */
     public Optional<String> manifestDurationFormat() {
         return Optional.ofNullable(this.manifestDurationFormat);
     }
+    /**
+     * @return Minimum length, in seconds, for each segment.
+     * 
+     */
     public Optional<Integer> minSegmentLength() {
         return Optional.ofNullable(this.minSegmentLength);
     }
+    /**
+     * @return HLS mode.
+     * 
+     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
+    /**
+     * @return Generation of the manifest and segments or only variant manifests.
+     * 
+     */
     public Optional<String> outputSelection() {
         return Optional.ofNullable(this.outputSelection);
     }
+    /**
+     * @return Whether to include an `EXT-X-PROGRAM-DATE-TIME` tag.
+     * 
+     */
     public Optional<String> programDateTime() {
         return Optional.ofNullable(this.programDateTime);
     }
+    /**
+     * @return Clock source for the `EXT-X-PROGRAM-DATE-TIME` tag.
+     * 
+     */
     public Optional<String> programDateTimeClock() {
         return Optional.ofNullable(this.programDateTimeClock);
     }
+    /**
+     * @return Period, in seconds, between `EXT-X-PROGRAM-DATE-TIME` tags.
+     * 
+     */
     public Optional<Integer> programDateTimePeriod() {
         return Optional.ofNullable(this.programDateTimePeriod);
     }
+    /**
+     * @return When set to `enabled`, writes a secondary manifest for each output group.
+     * 
+     */
     public Optional<String> redundantManifest() {
         return Optional.ofNullable(this.redundantManifest);
     }
+    /**
+     * @return Length, in seconds, of each segment.
+     * 
+     */
     public Optional<Integer> segmentLength() {
         return Optional.ofNullable(this.segmentLength);
     }
+    /**
+     * @return Number of segments to write to a subdirectory before starting a new one.
+     * 
+     */
     public Optional<Integer> segmentsPerSubdirectory() {
         return Optional.ofNullable(this.segmentsPerSubdirectory);
     }
+    /**
+     * @return Whether to include the resolution in the `EXT-X-STREAM-INF` tag.
+     * 
+     */
     public Optional<String> streamInfResolution() {
         return Optional.ofNullable(this.streamInfResolution);
     }
     /**
-     * @return Indicates ID3 frame that has the timecode.
+     * @return ID3 frame used for timed metadata.
      * 
      */
     public Optional<String> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }
+    /**
+     * @return Period, in seconds, between ID3 frames for timed metadata.
+     * 
+     */
     public Optional<Integer> timedMetadataId3Period() {
         return Optional.ofNullable(this.timedMetadataId3Period);
     }
+    /**
+     * @return Value, in milliseconds, to offset the program date time from the input timestamp.
+     * 
+     */
     public Optional<Integer> timestampDeltaMilliseconds() {
         return Optional.ofNullable(this.timestampDeltaMilliseconds);
     }
+    /**
+     * @return Whether segments are placed in subdirectories.
+     * 
+     */
     public Optional<String> tsFileMode() {
         return Optional.ofNullable(this.tsFileMode);
     }

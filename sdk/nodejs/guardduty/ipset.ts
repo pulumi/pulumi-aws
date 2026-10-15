@@ -72,7 +72,7 @@ export class IPSet extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * Whether to start using the uploaded IPSet.
      */
     declare public readonly activate: pulumi.Output<boolean>;
     /**
@@ -80,11 +80,11 @@ export class IPSet extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
-     * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
     declare public readonly format: pulumi.Output<string>;
     /**
@@ -92,11 +92,11 @@ export class IPSet extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ipSetId: pulumi.Output<string>;
     /**
-     * The URI of the file that contains the IPSet.
+     * URI of the file that contains the IPSet.
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The friendly name to identify the IPSet.
+     * Friendly name to identify the IPSet.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -108,7 +108,7 @@ export class IPSet extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -170,7 +170,7 @@ export class IPSet extends pulumi.CustomResource {
  */
 export interface IPSetState {
     /**
-     * Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * Whether to start using the uploaded IPSet.
      */
     activate?: pulumi.Input<boolean | undefined>;
     /**
@@ -178,11 +178,11 @@ export interface IPSetState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
-     * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
     format?: pulumi.Input<string | undefined>;
     /**
@@ -190,11 +190,11 @@ export interface IPSetState {
      */
     ipSetId?: pulumi.Input<string | undefined>;
     /**
-     * The URI of the file that contains the IPSet.
+     * URI of the file that contains the IPSet.
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The friendly name to identify the IPSet.
+     * Friendly name to identify the IPSet.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface IPSetState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -216,23 +216,23 @@ export interface IPSetState {
  */
 export interface IPSetArgs {
     /**
-     * Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * Whether to start using the uploaded IPSet.
      */
     activate: pulumi.Input<boolean>;
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      */
     detectorId: pulumi.Input<string>;
     /**
-     * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
     format: pulumi.Input<string>;
     /**
-     * The URI of the file that contains the IPSet.
+     * URI of the file that contains the IPSet.
      */
     location: pulumi.Input<string>;
     /**
-     * The friendly name to identify the IPSet.
+     * Friendly name to identify the IPSet.
      */
     name?: pulumi.Input<string | undefined>;
     /**

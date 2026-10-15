@@ -31,13 +31,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<double>? Dialnorm { get; set; }
 
         /// <summary>
-        /// Sets the Dolby dynamic range compression profile.
+        /// Dolby dynamic range compression profile.
         /// </summary>
         [Input("drcLine")]
         public Input<string>? DrcLine { get; set; }
 
         /// <summary>
-        /// Sets the profile for heavy Dolby dynamic range compression.
+        /// Profile for heavy Dolby dynamic range compression.
         /// </summary>
         [Input("drcRf")]
         public Input<string>? DrcRf { get; set; }

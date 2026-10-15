@@ -32,7 +32,7 @@ class ModelAgreementArgs:
         :param pulumi.Input[_builtins.str] offer_token: Offer token encapsulates information for an offer.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "model_id", model_id)
         pulumi.set(__self__, "offer_token", offer_token)
@@ -71,7 +71,7 @@ class ModelAgreementArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -103,7 +103,7 @@ class _ModelAgreementState:
         :param pulumi.Input[_builtins.str] offer_token: Offer token encapsulates information for an offer.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
@@ -144,7 +144,7 @@ class _ModelAgreementState:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -198,7 +198,7 @@ class ModelAgreement(pulumi.CustomResource):
 
         #### Required
 
-        * `model_id` - Model ID argument of the Foundation Model Agreement.
+        * `model_id` (String) Model ID of the foundation model.
 
         #### Optional
 
@@ -218,7 +218,7 @@ class ModelAgreement(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] offer_token: Offer token encapsulates information for an offer.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -251,7 +251,7 @@ class ModelAgreement(pulumi.CustomResource):
 
         #### Required
 
-        * `model_id` - Model ID argument of the Foundation Model Agreement.
+        * `model_id` (String) Model ID of the foundation model.
 
         #### Optional
 
@@ -326,7 +326,7 @@ class ModelAgreement(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] offer_token: Offer token encapsulates information for an offer.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -360,7 +360,7 @@ class ModelAgreement(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

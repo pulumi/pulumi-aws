@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Oidc Usage
+ * ### OIDC Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

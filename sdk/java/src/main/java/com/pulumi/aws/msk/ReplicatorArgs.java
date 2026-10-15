@@ -22,14 +22,14 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     public static final ReplicatorArgs Empty = new ReplicatorArgs();
 
     /**
-     * A summary description of the replicator.
+     * Summary description of the replicator.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A summary description of the replicator.
+     * @return Summary description of the replicator.
      * 
      */
     public Optional<Output<String>> description() {
@@ -37,14 +37,14 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+     * Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
      * 
      */
     @Import(name="kafkaClusters", required=true)
     private Output<List<ReplicatorKafkaClusterArgs>> kafkaClusters;
 
     /**
-     * @return The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+     * @return Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
      * 
      */
     public Output<List<ReplicatorKafkaClusterArgs>> kafkaClusters() {
@@ -52,14 +52,14 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
      * 
      */
     @Import(name="logDelivery")
     private @Nullable Output<ReplicatorLogDeliveryArgs> logDelivery;
 
     /**
-     * @return Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * @return Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
      * 
      */
     public Optional<Output<ReplicatorLogDeliveryArgs>> logDelivery() {
@@ -82,14 +82,14 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+     * List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
      * 
      */
     @Import(name="replicationInfoList", required=true)
     private Output<ReplicatorReplicationInfoListArgs> replicationInfoList;
 
     /**
-     * @return A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+     * @return List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
      * 
      */
     public Output<ReplicatorReplicationInfoListArgs> replicationInfoList() {
@@ -97,14 +97,14 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the replicator.
+     * Name of the replicator.
      * 
      */
     @Import(name="replicatorName", required=true)
     private Output<String> replicatorName;
 
     /**
-     * @return The name of the replicator.
+     * @return Name of the replicator.
      * 
      */
     public Output<String> replicatorName() {
@@ -112,14 +112,14 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
+     * ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
      * 
      */
     @Import(name="serviceExecutionRoleArn", required=true)
     private Output<String> serviceExecutionRoleArn;
 
     /**
-     * @return The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
+     * @return ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
      * 
      */
     public Output<String> serviceExecutionRoleArn() {
@@ -127,14 +127,14 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -173,7 +173,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the replicator.
+         * @param description Summary description of the replicator.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the replicator.
+         * @param description Summary description of the replicator.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusters The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+         * @param kafkaClusters Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusters The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+         * @param kafkaClusters Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusters The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+         * @param kafkaClusters Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDelivery Configuration block for delivering replicator logs to customer destinations. Detailed below.
+         * @param logDelivery Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDelivery Configuration block for delivering replicator logs to customer destinations. Detailed below.
+         * @param logDelivery Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationInfoList A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+         * @param replicationInfoList List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationInfoList A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+         * @param replicationInfoList List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicatorName The name of the replicator.
+         * @param replicatorName Name of the replicator.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicatorName The name of the replicator.
+         * @param replicatorName Name of the replicator.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceExecutionRoleArn The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
+         * @param serviceExecutionRoleArn ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceExecutionRoleArn The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
+         * @param serviceExecutionRoleArn ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -74,7 +74,7 @@ export class RoleAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
+     * AWS SSO group IDs to be assigned the role given in `role`.
      */
     declare public readonly groupIds: pulumi.Output<string[] | undefined>;
     /**
@@ -82,15 +82,15 @@ export class RoleAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+     * Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      */
     declare public readonly role: pulumi.Output<string>;
     /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
+     * AWS SSO user IDs to be assigned the role given in `role`.
      */
     declare public readonly userIds: pulumi.Output<string[] | undefined>;
     /**
-     * The workspace id.
+     * Workspace ID.
      *
      * The following arguments are optional:
      */
@@ -138,7 +138,7 @@ export class RoleAssociation extends pulumi.CustomResource {
  */
 export interface RoleAssociationState {
     /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
+     * AWS SSO group IDs to be assigned the role given in `role`.
      */
     groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -146,15 +146,15 @@ export interface RoleAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+     * Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      */
     role?: pulumi.Input<string | undefined>;
     /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
+     * AWS SSO user IDs to be assigned the role given in `role`.
      */
     userIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The workspace id.
+     * Workspace ID.
      *
      * The following arguments are optional:
      */
@@ -166,7 +166,7 @@ export interface RoleAssociationState {
  */
 export interface RoleAssociationArgs {
     /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
+     * AWS SSO group IDs to be assigned the role given in `role`.
      */
     groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -174,15 +174,15 @@ export interface RoleAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+     * Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      */
     role: pulumi.Input<string>;
     /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
+     * AWS SSO user IDs to be assigned the role given in `role`.
      */
     userIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The workspace id.
+     * Workspace ID.
      *
      * The following arguments are optional:
      */

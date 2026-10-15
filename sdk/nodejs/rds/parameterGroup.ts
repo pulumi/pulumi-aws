@@ -166,7 +166,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the db parameter group.
+     * ARN of the DB parameter group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -255,7 +255,7 @@ export class ParameterGroup extends pulumi.CustomResource {
  */
 export interface ParameterGroupState {
     /**
-     * ARN of the db parameter group.
+     * ARN of the DB parameter group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

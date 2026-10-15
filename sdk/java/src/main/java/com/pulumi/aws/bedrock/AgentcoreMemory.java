@@ -124,7 +124,6 @@ import javax.annotation.Nullable;
  *             .eventExpiryDuration(60)
  *             .encryptionKeyArn(example.arn())
  *             .memoryExecutionRoleArn(exampleAwsIamRole.arn())
- *             .clientToken("unique-client-token")
  *             .build());
  * 
  *     }
@@ -142,7 +141,7 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `accountId` (String) Account ID where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import memories using `id`. For example:

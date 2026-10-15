@@ -321,7 +321,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict', 'outputs.AgentAgentAliasTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
+        Manages an AWS Agents for Amazon Bedrock Agent Alias.
 
         ## Example Usage
 
@@ -366,8 +366,9 @@ class AgentAgentAlias(pulumi.CustomResource):
         example_agent_agent = aws.bedrock.AgentAgent("example",
             agent_name="my-agent-name",
             agent_resource_role_arn=example.arn,
-            idle_ttl=500,
-            foundation_model="anthropic.claude-v2")
+            idle_session_ttl_in_seconds=500,
+            foundation_model="anthropic.claude-v2",
+            instruction="You are a friendly assistant who helps answer questions.")
         example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
             agent_alias_name="my-agent-alias",
             agent_id=example_agent_agent.agent_id,
@@ -401,7 +402,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                  args: AgentAgentAliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
+        Manages an AWS Agents for Amazon Bedrock Agent Alias.
 
         ## Example Usage
 
@@ -446,8 +447,9 @@ class AgentAgentAlias(pulumi.CustomResource):
         example_agent_agent = aws.bedrock.AgentAgent("example",
             agent_name="my-agent-name",
             agent_resource_role_arn=example.arn,
-            idle_ttl=500,
-            foundation_model="anthropic.claude-v2")
+            idle_session_ttl_in_seconds=500,
+            foundation_model="anthropic.claude-v2",
+            instruction="You are a friendly assistant who helps answer questions.")
         example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
             agent_alias_name="my-agent-alias",
             agent_id=example_agent_agent.agent_id,

@@ -17,14 +17,14 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
     public static final CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs Empty = new CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs();
 
     /**
-     * The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+     * Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
      * 
      */
     @Import(name="deleteFileThreshold")
     private @Nullable Output<Integer> deleteFileThreshold;
 
     /**
-     * @return The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+     * @return Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> deleteFileThreshold() {
@@ -32,14 +32,14 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
     }
 
     /**
-     * The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+     * Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
      * 
      */
     @Import(name="minInputFiles")
     private @Nullable Output<Integer> minInputFiles;
 
     /**
-     * @return The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+     * @return Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
      * 
      */
     public Optional<Output<Integer>> minInputFiles() {
@@ -47,14 +47,14 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
     }
 
     /**
-     * The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+     * Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
      * 
      */
     @Import(name="strategy")
     private @Nullable Output<String> strategy;
 
     /**
-     * @return The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+     * @return Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
      * 
      */
     public Optional<Output<String>> strategy() {
@@ -88,7 +88,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
         }
 
         /**
-         * @param deleteFileThreshold The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+         * @param deleteFileThreshold Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
         }
 
         /**
-         * @param deleteFileThreshold The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+         * @param deleteFileThreshold Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
         }
 
         /**
-         * @param minInputFiles The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+         * @param minInputFiles Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
         }
 
         /**
-         * @param minInputFiles The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+         * @param minInputFiles Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
         }
 
         /**
-         * @param strategy The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+         * @param strategy Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationIceb
         }
 
         /**
-         * @param strategy The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+         * @param strategy Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
          * 
          * @return builder
          * 

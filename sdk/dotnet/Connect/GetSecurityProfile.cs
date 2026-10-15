@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Connect
         public string? Region { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Security Profile by Security Profile id
+        /// Returns information on a specific Security Profile by Security Profile ID
         /// </summary>
         [Input("securityProfileId")]
         public string? SecurityProfileId { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Security Profile by Security Profile id
+        /// Returns information on a specific Security Profile by Security Profile ID
         /// </summary>
         [Input("securityProfileId")]
         public Input<string>? SecurityProfileId { get; set; }

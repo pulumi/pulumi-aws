@@ -17,14 +17,14 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
     public static final RoleAssociationState Empty = new RoleAssociationState();
 
     /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
+     * AWS SSO group IDs to be assigned the role given in `role`.
      * 
      */
     @Import(name="groupIds")
     private @Nullable Output<List<String>> groupIds;
 
     /**
-     * @return The AWS SSO group ids to be assigned the role given in `role`.
+     * @return AWS SSO group IDs to be assigned the role given in `role`.
      * 
      */
     public Optional<Output<List<String>>> groupIds() {
@@ -47,14 +47,14 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+     * Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+     * @return Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
     public Optional<Output<String>> role() {
@@ -62,14 +62,14 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
+     * AWS SSO user IDs to be assigned the role given in `role`.
      * 
      */
     @Import(name="userIds")
     private @Nullable Output<List<String>> userIds;
 
     /**
-     * @return The AWS SSO user ids to be assigned the role given in `role`.
+     * @return AWS SSO user IDs to be assigned the role given in `role`.
      * 
      */
     public Optional<Output<List<String>>> userIds() {
@@ -77,7 +77,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The workspace id.
+     * Workspace ID.
      * 
      * The following arguments are optional:
      * 
@@ -86,7 +86,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The workspace id.
+     * @return Workspace ID.
      * 
      * The following arguments are optional:
      * 
@@ -124,7 +124,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupIds The AWS SSO group ids to be assigned the role given in `role`.
+         * @param groupIds AWS SSO group IDs to be assigned the role given in `role`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupIds The AWS SSO group ids to be assigned the role given in `role`.
+         * @param groupIds AWS SSO group IDs to be assigned the role given in `role`.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupIds The AWS SSO group ids to be assigned the role given in `role`.
+         * @param groupIds AWS SSO group IDs to be assigned the role given in `role`.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param role The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+         * @param role Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param role The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+         * @param role Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIds The AWS SSO user ids to be assigned the role given in `role`.
+         * @param userIds AWS SSO user IDs to be assigned the role given in `role`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIds The AWS SSO user ids to be assigned the role given in `role`.
+         * @param userIds AWS SSO user IDs to be assigned the role given in `role`.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIds The AWS SSO user ids to be assigned the role given in `role`.
+         * @param userIds AWS SSO user IDs to be assigned the role given in `role`.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workspaceId The workspace id.
+         * @param workspaceId Workspace ID.
          * 
          * The following arguments are optional:
          * 
@@ -241,7 +241,7 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workspaceId The workspace id.
+         * @param workspaceId Workspace ID.
          * 
          * The following arguments are optional:
          * 

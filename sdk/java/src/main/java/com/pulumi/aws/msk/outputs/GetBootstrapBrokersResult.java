@@ -66,17 +66,17 @@ public final class GetBootstrapBrokersResult {
      */
     private String bootstrapBrokersTlsIpv6;
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
+     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
      * 
      */
     private String bootstrapBrokersVpcConnectivitySaslIam;
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
      * 
      */
     private String bootstrapBrokersVpcConnectivitySaslScram;
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
+     * @return One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
      * 
      */
     private String bootstrapBrokersVpcConnectivityTls;
@@ -167,21 +167,21 @@ public final class GetBootstrapBrokersResult {
         return this.bootstrapBrokersTlsIpv6;
     }
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
+     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
      * 
      */
     public String bootstrapBrokersVpcConnectivitySaslIam() {
         return this.bootstrapBrokersVpcConnectivitySaslIam;
     }
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
      * 
      */
     public String bootstrapBrokersVpcConnectivitySaslScram() {
         return this.bootstrapBrokersVpcConnectivitySaslScram;
     }
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
+     * @return One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
      * 
      */
     public String bootstrapBrokersVpcConnectivityTls() {

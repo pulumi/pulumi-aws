@@ -15,14 +15,14 @@ public final class AgentcoreRegistryApprovalConfigurationArgs extends com.pulumi
     public static final AgentcoreRegistryApprovalConfigurationArgs Empty = new AgentcoreRegistryApprovalConfigurationArgs();
 
     /**
-     * Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+     * Whether to auto-approve registry records. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
      * 
      */
     @Import(name="autoApproval", required=true)
     private Output<Boolean> autoApproval;
 
     /**
-     * @return Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+     * @return Whether to auto-approve registry records. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
      * 
      */
     public Output<Boolean> autoApproval() {
@@ -54,7 +54,7 @@ public final class AgentcoreRegistryApprovalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param autoApproval Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+         * @param autoApproval Whether to auto-approve registry records. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentcoreRegistryApprovalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param autoApproval Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+         * @param autoApproval Whether to auto-approve registry records. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
          * 
          * @return builder
          * 

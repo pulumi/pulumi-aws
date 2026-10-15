@@ -26,10 +26,10 @@ class ChannelGroupArgs:
         """
         The set of arguments for constructing a ChannelGroup resource.
 
-        :param pulumi.Input[_builtins.str] description: A description of the channel group
-        :param pulumi.Input[_builtins.str] name: A unique identifier naming the channel group
+        :param pulumi.Input[_builtins.str] description: Description of the channel group
+        :param pulumi.Input[_builtins.str] name: Unique identifier naming the channel group
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -44,7 +44,7 @@ class ChannelGroupArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the channel group
+        Description of the channel group
         """
         return pulumi.get(self, "description")
 
@@ -56,7 +56,7 @@ class ChannelGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier naming the channel group
+        Unique identifier naming the channel group
         """
         return pulumi.get(self, "name")
 
@@ -80,7 +80,7 @@ class ChannelGroupArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -102,13 +102,13 @@ class _ChannelGroupState:
         """
         Input properties used for looking up and filtering ChannelGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the channel
-        :param pulumi.Input[_builtins.str] description: A description of the channel group
-        :param pulumi.Input[_builtins.str] egress_domain: The egress domain of the channel group
-        :param pulumi.Input[_builtins.str] name: A unique identifier naming the channel group
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel group
+        :param pulumi.Input[_builtins.str] description: Description of the channel group
+        :param pulumi.Input[_builtins.str] egress_domain: Egress domain of the channel group
+        :param pulumi.Input[_builtins.str] name: Unique identifier naming the channel group
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -129,7 +129,7 @@ class _ChannelGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the channel
+        ARN of the channel group
         """
         return pulumi.get(self, "arn")
 
@@ -141,7 +141,7 @@ class _ChannelGroupState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the channel group
+        Description of the channel group
         """
         return pulumi.get(self, "description")
 
@@ -153,7 +153,7 @@ class _ChannelGroupState:
     @pulumi.getter(name="egressDomain")
     def egress_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The egress domain of the channel group
+        Egress domain of the channel group
         """
         return pulumi.get(self, "egress_domain")
 
@@ -165,7 +165,7 @@ class _ChannelGroupState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier naming the channel group
+        Unique identifier naming the channel group
         """
         return pulumi.get(self, "name")
 
@@ -189,7 +189,7 @@ class _ChannelGroupState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -201,7 +201,7 @@ class _ChannelGroupState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -246,10 +246,10 @@ class ChannelGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description of the channel group
-        :param pulumi.Input[_builtins.str] name: A unique identifier naming the channel group
+        :param pulumi.Input[_builtins.str] description: Description of the channel group
+        :param pulumi.Input[_builtins.str] name: Unique identifier naming the channel group
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -339,13 +339,13 @@ class ChannelGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the channel
-        :param pulumi.Input[_builtins.str] description: A description of the channel group
-        :param pulumi.Input[_builtins.str] egress_domain: The egress domain of the channel group
-        :param pulumi.Input[_builtins.str] name: A unique identifier naming the channel group
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel group
+        :param pulumi.Input[_builtins.str] description: Description of the channel group
+        :param pulumi.Input[_builtins.str] egress_domain: Egress domain of the channel group
+        :param pulumi.Input[_builtins.str] name: Unique identifier naming the channel group
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -364,7 +364,7 @@ class ChannelGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the channel
+        ARN of the channel group
         """
         return pulumi.get(self, "arn")
 
@@ -372,7 +372,7 @@ class ChannelGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description of the channel group
+        Description of the channel group
         """
         return pulumi.get(self, "description")
 
@@ -380,7 +380,7 @@ class ChannelGroup(pulumi.CustomResource):
     @pulumi.getter(name="egressDomain")
     def egress_domain(self) -> pulumi.Output[_builtins.str]:
         """
-        The egress domain of the channel group
+        Egress domain of the channel group
         """
         return pulumi.get(self, "egress_domain")
 
@@ -388,7 +388,7 @@ class ChannelGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A unique identifier naming the channel group
+        Unique identifier naming the channel group
         """
         return pulumi.get(self, "name")
 
@@ -404,7 +404,7 @@ class ChannelGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -412,7 +412,7 @@ class ChannelGroup(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

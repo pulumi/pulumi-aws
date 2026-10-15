@@ -63,11 +63,11 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+     * Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      */
     declare public readonly authentication: pulumi.Output<string>;
     /**
-     * The list of subnets in the client VPC to connect to.
+     * List of subnets in the client VPC to connect to.
      */
     declare public readonly clientSubnets: pulumi.Output<string[]>;
     /**
@@ -75,15 +75,15 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The security groups to attach to the ENIs for the broker nodes.
+     * Security groups to attach to the ENIs for the broker nodes.
      */
     declare public readonly securityGroups: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -91,7 +91,7 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public readonly targetClusterArn: pulumi.Output<string>;
     /**
-     * The VPC ID of the remote client.
+     * VPC ID of the remote client.
      */
     declare public readonly vpcId: pulumi.Output<string>;
 
@@ -158,11 +158,11 @@ export interface VpcConnectionState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+     * Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      */
     authentication?: pulumi.Input<string | undefined>;
     /**
-     * The list of subnets in the client VPC to connect to.
+     * List of subnets in the client VPC to connect to.
      */
     clientSubnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -170,15 +170,15 @@ export interface VpcConnectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The security groups to attach to the ENIs for the broker nodes.
+     * Security groups to attach to the ENIs for the broker nodes.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface VpcConnectionState {
      */
     targetClusterArn?: pulumi.Input<string | undefined>;
     /**
-     * The VPC ID of the remote client.
+     * VPC ID of the remote client.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -196,11 +196,11 @@ export interface VpcConnectionState {
  */
 export interface VpcConnectionArgs {
     /**
-     * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+     * Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      */
     authentication: pulumi.Input<string>;
     /**
-     * The list of subnets in the client VPC to connect to.
+     * List of subnets in the client VPC to connect to.
      */
     clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -208,11 +208,11 @@ export interface VpcConnectionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The security groups to attach to the ENIs for the broker nodes.
+     * Security groups to attach to the ENIs for the broker nodes.
      */
     securityGroups: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface VpcConnectionArgs {
      */
     targetClusterArn: pulumi.Input<string>;
     /**
-     * The VPC ID of the remote client.
+     * VPC ID of the remote client.
      */
     vpcId: pulumi.Input<string>;
 }

@@ -137,7 +137,7 @@ type User struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// current user status.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// unique user id that is never reassignable to another user.
+	// unique user ID that is never reassignable to another user.
 	Sub pulumi.StringOutput `pulumi:"sub"`
 	// The user's temporary password. Conflicts with `password`.
 	TemporaryPassword pulumi.StringPtrOutput `pulumi:"temporaryPassword"`
@@ -222,7 +222,7 @@ type userState struct {
 	Region *string `pulumi:"region"`
 	// current user status.
 	Status *string `pulumi:"status"`
-	// unique user id that is never reassignable to another user.
+	// unique user ID that is never reassignable to another user.
 	Sub *string `pulumi:"sub"`
 	// The user's temporary password. Conflicts with `password`.
 	TemporaryPassword *string `pulumi:"temporaryPassword"`
@@ -261,7 +261,7 @@ type UserState struct {
 	Region pulumi.StringPtrInput
 	// current user status.
 	Status pulumi.StringPtrInput
-	// unique user id that is never reassignable to another user.
+	// unique user ID that is never reassignable to another user.
 	Sub pulumi.StringPtrInput
 	// The user's temporary password. Conflicts with `password`.
 	TemporaryPassword pulumi.StringPtrInput
@@ -492,7 +492,7 @@ func (o UserOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// unique user id that is never reassignable to another user.
+// unique user ID that is never reassignable to another user.
 func (o UserOutput) Sub() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Sub }).(pulumi.StringOutput)
 }

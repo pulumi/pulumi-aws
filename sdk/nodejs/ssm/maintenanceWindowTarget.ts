@@ -134,7 +134,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
      */
     declare public readonly targets: pulumi.Output<outputs.ssm.MaintenanceWindowTargetTarget[]>;
     /**
-     * The Id of the maintenance window to register the target with.
+     * The ID of the maintenance window to register the target with.
      */
     declare public readonly windowId: pulumi.Output<string>;
 
@@ -212,7 +212,7 @@ export interface MaintenanceWindowTargetState {
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[] | undefined>;
     /**
-     * The Id of the maintenance window to register the target with.
+     * The ID of the maintenance window to register the target with.
      */
     windowId?: pulumi.Input<string | undefined>;
 }
@@ -247,7 +247,7 @@ export interface MaintenanceWindowTargetArgs {
      */
     targets: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
     /**
-     * The Id of the maintenance window to register the target with.
+     * The ID of the maintenance window to register the target with.
      */
     windowId: pulumi.Input<string>;
 }

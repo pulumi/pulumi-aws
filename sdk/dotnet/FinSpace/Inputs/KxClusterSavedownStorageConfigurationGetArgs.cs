@@ -19,7 +19,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+        /// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

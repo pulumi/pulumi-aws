@@ -12,81 +12,209 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings {
+    /**
+     * @return Number of audio frames to insert for each PES packet.
+     * 
+     */
     private @Nullable Integer audioFramesPerPes;
+    /**
+     * @return Packet identifier (PID) of the elementary audio streams in the transport stream.
+     * 
+     */
     private @Nullable String audioPids;
+    /**
+     * @return Packet identifier (PID) for ECM in the transport stream.
+     * 
+     */
     private @Nullable String ecmPid;
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     private @Nullable String nielsenId3Behavior;
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     private @Nullable Integer patInterval;
+    /**
+     * @return When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+     * 
+     */
     private @Nullable String pcrControl;
+    /**
+     * @return Maximum time, in milliseconds, between Program Clock References.
+     * 
+     */
     private @Nullable Integer pcrPeriod;
+    /**
+     * @return Packet identifier (PID) of the Program Clock Reference in the transport stream.
+     * 
+     */
     private @Nullable String pcrPid;
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     private @Nullable Integer pmtInterval;
+    /**
+     * @return Packet identifier (PID) for the Program Map Table in the transport stream.
+     * 
+     */
     private @Nullable String pmtPid;
+    /**
+     * @return Value of the program number field in the Program Map Table.
+     * 
+     */
     private @Nullable Integer programNum;
+    /**
+     * @return When set to `passthrough`, passes through SCTE-35.
+     * 
+     */
     private @Nullable String scte35Behavior;
     /**
-     * @return PID from which to read SCTE-35 messages.
+     * @return Packet identifier (PID) of the SCTE-35 stream in the transport stream.
      * 
      */
     private @Nullable String scte35Pid;
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     private @Nullable String timedMetadataBehavior;
+    /**
+     * @return Packet identifier (PID) of the timed metadata stream in the transport stream.
+     * 
+     */
     private @Nullable String timedMetadataPid;
+    /**
+     * @return Value of the transport stream ID field in the Program Map Table.
+     * 
+     */
     private @Nullable Integer transportStreamId;
+    /**
+     * @return Packet identifier (PID) of the elementary video stream in the transport stream.
+     * 
+     */
     private @Nullable String videoPid;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings() {}
+    /**
+     * @return Number of audio frames to insert for each PES packet.
+     * 
+     */
     public Optional<Integer> audioFramesPerPes() {
         return Optional.ofNullable(this.audioFramesPerPes);
     }
+    /**
+     * @return Packet identifier (PID) of the elementary audio streams in the transport stream.
+     * 
+     */
     public Optional<String> audioPids() {
         return Optional.ofNullable(this.audioPids);
     }
+    /**
+     * @return Packet identifier (PID) for ECM in the transport stream.
+     * 
+     */
     public Optional<String> ecmPid() {
         return Optional.ofNullable(this.ecmPid);
     }
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     public Optional<String> nielsenId3Behavior() {
         return Optional.ofNullable(this.nielsenId3Behavior);
     }
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Integer> patInterval() {
         return Optional.ofNullable(this.patInterval);
     }
+    /**
+     * @return When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+     * 
+     */
     public Optional<String> pcrControl() {
         return Optional.ofNullable(this.pcrControl);
     }
+    /**
+     * @return Maximum time, in milliseconds, between Program Clock References.
+     * 
+     */
     public Optional<Integer> pcrPeriod() {
         return Optional.ofNullable(this.pcrPeriod);
     }
+    /**
+     * @return Packet identifier (PID) of the Program Clock Reference in the transport stream.
+     * 
+     */
     public Optional<String> pcrPid() {
         return Optional.ofNullable(this.pcrPid);
     }
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Integer> pmtInterval() {
         return Optional.ofNullable(this.pmtInterval);
     }
+    /**
+     * @return Packet identifier (PID) for the Program Map Table in the transport stream.
+     * 
+     */
     public Optional<String> pmtPid() {
         return Optional.ofNullable(this.pmtPid);
     }
+    /**
+     * @return Value of the program number field in the Program Map Table.
+     * 
+     */
     public Optional<Integer> programNum() {
         return Optional.ofNullable(this.programNum);
     }
+    /**
+     * @return When set to `passthrough`, passes through SCTE-35.
+     * 
+     */
     public Optional<String> scte35Behavior() {
         return Optional.ofNullable(this.scte35Behavior);
     }
     /**
-     * @return PID from which to read SCTE-35 messages.
+     * @return Packet identifier (PID) of the SCTE-35 stream in the transport stream.
      * 
      */
     public Optional<String> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     public Optional<String> timedMetadataBehavior() {
         return Optional.ofNullable(this.timedMetadataBehavior);
     }
+    /**
+     * @return Packet identifier (PID) of the timed metadata stream in the transport stream.
+     * 
+     */
     public Optional<String> timedMetadataPid() {
         return Optional.ofNullable(this.timedMetadataPid);
     }
+    /**
+     * @return Value of the transport stream ID field in the Program Map Table.
+     * 
+     */
     public Optional<Integer> transportStreamId() {
         return Optional.ofNullable(this.transportStreamId);
     }
+    /**
+     * @return Packet identifier (PID) of the elementary video stream in the transport stream.
+     * 
+     */
     public Optional<String> videoPid() {
         return Optional.ofNullable(this.videoPid);
     }

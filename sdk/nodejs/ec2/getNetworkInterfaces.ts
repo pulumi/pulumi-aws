@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * The following shows outputting all network interface ids in a region.
+ * The following shows outputting all network interface IDs in a region.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * }
  * ```
  *
- * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+ * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * export const example1 = example.then(example => example.ids);
  * ```
  *
- * The following example retrieves a network interface ids which associated
+ * The following example retrieves a network interface IDs which associated
  * with specific subnet.
  *
  * ```typescript
@@ -97,7 +97,7 @@ export interface GetNetworkInterfacesResult {
      */
     readonly id: string;
     /**
-     * List of all the network interface ids found.
+     * List of all the network interface IDs found.
      */
     readonly ids: string[];
     readonly region: string;
@@ -106,7 +106,7 @@ export interface GetNetworkInterfacesResult {
 /**
  * ## Example Usage
  *
- * The following shows outputting all network interface ids in a region.
+ * The following shows outputting all network interface IDs in a region.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -120,7 +120,7 @@ export interface GetNetworkInterfacesResult {
  * }
  * ```
  *
- * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+ * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -134,7 +134,7 @@ export interface GetNetworkInterfacesResult {
  * export const example1 = example.then(example => example.ids);
  * ```
  *
- * The following example retrieves a network interface ids which associated
+ * The following example retrieves a network interface IDs which associated
  * with specific subnet.
  *
  * ```typescript

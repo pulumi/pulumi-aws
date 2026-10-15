@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Msk.Outputs
         /// Name of the S3 bucket to deliver logs to.
         /// </summary>
         public readonly string? Bucket;
+        /// <summary>
+        /// Whether to enable or disable streaming broker logs to S3.
+        /// </summary>
         public readonly bool Enabled;
         /// <summary>
         /// Prefix to append to the folder name.

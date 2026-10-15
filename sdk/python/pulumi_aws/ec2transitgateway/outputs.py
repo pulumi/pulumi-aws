@@ -259,7 +259,7 @@ class PeeringAttachmentOptions(dict):
     def __init__(__self__, *,
                  dynamic_routing: Optional[_builtins.str] = None):
         """
-        :param _builtins.str dynamic_routing: Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        :param _builtins.str dynamic_routing: Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
         """
         if dynamic_routing is not None:
             pulumi.set(__self__, "dynamic_routing", dynamic_routing)
@@ -268,7 +268,7 @@ class PeeringAttachmentOptions(dict):
     @pulumi.getter(name="dynamicRouting")
     def dynamic_routing(self) -> Optional[_builtins.str]:
         """
-        Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
         """
         return pulumi.get(self, "dynamic_routing")
 
@@ -871,7 +871,7 @@ class GetRouteTableRoutesRouteResult(dict):
         :param _builtins.str destination_cidr_block: The CIDR used for route destination matches.
         :param _builtins.str prefix_list_id: The ID of the prefix list used for destination matches.
         :param _builtins.str state: The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-        :param _builtins.str transit_gateway_route_table_announcement_id: The id of the transit gateway route table announcement, most of the time it is an empty string.
+        :param _builtins.str transit_gateway_route_table_announcement_id: The ID of the transit gateway route table announcement, most of the time it is an empty string.
         :param _builtins.str type: The type of the route, can be `propagated` or `static`.
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -908,7 +908,7 @@ class GetRouteTableRoutesRouteResult(dict):
     @pulumi.getter(name="transitGatewayRouteTableAnnouncementId")
     def transit_gateway_route_table_announcement_id(self) -> _builtins.str:
         """
-        The id of the transit gateway route table announcement, most of the time it is an empty string.
+        The ID of the transit gateway route table announcement, most of the time it is an empty string.
         """
         return pulumi.get(self, "transit_gateway_route_table_announcement_id")
 

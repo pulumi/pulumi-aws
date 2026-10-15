@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class InputInputDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID for the device.
+        /// Unique ID for the device.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

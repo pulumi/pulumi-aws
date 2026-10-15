@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Data Source.
+ * Manages an AWS Agents for Amazon Bedrock Data Source.
  *
  * ## Example Usage
  *
@@ -139,6 +139,65 @@ import * as utilities from "../utilities";
  *     },
  *     knowledgeBaseId: exampleAwsBedrockagentKnowledgeBase.id,
  *     name: "multimodal-example",
+ * });
+ * ```
+ *
+ * ### GraphRAG with Neptune Analytics
+ *
+ * Knowledge bases that use `NEPTUNE_ANALYTICS` storage require every associated data source to set `contextEnrichmentConfiguration`.
+ *
+ * The graph construction model must be one that GraphRAG currently supports, and the supported models are reachable only through a cross-Region [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html). Passing a plain foundation model ARN fails with `ValidationException: Invalid graph bedrock foundation model provided`.
+ *
+ * The knowledge base service role needs:
+ *
+ * * `bedrock:GetInferenceProfile` on `*`. Scoping this to the profile ARN is not honored, and creation fails with `Not authorized to call GetInferenceProfile` even when the granted ARN matches the one in the error.
+ * * `bedrock:InvokeModel` on the inference profile ARN.
+ * * `bedrock:InvokeModel` on the underlying foundation model in every Region the profile routes to, which `aws bedrock get-inference-profile` reports as `models[].modelArn`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentKnowledgeBase("example", {
+ *     knowledgeBaseConfiguration: {
+ *         vectorKnowledgeBaseConfiguration: {
+ *             embeddingModelArn: "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3",
+ *         },
+ *         type: "VECTOR",
+ *     },
+ *     storageConfiguration: {
+ *         neptuneAnalyticsConfiguration: {
+ *             fieldMapping: {
+ *                 metadataField: "metadata",
+ *                 textField: "text",
+ *             },
+ *             graphArn: exampleAwsNeptunegraphGraph.arn,
+ *         },
+ *         type: "NEPTUNE_ANALYTICS",
+ *     },
+ *     name: "graphrag-example",
+ *     roleArn: exampleAwsIamRole.arn,
+ * });
+ * const exampleAgentDataSource = new aws.bedrock.AgentDataSource("example", {
+ *     dataSourceConfiguration: {
+ *         s3Configuration: {
+ *             bucketArn: exampleAwsS3Bucket.arn,
+ *         },
+ *         type: "S3",
+ *     },
+ *     vectorIngestionConfiguration: {
+ *         contextEnrichmentConfiguration: {
+ *             bedrockFoundationModelConfiguration: {
+ *                 enrichmentStrategyConfiguration: {
+ *                     method: "CHUNK_ENTITY_EXTRACTION",
+ *                 },
+ *                 modelArn: `arn:aws:bedrock:us-east-1:${current.accountId}:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0`,
+ *             },
+ *             type: "BEDROCK_FOUNDATION_MODEL",
+ *         },
+ *     },
+ *     knowledgeBaseId: example.id,
+ *     name: "graphrag-example",
  * });
  * ```
  *

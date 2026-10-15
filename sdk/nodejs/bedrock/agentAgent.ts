@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent.
+ * Manages an AWS Agents for Amazon Bedrock Agent.
  *
  * ## Example Usage
  *
@@ -152,7 +152,7 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     declare public readonly instruction: pulumi.Output<string>;
     /**
-     * Configurations for the agent's ability to retain the conversational context.
+     * Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
      */
     declare public readonly memoryConfigurations: pulumi.Output<outputs.bedrock.AgentAgentMemoryConfiguration[]>;
     /**
@@ -172,7 +172,7 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Whether the in-use check is skipped when deleting the agent.
+     * Whether to skip the in-use check when deleting the agent. Defaults to `false`.
      */
     declare public readonly skipResourceInUseCheck: pulumi.Output<boolean>;
     /**
@@ -312,7 +312,7 @@ export interface AgentAgentState {
      */
     instruction?: pulumi.Input<string | undefined>;
     /**
-     * Configurations for the agent's ability to retain the conversational context.
+     * Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
      */
     memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[] | undefined>;
     /**
@@ -332,7 +332,7 @@ export interface AgentAgentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether the in-use check is skipped when deleting the agent.
+     * Whether to skip the in-use check when deleting the agent. Defaults to `false`.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
     /**
@@ -389,7 +389,7 @@ export interface AgentAgentArgs {
      */
     instruction?: pulumi.Input<string | undefined>;
     /**
-     * Configurations for the agent's ability to retain the conversational context.
+     * Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
      */
     memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[] | undefined>;
     /**
@@ -405,7 +405,7 @@ export interface AgentAgentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether the in-use check is skipped when deleting the agent.
+     * Whether to skip the in-use check when deleting the agent. Defaults to `false`.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
     /**

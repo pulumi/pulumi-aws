@@ -12,10 +12,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CustomPermissionsCapabilities {
     /**
+     * @return Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String action;
+    /**
      * @return Ability to add or run anomaly detection. Valid values: `DENY`.
      * 
      */
     private @Nullable String addOrRunAnomalyDetectionForAnalyses;
+    /**
+     * @return Ability to perform analysis-related actions. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String analysis;
+    /**
+     * @return Ability to perform automate-related actions. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String automate;
+    /**
+     * @return Ability to perform chat-related actions. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String chatAgent;
     /**
      * @return Ability to create and update email reports. Valid values: `DENY`.
      * 
@@ -42,6 +62,11 @@ public final class CustomPermissionsCapabilities {
      */
     private @Nullable String createAndUpdateThresholdAlerts;
     /**
+     * @return Ability to create chat agents. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String createChatAgents;
+    /**
      * @return Ability to create shared folders. Valid values: `DENY`.
      * 
      */
@@ -51,6 +76,11 @@ public final class CustomPermissionsCapabilities {
      * 
      */
     private @Nullable String createSpiceDataset;
+    /**
+     * @return Ability to perform dashboard-related actions. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String dashboard;
     /**
      * @return Ability to export to CSV files from the UI. Valid values: `DENY`.
      * 
@@ -82,20 +112,45 @@ public final class CustomPermissionsCapabilities {
      */
     private @Nullable String exportToPdfInScheduledReports;
     /**
+     * @return Ability to perform flow-related actions. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String flow;
+    /**
      * @return Ability to include content in scheduled email reports. Valid values: `DENY`.
      * 
      */
     private @Nullable String includeContentInScheduledReportsEmail;
+    /**
+     * @return Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String knowledgeBase;
+    /**
+     * @return Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String performFlowUiTask;
     /**
      * @return Ability to print reports. Valid values: `DENY`.
      * 
      */
     private @Nullable String printReports;
     /**
+     * @return Ability to enable approvals for flow share. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String publishWithoutApproval;
+    /**
      * @return Ability to rename shared folders. Valid values: `DENY`.
      * 
      */
     private @Nullable String renameSharedFolders;
+    /**
+     * @return Ability to perform research-related actions. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String research;
     /**
      * @return Ability to share analyses. Valid values: `DENY`.
      * 
@@ -117,10 +172,25 @@ public final class CustomPermissionsCapabilities {
      */
     private @Nullable String shareDatasets;
     /**
+     * @return Ability to perform space-related actions. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String space;
+    /**
      * @return Ability to subscribe to email reports. Valid values: `DENY`.
      * 
      */
     private @Nullable String subscribeDashboardEmailReports;
+    /**
+     * @return Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String useAgentWebSearch;
+    /**
+     * @return Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+     * 
+     */
+    private @Nullable String useBedrockModels;
     /**
      * @return Ability to view account SPICE capacity. Valid values: `DENY`.
      * 
@@ -129,11 +199,39 @@ public final class CustomPermissionsCapabilities {
 
     private CustomPermissionsCapabilities() {}
     /**
+     * @return Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> action() {
+        return Optional.ofNullable(this.action);
+    }
+    /**
      * @return Ability to add or run anomaly detection. Valid values: `DENY`.
      * 
      */
     public Optional<String> addOrRunAnomalyDetectionForAnalyses() {
         return Optional.ofNullable(this.addOrRunAnomalyDetectionForAnalyses);
+    }
+    /**
+     * @return Ability to perform analysis-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> analysis() {
+        return Optional.ofNullable(this.analysis);
+    }
+    /**
+     * @return Ability to perform automate-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> automate() {
+        return Optional.ofNullable(this.automate);
+    }
+    /**
+     * @return Ability to perform chat-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> chatAgent() {
+        return Optional.ofNullable(this.chatAgent);
     }
     /**
      * @return Ability to create and update email reports. Valid values: `DENY`.
@@ -171,6 +269,13 @@ public final class CustomPermissionsCapabilities {
         return Optional.ofNullable(this.createAndUpdateThresholdAlerts);
     }
     /**
+     * @return Ability to create chat agents. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> createChatAgents() {
+        return Optional.ofNullable(this.createChatAgents);
+    }
+    /**
      * @return Ability to create shared folders. Valid values: `DENY`.
      * 
      */
@@ -183,6 +288,13 @@ public final class CustomPermissionsCapabilities {
      */
     public Optional<String> createSpiceDataset() {
         return Optional.ofNullable(this.createSpiceDataset);
+    }
+    /**
+     * @return Ability to perform dashboard-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> dashboard() {
+        return Optional.ofNullable(this.dashboard);
     }
     /**
      * @return Ability to export to CSV files from the UI. Valid values: `DENY`.
@@ -227,11 +339,32 @@ public final class CustomPermissionsCapabilities {
         return Optional.ofNullable(this.exportToPdfInScheduledReports);
     }
     /**
+     * @return Ability to perform flow-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> flow() {
+        return Optional.ofNullable(this.flow);
+    }
+    /**
      * @return Ability to include content in scheduled email reports. Valid values: `DENY`.
      * 
      */
     public Optional<String> includeContentInScheduledReportsEmail() {
         return Optional.ofNullable(this.includeContentInScheduledReportsEmail);
+    }
+    /**
+     * @return Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> knowledgeBase() {
+        return Optional.ofNullable(this.knowledgeBase);
+    }
+    /**
+     * @return Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> performFlowUiTask() {
+        return Optional.ofNullable(this.performFlowUiTask);
     }
     /**
      * @return Ability to print reports. Valid values: `DENY`.
@@ -241,11 +374,25 @@ public final class CustomPermissionsCapabilities {
         return Optional.ofNullable(this.printReports);
     }
     /**
+     * @return Ability to enable approvals for flow share. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> publishWithoutApproval() {
+        return Optional.ofNullable(this.publishWithoutApproval);
+    }
+    /**
      * @return Ability to rename shared folders. Valid values: `DENY`.
      * 
      */
     public Optional<String> renameSharedFolders() {
         return Optional.ofNullable(this.renameSharedFolders);
+    }
+    /**
+     * @return Ability to perform research-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> research() {
+        return Optional.ofNullable(this.research);
     }
     /**
      * @return Ability to share analyses. Valid values: `DENY`.
@@ -276,11 +423,32 @@ public final class CustomPermissionsCapabilities {
         return Optional.ofNullable(this.shareDatasets);
     }
     /**
+     * @return Ability to perform space-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> space() {
+        return Optional.ofNullable(this.space);
+    }
+    /**
      * @return Ability to subscribe to email reports. Valid values: `DENY`.
      * 
      */
     public Optional<String> subscribeDashboardEmailReports() {
         return Optional.ofNullable(this.subscribeDashboardEmailReports);
+    }
+    /**
+     * @return Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> useAgentWebSearch() {
+        return Optional.ofNullable(this.useAgentWebSearch);
+    }
+    /**
+     * @return Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+     * 
+     */
+    public Optional<String> useBedrockModels() {
+        return Optional.ofNullable(this.useBedrockModels);
     }
     /**
      * @return Ability to view account SPICE capacity. Valid values: `DENY`.
@@ -299,61 +467,113 @@ public final class CustomPermissionsCapabilities {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String action;
         private @Nullable String addOrRunAnomalyDetectionForAnalyses;
+        private @Nullable String analysis;
+        private @Nullable String automate;
+        private @Nullable String chatAgent;
         private @Nullable String createAndUpdateDashboardEmailReports;
         private @Nullable String createAndUpdateDataSources;
         private @Nullable String createAndUpdateDatasets;
         private @Nullable String createAndUpdateThemes;
         private @Nullable String createAndUpdateThresholdAlerts;
+        private @Nullable String createChatAgents;
         private @Nullable String createSharedFolders;
         private @Nullable String createSpiceDataset;
+        private @Nullable String dashboard;
         private @Nullable String exportToCsv;
         private @Nullable String exportToCsvInScheduledReports;
         private @Nullable String exportToExcel;
         private @Nullable String exportToExcelInScheduledReports;
         private @Nullable String exportToPdf;
         private @Nullable String exportToPdfInScheduledReports;
+        private @Nullable String flow;
         private @Nullable String includeContentInScheduledReportsEmail;
+        private @Nullable String knowledgeBase;
+        private @Nullable String performFlowUiTask;
         private @Nullable String printReports;
+        private @Nullable String publishWithoutApproval;
         private @Nullable String renameSharedFolders;
+        private @Nullable String research;
         private @Nullable String shareAnalyses;
         private @Nullable String shareDashboards;
         private @Nullable String shareDataSources;
         private @Nullable String shareDatasets;
+        private @Nullable String space;
         private @Nullable String subscribeDashboardEmailReports;
+        private @Nullable String useAgentWebSearch;
+        private @Nullable String useBedrockModels;
         private @Nullable String viewAccountSpiceCapacity;
         public Builder() {}
         public Builder(CustomPermissionsCapabilities defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.action = defaults.action;
     	      this.addOrRunAnomalyDetectionForAnalyses = defaults.addOrRunAnomalyDetectionForAnalyses;
+    	      this.analysis = defaults.analysis;
+    	      this.automate = defaults.automate;
+    	      this.chatAgent = defaults.chatAgent;
     	      this.createAndUpdateDashboardEmailReports = defaults.createAndUpdateDashboardEmailReports;
     	      this.createAndUpdateDataSources = defaults.createAndUpdateDataSources;
     	      this.createAndUpdateDatasets = defaults.createAndUpdateDatasets;
     	      this.createAndUpdateThemes = defaults.createAndUpdateThemes;
     	      this.createAndUpdateThresholdAlerts = defaults.createAndUpdateThresholdAlerts;
+    	      this.createChatAgents = defaults.createChatAgents;
     	      this.createSharedFolders = defaults.createSharedFolders;
     	      this.createSpiceDataset = defaults.createSpiceDataset;
+    	      this.dashboard = defaults.dashboard;
     	      this.exportToCsv = defaults.exportToCsv;
     	      this.exportToCsvInScheduledReports = defaults.exportToCsvInScheduledReports;
     	      this.exportToExcel = defaults.exportToExcel;
     	      this.exportToExcelInScheduledReports = defaults.exportToExcelInScheduledReports;
     	      this.exportToPdf = defaults.exportToPdf;
     	      this.exportToPdfInScheduledReports = defaults.exportToPdfInScheduledReports;
+    	      this.flow = defaults.flow;
     	      this.includeContentInScheduledReportsEmail = defaults.includeContentInScheduledReportsEmail;
+    	      this.knowledgeBase = defaults.knowledgeBase;
+    	      this.performFlowUiTask = defaults.performFlowUiTask;
     	      this.printReports = defaults.printReports;
+    	      this.publishWithoutApproval = defaults.publishWithoutApproval;
     	      this.renameSharedFolders = defaults.renameSharedFolders;
+    	      this.research = defaults.research;
     	      this.shareAnalyses = defaults.shareAnalyses;
     	      this.shareDashboards = defaults.shareDashboards;
     	      this.shareDataSources = defaults.shareDataSources;
     	      this.shareDatasets = defaults.shareDatasets;
+    	      this.space = defaults.space;
     	      this.subscribeDashboardEmailReports = defaults.subscribeDashboardEmailReports;
+    	      this.useAgentWebSearch = defaults.useAgentWebSearch;
+    	      this.useBedrockModels = defaults.useBedrockModels;
     	      this.viewAccountSpiceCapacity = defaults.viewAccountSpiceCapacity;
         }
 
         @CustomType.Setter
+        public Builder action(@Nullable String action) {
+
+            this.action = action;
+            return this;
+        }
+        @CustomType.Setter
         public Builder addOrRunAnomalyDetectionForAnalyses(@Nullable String addOrRunAnomalyDetectionForAnalyses) {
 
             this.addOrRunAnomalyDetectionForAnalyses = addOrRunAnomalyDetectionForAnalyses;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder analysis(@Nullable String analysis) {
+
+            this.analysis = analysis;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder automate(@Nullable String automate) {
+
+            this.automate = automate;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder chatAgent(@Nullable String chatAgent) {
+
+            this.chatAgent = chatAgent;
             return this;
         }
         @CustomType.Setter
@@ -387,6 +607,12 @@ public final class CustomPermissionsCapabilities {
             return this;
         }
         @CustomType.Setter
+        public Builder createChatAgents(@Nullable String createChatAgents) {
+
+            this.createChatAgents = createChatAgents;
+            return this;
+        }
+        @CustomType.Setter
         public Builder createSharedFolders(@Nullable String createSharedFolders) {
 
             this.createSharedFolders = createSharedFolders;
@@ -396,6 +622,12 @@ public final class CustomPermissionsCapabilities {
         public Builder createSpiceDataset(@Nullable String createSpiceDataset) {
 
             this.createSpiceDataset = createSpiceDataset;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dashboard(@Nullable String dashboard) {
+
+            this.dashboard = dashboard;
             return this;
         }
         @CustomType.Setter
@@ -435,9 +667,27 @@ public final class CustomPermissionsCapabilities {
             return this;
         }
         @CustomType.Setter
+        public Builder flow(@Nullable String flow) {
+
+            this.flow = flow;
+            return this;
+        }
+        @CustomType.Setter
         public Builder includeContentInScheduledReportsEmail(@Nullable String includeContentInScheduledReportsEmail) {
 
             this.includeContentInScheduledReportsEmail = includeContentInScheduledReportsEmail;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder knowledgeBase(@Nullable String knowledgeBase) {
+
+            this.knowledgeBase = knowledgeBase;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder performFlowUiTask(@Nullable String performFlowUiTask) {
+
+            this.performFlowUiTask = performFlowUiTask;
             return this;
         }
         @CustomType.Setter
@@ -447,9 +697,21 @@ public final class CustomPermissionsCapabilities {
             return this;
         }
         @CustomType.Setter
+        public Builder publishWithoutApproval(@Nullable String publishWithoutApproval) {
+
+            this.publishWithoutApproval = publishWithoutApproval;
+            return this;
+        }
+        @CustomType.Setter
         public Builder renameSharedFolders(@Nullable String renameSharedFolders) {
 
             this.renameSharedFolders = renameSharedFolders;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder research(@Nullable String research) {
+
+            this.research = research;
             return this;
         }
         @CustomType.Setter
@@ -477,9 +739,27 @@ public final class CustomPermissionsCapabilities {
             return this;
         }
         @CustomType.Setter
+        public Builder space(@Nullable String space) {
+
+            this.space = space;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subscribeDashboardEmailReports(@Nullable String subscribeDashboardEmailReports) {
 
             this.subscribeDashboardEmailReports = subscribeDashboardEmailReports;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder useAgentWebSearch(@Nullable String useAgentWebSearch) {
+
+            this.useAgentWebSearch = useAgentWebSearch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder useBedrockModels(@Nullable String useBedrockModels) {
+
+            this.useBedrockModels = useBedrockModels;
             return this;
         }
         @CustomType.Setter
@@ -490,28 +770,42 @@ public final class CustomPermissionsCapabilities {
         }
         public CustomPermissionsCapabilities build() {
             final var _resultValue = new CustomPermissionsCapabilities();
+            _resultValue.action = action;
             _resultValue.addOrRunAnomalyDetectionForAnalyses = addOrRunAnomalyDetectionForAnalyses;
+            _resultValue.analysis = analysis;
+            _resultValue.automate = automate;
+            _resultValue.chatAgent = chatAgent;
             _resultValue.createAndUpdateDashboardEmailReports = createAndUpdateDashboardEmailReports;
             _resultValue.createAndUpdateDataSources = createAndUpdateDataSources;
             _resultValue.createAndUpdateDatasets = createAndUpdateDatasets;
             _resultValue.createAndUpdateThemes = createAndUpdateThemes;
             _resultValue.createAndUpdateThresholdAlerts = createAndUpdateThresholdAlerts;
+            _resultValue.createChatAgents = createChatAgents;
             _resultValue.createSharedFolders = createSharedFolders;
             _resultValue.createSpiceDataset = createSpiceDataset;
+            _resultValue.dashboard = dashboard;
             _resultValue.exportToCsv = exportToCsv;
             _resultValue.exportToCsvInScheduledReports = exportToCsvInScheduledReports;
             _resultValue.exportToExcel = exportToExcel;
             _resultValue.exportToExcelInScheduledReports = exportToExcelInScheduledReports;
             _resultValue.exportToPdf = exportToPdf;
             _resultValue.exportToPdfInScheduledReports = exportToPdfInScheduledReports;
+            _resultValue.flow = flow;
             _resultValue.includeContentInScheduledReportsEmail = includeContentInScheduledReportsEmail;
+            _resultValue.knowledgeBase = knowledgeBase;
+            _resultValue.performFlowUiTask = performFlowUiTask;
             _resultValue.printReports = printReports;
+            _resultValue.publishWithoutApproval = publishWithoutApproval;
             _resultValue.renameSharedFolders = renameSharedFolders;
+            _resultValue.research = research;
             _resultValue.shareAnalyses = shareAnalyses;
             _resultValue.shareDashboards = shareDashboards;
             _resultValue.shareDataSources = shareDataSources;
             _resultValue.shareDatasets = shareDatasets;
+            _resultValue.space = space;
             _resultValue.subscribeDashboardEmailReports = subscribeDashboardEmailReports;
+            _resultValue.useAgentWebSearch = useAgentWebSearch;
+            _resultValue.useBedrockModels = useBedrockModels;
             _resultValue.viewAccountSpiceCapacity = viewAccountSpiceCapacity;
             return _resultValue;
         }

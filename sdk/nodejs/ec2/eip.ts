@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
+ * ### Attaching an EIP to an Instance with a pre-assigned private IP (VPC Only)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -17,14 +17,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
     public static final ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs();
 
     /**
-     * The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+     * Operator to use in a condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
      * 
      */
     @Import(name="comparator")
     private @Nullable Output<String> comparator;
 
     /**
-     * @return The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+     * @return Operator to use in a condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
      * 
      */
     public Optional<Output<String>> comparator() {
@@ -32,14 +32,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
     }
 
     /**
-     * The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
+     * Object property to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob).
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
+     * @return Object property to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob).
      * 
      */
     public Optional<Output<String>> key() {
@@ -47,14 +47,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
     }
 
     /**
-     * An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
+     * Array that lists the values to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob).
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
+     * @return Array that lists the values to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob).
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -88,7 +88,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
         }
 
         /**
-         * @param comparator The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+         * @param comparator Operator to use in a condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
         }
 
         /**
-         * @param comparator The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+         * @param comparator Operator to use in a condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
         }
 
         /**
-         * @param key The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
+         * @param key Object property to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob).
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
         }
 
         /**
-         * @param key The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
+         * @param key Object property to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob).
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
         }
 
         /**
-         * @param values An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
+         * @param values Array that lists the values to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob).
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
         }
 
         /**
-         * @param values An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
+         * @param values Array that lists the values to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob).
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
         }
 
         /**
-         * @param values An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
+         * @param values Array that lists the values to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob).
          * 
          * @return builder
          * 

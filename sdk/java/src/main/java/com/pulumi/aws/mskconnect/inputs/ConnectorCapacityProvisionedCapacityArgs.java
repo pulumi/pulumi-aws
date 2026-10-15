@@ -17,14 +17,14 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
     public static final ConnectorCapacityProvisionedCapacityArgs Empty = new ConnectorCapacityProvisionedCapacityArgs();
 
     /**
-     * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+     * Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
     @Import(name="mcuCount")
     private @Nullable Output<Integer> mcuCount;
 
     /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+     * @return Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
     public Optional<Output<Integer>> mcuCount() {
@@ -32,14 +32,14 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
     }
 
     /**
-     * The number of workers that are allocated to the connector.
+     * Number of workers that are allocated to the connector.
      * 
      */
     @Import(name="workerCount", required=true)
     private Output<Integer> workerCount;
 
     /**
-     * @return The number of workers that are allocated to the connector.
+     * @return Number of workers that are allocated to the connector.
      * 
      */
     public Output<Integer> workerCount() {
@@ -72,7 +72,7 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
         }
 
         /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         * @param mcuCount Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
         }
 
         /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         * @param mcuCount Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
         }
 
         /**
-         * @param workerCount The number of workers that are allocated to the connector.
+         * @param workerCount Number of workers that are allocated to the connector.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
         }
 
         /**
-         * @param workerCount The number of workers that are allocated to the connector.
+         * @param workerCount Number of workers that are allocated to the connector.
          * 
          * @return builder
          * 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing an AWS Bedrock Inference Profile.
+ * Provides details about an AWS Bedrock Inference Profile.
  *
  * ## Example Usage
  *
@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getInferenceProfiles({});
- * const testGetInferenceProfile = test.then(test => aws.bedrock.getInferenceProfile({
- *     inferenceProfileId: test.inferenceProfileSummaries?.[0]?.inferenceProfileId,
+ * const example = aws.bedrock.getInferenceProfiles({});
+ * const exampleGetInferenceProfile = example.then(example => aws.bedrock.getInferenceProfile({
+ *     inferenceProfileId: example.inferenceProfileSummaries?.[0]?.inferenceProfileId,
  * }));
  * ```
  */
@@ -64,7 +64,7 @@ export interface GetInferenceProfileResult {
     readonly inferenceProfileArn: string;
     readonly inferenceProfileId: string;
     /**
-     * Unique identifier of the inference profile.
+     * Name of the inference profile.
      */
     readonly inferenceProfileName: string;
     /**
@@ -86,7 +86,7 @@ export interface GetInferenceProfileResult {
     readonly updatedAt: string;
 }
 /**
- * Data source for managing an AWS Bedrock Inference Profile.
+ * Provides details about an AWS Bedrock Inference Profile.
  *
  * ## Example Usage
  *
@@ -96,9 +96,9 @@ export interface GetInferenceProfileResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getInferenceProfiles({});
- * const testGetInferenceProfile = test.then(test => aws.bedrock.getInferenceProfile({
- *     inferenceProfileId: test.inferenceProfileSummaries?.[0]?.inferenceProfileId,
+ * const example = aws.bedrock.getInferenceProfiles({});
+ * const exampleGetInferenceProfile = example.then(example => aws.bedrock.getInferenceProfile({
+ *     inferenceProfileId: example.inferenceProfileSummaries?.[0]?.inferenceProfileId,
  * }));
  * ```
  */

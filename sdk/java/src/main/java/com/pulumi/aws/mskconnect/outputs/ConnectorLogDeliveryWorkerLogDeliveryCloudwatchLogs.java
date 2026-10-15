@@ -19,7 +19,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
      */
     private Boolean enabled;
     /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
+     * @return Name of the CloudWatch log group that is the destination for log delivery.
      * 
      */
     private @Nullable String logGroup;
@@ -33,7 +33,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
         return this.enabled;
     }
     /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
+     * @return Name of the CloudWatch log group that is the destination for log delivery.
      * 
      */
     public Optional<String> logGroup() {

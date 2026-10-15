@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Shield
         public Output<string> LogBucket { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Role Arn association used for allowing Shield DRT Access.
+        /// The ID of the Role ARN association used for allowing Shield DRT Access.
         /// </summary>
         [Output("roleArnAssociationId")]
         public Output<string> RoleArnAssociationId { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Shield
         public Input<string> LogBucket { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Role Arn association used for allowing Shield DRT Access.
+        /// The ID of the Role ARN association used for allowing Shield DRT Access.
         /// </summary>
         [Input("roleArnAssociationId", required: true)]
         public Input<string> RoleArnAssociationId { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Shield
         public Input<string>? LogBucket { get; set; }
 
         /// <summary>
-        /// The ID of the Role Arn association used for allowing Shield DRT Access.
+        /// The ID of the Role ARN association used for allowing Shield DRT Access.
         /// </summary>
         [Input("roleArnAssociationId")]
         public Input<string>? RoleArnAssociationId { get; set; }

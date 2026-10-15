@@ -146,15 +146,15 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string CatalogId;
         /// <summary>
-        /// Catalog properties. See `CatalogProperties` below.
+        /// Catalog properties. See `CatalogProperties` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogCatalogPropertyResult> CatalogProperties;
         /// <summary>
-        /// Default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` below.
+        /// Default permissions on databases for principals. See `CreateDatabaseDefaultPermissions` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogCreateDatabaseDefaultPermissionResult> CreateDatabaseDefaultPermissions;
         /// <summary>
-        /// Default permissions on tables for principals. See `CreateTableDefaultPermissions` below.
+        /// Default permissions on tables for principals. See `CreateTableDefaultPermissions` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogCreateTableDefaultPermissionResult> CreateTableDefaultPermissions;
         /// <summary>
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Federated catalog configuration. See `FederatedCatalog` below.
+        /// Federated catalog configuration. See `FederatedCatalog` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogFederatedCatalogResult> FederatedCatalogs;
         public readonly string Name;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Target Redshift catalog configuration. See `TargetRedshiftCatalog` below.
+        /// Target Redshift catalog configuration. See `TargetRedshiftCatalog` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTargetRedshiftCatalogResult> TargetRedshiftCatalogs;
         /// <summary>

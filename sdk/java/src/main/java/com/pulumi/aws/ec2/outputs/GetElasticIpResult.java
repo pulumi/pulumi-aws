@@ -36,7 +36,7 @@ public final class GetElasticIpResult {
      */
     private String customerOwnedIpv4Pool;
     /**
-     * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+     * @return Whether the address is for use in EC2-Classic (`standard`) or in a VPC (`vpc`).
      * 
      */
     private String domain;
@@ -136,7 +136,7 @@ public final class GetElasticIpResult {
         return this.customerOwnedIpv4Pool;
     }
     /**
-     * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+     * @return Whether the address is for use in EC2-Classic (`standard`) or in a VPC (`vpc`).
      * 
      */
     public String domain() {

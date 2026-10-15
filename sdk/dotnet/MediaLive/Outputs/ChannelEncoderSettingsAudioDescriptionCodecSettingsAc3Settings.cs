@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly double? Bitrate;
         /// <summary>
-        /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        /// Bitstream mode (bsmod) for the emitted AC-3 stream.
         /// </summary>
         public readonly string? BitstreamMode;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? Dialnorm;
         /// <summary>
-        /// If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+        /// When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
         /// </summary>
         public readonly string? DrcProfile;
         /// <summary>
-        /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        /// When set to `Enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         /// </summary>
         public readonly string? LfeFilter;
         /// <summary>

@@ -23,7 +23,7 @@ public final class GetExportResult {
     private String name;
     private String region;
     /**
-     * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * @return Value from CloudFormation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
     private String value;
@@ -50,7 +50,7 @@ public final class GetExportResult {
         return this.region;
     }
     /**
-     * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * @return Value from CloudFormation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
     public String value() {

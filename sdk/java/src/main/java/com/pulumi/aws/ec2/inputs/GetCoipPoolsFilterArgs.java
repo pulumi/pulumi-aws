@@ -34,7 +34,7 @@ public final class GetCoipPoolsFilterArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Set of values that are accepted for the given field.
-     * A COIP Pool will be selected if any one of the given values matches.
+     * A CoIP Pool will be selected if any one of the given values matches.
      * 
      */
     @Import(name="values", required=true)
@@ -42,7 +42,7 @@ public final class GetCoipPoolsFilterArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Set of values that are accepted for the given field.
-     * A COIP Pool will be selected if any one of the given values matches.
+     * A CoIP Pool will be selected if any one of the given values matches.
      * 
      */
     public Output<List<String>> values() {
@@ -99,7 +99,7 @@ public final class GetCoipPoolsFilterArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param values Set of values that are accepted for the given field.
-         * A COIP Pool will be selected if any one of the given values matches.
+         * A CoIP Pool will be selected if any one of the given values matches.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class GetCoipPoolsFilterArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param values Set of values that are accepted for the given field.
-         * A COIP Pool will be selected if any one of the given values matches.
+         * A CoIP Pool will be selected if any one of the given values matches.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class GetCoipPoolsFilterArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param values Set of values that are accepted for the given field.
-         * A COIP Pool will be selected if any one of the given values matches.
+         * A CoIP Pool will be selected if any one of the given values matches.
          * 
          * @return builder
          * 

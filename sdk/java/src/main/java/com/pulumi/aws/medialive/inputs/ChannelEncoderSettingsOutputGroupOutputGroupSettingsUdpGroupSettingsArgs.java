@@ -17,14 +17,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs();
 
     /**
-     * Specifies behavior of last resort when input video os lost.
+     * Behavior of last resort when input video is lost.
      * 
      */
     @Import(name="inputLossAction")
     private @Nullable Output<String> inputLossAction;
 
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Behavior of last resort when input video is lost.
      * 
      */
     public Optional<Output<String>> inputLossAction() {
@@ -32,23 +32,31 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
     }
 
     /**
-     * Indicates ID3 frame that has the timecode.
+     * ID3 frame that has the timecode.
      * 
      */
     @Import(name="timedMetadataId3Frame")
     private @Nullable Output<String> timedMetadataId3Frame;
 
     /**
-     * @return Indicates ID3 frame that has the timecode.
+     * @return ID3 frame that has the timecode.
      * 
      */
     public Optional<Output<String>> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }
 
+    /**
+     * Timed metadata interval, in seconds.
+     * 
+     */
     @Import(name="timedMetadataId3Period")
     private @Nullable Output<Integer> timedMetadataId3Period;
 
+    /**
+     * @return Timed metadata interval, in seconds.
+     * 
+     */
     public Optional<Output<Integer>> timedMetadataId3Period() {
         return Optional.ofNullable(this.timedMetadataId3Period);
     }
@@ -80,7 +88,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
         }
 
         /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
+         * @param inputLossAction Behavior of last resort when input video is lost.
          * 
          * @return builder
          * 
@@ -91,7 +99,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
         }
 
         /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
+         * @param inputLossAction Behavior of last resort when input video is lost.
          * 
          * @return builder
          * 
@@ -101,7 +109,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
         }
 
         /**
-         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
+         * @param timedMetadataId3Frame ID3 frame that has the timecode.
          * 
          * @return builder
          * 
@@ -112,7 +120,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
         }
 
         /**
-         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
+         * @param timedMetadataId3Frame ID3 frame that has the timecode.
          * 
          * @return builder
          * 
@@ -121,11 +129,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
             return timedMetadataId3Frame(Output.of(timedMetadataId3Frame));
         }
 
+        /**
+         * @param timedMetadataId3Period Timed metadata interval, in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataId3Period(@Nullable Output<Integer> timedMetadataId3Period) {
             $.timedMetadataId3Period = timedMetadataId3Period;
             return this;
         }
 
+        /**
+         * @param timedMetadataId3Period Timed metadata interval, in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataId3Period(Integer timedMetadataId3Period) {
             return timedMetadataId3Period(Output.of(timedMetadataId3Period));
         }

@@ -235,7 +235,6 @@ class _AmiFromInstanceState:
         :param pulumi.Input[_builtins.str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[_builtins.str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
-        :param pulumi.Input[_builtins.str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[_builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[_builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -490,9 +489,6 @@ class _AmiFromInstanceState:
     @_builtins.property
     @pulumi.getter(name="lastLaunchedTime")
     def last_launched_time(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        """
         return pulumi.get(self, "last_launched_time")
 
     @last_launched_time.setter
@@ -947,7 +943,6 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[_builtins.str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
-        :param pulumi.Input[_builtins.str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[_builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[_builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -1117,9 +1112,6 @@ class AmiFromInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="lastLaunchedTime")
     def last_launched_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        """
         return pulumi.get(self, "last_launched_time")
 
     @_builtins.property

@@ -371,7 +371,7 @@ class ConnectorProfile(pulumi.CustomResource):
 
         #### Required
 
-        * `name` (String) Name of the Appflow connector profile.
+        * `name` (String) Name of the AppFlow connector profile.
 
         #### Optional
 
@@ -469,7 +469,7 @@ class ConnectorProfile(pulumi.CustomResource):
 
         #### Required
 
-        * `name` (String) Name of the Appflow connector profile.
+        * `name` (String) Name of the AppFlow connector profile.
 
         #### Optional
 

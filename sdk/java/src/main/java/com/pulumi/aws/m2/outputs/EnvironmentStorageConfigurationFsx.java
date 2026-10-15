@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class EnvironmentStorageConfigurationFsx {
     /**
-     * @return Id of the FSX filesystem to mount.
+     * @return ID of the FSx filesystem to mount.
      * 
      */
     private String fileSystemId;
@@ -23,7 +23,7 @@ public final class EnvironmentStorageConfigurationFsx {
 
     private EnvironmentStorageConfigurationFsx() {}
     /**
-     * @return Id of the FSX filesystem to mount.
+     * @return ID of the FSx filesystem to mount.
      * 
      */
     public String fileSystemId() {

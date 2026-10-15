@@ -64,7 +64,7 @@ type LookupAclResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The minimum engine version supported by the ACL.
+	// Minimum engine version supported by the ACL.
 	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
 	Name                 string `pulumi:"name"`
 	Region               string `pulumi:"region"`
@@ -118,7 +118,7 @@ func (o LookupAclResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAclResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The minimum engine version supported by the ACL.
+// Minimum engine version supported by the ACL.
 func (o LookupAclResultOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAclResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }

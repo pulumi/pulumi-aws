@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ReplicatorKafkaClusterClientAuthenticationSaslScram {
     /**
-     * @return The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+     * @return SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
      * 
      */
     private String mechanism;
     /**
-     * @return The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+     * @return ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
      * 
      */
     private String secretArn;
 
     private ReplicatorKafkaClusterClientAuthenticationSaslScram() {}
     /**
-     * @return The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+     * @return SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
      * 
      */
     public String mechanism() {
         return this.mechanism;
     }
     /**
-     * @return The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+     * @return ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
      * 
      */
     public String secretArn() {

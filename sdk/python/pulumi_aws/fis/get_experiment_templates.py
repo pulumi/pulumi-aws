@@ -41,7 +41,7 @@ class GetExperimentTemplatesResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the experiment template ids found.
+        List of all the experiment template IDs found.
         """
         return pulumi.get(self, "ids")
 

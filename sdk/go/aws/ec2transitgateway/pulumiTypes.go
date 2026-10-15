@@ -851,7 +851,7 @@ func (o MeteringPolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type PeeringAttachmentOptions struct {
-	// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+	// Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
 	DynamicRouting *string `pulumi:"dynamicRouting"`
 }
 
@@ -867,7 +867,7 @@ type PeeringAttachmentOptionsInput interface {
 }
 
 type PeeringAttachmentOptionsArgs struct {
-	// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+	// Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
 	DynamicRouting pulumi.StringPtrInput `pulumi:"dynamicRouting"`
 }
 
@@ -948,7 +948,7 @@ func (o PeeringAttachmentOptionsOutput) ToPeeringAttachmentOptionsPtrOutputWithC
 	}).(PeeringAttachmentOptionsPtrOutput)
 }
 
-// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+// Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
 func (o PeeringAttachmentOptionsOutput) DynamicRouting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringAttachmentOptions) *string { return v.DynamicRouting }).(pulumi.StringPtrOutput)
 }
@@ -977,7 +977,7 @@ func (o PeeringAttachmentOptionsPtrOutput) Elem() PeeringAttachmentOptionsOutput
 	}).(PeeringAttachmentOptionsOutput)
 }
 
-// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+// Indicates whether dynamic routing is enabled or disabled. Supports `enable` and `disable`. If not configured, the value is populated from the API.
 func (o PeeringAttachmentOptionsPtrOutput) DynamicRouting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringAttachmentOptions) *string {
 		if v == nil {
@@ -3001,7 +3001,7 @@ type GetRouteTableRoutesRoute struct {
 	PrefixListId string `pulumi:"prefixListId"`
 	// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
 	State string `pulumi:"state"`
-	// The id of the transit gateway route table announcement, most of the time it is an empty string.
+	// The ID of the transit gateway route table announcement, most of the time it is an empty string.
 	TransitGatewayRouteTableAnnouncementId string `pulumi:"transitGatewayRouteTableAnnouncementId"`
 	// The type of the route, can be `propagated` or `static`.
 	Type string `pulumi:"type"`
@@ -3025,7 +3025,7 @@ type GetRouteTableRoutesRouteArgs struct {
 	PrefixListId pulumi.StringInput `pulumi:"prefixListId"`
 	// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
 	State pulumi.StringInput `pulumi:"state"`
-	// The id of the transit gateway route table announcement, most of the time it is an empty string.
+	// The ID of the transit gateway route table announcement, most of the time it is an empty string.
 	TransitGatewayRouteTableAnnouncementId pulumi.StringInput `pulumi:"transitGatewayRouteTableAnnouncementId"`
 	// The type of the route, can be `propagated` or `static`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -3097,7 +3097,7 @@ func (o GetRouteTableRoutesRouteOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The id of the transit gateway route table announcement, most of the time it is an empty string.
+// The ID of the transit gateway route table announcement, most of the time it is an empty string.
 func (o GetRouteTableRoutesRouteOutput) TransitGatewayRouteTableAnnouncementId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.TransitGatewayRouteTableAnnouncementId }).(pulumi.StringOutput)
 }

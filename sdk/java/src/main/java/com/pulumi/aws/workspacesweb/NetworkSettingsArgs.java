@@ -49,14 +49,14 @@ public final class NetworkSettingsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+     * @return The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -178,7 +178,7 @@ public final class NetworkSettingsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetIds The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+         * @param subnetIds The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class NetworkSettingsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetIds The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+         * @param subnetIds The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class NetworkSettingsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetIds The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+         * @param subnetIds The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
          * 
          * @return builder
          * 

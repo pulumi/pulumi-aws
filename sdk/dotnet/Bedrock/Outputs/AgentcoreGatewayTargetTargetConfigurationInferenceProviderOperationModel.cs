@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel
     {
+        /// <summary>
+        /// Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+        /// </summary>
         public readonly string Model;
 
         [OutputConstructor]

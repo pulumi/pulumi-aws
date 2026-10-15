@@ -333,7 +333,7 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     declare public readonly ecsProperties: pulumi.Output<string | undefined>;
     /**
-     * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
      */
     declare public readonly eksProperties: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
     /**
@@ -478,7 +478,7 @@ export interface JobDefinitionState {
      */
     ecsProperties?: pulumi.Input<string | undefined>;
     /**
-     * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
      */
     eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksProperties | undefined>;
     /**
@@ -554,7 +554,7 @@ export interface JobDefinitionArgs {
      */
     ecsProperties?: pulumi.Input<string | undefined>;
     /**
-     * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
      */
     eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksProperties | undefined>;
     /**

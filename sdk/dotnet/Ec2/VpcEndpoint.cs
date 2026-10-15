@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        /// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -532,7 +532,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        /// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -720,7 +720,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        /// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

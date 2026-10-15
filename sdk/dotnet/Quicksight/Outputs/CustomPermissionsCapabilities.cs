@@ -14,9 +14,25 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class CustomPermissionsCapabilities
     {
         /// <summary>
+        /// Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? Action;
+        /// <summary>
         /// Ability to add or run anomaly detection. Valid values: `DENY`.
         /// </summary>
         public readonly string? AddOrRunAnomalyDetectionForAnalyses;
+        /// <summary>
+        /// Ability to perform analysis-related actions. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? Analysis;
+        /// <summary>
+        /// Ability to perform automate-related actions. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? Automate;
+        /// <summary>
+        /// Ability to perform chat-related actions. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? ChatAgent;
         /// <summary>
         /// Ability to create and update email reports. Valid values: `DENY`.
         /// </summary>
@@ -38,6 +54,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string? CreateAndUpdateThresholdAlerts;
         /// <summary>
+        /// Ability to create chat agents. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? CreateChatAgents;
+        /// <summary>
         /// Ability to create shared folders. Valid values: `DENY`.
         /// </summary>
         public readonly string? CreateSharedFolders;
@@ -45,6 +65,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// Ability to create a SPICE dataset. Valid values: `DENY`.
         /// </summary>
         public readonly string? CreateSpiceDataset;
+        /// <summary>
+        /// Ability to perform dashboard-related actions. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? Dashboard;
         /// <summary>
         /// Ability to export to CSV files from the UI. Valid values: `DENY`.
         /// </summary>
@@ -70,17 +94,37 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string? ExportToPdfInScheduledReports;
         /// <summary>
+        /// Ability to perform flow-related actions. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? Flow;
+        /// <summary>
         /// Ability to include content in scheduled email reports. Valid values: `DENY`.
         /// </summary>
         public readonly string? IncludeContentInScheduledReportsEmail;
+        /// <summary>
+        /// Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? KnowledgeBase;
+        /// <summary>
+        /// Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? PerformFlowUiTask;
         /// <summary>
         /// Ability to print reports. Valid values: `DENY`.
         /// </summary>
         public readonly string? PrintReports;
         /// <summary>
+        /// Ability to enable approvals for flow share. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? PublishWithoutApproval;
+        /// <summary>
         /// Ability to rename shared folders. Valid values: `DENY`.
         /// </summary>
         public readonly string? RenameSharedFolders;
+        /// <summary>
+        /// Ability to perform research-related actions. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? Research;
         /// <summary>
         /// Ability to share analyses. Valid values: `DENY`.
         /// </summary>
@@ -98,9 +142,21 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string? ShareDatasets;
         /// <summary>
+        /// Ability to perform space-related actions. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? Space;
+        /// <summary>
         /// Ability to subscribe to email reports. Valid values: `DENY`.
         /// </summary>
         public readonly string? SubscribeDashboardEmailReports;
+        /// <summary>
+        /// Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? UseAgentWebSearch;
+        /// <summary>
+        /// Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+        /// </summary>
+        public readonly string? UseBedrockModels;
         /// <summary>
         /// Ability to view account SPICE capacity. Valid values: `DENY`.
         /// </summary>
@@ -108,7 +164,15 @@ namespace Pulumi.Aws.Quicksight.Outputs
 
         [OutputConstructor]
         private CustomPermissionsCapabilities(
+            string? action,
+
             string? addOrRunAnomalyDetectionForAnalyses,
+
+            string? analysis,
+
+            string? automate,
+
+            string? chatAgent,
 
             string? createAndUpdateDashboardEmailReports,
 
@@ -120,9 +184,13 @@ namespace Pulumi.Aws.Quicksight.Outputs
 
             string? createAndUpdateThresholdAlerts,
 
+            string? createChatAgents,
+
             string? createSharedFolders,
 
             string? createSpiceDataset,
+
+            string? dashboard,
 
             string? exportToCsv,
 
@@ -136,11 +204,21 @@ namespace Pulumi.Aws.Quicksight.Outputs
 
             string? exportToPdfInScheduledReports,
 
+            string? flow,
+
             string? includeContentInScheduledReportsEmail,
+
+            string? knowledgeBase,
+
+            string? performFlowUiTask,
 
             string? printReports,
 
+            string? publishWithoutApproval,
+
             string? renameSharedFolders,
+
+            string? research,
 
             string? shareAnalyses,
 
@@ -150,32 +228,52 @@ namespace Pulumi.Aws.Quicksight.Outputs
 
             string? shareDatasets,
 
+            string? space,
+
             string? subscribeDashboardEmailReports,
+
+            string? useAgentWebSearch,
+
+            string? useBedrockModels,
 
             string? viewAccountSpiceCapacity)
         {
+            Action = action;
             AddOrRunAnomalyDetectionForAnalyses = addOrRunAnomalyDetectionForAnalyses;
+            Analysis = analysis;
+            Automate = automate;
+            ChatAgent = chatAgent;
             CreateAndUpdateDashboardEmailReports = createAndUpdateDashboardEmailReports;
             CreateAndUpdateDataSources = createAndUpdateDataSources;
             CreateAndUpdateDatasets = createAndUpdateDatasets;
             CreateAndUpdateThemes = createAndUpdateThemes;
             CreateAndUpdateThresholdAlerts = createAndUpdateThresholdAlerts;
+            CreateChatAgents = createChatAgents;
             CreateSharedFolders = createSharedFolders;
             CreateSpiceDataset = createSpiceDataset;
+            Dashboard = dashboard;
             ExportToCsv = exportToCsv;
             ExportToCsvInScheduledReports = exportToCsvInScheduledReports;
             ExportToExcel = exportToExcel;
             ExportToExcelInScheduledReports = exportToExcelInScheduledReports;
             ExportToPdf = exportToPdf;
             ExportToPdfInScheduledReports = exportToPdfInScheduledReports;
+            Flow = flow;
             IncludeContentInScheduledReportsEmail = includeContentInScheduledReportsEmail;
+            KnowledgeBase = knowledgeBase;
+            PerformFlowUiTask = performFlowUiTask;
             PrintReports = printReports;
+            PublishWithoutApproval = publishWithoutApproval;
             RenameSharedFolders = renameSharedFolders;
+            Research = research;
             ShareAnalyses = shareAnalyses;
             ShareDashboards = shareDashboards;
             ShareDataSources = shareDataSources;
             ShareDatasets = shareDatasets;
+            Space = space;
             SubscribeDashboardEmailReports = subscribeDashboardEmailReports;
+            UseAgentWebSearch = useAgentWebSearch;
+            UseBedrockModels = useBedrockModels;
             ViewAccountSpiceCapacity = viewAccountSpiceCapacity;
         }
     }

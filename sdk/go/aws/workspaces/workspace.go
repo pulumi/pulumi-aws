@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
+// Provides a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
 //
 // > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 //
@@ -72,7 +72,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Workspaces using their ID. For example:
+// Using `pulumi import`, import WorkSpaces using their ID. For example:
 //
 // ```sh
 // $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerJdbcTarget {
     /**
-     * @return The name of the connection to use to connect to the JDBC target.
+     * @return Name of the connection to use to connect to the JDBC target.
      * 
      */
     private String connectionName;
@@ -23,19 +23,19 @@ public final class CrawlerJdbcTarget {
      */
     private @Nullable List<String> enableAdditionalMetadatas;
     /**
-     * @return A list of glob patterns used to exclude from the crawl.
+     * @return List of glob patterns used to exclude from the crawl.
      * 
      */
     private @Nullable List<String> exclusions;
     /**
-     * @return The path of the JDBC target.
+     * @return Path of the JDBC target.
      * 
      */
     private String path;
 
     private CrawlerJdbcTarget() {}
     /**
-     * @return The name of the connection to use to connect to the JDBC target.
+     * @return Name of the connection to use to connect to the JDBC target.
      * 
      */
     public String connectionName() {
@@ -49,14 +49,14 @@ public final class CrawlerJdbcTarget {
         return this.enableAdditionalMetadatas == null ? List.of() : this.enableAdditionalMetadatas;
     }
     /**
-     * @return A list of glob patterns used to exclude from the crawl.
+     * @return List of glob patterns used to exclude from the crawl.
      * 
      */
     public List<String> exclusions() {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
     /**
-     * @return The path of the JDBC target.
+     * @return Path of the JDBC target.
      * 
      */
     public String path() {

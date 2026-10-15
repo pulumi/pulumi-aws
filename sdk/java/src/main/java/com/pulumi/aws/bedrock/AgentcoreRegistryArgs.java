@@ -80,7 +80,7 @@ public final class AgentcoreRegistryArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
      * 
      * The following arguments are optional:
      * 
@@ -89,7 +89,7 @@ public final class AgentcoreRegistryArgs extends com.pulumi.resources.ResourceAr
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * @return Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
      * 
      * The following arguments are optional:
      * 
@@ -245,7 +245,7 @@ public final class AgentcoreRegistryArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+         * @param name Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
          * 
          * The following arguments are optional:
          * 
@@ -258,7 +258,7 @@ public final class AgentcoreRegistryArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+         * @param name Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
          * 
          * The following arguments are optional:
          * 

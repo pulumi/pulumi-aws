@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock
     /// <summary>
     /// Manages the AWS KMS customer master key (CMK) for a token vault.
     /// 
-    /// &gt; Deletion of this resource will not modify the CMK, only remove the resource from state.
+    /// &gt; **Note:** Deletion of this resource will not modify the CMK, only remove the resource from state.
     /// 
     /// ## Example Usage
     /// 

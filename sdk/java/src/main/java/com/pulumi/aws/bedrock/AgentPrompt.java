@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Bedrock Agents Prompt.
+ * Manages an AWS Bedrock Agents Prompt.
  * 
  * ## Example Usage
  * 

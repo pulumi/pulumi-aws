@@ -54,7 +54,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly bool? WarmEnabled;
         /// <summary>
-        /// Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `WarmType` can be only and must be set when `WarmEnabled` is set to `True`.
+        /// Instance type for the OpenSearch cluster's warm nodes. `WarmType` can be only and must be set when `WarmEnabled` is set to `True`.
         /// </summary>
         public readonly string? WarmType;
         /// <summary>

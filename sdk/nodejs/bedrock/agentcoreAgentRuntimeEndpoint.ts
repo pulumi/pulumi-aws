@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreAgentRuntimeEndpoint("example", {
- *     name: "example-endpoint",
+ *     name: "example_endpoint",
  *     agentRuntimeId: exampleAwsBedrockagentcoreAgentRuntime.agentRuntimeId,
  *     description: "Endpoint for agent runtime communication",
  * });
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agentRuntimeId` and `name` separated by a comma. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
+ * $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example_endpoint
  * ```
  */
 export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {

@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("mediaExtractionConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationGetArgs>? MediaExtractionConfiguration { get; set; }
 
+        /// <summary>
+        /// Recurring schedule on which the connector automatically syncs this data source. See `SyncSchedule` Block for details.
+        /// </summary>
+        [Input("syncSchedule")]
+        public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleGetArgs>? SyncSchedule { get; set; }
+
         public AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationGetArgs()
         {
         }

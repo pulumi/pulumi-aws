@@ -17,14 +17,14 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     public static final ContainerState Empty = new ContainerState();
 
     /**
-     * The ARN of the container.
+     * ARN of the container.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the container.
+     * @return ARN of the container.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS endpoint of the container.
+     * DNS endpoint of the container.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The DNS endpoint of the container.
+     * @return DNS endpoint of the container.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -47,14 +47,14 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the container. Must contain alphanumeric characters or underscores.
+     * Name of the container. Must contain alphanumeric characters or underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the container. Must contain alphanumeric characters or underscores.
+     * @return Name of the container. Must contain alphanumeric characters or underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -77,14 +77,14 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -92,14 +92,14 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -136,7 +136,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the container.
+         * @param arn ARN of the container.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the container.
+         * @param arn ARN of the container.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The DNS endpoint of the container.
+         * @param endpoint DNS endpoint of the container.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The DNS endpoint of the container.
+         * @param endpoint DNS endpoint of the container.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the container. Must contain alphanumeric characters or underscores.
+         * @param name Name of the container. Must contain alphanumeric characters or underscores.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the container. Must contain alphanumeric characters or underscores.
+         * @param name Name of the container. Must contain alphanumeric characters or underscores.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

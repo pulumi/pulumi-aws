@@ -394,7 +394,7 @@ type VpcEndpoint struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// ID of the AWS account that owns the VPC endpoint.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
@@ -481,7 +481,7 @@ type vpcEndpointState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// ID of the AWS account that owns the VPC endpoint.
 	OwnerId *string `pulumi:"ownerId"`
-	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
 	Policy *string `pulumi:"policy"`
 	// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId *string `pulumi:"prefixListId"`
@@ -536,7 +536,7 @@ type VpcEndpointState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// ID of the AWS account that owns the VPC endpoint.
 	OwnerId pulumi.StringPtrInput
-	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringPtrInput
 	// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId pulumi.StringPtrInput
@@ -585,7 +585,7 @@ type vpcEndpointArgs struct {
 	DnsOptions *VpcEndpointDnsOptions `pulumi:"dnsOptions"`
 	// IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
 	Policy *string `pulumi:"policy"`
 	// Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
 	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
@@ -623,7 +623,7 @@ type VpcEndpointArgs struct {
 	DnsOptions VpcEndpointDnsOptionsPtrInput
 	// IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
 	IpAddressType pulumi.StringPtrInput
-	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+	// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringPtrInput
 	// Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
 	PrivateDnsEnabled pulumi.BoolPtrInput
@@ -780,7 +780,7 @@ func (o VpcEndpointOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+// Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
 func (o VpcEndpointOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

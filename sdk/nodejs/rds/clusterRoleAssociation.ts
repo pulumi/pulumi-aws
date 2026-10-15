@@ -64,7 +64,7 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
      */
     declare public readonly dbClusterIdentifier: pulumi.Output<string>;
     /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
     declare public readonly featureName: pulumi.Output<string | undefined>;
     /**
@@ -120,7 +120,7 @@ export interface ClusterRoleAssociationState {
      */
     dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
     featureName?: pulumi.Input<string | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface ClusterRoleAssociationArgs {
      */
     dbClusterIdentifier: pulumi.Input<string>;
     /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
     featureName?: pulumi.Input<string | undefined>;
     /**

@@ -136,11 +136,11 @@ export class Channel extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+     * Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
      */
     declare public readonly cdiInputSpecification: pulumi.Output<outputs.medialive.ChannelCdiInputSpecification | undefined>;
     /**
-     * Concise argument description.
+     * Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
      */
     declare public readonly channelClass: pulumi.Output<string>;
     /**
@@ -148,31 +148,31 @@ export class Channel extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly channelId: pulumi.Output<string>;
     /**
-     * Destinations for channel. See Destinations for more details.
+     * Destinations for the channel. See `destinations` Block for details.
      */
     declare public readonly destinations: pulumi.Output<outputs.medialive.ChannelDestination[]>;
     /**
-     * Encoder settings. See Encoder Settings for more details.
+     * Encoder settings. See `encoderSettings` Block for details.
      */
     declare public readonly encoderSettings: pulumi.Output<outputs.medialive.ChannelEncoderSettings>;
     /**
-     * Input attachments for the channel. See Input Attachments for more details.
+     * Input attachments for the channel. See `inputAttachments` Block for details.
      */
     declare public readonly inputAttachments: pulumi.Output<outputs.medialive.ChannelInputAttachment[]>;
     /**
-     * Specification of network and file inputs for the channel.
+     * Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
      */
     declare public readonly inputSpecification: pulumi.Output<outputs.medialive.ChannelInputSpecification>;
     /**
-     * The log level to write to Cloudwatch logs.
+     * Level of verbosity for the logs written to CloudWatch Logs.
      */
     declare public readonly logLevel: pulumi.Output<string>;
     /**
-     * Maintenance settings for this channel. See Maintenance for more details.
+     * Maintenance settings for this channel. See `maintenance` Block for details.
      */
     declare public readonly maintenance: pulumi.Output<outputs.medialive.ChannelMaintenance>;
     /**
-     * Name of the Channel.
+     * Name of the channel.
      *
      * The following arguments are optional:
      */
@@ -182,20 +182,25 @@ export class Channel extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Concise argument description.
+     * ARN of the IAM role for the channel.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
-     * Whether to start/stop channel. Default: `false`
+     * Whether to start/stop channel. Default: `false`.
      */
     declare public readonly startChannel: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+     * * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Settings for the VPC outputs. See VPC for more details.
+     * Settings for the VPC outputs. See `vpc` Block for details.
      */
     declare public readonly vpc: pulumi.Output<outputs.medialive.ChannelVpc | undefined>;
 
@@ -278,11 +283,11 @@ export interface ChannelState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+     * Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
      */
     cdiInputSpecification?: pulumi.Input<inputs.medialive.ChannelCdiInputSpecification | undefined>;
     /**
-     * Concise argument description.
+     * Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
      */
     channelClass?: pulumi.Input<string | undefined>;
     /**
@@ -290,31 +295,31 @@ export interface ChannelState {
      */
     channelId?: pulumi.Input<string | undefined>;
     /**
-     * Destinations for channel. See Destinations for more details.
+     * Destinations for the channel. See `destinations` Block for details.
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelDestination>[] | undefined>;
     /**
-     * Encoder settings. See Encoder Settings for more details.
+     * Encoder settings. See `encoderSettings` Block for details.
      */
     encoderSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettings | undefined>;
     /**
-     * Input attachments for the channel. See Input Attachments for more details.
+     * Input attachments for the channel. See `inputAttachments` Block for details.
      */
     inputAttachments?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachment>[] | undefined>;
     /**
-     * Specification of network and file inputs for the channel.
+     * Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
      */
     inputSpecification?: pulumi.Input<inputs.medialive.ChannelInputSpecification | undefined>;
     /**
-     * The log level to write to Cloudwatch logs.
+     * Level of verbosity for the logs written to CloudWatch Logs.
      */
     logLevel?: pulumi.Input<string | undefined>;
     /**
-     * Maintenance settings for this channel. See Maintenance for more details.
+     * Maintenance settings for this channel. See `maintenance` Block for details.
      */
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance | undefined>;
     /**
-     * Name of the Channel.
+     * Name of the channel.
      *
      * The following arguments are optional:
      */
@@ -324,20 +329,25 @@ export interface ChannelState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Concise argument description.
+     * ARN of the IAM role for the channel.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * Whether to start/stop channel. Default: `false`
+     * Whether to start/stop channel. Default: `false`.
      */
     startChannel?: pulumi.Input<boolean | undefined>;
     /**
-     * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+     * * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Settings for the VPC outputs. See VPC for more details.
+     * Settings for the VPC outputs. See `vpc` Block for details.
      */
     vpc?: pulumi.Input<inputs.medialive.ChannelVpc | undefined>;
 }
@@ -347,39 +357,39 @@ export interface ChannelState {
  */
 export interface ChannelArgs {
     /**
-     * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+     * Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
      */
     cdiInputSpecification?: pulumi.Input<inputs.medialive.ChannelCdiInputSpecification | undefined>;
     /**
-     * Concise argument description.
+     * Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
      */
     channelClass: pulumi.Input<string>;
     /**
-     * Destinations for channel. See Destinations for more details.
+     * Destinations for the channel. See `destinations` Block for details.
      */
     destinations: pulumi.Input<pulumi.Input<inputs.medialive.ChannelDestination>[]>;
     /**
-     * Encoder settings. See Encoder Settings for more details.
+     * Encoder settings. See `encoderSettings` Block for details.
      */
     encoderSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettings>;
     /**
-     * Input attachments for the channel. See Input Attachments for more details.
+     * Input attachments for the channel. See `inputAttachments` Block for details.
      */
     inputAttachments: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachment>[]>;
     /**
-     * Specification of network and file inputs for the channel.
+     * Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
      */
     inputSpecification: pulumi.Input<inputs.medialive.ChannelInputSpecification>;
     /**
-     * The log level to write to Cloudwatch logs.
+     * Level of verbosity for the logs written to CloudWatch Logs.
      */
     logLevel?: pulumi.Input<string | undefined>;
     /**
-     * Maintenance settings for this channel. See Maintenance for more details.
+     * Maintenance settings for this channel. See `maintenance` Block for details.
      */
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance | undefined>;
     /**
-     * Name of the Channel.
+     * Name of the channel.
      *
      * The following arguments are optional:
      */
@@ -389,19 +399,19 @@ export interface ChannelArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Concise argument description.
+     * ARN of the IAM role for the channel.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * Whether to start/stop channel. Default: `false`
+     * Whether to start/stop channel. Default: `false`.
      */
     startChannel?: pulumi.Input<boolean | undefined>;
     /**
-     * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Settings for the VPC outputs. See VPC for more details.
+     * Settings for the VPC outputs. See `vpc` Block for details.
      */
     vpc?: pulumi.Input<inputs.medialive.ChannelVpc | undefined>;
 }

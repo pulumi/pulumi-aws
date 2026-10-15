@@ -99,14 +99,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:m2/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
     /**
-     * Id of the Application.
+     * ID of the Application.
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return Id of the Application.
+     * @return ID of the Application.
      * 
      */
     public Output<String> applicationId() {
@@ -141,14 +141,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.currentVersion;
     }
     /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
     @Export(name="definition", refs={ApplicationDefinition.class}, tree="[0]")
     private Output<ApplicationDefinition> definition;
 
     /**
-     * @return The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * @return Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
     public Output<ApplicationDefinition> definition() {
@@ -257,14 +257,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

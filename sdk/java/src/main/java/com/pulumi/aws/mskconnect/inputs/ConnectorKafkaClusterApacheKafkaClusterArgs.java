@@ -16,14 +16,14 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
     public static final ConnectorKafkaClusterApacheKafkaClusterArgs Empty = new ConnectorKafkaClusterApacheKafkaClusterArgs();
 
     /**
-     * The bootstrap servers of the cluster.
+     * Bootstrap servers of the cluster.
      * 
      */
     @Import(name="bootstrapServers", required=true)
     private Output<String> bootstrapServers;
 
     /**
-     * @return The bootstrap servers of the cluster.
+     * @return Bootstrap servers of the cluster.
      * 
      */
     public Output<String> bootstrapServers() {
@@ -71,7 +71,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
         }
 
         /**
-         * @param bootstrapServers The bootstrap servers of the cluster.
+         * @param bootstrapServers Bootstrap servers of the cluster.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
         }
 
         /**
-         * @param bootstrapServers The bootstrap servers of the cluster.
+         * @param bootstrapServers Bootstrap servers of the cluster.
          * 
          * @return builder
          * 

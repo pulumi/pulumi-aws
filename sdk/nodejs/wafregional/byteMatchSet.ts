@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
+ * Using `pulumi import`, import WAF Regional Byte Match Set using the ID. For example:
  *
  * ```sh
  * $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

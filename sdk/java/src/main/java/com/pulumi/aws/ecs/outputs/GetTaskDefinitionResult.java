@@ -34,7 +34,7 @@ public final class GetTaskDefinitionResult {
      */
     private String containerDefinitions;
     /**
-     * @return Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * @return Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     private String cpu;
@@ -150,7 +150,7 @@ public final class GetTaskDefinitionResult {
         return this.containerDefinitions;
     }
     /**
-     * @return Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * @return Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     public String cpu() {

@@ -18,14 +18,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs();
 
     /**
-     * MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+     * MediaLive fails over if the specified audio selector is silent for the specified period. See `audioSilenceSettings` Block for details.
      * 
      */
     @Import(name="audioSilenceSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs> audioSilenceSettings;
 
     /**
-     * @return MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+     * @return MediaLive fails over if the specified audio selector is silent for the specified period. See `audioSilenceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs>> audioSilenceSettings() {
@@ -33,14 +33,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
     }
 
     /**
-     * MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+     * MediaLive fails over if content is not detected in this input for the specified period. See `inputLossSettings` Block for details.
      * 
      */
     @Import(name="inputLossSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs> inputLossSettings;
 
     /**
-     * @return MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+     * @return MediaLive fails over if content is not detected in this input for the specified period. See `inputLossSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs>> inputLossSettings() {
@@ -48,14 +48,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
     }
 
     /**
-     * MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+     * MediaLive fails over if content is considered black for the specified period. See `videoBlackSettings` Block for details.
      * 
      */
     @Import(name="videoBlackSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs> videoBlackSettings;
 
     /**
-     * @return MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+     * @return MediaLive fails over if content is considered black for the specified period. See `videoBlackSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs>> videoBlackSettings() {
@@ -89,7 +89,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param audioSilenceSettings MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+         * @param audioSilenceSettings MediaLive fails over if the specified audio selector is silent for the specified period. See `audioSilenceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param audioSilenceSettings MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+         * @param audioSilenceSettings MediaLive fails over if the specified audio selector is silent for the specified period. See `audioSilenceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param inputLossSettings MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+         * @param inputLossSettings MediaLive fails over if content is not detected in this input for the specified period. See `inputLossSettings` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param inputLossSettings MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+         * @param inputLossSettings MediaLive fails over if content is not detected in this input for the specified period. See `inputLossSettings` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param videoBlackSettings MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+         * @param videoBlackSettings MediaLive fails over if content is considered black for the specified period. See `videoBlackSettings` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param videoBlackSettings MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+         * @param videoBlackSettings MediaLive fails over if content is considered black for the specified period. See `videoBlackSettings` Block for details.
          * 
          * @return builder
          * 

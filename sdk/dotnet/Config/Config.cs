@@ -1408,6 +1408,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Pricingplanmanager { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Prometheus { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

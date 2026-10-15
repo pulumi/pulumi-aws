@@ -380,11 +380,11 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// VPC Id associated with the cluster
+        /// VPC ID associated with the cluster
         /// </summary>
         public readonly string VpcId;
         /// <summary>
-        /// The VPC security group Ids associated with the cluster
+        /// The VPC security group IDs associated with the cluster
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 

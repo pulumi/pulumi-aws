@@ -320,14 +320,14 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
         return this.agentRuntimeArn;
     }
     /**
-     * Container artifact configuration. See `agentRuntimeArtifact` below.
+     * Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      * 
      */
     @Export(name="agentRuntimeArtifact", refs={AgentcoreAgentRuntimeAgentRuntimeArtifact.class}, tree="[0]")
     private Output<AgentcoreAgentRuntimeAgentRuntimeArtifact> agentRuntimeArtifact;
 
     /**
-     * @return Container artifact configuration. See `agentRuntimeArtifact` below.
+     * @return Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      * 
      */
     public Output<AgentcoreAgentRuntimeAgentRuntimeArtifact> agentRuntimeArtifact() {

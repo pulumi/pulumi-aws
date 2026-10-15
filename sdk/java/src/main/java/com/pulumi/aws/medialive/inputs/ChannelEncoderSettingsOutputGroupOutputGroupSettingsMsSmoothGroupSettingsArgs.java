@@ -18,29 +18,45 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs();
 
+    /**
+     * Identifier used to associate the segments between the output and the ingest server.
+     * 
+     */
     @Import(name="acquisitionPointId")
     private @Nullable Output<String> acquisitionPointId;
 
+    /**
+     * @return Identifier used to associate the segments between the output and the ingest server.
+     * 
+     */
     public Optional<Output<String>> acquisitionPointId() {
         return Optional.ofNullable(this.acquisitionPointId);
     }
 
+    /**
+     * Whether to put a timecode in the single video track of an audio-only output.
+     * 
+     */
     @Import(name="audioOnlyTimecodeControl")
     private @Nullable Output<String> audioOnlyTimecodeControl;
 
+    /**
+     * @return Whether to put a timecode in the single video track of an audio-only output.
+     * 
+     */
     public Optional<Output<String>> audioOnlyTimecodeControl() {
         return Optional.ofNullable(this.audioOnlyTimecodeControl);
     }
 
     /**
-     * Setting to allow self signed or verified RTMP certificates.
+     * When set to `selfSigned`, accepts self-signed certificates from the destination server.
      * 
      */
     @Import(name="certificateMode")
     private @Nullable Output<String> certificateMode;
 
     /**
-     * @return Setting to allow self signed or verified RTMP certificates.
+     * @return When set to `selfSigned`, accepts self-signed certificates from the destination server.
      * 
      */
     public Optional<Output<String>> certificateMode() {
@@ -48,65 +64,121 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     }
 
     /**
-     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * Number of seconds to wait before retrying a connection to the server if the connection is lost.
      * 
      */
     @Import(name="connectionRetryInterval")
     private @Nullable Output<Integer> connectionRetryInterval;
 
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the server if the connection is lost.
      * 
      */
     public Optional<Output<Integer>> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
 
+    /**
+     * Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+     * 
+     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> destination;
 
+    /**
+     * @return Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+     * 
+     */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> destination() {
         return this.destination;
     }
 
+    /**
+     * Microsoft Smooth channel ID that is sent to the IIS server.
+     * 
+     */
     @Import(name="eventId")
     private @Nullable Output<String> eventId;
 
+    /**
+     * @return Microsoft Smooth channel ID that is sent to the IIS server.
+     * 
+     */
     public Optional<Output<String>> eventId() {
         return Optional.ofNullable(this.eventId);
     }
 
+    /**
+     * How the event ID is generated.
+     * 
+     */
     @Import(name="eventIdMode")
     private @Nullable Output<String> eventIdMode;
 
+    /**
+     * @return How the event ID is generated.
+     * 
+     */
     public Optional<Output<String>> eventIdMode() {
         return Optional.ofNullable(this.eventIdMode);
     }
 
+    /**
+     * When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+     * 
+     */
     @Import(name="eventStopBehavior")
     private @Nullable Output<String> eventStopBehavior;
 
+    /**
+     * @return When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+     * 
+     */
     public Optional<Output<String>> eventStopBehavior() {
         return Optional.ofNullable(this.eventStopBehavior);
     }
 
+    /**
+     * Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     @Import(name="filecacheDuration")
     private @Nullable Output<Integer> filecacheDuration;
 
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     public Optional<Output<Integer>> filecacheDuration() {
         return Optional.ofNullable(this.filecacheDuration);
     }
 
+    /**
+     * Length, in seconds, of mp4 fragments to generate.
+     * 
+     */
     @Import(name="fragmentLength")
     private @Nullable Output<Integer> fragmentLength;
 
+    /**
+     * @return Length, in seconds, of mp4 fragments to generate.
+     * 
+     */
     public Optional<Output<Integer>> fragmentLength() {
         return Optional.ofNullable(this.fragmentLength);
     }
 
+    /**
+     * Parameter that controls output group behavior on an input loss.
+     * 
+     */
     @Import(name="inputLossAction")
     private @Nullable Output<String> inputLossAction;
 
+    /**
+     * @return Parameter that controls output group behavior on an input loss.
+     * 
+     */
     public Optional<Output<String>> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
@@ -141,44 +213,92 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         return Optional.ofNullable(this.restartDelay);
     }
 
+    /**
+     * When set to `useInputSegmentation`, segmentation markers from the input are used.
+     * 
+     */
     @Import(name="segmentationMode")
     private @Nullable Output<String> segmentationMode;
 
+    /**
+     * @return When set to `useInputSegmentation`, segmentation markers from the input are used.
+     * 
+     */
     public Optional<Output<String>> segmentationMode() {
         return Optional.ofNullable(this.segmentationMode);
     }
 
+    /**
+     * Number of milliseconds to delay the output from the second pipeline.
+     * 
+     */
     @Import(name="sendDelayMs")
     private @Nullable Output<Integer> sendDelayMs;
 
+    /**
+     * @return Number of milliseconds to delay the output from the second pipeline.
+     * 
+     */
     public Optional<Output<Integer>> sendDelayMs() {
         return Optional.ofNullable(this.sendDelayMs);
     }
 
+    /**
+     * Type of the sparse track that carries timed metadata.
+     * 
+     */
     @Import(name="sparseTrackType")
     private @Nullable Output<String> sparseTrackType;
 
+    /**
+     * @return Type of the sparse track that carries timed metadata.
+     * 
+     */
     public Optional<Output<String>> sparseTrackType() {
         return Optional.ofNullable(this.sparseTrackType);
     }
 
+    /**
+     * When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+     * 
+     */
     @Import(name="streamManifestBehavior")
     private @Nullable Output<String> streamManifestBehavior;
 
+    /**
+     * @return When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+     * 
+     */
     public Optional<Output<String>> streamManifestBehavior() {
         return Optional.ofNullable(this.streamManifestBehavior);
     }
 
+    /**
+     * Timestamp offset for the event.
+     * 
+     */
     @Import(name="timestampOffset")
     private @Nullable Output<String> timestampOffset;
 
+    /**
+     * @return Timestamp offset for the event.
+     * 
+     */
     public Optional<Output<String>> timestampOffset() {
         return Optional.ofNullable(this.timestampOffset);
     }
 
+    /**
+     * Type of timestamp date offset to use.
+     * 
+     */
     @Import(name="timestampOffsetMode")
     private @Nullable Output<String> timestampOffsetMode;
 
+    /**
+     * @return Type of timestamp date offset to use.
+     * 
+     */
     public Optional<Output<String>> timestampOffsetMode() {
         return Optional.ofNullable(this.timestampOffsetMode);
     }
@@ -225,26 +345,50 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param acquisitionPointId Identifier used to associate the segments between the output and the ingest server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acquisitionPointId(@Nullable Output<String> acquisitionPointId) {
             $.acquisitionPointId = acquisitionPointId;
             return this;
         }
 
+        /**
+         * @param acquisitionPointId Identifier used to associate the segments between the output and the ingest server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acquisitionPointId(String acquisitionPointId) {
             return acquisitionPointId(Output.of(acquisitionPointId));
         }
 
+        /**
+         * @param audioOnlyTimecodeControl Whether to put a timecode in the single video track of an audio-only output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioOnlyTimecodeControl(@Nullable Output<String> audioOnlyTimecodeControl) {
             $.audioOnlyTimecodeControl = audioOnlyTimecodeControl;
             return this;
         }
 
+        /**
+         * @param audioOnlyTimecodeControl Whether to put a timecode in the single video track of an audio-only output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioOnlyTimecodeControl(String audioOnlyTimecodeControl) {
             return audioOnlyTimecodeControl(Output.of(audioOnlyTimecodeControl));
         }
 
         /**
-         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * @param certificateMode When set to `selfSigned`, accepts self-signed certificates from the destination server.
          * 
          * @return builder
          * 
@@ -255,7 +399,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         }
 
         /**
-         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * @param certificateMode When set to `selfSigned`, accepts self-signed certificates from the destination server.
          * 
          * @return builder
          * 
@@ -265,7 +409,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the server if the connection is lost.
          * 
          * @return builder
          * 
@@ -276,7 +420,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the server if the connection is lost.
          * 
          * @return builder
          * 
@@ -285,65 +429,149 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return connectionRetryInterval(Output.of(connectionRetryInterval));
         }
 
+        /**
+         * @param destination Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
+        /**
+         * @param destination Smooth Streaming publish point on an IIS server. See `destination` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
+        /**
+         * @param eventId Microsoft Smooth channel ID that is sent to the IIS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventId(@Nullable Output<String> eventId) {
             $.eventId = eventId;
             return this;
         }
 
+        /**
+         * @param eventId Microsoft Smooth channel ID that is sent to the IIS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventId(String eventId) {
             return eventId(Output.of(eventId));
         }
 
+        /**
+         * @param eventIdMode How the event ID is generated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventIdMode(@Nullable Output<String> eventIdMode) {
             $.eventIdMode = eventIdMode;
             return this;
         }
 
+        /**
+         * @param eventIdMode How the event ID is generated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventIdMode(String eventIdMode) {
             return eventIdMode(Output.of(eventIdMode));
         }
 
+        /**
+         * @param eventStopBehavior When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventStopBehavior(@Nullable Output<String> eventStopBehavior) {
             $.eventStopBehavior = eventStopBehavior;
             return this;
         }
 
+        /**
+         * @param eventStopBehavior When set to `sendEos`, sends an end-of-stream to the IIS server when a stream stops.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventStopBehavior(String eventStopBehavior) {
             return eventStopBehavior(Output.of(eventStopBehavior));
         }
 
+        /**
+         * @param filecacheDuration Size, in seconds, of the file cache for streaming outputs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filecacheDuration(@Nullable Output<Integer> filecacheDuration) {
             $.filecacheDuration = filecacheDuration;
             return this;
         }
 
+        /**
+         * @param filecacheDuration Size, in seconds, of the file cache for streaming outputs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filecacheDuration(Integer filecacheDuration) {
             return filecacheDuration(Output.of(filecacheDuration));
         }
 
+        /**
+         * @param fragmentLength Length, in seconds, of mp4 fragments to generate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fragmentLength(@Nullable Output<Integer> fragmentLength) {
             $.fragmentLength = fragmentLength;
             return this;
         }
 
+        /**
+         * @param fragmentLength Length, in seconds, of mp4 fragments to generate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fragmentLength(Integer fragmentLength) {
             return fragmentLength(Output.of(fragmentLength));
         }
 
+        /**
+         * @param inputLossAction Parameter that controls output group behavior on an input loss.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossAction(@Nullable Output<String> inputLossAction) {
             $.inputLossAction = inputLossAction;
             return this;
         }
 
+        /**
+         * @param inputLossAction Parameter that controls output group behavior on an input loss.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossAction(String inputLossAction) {
             return inputLossAction(Output.of(inputLossAction));
         }
@@ -390,56 +618,128 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return restartDelay(Output.of(restartDelay));
         }
 
+        /**
+         * @param segmentationMode When set to `useInputSegmentation`, segmentation markers from the input are used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentationMode(@Nullable Output<String> segmentationMode) {
             $.segmentationMode = segmentationMode;
             return this;
         }
 
+        /**
+         * @param segmentationMode When set to `useInputSegmentation`, segmentation markers from the input are used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentationMode(String segmentationMode) {
             return segmentationMode(Output.of(segmentationMode));
         }
 
+        /**
+         * @param sendDelayMs Number of milliseconds to delay the output from the second pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sendDelayMs(@Nullable Output<Integer> sendDelayMs) {
             $.sendDelayMs = sendDelayMs;
             return this;
         }
 
+        /**
+         * @param sendDelayMs Number of milliseconds to delay the output from the second pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sendDelayMs(Integer sendDelayMs) {
             return sendDelayMs(Output.of(sendDelayMs));
         }
 
+        /**
+         * @param sparseTrackType Type of the sparse track that carries timed metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sparseTrackType(@Nullable Output<String> sparseTrackType) {
             $.sparseTrackType = sparseTrackType;
             return this;
         }
 
+        /**
+         * @param sparseTrackType Type of the sparse track that carries timed metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sparseTrackType(String sparseTrackType) {
             return sparseTrackType(Output.of(sparseTrackType));
         }
 
+        /**
+         * @param streamManifestBehavior When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamManifestBehavior(@Nullable Output<String> streamManifestBehavior) {
             $.streamManifestBehavior = streamManifestBehavior;
             return this;
         }
 
+        /**
+         * @param streamManifestBehavior When set to `send`, sends a stream manifest so the publishing point does not start until the first segment is sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamManifestBehavior(String streamManifestBehavior) {
             return streamManifestBehavior(Output.of(streamManifestBehavior));
         }
 
+        /**
+         * @param timestampOffset Timestamp offset for the event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timestampOffset(@Nullable Output<String> timestampOffset) {
             $.timestampOffset = timestampOffset;
             return this;
         }
 
+        /**
+         * @param timestampOffset Timestamp offset for the event.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timestampOffset(String timestampOffset) {
             return timestampOffset(Output.of(timestampOffset));
         }
 
+        /**
+         * @param timestampOffsetMode Type of timestamp date offset to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timestampOffsetMode(@Nullable Output<String> timestampOffsetMode) {
             $.timestampOffsetMode = timestampOffsetMode;
             return this;
         }
 
+        /**
+         * @param timestampOffsetMode Type of timestamp date offset to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timestampOffsetMode(String timestampOffsetMode) {
             return timestampOffsetMode(Output.of(timestampOffsetMode));
         }

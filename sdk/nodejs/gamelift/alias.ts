@@ -79,7 +79,7 @@ export class Alias extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies the fleet and/or routing type to use for the alias.
+     * Fleet and/or routing type to use for the alias.
      */
     declare public readonly routingStrategy: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
     /**
@@ -87,7 +87,7 @@ export class Alias extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -150,7 +150,7 @@ export interface AliasState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the fleet and/or routing type to use for the alias.
+     * Fleet and/or routing type to use for the alias.
      */
     routingStrategy?: pulumi.Input<inputs.gamelift.AliasRoutingStrategy | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface AliasState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -180,7 +180,7 @@ export interface AliasArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the fleet and/or routing type to use for the alias.
+     * Fleet and/or routing type to use for the alias.
      */
     routingStrategy: pulumi.Input<inputs.gamelift.AliasRoutingStrategy>;
     /**

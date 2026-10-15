@@ -125,7 +125,7 @@ def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGate
     """
     Provides details about an EC2 Local Gateway Route Table.
 
-    This data source can prove useful when a module accepts a local gateway route table id as
+    This data source can prove useful when a module accepts a local gateway route table ID as
     an input variable and needs to, for example, find the associated Outpost or Local Gateway.
 
     ## Example Usage
@@ -143,7 +143,7 @@ def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGate
 
 
     :param _builtins.str local_gateway_id: ID of the specific local gateway route table to retrieve.
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
+    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table ID assigned to desired local gateway route table
     :param _builtins.str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: State of the local gateway route table.
@@ -185,7 +185,7 @@ def get_local_gateway_route_table_output(filters: pulumi.Input[Optional[Optional
     """
     Provides details about an EC2 Local Gateway Route Table.
 
-    This data source can prove useful when a module accepts a local gateway route table id as
+    This data source can prove useful when a module accepts a local gateway route table ID as
     an input variable and needs to, for example, find the associated Outpost or Local Gateway.
 
     ## Example Usage
@@ -203,7 +203,7 @@ def get_local_gateway_route_table_output(filters: pulumi.Input[Optional[Optional
 
 
     :param _builtins.str local_gateway_id: ID of the specific local gateway route table to retrieve.
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
+    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table ID assigned to desired local gateway route table
     :param _builtins.str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: State of the local gateway route table.

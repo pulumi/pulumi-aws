@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? CredentialPrefix;
         /// <summary>
-        /// ARN of the OIDC provider for API key authentication.
+        /// ARN of the API key credential provider.
         /// </summary>
         public readonly string ProviderArn;
 

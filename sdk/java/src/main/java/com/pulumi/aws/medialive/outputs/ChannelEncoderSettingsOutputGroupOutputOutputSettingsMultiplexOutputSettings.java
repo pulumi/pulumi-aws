@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings {
     /**
-     * @return Destination is a multiplex. See Destination for more details.
+     * @return Multiplex destination. See `destination` Block for details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination destination;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings() {}
     /**
-     * @return Destination is a multiplex. See Destination for more details.
+     * @return Multiplex destination. See `destination` Block for details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination destination() {

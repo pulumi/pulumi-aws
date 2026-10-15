@@ -208,7 +208,7 @@ class _ScheduleState:
         """
         Input properties used for looking up and filtering Schedule resources.
 
-        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the autoscaling schedule.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the Auto Scaling schedule.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
         :param pulumi.Input[_builtins.str] end_time: The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
@@ -251,7 +251,7 @@ class _ScheduleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN assigned by AWS to the autoscaling schedule.
+        ARN assigned by AWS to the Auto Scaling schedule.
         """
         return pulumi.get(self, "arn")
 
@@ -599,7 +599,7 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the autoscaling schedule.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the Auto Scaling schedule.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
         :param pulumi.Input[_builtins.str] end_time: The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
@@ -636,7 +636,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN assigned by AWS to the autoscaling schedule.
+        ARN assigned by AWS to the Auto Scaling schedule.
         """
         return pulumi.get(self, "arn")
 

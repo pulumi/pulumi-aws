@@ -446,8 +446,7 @@ class AgentcoreMemory(pulumi.CustomResource):
             description="Memory for customer service agent",
             event_expiry_duration=60,
             encryption_key_arn=example.arn,
-            memory_execution_role_arn=example_aws_iam_role["arn"],
-            client_token="unique-client-token")
+            memory_execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -460,7 +459,7 @@ class AgentcoreMemory(pulumi.CustomResource):
 
         #### Optional
 
-        * `account_id` (String) Account ID where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import memories using `id`. For example:
@@ -532,8 +531,7 @@ class AgentcoreMemory(pulumi.CustomResource):
             description="Memory for customer service agent",
             event_expiry_duration=60,
             encryption_key_arn=example.arn,
-            memory_execution_role_arn=example_aws_iam_role["arn"],
-            client_token="unique-client-token")
+            memory_execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -546,7 +544,7 @@ class AgentcoreMemory(pulumi.CustomResource):
 
         #### Optional
 
-        * `account_id` (String) Account ID where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import memories using `id`. For example:

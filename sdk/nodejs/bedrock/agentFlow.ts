@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Bedrock Agents Flow.
+ * Manages an AWS Bedrock Agents Flow.
  *
  * ## Example Usage
  *

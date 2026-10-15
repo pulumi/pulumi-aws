@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Bedrock Agents Flow.
+// Manages an AWS Bedrock Agents Flow.
 //
 // ## Example Usage
 //

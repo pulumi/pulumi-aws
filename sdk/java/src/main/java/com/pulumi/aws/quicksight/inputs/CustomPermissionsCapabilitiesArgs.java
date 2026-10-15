@@ -16,6 +16,21 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     public static final CustomPermissionsCapabilitiesArgs Empty = new CustomPermissionsCapabilitiesArgs();
 
     /**
+     * Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="action")
+    private @Nullable Output<String> action;
+
+    /**
+     * @return Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> action() {
+        return Optional.ofNullable(this.action);
+    }
+
+    /**
      * Ability to add or run anomaly detection. Valid values: `DENY`.
      * 
      */
@@ -28,6 +43,51 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> addOrRunAnomalyDetectionForAnalyses() {
         return Optional.ofNullable(this.addOrRunAnomalyDetectionForAnalyses);
+    }
+
+    /**
+     * Ability to perform analysis-related actions. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="analysis")
+    private @Nullable Output<String> analysis;
+
+    /**
+     * @return Ability to perform analysis-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> analysis() {
+        return Optional.ofNullable(this.analysis);
+    }
+
+    /**
+     * Ability to perform automate-related actions. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="automate")
+    private @Nullable Output<String> automate;
+
+    /**
+     * @return Ability to perform automate-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> automate() {
+        return Optional.ofNullable(this.automate);
+    }
+
+    /**
+     * Ability to perform chat-related actions. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="chatAgent")
+    private @Nullable Output<String> chatAgent;
+
+    /**
+     * @return Ability to perform chat-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> chatAgent() {
+        return Optional.ofNullable(this.chatAgent);
     }
 
     /**
@@ -106,6 +166,21 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
+     * Ability to create chat agents. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="createChatAgents")
+    private @Nullable Output<String> createChatAgents;
+
+    /**
+     * @return Ability to create chat agents. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> createChatAgents() {
+        return Optional.ofNullable(this.createChatAgents);
+    }
+
+    /**
      * Ability to create shared folders. Valid values: `DENY`.
      * 
      */
@@ -133,6 +208,21 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> createSpiceDataset() {
         return Optional.ofNullable(this.createSpiceDataset);
+    }
+
+    /**
+     * Ability to perform dashboard-related actions. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="dashboard")
+    private @Nullable Output<String> dashboard;
+
+    /**
+     * @return Ability to perform dashboard-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> dashboard() {
+        return Optional.ofNullable(this.dashboard);
     }
 
     /**
@@ -226,6 +316,21 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
+     * Ability to perform flow-related actions. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="flow")
+    private @Nullable Output<String> flow;
+
+    /**
+     * @return Ability to perform flow-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> flow() {
+        return Optional.ofNullable(this.flow);
+    }
+
+    /**
      * Ability to include content in scheduled email reports. Valid values: `DENY`.
      * 
      */
@@ -238,6 +343,36 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> includeContentInScheduledReportsEmail() {
         return Optional.ofNullable(this.includeContentInScheduledReportsEmail);
+    }
+
+    /**
+     * Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="knowledgeBase")
+    private @Nullable Output<String> knowledgeBase;
+
+    /**
+     * @return Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> knowledgeBase() {
+        return Optional.ofNullable(this.knowledgeBase);
+    }
+
+    /**
+     * Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="performFlowUiTask")
+    private @Nullable Output<String> performFlowUiTask;
+
+    /**
+     * @return Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> performFlowUiTask() {
+        return Optional.ofNullable(this.performFlowUiTask);
     }
 
     /**
@@ -256,6 +391,21 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
+     * Ability to enable approvals for flow share. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="publishWithoutApproval")
+    private @Nullable Output<String> publishWithoutApproval;
+
+    /**
+     * @return Ability to enable approvals for flow share. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> publishWithoutApproval() {
+        return Optional.ofNullable(this.publishWithoutApproval);
+    }
+
+    /**
      * Ability to rename shared folders. Valid values: `DENY`.
      * 
      */
@@ -268,6 +418,21 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> renameSharedFolders() {
         return Optional.ofNullable(this.renameSharedFolders);
+    }
+
+    /**
+     * Ability to perform research-related actions. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="research")
+    private @Nullable Output<String> research;
+
+    /**
+     * @return Ability to perform research-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> research() {
+        return Optional.ofNullable(this.research);
     }
 
     /**
@@ -331,6 +496,21 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
+     * Ability to perform space-related actions. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="space")
+    private @Nullable Output<String> space;
+
+    /**
+     * @return Ability to perform space-related actions. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> space() {
+        return Optional.ofNullable(this.space);
+    }
+
+    /**
      * Ability to subscribe to email reports. Valid values: `DENY`.
      * 
      */
@@ -343,6 +523,36 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> subscribeDashboardEmailReports() {
         return Optional.ofNullable(this.subscribeDashboardEmailReports);
+    }
+
+    /**
+     * Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="useAgentWebSearch")
+    private @Nullable Output<String> useAgentWebSearch;
+
+    /**
+     * @return Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> useAgentWebSearch() {
+        return Optional.ofNullable(this.useAgentWebSearch);
+    }
+
+    /**
+     * Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+     * 
+     */
+    @Import(name="useBedrockModels")
+    private @Nullable Output<String> useBedrockModels;
+
+    /**
+     * @return Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+     * 
+     */
+    public Optional<Output<String>> useBedrockModels() {
+        return Optional.ofNullable(this.useBedrockModels);
     }
 
     /**
@@ -363,28 +573,42 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     private CustomPermissionsCapabilitiesArgs() {}
 
     private CustomPermissionsCapabilitiesArgs(CustomPermissionsCapabilitiesArgs $) {
+        this.action = $.action;
         this.addOrRunAnomalyDetectionForAnalyses = $.addOrRunAnomalyDetectionForAnalyses;
+        this.analysis = $.analysis;
+        this.automate = $.automate;
+        this.chatAgent = $.chatAgent;
         this.createAndUpdateDashboardEmailReports = $.createAndUpdateDashboardEmailReports;
         this.createAndUpdateDataSources = $.createAndUpdateDataSources;
         this.createAndUpdateDatasets = $.createAndUpdateDatasets;
         this.createAndUpdateThemes = $.createAndUpdateThemes;
         this.createAndUpdateThresholdAlerts = $.createAndUpdateThresholdAlerts;
+        this.createChatAgents = $.createChatAgents;
         this.createSharedFolders = $.createSharedFolders;
         this.createSpiceDataset = $.createSpiceDataset;
+        this.dashboard = $.dashboard;
         this.exportToCsv = $.exportToCsv;
         this.exportToCsvInScheduledReports = $.exportToCsvInScheduledReports;
         this.exportToExcel = $.exportToExcel;
         this.exportToExcelInScheduledReports = $.exportToExcelInScheduledReports;
         this.exportToPdf = $.exportToPdf;
         this.exportToPdfInScheduledReports = $.exportToPdfInScheduledReports;
+        this.flow = $.flow;
         this.includeContentInScheduledReportsEmail = $.includeContentInScheduledReportsEmail;
+        this.knowledgeBase = $.knowledgeBase;
+        this.performFlowUiTask = $.performFlowUiTask;
         this.printReports = $.printReports;
+        this.publishWithoutApproval = $.publishWithoutApproval;
         this.renameSharedFolders = $.renameSharedFolders;
+        this.research = $.research;
         this.shareAnalyses = $.shareAnalyses;
         this.shareDashboards = $.shareDashboards;
         this.shareDataSources = $.shareDataSources;
         this.shareDatasets = $.shareDatasets;
+        this.space = $.space;
         this.subscribeDashboardEmailReports = $.subscribeDashboardEmailReports;
+        this.useAgentWebSearch = $.useAgentWebSearch;
+        this.useBedrockModels = $.useBedrockModels;
         this.viewAccountSpiceCapacity = $.viewAccountSpiceCapacity;
     }
 
@@ -407,6 +631,27 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
+         * @param action Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder action(@Nullable Output<String> action) {
+            $.action = action;
+            return this;
+        }
+
+        /**
+         * @param action Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder action(String action) {
+            return action(Output.of(action));
+        }
+
+        /**
          * @param addOrRunAnomalyDetectionForAnalyses Ability to add or run anomaly detection. Valid values: `DENY`.
          * 
          * @return builder
@@ -425,6 +670,69 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
          */
         public Builder addOrRunAnomalyDetectionForAnalyses(String addOrRunAnomalyDetectionForAnalyses) {
             return addOrRunAnomalyDetectionForAnalyses(Output.of(addOrRunAnomalyDetectionForAnalyses));
+        }
+
+        /**
+         * @param analysis Ability to perform analysis-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analysis(@Nullable Output<String> analysis) {
+            $.analysis = analysis;
+            return this;
+        }
+
+        /**
+         * @param analysis Ability to perform analysis-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder analysis(String analysis) {
+            return analysis(Output.of(analysis));
+        }
+
+        /**
+         * @param automate Ability to perform automate-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automate(@Nullable Output<String> automate) {
+            $.automate = automate;
+            return this;
+        }
+
+        /**
+         * @param automate Ability to perform automate-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automate(String automate) {
+            return automate(Output.of(automate));
+        }
+
+        /**
+         * @param chatAgent Ability to perform chat-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chatAgent(@Nullable Output<String> chatAgent) {
+            $.chatAgent = chatAgent;
+            return this;
+        }
+
+        /**
+         * @param chatAgent Ability to perform chat-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chatAgent(String chatAgent) {
+            return chatAgent(Output.of(chatAgent));
         }
 
         /**
@@ -533,6 +841,27 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
+         * @param createChatAgents Ability to create chat agents. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createChatAgents(@Nullable Output<String> createChatAgents) {
+            $.createChatAgents = createChatAgents;
+            return this;
+        }
+
+        /**
+         * @param createChatAgents Ability to create chat agents. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createChatAgents(String createChatAgents) {
+            return createChatAgents(Output.of(createChatAgents));
+        }
+
+        /**
          * @param createSharedFolders Ability to create shared folders. Valid values: `DENY`.
          * 
          * @return builder
@@ -572,6 +901,27 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
          */
         public Builder createSpiceDataset(String createSpiceDataset) {
             return createSpiceDataset(Output.of(createSpiceDataset));
+        }
+
+        /**
+         * @param dashboard Ability to perform dashboard-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboard(@Nullable Output<String> dashboard) {
+            $.dashboard = dashboard;
+            return this;
+        }
+
+        /**
+         * @param dashboard Ability to perform dashboard-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboard(String dashboard) {
+            return dashboard(Output.of(dashboard));
         }
 
         /**
@@ -701,6 +1051,27 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
+         * @param flow Ability to perform flow-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flow(@Nullable Output<String> flow) {
+            $.flow = flow;
+            return this;
+        }
+
+        /**
+         * @param flow Ability to perform flow-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flow(String flow) {
+            return flow(Output.of(flow));
+        }
+
+        /**
          * @param includeContentInScheduledReportsEmail Ability to include content in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
@@ -719,6 +1090,48 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
          */
         public Builder includeContentInScheduledReportsEmail(String includeContentInScheduledReportsEmail) {
             return includeContentInScheduledReportsEmail(Output.of(includeContentInScheduledReportsEmail));
+        }
+
+        /**
+         * @param knowledgeBase Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder knowledgeBase(@Nullable Output<String> knowledgeBase) {
+            $.knowledgeBase = knowledgeBase;
+            return this;
+        }
+
+        /**
+         * @param knowledgeBase Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder knowledgeBase(String knowledgeBase) {
+            return knowledgeBase(Output.of(knowledgeBase));
+        }
+
+        /**
+         * @param performFlowUiTask Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performFlowUiTask(@Nullable Output<String> performFlowUiTask) {
+            $.performFlowUiTask = performFlowUiTask;
+            return this;
+        }
+
+        /**
+         * @param performFlowUiTask Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performFlowUiTask(String performFlowUiTask) {
+            return performFlowUiTask(Output.of(performFlowUiTask));
         }
 
         /**
@@ -743,6 +1156,27 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
+         * @param publishWithoutApproval Ability to enable approvals for flow share. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishWithoutApproval(@Nullable Output<String> publishWithoutApproval) {
+            $.publishWithoutApproval = publishWithoutApproval;
+            return this;
+        }
+
+        /**
+         * @param publishWithoutApproval Ability to enable approvals for flow share. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishWithoutApproval(String publishWithoutApproval) {
+            return publishWithoutApproval(Output.of(publishWithoutApproval));
+        }
+
+        /**
          * @param renameSharedFolders Ability to rename shared folders. Valid values: `DENY`.
          * 
          * @return builder
@@ -761,6 +1195,27 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
          */
         public Builder renameSharedFolders(String renameSharedFolders) {
             return renameSharedFolders(Output.of(renameSharedFolders));
+        }
+
+        /**
+         * @param research Ability to perform research-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder research(@Nullable Output<String> research) {
+            $.research = research;
+            return this;
+        }
+
+        /**
+         * @param research Ability to perform research-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder research(String research) {
+            return research(Output.of(research));
         }
 
         /**
@@ -848,6 +1303,27 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
+         * @param space Ability to perform space-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder space(@Nullable Output<String> space) {
+            $.space = space;
+            return this;
+        }
+
+        /**
+         * @param space Ability to perform space-related actions. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder space(String space) {
+            return space(Output.of(space));
+        }
+
+        /**
          * @param subscribeDashboardEmailReports Ability to subscribe to email reports. Valid values: `DENY`.
          * 
          * @return builder
@@ -866,6 +1342,48 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
          */
         public Builder subscribeDashboardEmailReports(String subscribeDashboardEmailReports) {
             return subscribeDashboardEmailReports(Output.of(subscribeDashboardEmailReports));
+        }
+
+        /**
+         * @param useAgentWebSearch Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useAgentWebSearch(@Nullable Output<String> useAgentWebSearch) {
+            $.useAgentWebSearch = useAgentWebSearch;
+            return this;
+        }
+
+        /**
+         * @param useAgentWebSearch Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useAgentWebSearch(String useAgentWebSearch) {
+            return useAgentWebSearch(Output.of(useAgentWebSearch));
+        }
+
+        /**
+         * @param useBedrockModels Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useBedrockModels(@Nullable Output<String> useBedrockModels) {
+            $.useBedrockModels = useBedrockModels;
+            return this;
+        }
+
+        /**
+         * @param useBedrockModels Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useBedrockModels(String useBedrockModels) {
+            return useBedrockModels(Output.of(useBedrockModels));
         }
 
         /**

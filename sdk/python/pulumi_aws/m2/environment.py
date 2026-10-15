@@ -43,17 +43,19 @@ class EnvironmentArgs:
 
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
         :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
+        :param pulumi.Input[_builtins.bool] apply_changes_during_maintenance_window: Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        :param pulumi.Input[_builtins.str] description: Description of the runtime environment.
+        :param pulumi.Input[_builtins.str] engine_version: Specific version of the engine for the Environment.
         :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
         :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs to deploy environment to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "engine_type", engine_type)
@@ -106,8 +108,6 @@ class EnvironmentArgs:
     def instance_type(self) -> pulumi.Input[_builtins.str]:
         """
         M2 Instance Type.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -118,6 +118,9 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="applyChangesDuringMaintenanceWindow")
     def apply_changes_during_maintenance_window(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        """
         return pulumi.get(self, "apply_changes_during_maintenance_window")
 
     @apply_changes_during_maintenance_window.setter
@@ -127,6 +130,9 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the runtime environment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -137,7 +143,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The specific version of the engine for the Environment.
+        Specific version of the engine for the Environment.
         """
         return pulumi.get(self, "engine_version")
 
@@ -183,6 +189,8 @@ class EnvironmentArgs:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the runtime environment. Must be unique within the account.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -230,7 +238,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of security group ids.
+        List of security group IDs.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -251,7 +259,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of subnet ids to deploy environment to.
+        List of subnet IDs to deploy environment to.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -308,22 +316,24 @@ class _EnvironmentState:
         """
         Input properties used for looking up and filtering Environment resources.
 
+        :param pulumi.Input[_builtins.bool] apply_changes_during_maintenance_window: Whether to apply configuration changes during the preferred maintenance window instead of immediately.
         :param pulumi.Input[_builtins.str] arn: ARN of the Environment.
+        :param pulumi.Input[_builtins.str] description: Description of the runtime environment.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
-        :param pulumi.Input[_builtins.str] environment_id: The id of the Environment.
+        :param pulumi.Input[_builtins.str] engine_version: Specific version of the engine for the Environment.
+        :param pulumi.Input[_builtins.str] environment_id: ID of the Environment.
         :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
         :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
         :param pulumi.Input[_builtins.str] load_balancer_arn: ARN of the load balancer created by the Environment.
         :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs to deploy environment to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if apply_changes_during_maintenance_window is not None:
@@ -372,6 +382,9 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="applyChangesDuringMaintenanceWindow")
     def apply_changes_during_maintenance_window(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        """
         return pulumi.get(self, "apply_changes_during_maintenance_window")
 
     @apply_changes_during_maintenance_window.setter
@@ -393,6 +406,9 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the runtime environment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -415,7 +431,7 @@ class _EnvironmentState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The specific version of the engine for the Environment.
+        Specific version of the engine for the Environment.
         """
         return pulumi.get(self, "engine_version")
 
@@ -427,7 +443,7 @@ class _EnvironmentState:
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The id of the Environment.
+        ID of the Environment.
         """
         return pulumi.get(self, "environment_id")
 
@@ -461,8 +477,6 @@ class _EnvironmentState:
     def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         M2 Instance Type.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -499,6 +513,8 @@ class _EnvironmentState:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the runtime environment. Must be unique within the account.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -546,7 +562,7 @@ class _EnvironmentState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of security group ids.
+        List of security group IDs.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -567,7 +583,7 @@ class _EnvironmentState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of subnet ids to deploy environment to.
+        List of subnet IDs to deploy environment to.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -695,7 +711,7 @@ class Environment(pulumi.CustomResource):
             ])
         ```
 
-        ### FSX Filesystem
+        ### FSx Filesystem
 
         ```python
         import pulumi
@@ -729,19 +745,21 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] apply_changes_during_maintenance_window: Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        :param pulumi.Input[_builtins.str] description: Description of the runtime environment.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
+        :param pulumi.Input[_builtins.str] engine_version: Specific version of the engine for the Environment.
         :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
         :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
         :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs to deploy environment to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -815,7 +833,7 @@ class Environment(pulumi.CustomResource):
             ])
         ```
 
-        ### FSX Filesystem
+        ### FSx Filesystem
 
         ```python
         import pulumi
@@ -951,22 +969,24 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] apply_changes_during_maintenance_window: Whether to apply configuration changes during the preferred maintenance window instead of immediately.
         :param pulumi.Input[_builtins.str] arn: ARN of the Environment.
+        :param pulumi.Input[_builtins.str] description: Description of the runtime environment.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
-        :param pulumi.Input[_builtins.str] environment_id: The id of the Environment.
+        :param pulumi.Input[_builtins.str] engine_version: Specific version of the engine for the Environment.
+        :param pulumi.Input[_builtins.str] environment_id: ID of the Environment.
         :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
         :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
         :param pulumi.Input[_builtins.str] load_balancer_arn: ARN of the load balancer created by the Environment.
         :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs to deploy environment to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -999,6 +1019,9 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applyChangesDuringMaintenanceWindow")
     def apply_changes_during_maintenance_window(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        """
         return pulumi.get(self, "apply_changes_during_maintenance_window")
 
     @_builtins.property
@@ -1012,6 +1035,9 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description of the runtime environment.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -1026,7 +1052,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The specific version of the engine for the Environment.
+        Specific version of the engine for the Environment.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1034,7 +1060,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the Environment.
+        ID of the Environment.
         """
         return pulumi.get(self, "environment_id")
 
@@ -1056,8 +1082,6 @@ class Environment(pulumi.CustomResource):
     def instance_type(self) -> pulumi.Output[_builtins.str]:
         """
         M2 Instance Type.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -1082,6 +1106,8 @@ class Environment(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the runtime environment. Must be unique within the account.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -1113,7 +1139,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        List of security group ids.
+        List of security group IDs.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1126,7 +1152,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        List of subnet ids to deploy environment to.
+        List of subnet IDs to deploy environment to.
         """
         return pulumi.get(self, "subnet_ids")
 

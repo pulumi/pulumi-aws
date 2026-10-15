@@ -16,7 +16,7 @@ public final class GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
      */
     private String arn;
     /**
-     * @return Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+     * @return Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
      * 
      */
     private String cloudExadataInfrastructureId;
@@ -60,7 +60,7 @@ public final class GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
         return this.arn;
     }
     /**
-     * @return Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+     * @return Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
      * 
      */
     public String cloudExadataInfrastructureId() {

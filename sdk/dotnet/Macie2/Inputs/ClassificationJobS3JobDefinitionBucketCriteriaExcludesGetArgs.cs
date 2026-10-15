@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         private InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndGetArgs>? _ands;
 
         /// <summary>
-        /// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+        /// Array of conditions, one for each condition that determines which objects to include or exclude from the job. See `scoping.excludes.and` Block for details.
         /// </summary>
         public InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndGetArgs> Ands
         {

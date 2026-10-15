@@ -20,14 +20,14 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final SubnetGroupArgs Empty = new SubnetGroupArgs();
 
     /**
-     * The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -35,14 +35,14 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * @return The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,7 +139,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+         * @param name The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+         * @param name The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+        /// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`, `PRIVATE_KEY_JWT`.
         /// </summary>
         [Input("clientAuthenticationMethod")]
         public Input<string>? ClientAuthenticationMethod { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private Input<string>? _clientId;
 
         /// <summary>
-        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret` unless `ClientSecretSource` is `EXTERNAL` or `ClientAuthenticationMethod` is `AWS_IAM_ID_TOKEN_JWT` or `PRIVATE_KEY_JWT`.
         /// </summary>
         public Input<string>? ClientId
         {

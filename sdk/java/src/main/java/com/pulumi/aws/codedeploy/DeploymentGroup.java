@@ -365,14 +365,14 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoRollbackConfiguration);
     }
     /**
-     * Autoscaling groups associated with the deployment group.
+     * Auto Scaling groups associated with the deployment group.
      * 
      */
     @Export(name="autoscalingGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> autoscalingGroups;
 
     /**
-     * @return Autoscaling groups associated with the deployment group.
+     * @return Auto Scaling groups associated with the deployment group.
      * 
      */
     public Output<Optional<List<String>>> autoscalingGroups() {

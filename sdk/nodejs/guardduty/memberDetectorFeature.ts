@@ -95,7 +95,7 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+     * Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     declare public readonly status: pulumi.Output<string>;
 
@@ -166,7 +166,7 @@ export interface MemberDetectorFeatureState {
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface MemberDetectorFeatureState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+     * Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     status?: pulumi.Input<string | undefined>;
 }
@@ -196,7 +196,7 @@ export interface MemberDetectorFeatureArgs {
      */
     detectorId: pulumi.Input<string>;
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface MemberDetectorFeatureArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+     * Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     status: pulumi.Input<string>;
 }

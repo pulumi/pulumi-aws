@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     public static class GetManagedPrefixLists
     {
         /// <summary>
-        /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrefixListsResult>("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args ?? new GetManagedPrefixListsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListsResult>("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args ?? new GetManagedPrefixListsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the managed prefix list ids found.
+        /// List of all the managed prefix list IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

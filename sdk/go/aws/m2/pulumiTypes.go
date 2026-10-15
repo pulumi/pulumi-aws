@@ -805,7 +805,7 @@ func (o EnvironmentStorageConfigurationPtrOutput) Fsx() EnvironmentStorageConfig
 }
 
 type EnvironmentStorageConfigurationEfs struct {
-	// Id of the EFS filesystem to mount.
+	// ID of the EFS filesystem to mount.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Path to mount the filesystem on, must start with `/m2/mount/`.
 	MountPoint string `pulumi:"mountPoint"`
@@ -823,7 +823,7 @@ type EnvironmentStorageConfigurationEfsInput interface {
 }
 
 type EnvironmentStorageConfigurationEfsArgs struct {
-	// Id of the EFS filesystem to mount.
+	// ID of the EFS filesystem to mount.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
 	// Path to mount the filesystem on, must start with `/m2/mount/`.
 	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
@@ -906,7 +906,7 @@ func (o EnvironmentStorageConfigurationEfsOutput) ToEnvironmentStorageConfigurat
 	}).(EnvironmentStorageConfigurationEfsPtrOutput)
 }
 
-// Id of the EFS filesystem to mount.
+// ID of the EFS filesystem to mount.
 func (o EnvironmentStorageConfigurationEfsOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentStorageConfigurationEfs) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
@@ -940,7 +940,7 @@ func (o EnvironmentStorageConfigurationEfsPtrOutput) Elem() EnvironmentStorageCo
 	}).(EnvironmentStorageConfigurationEfsOutput)
 }
 
-// Id of the EFS filesystem to mount.
+// ID of the EFS filesystem to mount.
 func (o EnvironmentStorageConfigurationEfsPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStorageConfigurationEfs) *string {
 		if v == nil {
@@ -961,7 +961,7 @@ func (o EnvironmentStorageConfigurationEfsPtrOutput) MountPoint() pulumi.StringP
 }
 
 type EnvironmentStorageConfigurationFsx struct {
-	// Id of the FSX filesystem to mount.
+	// ID of the FSx filesystem to mount.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Path to mount the filesystem on, must start with `/m2/mount/`.
 	MountPoint string `pulumi:"mountPoint"`
@@ -979,7 +979,7 @@ type EnvironmentStorageConfigurationFsxInput interface {
 }
 
 type EnvironmentStorageConfigurationFsxArgs struct {
-	// Id of the FSX filesystem to mount.
+	// ID of the FSx filesystem to mount.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
 	// Path to mount the filesystem on, must start with `/m2/mount/`.
 	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
@@ -1062,7 +1062,7 @@ func (o EnvironmentStorageConfigurationFsxOutput) ToEnvironmentStorageConfigurat
 	}).(EnvironmentStorageConfigurationFsxPtrOutput)
 }
 
-// Id of the FSX filesystem to mount.
+// ID of the FSx filesystem to mount.
 func (o EnvironmentStorageConfigurationFsxOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentStorageConfigurationFsx) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
@@ -1096,7 +1096,7 @@ func (o EnvironmentStorageConfigurationFsxPtrOutput) Elem() EnvironmentStorageCo
 	}).(EnvironmentStorageConfigurationFsxOutput)
 }
 
-// Id of the FSX filesystem to mount.
+// ID of the FSx filesystem to mount.
 func (o EnvironmentStorageConfigurationFsxPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStorageConfigurationFsx) *string {
 		if v == nil {

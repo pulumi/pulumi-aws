@@ -87,14 +87,14 @@ public class ApplicationLayerAutomaticResponse extends com.pulumi.resources.Cust
         return this.action;
     }
     /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+     * ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+     * @return ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
      * 
      */
     public Output<String> resourceArn() {

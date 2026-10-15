@@ -16,14 +16,14 @@ public final class GetUserPoolsPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetUserPoolsPlainArgs Empty = new GetUserPoolsPlainArgs();
 
     /**
-     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+     * @return Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
      * 
      */
     public String name() {
@@ -71,7 +71,7 @@ public final class GetUserPoolsPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+         * @param name Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
          * 
          * @return builder
          * 

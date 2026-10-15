@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppAutoScaling
 {
     /// <summary>
-    /// Provides an Application AutoScaling ScheduledAction resource.
+    /// Provides an Application Auto Scaling ScheduledAction resource.
     /// 
     /// ## Example Usage
     /// 
-    /// ### DynamoDB Table Autoscaling
+    /// ### DynamoDB Table AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// 
-    /// ### ECS Service Autoscaling
+    /// ### ECS Service AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+        /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `Ecs`
         /// </summary>
         [Output("serviceNamespace")]
         public Output<string> ServiceNamespace { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string> Schedule { get; set; } = null!;
 
         /// <summary>
-        /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+        /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `Ecs`
         /// </summary>
         [Input("serviceNamespace", required: true)]
         public Input<string> ServiceNamespace { get; set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
-        /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+        /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `Ecs`
         /// </summary>
         [Input("serviceNamespace")]
         public Input<string>? ServiceNamespace { get; set; }

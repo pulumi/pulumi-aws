@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelInputSpecification {
+    /**
+     * @return Codec to use for the input.
+     * 
+     */
     private String codec;
+    /**
+     * @return Maximum input resolution.
+     * 
+     */
     private String inputResolution;
+    /**
+     * @return Maximum input bitrate for an input.
+     * 
+     */
     private String maximumBitrate;
 
     private ChannelInputSpecification() {}
+    /**
+     * @return Codec to use for the input.
+     * 
+     */
     public String codec() {
         return this.codec;
     }
+    /**
+     * @return Maximum input resolution.
+     * 
+     */
     public String inputResolution() {
         return this.inputResolution;
     }
+    /**
+     * @return Maximum input bitrate for an input.
+     * 
+     */
     public String maximumBitrate() {
         return this.maximumBitrate;
     }

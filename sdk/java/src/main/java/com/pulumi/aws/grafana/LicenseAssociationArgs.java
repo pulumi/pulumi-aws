@@ -17,14 +17,14 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
     public static final LicenseAssociationArgs Empty = new LicenseAssociationArgs();
 
     /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      * 
      */
     @Import(name="grafanaToken")
     private @Nullable Output<String> grafanaToken;
 
     /**
-     * @return A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * @return Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      * 
      */
     public Optional<Output<String>> grafanaToken() {
@@ -32,14 +32,14 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
     @Import(name="licenseType", required=true)
     private Output<String> licenseType;
 
     /**
-     * @return The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * @return Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
     public Output<String> licenseType() {
@@ -62,14 +62,14 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The workspace id.
+     * Workspace ID.
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The workspace id.
+     * @return Workspace ID.
      * 
      */
     public Output<String> workspaceId() {
@@ -104,7 +104,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+         * @param grafanaToken Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+         * @param grafanaToken Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param licenseType The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+         * @param licenseType Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param licenseType The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+         * @param licenseType Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param workspaceId The workspace id.
+         * @param workspaceId Workspace ID.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param workspaceId The workspace id.
+         * @param workspaceId Workspace ID.
          * 
          * @return builder
          * 

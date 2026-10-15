@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+        /// IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
         /// </summary>
         [Input("endpointIpAddressType", required: true)]
         public Input<string> EndpointIpAddressType { get; set; } = null!;

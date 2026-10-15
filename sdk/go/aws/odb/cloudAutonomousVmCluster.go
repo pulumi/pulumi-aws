@@ -141,7 +141,7 @@ type CloudAutonomousVmCluster struct {
 	AvailableCpus pulumi.Float64Output `pulumi:"availableCpus"`
 	// Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureArn pulumi.StringOutput `pulumi:"cloudExadataInfrastructureArn"`
-	// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+	// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureId pulumi.StringOutput `pulumi:"cloudExadataInfrastructureId"`
 	// Compute model of the Autonomous VM cluster: ECPU or OCPU.
 	ComputeModel pulumi.StringOutput `pulumi:"computeModel"`
@@ -309,7 +309,7 @@ type cloudAutonomousVmClusterState struct {
 	AvailableCpus *float64 `pulumi:"availableCpus"`
 	// Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
-	// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+	// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureId *string `pulumi:"cloudExadataInfrastructureId"`
 	// Compute model of the Autonomous VM cluster: ECPU or OCPU.
 	ComputeModel *string `pulumi:"computeModel"`
@@ -421,7 +421,7 @@ type CloudAutonomousVmClusterState struct {
 	AvailableCpus pulumi.Float64PtrInput
 	// Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureArn pulumi.StringPtrInput
-	// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+	// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureId pulumi.StringPtrInput
 	// Compute model of the Autonomous VM cluster: ECPU or OCPU.
 	ComputeModel pulumi.StringPtrInput
@@ -527,7 +527,7 @@ type cloudAutonomousVmClusterArgs struct {
 	AutonomousDataStorageSizeInTbs float64 `pulumi:"autonomousDataStorageSizeInTbs"`
 	// Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
-	// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+	// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureId *string `pulumi:"cloudExadataInfrastructureId"`
 	// Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
 	CpuCoreCountPerNode int `pulumi:"cpuCoreCountPerNode"`
@@ -572,7 +572,7 @@ type CloudAutonomousVmClusterArgs struct {
 	AutonomousDataStorageSizeInTbs pulumi.Float64Input
 	// Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureArn pulumi.StringPtrInput
-	// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+	// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 	CloudExadataInfrastructureId pulumi.StringPtrInput
 	// Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
 	CpuCoreCountPerNode pulumi.IntInput
@@ -735,7 +735,7 @@ func (o CloudAutonomousVmClusterOutput) CloudExadataInfrastructureArn() pulumi.S
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.CloudExadataInfrastructureArn }).(pulumi.StringOutput)
 }
 
-// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
 func (o CloudAutonomousVmClusterOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Autoscaling Groups data source allows access to the list of AWS
- * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+ * The Auto Scaling groups data source allows access to the list of AWS
+ * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
  *
  * ## Example Usage
  *
@@ -60,7 +60,7 @@ export interface GetAmiIdsArgs {
      */
     filters?: inputs.autoscaling.GetAmiIdsFilter[];
     /**
-     * List of autoscaling group names
+     * List of Auto Scaling group names
      */
     names?: string[];
     /**
@@ -74,7 +74,7 @@ export interface GetAmiIdsArgs {
  */
 export interface GetAmiIdsResult {
     /**
-     * List of the Autoscaling Groups Arns in the current region.
+     * List of the Auto Scaling groups ARNs in the current region.
      */
     readonly arns: string[];
     readonly filters?: outputs.autoscaling.GetAmiIdsFilter[];
@@ -83,14 +83,14 @@ export interface GetAmiIdsResult {
      */
     readonly id: string;
     /**
-     * List of the Autoscaling Groups in the current region.
+     * List of the Auto Scaling groups in the current region.
      */
     readonly names: string[];
     readonly region: string;
 }
 /**
- * The Autoscaling Groups data source allows access to the list of AWS
- * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+ * The Auto Scaling groups data source allows access to the list of AWS
+ * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
  *
  * ## Example Usage
  *
@@ -141,7 +141,7 @@ export interface GetAmiIdsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[] | undefined>;
     /**
-     * List of autoscaling group names
+     * List of Auto Scaling group names
      */
     names?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

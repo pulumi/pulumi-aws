@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing AWS Bedrock Foundation Models.
+ * Provides details about AWS Bedrock Foundation Models.
  *
  * ## Example Usage
  *
@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrockfoundation.getModels({});
+ * const example = aws.bedrockfoundation.getModels({});
  * ```
  *
  * ### Filter by Inference Type
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrockfoundation.getModels({
+ * const example = aws.bedrockfoundation.getModels({
  *     byInferenceType: "ON_DEMAND",
  * });
  * ```
@@ -49,7 +49,7 @@ export function getModels(args?: GetModelsArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetModelsArgs {
     /**
-     * Customization type to filter on. Valid values are `FINE_TUNING`.
+     * Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
      */
     byCustomizationType?: string;
     /**
@@ -89,7 +89,7 @@ export interface GetModelsResult {
     readonly region: string;
 }
 /**
- * Data source for managing AWS Bedrock Foundation Models.
+ * Provides details about AWS Bedrock Foundation Models.
  *
  * ## Example Usage
  *
@@ -99,7 +99,7 @@ export interface GetModelsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrockfoundation.getModels({});
+ * const example = aws.bedrockfoundation.getModels({});
  * ```
  *
  * ### Filter by Inference Type
@@ -108,7 +108,7 @@ export interface GetModelsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrockfoundation.getModels({
+ * const example = aws.bedrockfoundation.getModels({
  *     byInferenceType: "ON_DEMAND",
  * });
  * ```
@@ -130,7 +130,7 @@ export function getModelsOutput(args?: GetModelsOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetModelsOutputArgs {
     /**
-     * Customization type to filter on. Valid values are `FINE_TUNING`.
+     * Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
      */
     byCustomizationType?: pulumi.Input<string | undefined>;
     /**

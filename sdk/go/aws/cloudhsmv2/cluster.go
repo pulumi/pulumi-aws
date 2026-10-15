@@ -114,7 +114,7 @@ type Cluster struct {
 
 	// The list of cluster certificates.
 	ClusterCertificates ClusterClusterCertificateArrayOutput `pulumi:"clusterCertificates"`
-	// The id of the CloudHSM cluster.
+	// The ID of the CloudHSM cluster.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// The state of the CloudHSM cluster.
 	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
@@ -134,7 +134,7 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The id of the VPC that the CloudHSM cluster resides in.
+	// The ID of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -176,7 +176,7 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// The list of cluster certificates.
 	ClusterCertificates []ClusterClusterCertificate `pulumi:"clusterCertificates"`
-	// The id of the CloudHSM cluster.
+	// The ID of the CloudHSM cluster.
 	ClusterId *string `pulumi:"clusterId"`
 	// The state of the CloudHSM cluster.
 	ClusterState *string `pulumi:"clusterState"`
@@ -196,14 +196,14 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The id of the VPC that the CloudHSM cluster resides in.
+	// The ID of the VPC that the CloudHSM cluster resides in.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type ClusterState struct {
 	// The list of cluster certificates.
 	ClusterCertificates ClusterClusterCertificateArrayInput
-	// The id of the CloudHSM cluster.
+	// The ID of the CloudHSM cluster.
 	ClusterId pulumi.StringPtrInput
 	// The state of the CloudHSM cluster.
 	ClusterState pulumi.StringPtrInput
@@ -223,7 +223,7 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The id of the VPC that the CloudHSM cluster resides in.
+	// The ID of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -354,7 +354,7 @@ func (o ClusterOutput) ClusterCertificates() ClusterClusterCertificateArrayOutpu
 	return o.ApplyT(func(v *Cluster) ClusterClusterCertificateArrayOutput { return v.ClusterCertificates }).(ClusterClusterCertificateArrayOutput)
 }
 
-// The id of the CloudHSM cluster.
+// The ID of the CloudHSM cluster.
 func (o ClusterOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
 }
@@ -404,7 +404,7 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The id of the VPC that the CloudHSM cluster resides in.
+// The ID of the VPC that the CloudHSM cluster resides in.
 func (o ClusterOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

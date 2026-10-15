@@ -89,7 +89,8 @@ type ClusterPolicy struct {
 	pulumi.CustomResourceState
 
 	// ARN that uniquely identifies the cluster.
-	ClusterArn     pulumi.StringOutput `pulumi:"clusterArn"`
+	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
+	// Current version of the policy.
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// Resource policy for cluster.
 	Policy pulumi.StringOutput `pulumi:"policy"`
@@ -134,7 +135,8 @@ func GetClusterPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ClusterPolicy resources.
 type clusterPolicyState struct {
 	// ARN that uniquely identifies the cluster.
-	ClusterArn     *string `pulumi:"clusterArn"`
+	ClusterArn *string `pulumi:"clusterArn"`
+	// Current version of the policy.
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// Resource policy for cluster.
 	Policy *string `pulumi:"policy"`
@@ -144,7 +146,8 @@ type clusterPolicyState struct {
 
 type ClusterPolicyState struct {
 	// ARN that uniquely identifies the cluster.
-	ClusterArn     pulumi.StringPtrInput
+	ClusterArn pulumi.StringPtrInput
+	// Current version of the policy.
 	CurrentVersion pulumi.StringPtrInput
 	// Resource policy for cluster.
 	Policy pulumi.StringPtrInput
@@ -267,6 +270,7 @@ func (o ClusterPolicyOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
+// Current version of the policy.
 func (o ClusterPolicyOutput) CurrentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
 }

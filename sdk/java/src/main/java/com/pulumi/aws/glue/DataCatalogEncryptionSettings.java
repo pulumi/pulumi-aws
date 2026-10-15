@@ -75,28 +75,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")
 public class DataCatalogEncryptionSettings extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * @return ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
     public Output<String> catalogId() {
         return this.catalogId;
     }
     /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
+     * Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      * 
      */
     @Export(name="dataCatalogEncryptionSettings", refs={DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.class}, tree="[0]")
     private Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> dataCatalogEncryptionSettings;
 
     /**
-     * @return The security configuration to set. see Data Catalog Encryption Settings.
+     * @return Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      * 
      */
     public Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> dataCatalogEncryptionSettings() {

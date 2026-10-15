@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// 
-    /// ### With multiple Security profile ids specified in SecurityProfileIds
+    /// ### With multiple Security profile IDs specified in SecurityProfileIds
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Connect
         public Output<string> RoutingProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         /// </summary>
         [Output("securityProfileIds")]
         public Output<ImmutableArray<string>> SecurityProfileIds { get; private set; } = null!;
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.Connect
         private InputList<string>? _securityProfileIds;
 
         /// <summary>
-        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         /// </summary>
         public InputList<string> SecurityProfileIds
         {
@@ -503,7 +503,7 @@ namespace Pulumi.Aws.Connect
         private InputList<string>? _securityProfileIds;
 
         /// <summary>
-        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         /// </summary>
         public InputList<string> SecurityProfileIds
         {

@@ -2643,7 +2643,7 @@ func (o ProjectEnvironmentRegistryCredentialPtrOutput) CredentialProvider() pulu
 
 type ProjectFileSystemLocation struct {
 	// The name used to access a file system created by Amazon EFS. CodeBuild creates an
-	// environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+	// environment variable by appending the identifier in all capital letters to `CODEBUILD_`. For example, if you specify
 	// my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
 	Identifier *string `pulumi:"identifier"`
 	// A string that specifies the location of the file system created by Amazon EFS. Its format is
@@ -2670,7 +2670,7 @@ type ProjectFileSystemLocationInput interface {
 
 type ProjectFileSystemLocationArgs struct {
 	// The name used to access a file system created by Amazon EFS. CodeBuild creates an
-	// environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+	// environment variable by appending the identifier in all capital letters to `CODEBUILD_`. For example, if you specify
 	// my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 	// A string that specifies the location of the file system created by Amazon EFS. Its format is
@@ -2736,7 +2736,7 @@ func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutputWithCo
 }
 
 // The name used to access a file system created by Amazon EFS. CodeBuild creates an
-// environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+// environment variable by appending the identifier in all capital letters to `CODEBUILD_`. For example, if you specify
 // my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
 func (o ProjectFileSystemLocationOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Identifier }).(pulumi.StringPtrOutput)
@@ -3937,7 +3937,7 @@ type ProjectSecondarySourceBuildStatusConfig struct {
 	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of
 	// this parameter depends on the source provider.
 	Context *string `pulumi:"context"`
-	// Specifies the target url of the build status CodeBuild sends to the source provider. The
+	// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 	// usage of this parameter depends on the source provider.
 	TargetUrl *string `pulumi:"targetUrl"`
 }
@@ -3957,7 +3957,7 @@ type ProjectSecondarySourceBuildStatusConfigArgs struct {
 	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of
 	// this parameter depends on the source provider.
 	Context pulumi.StringPtrInput `pulumi:"context"`
-	// Specifies the target url of the build status CodeBuild sends to the source provider. The
+	// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 	// usage of this parameter depends on the source provider.
 	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
 }
@@ -4045,7 +4045,7 @@ func (o ProjectSecondarySourceBuildStatusConfigOutput) Context() pulumi.StringPt
 	return o.ApplyT(func(v ProjectSecondarySourceBuildStatusConfig) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the target url of the build status CodeBuild sends to the source provider. The
+// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 // usage of this parameter depends on the source provider.
 func (o ProjectSecondarySourceBuildStatusConfigOutput) TargetUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySourceBuildStatusConfig) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
@@ -4086,7 +4086,7 @@ func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) Context() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the target url of the build status CodeBuild sends to the source provider. The
+// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 // usage of this parameter depends on the source provider.
 func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) TargetUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSecondarySourceBuildStatusConfig) *string {
@@ -4847,7 +4847,7 @@ type ProjectSourceBuildStatusConfig struct {
 	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of
 	// this parameter depends on the source provider.
 	Context *string `pulumi:"context"`
-	// Specifies the target url of the build status CodeBuild sends to the source provider. The
+	// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 	// usage of this parameter depends on the source provider.
 	TargetUrl *string `pulumi:"targetUrl"`
 }
@@ -4867,7 +4867,7 @@ type ProjectSourceBuildStatusConfigArgs struct {
 	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of
 	// this parameter depends on the source provider.
 	Context pulumi.StringPtrInput `pulumi:"context"`
-	// Specifies the target url of the build status CodeBuild sends to the source provider. The
+	// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 	// usage of this parameter depends on the source provider.
 	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
 }
@@ -4955,7 +4955,7 @@ func (o ProjectSourceBuildStatusConfigOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSourceBuildStatusConfig) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the target url of the build status CodeBuild sends to the source provider. The
+// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 // usage of this parameter depends on the source provider.
 func (o ProjectSourceBuildStatusConfigOutput) TargetUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSourceBuildStatusConfig) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
@@ -4996,7 +4996,7 @@ func (o ProjectSourceBuildStatusConfigPtrOutput) Context() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the target url of the build status CodeBuild sends to the source provider. The
+// Specifies the target URL of the build status CodeBuild sends to the source provider. The
 // usage of this parameter depends on the source provider.
 func (o ProjectSourceBuildStatusConfigPtrOutput) TargetUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSourceBuildStatusConfig) *string {

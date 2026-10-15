@@ -98,7 +98,7 @@ public final class GetClusterResult {
      */
     private String nodeType;
     /**
-     * @return The number of replicas to apply to each shard.
+     * @return Number of replicas to apply to each shard.
      * 
      */
     private Integer numReplicasPerShard;
@@ -108,7 +108,7 @@ public final class GetClusterResult {
      */
     private Integer numShards;
     /**
-     * @return The name of the parameter group associated with the cluster.
+     * @return Name of the parameter group associated with the cluster.
      * 
      */
     private String parameterGroupName;
@@ -129,7 +129,7 @@ public final class GetClusterResult {
      */
     private List<GetClusterShard> shards;
     /**
-     * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+     * @return Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      * 
      */
     private Integer snapshotRetentionLimit;
@@ -144,7 +144,7 @@ public final class GetClusterResult {
      */
     private String snsTopicArn;
     /**
-     * @return The name of the subnet group used for the cluster.
+     * @return Name of the subnet group used for the cluster.
      * 
      */
     private String subnetGroupName;
@@ -276,7 +276,7 @@ public final class GetClusterResult {
         return this.nodeType;
     }
     /**
-     * @return The number of replicas to apply to each shard.
+     * @return Number of replicas to apply to each shard.
      * 
      */
     public Integer numReplicasPerShard() {
@@ -290,7 +290,7 @@ public final class GetClusterResult {
         return this.numShards;
     }
     /**
-     * @return The name of the parameter group associated with the cluster.
+     * @return Name of the parameter group associated with the cluster.
      * 
      */
     public String parameterGroupName() {
@@ -321,7 +321,7 @@ public final class GetClusterResult {
         return this.shards;
     }
     /**
-     * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+     * @return Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      * 
      */
     public Integer snapshotRetentionLimit() {
@@ -342,7 +342,7 @@ public final class GetClusterResult {
         return this.snsTopicArn;
     }
     /**
-     * @return The name of the subnet group used for the cluster.
+     * @return Name of the subnet group used for the cluster.
      * 
      */
     public String subnetGroupName() {

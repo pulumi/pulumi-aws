@@ -18,14 +18,14 @@ public final class GetContactFlowModuleArgs extends com.pulumi.resources.InvokeA
     public static final GetContactFlowModuleArgs Empty = new GetContactFlowModuleArgs();
 
     /**
-     * Returns information on a specific Contact Flow Module by contact flow module id
+     * Returns information on a specific Contact Flow Module by contact flow module ID
      * 
      */
     @Import(name="contactFlowModuleId")
     private @Nullable Output<String> contactFlowModuleId;
 
     /**
-     * @return Returns information on a specific Contact Flow Module by contact flow module id
+     * @return Returns information on a specific Contact Flow Module by contact flow module ID
      * 
      */
     public Optional<Output<String>> contactFlowModuleId() {
@@ -125,7 +125,7 @@ public final class GetContactFlowModuleArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param contactFlowModuleId Returns information on a specific Contact Flow Module by contact flow module id
+         * @param contactFlowModuleId Returns information on a specific Contact Flow Module by contact flow module ID
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetContactFlowModuleArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param contactFlowModuleId Returns information on a specific Contact Flow Module by contact flow module id
+         * @param contactFlowModuleId Returns information on a specific Contact Flow Module by contact flow module ID
          * 
          * @return builder
          * 

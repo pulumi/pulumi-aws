@@ -264,7 +264,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * List of log types to export to CloudWatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      * 
      */
@@ -272,7 +272,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<String>> enabledCloudwatchLogsExports;
 
     /**
-     * @return List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * @return List of log types to export to CloudWatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      * 
      */

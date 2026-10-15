@@ -25,7 +25,7 @@ class AgentcoreResourcePolicyArgs:
         """
         The set of arguments for constructing a AgentcoreResourcePolicy resource.
 
-        :param pulumi.Input[_builtins.str] policy: Resource policy definition
+        :param pulumi.Input[_builtins.str] policy: Resource policy document in JSON format.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
                The following arguments are optional:
@@ -40,7 +40,7 @@ class AgentcoreResourcePolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
         """
-        Resource policy definition
+        Resource policy document in JSON format.
         """
         return pulumi.get(self, "policy")
 
@@ -84,7 +84,7 @@ class _AgentcoreResourcePolicyState:
         """
         Input properties used for looking up and filtering AgentcoreResourcePolicy resources.
 
-        :param pulumi.Input[_builtins.str] policy: Resource policy definition
+        :param pulumi.Input[_builtins.str] policy: Resource policy document in JSON format.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
@@ -101,7 +101,7 @@ class _AgentcoreResourcePolicyState:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Resource policy definition
+        Resource policy document in JSON format.
         """
         return pulumi.get(self, "policy")
 
@@ -147,7 +147,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock Agent Core Resource Policy. Resource-based policies in Amazon Bedrock Agent Core allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock Agent Core Runtime and Gateway resources.
+        Manages an AWS Bedrock AgentCore Resource Policy. Resource-based policies in Amazon Bedrock AgentCore allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock AgentCore Runtime and Gateway resources.
 
         ## Example Usage
 
@@ -184,9 +184,9 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        * `resource_arn` - ARN of the resource to which the Resource Policy is attached.
+        * `resource_arn` (String) ARN of the resource to which the Resource Policy is attached.
 
-        Using `pulumi import`, import Bedrock Agent Core Resource Policy using the `resource_arn`. For example:
+        Using `pulumi import`, import Bedrock AgentCore Resource Policy using the `resource_arn`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy example arn:aws:bedrock-agentcore:us-west-2:012345678901:runtime/abcd1234
@@ -195,7 +195,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: Resource policy definition
+        :param pulumi.Input[_builtins.str] policy: Resource policy document in JSON format.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
@@ -208,7 +208,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
                  args: AgentcoreResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock Agent Core Resource Policy. Resource-based policies in Amazon Bedrock Agent Core allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock Agent Core Runtime and Gateway resources.
+        Manages an AWS Bedrock AgentCore Resource Policy. Resource-based policies in Amazon Bedrock AgentCore allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock AgentCore Runtime and Gateway resources.
 
         ## Example Usage
 
@@ -245,9 +245,9 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        * `resource_arn` - ARN of the resource to which the Resource Policy is attached.
+        * `resource_arn` (String) ARN of the resource to which the Resource Policy is attached.
 
-        Using `pulumi import`, import Bedrock Agent Core Resource Policy using the `resource_arn`. For example:
+        Using `pulumi import`, import Bedrock AgentCore Resource Policy using the `resource_arn`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy example arn:aws:bedrock-agentcore:us-west-2:012345678901:runtime/abcd1234
@@ -308,7 +308,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: Resource policy definition
+        :param pulumi.Input[_builtins.str] policy: Resource policy document in JSON format.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
@@ -327,7 +327,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource policy definition
+        Resource policy document in JSON format.
         """
         return pulumi.get(self, "policy")
 

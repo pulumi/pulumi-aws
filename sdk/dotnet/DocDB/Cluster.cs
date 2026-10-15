@@ -135,7 +135,7 @@ namespace Pulumi.Aws.DocDB
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        /// List of log types to export to CloudWatch. If omitted, no logs will be exported.
         /// The following log types are supported: `Audit`, `Profiler`.
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
@@ -445,7 +445,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        /// List of log types to export to CloudWatch. If omitted, no logs will be exported.
         /// The following log types are supported: `Audit`, `Profiler`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        /// List of log types to export to CloudWatch. If omitted, no logs will be exported.
         /// The following log types are supported: `Audit`, `Profiler`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports

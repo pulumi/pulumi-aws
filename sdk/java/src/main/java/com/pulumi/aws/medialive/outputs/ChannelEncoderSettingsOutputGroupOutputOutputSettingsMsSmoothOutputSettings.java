@@ -11,19 +11,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings {
+    /**
+     * @return Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     private @Nullable String h265PackagingType;
     /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * @return String concatenated to the end of the destination filename.
      * 
      */
     private @Nullable String nameModifier;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings() {}
+    /**
+     * @return Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     public Optional<String> h265PackagingType() {
         return Optional.ofNullable(this.h265PackagingType);
     }
     /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * @return String concatenated to the end of the destination filename.
      * 
      */
     public Optional<String> nameModifier() {

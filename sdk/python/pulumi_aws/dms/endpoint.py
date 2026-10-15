@@ -77,7 +77,7 @@ class EndpointArgs:
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         :param pulumi.Input[_builtins.str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[_builtins.str] server_name: Host name of the server.
-        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
+        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for DynamoDB endpoints.
         :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] username: User name to be used to login to the endpoint database.
@@ -415,7 +415,7 @@ class EndpointArgs:
     @pulumi.getter(name="serviceAccessRole")
     def service_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN used by the service access IAM role for dynamodb endpoints.
+        ARN used by the service access IAM role for DynamoDB endpoints.
         """
         return pulumi.get(self, "service_access_role")
 
@@ -522,7 +522,7 @@ class _EndpointState:
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         :param pulumi.Input[_builtins.str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[_builtins.str] server_name: Host name of the server.
-        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
+        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for DynamoDB endpoints.
         :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -880,7 +880,7 @@ class _EndpointState:
     @pulumi.getter(name="serviceAccessRole")
     def service_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN used by the service access IAM role for dynamodb endpoints.
+        ARN used by the service access IAM role for DynamoDB endpoints.
         """
         return pulumi.get(self, "service_access_role")
 
@@ -1035,7 +1035,7 @@ class Endpoint(pulumi.CustomResource):
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         :param pulumi.Input[_builtins.str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[_builtins.str] server_name: Host name of the server.
-        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
+        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for DynamoDB endpoints.
         :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] username: User name to be used to login to the endpoint database.
@@ -1243,7 +1243,7 @@ class Endpoint(pulumi.CustomResource):
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         :param pulumi.Input[_builtins.str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         :param pulumi.Input[_builtins.str] server_name: Host name of the server.
-        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
+        :param pulumi.Input[_builtins.str] service_access_role: ARN used by the service access IAM role for DynamoDB endpoints.
         :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1481,7 +1481,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="serviceAccessRole")
     def service_access_role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN used by the service access IAM role for dynamodb endpoints.
+        ARN used by the service access IAM role for DynamoDB endpoints.
         """
         return pulumi.get(self, "service_access_role")
 

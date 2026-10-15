@@ -94,14 +94,14 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
     }
 
     /**
-     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
      * 
      */
     @Import(name="guardrailConfigurations")
     private @Nullable Output<List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>> guardrailConfigurations;
 
     /**
-     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
      * 
      */
     public Optional<Output<List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>>> guardrailConfigurations() {
@@ -259,7 +259,7 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
          * 
          * @return builder
          * 

@@ -98,14 +98,14 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
+     * The ARN of the role that allows IoT to write to CloudWatch logs.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the role that allows IoT to write to Cloudwatch logs.
+     * @return The ARN of the role that allows IoT to write to CloudWatch logs.
      * 
      */
     public Output<String> roleArn() {

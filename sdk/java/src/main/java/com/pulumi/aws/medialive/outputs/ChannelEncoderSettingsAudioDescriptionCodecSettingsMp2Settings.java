@@ -12,7 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings {
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     private @Nullable Double bitrate;
+    /**
+     * @return MPEG-2 coding mode.
+     * 
+     */
     private @Nullable String codingMode;
     /**
      * @return Sample rate in Hz.
@@ -21,9 +29,17 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
     private @Nullable Double sampleRate;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings() {}
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     public Optional<Double> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
+    /**
+     * @return MPEG-2 coding mode.
+     * 
+     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }

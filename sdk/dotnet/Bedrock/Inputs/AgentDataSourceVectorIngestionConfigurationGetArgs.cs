@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationGetArgs>? ChunkingConfiguration { get; set; }
 
         /// <summary>
+        /// Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `ContextEnrichmentConfiguration` Block for details.
+        /// </summary>
+        [Input("contextEnrichmentConfiguration")]
+        public Input<Inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationGetArgs>? ContextEnrichmentConfiguration { get; set; }
+
+        /// <summary>
         /// Configuration for custom transformation of data source documents. See `CustomTransformationConfiguration` Block for details.
         /// </summary>
         [Input("customTransformationConfiguration")]

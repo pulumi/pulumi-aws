@@ -14,26 +14,35 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettings
     {
         /// <summary>
-        /// Archive output settings. See Archive Output Settings for more details.
+        /// Archive output settings. See `ArchiveOutputSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings? ArchiveOutputSettings;
+        /// <summary>
+        /// Frame capture output settings. See `FrameCaptureOutputSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings? FrameCaptureOutputSettings;
+        /// <summary>
+        /// HLS output settings. See `HlsOutputSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings? HlsOutputSettings;
         /// <summary>
-        /// Media package output settings. This can be set as an empty block.
+        /// Media package output settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings? MediaPackageOutputSettings;
+        /// <summary>
+        /// Microsoft Smooth output settings. See `MsSmoothOutputSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings? MsSmoothOutputSettings;
         /// <summary>
-        /// Multiplex output settings. See Multiplex Output Settings for more details.
+        /// Multiplex output settings. See `MultiplexOutputSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings? MultiplexOutputSettings;
         /// <summary>
-        /// RTMP output settings. See RTMP Output Settings for more details.
+        /// RTMP output settings. See `RtmpOutputSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings? RtmpOutputSettings;
         /// <summary>
-        /// UDP output settings. See UDP Output Settings for more details.
+        /// UDP output settings. See `UdpOutputSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings? UdpOutputSettings;
 

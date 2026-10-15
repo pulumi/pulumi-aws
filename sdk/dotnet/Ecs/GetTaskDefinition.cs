@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string ContainerDefinitions;
         /// <summary>
-        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
+        /// Number of CPU units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         public readonly string Cpu;
         /// <summary>

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ### Ignoring Changes to Scale
  *
- * You can utilize the generic resource lifecycle configuration block with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * You can utilize the Pulumi `ignoreChanges` resource option to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Auto Scaling).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

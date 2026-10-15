@@ -62,13 +62,13 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> ClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the ENI interface allocated for HSM module.
+        /// The ID of the ENI interface allocated for HSM module.
         /// </summary>
         [Output("hsmEniId")]
         public Output<string> HsmEniId { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the HSM module.
+        /// The ID of the HSM module.
         /// </summary>
         [Output("hsmId")]
         public Output<string> HsmId { get; private set; } = null!;
@@ -198,13 +198,13 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// The id of the ENI interface allocated for HSM module.
+        /// The ID of the ENI interface allocated for HSM module.
         /// </summary>
         [Input("hsmEniId")]
         public Input<string>? HsmEniId { get; set; }
 
         /// <summary>
-        /// The id of the HSM module.
+        /// The ID of the HSM module.
         /// </summary>
         [Input("hsmId")]
         public Input<string>? HsmId { get; set; }

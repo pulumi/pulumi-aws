@@ -50,9 +50,17 @@ public final class GetCustomRoutingAcceleratorArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -129,11 +137,23 @@ public final class GetCustomRoutingAcceleratorArgs extends com.pulumi.resources.
             return name(Output.of(name));
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

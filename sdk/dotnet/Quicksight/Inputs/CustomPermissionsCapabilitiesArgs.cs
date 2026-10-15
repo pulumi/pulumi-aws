@@ -13,10 +13,34 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class CustomPermissionsCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+        /// </summary>
+        [Input("action")]
+        public Input<string>? Action { get; set; }
+
+        /// <summary>
         /// Ability to add or run anomaly detection. Valid values: `DENY`.
         /// </summary>
         [Input("addOrRunAnomalyDetectionForAnalyses")]
         public Input<string>? AddOrRunAnomalyDetectionForAnalyses { get; set; }
+
+        /// <summary>
+        /// Ability to perform analysis-related actions. Valid values: `DENY`.
+        /// </summary>
+        [Input("analysis")]
+        public Input<string>? Analysis { get; set; }
+
+        /// <summary>
+        /// Ability to perform automate-related actions. Valid values: `DENY`.
+        /// </summary>
+        [Input("automate")]
+        public Input<string>? Automate { get; set; }
+
+        /// <summary>
+        /// Ability to perform chat-related actions. Valid values: `DENY`.
+        /// </summary>
+        [Input("chatAgent")]
+        public Input<string>? ChatAgent { get; set; }
 
         /// <summary>
         /// Ability to create and update email reports. Valid values: `DENY`.
@@ -49,6 +73,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string>? CreateAndUpdateThresholdAlerts { get; set; }
 
         /// <summary>
+        /// Ability to create chat agents. Valid values: `DENY`.
+        /// </summary>
+        [Input("createChatAgents")]
+        public Input<string>? CreateChatAgents { get; set; }
+
+        /// <summary>
         /// Ability to create shared folders. Valid values: `DENY`.
         /// </summary>
         [Input("createSharedFolders")]
@@ -59,6 +89,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
         /// </summary>
         [Input("createSpiceDataset")]
         public Input<string>? CreateSpiceDataset { get; set; }
+
+        /// <summary>
+        /// Ability to perform dashboard-related actions. Valid values: `DENY`.
+        /// </summary>
+        [Input("dashboard")]
+        public Input<string>? Dashboard { get; set; }
 
         /// <summary>
         /// Ability to export to CSV files from the UI. Valid values: `DENY`.
@@ -97,10 +133,28 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string>? ExportToPdfInScheduledReports { get; set; }
 
         /// <summary>
+        /// Ability to perform flow-related actions. Valid values: `DENY`.
+        /// </summary>
+        [Input("flow")]
+        public Input<string>? Flow { get; set; }
+
+        /// <summary>
         /// Ability to include content in scheduled email reports. Valid values: `DENY`.
         /// </summary>
         [Input("includeContentInScheduledReportsEmail")]
         public Input<string>? IncludeContentInScheduledReportsEmail { get; set; }
+
+        /// <summary>
+        /// Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+        /// </summary>
+        [Input("knowledgeBase")]
+        public Input<string>? KnowledgeBase { get; set; }
+
+        /// <summary>
+        /// Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+        /// </summary>
+        [Input("performFlowUiTask")]
+        public Input<string>? PerformFlowUiTask { get; set; }
 
         /// <summary>
         /// Ability to print reports. Valid values: `DENY`.
@@ -109,10 +163,22 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string>? PrintReports { get; set; }
 
         /// <summary>
+        /// Ability to enable approvals for flow share. Valid values: `DENY`.
+        /// </summary>
+        [Input("publishWithoutApproval")]
+        public Input<string>? PublishWithoutApproval { get; set; }
+
+        /// <summary>
         /// Ability to rename shared folders. Valid values: `DENY`.
         /// </summary>
         [Input("renameSharedFolders")]
         public Input<string>? RenameSharedFolders { get; set; }
+
+        /// <summary>
+        /// Ability to perform research-related actions. Valid values: `DENY`.
+        /// </summary>
+        [Input("research")]
+        public Input<string>? Research { get; set; }
 
         /// <summary>
         /// Ability to share analyses. Valid values: `DENY`.
@@ -139,10 +205,28 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string>? ShareDatasets { get; set; }
 
         /// <summary>
+        /// Ability to perform space-related actions. Valid values: `DENY`.
+        /// </summary>
+        [Input("space")]
+        public Input<string>? Space { get; set; }
+
+        /// <summary>
         /// Ability to subscribe to email reports. Valid values: `DENY`.
         /// </summary>
         [Input("subscribeDashboardEmailReports")]
         public Input<string>? SubscribeDashboardEmailReports { get; set; }
+
+        /// <summary>
+        /// Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+        /// </summary>
+        [Input("useAgentWebSearch")]
+        public Input<string>? UseAgentWebSearch { get; set; }
+
+        /// <summary>
+        /// Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+        /// </summary>
+        [Input("useBedrockModels")]
+        public Input<string>? UseBedrockModels { get; set; }
 
         /// <summary>
         /// Ability to view account SPICE capacity. Valid values: `DENY`.

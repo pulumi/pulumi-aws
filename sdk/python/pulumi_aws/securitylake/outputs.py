@@ -452,7 +452,7 @@ class DataLakeConfigurationEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  kms_key_id: _builtins.str):
         """
-        :param _builtins.str kms_key_id: The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+        :param _builtins.str kms_key_id: The ID of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
 
@@ -460,7 +460,7 @@ class DataLakeConfigurationEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+        The ID of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
         """
         return pulumi.get(self, "kms_key_id")
 

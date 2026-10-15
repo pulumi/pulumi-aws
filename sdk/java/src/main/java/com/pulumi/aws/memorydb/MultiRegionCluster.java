@@ -83,105 +83,105 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:memorydb/multiRegionCluster:MultiRegionCluster")
 public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the multi-region cluster.
+     * ARN of the multi-region cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the multi-region cluster.
+     * @return ARN of the multi-region cluster.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * description for the multi-region cluster.
+     * Description for the multi-region cluster.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return description for the multi-region cluster.
+     * @return Description for the multi-region cluster.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+     * Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+     * @return Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      * 
      */
     public Output<String> engine() {
         return this.engine;
     }
     /**
-     * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+     * Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+     * @return Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      * 
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
     /**
-     * The name of the multi-region cluster.
+     * Name of the multi-region cluster.
      * 
      */
     @Export(name="multiRegionClusterName", refs={String.class}, tree="[0]")
     private Output<String> multiRegionClusterName;
 
     /**
-     * @return The name of the multi-region cluster.
+     * @return Name of the multi-region cluster.
      * 
      */
     public Output<String> multiRegionClusterName() {
         return this.multiRegionClusterName;
     }
     /**
-     * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+     * Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      * 
      */
     @Export(name="multiRegionClusterNameSuffix", refs={String.class}, tree="[0]")
     private Output<String> multiRegionClusterNameSuffix;
 
     /**
-     * @return A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+     * @return Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      * 
      */
     public Output<String> multiRegionClusterNameSuffix() {
         return this.multiRegionClusterNameSuffix;
     }
     /**
-     * The name of the multi-region parameter group to be associated with the cluster.
+     * Name of the multi-region parameter group to be associated with the cluster.
      * 
      */
     @Export(name="multiRegionParameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> multiRegionParameterGroupName;
 
     /**
-     * @return The name of the multi-region parameter group to be associated with the cluster.
+     * @return Name of the multi-region parameter group to be associated with the cluster.
      * 
      */
     public Output<String> multiRegionParameterGroupName() {
         return this.multiRegionParameterGroupName;
     }
     /**
-     * The node type to be used for the multi-region cluster.
+     * Node type to be used for the multi-region cluster.
      * 
      * The following arguments are optional:
      * 
@@ -190,7 +190,7 @@ public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
     private Output<String> nodeType;
 
     /**
-     * @return The node type to be used for the multi-region cluster.
+     * @return Node type to be used for the multi-region cluster.
      * 
      * The following arguments are optional:
      * 
@@ -199,14 +199,14 @@ public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
         return this.nodeType;
     }
     /**
-     * The number of shards for the multi-region cluster.
+     * Number of shards for the multi-region cluster.
      * 
      */
     @Export(name="numShards", refs={Integer.class}, tree="[0]")
     private Output<Integer> numShards;
 
     /**
-     * @return The number of shards for the multi-region cluster.
+     * @return Number of shards for the multi-region cluster.
      * 
      */
     public Output<Integer> numShards() {
@@ -226,35 +226,43 @@ public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Status of the multi-region cluster.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Status of the multi-region cluster.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -267,22 +275,30 @@ public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * A flag to enable in-transit encryption on the cluster.
+     * Whether to enable in-transit encryption on the cluster.
      * 
      */
     @Export(name="tlsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> tlsEnabled;
 
     /**
-     * @return A flag to enable in-transit encryption on the cluster.
+     * @return Whether to enable in-transit encryption on the cluster.
      * 
      */
     public Output<Boolean> tlsEnabled() {
         return this.tlsEnabled;
     }
+    /**
+     * Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
+     * 
+     */
     @Export(name="updateStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> updateStrategy;
 
+    /**
+     * @return Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
+     * 
+     */
     public Output<Optional<String>> updateStrategy() {
         return Codegen.optional(this.updateStrategy);
     }

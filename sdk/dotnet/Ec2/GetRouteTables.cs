@@ -12,12 +12,12 @@ namespace Pulumi.Aws.Ec2
     public static class GetRouteTables
     {
         /// <summary>
-        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
-        /// The following adds a route for a particular cidr block to every (private
-        /// kops) route table in a specified vpc to use a particular vpc peering
+        /// The following adds a route for a particular CIDR block to every (private
+        /// kops) route table in a specified VPC to use a particular VPC peering
         /// connection.
         /// 
         /// ```csharp
@@ -66,12 +66,12 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
-        /// The following adds a route for a particular cidr block to every (private
-        /// kops) route table in a specified vpc to use a particular vpc peering
+        /// The following adds a route for a particular CIDR block to every (private
+        /// kops) route table in a specified VPC to use a particular VPC peering
         /// connection.
         /// 
         /// ```csharp
@@ -120,12 +120,12 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
         /// 
         /// ## Example Usage
         /// 
-        /// The following adds a route for a particular cidr block to every (private
-        /// kops) route table in a specified vpc to use a particular vpc peering
+        /// The following adds a route for a particular CIDR block to every (private
+        /// kops) route table in a specified VPC to use a particular VPC peering
         /// connection.
         /// 
         /// ```csharp
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the route table ids found.
+        /// List of all the route table IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

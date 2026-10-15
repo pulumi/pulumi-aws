@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Workspaces
     public static class GetWorkspace
     {
         /// <summary>
-        /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+        /// Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
         /// 
         /// ## Example Usage
         /// 
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Workspaces
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws:workspaces/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+        /// Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
         /// 
         /// ## Example Usage
         /// 
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Workspaces
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:workspaces/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+        /// Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
         /// 
         /// ## Example Usage
         /// 

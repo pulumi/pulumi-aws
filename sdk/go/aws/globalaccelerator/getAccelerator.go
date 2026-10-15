@@ -71,17 +71,25 @@ type LookupAcceleratorArgs struct {
 
 // A collection of values returned by getAccelerator.
 type LookupAcceleratorResult struct {
-	Arn              string                    `pulumi:"arn"`
-	Attributes       []GetAcceleratorAttribute `pulumi:"attributes"`
-	DnsName          string                    `pulumi:"dnsName"`
-	DualStackDnsName string                    `pulumi:"dualStackDnsName"`
-	Enabled          bool                      `pulumi:"enabled"`
-	HostedZoneId     string                    `pulumi:"hostedZoneId"`
-	Id               string                    `pulumi:"id"`
-	IpAddressType    string                    `pulumi:"ipAddressType"`
-	IpSets           []GetAcceleratorIpSet     `pulumi:"ipSets"`
-	Name             string                    `pulumi:"name"`
-	Tags             map[string]string         `pulumi:"tags"`
+	Arn string `pulumi:"arn"`
+	// Attributes of the accelerator. See `attributes` below.
+	Attributes []GetAcceleratorAttribute `pulumi:"attributes"`
+	// DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+	DnsName string `pulumi:"dnsName"`
+	// DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
+	DualStackDnsName string `pulumi:"dualStackDnsName"`
+	// Whether the accelerator is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+	Id           string `pulumi:"id"`
+	// Value for the address type.
+	IpAddressType string `pulumi:"ipAddressType"`
+	// IP address set associated with the accelerator. See `ipSets` below.
+	IpSets []GetAcceleratorIpSet `pulumi:"ipSets"`
+	Name   string                `pulumi:"name"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupAcceleratorResultOutput {
@@ -122,22 +130,27 @@ func (o LookupAcceleratorResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Attributes of the accelerator. See `attributes` below.
 func (o LookupAcceleratorResultOutput) Attributes() GetAcceleratorAttributeArrayOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) []GetAcceleratorAttribute { return v.Attributes }).(GetAcceleratorAttributeArrayOutput)
 }
 
+// DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 func (o LookupAcceleratorResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
 func (o LookupAcceleratorResultOutput) DualStackDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.DualStackDnsName }).(pulumi.StringOutput)
 }
 
+// Whether the accelerator is enabled.
 func (o LookupAcceleratorResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
 func (o LookupAcceleratorResultOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
@@ -146,10 +159,12 @@ func (o LookupAcceleratorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Value for the address type.
 func (o LookupAcceleratorResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
+// IP address set associated with the accelerator. See `ipSets` below.
 func (o LookupAcceleratorResultOutput) IpSets() GetAcceleratorIpSetArrayOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) []GetAcceleratorIpSet { return v.IpSets }).(GetAcceleratorIpSetArrayOutput)
 }
@@ -158,6 +173,7 @@ func (o LookupAcceleratorResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the resource.
 func (o LookupAcceleratorResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

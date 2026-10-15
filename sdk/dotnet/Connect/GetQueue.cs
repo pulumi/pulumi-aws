@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Connect
         public string? Name { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Queue by Queue id
+        /// Returns information on a specific Queue by Queue ID
         /// </summary>
         [Input("queueId")]
         public string? QueueId { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Queue by Queue id
+        /// Returns information on a specific Queue by Queue ID
         /// </summary>
         [Input("queueId")]
         public Input<string>? QueueId { get; set; }

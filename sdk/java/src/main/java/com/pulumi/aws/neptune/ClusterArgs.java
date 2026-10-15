@@ -141,14 +141,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     @Import(name="enableCloudwatchLogsExports")
     private @Nullable Output<List<String>> enableCloudwatchLogsExports;
 
     /**
-     * @return List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * @return List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     public Optional<Output<List<String>>> enableCloudwatchLogsExports() {
@@ -718,7 +718,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 

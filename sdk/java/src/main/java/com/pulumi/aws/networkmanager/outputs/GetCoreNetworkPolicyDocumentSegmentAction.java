@@ -32,7 +32,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      */
     private @Nullable List<String> destinationCidrBlocks;
     /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
      * 
      */
     private @Nullable List<String> destinations;
@@ -100,7 +100,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         return this.destinationCidrBlocks == null ? List.of() : this.destinationCidrBlocks;
     }
     /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
      * 
      */
     public List<String> destinations() {

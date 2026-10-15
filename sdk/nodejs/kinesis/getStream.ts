@@ -60,7 +60,7 @@ export interface GetStreamResult {
      */
     readonly arn: string;
     /**
-     * List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * List of shard IDs in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly closedShards: string[];
     /**
@@ -88,7 +88,7 @@ export interface GetStreamResult {
      */
     readonly name: string;
     /**
-     * List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * List of shard IDs in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly openShards: string[];
     readonly region: string;

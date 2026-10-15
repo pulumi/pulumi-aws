@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string> HttpName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the http namespace.
+        /// The name of the HTTP namespace.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the http namespace.
+        /// The name of the HTTP namespace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string>? HttpName { get; set; }
 
         /// <summary>
-        /// The name of the http namespace.
+        /// The name of the HTTP namespace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

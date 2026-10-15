@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsVideoSelector
     {
+        /// <summary>
+        /// Color space of the input.
+        /// </summary>
         public readonly string? ColorSpace;
+        /// <summary>
+        /// How MediaLive applies the color space metadata from the input.
+        /// </summary>
         public readonly string? ColorSpaceUsage;
 
         [OutputConstructor]

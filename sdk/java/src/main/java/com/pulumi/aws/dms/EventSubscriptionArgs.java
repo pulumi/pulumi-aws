@@ -80,14 +80,14 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * SNS topic arn to send events on.
+     * SNS topic ARN to send events on.
      * 
      */
     @Import(name="snsTopicArn", required=true)
     private Output<String> snsTopicArn;
 
     /**
-     * @return SNS topic arn to send events on.
+     * @return SNS topic ARN to send events on.
      * 
      */
     public Output<String> snsTopicArn() {
@@ -95,14 +95,14 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+     * IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     @Import(name="sourceIds")
     private @Nullable Output<List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+     * @return IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     public Optional<Output<List<String>>> sourceIds() {
@@ -265,7 +265,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param snsTopicArn SNS topic arn to send events on.
+         * @param snsTopicArn SNS topic ARN to send events on.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param snsTopicArn SNS topic arn to send events on.
+         * @param snsTopicArn SNS topic ARN to send events on.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+         * @param sourceIds IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+         * @param sourceIds IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
+         * @param sourceIds IDs of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 

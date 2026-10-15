@@ -109,7 +109,7 @@ export interface GetLaunchConfigurationResult {
      */
     readonly rootBlockDevices: outputs.ec2.GetLaunchConfigurationRootBlockDevice[];
     /**
-     * List of associated Security Group IDS.
+     * List of associated Security Group IDs.
      */
     readonly securityGroups: string[];
     /**

@@ -147,7 +147,7 @@ export class Trigger extends pulumi.CustomResource {
     }
 
     /**
-     * List of actions initiated by this trigger when it fires. See Actions Below.
+     * List of actions initiated by this trigger when it fires. See `actions` below.
      */
     declare public readonly actions: pulumi.Output<outputs.glue.TriggerAction[]>;
     /**
@@ -155,7 +155,7 @@ export class Trigger extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A description of the new trigger.
+     * Description of the new trigger.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -163,15 +163,15 @@ export class Trigger extends pulumi.CustomResource {
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
      */
     declare public readonly eventBatchingConditions: pulumi.Output<outputs.glue.TriggerEventBatchingCondition[] | undefined>;
     /**
-     * The name of the trigger.
+     * Name of the trigger.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+     * Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
      */
     declare public readonly predicate: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
     /**
@@ -179,7 +179,7 @@ export class Trigger extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     * Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
     declare public readonly schedule: pulumi.Output<string | undefined>;
     /**
@@ -187,7 +187,7 @@ export class Trigger extends pulumi.CustomResource {
      */
     declare public readonly startOnCreation: pulumi.Output<boolean | undefined>;
     /**
-     * The current state of the trigger.
+     * Current state of the trigger.
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
@@ -195,15 +195,15 @@ export class Trigger extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+     * Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     * Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      */
     declare public readonly workflowName: pulumi.Output<string | undefined>;
 
@@ -269,7 +269,7 @@ export class Trigger extends pulumi.CustomResource {
  */
 export interface TriggerState {
     /**
-     * List of actions initiated by this trigger when it fires. See Actions Below.
+     * List of actions initiated by this trigger when it fires. See `actions` below.
      */
     actions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[] | undefined>;
     /**
@@ -277,7 +277,7 @@ export interface TriggerState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A description of the new trigger.
+     * Description of the new trigger.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -285,15 +285,15 @@ export interface TriggerState {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
      */
     eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerEventBatchingCondition>[] | undefined>;
     /**
-     * The name of the trigger.
+     * Name of the trigger.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+     * Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
      */
     predicate?: pulumi.Input<inputs.glue.TriggerPredicate | undefined>;
     /**
@@ -301,7 +301,7 @@ export interface TriggerState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     * Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
     schedule?: pulumi.Input<string | undefined>;
     /**
@@ -309,7 +309,7 @@ export interface TriggerState {
      */
     startOnCreation?: pulumi.Input<boolean | undefined>;
     /**
-     * The current state of the trigger.
+     * Current state of the trigger.
      */
     state?: pulumi.Input<string | undefined>;
     /**
@@ -317,15 +317,15 @@ export interface TriggerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+     * Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     * Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      */
     workflowName?: pulumi.Input<string | undefined>;
 }
@@ -335,11 +335,11 @@ export interface TriggerState {
  */
 export interface TriggerArgs {
     /**
-     * List of actions initiated by this trigger when it fires. See Actions Below.
+     * List of actions initiated by this trigger when it fires. See `actions` below.
      */
     actions: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[]>;
     /**
-     * A description of the new trigger.
+     * Description of the new trigger.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -347,15 +347,15 @@ export interface TriggerArgs {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
      */
     eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerEventBatchingCondition>[] | undefined>;
     /**
-     * The name of the trigger.
+     * Name of the trigger.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+     * Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
      */
     predicate?: pulumi.Input<inputs.glue.TriggerPredicate | undefined>;
     /**
@@ -363,7 +363,7 @@ export interface TriggerArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     * Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
     schedule?: pulumi.Input<string | undefined>;
     /**
@@ -375,11 +375,11 @@ export interface TriggerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+     * Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      */
     type: pulumi.Input<string>;
     /**
-     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     * Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      */
     workflowName?: pulumi.Input<string | undefined>;
 }

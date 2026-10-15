@@ -1945,13 +1945,13 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.
      * 
-     * This data source can prove useful when a module accepts a coip pool id as
+     * This data source can prove useful when a module accepts a CoIP pool ID as
      * an input variable and needs to, for example, determine the CIDR block of that
-     * COIP Pool.
+     * CoIP Pool.
      * 
      * ## Example Usage
      * 
-     * The following example returns a specific coip pool ID
+     * The following example returns a specific CoIP pool ID
      * 
      */
     public static Output<GetCoipPoolResult> getCoipPool() {
@@ -1960,13 +1960,13 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.
      * 
-     * This data source can prove useful when a module accepts a coip pool id as
+     * This data source can prove useful when a module accepts a CoIP pool ID as
      * an input variable and needs to, for example, determine the CIDR block of that
-     * COIP Pool.
+     * CoIP Pool.
      * 
      * ## Example Usage
      * 
-     * The following example returns a specific coip pool ID
+     * The following example returns a specific CoIP pool ID
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain() {
@@ -1975,13 +1975,13 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.
      * 
-     * This data source can prove useful when a module accepts a coip pool id as
+     * This data source can prove useful when a module accepts a CoIP pool ID as
      * an input variable and needs to, for example, determine the CIDR block of that
-     * COIP Pool.
+     * CoIP Pool.
      * 
      * ## Example Usage
      * 
-     * The following example returns a specific coip pool ID
+     * The following example returns a specific CoIP pool ID
      * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args) {
@@ -1990,13 +1990,13 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.
      * 
-     * This data source can prove useful when a module accepts a coip pool id as
+     * This data source can prove useful when a module accepts a CoIP pool ID as
      * an input variable and needs to, for example, determine the CIDR block of that
-     * COIP Pool.
+     * CoIP Pool.
      * 
      * ## Example Usage
      * 
-     * The following example returns a specific coip pool ID
+     * The following example returns a specific CoIP pool ID
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args) {
@@ -2005,13 +2005,13 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.
      * 
-     * This data source can prove useful when a module accepts a coip pool id as
+     * This data source can prove useful when a module accepts a CoIP pool ID as
      * an input variable and needs to, for example, determine the CIDR block of that
-     * COIP Pool.
+     * CoIP Pool.
      * 
      * ## Example Usage
      * 
-     * The following example returns a specific coip pool ID
+     * The following example returns a specific CoIP pool ID
      * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args, InvokeOptions options) {
@@ -2020,13 +2020,13 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.
      * 
-     * This data source can prove useful when a module accepts a coip pool id as
+     * This data source can prove useful when a module accepts a CoIP pool ID as
      * an input variable and needs to, for example, determine the CIDR block of that
-     * COIP Pool.
+     * CoIP Pool.
      * 
      * ## Example Usage
      * 
-     * The following example returns a specific coip pool ID
+     * The following example returns a specific CoIP pool ID
      * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args, InvokeOutputOptions options) {
@@ -2035,13 +2035,13 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.
      * 
-     * This data source can prove useful when a module accepts a coip pool id as
+     * This data source can prove useful when a module accepts a CoIP pool ID as
      * an input variable and needs to, for example, determine the CIDR block of that
-     * COIP Pool.
+     * CoIP Pool.
      * 
      * ## Example Usage
      * 
-     * The following example returns a specific coip pool ID
+     * The following example returns a specific CoIP pool ID
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args, InvokeOptions options) {
@@ -2052,7 +2052,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all COIP Pool Ids.
+     * The following shows outputting all CoIP Pool IDs.
      * 
      * <pre>
      * {@code
@@ -2094,7 +2094,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all COIP Pool Ids.
+     * The following shows outputting all CoIP Pool IDs.
      * 
      * <pre>
      * {@code
@@ -2136,7 +2136,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all COIP Pool Ids.
+     * The following shows outputting all CoIP Pool IDs.
      * 
      * <pre>
      * {@code
@@ -2178,7 +2178,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all COIP Pool Ids.
+     * The following shows outputting all CoIP Pool IDs.
      * 
      * <pre>
      * {@code
@@ -2220,7 +2220,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all COIP Pool Ids.
+     * The following shows outputting all CoIP Pool IDs.
      * 
      * <pre>
      * {@code
@@ -2262,7 +2262,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all COIP Pool Ids.
+     * The following shows outputting all CoIP Pool IDs.
      * 
      * <pre>
      * {@code
@@ -2304,7 +2304,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all COIP Pool Ids.
+     * The following shows outputting all CoIP Pool IDs.
      * 
      * <pre>
      * {@code
@@ -6985,7 +6985,7 @@ public final class Ec2Functions {
      * or to make it easier for an operator to connect through bastion host(s).
      * 
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
-     * instances (e.g., managed via autoscaling group), as the output may change at any time
+     * instances (e.g., managed via Auto Scaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
      * ## Example Usage
@@ -7049,7 +7049,7 @@ public final class Ec2Functions {
      * or to make it easier for an operator to connect through bastion host(s).
      * 
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
-     * instances (e.g., managed via autoscaling group), as the output may change at any time
+     * instances (e.g., managed via Auto Scaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
      * ## Example Usage
@@ -7113,7 +7113,7 @@ public final class Ec2Functions {
      * or to make it easier for an operator to connect through bastion host(s).
      * 
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
-     * instances (e.g., managed via autoscaling group), as the output may change at any time
+     * instances (e.g., managed via Auto Scaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
      * ## Example Usage
@@ -7177,7 +7177,7 @@ public final class Ec2Functions {
      * or to make it easier for an operator to connect through bastion host(s).
      * 
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
-     * instances (e.g., managed via autoscaling group), as the output may change at any time
+     * instances (e.g., managed via Auto Scaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
      * ## Example Usage
@@ -7241,7 +7241,7 @@ public final class Ec2Functions {
      * or to make it easier for an operator to connect through bastion host(s).
      * 
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
-     * instances (e.g., managed via autoscaling group), as the output may change at any time
+     * instances (e.g., managed via Auto Scaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
      * ## Example Usage
@@ -7305,7 +7305,7 @@ public final class Ec2Functions {
      * or to make it easier for an operator to connect through bastion host(s).
      * 
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
-     * instances (e.g., managed via autoscaling group), as the output may change at any time
+     * instances (e.g., managed via Auto Scaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
      * ## Example Usage
@@ -7369,7 +7369,7 @@ public final class Ec2Functions {
      * or to make it easier for an operator to connect through bastion host(s).
      * 
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
-     * instances (e.g., managed via autoscaling group), as the output may change at any time
+     * instances (e.g., managed via Auto Scaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
      * ## Example Usage
@@ -7752,7 +7752,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7807,7 +7807,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7862,7 +7862,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7917,7 +7917,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7972,7 +7972,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -9125,7 +9125,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a local gateway id as a variable.
+     * The following example shows how one might accept a local gateway ID as a variable.
      * 
      * <pre>
      * {@code
@@ -9169,7 +9169,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a local gateway id as a variable.
+     * The following example shows how one might accept a local gateway ID as a variable.
      * 
      * <pre>
      * {@code
@@ -9213,7 +9213,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a local gateway id as a variable.
+     * The following example shows how one might accept a local gateway ID as a variable.
      * 
      * <pre>
      * {@code
@@ -9257,7 +9257,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a local gateway id as a variable.
+     * The following example shows how one might accept a local gateway ID as a variable.
      * 
      * <pre>
      * {@code
@@ -9301,7 +9301,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a local gateway id as a variable.
+     * The following example shows how one might accept a local gateway ID as a variable.
      * 
      * <pre>
      * {@code
@@ -9345,7 +9345,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a local gateway id as a variable.
+     * The following example shows how one might accept a local gateway ID as a variable.
      * 
      * <pre>
      * {@code
@@ -9389,7 +9389,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a local gateway id as a variable.
+     * The following example shows how one might accept a local gateway ID as a variable.
      * 
      * <pre>
      * {@code
@@ -9431,7 +9431,7 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Route Table.
      * 
-     * This data source can prove useful when a module accepts a local gateway route table id as
+     * This data source can prove useful when a module accepts a local gateway route table ID as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
      * ## Example Usage
@@ -9478,7 +9478,7 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Route Table.
      * 
-     * This data source can prove useful when a module accepts a local gateway route table id as
+     * This data source can prove useful when a module accepts a local gateway route table ID as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
      * ## Example Usage
@@ -9525,7 +9525,7 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Route Table.
      * 
-     * This data source can prove useful when a module accepts a local gateway route table id as
+     * This data source can prove useful when a module accepts a local gateway route table ID as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
      * ## Example Usage
@@ -9572,7 +9572,7 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Route Table.
      * 
-     * This data source can prove useful when a module accepts a local gateway route table id as
+     * This data source can prove useful when a module accepts a local gateway route table ID as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
      * ## Example Usage
@@ -9619,7 +9619,7 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Route Table.
      * 
-     * This data source can prove useful when a module accepts a local gateway route table id as
+     * This data source can prove useful when a module accepts a local gateway route table ID as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
      * ## Example Usage
@@ -9666,7 +9666,7 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Route Table.
      * 
-     * This data source can prove useful when a module accepts a local gateway route table id as
+     * This data source can prove useful when a module accepts a local gateway route table ID as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
      * ## Example Usage
@@ -9713,7 +9713,7 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Route Table.
      * 
-     * This data source can prove useful when a module accepts a local gateway route table id as
+     * This data source can prove useful when a module accepts a local gateway route table ID as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
      * ## Example Usage
@@ -9762,7 +9762,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -9804,7 +9804,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -9846,7 +9846,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -9888,7 +9888,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -9930,7 +9930,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -9972,7 +9972,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -10014,7 +10014,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -11564,7 +11564,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getManagedPrefixList:getManagedPrefixList", TypeShape.of(GetManagedPrefixListResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -11575,7 +11575,7 @@ public final class Ec2Functions {
         return getManagedPrefixLists(GetManagedPrefixListsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -11586,7 +11586,7 @@ public final class Ec2Functions {
         return getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -11597,7 +11597,7 @@ public final class Ec2Functions {
         return getManagedPrefixLists(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -11608,7 +11608,7 @@ public final class Ec2Functions {
         return getManagedPrefixListsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -11619,7 +11619,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -11630,7 +11630,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12159,7 +12159,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNatGateway:getNatGateway", TypeShape.of(GetNatGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12170,7 +12170,7 @@ public final class Ec2Functions {
         return getNatGateways(GetNatGatewaysArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12181,7 +12181,7 @@ public final class Ec2Functions {
         return getNatGatewaysPlain(GetNatGatewaysPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12192,7 +12192,7 @@ public final class Ec2Functions {
         return getNatGateways(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12203,7 +12203,7 @@ public final class Ec2Functions {
         return getNatGatewaysPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12214,7 +12214,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateways:getNatGateways", TypeShape.of(GetNatGatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12225,7 +12225,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateways:getNatGateways", TypeShape.of(GetNatGatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
@@ -12238,7 +12238,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network ACL ids in a vpc.
+     * The following shows outputting all network ACL IDs in a VPC.
      * 
      * <pre>
      * {@code
@@ -12272,7 +12272,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
+     * The following example retrieves a list of all network ACL IDs in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * <pre>
@@ -12307,7 +12307,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network ACL id in a VPC which associated
+     * The following example retrieves a network ACL ID in a VPC which associated
      * with specific subnet.
      * 
      * <pre>
@@ -12353,7 +12353,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network ACL ids in a vpc.
+     * The following shows outputting all network ACL IDs in a VPC.
      * 
      * <pre>
      * {@code
@@ -12387,7 +12387,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
+     * The following example retrieves a list of all network ACL IDs in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * <pre>
@@ -12422,7 +12422,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network ACL id in a VPC which associated
+     * The following example retrieves a network ACL ID in a VPC which associated
      * with specific subnet.
      * 
      * <pre>
@@ -12468,7 +12468,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network ACL ids in a vpc.
+     * The following shows outputting all network ACL IDs in a VPC.
      * 
      * <pre>
      * {@code
@@ -12502,7 +12502,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
+     * The following example retrieves a list of all network ACL IDs in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * <pre>
@@ -12537,7 +12537,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network ACL id in a VPC which associated
+     * The following example retrieves a network ACL ID in a VPC which associated
      * with specific subnet.
      * 
      * <pre>
@@ -12583,7 +12583,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network ACL ids in a vpc.
+     * The following shows outputting all network ACL IDs in a VPC.
      * 
      * <pre>
      * {@code
@@ -12617,7 +12617,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
+     * The following example retrieves a list of all network ACL IDs in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * <pre>
@@ -12652,7 +12652,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network ACL id in a VPC which associated
+     * The following example retrieves a network ACL ID in a VPC which associated
      * with specific subnet.
      * 
      * <pre>
@@ -12698,7 +12698,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network ACL ids in a vpc.
+     * The following shows outputting all network ACL IDs in a VPC.
      * 
      * <pre>
      * {@code
@@ -12732,7 +12732,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
+     * The following example retrieves a list of all network ACL IDs in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * <pre>
@@ -12767,7 +12767,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network ACL id in a VPC which associated
+     * The following example retrieves a network ACL ID in a VPC which associated
      * with specific subnet.
      * 
      * <pre>
@@ -12813,7 +12813,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network ACL ids in a vpc.
+     * The following shows outputting all network ACL IDs in a VPC.
      * 
      * <pre>
      * {@code
@@ -12847,7 +12847,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
+     * The following example retrieves a list of all network ACL IDs in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * <pre>
@@ -12882,7 +12882,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network ACL id in a VPC which associated
+     * The following example retrieves a network ACL ID in a VPC which associated
      * with specific subnet.
      * 
      * <pre>
@@ -12928,7 +12928,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network ACL ids in a vpc.
+     * The following shows outputting all network ACL IDs in a VPC.
      * 
      * <pre>
      * {@code
@@ -12962,7 +12962,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
+     * The following example retrieves a list of all network ACL IDs in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34;.
      * 
      * <pre>
@@ -12997,7 +12997,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network ACL id in a VPC which associated
+     * The following example retrieves a network ACL ID in a VPC which associated
      * with specific subnet.
      * 
      * <pre>
@@ -13883,7 +13883,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network interface ids in a region.
+     * The following shows outputting all network interface IDs in a region.
      * 
      * <pre>
      * {@code
@@ -13916,7 +13916,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+     * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
      * 
      * <pre>
      * {@code
@@ -13950,7 +13950,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network interface ids which associated
+     * The following example retrieves a network interface IDs which associated
      * with specific subnet.
      * 
      * <pre>
@@ -13996,7 +13996,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network interface ids in a region.
+     * The following shows outputting all network interface IDs in a region.
      * 
      * <pre>
      * {@code
@@ -14029,7 +14029,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+     * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
      * 
      * <pre>
      * {@code
@@ -14063,7 +14063,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network interface ids which associated
+     * The following example retrieves a network interface IDs which associated
      * with specific subnet.
      * 
      * <pre>
@@ -14109,7 +14109,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network interface ids in a region.
+     * The following shows outputting all network interface IDs in a region.
      * 
      * <pre>
      * {@code
@@ -14142,7 +14142,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+     * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
      * 
      * <pre>
      * {@code
@@ -14176,7 +14176,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network interface ids which associated
+     * The following example retrieves a network interface IDs which associated
      * with specific subnet.
      * 
      * <pre>
@@ -14222,7 +14222,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network interface ids in a region.
+     * The following shows outputting all network interface IDs in a region.
      * 
      * <pre>
      * {@code
@@ -14255,7 +14255,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+     * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
      * 
      * <pre>
      * {@code
@@ -14289,7 +14289,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network interface ids which associated
+     * The following example retrieves a network interface IDs which associated
      * with specific subnet.
      * 
      * <pre>
@@ -14335,7 +14335,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network interface ids in a region.
+     * The following shows outputting all network interface IDs in a region.
      * 
      * <pre>
      * {@code
@@ -14368,7 +14368,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+     * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
      * 
      * <pre>
      * {@code
@@ -14402,7 +14402,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network interface ids which associated
+     * The following example retrieves a network interface IDs which associated
      * with specific subnet.
      * 
      * <pre>
@@ -14448,7 +14448,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network interface ids in a region.
+     * The following shows outputting all network interface IDs in a region.
      * 
      * <pre>
      * {@code
@@ -14481,7 +14481,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+     * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
      * 
      * <pre>
      * {@code
@@ -14515,7 +14515,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network interface ids which associated
+     * The following example retrieves a network interface IDs which associated
      * with specific subnet.
      * 
      * <pre>
@@ -14561,7 +14561,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputting all network interface ids in a region.
+     * The following shows outputting all network interface IDs in a region.
      * 
      * <pre>
      * {@code
@@ -14594,7 +14594,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+     * The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
      * 
      * <pre>
      * {@code
@@ -14628,7 +14628,7 @@ public final class Ec2Functions {
      * }
      * </pre>
      * 
-     * The following example retrieves a network interface ids which associated
+     * The following example retrieves a network interface IDs which associated
      * with specific subnet.
      * 
      * <pre>
@@ -16218,7 +16218,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+     * The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
      * 
      * <pre>
      * {@code
@@ -16275,7 +16275,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+     * The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
      * 
      * <pre>
      * {@code
@@ -16332,7 +16332,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+     * The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
      * 
      * <pre>
      * {@code
@@ -16389,7 +16389,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+     * The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
      * 
      * <pre>
      * {@code
@@ -16446,7 +16446,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+     * The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
      * 
      * <pre>
      * {@code
@@ -16875,12 +16875,12 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getRouteTable:getRouteTable", TypeShape.of(GetRouteTableResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
-     * The following adds a route for a particular cidr block to every (private
-     * kops) route table in a specified vpc to use a particular vpc peering
+     * The following adds a route for a particular CIDR block to every (private
+     * kops) route table in a specified VPC to use a particular VPC peering
      * connection.
      * 
      * <pre>
@@ -16936,12 +16936,12 @@ public final class Ec2Functions {
         return getRouteTables(GetRouteTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
-     * The following adds a route for a particular cidr block to every (private
-     * kops) route table in a specified vpc to use a particular vpc peering
+     * The following adds a route for a particular CIDR block to every (private
+     * kops) route table in a specified VPC to use a particular VPC peering
      * connection.
      * 
      * <pre>
@@ -16997,12 +16997,12 @@ public final class Ec2Functions {
         return getRouteTablesPlain(GetRouteTablesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
-     * The following adds a route for a particular cidr block to every (private
-     * kops) route table in a specified vpc to use a particular vpc peering
+     * The following adds a route for a particular CIDR block to every (private
+     * kops) route table in a specified VPC to use a particular VPC peering
      * connection.
      * 
      * <pre>
@@ -17058,12 +17058,12 @@ public final class Ec2Functions {
         return getRouteTables(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
-     * The following adds a route for a particular cidr block to every (private
-     * kops) route table in a specified vpc to use a particular vpc peering
+     * The following adds a route for a particular CIDR block to every (private
+     * kops) route table in a specified VPC to use a particular VPC peering
      * connection.
      * 
      * <pre>
@@ -17119,12 +17119,12 @@ public final class Ec2Functions {
         return getRouteTablesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
-     * The following adds a route for a particular cidr block to every (private
-     * kops) route table in a specified vpc to use a particular vpc peering
+     * The following adds a route for a particular CIDR block to every (private
+     * kops) route table in a specified VPC to use a particular VPC peering
      * connection.
      * 
      * <pre>
@@ -17180,12 +17180,12 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getRouteTables:getRouteTables", TypeShape.of(GetRouteTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
-     * The following adds a route for a particular cidr block to every (private
-     * kops) route table in a specified vpc to use a particular vpc peering
+     * The following adds a route for a particular CIDR block to every (private
+     * kops) route table in a specified VPC to use a particular VPC peering
      * connection.
      * 
      * <pre>
@@ -17241,12 +17241,12 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getRouteTables:getRouteTables", TypeShape.of(GetRouteTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+     * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
      * 
      * ## Example Usage
      * 
-     * The following adds a route for a particular cidr block to every (private
-     * kops) route table in a specified vpc to use a particular vpc peering
+     * The following adds a route for a particular CIDR block to every (private
+     * kops) route table in a specified VPC to use a particular VPC peering
      * connection.
      * 
      * <pre>
@@ -17304,13 +17304,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
      * 
-     * This resource can prove useful when a module accepts a Security Group id as
-     * an input variable and needs to, for example, determine the id of the
+     * This resource can prove useful when a module accepts a Security Group ID as
+     * an input variable and needs to, for example, determine the ID of the
      * VPC that the security group belongs to.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a Security Group id as a variable
+     * The following example shows how one might accept a Security Group ID as a variable
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * <pre>
@@ -17360,13 +17360,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
      * 
-     * This resource can prove useful when a module accepts a Security Group id as
-     * an input variable and needs to, for example, determine the id of the
+     * This resource can prove useful when a module accepts a Security Group ID as
+     * an input variable and needs to, for example, determine the ID of the
      * VPC that the security group belongs to.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a Security Group id as a variable
+     * The following example shows how one might accept a Security Group ID as a variable
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * <pre>
@@ -17416,13 +17416,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
      * 
-     * This resource can prove useful when a module accepts a Security Group id as
-     * an input variable and needs to, for example, determine the id of the
+     * This resource can prove useful when a module accepts a Security Group ID as
+     * an input variable and needs to, for example, determine the ID of the
      * VPC that the security group belongs to.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a Security Group id as a variable
+     * The following example shows how one might accept a Security Group ID as a variable
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * <pre>
@@ -17472,13 +17472,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
      * 
-     * This resource can prove useful when a module accepts a Security Group id as
-     * an input variable and needs to, for example, determine the id of the
+     * This resource can prove useful when a module accepts a Security Group ID as
+     * an input variable and needs to, for example, determine the ID of the
      * VPC that the security group belongs to.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a Security Group id as a variable
+     * The following example shows how one might accept a Security Group ID as a variable
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * <pre>
@@ -17528,13 +17528,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
      * 
-     * This resource can prove useful when a module accepts a Security Group id as
-     * an input variable and needs to, for example, determine the id of the
+     * This resource can prove useful when a module accepts a Security Group ID as
+     * an input variable and needs to, for example, determine the ID of the
      * VPC that the security group belongs to.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a Security Group id as a variable
+     * The following example shows how one might accept a Security Group ID as a variable
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * <pre>
@@ -17584,13 +17584,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
      * 
-     * This resource can prove useful when a module accepts a Security Group id as
-     * an input variable and needs to, for example, determine the id of the
+     * This resource can prove useful when a module accepts a Security Group ID as
+     * an input variable and needs to, for example, determine the ID of the
      * VPC that the security group belongs to.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a Security Group id as a variable
+     * The following example shows how one might accept a Security Group ID as a variable
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * <pre>
@@ -17640,13 +17640,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
      * 
-     * This resource can prove useful when a module accepts a Security Group id as
-     * an input variable and needs to, for example, determine the id of the
+     * This resource can prove useful when a module accepts a Security Group ID as
+     * an input variable and needs to, for example, determine the ID of the
      * VPC that the security group belongs to.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a Security Group id as a variable
+     * The following example shows how one might accept a Security Group ID as a variable
      * and use this data source to obtain the data necessary to create a subnet.
      * 
      * <pre>
@@ -20540,7 +20540,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -20582,7 +20582,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -20624,7 +20624,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -20666,7 +20666,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -20708,7 +20708,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -20750,7 +20750,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -20792,7 +20792,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table IDs.
      * 
      * <pre>
      * {@code
@@ -20832,13 +20832,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.Vpc` provides details about a specific VPC.
      * 
-     * This resource can prove useful when a module accepts a vpc id as
+     * This resource can prove useful when a module accepts a VPC ID as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a VPC id as a variable
+     * The following example shows how one might accept a VPC ID as a variable
      * and use this data source to obtain the data necessary to create a subnet
      * within it.
      * 
@@ -20896,13 +20896,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.Vpc` provides details about a specific VPC.
      * 
-     * This resource can prove useful when a module accepts a vpc id as
+     * This resource can prove useful when a module accepts a VPC ID as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a VPC id as a variable
+     * The following example shows how one might accept a VPC ID as a variable
      * and use this data source to obtain the data necessary to create a subnet
      * within it.
      * 
@@ -20960,13 +20960,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.Vpc` provides details about a specific VPC.
      * 
-     * This resource can prove useful when a module accepts a vpc id as
+     * This resource can prove useful when a module accepts a VPC ID as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a VPC id as a variable
+     * The following example shows how one might accept a VPC ID as a variable
      * and use this data source to obtain the data necessary to create a subnet
      * within it.
      * 
@@ -21024,13 +21024,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.Vpc` provides details about a specific VPC.
      * 
-     * This resource can prove useful when a module accepts a vpc id as
+     * This resource can prove useful when a module accepts a VPC ID as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a VPC id as a variable
+     * The following example shows how one might accept a VPC ID as a variable
      * and use this data source to obtain the data necessary to create a subnet
      * within it.
      * 
@@ -21088,13 +21088,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.Vpc` provides details about a specific VPC.
      * 
-     * This resource can prove useful when a module accepts a vpc id as
+     * This resource can prove useful when a module accepts a VPC ID as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a VPC id as a variable
+     * The following example shows how one might accept a VPC ID as a variable
      * and use this data source to obtain the data necessary to create a subnet
      * within it.
      * 
@@ -21152,13 +21152,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.Vpc` provides details about a specific VPC.
      * 
-     * This resource can prove useful when a module accepts a vpc id as
+     * This resource can prove useful when a module accepts a VPC ID as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a VPC id as a variable
+     * The following example shows how one might accept a VPC ID as a variable
      * and use this data source to obtain the data necessary to create a subnet
      * within it.
      * 
@@ -21216,13 +21216,13 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.Vpc` provides details about a specific VPC.
      * 
-     * This resource can prove useful when a module accepts a vpc id as
+     * This resource can prove useful when a module accepts a VPC ID as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
      * ## Example Usage
      * 
-     * The following example shows how one might accept a VPC id as a variable
+     * The following example shows how one might accept a VPC ID as a variable
      * and use this data source to obtain the data necessary to create a subnet
      * within it.
      * 
@@ -23338,14 +23338,14 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was created in another root
-     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * This resource can prove useful when an IPAM pool was created in another root
+     * module and you need the pool&#39;s ID as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
      * 
      * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * via RAM, and using that pool ID to create a VPC with a CIDR derived from
      * AWS IPAM.
      * 
      * <pre>
@@ -23402,14 +23402,14 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was created in another root
-     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * This resource can prove useful when an IPAM pool was created in another root
+     * module and you need the pool&#39;s ID as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
      * 
      * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * via RAM, and using that pool ID to create a VPC with a CIDR derived from
      * AWS IPAM.
      * 
      * <pre>
@@ -23466,14 +23466,14 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was created in another root
-     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * This resource can prove useful when an IPAM pool was created in another root
+     * module and you need the pool&#39;s ID as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
      * 
      * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * via RAM, and using that pool ID to create a VPC with a CIDR derived from
      * AWS IPAM.
      * 
      * <pre>
@@ -23530,14 +23530,14 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was created in another root
-     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * This resource can prove useful when an IPAM pool was created in another root
+     * module and you need the pool&#39;s ID as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
      * 
      * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * via RAM, and using that pool ID to create a VPC with a CIDR derived from
      * AWS IPAM.
      * 
      * <pre>
@@ -23594,14 +23594,14 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was created in another root
-     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * This resource can prove useful when an IPAM pool was created in another root
+     * module and you need the pool&#39;s ID as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
      * 
      * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * via RAM, and using that pool ID to create a VPC with a CIDR derived from
      * AWS IPAM.
      * 
      * <pre>
@@ -23658,14 +23658,14 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was created in another root
-     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * This resource can prove useful when an IPAM pool was created in another root
+     * module and you need the pool&#39;s ID as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
      * 
      * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * via RAM, and using that pool ID to create a VPC with a CIDR derived from
      * AWS IPAM.
      * 
      * <pre>
@@ -23722,14 +23722,14 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was created in another root
-     * module and you need the pool&#39;s id as an input variable. For example, pools
+     * This resource can prove useful when an IPAM pool was created in another root
+     * module and you need the pool&#39;s ID as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
      * 
      * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
+     * via RAM, and using that pool ID to create a VPC with a CIDR derived from
      * AWS IPAM.
      * 
      * <pre>
@@ -23786,7 +23786,7 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * This resource can prove useful when an IPAM pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      * ## Example Usage
      * 
@@ -23846,7 +23846,7 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * This resource can prove useful when an IPAM pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      * ## Example Usage
      * 
@@ -23906,7 +23906,7 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * This resource can prove useful when an IPAM pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      * ## Example Usage
      * 
@@ -23966,7 +23966,7 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * This resource can prove useful when an IPAM pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      * ## Example Usage
      * 
@@ -24026,7 +24026,7 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
      * 
-     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * This resource can prove useful when an IPAM pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
      * 
      * ## Example Usage
      * 
@@ -24087,7 +24087,7 @@ public final class Ec2Functions {
      * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
-     * module and you need the pool ids as input variables. For example, pools
+     * module and you need the pool IDs as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
@@ -24140,7 +24140,7 @@ public final class Ec2Functions {
      * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
-     * module and you need the pool ids as input variables. For example, pools
+     * module and you need the pool IDs as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
@@ -24193,7 +24193,7 @@ public final class Ec2Functions {
      * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
-     * module and you need the pool ids as input variables. For example, pools
+     * module and you need the pool IDs as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
@@ -24246,7 +24246,7 @@ public final class Ec2Functions {
      * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
-     * module and you need the pool ids as input variables. For example, pools
+     * module and you need the pool IDs as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
@@ -24299,7 +24299,7 @@ public final class Ec2Functions {
      * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
-     * module and you need the pool ids as input variables. For example, pools
+     * module and you need the pool IDs as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
@@ -24352,7 +24352,7 @@ public final class Ec2Functions {
      * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
-     * module and you need the pool ids as input variables. For example, pools
+     * module and you need the pool IDs as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
@@ -24405,7 +24405,7 @@ public final class Ec2Functions {
      * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
      * 
      * This resource can prove useful when IPAM pools are created in another root
-     * module and you need the pool ids as input variables. For example, pools
+     * module and you need the pool IDs as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
      * ## Example Usage
@@ -25785,13 +25785,13 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", TypeShape.of(GetVpcPeeringConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of VPC Ids for a region.
+     * This resource can be useful for getting back a list of VPC IDs for a region.
      * 
-     * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
+     * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all VPC Ids.
+     * The following shows outputting all VPC IDs.
      * 
      * <pre>
      * {@code
@@ -25832,13 +25832,13 @@ public final class Ec2Functions {
         return getVpcs(GetVpcsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of VPC Ids for a region.
+     * This resource can be useful for getting back a list of VPC IDs for a region.
      * 
-     * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
+     * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all VPC Ids.
+     * The following shows outputting all VPC IDs.
      * 
      * <pre>
      * {@code
@@ -25879,13 +25879,13 @@ public final class Ec2Functions {
         return getVpcsPlain(GetVpcsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of VPC Ids for a region.
+     * This resource can be useful for getting back a list of VPC IDs for a region.
      * 
-     * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
+     * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all VPC Ids.
+     * The following shows outputting all VPC IDs.
      * 
      * <pre>
      * {@code
@@ -25926,13 +25926,13 @@ public final class Ec2Functions {
         return getVpcs(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of VPC Ids for a region.
+     * This resource can be useful for getting back a list of VPC IDs for a region.
      * 
-     * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
+     * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all VPC Ids.
+     * The following shows outputting all VPC IDs.
      * 
      * <pre>
      * {@code
@@ -25973,13 +25973,13 @@ public final class Ec2Functions {
         return getVpcsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This resource can be useful for getting back a list of VPC Ids for a region.
+     * This resource can be useful for getting back a list of VPC IDs for a region.
      * 
-     * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
+     * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all VPC Ids.
+     * The following shows outputting all VPC IDs.
      * 
      * <pre>
      * {@code
@@ -26020,13 +26020,13 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getVpcs:getVpcs", TypeShape.of(GetVpcsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of VPC Ids for a region.
+     * This resource can be useful for getting back a list of VPC IDs for a region.
      * 
-     * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
+     * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all VPC Ids.
+     * The following shows outputting all VPC IDs.
      * 
      * <pre>
      * {@code
@@ -26067,13 +26067,13 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getVpcs:getVpcs", TypeShape.of(GetVpcsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This resource can be useful for getting back a list of VPC Ids for a region.
+     * This resource can be useful for getting back a list of VPC IDs for a region.
      * 
-     * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of &#34;production&#34;.
+     * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of &#34;production&#34;.
      * 
      * ## Example Usage
      * 
-     * The following shows outputting all VPC Ids.
+     * The following shows outputting all VPC IDs.
      * 
      * <pre>
      * {@code

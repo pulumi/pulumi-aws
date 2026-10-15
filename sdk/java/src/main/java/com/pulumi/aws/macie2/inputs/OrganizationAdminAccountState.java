@@ -16,14 +16,14 @@ public final class OrganizationAdminAccountState extends com.pulumi.resources.Re
     public static final OrganizationAdminAccountState Empty = new OrganizationAdminAccountState();
 
     /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+     * AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      * 
      */
     @Import(name="adminAccountId")
     private @Nullable Output<String> adminAccountId;
 
     /**
-     * @return The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+     * @return AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      * 
      */
     public Optional<Output<String>> adminAccountId() {
@@ -71,7 +71,7 @@ public final class OrganizationAdminAccountState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param adminAccountId The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+         * @param adminAccountId AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class OrganizationAdminAccountState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param adminAccountId The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+         * @param adminAccountId AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
          * 
          * @return builder
          * 

@@ -14,33 +14,39 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorReplicationInfoList
     {
         /// <summary>
-        /// Configuration relating to consumer group replication.
+        /// Configuration relating to consumer group replication. See `ConsumerGroupReplication` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication> ConsumerGroupReplications;
+        /// <summary>
+        /// Alias of the source Kafka cluster.
+        /// </summary>
         public readonly string? SourceKafkaClusterAlias;
         /// <summary>
-        /// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
+        /// ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
         /// </summary>
         public readonly string? SourceKafkaClusterArn;
         /// <summary>
-        /// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `ApacheKafkaClusterId`). Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
+        /// Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `ApacheKafkaClusterId`). Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
         /// </summary>
         public readonly string? SourceKafkaClusterId;
         /// <summary>
-        /// The type of compression to use writing records to target Kafka cluster.
+        /// Type of compression to use writing records to target Kafka cluster.
         /// </summary>
         public readonly string TargetCompressionType;
+        /// <summary>
+        /// Alias of the target Kafka cluster.
+        /// </summary>
         public readonly string? TargetKafkaClusterAlias;
         /// <summary>
-        /// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
+        /// ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
         /// </summary>
         public readonly string? TargetKafkaClusterArn;
         /// <summary>
-        /// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `ApacheKafkaClusterId`). Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
+        /// Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `ApacheKafkaClusterId`). Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
         /// </summary>
         public readonly string? TargetKafkaClusterId;
         /// <summary>
-        /// Configuration relating to topic replication.
+        /// Configuration relating to topic replication. See `TopicReplication` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicatorReplicationInfoListTopicReplication> TopicReplications;
 

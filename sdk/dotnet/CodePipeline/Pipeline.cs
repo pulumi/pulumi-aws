@@ -262,7 +262,7 @@ namespace Pulumi.Aws.CodePipeline
     public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Codepipeline ARN.
+        /// CodePipeline ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.CodePipeline
     public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Codepipeline ARN.
+        /// CodePipeline ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

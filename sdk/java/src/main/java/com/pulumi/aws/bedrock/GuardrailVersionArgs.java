@@ -68,14 +68,14 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
      * 
      */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
     /**
-     * @return Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+     * @return Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> skipDestroy() {
@@ -185,7 +185,7 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skipDestroy Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+         * @param skipDestroy Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skipDestroy Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+         * @param skipDestroy Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
          * 
          * @return builder
          * 

@@ -501,7 +501,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string RootDeviceType;
         /// <summary>
-        /// Snapshot id associated with the root device, if any (only applies to `Ebs` root devices).
+        /// Snapshot ID associated with the root device, if any (only applies to `Ebs` root devices).
         /// </summary>
         public readonly string RootSnapshotId;
         /// <summary>

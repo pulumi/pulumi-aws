@@ -89,14 +89,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:grafana/roleAssociation:RoleAssociation")
 public class RoleAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
+     * AWS SSO group IDs to be assigned the role given in `role`.
      * 
      */
     @Export(name="groupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupIds;
 
     /**
-     * @return The AWS SSO group ids to be assigned the role given in `role`.
+     * @return AWS SSO group IDs to be assigned the role given in `role`.
      * 
      */
     public Output<Optional<List<String>>> groupIds() {
@@ -117,35 +117,35 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+     * Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+     * @return Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
     public Output<String> role() {
         return this.role;
     }
     /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
+     * AWS SSO user IDs to be assigned the role given in `role`.
      * 
      */
     @Export(name="userIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userIds;
 
     /**
-     * @return The AWS SSO user ids to be assigned the role given in `role`.
+     * @return AWS SSO user IDs to be assigned the role given in `role`.
      * 
      */
     public Output<Optional<List<String>>> userIds() {
         return Codegen.optional(this.userIds);
     }
     /**
-     * The workspace id.
+     * Workspace ID.
      * 
      * The following arguments are optional:
      * 
@@ -154,7 +154,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
     private Output<String> workspaceId;
 
     /**
-     * @return The workspace id.
+     * @return Workspace ID.
      * 
      * The following arguments are optional:
      * 

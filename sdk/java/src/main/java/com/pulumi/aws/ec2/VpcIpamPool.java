@@ -484,14 +484,14 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceIpamPoolId);
     }
     /**
-     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
      * 
      */
     @Export(name="sourceResource", refs={VpcIpamPoolSourceResource.class}, tree="[0]")
     private Output</* @Nullable */ VpcIpamPoolSourceResource> sourceResource;
 
     /**
-     * @return Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * @return Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
      * 
      */
     public Output<Optional<VpcIpamPoolSourceResource>> sourceResource() {

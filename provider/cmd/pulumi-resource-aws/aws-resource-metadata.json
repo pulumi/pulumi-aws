@@ -1149,6 +1149,17 @@
     "hasInputName": true,
     "hasUsableRegion": true
   },
+  "aws_cloudwatch_resource_metrics_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatchomni_domain": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatchomni_space": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
   "aws_codeartifact_domain": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -1746,6 +1757,11 @@
   "aws_devicefarm_upload": {
     "hasInputName": true,
     "hasUsableRegion": true
+  },
+  "aws_devopsagent_agent_space": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_devopsguru_event_sources_config": {
     "hasUsableRegion": true

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.MediaConvert.Outputs
     public sealed class QueueReservationPlanSettings
     {
         /// <summary>
-        /// The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+        /// Length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
         /// </summary>
         public readonly string Commitment;
         /// <summary>
-        /// Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+        /// Renewal type of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
         /// </summary>
         public readonly string RenewalType;
         /// <summary>
-        /// Specifies the number of reserved transcode slots (RTS) for queue.
+        /// Number of reserved transcode slots (RTS) for queue.
         /// </summary>
         public readonly int ReservedSlots;
 

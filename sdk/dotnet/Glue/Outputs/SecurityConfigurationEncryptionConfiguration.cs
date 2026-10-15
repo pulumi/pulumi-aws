@@ -13,10 +13,16 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class SecurityConfigurationEncryptionConfiguration
     {
+        /// <summary>
+        /// `CloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+        /// </summary>
         public readonly Outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption CloudwatchEncryption;
+        /// <summary>
+        /// `JobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
+        /// </summary>
         public readonly Outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption JobBookmarksEncryption;
         /// <summary>
-        /// A `S3Encryption ` block as described below, which contains encryption configuration for S3 data.
+        /// `S3Encryption` block as described below, which contains encryption configuration for S3 data.
         /// </summary>
         public readonly Outputs.SecurityConfigurationEncryptionConfigurationS3Encryption S3Encryption;
 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelEncoderSettingsAudioDescriptionArgs>? _audioDescriptions;
 
         /// <summary>
-        /// Audio descriptions for the channel. See Audio Descriptions for more details.
+        /// Audio descriptions for the channel. See `AudioDescriptions` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsAudioDescriptionArgs> AudioDescriptions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         }
 
         /// <summary>
-        /// Settings for ad avail blanking. See Avail Blanking for more details.
+        /// Settings for ad avail blanking. See `AvailBlanking` Block for details.
         /// </summary>
         [Input("availBlanking")]
         public Input<Inputs.ChannelEncoderSettingsAvailBlankingArgs>? AvailBlanking { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelEncoderSettingsCaptionDescriptionArgs>? _captionDescriptions;
 
         /// <summary>
-        /// Caption Descriptions. See Caption Descriptions for more details.
+        /// Caption descriptions for the channel. See `CaptionDescriptions` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsCaptionDescriptionArgs> CaptionDescriptions
         {
@@ -43,19 +43,19 @@ namespace Pulumi.Aws.MediaLive.Inputs
         }
 
         /// <summary>
-        /// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        /// Configuration settings that apply to the event as a whole. See `GlobalConfiguration` Block for details.
         /// </summary>
         [Input("globalConfiguration")]
         public Input<Inputs.ChannelEncoderSettingsGlobalConfigurationArgs>? GlobalConfiguration { get; set; }
 
         /// <summary>
-        /// Settings for motion graphics. See Motion Graphics Configuration for more details.
+        /// Settings for motion graphics. See `MotionGraphicsConfiguration` Block for details.
         /// </summary>
         [Input("motionGraphicsConfiguration")]
         public Input<Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationArgs>? MotionGraphicsConfiguration { get; set; }
 
         /// <summary>
-        /// Nielsen configuration settings. See Nielsen Configuration for more details.
+        /// Nielsen configuration settings. See `NielsenConfiguration` Block for details.
         /// </summary>
         [Input("nielsenConfiguration")]
         public Input<Inputs.ChannelEncoderSettingsNielsenConfigurationArgs>? NielsenConfiguration { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupArgs>? _outputGroups;
 
         /// <summary>
-        /// Output groups for the channel. See Output Groups for more details.
+        /// Output groups for the channel. See `OutputGroups` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupArgs> OutputGroups
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         }
 
         /// <summary>
-        /// Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        /// Settings used to acquire and adjust timecode information from inputs. See `TimecodeConfig` Block for details.
         /// </summary>
         [Input("timecodeConfig", required: true)]
         public Input<Inputs.ChannelEncoderSettingsTimecodeConfigArgs> TimecodeConfig { get; set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelEncoderSettingsVideoDescriptionArgs>? _videoDescriptions;
 
         /// <summary>
-        /// Video Descriptions. See Video Descriptions for more details.
+        /// Video descriptions for the channel. See `VideoDescriptions` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsVideoDescriptionArgs> VideoDescriptions
         {

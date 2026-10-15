@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * ### Ignoring Changes to Desired Count
  *
- * You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * You can utilize the generic Terraform resource lifecycle configuration block with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g., Application Auto Scaling).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -230,7 +230,7 @@ import * as utilities from "../utilities";
  * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
+ * Using `pulumi import`, import ECS services using the `name` together with ECS cluster `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:ecs/service:Service imported cluster-name/service-name

@@ -445,7 +445,7 @@ class _BrokerState:
         :param pulumi.Input[_builtins.str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]] instances: List of information about allocated brokers (both active & standby).
+        :param pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]] instances: List of information about allocated brokers (both active & standby). See `instances` Block for details.
         :param pulumi.Input['BrokerLdapServerMetadataArgs'] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
         :param pulumi.Input['BrokerLogsArgs'] logs: Configuration block for the logging configuration. Detailed below.
         :param pulumi.Input['BrokerMaintenanceWindowStartTimeArgs'] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
@@ -454,7 +454,7 @@ class _BrokerState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_share_arns: Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engine_type` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `apply_immediately` to `true` for changes to take effect without waiting for the next maintenance window.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group IDs assigned to the broker.
-        :param pulumi.Input[Sequence[pulumi.Input['BrokerSharedResourceArgs']]] shared_resources: List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`.
+        :param pulumi.Input[Sequence[pulumi.Input['BrokerSharedResourceArgs']]] shared_resources: List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`. See `shared_resources` Block for details.
         :param pulumi.Input[_builtins.str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -680,7 +680,7 @@ class _BrokerState:
     @pulumi.getter
     def instances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BrokerInstanceArgs']]]]:
         """
-        List of information about allocated brokers (both active & standby).
+        List of information about allocated brokers (both active & standby). See `instances` Block for details.
         """
         return pulumi.get(self, "instances")
 
@@ -788,7 +788,7 @@ class _BrokerState:
     @pulumi.getter(name="sharedResources")
     def shared_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BrokerSharedResourceArgs']]]]:
         """
-        List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`.
+        List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`. See `shared_resources` Block for details.
         """
         return pulumi.get(self, "shared_resources")
 
@@ -997,7 +997,7 @@ class Broker(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import MQ Brokers using their broker id. For example:
+        Using `pulumi import`, import MQ Brokers using their broker ID. For example:
 
         ```sh
         $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -1148,7 +1148,7 @@ class Broker(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import MQ Brokers using their broker id. For example:
+        Using `pulumi import`, import MQ Brokers using their broker ID. For example:
 
         ```sh
         $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -1296,7 +1296,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerInstanceArgs', 'BrokerInstanceArgsDict', 'outputs.BrokerInstance']]]] instances: List of information about allocated brokers (both active & standby).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerInstanceArgs', 'BrokerInstanceArgsDict', 'outputs.BrokerInstance']]]] instances: List of information about allocated brokers (both active & standby). See `instances` Block for details.
         :param pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict', 'outputs.BrokerLdapServerMetadata']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
         :param pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict', 'outputs.BrokerLogs']] logs: Configuration block for the logging configuration. Detailed below.
         :param pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict', 'outputs.BrokerMaintenanceWindowStartTime']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
@@ -1305,7 +1305,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_share_arns: Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engine_type` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `apply_immediately` to `true` for changes to take effect without waiting for the next maintenance window.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group IDs assigned to the broker.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerSharedResourceArgs', 'BrokerSharedResourceArgsDict', 'outputs.BrokerSharedResource']]]] shared_resources: List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerSharedResourceArgs', 'BrokerSharedResourceArgsDict', 'outputs.BrokerSharedResource']]]] shared_resources: List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`. See `shared_resources` Block for details.
         :param pulumi.Input[_builtins.str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1456,7 +1456,7 @@ class Broker(pulumi.CustomResource):
     @pulumi.getter
     def instances(self) -> pulumi.Output[Sequence['outputs.BrokerInstance']]:
         """
-        List of information about allocated brokers (both active & standby).
+        List of information about allocated brokers (both active & standby). See `instances` Block for details.
         """
         return pulumi.get(self, "instances")
 
@@ -1528,7 +1528,7 @@ class Broker(pulumi.CustomResource):
     @pulumi.getter(name="sharedResources")
     def shared_resources(self) -> pulumi.Output[Sequence['outputs.BrokerSharedResource']]:
         """
-        List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`.
+        List of resources shared with the broker via `resource_share_arns`. Only populated for `engine_type` of `RabbitMQ`. See `shared_resources` Block for details.
         """
         return pulumi.get(self, "shared_resources")
 

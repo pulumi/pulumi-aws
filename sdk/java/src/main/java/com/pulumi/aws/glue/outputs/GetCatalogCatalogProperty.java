@@ -20,12 +20,12 @@ public final class GetCatalogCatalogProperty {
      */
     private Map<String,String> customProperties;
     /**
-     * @return Data lake access properties. See `dataLakeAccessProperties` below.
+     * @return Data lake access properties. See `dataLakeAccessProperties` Block below.
      * 
      */
     private List<GetCatalogCatalogPropertyDataLakeAccessProperty> dataLakeAccessProperties;
     /**
-     * @return Iceberg optimization properties. See `icebergOptimizationProperties` below.
+     * @return Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
      * 
      */
     private List<GetCatalogCatalogPropertyIcebergOptimizationProperty> icebergOptimizationProperties;
@@ -39,14 +39,14 @@ public final class GetCatalogCatalogProperty {
         return this.customProperties;
     }
     /**
-     * @return Data lake access properties. See `dataLakeAccessProperties` below.
+     * @return Data lake access properties. See `dataLakeAccessProperties` Block below.
      * 
      */
     public List<GetCatalogCatalogPropertyDataLakeAccessProperty> dataLakeAccessProperties() {
         return this.dataLakeAccessProperties;
     }
     /**
-     * @return Iceberg optimization properties. See `icebergOptimizationProperties` below.
+     * @return Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
      * 
      */
     public List<GetCatalogCatalogPropertyIcebergOptimizationProperty> icebergOptimizationProperties() {

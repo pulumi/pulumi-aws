@@ -21,17 +21,49 @@ __all__ = ['OtelEnrichmentArgs', 'OtelEnrichment']
 @pulumi.input_type
 class OtelEnrichmentArgs:
     def __init__(__self__, *,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a OtelEnrichment resource.
 
+        :param pulumi.Input[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]] exclude_filters: Namespaces and metric names to leave unenriched. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]] include_filters: Namespaces and metric names to enrich. See below.
         :param pulumi.Input[_builtins.str] region: AWS region where this resource is managed.
         """
+        if exclude_filters is not None:
+            pulumi.set(__self__, "exclude_filters", exclude_filters)
+        if include_filters is not None:
+            pulumi.set(__self__, "include_filters", include_filters)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFilters")
+    def exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]]]:
+        """
+        Namespaces and metric names to leave unenriched. See below.
+        """
+        return pulumi.get(self, "exclude_filters")
+
+    @exclude_filters.setter
+    def exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]]]):
+        pulumi.set(self, "exclude_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeFilters")
+    def include_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]]]:
+        """
+        Namespaces and metric names to enrich. See below.
+        """
+        return pulumi.get(self, "include_filters")
+
+    @include_filters.setter
+    def include_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]]]):
+        pulumi.set(self, "include_filters", value)
 
     @_builtins.property
     @pulumi.getter
@@ -58,17 +90,49 @@ class OtelEnrichmentArgs:
 @pulumi.input_type
 class _OtelEnrichmentState:
     def __init__(__self__, *,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering OtelEnrichment resources.
 
+        :param pulumi.Input[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]] exclude_filters: Namespaces and metric names to leave unenriched. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]] include_filters: Namespaces and metric names to enrich. See below.
         :param pulumi.Input[_builtins.str] region: AWS region where this resource is managed.
         """
+        if exclude_filters is not None:
+            pulumi.set(__self__, "exclude_filters", exclude_filters)
+        if include_filters is not None:
+            pulumi.set(__self__, "include_filters", include_filters)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFilters")
+    def exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]]]:
+        """
+        Namespaces and metric names to leave unenriched. See below.
+        """
+        return pulumi.get(self, "exclude_filters")
+
+    @exclude_filters.setter
+    def exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentExcludeFilterArgs']]]]):
+        pulumi.set(self, "exclude_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeFilters")
+    def include_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]]]:
+        """
+        Namespaces and metric names to enrich. See below.
+        """
+        return pulumi.get(self, "include_filters")
+
+    @include_filters.setter
+    def include_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OtelEnrichmentIncludeFilterArgs']]]]):
+        pulumi.set(self, "include_filters", value)
 
     @_builtins.property
     @pulumi.getter
@@ -98,6 +162,8 @@ class OtelEnrichment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentExcludeFilterArgs', 'OtelEnrichmentExcludeFilterArgsDict', 'outputs.OtelEnrichmentExcludeFilter']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentIncludeFilterArgs', 'OtelEnrichmentIncludeFilterArgsDict', 'outputs.OtelEnrichmentIncludeFilter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict', 'outputs.OtelEnrichmentTimeouts']]] = None,
                  __props__=None):
@@ -105,6 +171,10 @@ class OtelEnrichment(pulumi.CustomResource):
         Manages AWS CloudWatch OTel enrichment. This is a singleton resource that enables OTel enrichment at the account level.
 
         > **NOTE:** This resource requires the `observabilityadmin.TelemetryEnrichment` resource to be configured first. Without telemetry enrichment enabled, OTel enrichment will not function properly even if the API accepts the configuration.
+
+        > **NOTE:** Creating this Terraform resource starts AWS CloudWatch OTel enrichment and deleting this Terraform resource stops AWS CloudWatch OTel enrichment.
+
+        Filters are evaluated as follows. `include_filter` is applied first, then the `exclude_filter` match set is subtracted from the result. Exclusion always wins, so a metric matched by both is not enriched. An inactive direction is permissive: with no `include_filter`, every supported namespace is in scope, and with no `exclude_filter`, nothing is removed. Namespaces and metric names are matched exactly and case-sensitively, with no wildcards or prefixes, so `AWS/EC2` matches only `AWS/EC2`. At most 100 selectors are allowed across `include_filter` and `exclude_filter` **combined**. Two lists of 60 selectors each satisfy the per-list limit but are rejected together.
 
         ## Example Usage
 
@@ -116,6 +186,38 @@ class OtelEnrichment(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEnrichment("example")
         example_otel_enrichment = aws.cloudwatch.OtelEnrichment("example", opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ### Filter Enrichment by Namespace and Metric
+
+        By default every namespace that CloudWatch supports is enriched. Narrow that scope with `include_filter` and `exclude_filter`. The configuration below enriches all of `AWS/EC2` except two network metrics, plus exactly two `AWS/RDS` metrics, and nothing else.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEnrichment("example")
+        example_otel_enrichment = aws.cloudwatch.OtelEnrichment("example",
+            exclude_filters=[{
+                "namespace": "AWS/EC2",
+                "metric_names": [
+                    "NetworkPacketsIn",
+                    "NetworkPacketsOut",
+                ],
+            }],
+            include_filters=[
+                {
+                    "namespace": "AWS/EC2",
+                },
+                {
+                    "namespace": "AWS/RDS",
+                    "metric_names": [
+                        "CPUUtilization",
+                        "DatabaseConnections",
+                    ],
+                },
+            ],
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -140,6 +242,8 @@ class OtelEnrichment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OtelEnrichmentExcludeFilterArgs', 'OtelEnrichmentExcludeFilterArgsDict', 'outputs.OtelEnrichmentExcludeFilter']]]] exclude_filters: Namespaces and metric names to leave unenriched. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OtelEnrichmentIncludeFilterArgs', 'OtelEnrichmentIncludeFilterArgsDict', 'outputs.OtelEnrichmentIncludeFilter']]]] include_filters: Namespaces and metric names to enrich. See below.
         :param pulumi.Input[_builtins.str] region: AWS region where this resource is managed.
         """
         ...
@@ -153,6 +257,10 @@ class OtelEnrichment(pulumi.CustomResource):
 
         > **NOTE:** This resource requires the `observabilityadmin.TelemetryEnrichment` resource to be configured first. Without telemetry enrichment enabled, OTel enrichment will not function properly even if the API accepts the configuration.
 
+        > **NOTE:** Creating this Terraform resource starts AWS CloudWatch OTel enrichment and deleting this Terraform resource stops AWS CloudWatch OTel enrichment.
+
+        Filters are evaluated as follows. `include_filter` is applied first, then the `exclude_filter` match set is subtracted from the result. Exclusion always wins, so a metric matched by both is not enriched. An inactive direction is permissive: with no `include_filter`, every supported namespace is in scope, and with no `exclude_filter`, nothing is removed. Namespaces and metric names are matched exactly and case-sensitively, with no wildcards or prefixes, so `AWS/EC2` matches only `AWS/EC2`. At most 100 selectors are allowed across `include_filter` and `exclude_filter` **combined**. Two lists of 60 selectors each satisfy the per-list limit but are rejected together.
+
         ## Example Usage
 
         ### Enable OTel Enrichment
@@ -163,6 +271,38 @@ class OtelEnrichment(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEnrichment("example")
         example_otel_enrichment = aws.cloudwatch.OtelEnrichment("example", opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ### Filter Enrichment by Namespace and Metric
+
+        By default every namespace that CloudWatch supports is enriched. Narrow that scope with `include_filter` and `exclude_filter`. The configuration below enriches all of `AWS/EC2` except two network metrics, plus exactly two `AWS/RDS` metrics, and nothing else.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEnrichment("example")
+        example_otel_enrichment = aws.cloudwatch.OtelEnrichment("example",
+            exclude_filters=[{
+                "namespace": "AWS/EC2",
+                "metric_names": [
+                    "NetworkPacketsIn",
+                    "NetworkPacketsOut",
+                ],
+            }],
+            include_filters=[
+                {
+                    "namespace": "AWS/EC2",
+                },
+                {
+                    "namespace": "AWS/RDS",
+                    "metric_names": [
+                        "CPUUtilization",
+                        "DatabaseConnections",
+                    ],
+                },
+            ],
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -200,6 +340,8 @@ class OtelEnrichment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentExcludeFilterArgs', 'OtelEnrichmentExcludeFilterArgsDict', 'outputs.OtelEnrichmentExcludeFilter']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentIncludeFilterArgs', 'OtelEnrichmentIncludeFilterArgsDict', 'outputs.OtelEnrichmentIncludeFilter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict', 'outputs.OtelEnrichmentTimeouts']]] = None,
                  __props__=None):
@@ -211,6 +353,8 @@ class OtelEnrichment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OtelEnrichmentArgs.__new__(OtelEnrichmentArgs)
 
+            __props__.__dict__["exclude_filters"] = exclude_filters
+            __props__.__dict__["include_filters"] = include_filters
             __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
         super(OtelEnrichment, __self__).__init__(
@@ -223,6 +367,8 @@ class OtelEnrichment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentExcludeFilterArgs', 'OtelEnrichmentExcludeFilterArgsDict', 'outputs.OtelEnrichmentExcludeFilter']]]]] = None,
+            include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OtelEnrichmentIncludeFilterArgs', 'OtelEnrichmentIncludeFilterArgsDict', 'outputs.OtelEnrichmentIncludeFilter']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict', 'outputs.OtelEnrichmentTimeouts']]] = None) -> 'OtelEnrichment':
         """
@@ -232,15 +378,35 @@ class OtelEnrichment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OtelEnrichmentExcludeFilterArgs', 'OtelEnrichmentExcludeFilterArgsDict', 'outputs.OtelEnrichmentExcludeFilter']]]] exclude_filters: Namespaces and metric names to leave unenriched. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OtelEnrichmentIncludeFilterArgs', 'OtelEnrichmentIncludeFilterArgsDict', 'outputs.OtelEnrichmentIncludeFilter']]]] include_filters: Namespaces and metric names to enrich. See below.
         :param pulumi.Input[_builtins.str] region: AWS region where this resource is managed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _OtelEnrichmentState.__new__(_OtelEnrichmentState)
 
+        __props__.__dict__["exclude_filters"] = exclude_filters
+        __props__.__dict__["include_filters"] = include_filters
         __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         return OtelEnrichment(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFilters")
+    def exclude_filters(self) -> pulumi.Output[Optional[Sequence['outputs.OtelEnrichmentExcludeFilter']]]:
+        """
+        Namespaces and metric names to leave unenriched. See below.
+        """
+        return pulumi.get(self, "exclude_filters")
+
+    @_builtins.property
+    @pulumi.getter(name="includeFilters")
+    def include_filters(self) -> pulumi.Output[Optional[Sequence['outputs.OtelEnrichmentIncludeFilter']]]:
+        """
+        Namespaces and metric names to enrich. See below.
+        """
+        return pulumi.get(self, "include_filters")
 
     @_builtins.property
     @pulumi.getter

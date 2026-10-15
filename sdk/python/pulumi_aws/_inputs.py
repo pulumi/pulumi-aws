@@ -1336,6 +1336,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    pricingplanmanager: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     prometheus: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1929,6 +1933,7 @@ class ProviderEndpointArgs:
                  pipes: pulumi.Input[Optional[_builtins.str]] = None,
                  polly: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricingplanmanager: pulumi.Input[Optional[_builtins.str]] = None,
                  prometheus: pulumi.Input[Optional[_builtins.str]] = None,
                  prometheusservice: pulumi.Input[Optional[_builtins.str]] = None,
                  qbusiness: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2255,6 +2260,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] pipes: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] polly: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] pricing: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] pricingplanmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] prometheus: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] prometheusservice: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] qbusiness: Use this to override the default service endpoint URL
@@ -2818,6 +2824,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "polly", polly)
         if pricing is not None:
             pulumi.set(__self__, "pricing", pricing)
+        if pricingplanmanager is not None:
+            pulumi.set(__self__, "pricingplanmanager", pricingplanmanager)
         if prometheus is not None:
             pulumi.set(__self__, "prometheus", prometheus)
         if prometheusservice is not None:
@@ -5838,6 +5846,18 @@ class ProviderEndpointArgs:
     @pricing.setter
     def pricing(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pricing", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def pricingplanmanager(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "pricingplanmanager")
+
+    @pricingplanmanager.setter
+    def pricingplanmanager(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pricingplanmanager", value)
 
     @_builtins.property
     @pulumi.getter

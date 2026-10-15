@@ -18,14 +18,14 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
     public static final CrawlerMongodbTargetArgs Empty = new CrawlerMongodbTargetArgs();
 
     /**
-     * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+     * Name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
      * 
      */
     @Import(name="connectionName", required=true)
     private Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+     * @return Name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
      * 
      */
     public Output<String> connectionName() {
@@ -33,14 +33,14 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * Path of the Amazon DocumentDB or MongoDB target (database/collection).
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return Path of the Amazon DocumentDB or MongoDB target (database/collection).
      * 
      */
     public Output<String> path() {
@@ -48,14 +48,14 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+     * Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
      * 
      */
     @Import(name="scanAll")
     private @Nullable Output<Boolean> scanAll;
 
     /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+     * @return Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
      * 
      */
     public Optional<Output<Boolean>> scanAll() {
@@ -89,7 +89,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * @param connectionName Name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         * @param connectionName Name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path Path of the Amazon DocumentDB or MongoDB target (database/collection).
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path Path of the Amazon DocumentDB or MongoDB target (database/collection).
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+         * @param scanAll Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+         * @param scanAll Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
          * 
          * @return builder
          * 

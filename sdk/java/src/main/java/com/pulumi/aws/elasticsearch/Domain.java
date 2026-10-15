@@ -527,14 +527,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without HTTPS scheme.
      * 
      */
     @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kibanaEndpoint;
 
     /**
-     * @return Domain-specific endpoint for kibana without https scheme.
+     * @return Domain-specific endpoint for kibana without HTTPS scheme.
      * 
      */
     public Output<String> kibanaEndpoint() {

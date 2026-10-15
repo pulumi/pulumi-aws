@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult
     {
+        /// <summary>
+        /// Provisioned throughput configuration. See `ProvisionedThroughput` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult> ProvisionedThroughputs;
+        /// <summary>
+        /// Size in GiB of the EBS volume for the data drive on each broker node.
+        /// </summary>
         public readonly int VolumeSize;
 
         [OutputConstructor]

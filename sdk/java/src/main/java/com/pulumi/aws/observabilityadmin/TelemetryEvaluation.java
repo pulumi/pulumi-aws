@@ -11,7 +11,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -58,6 +60,74 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### All Regions
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEvaluation;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEvaluationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TelemetryEvaluation("example", TelemetryEvaluationArgs.builder()
+ *             .allRegions(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Specific Regions
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEvaluation;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEvaluationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TelemetryEvaluation("example", TelemetryEvaluationArgs.builder()
+ *             .regions(            
+ *                 "us-east-1",
+ *                 "eu-west-1")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -76,6 +146,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:observabilityadmin/telemetryEvaluation:TelemetryEvaluation")
 public class TelemetryEvaluation extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+     * 
+     */
+    @Export(name="allRegions", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> allRegions;
+
+    /**
+     * @return Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+     * 
+     */
+    public Output<Optional<Boolean>> allRegions() {
+        return Codegen.optional(this.allRegions);
+    }
     /**
      * Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
      * 
@@ -103,6 +187,20 @@ public class TelemetryEvaluation extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+     * 
+     */
+    @Export(name="regions", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> regions;
+
+    /**
+     * @return List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+     * 
+     */
+    public Output<Optional<List<String>>> regions() {
+        return Codegen.optional(this.regions);
     }
     /**
      * Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.

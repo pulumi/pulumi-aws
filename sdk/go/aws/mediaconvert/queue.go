@@ -49,25 +49,25 @@ import (
 type Queue struct {
 	pulumi.CustomResourceState
 
-	// The Arn of the queue
+	// ARN of the queue
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 	ConcurrentJobs pulumi.IntOutput `pulumi:"concurrentJobs"`
-	// A description of the queue
+	// Description of the queue
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A unique identifier describing the queue
+	// Unique identifier describing the queue
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+	// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrOutput `pulumi:"pricingPlan"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A detail pricing plan of the  reserved queue. See below.
+	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -101,48 +101,48 @@ func GetQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
-	// The Arn of the queue
+	// ARN of the queue
 	Arn *string `pulumi:"arn"`
-	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 	ConcurrentJobs *int `pulumi:"concurrentJobs"`
-	// A description of the queue
+	// Description of the queue
 	Description *string `pulumi:"description"`
-	// A unique identifier describing the queue
+	// Unique identifier describing the queue
 	Name *string `pulumi:"name"`
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+	// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan *string `pulumi:"pricingPlan"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A detail pricing plan of the  reserved queue. See below.
+	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type QueueState struct {
-	// The Arn of the queue
+	// ARN of the queue
 	Arn pulumi.StringPtrInput
-	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 	ConcurrentJobs pulumi.IntPtrInput
-	// A description of the queue
+	// Description of the queue
 	Description pulumi.StringPtrInput
-	// A unique identifier describing the queue
+	// Unique identifier describing the queue
 	Name pulumi.StringPtrInput
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+	// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A detail pricing plan of the  reserved queue. See below.
+	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -151,41 +151,41 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
-	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 	ConcurrentJobs *int `pulumi:"concurrentJobs"`
-	// A description of the queue
+	// Description of the queue
 	Description *string `pulumi:"description"`
-	// A unique identifier describing the queue
+	// Unique identifier describing the queue
 	Name *string `pulumi:"name"`
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+	// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan *string `pulumi:"pricingPlan"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A detail pricing plan of the  reserved queue. See below.
+	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
-	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 	ConcurrentJobs pulumi.IntPtrInput
-	// A description of the queue
+	// Description of the queue
 	Description pulumi.StringPtrInput
-	// A unique identifier describing the queue
+	// Unique identifier describing the queue
 	Name pulumi.StringPtrInput
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+	// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A detail pricing plan of the  reserved queue. See below.
+	// Detail pricing plan of the reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+	// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -276,27 +276,27 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
-// The Arn of the queue
+// ARN of the queue
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 func (o QueueOutput) ConcurrentJobs() pulumi.IntOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntOutput { return v.ConcurrentJobs }).(pulumi.IntOutput)
 }
 
-// A description of the queue
+// Description of the queue
 func (o QueueOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier describing the queue
+// Unique identifier describing the queue
 func (o QueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 func (o QueueOutput) PricingPlan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.PricingPlan }).(pulumi.StringPtrOutput)
 }
@@ -306,22 +306,22 @@ func (o QueueOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A detail pricing plan of the  reserved queue. See below.
+// Detail pricing plan of the reserved queue. See below.
 func (o QueueOutput) ReservationPlanSettings() QueueReservationPlanSettingsOutput {
 	return o.ApplyT(func(v *Queue) QueueReservationPlanSettingsOutput { return v.ReservationPlanSettings }).(QueueReservationPlanSettingsOutput)
 }
 
-// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 func (o QueueOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o QueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o QueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

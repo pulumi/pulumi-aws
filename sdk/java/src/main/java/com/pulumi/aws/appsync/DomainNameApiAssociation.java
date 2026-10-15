@@ -76,14 +76,14 @@ public class DomainNameApiAssociation extends com.pulumi.resources.CustomResourc
         return this.apiId;
     }
     /**
-     * Appsync domain name.
+     * AppSync domain name.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return Appsync domain name.
+     * @return AppSync domain name.
      * 
      */
     public Output<String> domainName() {

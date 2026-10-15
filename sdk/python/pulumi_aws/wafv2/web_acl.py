@@ -30,6 +30,7 @@ class WebAclArgs:
                  custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  data_protection_config: pulumi.Input[Optional['WebAclDataProtectionConfigArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional['WebAclMonetizationConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -49,6 +50,7 @@ class WebAclArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         :param pulumi.Input['WebAclDataProtectionConfigArgs'] data_protection_config: Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the WebACL.
+        :param pulumi.Input['WebAclMonetizationConfigArgs'] monetization_config: Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -72,6 +74,8 @@ class WebAclArgs:
             pulumi.set(__self__, "data_protection_config", data_protection_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if monetization_config is not None:
+            pulumi.set(__self__, "monetization_config", monetization_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -196,6 +200,18 @@ class WebAclArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Input[Optional['WebAclMonetizationConfigArgs']]:
+        """
+        Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetization_config` below for details.
+        """
+        return pulumi.get(self, "monetization_config")
+
+    @monetization_config.setter
+    def monetization_config(self, value: pulumi.Input[Optional['WebAclMonetizationConfigArgs']]):
+        pulumi.set(self, "monetization_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -294,6 +310,7 @@ class _WebAclState:
                  default_action: pulumi.Input[Optional['WebAclDefaultActionArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional['WebAclMonetizationConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -317,6 +334,7 @@ class _WebAclState:
         :param pulumi.Input['WebAclDataProtectionConfigArgs'] data_protection_config: Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the WebACL.
+        :param pulumi.Input['WebAclMonetizationConfigArgs'] monetization_config: Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -350,6 +368,8 @@ class _WebAclState:
             pulumi.set(__self__, "description", description)
         if lock_token is not None:
             pulumi.set(__self__, "lock_token", lock_token)
+        if monetization_config is not None:
+            pulumi.set(__self__, "monetization_config", monetization_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -501,6 +521,18 @@ class _WebAclState:
         pulumi.set(self, "lock_token", value)
 
     @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Input[Optional['WebAclMonetizationConfigArgs']]:
+        """
+        Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetization_config` below for details.
+        """
+        return pulumi.get(self, "monetization_config")
+
+    @monetization_config.setter
+    def monetization_config(self, value: pulumi.Input[Optional['WebAclMonetizationConfigArgs']]):
+        pulumi.set(self, "monetization_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -634,6 +666,7 @@ class WebAcl(pulumi.CustomResource):
                  data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict', 'outputs.WebAclDataProtectionConfig']]] = None,
                  default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict', 'outputs.WebAclDefaultAction']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict', 'outputs.WebAclMonetizationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -669,6 +702,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict', 'outputs.WebAclDataProtectionConfig']] data_protection_config: Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict', 'outputs.WebAclDefaultAction']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the WebACL.
+        :param pulumi.Input[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict', 'outputs.WebAclMonetizationConfig']] monetization_config: Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -723,6 +757,7 @@ class WebAcl(pulumi.CustomResource):
                  data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict', 'outputs.WebAclDataProtectionConfig']]] = None,
                  default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict', 'outputs.WebAclDefaultAction']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict', 'outputs.WebAclMonetizationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -750,6 +785,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["description"] = description
+            __props__.__dict__["monetization_config"] = monetization_config
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["region"] = region
@@ -789,6 +825,7 @@ class WebAcl(pulumi.CustomResource):
             default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict', 'outputs.WebAclDefaultAction']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+            monetization_config: pulumi.Input[Optional[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict', 'outputs.WebAclMonetizationConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -816,6 +853,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict', 'outputs.WebAclDataProtectionConfig']] data_protection_config: Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict', 'outputs.WebAclDefaultAction']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the WebACL.
+        :param pulumi.Input[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict', 'outputs.WebAclMonetizationConfig']] monetization_config: Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -842,6 +880,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["default_action"] = default_action
         __props__.__dict__["description"] = description
         __props__.__dict__["lock_token"] = lock_token
+        __props__.__dict__["monetization_config"] = monetization_config
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["region"] = region
@@ -938,6 +977,14 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter(name="lockToken")
     def lock_token(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "lock_token")
+
+    @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Output[Optional['outputs.WebAclMonetizationConfig']]:
+        """
+        Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetization_config` below for details.
+        """
+        return pulumi.get(self, "monetization_config")
 
     @_builtins.property
     @pulumi.getter

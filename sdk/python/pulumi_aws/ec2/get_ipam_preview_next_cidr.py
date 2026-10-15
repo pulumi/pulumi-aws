@@ -105,7 +105,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[_builtins.str
     """
     Previews a CIDR from an IPAM address pool. Only works for private IPv4.
 
-    > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+    > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi's `ignoreChanges` resource option if this is undesirable.
 
     ## Example Usage
 
@@ -152,7 +152,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: pulumi.Input[Optional[Op
     """
     Previews a CIDR from an IPAM address pool. Only works for private IPv4.
 
-    > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+    > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi's `ignoreChanges` resource option if this is undesirable.
 
     ## Example Usage
 

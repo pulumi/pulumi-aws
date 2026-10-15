@@ -396,7 +396,7 @@ def get_db_node(cloud_vm_cluster_id: Optional[_builtins.str] = None,
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbNodeResult:
     """
-    Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
+    Data source for managing DB nodes linked to cloud vm cluster of Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 
@@ -414,7 +414,7 @@ def get_db_node(cloud_vm_cluster_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str cloud_vm_cluster_id: Unique identifier of the cloud vm cluster.
-    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
+    :param _builtins.str id: Unique identifier of DB node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -462,7 +462,7 @@ def get_db_node_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str]
                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbNodeResult]:
     """
-    Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
+    Data source for managing DB nodes linked to cloud vm cluster of Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 
@@ -480,7 +480,7 @@ def get_db_node_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str]
 
 
     :param _builtins.str cloud_vm_cluster_id: Unique identifier of the cloud vm cluster.
-    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
+    :param _builtins.str id: Unique identifier of DB node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

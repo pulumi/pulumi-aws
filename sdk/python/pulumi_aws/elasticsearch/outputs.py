@@ -883,7 +883,7 @@ class DomainLogPublishingOption(dict):
                  log_type: _builtins.str,
                  enabled: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str cloudwatch_log_group_arn: ARN of the Cloudwatch log group to which log needs to be published.
+        :param _builtins.str cloudwatch_log_group_arn: ARN of the CloudWatch log group to which log needs to be published.
         :param _builtins.str log_type: Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
         :param _builtins.bool enabled: Whether given log publishing option is enabled or not.
         """
@@ -896,7 +896,7 @@ class DomainLogPublishingOption(dict):
     @pulumi.getter(name="cloudwatchLogGroupArn")
     def cloudwatch_log_group_arn(self) -> _builtins.str:
         """
-        ARN of the Cloudwatch log group to which log needs to be published.
+        ARN of the CloudWatch log group to which log needs to be published.
         """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
@@ -1077,7 +1077,7 @@ class DomainSamlOptionsSamlOptionsIdp(dict):
                  metadata_content: _builtins.str):
         """
         :param _builtins.str entity_id: The unique Entity ID of the application in SAML Identity Provider.
-        :param _builtins.str metadata_content: The Metadata of the SAML application in xml format.
+        :param _builtins.str metadata_content: The Metadata of the SAML application in XML format.
         """
         pulumi.set(__self__, "entity_id", entity_id)
         pulumi.set(__self__, "metadata_content", metadata_content)
@@ -1094,7 +1094,7 @@ class DomainSamlOptionsSamlOptionsIdp(dict):
     @pulumi.getter(name="metadataContent")
     def metadata_content(self) -> _builtins.str:
         """
-        The Metadata of the SAML application in xml format.
+        The Metadata of the SAML application in XML format.
         """
         return pulumi.get(self, "metadata_content")
 
@@ -1244,7 +1244,7 @@ class VpcEndpointVpcOptions(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] subnet_ids: A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
-        :param Sequence[_builtins.str] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+        :param Sequence[_builtins.str] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if availability_zones is not None:
@@ -1271,7 +1271,7 @@ class VpcEndpointVpcOptions(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1703,7 +1703,7 @@ class GetDomainEncryptionAtRestResult(dict):
                  kms_key_id: _builtins.str):
         """
         :param _builtins.bool enabled: Whether node to node encryption is enabled.
-        :param _builtins.str kms_key_id: The KMS key id used to encrypt data at rest.
+        :param _builtins.str kms_key_id: The KMS key ID used to encrypt data at rest.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -1720,7 +1720,7 @@ class GetDomainEncryptionAtRestResult(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The KMS key id used to encrypt data at rest.
+        The KMS key ID used to encrypt data at rest.
         """
         return pulumi.get(self, "kms_key_id")
 

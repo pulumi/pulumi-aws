@@ -100,7 +100,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
 
-        :param pulumi.Input[_builtins.str] arn: ARN of the SecurityHub Hub created in the account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Security Hub Hub created in the account.
         :param pulumi.Input[_builtins.bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         :param pulumi.Input[_builtins.str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[_builtins.bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
@@ -121,7 +121,7 @@ class _AccountState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the SecurityHub Hub created in the account.
+        ARN of the Security Hub Hub created in the account.
         """
         return pulumi.get(self, "arn")
 
@@ -307,7 +307,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the SecurityHub Hub created in the account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Security Hub Hub created in the account.
         :param pulumi.Input[_builtins.bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         :param pulumi.Input[_builtins.str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[_builtins.bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
@@ -328,7 +328,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the SecurityHub Hub created in the account.
+        ARN of the Security Hub Hub created in the account.
         """
         return pulumi.get(self, "arn")
 

@@ -33,14 +33,14 @@ public final class RevisionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The dataset id.
+     * The dataset ID.
      * 
      */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
     /**
-     * @return The dataset id.
+     * @return The dataset ID.
      * 
      */
     public Output<String> dataSetId() {
@@ -126,7 +126,7 @@ public final class RevisionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSetId The dataset id.
+         * @param dataSetId The dataset ID.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class RevisionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSetId The dataset id.
+         * @param dataSetId The dataset ID.
          * 
          * @return builder
          * 

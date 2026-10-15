@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsNielsenConfiguration
     {
         /// <summary>
-        /// Enter the Distributor ID assigned to your organization by Nielsen.
+        /// Distributor ID assigned to your organization by Nielsen.
         /// </summary>
         public readonly string? DistributorId;
         /// <summary>

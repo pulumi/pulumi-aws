@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>

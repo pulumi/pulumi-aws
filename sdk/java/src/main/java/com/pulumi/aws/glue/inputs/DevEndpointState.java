@@ -19,14 +19,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     public static final DevEndpointState Empty = new DevEndpointState();
 
     /**
-     * A map of arguments used to configure the endpoint.
+     * Map of arguments used to configure the endpoint.
      * 
      */
     @Import(name="arguments")
     private @Nullable Output<Map<String,String>> arguments;
 
     /**
-     * @return A map of arguments used to configure the endpoint.
+     * @return Map of arguments used to configure the endpoint.
      * 
      */
     public Optional<Output<Map<String,String>>> arguments() {
@@ -34,14 +34,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the endpoint.
+     * ARN of the endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the endpoint.
+     * @return ARN of the endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -49,14 +49,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS availability zone where this endpoint is located.
+     * AWS availability zone where this endpoint is located.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The AWS availability zone where this endpoint is located.
+     * @return AWS availability zone where this endpoint is located.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -94,14 +94,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The reason for a current failure in this endpoint.
+     * Reason for a current failure in this endpoint.
      * 
      */
     @Import(name="failureReason")
     private @Nullable Output<String> failureReason;
 
     /**
-     * @return The reason for a current failure in this endpoint.
+     * @return Reason for a current failure in this endpoint.
      * 
      */
     public Optional<Output<String>> failureReason() {
@@ -124,14 +124,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of this endpoint. It must be unique in your account.
+     * Name of this endpoint. It must be unique in your account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of this endpoint. It must be unique in your account.
+     * @return Name of this endpoint. It must be unique in your account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,14 +139,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+     * Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      * 
      */
     @Import(name="numberOfNodes")
     private @Nullable Output<Integer> numberOfNodes;
 
     /**
-     * @return The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+     * @return Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      * 
      */
     public Optional<Output<Integer>> numberOfNodes() {
@@ -154,14 +154,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+     * Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      * 
      */
     @Import(name="numberOfWorkers")
     private @Nullable Output<Integer> numberOfWorkers;
 
     /**
-     * @return The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+     * @return Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      * 
      */
     public Optional<Output<Integer>> numberOfWorkers() {
@@ -169,14 +169,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+     * Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      * 
      */
     @Import(name="privateAddress")
     private @Nullable Output<String> privateAddress;
 
     /**
-     * @return A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+     * @return Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      * 
      */
     public Optional<Output<String>> privateAddress() {
@@ -184,14 +184,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+     * Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      * 
      */
     @Import(name="publicAddress")
     private @Nullable Output<String> publicAddress;
 
     /**
-     * @return The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+     * @return Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      * 
      */
     public Optional<Output<String>> publicAddress() {
@@ -199,14 +199,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public key to be used by this endpoint for authentication.
+     * Public key to be used by this endpoint for authentication.
      * 
      */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
 
     /**
-     * @return The public key to be used by this endpoint for authentication.
+     * @return Public key to be used by this endpoint for authentication.
      * 
      */
     public Optional<Output<String>> publicKey() {
@@ -214,14 +214,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of public keys to be used by this endpoint for authentication.
+     * List of public keys to be used by this endpoint for authentication.
      * 
      */
     @Import(name="publicKeys")
     private @Nullable Output<List<String>> publicKeys;
 
     /**
-     * @return A list of public keys to be used by this endpoint for authentication.
+     * @return List of public keys to be used by this endpoint for authentication.
      * 
      */
     public Optional<Output<List<String>>> publicKeys() {
@@ -244,14 +244,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM role for this endpoint.
+     * IAM role for this endpoint.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The IAM role for this endpoint.
+     * @return IAM role for this endpoint.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -259,14 +259,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Security Configuration structure to be used with this endpoint.
+     * Name of the Security Configuration structure to be used with this endpoint.
      * 
      */
     @Import(name="securityConfiguration")
     private @Nullable Output<String> securityConfiguration;
 
     /**
-     * @return The name of the Security Configuration structure to be used with this endpoint.
+     * @return Name of the Security Configuration structure to be used with this endpoint.
      * 
      */
     public Optional<Output<String>> securityConfiguration() {
@@ -289,14 +289,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current status of this endpoint.
+     * Current status of this endpoint.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of this endpoint.
+     * @return Current status of this endpoint.
      * 
      */
     public Optional<Output<String>> status() {
@@ -304,14 +304,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subnet ID for the new endpoint to use.
+     * Subnet ID for the new endpoint to use.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The subnet ID for the new endpoint to use.
+     * @return Subnet ID for the new endpoint to use.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -334,14 +334,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -349,14 +349,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * he ID of the VPC used by this endpoint.
+     * ID of the VPC used by this endpoint.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return he ID of the VPC used by this endpoint.
+     * @return ID of the VPC used by this endpoint.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -364,14 +364,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+     * Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      * 
      */
     @Import(name="workerType")
     private @Nullable Output<String> workerType;
 
     /**
-     * @return The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+     * @return Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      * 
      */
     public Optional<Output<String>> workerType() {
@@ -379,14 +379,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The YARN endpoint address used by this endpoint.
+     * YARN endpoint address used by this endpoint.
      * 
      */
     @Import(name="yarnEndpointAddress")
     private @Nullable Output<String> yarnEndpointAddress;
 
     /**
-     * @return The YARN endpoint address used by this endpoint.
+     * @return YARN endpoint address used by this endpoint.
      * 
      */
     public Optional<Output<String>> yarnEndpointAddress() {
@@ -394,14 +394,14 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Apache Zeppelin port for the remote Apache Spark interpreter.
+     * Apache Zeppelin port for the remote Apache Spark interpreter.
      * 
      */
     @Import(name="zeppelinRemoteSparkInterpreterPort")
     private @Nullable Output<Integer> zeppelinRemoteSparkInterpreterPort;
 
     /**
-     * @return The Apache Zeppelin port for the remote Apache Spark interpreter.
+     * @return Apache Zeppelin port for the remote Apache Spark interpreter.
      * 
      */
     public Optional<Output<Integer>> zeppelinRemoteSparkInterpreterPort() {
@@ -458,7 +458,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments A map of arguments used to configure the endpoint.
+         * @param arguments Map of arguments used to configure the endpoint.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments A map of arguments used to configure the endpoint.
+         * @param arguments Map of arguments used to configure the endpoint.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the endpoint.
+         * @param arn ARN of the endpoint.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the endpoint.
+         * @param arn ARN of the endpoint.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The AWS availability zone where this endpoint is located.
+         * @param availabilityZone AWS availability zone where this endpoint is located.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The AWS availability zone where this endpoint is located.
+         * @param availabilityZone AWS availability zone where this endpoint is located.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param failureReason The reason for a current failure in this endpoint.
+         * @param failureReason Reason for a current failure in this endpoint.
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param failureReason The reason for a current failure in this endpoint.
+         * @param failureReason Reason for a current failure in this endpoint.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of this endpoint. It must be unique in your account.
+         * @param name Name of this endpoint. It must be unique in your account.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of this endpoint. It must be unique in your account.
+         * @param name Name of this endpoint. It must be unique in your account.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfNodes The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+         * @param numberOfNodes Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
          * 
          * @return builder
          * 
@@ -637,7 +637,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfNodes The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+         * @param numberOfNodes Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfWorkers The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+         * @param numberOfWorkers Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfWorkers The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+         * @param numberOfWorkers Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateAddress A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+         * @param privateAddress Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateAddress A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+         * @param privateAddress Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicAddress The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+         * @param publicAddress Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
          * 
          * @return builder
          * 
@@ -700,7 +700,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicAddress The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+         * @param publicAddress Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey The public key to be used by this endpoint for authentication.
+         * @param publicKey Public key to be used by this endpoint for authentication.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey The public key to be used by this endpoint for authentication.
+         * @param publicKey Public key to be used by this endpoint for authentication.
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKeys A list of public keys to be used by this endpoint for authentication.
+         * @param publicKeys List of public keys to be used by this endpoint for authentication.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKeys A list of public keys to be used by this endpoint for authentication.
+         * @param publicKeys List of public keys to be used by this endpoint for authentication.
          * 
          * @return builder
          * 
@@ -752,7 +752,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKeys A list of public keys to be used by this endpoint for authentication.
+         * @param publicKeys List of public keys to be used by this endpoint for authentication.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role for this endpoint.
+         * @param roleArn IAM role for this endpoint.
          * 
          * @return builder
          * 
@@ -794,7 +794,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role for this endpoint.
+         * @param roleArn IAM role for this endpoint.
          * 
          * @return builder
          * 
@@ -804,7 +804,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityConfiguration The name of the Security Configuration structure to be used with this endpoint.
+         * @param securityConfiguration Name of the Security Configuration structure to be used with this endpoint.
          * 
          * @return builder
          * 
@@ -815,7 +815,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityConfiguration The name of the Security Configuration structure to be used with this endpoint.
+         * @param securityConfiguration Name of the Security Configuration structure to be used with this endpoint.
          * 
          * @return builder
          * 
@@ -856,7 +856,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of this endpoint.
+         * @param status Current status of this endpoint.
          * 
          * @return builder
          * 
@@ -867,7 +867,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of this endpoint.
+         * @param status Current status of this endpoint.
          * 
          * @return builder
          * 
@@ -877,7 +877,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The subnet ID for the new endpoint to use.
+         * @param subnetId Subnet ID for the new endpoint to use.
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The subnet ID for the new endpoint to use.
+         * @param subnetId Subnet ID for the new endpoint to use.
          * 
          * @return builder
          * 
@@ -919,7 +919,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -930,7 +930,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -940,7 +940,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId he ID of the VPC used by this endpoint.
+         * @param vpcId ID of the VPC used by this endpoint.
          * 
          * @return builder
          * 
@@ -951,7 +951,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId he ID of the VPC used by this endpoint.
+         * @param vpcId ID of the VPC used by this endpoint.
          * 
          * @return builder
          * 
@@ -961,7 +961,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerType The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+         * @param workerType Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
          * 
          * @return builder
          * 
@@ -972,7 +972,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerType The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+         * @param workerType Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
          * 
          * @return builder
          * 
@@ -982,7 +982,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param yarnEndpointAddress The YARN endpoint address used by this endpoint.
+         * @param yarnEndpointAddress YARN endpoint address used by this endpoint.
          * 
          * @return builder
          * 
@@ -993,7 +993,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param yarnEndpointAddress The YARN endpoint address used by this endpoint.
+         * @param yarnEndpointAddress YARN endpoint address used by this endpoint.
          * 
          * @return builder
          * 
@@ -1003,7 +1003,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zeppelinRemoteSparkInterpreterPort The Apache Zeppelin port for the remote Apache Spark interpreter.
+         * @param zeppelinRemoteSparkInterpreterPort Apache Zeppelin port for the remote Apache Spark interpreter.
          * 
          * @return builder
          * 
@@ -1014,7 +1014,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zeppelinRemoteSparkInterpreterPort The Apache Zeppelin port for the remote Apache Spark interpreter.
+         * @param zeppelinRemoteSparkInterpreterPort Apache Zeppelin port for the remote Apache Spark interpreter.
          * 
          * @return builder
          * 

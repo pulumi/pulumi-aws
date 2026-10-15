@@ -97,28 +97,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      * 
      */
     @Export(name="enableHybrid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enableHybrid;
 
     /**
-     * @return Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * @return Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      * 
      */
     public Output<Optional<String>> enableHybrid() {
         return Codegen.optional(this.enableHybrid);
     }
     /**
-     * The policy to be applied to the aws glue data catalog.
+     * Policy to be applied to the aws glue data catalog.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The policy to be applied to the aws glue data catalog.
+     * @return Policy to be applied to the aws glue data catalog.
      * 
      */
     public Output<String> policy() {

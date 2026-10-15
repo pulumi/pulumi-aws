@@ -82,7 +82,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly freeTrialExpiration: pulumi.Output<string>;
     /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      */
     declare public readonly grafanaToken: pulumi.Output<string | undefined>;
     /**
@@ -90,7 +90,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly licenseExpiration: pulumi.Output<string>;
     /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */
     declare public readonly licenseType: pulumi.Output<string>;
     /**
@@ -98,7 +98,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The workspace id.
+     * Workspace ID.
      */
     declare public readonly workspaceId: pulumi.Output<string>;
 
@@ -150,7 +150,7 @@ export interface LicenseAssociationState {
      */
     freeTrialExpiration?: pulumi.Input<string | undefined>;
     /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      */
     grafanaToken?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface LicenseAssociationState {
      */
     licenseExpiration?: pulumi.Input<string | undefined>;
     /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */
     licenseType?: pulumi.Input<string | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface LicenseAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The workspace id.
+     * Workspace ID.
      */
     workspaceId?: pulumi.Input<string | undefined>;
 }
@@ -176,11 +176,11 @@ export interface LicenseAssociationState {
  */
 export interface LicenseAssociationArgs {
     /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * Token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      */
     grafanaToken?: pulumi.Input<string | undefined>;
     /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * Type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */
     licenseType: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface LicenseAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The workspace id.
+     * Workspace ID.
      */
     workspaceId: pulumi.Input<string>;
 }

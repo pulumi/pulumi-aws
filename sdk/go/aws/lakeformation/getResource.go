@@ -59,7 +59,7 @@ type LookupResourceArgs struct {
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
 	Arn string `pulumi:"arn"`
-	// Flag to enable AWS LakeFormation hybrid access permission mode.
+	// Flag to enable AWS Lake Formation hybrid access permission mode.
 	HybridAccessEnabled bool `pulumi:"hybridAccessEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -110,7 +110,7 @@ func (o LookupResourceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Flag to enable AWS LakeFormation hybrid access permission mode.
+// Flag to enable AWS Lake Formation hybrid access permission mode.
 func (o LookupResourceResultOutput) HybridAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupResourceResult) bool { return v.HybridAccessEnabled }).(pulumi.BoolOutput)
 }

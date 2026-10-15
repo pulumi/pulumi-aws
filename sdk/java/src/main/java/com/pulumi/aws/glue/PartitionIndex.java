@@ -139,14 +139,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/partitionIndex:PartitionIndex")
 public class PartitionIndex extends com.pulumi.resources.CustomResource {
     /**
-     * The catalog ID where the table resides.
+     * Catalog ID where the table resides.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return The catalog ID where the table resides.
+     * @return Catalog ID where the table resides.
      * 
      */
     public Output<String> catalogId() {
@@ -167,14 +167,14 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * Configuration block for a partition index. See `partitionIndex` below.
+     * Configuration block for a partition index. See `partitionIndex` Block below.
      * 
      */
     @Export(name="partitionIndex", refs={PartitionIndexPartitionIndex.class}, tree="[0]")
     private Output<PartitionIndexPartitionIndex> partitionIndex;
 
     /**
-     * @return Configuration block for a partition index. See `partitionIndex` below.
+     * @return Configuration block for a partition index. See `partitionIndex` Block below.
      * 
      */
     public Output<PartitionIndexPartitionIndex> partitionIndex() {

@@ -305,7 +305,7 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<Outputs.DeploymentGroupAutoRollbackConfiguration?> AutoRollbackConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Autoscaling groups associated with the deployment group.
+        /// Auto Scaling groups associated with the deployment group.
         /// </summary>
         [Output("autoscalingGroups")]
         public Output<ImmutableArray<string>> AutoscalingGroups { get; private set; } = null!;
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.CodeDeploy
         private InputList<string>? _autoscalingGroups;
 
         /// <summary>
-        /// Autoscaling groups associated with the deployment group.
+        /// Auto Scaling groups associated with the deployment group.
         /// </summary>
         public InputList<string> AutoscalingGroups
         {
@@ -650,7 +650,7 @@ namespace Pulumi.Aws.CodeDeploy
         private InputList<string>? _autoscalingGroups;
 
         /// <summary>
-        /// Autoscaling groups associated with the deployment group.
+        /// Auto Scaling groups associated with the deployment group.
         /// </summary>
         public InputList<string> AutoscalingGroups
         {

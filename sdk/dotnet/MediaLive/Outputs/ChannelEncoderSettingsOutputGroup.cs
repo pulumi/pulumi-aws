@@ -18,11 +18,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Settings associated with the output group. See Output Group Settings for more details.
+        /// Settings associated with the output group. See `OutputGroupSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings OutputGroupSettings;
         /// <summary>
-        /// List of outputs. See Outputs for more details.
+        /// List of outputs. See `Outputs` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroupOutput> Outputs;
 

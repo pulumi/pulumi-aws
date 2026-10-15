@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
  * API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
  * addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
- * (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfrontDomainName`
+ * (either Route53 alias or traditional CNAME) to the CloudFront domain name exported in the `cloudfrontDomainName`
  * attribute.
  *
  * In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
@@ -178,7 +178,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly certificateUploadDate: pulumi.Output<string>;
     /**
-     * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+     * Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
      */
     declare public /*out*/ readonly cloudfrontDomainName: pulumi.Output<string>;
     /**
@@ -359,7 +359,7 @@ export interface DomainNameState {
      */
     certificateUploadDate?: pulumi.Input<string | undefined>;
     /**
-     * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+     * Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
      */
     cloudfrontDomainName?: pulumi.Input<string | undefined>;
     /**

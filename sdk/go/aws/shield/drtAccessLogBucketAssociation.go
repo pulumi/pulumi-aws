@@ -62,7 +62,7 @@ type DrtAccessLogBucketAssociation struct {
 
 	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket pulumi.StringOutput `pulumi:"logBucket"`
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// The ID of the Role ARN association used for allowing Shield DRT Access.
 	RoleArnAssociationId pulumi.StringOutput                            `pulumi:"roleArnAssociationId"`
 	Timeouts             DrtAccessLogBucketAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -105,7 +105,7 @@ func GetDrtAccessLogBucketAssociation(ctx *pulumi.Context,
 type drtAccessLogBucketAssociationState struct {
 	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket *string `pulumi:"logBucket"`
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// The ID of the Role ARN association used for allowing Shield DRT Access.
 	RoleArnAssociationId *string                                `pulumi:"roleArnAssociationId"`
 	Timeouts             *DrtAccessLogBucketAssociationTimeouts `pulumi:"timeouts"`
 }
@@ -113,7 +113,7 @@ type drtAccessLogBucketAssociationState struct {
 type DrtAccessLogBucketAssociationState struct {
 	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket pulumi.StringPtrInput
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// The ID of the Role ARN association used for allowing Shield DRT Access.
 	RoleArnAssociationId pulumi.StringPtrInput
 	Timeouts             DrtAccessLogBucketAssociationTimeoutsPtrInput
 }
@@ -125,7 +125,7 @@ func (DrtAccessLogBucketAssociationState) ElementType() reflect.Type {
 type drtAccessLogBucketAssociationArgs struct {
 	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket string `pulumi:"logBucket"`
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// The ID of the Role ARN association used for allowing Shield DRT Access.
 	RoleArnAssociationId string                                 `pulumi:"roleArnAssociationId"`
 	Timeouts             *DrtAccessLogBucketAssociationTimeouts `pulumi:"timeouts"`
 }
@@ -134,7 +134,7 @@ type drtAccessLogBucketAssociationArgs struct {
 type DrtAccessLogBucketAssociationArgs struct {
 	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket pulumi.StringInput
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// The ID of the Role ARN association used for allowing Shield DRT Access.
 	RoleArnAssociationId pulumi.StringInput
 	Timeouts             DrtAccessLogBucketAssociationTimeoutsPtrInput
 }
@@ -231,7 +231,7 @@ func (o DrtAccessLogBucketAssociationOutput) LogBucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *DrtAccessLogBucketAssociation) pulumi.StringOutput { return v.LogBucket }).(pulumi.StringOutput)
 }
 
-// The ID of the Role Arn association used for allowing Shield DRT Access.
+// The ID of the Role ARN association used for allowing Shield DRT Access.
 func (o DrtAccessLogBucketAssociationOutput) RoleArnAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DrtAccessLogBucketAssociation) pulumi.StringOutput { return v.RoleArnAssociationId }).(pulumi.StringOutput)
 }

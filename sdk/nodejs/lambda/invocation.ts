@@ -169,7 +169,7 @@ export class Invocation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly result: pulumi.Output<string>;
     /**
-     * Tenant Id to serve invocations from specified tenant.
+     * Tenant ID to serve invocations from specified tenant.
      */
     declare public readonly tenantId: pulumi.Output<string | undefined>;
     declare public readonly terraformKey: pulumi.Output<string | undefined>;
@@ -254,7 +254,7 @@ export interface InvocationState {
      */
     result?: pulumi.Input<string | undefined>;
     /**
-     * Tenant Id to serve invocations from specified tenant.
+     * Tenant ID to serve invocations from specified tenant.
      */
     tenantId?: pulumi.Input<string | undefined>;
     terraformKey?: pulumi.Input<string | undefined>;
@@ -291,7 +291,7 @@ export interface InvocationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Tenant Id to serve invocations from specified tenant.
+     * Tenant ID to serve invocations from specified tenant.
      */
     tenantId?: pulumi.Input<string | undefined>;
     terraformKey?: pulumi.Input<string | undefined>;

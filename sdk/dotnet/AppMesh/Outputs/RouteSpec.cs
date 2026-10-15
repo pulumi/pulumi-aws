@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpec
     {
         /// <summary>
-        /// GRPC routing information for the route. See `spec.grpc_route` Block for details.
+        /// gRPC routing information for the route. See `spec.grpc_route` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRoute? GrpcRoute;
         /// <summary>

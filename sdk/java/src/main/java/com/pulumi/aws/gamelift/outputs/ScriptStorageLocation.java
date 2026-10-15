@@ -23,7 +23,7 @@ public final class ScriptStorageLocation {
      */
     private String key;
     /**
-     * @return A specific version of the file. If not set, the latest version of the file is retrieved.
+     * @return Specific version of the file. If not set, the latest version of the file is retrieved.
      * 
      */
     private @Nullable String objectVersion;
@@ -49,7 +49,7 @@ public final class ScriptStorageLocation {
         return this.key;
     }
     /**
-     * @return A specific version of the file. If not set, the latest version of the file is retrieved.
+     * @return Specific version of the file. If not set, the latest version of the file is retrieved.
      * 
      */
     public Optional<String> objectVersion() {

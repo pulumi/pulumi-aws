@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
+    /// ### Attaching an EIP to an Instance with a pre-assigned private IP (VPC Only)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -37,14 +37,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Indicates that AFD values will be written into the output stream.
+     * Whether AFD values are written into the output stream.
      * 
      */
     @Import(name="afdSignaling")
     private @Nullable Output<String> afdSignaling;
 
     /**
-     * @return Indicates that AFD values will be written into the output stream.
+     * @return Whether AFD values are written into the output stream.
      * 
      */
     public Optional<Output<String>> afdSignaling() {
@@ -52,14 +52,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Whether or not EML should insert an Alternative Transfer Function SEI message.
+     * Whether EML inserts an Alternative Transfer Function SEI message.
      * 
      */
     @Import(name="alternativeTransferFunction")
     private @Nullable Output<String> alternativeTransferFunction;
 
     /**
-     * @return Whether or not EML should insert an Alternative Transfer Function SEI message.
+     * @return Whether EML inserts an Alternative Transfer Function SEI message.
      * 
      */
     public Optional<Output<String>> alternativeTransferFunction() {
@@ -82,14 +82,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Size of buffer in bits.
+     * Size of the buffer in bits.
      * 
      */
     @Import(name="bufSize")
     private @Nullable Output<Integer> bufSize;
 
     /**
-     * @return Size of buffer in bits.
+     * @return Size of the buffer in bits.
      * 
      */
     public Optional<Output<Integer>> bufSize() {
@@ -97,14 +97,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Includes color space metadata in the output.
+     * Whether color space metadata is included in the output.
      * 
      */
     @Import(name="colorMetadata")
     private @Nullable Output<String> colorMetadata;
 
     /**
-     * @return Includes color space metadata in the output.
+     * @return Whether color space metadata is included in the output.
      * 
      */
     public Optional<Output<String>> colorMetadata() {
@@ -112,14 +112,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Define the color metadata for the output. H265 Color Space Settings for more details.
+     * Color metadata for the output. See `colorSpaceSettings` Block for details.
      * 
      */
     @Import(name="colorSpaceSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs> colorSpaceSettings;
 
     /**
-     * @return Define the color metadata for the output. H265 Color Space Settings for more details.
+     * @return Color metadata for the output. See `colorSpaceSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs>> colorSpaceSettings() {
@@ -127,14 +127,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Filters to apply to an encode. See H265 Filter Settings for more details.
+     * Filters to apply to an encode. See `filterSettings` Block for details.
      * 
      */
     @Import(name="filterSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs> filterSettings;
 
     /**
-     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
+     * @return Filters to apply to an encode. See `filterSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs>> filterSettings() {
@@ -142,23 +142,31 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Four bit AFD value to write on all frames of video in the output stream.
+     * Four-bit AFD value to write on all frames of video in the output stream.
      * 
      */
     @Import(name="fixedAfd")
     private @Nullable Output<String> fixedAfd;
 
     /**
-     * @return Four bit AFD value to write on all frames of video in the output stream.
+     * @return Four-bit AFD value to write on all frames of video in the output stream.
      * 
      */
     public Optional<Output<String>> fixedAfd() {
         return Optional.ofNullable(this.fixedAfd);
     }
 
+    /**
+     * Makes adjustments within each frame to reduce flicker on the I-frames.
+     * 
+     */
     @Import(name="flickerAq")
     private @Nullable Output<String> flickerAq;
 
+    /**
+     * @return Makes adjustments within each frame to reduce flicker on the I-frames.
+     * 
+     */
     public Optional<Output<String>> flickerAq() {
         return Optional.ofNullable(this.flickerAq);
     }
@@ -209,14 +217,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * GOP size in units of either frames of seconds per `gopSizeUnits`.
+     * GOP size in units of either frames or seconds per `gopSizeUnits`.
      * 
      */
     @Import(name="gopSize")
     private @Nullable Output<Double> gopSize;
 
     /**
-     * @return GOP size in units of either frames of seconds per `gopSizeUnits`.
+     * @return GOP size in units of either frames or seconds per `gopSizeUnits`.
      * 
      */
     public Optional<Output<Double>> gopSize() {
@@ -224,14 +232,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Indicates if the `gopSize` is specified in frames or seconds.
+     * Whether `gopSize` is specified in frames or seconds.
      * 
      */
     @Import(name="gopSizeUnits")
     private @Nullable Output<String> gopSizeUnits;
 
     /**
-     * @return Indicates if the `gopSize` is specified in frames or seconds.
+     * @return Whether `gopSize` is specified in frames or seconds.
      * 
      */
     public Optional<Output<String>> gopSizeUnits() {
@@ -269,14 +277,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     * Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
      * 
      */
     @Import(name="maxBitrate")
     private @Nullable Output<Integer> maxBitrate;
 
     /**
-     * @return Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     * @return Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
      * 
      */
     public Optional<Output<Integer>> maxBitrate() {
@@ -284,14 +292,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Min interval.
+     * Minimum interval, in frames, between two I-frames.
      * 
      */
     @Import(name="minIInterval")
     private @Nullable Output<Integer> minIInterval;
 
     /**
-     * @return Min interval.
+     * @return Minimum interval, in frames, between two I-frames.
      * 
      */
     public Optional<Output<Integer>> minIInterval() {
@@ -299,14 +307,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Set the minimum QP.
+     * Sets the minimum QP.
      * 
      */
     @Import(name="minQp")
     private @Nullable Output<Integer> minQp;
 
     /**
-     * @return Set the minimum QP.
+     * @return Sets the minimum QP.
      * 
      */
     public Optional<Output<Integer>> minQp() {
@@ -314,14 +322,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Enables or disables motion vector over picture boundaries.
+     * Enables or disables motion vectors over picture boundaries.
      * 
      */
     @Import(name="mvOverPictureBoundaries")
     private @Nullable Output<String> mvOverPictureBoundaries;
 
     /**
-     * @return Enables or disables motion vector over picture boundaries.
+     * @return Enables or disables motion vectors over picture boundaries.
      * 
      */
     public Optional<Output<String>> mvOverPictureBoundaries() {
@@ -344,14 +352,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Pixel Aspect Ratio denominator.
+     * Pixel aspect ratio denominator.
      * 
      */
     @Import(name="parDenominator")
     private @Nullable Output<Integer> parDenominator;
 
     /**
-     * @return Pixel Aspect Ratio denominator.
+     * @return Pixel aspect ratio denominator.
      * 
      */
     public Optional<Output<Integer>> parDenominator() {
@@ -359,14 +367,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Pixel Aspect Ratio numerator.
+     * Pixel aspect ratio numerator.
      * 
      */
     @Import(name="parNumerator")
     private @Nullable Output<Integer> parNumerator;
 
     /**
-     * @return Pixel Aspect Ratio numerator.
+     * @return Pixel aspect ratio numerator.
      * 
      */
     public Optional<Output<Integer>> parNumerator() {
@@ -389,14 +397,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Controls the target quality for the video encode.
+     * Target quality for the video encode.
      * 
      */
     @Import(name="qvbrQualityLevel")
     private @Nullable Output<Integer> qvbrQualityLevel;
 
     /**
-     * @return Controls the target quality for the video encode.
+     * @return Target quality for the video encode.
      * 
      */
     public Optional<Output<Integer>> qvbrQualityLevel() {
@@ -419,14 +427,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Sets the scan type of the output.
+     * Scan type of the output.
      * 
      */
     @Import(name="scanType")
     private @Nullable Output<String> scanType;
 
     /**
-     * @return Sets the scan type of the output.
+     * @return Scan type of the output.
      * 
      */
     public Optional<Output<String>> scanType() {
@@ -464,14 +472,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Set the H265 tier in the output.
+     * H265 tier in the output.
      * 
      */
     @Import(name="tier")
     private @Nullable Output<String> tier;
 
     /**
-     * @return Set the H265 tier in the output.
+     * @return H265 tier in the output.
      * 
      */
     public Optional<Output<String>> tier() {
@@ -479,14 +487,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Sets the height of tiles.
+     * Height of tiles.
      * 
      */
     @Import(name="tileHeight")
     private @Nullable Output<Integer> tileHeight;
 
     /**
-     * @return Sets the height of tiles.
+     * @return Height of tiles.
      * 
      */
     public Optional<Output<Integer>> tileHeight() {
@@ -509,14 +517,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Sets the width of tiles.
+     * Width of tiles.
      * 
      */
     @Import(name="tileWidth")
     private @Nullable Output<Integer> tileWidth;
 
     /**
-     * @return Sets the width of tiles.
+     * @return Width of tiles.
      * 
      */
     public Optional<Output<Integer>> tileWidth() {
@@ -524,14 +532,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+     * Apply a burned-in timecode. See `timecodeBurninSettings` Block for details.
      * 
      */
     @Import(name="timecodeBurninSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs> timecodeBurninSettings;
 
     /**
-     * @return Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+     * @return Apply a burned-in timecode. See `timecodeBurninSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs>> timecodeBurninSettings() {
@@ -539,14 +547,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Determines how timecodes should be inserted into the video elementary stream.
+     * How timecodes are inserted into the video elementary stream.
      * 
      */
     @Import(name="timecodeInsertion")
     private @Nullable Output<String> timecodeInsertion;
 
     /**
-     * @return Determines how timecodes should be inserted into the video elementary stream.
+     * @return How timecodes are inserted into the video elementary stream.
      * 
      */
     public Optional<Output<String>> timecodeInsertion() {
@@ -554,14 +562,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Sets the size of the treeblock.
+     * Size of the treeblock.
      * 
      */
     @Import(name="treeblockSize")
     private @Nullable Output<String> treeblockSize;
 
     /**
-     * @return Sets the size of the treeblock.
+     * @return Size of the treeblock.
      * 
      */
     public Optional<Output<String>> treeblockSize() {
@@ -650,7 +658,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param afdSignaling Indicates that AFD values will be written into the output stream.
+         * @param afdSignaling Whether AFD values are written into the output stream.
          * 
          * @return builder
          * 
@@ -661,7 +669,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param afdSignaling Indicates that AFD values will be written into the output stream.
+         * @param afdSignaling Whether AFD values are written into the output stream.
          * 
          * @return builder
          * 
@@ -671,7 +679,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param alternativeTransferFunction Whether or not EML should insert an Alternative Transfer Function SEI message.
+         * @param alternativeTransferFunction Whether EML inserts an Alternative Transfer Function SEI message.
          * 
          * @return builder
          * 
@@ -682,7 +690,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param alternativeTransferFunction Whether or not EML should insert an Alternative Transfer Function SEI message.
+         * @param alternativeTransferFunction Whether EML inserts an Alternative Transfer Function SEI message.
          * 
          * @return builder
          * 
@@ -713,7 +721,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param bufSize Size of buffer in bits.
+         * @param bufSize Size of the buffer in bits.
          * 
          * @return builder
          * 
@@ -724,7 +732,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param bufSize Size of buffer in bits.
+         * @param bufSize Size of the buffer in bits.
          * 
          * @return builder
          * 
@@ -734,7 +742,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param colorMetadata Includes color space metadata in the output.
+         * @param colorMetadata Whether color space metadata is included in the output.
          * 
          * @return builder
          * 
@@ -745,7 +753,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param colorMetadata Includes color space metadata in the output.
+         * @param colorMetadata Whether color space metadata is included in the output.
          * 
          * @return builder
          * 
@@ -755,7 +763,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param colorSpaceSettings Define the color metadata for the output. H265 Color Space Settings for more details.
+         * @param colorSpaceSettings Color metadata for the output. See `colorSpaceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -766,7 +774,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param colorSpaceSettings Define the color metadata for the output. H265 Color Space Settings for more details.
+         * @param colorSpaceSettings Color metadata for the output. See `colorSpaceSettings` Block for details.
          * 
          * @return builder
          * 
@@ -776,7 +784,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H265 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See `filterSettings` Block for details.
          * 
          * @return builder
          * 
@@ -787,7 +795,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H265 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See `filterSettings` Block for details.
          * 
          * @return builder
          * 
@@ -797,7 +805,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param fixedAfd Four bit AFD value to write on all frames of video in the output stream.
+         * @param fixedAfd Four-bit AFD value to write on all frames of video in the output stream.
          * 
          * @return builder
          * 
@@ -808,7 +816,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param fixedAfd Four bit AFD value to write on all frames of video in the output stream.
+         * @param fixedAfd Four-bit AFD value to write on all frames of video in the output stream.
          * 
          * @return builder
          * 
@@ -817,11 +825,23 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return fixedAfd(Output.of(fixedAfd));
         }
 
+        /**
+         * @param flickerAq Makes adjustments within each frame to reduce flicker on the I-frames.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flickerAq(@Nullable Output<String> flickerAq) {
             $.flickerAq = flickerAq;
             return this;
         }
 
+        /**
+         * @param flickerAq Makes adjustments within each frame to reduce flicker on the I-frames.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flickerAq(String flickerAq) {
             return flickerAq(Output.of(flickerAq));
         }
@@ -890,7 +910,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSize GOP size in units of either frames of seconds per `gopSizeUnits`.
+         * @param gopSize GOP size in units of either frames or seconds per `gopSizeUnits`.
          * 
          * @return builder
          * 
@@ -901,7 +921,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSize GOP size in units of either frames of seconds per `gopSizeUnits`.
+         * @param gopSize GOP size in units of either frames or seconds per `gopSizeUnits`.
          * 
          * @return builder
          * 
@@ -911,7 +931,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSizeUnits Indicates if the `gopSize` is specified in frames or seconds.
+         * @param gopSizeUnits Whether `gopSize` is specified in frames or seconds.
          * 
          * @return builder
          * 
@@ -922,7 +942,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSizeUnits Indicates if the `gopSize` is specified in frames or seconds.
+         * @param gopSizeUnits Whether `gopSize` is specified in frames or seconds.
          * 
          * @return builder
          * 
@@ -974,7 +994,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param maxBitrate Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+         * @param maxBitrate Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
          * 
          * @return builder
          * 
@@ -985,7 +1005,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param maxBitrate Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+         * @param maxBitrate Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
          * 
          * @return builder
          * 
@@ -995,7 +1015,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param minIInterval Min interval.
+         * @param minIInterval Minimum interval, in frames, between two I-frames.
          * 
          * @return builder
          * 
@@ -1006,7 +1026,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param minIInterval Min interval.
+         * @param minIInterval Minimum interval, in frames, between two I-frames.
          * 
          * @return builder
          * 
@@ -1016,7 +1036,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param minQp Set the minimum QP.
+         * @param minQp Sets the minimum QP.
          * 
          * @return builder
          * 
@@ -1027,7 +1047,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param minQp Set the minimum QP.
+         * @param minQp Sets the minimum QP.
          * 
          * @return builder
          * 
@@ -1037,7 +1057,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param mvOverPictureBoundaries Enables or disables motion vector over picture boundaries.
+         * @param mvOverPictureBoundaries Enables or disables motion vectors over picture boundaries.
          * 
          * @return builder
          * 
@@ -1048,7 +1068,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param mvOverPictureBoundaries Enables or disables motion vector over picture boundaries.
+         * @param mvOverPictureBoundaries Enables or disables motion vectors over picture boundaries.
          * 
          * @return builder
          * 
@@ -1079,7 +1099,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param parDenominator Pixel Aspect Ratio denominator.
+         * @param parDenominator Pixel aspect ratio denominator.
          * 
          * @return builder
          * 
@@ -1090,7 +1110,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param parDenominator Pixel Aspect Ratio denominator.
+         * @param parDenominator Pixel aspect ratio denominator.
          * 
          * @return builder
          * 
@@ -1100,7 +1120,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param parNumerator Pixel Aspect Ratio numerator.
+         * @param parNumerator Pixel aspect ratio numerator.
          * 
          * @return builder
          * 
@@ -1111,7 +1131,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param parNumerator Pixel Aspect Ratio numerator.
+         * @param parNumerator Pixel aspect ratio numerator.
          * 
          * @return builder
          * 
@@ -1142,7 +1162,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param qvbrQualityLevel Controls the target quality for the video encode.
+         * @param qvbrQualityLevel Target quality for the video encode.
          * 
          * @return builder
          * 
@@ -1153,7 +1173,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param qvbrQualityLevel Controls the target quality for the video encode.
+         * @param qvbrQualityLevel Target quality for the video encode.
          * 
          * @return builder
          * 
@@ -1184,7 +1204,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param scanType Sets the scan type of the output.
+         * @param scanType Scan type of the output.
          * 
          * @return builder
          * 
@@ -1195,7 +1215,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param scanType Sets the scan type of the output.
+         * @param scanType Scan type of the output.
          * 
          * @return builder
          * 
@@ -1247,7 +1267,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param tier Set the H265 tier in the output.
+         * @param tier H265 tier in the output.
          * 
          * @return builder
          * 
@@ -1258,7 +1278,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param tier Set the H265 tier in the output.
+         * @param tier H265 tier in the output.
          * 
          * @return builder
          * 
@@ -1268,7 +1288,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param tileHeight Sets the height of tiles.
+         * @param tileHeight Height of tiles.
          * 
          * @return builder
          * 
@@ -1279,7 +1299,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param tileHeight Sets the height of tiles.
+         * @param tileHeight Height of tiles.
          * 
          * @return builder
          * 
@@ -1310,7 +1330,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param tileWidth Sets the width of tiles.
+         * @param tileWidth Width of tiles.
          * 
          * @return builder
          * 
@@ -1321,7 +1341,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param tileWidth Sets the width of tiles.
+         * @param tileWidth Width of tiles.
          * 
          * @return builder
          * 
@@ -1331,7 +1351,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeBurninSettings Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+         * @param timecodeBurninSettings Apply a burned-in timecode. See `timecodeBurninSettings` Block for details.
          * 
          * @return builder
          * 
@@ -1342,7 +1362,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeBurninSettings Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+         * @param timecodeBurninSettings Apply a burned-in timecode. See `timecodeBurninSettings` Block for details.
          * 
          * @return builder
          * 
@@ -1352,7 +1372,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeInsertion Determines how timecodes should be inserted into the video elementary stream.
+         * @param timecodeInsertion How timecodes are inserted into the video elementary stream.
          * 
          * @return builder
          * 
@@ -1363,7 +1383,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param timecodeInsertion Determines how timecodes should be inserted into the video elementary stream.
+         * @param timecodeInsertion How timecodes are inserted into the video elementary stream.
          * 
          * @return builder
          * 
@@ -1373,7 +1393,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param treeblockSize Sets the size of the treeblock.
+         * @param treeblockSize Size of the treeblock.
          * 
          * @return builder
          * 
@@ -1384,7 +1404,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param treeblockSize Sets the size of the treeblock.
+         * @param treeblockSize Size of the treeblock.
          * 
          * @return builder
          * 

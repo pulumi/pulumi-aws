@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorArgs>? _audioSelectors;
 
         /// <summary>
-        /// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+        /// Select the audio stream to decode for inputs that have multiple. See `AudioSelector` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorArgs> AudioSelectors
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorArgs>? _captionSelectors;
 
         /// <summary>
-        /// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+        /// Select the caption input to use for inputs that have multiple available. See `CaptionSelector` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorArgs> CaptionSelectors
         {
@@ -37,19 +37,19 @@ namespace Pulumi.Aws.MediaLive.Inputs
         }
 
         /// <summary>
-        /// Enable or disable the deblock filter when filtering.
+        /// Whether to enable the deblock filter when filtering.
         /// </summary>
         [Input("deblockFilter")]
         public Input<string>? DeblockFilter { get; set; }
 
         /// <summary>
-        /// Enable or disable the denoise filter when filtering.
+        /// Whether to enable the denoise filter when filtering.
         /// </summary>
         [Input("denoiseFilter")]
         public Input<string>? DenoiseFilter { get; set; }
 
         /// <summary>
-        /// Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        /// Magnitude of filtering from 1 (minimal) to 5 (strongest).
         /// </summary>
         [Input("filterStrength")]
         public Input<int>? FilterStrength { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? InputFilter { get; set; }
 
         /// <summary>
-        /// Input settings. See Network Input Settings for more details.
+        /// Input settings. See `NetworkInputSettings` Block for details.
         /// </summary>
         [Input("networkInputSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs>? NetworkInputSettings { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? Scte35Pid { get; set; }
 
         /// <summary>
-        /// Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        /// Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
         /// </summary>
         [Input("smpte2038DataPreference")]
         public Input<string>? Smpte2038DataPreference { get; set; }
@@ -84,6 +84,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("sourceEndBehavior")]
         public Input<string>? SourceEndBehavior { get; set; }
 
+        /// <summary>
+        /// Information about one video to extract from the input. See `VideoSelector` Block for details.
+        /// </summary>
         [Input("videoSelector")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsVideoSelectorArgs>? VideoSelector { get; set; }
 

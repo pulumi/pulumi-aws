@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Macie2.Outputs
     public sealed class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion
     {
         /// <summary>
-        /// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+        /// Operator to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
         /// </summary>
         public readonly string? Comparator;
         /// <summary>
-        /// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+        /// Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> TagValues;
 

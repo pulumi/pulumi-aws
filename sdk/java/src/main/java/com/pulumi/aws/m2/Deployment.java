@@ -97,9 +97,17 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     public Output<Integer> applicationVersion() {
         return this.applicationVersion;
     }
+    /**
+     * Unique identifier of the deployment.
+     * 
+     */
     @Export(name="deploymentId", refs={String.class}, tree="[0]")
     private Output<String> deploymentId;
 
+    /**
+     * @return Unique identifier of the deployment.
+     * 
+     */
     public Output<String> deploymentId() {
         return this.deploymentId;
     }
@@ -117,9 +125,17 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     public Output<String> environmentId() {
         return this.environmentId;
     }
+    /**
+     * Stop the application during deployment, even if it is running.
+     * 
+     */
     @Export(name="forceStop", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceStop;
 
+    /**
+     * @return Stop the application during deployment, even if it is running.
+     * 
+     */
     public Output<Optional<Boolean>> forceStop() {
         return Codegen.optional(this.forceStop);
     }

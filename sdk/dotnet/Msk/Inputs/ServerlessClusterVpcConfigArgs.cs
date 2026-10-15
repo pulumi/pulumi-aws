@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Msk.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+        /// Up to five security groups that control inbound and outbound traffic for the serverless cluster.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Msk.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnets in at least two different Availability Zones that host your client applications.
+        /// List of subnets in at least two different Availability Zones that host your client applications.
         /// </summary>
         public InputList<string> SubnetIds
         {

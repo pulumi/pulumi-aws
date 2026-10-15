@@ -15,9 +15,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs();
 
+    /**
+     * Frame capture S3 settings. See `frameCaptureS3Settings` Block for details.
+     * 
+     */
     @Import(name="frameCaptureS3Settings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs> frameCaptureS3Settings;
 
+    /**
+     * @return Frame capture S3 settings. See `frameCaptureS3Settings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs>> frameCaptureS3Settings() {
         return Optional.ofNullable(this.frameCaptureS3Settings);
     }
@@ -46,11 +54,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param frameCaptureS3Settings Frame capture S3 settings. See `frameCaptureS3Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureS3Settings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs> frameCaptureS3Settings) {
             $.frameCaptureS3Settings = frameCaptureS3Settings;
             return this;
         }
 
+        /**
+         * @param frameCaptureS3Settings Frame capture S3 settings. See `frameCaptureS3Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureS3Settings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs frameCaptureS3Settings) {
             return frameCaptureS3Settings(Output.of(frameCaptureS3Settings));
         }

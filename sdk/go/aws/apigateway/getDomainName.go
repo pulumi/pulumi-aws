@@ -70,7 +70,7 @@ type LookupDomainNameResult struct {
 	CertificateName string `pulumi:"certificateName"`
 	// Upload date associated with the domain certificate.
 	CertificateUploadDate string `pulumi:"certificateUploadDate"`
-	// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+	// Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
 	CloudfrontDomainName string `pulumi:"cloudfrontDomainName"`
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
 	CloudfrontZoneId string `pulumi:"cloudfrontZoneId"`
@@ -155,7 +155,7 @@ func (o LookupDomainNameResultOutput) CertificateUploadDate() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.CertificateUploadDate }).(pulumi.StringOutput)
 }
 
-// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+// Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
 func (o LookupDomainNameResultOutput) CloudfrontDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.CloudfrontDomainName }).(pulumi.StringOutput)
 }

@@ -63,7 +63,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A description of the registry.
+     * Description of the registry.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -71,7 +71,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Name of the registry.
+     * Name of the registry.
      */
     declare public readonly registryName: pulumi.Output<string>;
     /**
@@ -79,7 +79,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -128,7 +128,7 @@ export interface RegistryState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A description of the registry.
+     * Description of the registry.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface RegistryState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Name of the registry.
+     * Name of the registry.
      */
     registryName?: pulumi.Input<string | undefined>;
     /**
@@ -144,7 +144,7 @@ export interface RegistryState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -154,7 +154,7 @@ export interface RegistryState {
  */
 export interface RegistryArgs {
     /**
-     * A description of the registry.
+     * Description of the registry.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface RegistryArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Name of the registry.
+     * Name of the registry.
      */
     registryName: pulumi.Input<string>;
     /**

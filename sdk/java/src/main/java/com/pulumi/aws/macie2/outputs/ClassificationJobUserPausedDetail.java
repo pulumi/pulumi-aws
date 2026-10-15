@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationJobUserPausedDetail {
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job or job run will expire and be cancelled if it isn&#39;t resumed.
+     * 
+     */
     private @Nullable String jobExpiresAt;
+    /**
+     * @return ARN of the AWS Health event that Macie sent to notify of the job or job run&#39;s imminent expiration.
+     * 
+     */
     private @Nullable String jobImminentExpirationHealthEventArn;
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job was paused.
+     * 
+     */
     private @Nullable String jobPausedAt;
 
     private ClassificationJobUserPausedDetail() {}
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job or job run will expire and be cancelled if it isn&#39;t resumed.
+     * 
+     */
     public Optional<String> jobExpiresAt() {
         return Optional.ofNullable(this.jobExpiresAt);
     }
+    /**
+     * @return ARN of the AWS Health event that Macie sent to notify of the job or job run&#39;s imminent expiration.
+     * 
+     */
     public Optional<String> jobImminentExpirationHealthEventArn() {
         return Optional.ofNullable(this.jobImminentExpirationHealthEventArn);
     }
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job was paused.
+     * 
+     */
     public Optional<String> jobPausedAt() {
         return Optional.ofNullable(this.jobPausedAt);
     }

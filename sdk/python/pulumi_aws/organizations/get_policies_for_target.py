@@ -57,7 +57,7 @@ class GetPoliciesForTargetResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the policy ids found.
+        List of all the policy IDs found.
         """
         return pulumi.get(self, "ids")
 

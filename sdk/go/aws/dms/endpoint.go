@@ -115,7 +115,7 @@ type Endpoint struct {
 	SecretsManagerArn pulumi.StringPtrOutput `pulumi:"secretsManagerArn"`
 	// Host name of the server.
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
-	// ARN used by the service access IAM role for dynamodb endpoints.
+	// ARN used by the service access IAM role for DynamoDB endpoints.
 	ServiceAccessRole pulumi.StringPtrOutput `pulumi:"serviceAccessRole"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
 	SslMode pulumi.StringOutput `pulumi:"sslMode"`
@@ -224,7 +224,7 @@ type endpointState struct {
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
 	// Host name of the server.
 	ServerName *string `pulumi:"serverName"`
-	// ARN used by the service access IAM role for dynamodb endpoints.
+	// ARN used by the service access IAM role for DynamoDB endpoints.
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
 	SslMode *string `pulumi:"sslMode"`
@@ -288,7 +288,7 @@ type EndpointState struct {
 	SecretsManagerArn pulumi.StringPtrInput
 	// Host name of the server.
 	ServerName pulumi.StringPtrInput
-	// ARN used by the service access IAM role for dynamodb endpoints.
+	// ARN used by the service access IAM role for DynamoDB endpoints.
 	ServiceAccessRole pulumi.StringPtrInput
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
 	SslMode pulumi.StringPtrInput
@@ -354,7 +354,7 @@ type endpointArgs struct {
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
 	// Host name of the server.
 	ServerName *string `pulumi:"serverName"`
-	// ARN used by the service access IAM role for dynamodb endpoints.
+	// ARN used by the service access IAM role for DynamoDB endpoints.
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
 	SslMode *string `pulumi:"sslMode"`
@@ -415,7 +415,7 @@ type EndpointArgs struct {
 	SecretsManagerArn pulumi.StringPtrInput
 	// Host name of the server.
 	ServerName pulumi.StringPtrInput
-	// ARN used by the service access IAM role for dynamodb endpoints.
+	// ARN used by the service access IAM role for DynamoDB endpoints.
 	ServiceAccessRole pulumi.StringPtrInput
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
 	SslMode pulumi.StringPtrInput
@@ -635,7 +635,7 @@ func (o EndpointOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARN used by the service access IAM role for dynamodb endpoints.
+// ARN used by the service access IAM role for DynamoDB endpoints.
 func (o EndpointOutput) ServiceAccessRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ServiceAccessRole }).(pulumi.StringPtrOutput)
 }

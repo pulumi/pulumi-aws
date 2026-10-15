@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableArray<string>> AuthorizationScopes { get; private set; } = null!;
 
         /// <summary>
-        /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        /// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
         [Output("authorizerId")]
         public Output<string?> AuthorizerId { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        /// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
         [Input("authorizerId")]
         public Input<string>? AuthorizerId { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        /// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
         [Input("authorizerId")]
         public Input<string>? AuthorizerId { get; set; }

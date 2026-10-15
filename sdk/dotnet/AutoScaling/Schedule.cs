@@ -78,7 +78,7 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN assigned by AWS to the autoscaling schedule.
+        /// ARN assigned by AWS to the Auto Scaling schedule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN assigned by AWS to the autoscaling schedule.
+        /// ARN assigned by AWS to the Auto Scaling schedule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

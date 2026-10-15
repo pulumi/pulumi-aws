@@ -19,14 +19,14 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
     public static final TopicSubscriptionArgs Empty = new TopicSubscriptionArgs();
 
     /**
-     * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     * Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
      * 
      */
     @Import(name="confirmationTimeoutInMinutes")
     private @Nullable Output<Integer> confirmationTimeoutInMinutes;
 
     /**
-     * @return Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     * @return Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
      * 
      */
     public Optional<Output<Integer>> confirmationTimeoutInMinutes() {
@@ -254,7 +254,7 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param confirmationTimeoutInMinutes Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+         * @param confirmationTimeoutInMinutes Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param confirmationTimeoutInMinutes Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+         * @param confirmationTimeoutInMinutes Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
          * 
          * @return builder
          * 

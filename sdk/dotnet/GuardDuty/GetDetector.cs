@@ -153,7 +153,7 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDetectorFeatureResult> Features;
         /// <summary>
-        /// The frequency of notifications sent about subsequent finding occurrences.
+        /// Frequency of notifications sent about subsequent finding occurrences.
         /// </summary>
         public readonly string FindingPublishingFrequency;
         public readonly string Id;

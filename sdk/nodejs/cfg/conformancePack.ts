@@ -152,7 +152,7 @@ export class ConformancePack extends pulumi.CustomResource {
      */
     declare public readonly templateBody: pulumi.Output<string | undefined>;
     /**
-     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The URI must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      *
      * > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
      */
@@ -228,7 +228,7 @@ export interface ConformancePackState {
      */
     templateBody?: pulumi.Input<string | undefined>;
     /**
-     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The URI must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      *
      * > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
      */
@@ -264,7 +264,7 @@ export interface ConformancePackArgs {
      */
     templateBody?: pulumi.Input<string | undefined>;
     /**
-     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The URI must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      *
      * > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
      */

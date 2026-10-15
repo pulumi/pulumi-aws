@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Agents for Amazon Bedrock Agent Action Group.
+    /// Manages an AWS Agents for Amazon Bedrock Agent Action Group.
     /// 
     /// ## Example Usage
     /// 
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
+    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the action group ID, the agent ID, and the agent version separated by `,`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> ParentActionGroupSignature { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not to prepare the agent after creation or modification. Defaults to `True`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Output("prepareAgent")]
         public Output<bool> PrepareAgent { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the in-use check is skipped when deleting the action group.
+        /// Whether to skip the in-use check when deleting the action group. Defaults to `False`.
         /// </summary>
         [Output("skipResourceInUseCheck")]
         public Output<bool> SkipResourceInUseCheck { get; private set; } = null!;
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? ParentActionGroupSignature { get; set; }
 
         /// <summary>
-        /// Whether or not to prepare the agent after creation or modification. Defaults to `True`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether the in-use check is skipped when deleting the action group.
+        /// Whether to skip the in-use check when deleting the action group. Defaults to `False`.
         /// </summary>
         [Input("skipResourceInUseCheck")]
         public Input<bool>? SkipResourceInUseCheck { get; set; }
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? ParentActionGroupSignature { get; set; }
 
         /// <summary>
-        /// Whether or not to prepare the agent after creation or modification. Defaults to `True`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
@@ -469,7 +469,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether the in-use check is skipped when deleting the action group.
+        /// Whether to skip the in-use check when deleting the action group. Defaults to `False`.
         /// </summary>
         [Input("skipResourceInUseCheck")]
         public Input<bool>? SkipResourceInUseCheck { get; set; }

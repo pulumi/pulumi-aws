@@ -448,8 +448,8 @@ class _DomainState:
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without HTTPS scheme.
+        :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
         :param pulumi.Input['DomainDeploymentStrategyOptionsArgs'] deployment_strategy_options: Configuration block for the deployment strategy options of the domain. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
@@ -639,7 +639,7 @@ class _DomainState:
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Domain-specific endpoint for Dashboard without https scheme.
+        Domain-specific endpoint for Dashboard without HTTPS scheme.
         """
         return pulumi.get(self, "dashboard_endpoint")
 
@@ -651,7 +651,7 @@ class _DomainState:
     @pulumi.getter(name="dashboardEndpointV2")
     def dashboard_endpoint_v2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
         """
         return pulumi.get(self, "dashboard_endpoint_v2")
 
@@ -1600,8 +1600,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict', 'outputs.DomainAutoTuneOptions']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without HTTPS scheme.
+        :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
         :param pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict', 'outputs.DomainDeploymentStrategyOptions']] deployment_strategy_options: Configuration block for the deployment strategy options of the domain. Detailed below.
         :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict', 'outputs.DomainDomainEndpointOptions']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
@@ -1733,7 +1733,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> pulumi.Output[_builtins.str]:
         """
-        Domain-specific endpoint for Dashboard without https scheme.
+        Domain-specific endpoint for Dashboard without HTTPS scheme.
         """
         return pulumi.get(self, "dashboard_endpoint")
 
@@ -1741,7 +1741,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="dashboardEndpointV2")
     def dashboard_endpoint_v2(self) -> pulumi.Output[_builtins.str]:
         """
-        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
         """
         return pulumi.get(self, "dashboard_endpoint_v2")
 

@@ -42,31 +42,31 @@ namespace Pulumi.Aws.MediaConvert
     public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Arn of the queue
+        /// ARN of the queue
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        /// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         /// </summary>
         [Output("concurrentJobs")]
         public Output<int> ConcurrentJobs { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the queue
+        /// Description of the queue
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier describing the queue
+        /// Unique identifier describing the queue
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        /// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         /// </summary>
         [Output("pricingPlan")]
         public Output<string?> PricingPlan { get; private set; } = null!;
@@ -78,25 +78,25 @@ namespace Pulumi.Aws.MediaConvert
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A detail pricing plan of the  reserved queue. See below.
+        /// Detail pricing plan of the reserved queue. See below.
         /// </summary>
         [Output("reservationPlanSettings")]
         public Output<Outputs.QueueReservationPlanSettings> ReservationPlanSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -148,25 +148,25 @@ namespace Pulumi.Aws.MediaConvert
     public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        /// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         /// </summary>
         [Input("concurrentJobs")]
         public Input<int>? ConcurrentJobs { get; set; }
 
         /// <summary>
-        /// A description of the queue
+        /// Description of the queue
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A unique identifier describing the queue
+        /// Unique identifier describing the queue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        /// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         /// </summary>
         [Input("pricingPlan")]
         public Input<string>? PricingPlan { get; set; }
@@ -178,13 +178,13 @@ namespace Pulumi.Aws.MediaConvert
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A detail pricing plan of the  reserved queue. See below.
+        /// Detail pricing plan of the reserved queue. See below.
         /// </summary>
         [Input("reservationPlanSettings")]
         public Input<Inputs.QueueReservationPlanSettingsArgs>? ReservationPlanSettings { get; set; }
 
         /// <summary>
-        /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.MediaConvert
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -210,31 +210,31 @@ namespace Pulumi.Aws.MediaConvert
     public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Arn of the queue
+        /// ARN of the queue
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        /// Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         /// </summary>
         [Input("concurrentJobs")]
         public Input<int>? ConcurrentJobs { get; set; }
 
         /// <summary>
-        /// A description of the queue
+        /// Description of the queue
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A unique identifier describing the queue
+        /// Unique identifier describing the queue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        /// Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         /// </summary>
         [Input("pricingPlan")]
         public Input<string>? PricingPlan { get; set; }
@@ -246,13 +246,13 @@ namespace Pulumi.Aws.MediaConvert
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A detail pricing plan of the  reserved queue. See below.
+        /// Detail pricing plan of the reserved queue. See below.
         /// </summary>
         [Input("reservationPlanSettings")]
         public Input<Inputs.QueueReservationPlanSettingsGetArgs>? ReservationPlanSettings { get; set; }
 
         /// <summary>
-        /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.MediaConvert
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.MediaConvert
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

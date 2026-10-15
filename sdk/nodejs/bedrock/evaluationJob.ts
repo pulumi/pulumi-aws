@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an Amazon Bedrock evaluation job. An evaluation job assesses model or knowledge base performance using either automated metrics or human workers.
  *
- * > Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skipDestroy` to leave the job in its current state instead.
+ * > **Note:** Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skipDestroy` to leave the job in its current state instead.
  *
  * ## Example Usage
  *
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `jobArn` (String) ARN of the evaluation job.
+ * * `jobArn` (String) ARN of the evaluation job.
  *
  * Using `pulumi import`, import Bedrock Evaluation Job using the `jobArn`. For example:
  *
@@ -159,6 +159,9 @@ export class EvaluationJob extends pulumi.CustomResource {
      * Map of tags to assign to the evaluation job. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.EvaluationJobTimeouts | undefined>;
 
@@ -310,6 +313,9 @@ export interface EvaluationJobState {
      * Map of tags to assign to the evaluation job. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.EvaluationJobTimeouts | undefined>;
 }

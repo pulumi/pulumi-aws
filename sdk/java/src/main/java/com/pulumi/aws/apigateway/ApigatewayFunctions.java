@@ -1326,8 +1326,8 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id of a Resource in API Gateway.
-     * To fetch the Resource, you must provide the REST API id as well as the full path.
+     * Use this data source to get the ID of a Resource in API Gateway.
+     * To fetch the Resource, you must provide the REST API ID as well as the full path.
      * 
      * ## Example Usage
      * 
@@ -1373,8 +1373,8 @@ public final class ApigatewayFunctions {
         return getResource(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id of a Resource in API Gateway.
-     * To fetch the Resource, you must provide the REST API id as well as the full path.
+     * Use this data source to get the ID of a Resource in API Gateway.
+     * To fetch the Resource, you must provide the REST API ID as well as the full path.
      * 
      * ## Example Usage
      * 
@@ -1420,8 +1420,8 @@ public final class ApigatewayFunctions {
         return getResourcePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id of a Resource in API Gateway.
-     * To fetch the Resource, you must provide the REST API id as well as the full path.
+     * Use this data source to get the ID of a Resource in API Gateway.
+     * To fetch the Resource, you must provide the REST API ID as well as the full path.
      * 
      * ## Example Usage
      * 
@@ -1467,8 +1467,8 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id of a Resource in API Gateway.
-     * To fetch the Resource, you must provide the REST API id as well as the full path.
+     * Use this data source to get the ID of a Resource in API Gateway.
+     * To fetch the Resource, you must provide the REST API ID as well as the full path.
      * 
      * ## Example Usage
      * 
@@ -1514,8 +1514,8 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id of a Resource in API Gateway.
-     * To fetch the Resource, you must provide the REST API id as well as the full path.
+     * Use this data source to get the ID of a Resource in API Gateway.
+     * To fetch the Resource, you must provide the REST API ID as well as the full path.
      * 
      * ## Example Usage
      * 
@@ -1561,7 +1561,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id and rootResourceId of a REST API in
+     * Use this data source to get the ID and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1604,7 +1604,7 @@ public final class ApigatewayFunctions {
         return getRestApi(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id and rootResourceId of a REST API in
+     * Use this data source to get the ID and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1647,7 +1647,7 @@ public final class ApigatewayFunctions {
         return getRestApiPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id and rootResourceId of a REST API in
+     * Use this data source to get the ID and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1690,7 +1690,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id and rootResourceId of a REST API in
+     * Use this data source to get the ID and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1733,7 +1733,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id and rootResourceId of a REST API in
+     * Use this data source to get the ID and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -2006,7 +2006,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getSdk:getSdk", TypeShape.of(GetSdkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id of a VPC Link in
+     * Use this data source to get the ID of a VPC Link in
      * API Gateway. To fetch the VPC Link you must provide a name to match against.
      * As there is no unique name constraint on API Gateway VPC Links this data source will
      * error if there is more than one match.
@@ -2049,7 +2049,7 @@ public final class ApigatewayFunctions {
         return getVpcLink(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id of a VPC Link in
+     * Use this data source to get the ID of a VPC Link in
      * API Gateway. To fetch the VPC Link you must provide a name to match against.
      * As there is no unique name constraint on API Gateway VPC Links this data source will
      * error if there is more than one match.
@@ -2092,7 +2092,7 @@ public final class ApigatewayFunctions {
         return getVpcLinkPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id of a VPC Link in
+     * Use this data source to get the ID of a VPC Link in
      * API Gateway. To fetch the VPC Link you must provide a name to match against.
      * As there is no unique name constraint on API Gateway VPC Links this data source will
      * error if there is more than one match.
@@ -2135,7 +2135,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id of a VPC Link in
+     * Use this data source to get the ID of a VPC Link in
      * API Gateway. To fetch the VPC Link you must provide a name to match against.
      * As there is no unique name constraint on API Gateway VPC Links this data source will
      * error if there is more than one match.
@@ -2178,7 +2178,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id of a VPC Link in
+     * Use this data source to get the ID of a VPC Link in
      * API Gateway. To fetch the VPC Link you must provide a name to match against.
      * As there is no unique name constraint on API Gateway VPC Links this data source will
      * error if there is more than one match.

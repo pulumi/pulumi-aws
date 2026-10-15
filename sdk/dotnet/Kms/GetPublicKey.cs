@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Kms
     public static class GetPublicKey
     {
         /// <summary>
-        /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+        /// Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
         /// 
         /// ## Example Usage
         /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Kms
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+        /// Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
         /// 
         /// ## Example Usage
         /// 
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Kms
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
+        /// Use this data source to get the public key about the specified KMS Key with flexible key ID input. This can be useful to reference key alias without having to hard code the ARN as input.
         /// 
         /// ## Example Usage
         /// 

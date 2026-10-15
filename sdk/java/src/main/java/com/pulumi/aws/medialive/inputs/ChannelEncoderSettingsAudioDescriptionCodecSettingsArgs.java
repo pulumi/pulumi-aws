@@ -22,14 +22,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs();
 
     /**
-     * Aac Settings. See AAC Settings for more details.
+     * AAC settings. See `aacSettings` Block for details.
      * 
      */
     @Import(name="aacSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs> aacSettings;
 
     /**
-     * @return Aac Settings. See AAC Settings for more details.
+     * @return AAC settings. See `aacSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs>> aacSettings() {
@@ -37,14 +37,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
     }
 
     /**
-     * Ac3 Settings. See AC3 Settings for more details.
+     * AC3 settings. See `ac3Settings` Block for details.
      * 
      */
     @Import(name="ac3Settings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs> ac3Settings;
 
     /**
-     * @return Ac3 Settings. See AC3 Settings for more details.
+     * @return AC3 settings. See `ac3Settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs>> ac3Settings() {
@@ -52,14 +52,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
     }
 
     /**
-     * Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * EAC3 Atmos settings. See `eac3AtmosSettings` Block for details.
      * 
      */
     @Import(name="eac3AtmosSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs> eac3AtmosSettings;
 
     /**
-     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * @return EAC3 Atmos settings. See `eac3AtmosSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs>> eac3AtmosSettings() {
@@ -67,37 +67,61 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
     }
 
     /**
-     * Eac3 Settings. See EAC3 Settings
+     * EAC3 settings. See `eac3Settings` Block for details.
      * 
      */
     @Import(name="eac3Settings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs> eac3Settings;
 
     /**
-     * @return Eac3 Settings. See EAC3 Settings
+     * @return EAC3 settings. See `eac3Settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs>> eac3Settings() {
         return Optional.ofNullable(this.eac3Settings);
     }
 
+    /**
+     * MP2 settings. See `mp2Settings` Block for details.
+     * 
+     */
     @Import(name="mp2Settings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs> mp2Settings;
 
+    /**
+     * @return MP2 settings. See `mp2Settings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs>> mp2Settings() {
         return Optional.ofNullable(this.mp2Settings);
     }
 
+    /**
+     * Pass-through settings. Can be set as an empty block.
+     * 
+     */
     @Import(name="passThroughSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs> passThroughSettings;
 
+    /**
+     * @return Pass-through settings. Can be set as an empty block.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs>> passThroughSettings() {
         return Optional.ofNullable(this.passThroughSettings);
     }
 
+    /**
+     * WAV settings. See `wavSettings` Block for details.
+     * 
+     */
     @Import(name="wavSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs> wavSettings;
 
+    /**
+     * @return WAV settings. See `wavSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs>> wavSettings() {
         return Optional.ofNullable(this.wavSettings);
     }
@@ -133,7 +157,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param aacSettings Aac Settings. See AAC Settings for more details.
+         * @param aacSettings AAC settings. See `aacSettings` Block for details.
          * 
          * @return builder
          * 
@@ -144,7 +168,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param aacSettings Aac Settings. See AAC Settings for more details.
+         * @param aacSettings AAC settings. See `aacSettings` Block for details.
          * 
          * @return builder
          * 
@@ -154,7 +178,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param ac3Settings Ac3 Settings. See AC3 Settings for more details.
+         * @param ac3Settings AC3 settings. See `ac3Settings` Block for details.
          * 
          * @return builder
          * 
@@ -165,7 +189,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param ac3Settings Ac3 Settings. See AC3 Settings for more details.
+         * @param ac3Settings AC3 settings. See `ac3Settings` Block for details.
          * 
          * @return builder
          * 
@@ -175,7 +199,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3AtmosSettings Eac3 Atmos Settings. See EAC3 Atmos Settings
+         * @param eac3AtmosSettings EAC3 Atmos settings. See `eac3AtmosSettings` Block for details.
          * 
          * @return builder
          * 
@@ -186,7 +210,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3AtmosSettings Eac3 Atmos Settings. See EAC3 Atmos Settings
+         * @param eac3AtmosSettings EAC3 Atmos settings. See `eac3AtmosSettings` Block for details.
          * 
          * @return builder
          * 
@@ -196,7 +220,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3Settings Eac3 Settings. See EAC3 Settings
+         * @param eac3Settings EAC3 settings. See `eac3Settings` Block for details.
          * 
          * @return builder
          * 
@@ -207,7 +231,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3Settings Eac3 Settings. See EAC3 Settings
+         * @param eac3Settings EAC3 settings. See `eac3Settings` Block for details.
          * 
          * @return builder
          * 
@@ -216,29 +240,65 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
             return eac3Settings(Output.of(eac3Settings));
         }
 
+        /**
+         * @param mp2Settings MP2 settings. See `mp2Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mp2Settings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs> mp2Settings) {
             $.mp2Settings = mp2Settings;
             return this;
         }
 
+        /**
+         * @param mp2Settings MP2 settings. See `mp2Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mp2Settings(ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs mp2Settings) {
             return mp2Settings(Output.of(mp2Settings));
         }
 
+        /**
+         * @param passThroughSettings Pass-through settings. Can be set as an empty block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passThroughSettings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs> passThroughSettings) {
             $.passThroughSettings = passThroughSettings;
             return this;
         }
 
+        /**
+         * @param passThroughSettings Pass-through settings. Can be set as an empty block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passThroughSettings(ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs passThroughSettings) {
             return passThroughSettings(Output.of(passThroughSettings));
         }
 
+        /**
+         * @param wavSettings WAV settings. See `wavSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wavSettings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs> wavSettings) {
             $.wavSettings = wavSettings;
             return this;
         }
 
+        /**
+         * @param wavSettings WAV settings. See `wavSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wavSettings(ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs wavSettings) {
             return wavSettings(Output.of(wavSettings));
         }

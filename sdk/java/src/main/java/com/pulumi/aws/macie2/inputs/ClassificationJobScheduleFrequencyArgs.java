@@ -18,14 +18,14 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
     public static final ClassificationJobScheduleFrequencyArgs Empty = new ClassificationJobScheduleFrequencyArgs();
 
     /**
-     * Specifies a daily recurrence pattern for running the job.
+     * Whether to run the job on a daily recurrence pattern.
      * 
      */
     @Import(name="dailySchedule")
     private @Nullable Output<Boolean> dailySchedule;
 
     /**
-     * @return Specifies a daily recurrence pattern for running the job.
+     * @return Whether to run the job on a daily recurrence pattern.
      * 
      */
     public Optional<Output<Boolean>> dailySchedule() {
@@ -33,14 +33,14 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies a monthly recurrence pattern for running the job.
+     * Day of the month on which to run the job for a monthly recurrence pattern.
      * 
      */
     @Import(name="monthlySchedule")
     private @Nullable Output<Integer> monthlySchedule;
 
     /**
-     * @return Specifies a monthly recurrence pattern for running the job.
+     * @return Day of the month on which to run the job for a monthly recurrence pattern.
      * 
      */
     public Optional<Output<Integer>> monthlySchedule() {
@@ -48,14 +48,14 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies a weekly recurrence pattern for running the job.
+     * Day of the week on which to run the job for a weekly recurrence pattern.
      * 
      */
     @Import(name="weeklySchedule")
     private @Nullable Output<String> weeklySchedule;
 
     /**
-     * @return Specifies a weekly recurrence pattern for running the job.
+     * @return Day of the week on which to run the job for a weekly recurrence pattern.
      * 
      */
     public Optional<Output<String>> weeklySchedule() {
@@ -89,7 +89,7 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
         }
 
         /**
-         * @param dailySchedule Specifies a daily recurrence pattern for running the job.
+         * @param dailySchedule Whether to run the job on a daily recurrence pattern.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
         }
 
         /**
-         * @param dailySchedule Specifies a daily recurrence pattern for running the job.
+         * @param dailySchedule Whether to run the job on a daily recurrence pattern.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
         }
 
         /**
-         * @param monthlySchedule Specifies a monthly recurrence pattern for running the job.
+         * @param monthlySchedule Day of the month on which to run the job for a monthly recurrence pattern.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
         }
 
         /**
-         * @param monthlySchedule Specifies a monthly recurrence pattern for running the job.
+         * @param monthlySchedule Day of the month on which to run the job for a monthly recurrence pattern.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
         }
 
         /**
-         * @param weeklySchedule Specifies a weekly recurrence pattern for running the job.
+         * @param weeklySchedule Day of the week on which to run the job for a weekly recurrence pattern.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ClassificationJobScheduleFrequencyArgs extends com.pulumi.res
         }
 
         /**
-         * @param weeklySchedule Specifies a weekly recurrence pattern for running the job.
+         * @param weeklySchedule Day of the week on which to run the job for a weekly recurrence pattern.
          * 
          * @return builder
          * 

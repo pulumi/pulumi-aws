@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch
 {
     /// <summary>
-    /// Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
+    /// Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon Elasticsearch Service-managed VPC endpoint.
     /// 
     /// ## Example Usage
     /// 
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import elasticsearch VPC endpoints using the `Id`. For example:
+    /// Using `pulumi import`, import Elasticsearch VPC endpoints using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id

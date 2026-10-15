@@ -22,12 +22,12 @@ public final class EndpointRedshiftSettings {
      */
     private @Nullable String bucketName;
     /**
-     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     private @Nullable String encryptionMode;
     /**
-     * @return ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+     * @return ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     private @Nullable String serverSideEncryptionKmsKeyId;
@@ -53,14 +53,14 @@ public final class EndpointRedshiftSettings {
         return Optional.ofNullable(this.bucketName);
     }
     /**
-     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     public Optional<String> encryptionMode() {
         return Optional.ofNullable(this.encryptionMode);
     }
     /**
-     * @return ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+     * @return ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     public Optional<String> serverSideEncryptionKmsKeyId() {

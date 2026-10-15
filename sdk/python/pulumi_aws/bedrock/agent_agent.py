@@ -51,11 +51,11 @@ class AgentAgentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context. See `memory_configuration` Block for details.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the agent. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_name", agent_name)
@@ -202,7 +202,7 @@ class AgentAgentArgs:
     @pulumi.getter(name="memoryConfigurations")
     def memory_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]:
         """
-        Configurations for the agent's ability to retain the conversational context.
+        Configurations for the agent's ability to retain the conversational context. See `memory_configuration` Block for details.
         """
         return pulumi.get(self, "memory_configurations")
 
@@ -250,7 +250,7 @@ class AgentAgentArgs:
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether the in-use check is skipped when deleting the agent.
+        Whether to skip the in-use check when deleting the agent. Defaults to `false`.
         """
         return pulumi.get(self, "skip_resource_in_use_check")
 
@@ -321,12 +321,12 @@ class _AgentAgentState:
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context. See `memory_configuration` Block for details.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] prepared_at: Timestamp of when the agent was last prepared.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the agent. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -523,7 +523,7 @@ class _AgentAgentState:
     @pulumi.getter(name="memoryConfigurations")
     def memory_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]:
         """
-        Configurations for the agent's ability to retain the conversational context.
+        Configurations for the agent's ability to retain the conversational context. See `memory_configuration` Block for details.
         """
         return pulumi.get(self, "memory_configurations")
 
@@ -583,7 +583,7 @@ class _AgentAgentState:
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether the in-use check is skipped when deleting the agent.
+        Whether to skip the in-use check when deleting the agent. Defaults to `false`.
         """
         return pulumi.get(self, "skip_resource_in_use_check")
 
@@ -649,7 +649,7 @@ class AgentAgent(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict', 'outputs.AgentAgentTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent.
+        Manages an AWS Agents for Amazon Bedrock Agent.
 
         ## Example Usage
 
@@ -721,11 +721,11 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context. See `memory_configuration` Block for details.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the agent. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -735,7 +735,7 @@ class AgentAgent(pulumi.CustomResource):
                  args: AgentAgentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent.
+        Manages an AWS Agents for Amazon Bedrock Agent.
 
         ## Example Usage
 
@@ -913,12 +913,12 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context. See `memory_configuration` Block for details.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] prepared_at: Timestamp of when the agent was last prepared.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether to skip the in-use check when deleting the agent. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -1051,7 +1051,7 @@ class AgentAgent(pulumi.CustomResource):
     @pulumi.getter(name="memoryConfigurations")
     def memory_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentMemoryConfiguration']]:
         """
-        Configurations for the agent's ability to retain the conversational context.
+        Configurations for the agent's ability to retain the conversational context. See `memory_configuration` Block for details.
         """
         return pulumi.get(self, "memory_configurations")
 
@@ -1091,7 +1091,7 @@ class AgentAgent(pulumi.CustomResource):
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether the in-use check is skipped when deleting the agent.
+        Whether to skip the in-use check when deleting the agent. Defaults to `false`.
         """
         return pulumi.get(self, "skip_resource_in_use_check")
 

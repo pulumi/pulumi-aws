@@ -1038,6 +1038,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Pricing *string `pulumi:"pricing"`
 	// Use this to override the default service endpoint URL
+	Pricingplanmanager *string `pulumi:"pricingplanmanager"`
+	// Use this to override the default service endpoint URL
 	Prometheus *string `pulumi:"prometheus"`
 	// Use this to override the default service endpoint URL
 	Prometheusservice *string `pulumi:"prometheusservice"`
@@ -1701,6 +1703,8 @@ type ProviderEndpointArgs struct {
 	Polly pulumi.StringPtrInput `pulumi:"polly"`
 	// Use this to override the default service endpoint URL
 	Pricing pulumi.StringPtrInput `pulumi:"pricing"`
+	// Use this to override the default service endpoint URL
+	Pricingplanmanager pulumi.StringPtrInput `pulumi:"pricingplanmanager"`
 	// Use this to override the default service endpoint URL
 	Prometheus pulumi.StringPtrInput `pulumi:"prometheus"`
 	// Use this to override the default service endpoint URL
@@ -3113,6 +3117,11 @@ func (o ProviderEndpointOutput) Polly() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Pricing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Pricing }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Pricingplanmanager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Pricingplanmanager }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

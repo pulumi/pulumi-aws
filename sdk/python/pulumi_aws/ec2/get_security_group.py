@@ -127,13 +127,13 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
     """
     `ec2.SecurityGroup` provides details about a specific Security Group.
 
-    This resource can prove useful when a module accepts a Security Group id as
-    an input variable and needs to, for example, determine the id of the
+    This resource can prove useful when a module accepts a Security Group ID as
+    an input variable and needs to, for example, determine the ID of the
     VPC that the security group belongs to.
 
     ## Example Usage
 
-    The following example shows how one might accept a Security Group id as a variable
+    The following example shows how one might accept a Security Group ID as a variable
     and use this data source to obtain the data necessary to create a subnet.
 
     ```python
@@ -150,13 +150,13 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
 
 
     :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict', 'outputs.GetSecurityGroupFilterResult']] filters: Custom filter block as described below.
-    :param _builtins.str id: Id of the specific security group to retrieve.
+    :param _builtins.str id: ID of the specific security group to retrieve.
     :param _builtins.str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
-    :param _builtins.str vpc_id: Id of the VPC that the desired security group belongs to.
+    :param _builtins.str vpc_id: ID of the VPC that the desired security group belongs to.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -190,13 +190,13 @@ def get_security_group_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     """
     `ec2.SecurityGroup` provides details about a specific Security Group.
 
-    This resource can prove useful when a module accepts a Security Group id as
-    an input variable and needs to, for example, determine the id of the
+    This resource can prove useful when a module accepts a Security Group ID as
+    an input variable and needs to, for example, determine the ID of the
     VPC that the security group belongs to.
 
     ## Example Usage
 
-    The following example shows how one might accept a Security Group id as a variable
+    The following example shows how one might accept a Security Group ID as a variable
     and use this data source to obtain the data necessary to create a subnet.
 
     ```python
@@ -213,13 +213,13 @@ def get_security_group_output(filters: pulumi.Input[Optional[Optional[Sequence[U
 
 
     :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict', 'outputs.GetSecurityGroupFilterResult']] filters: Custom filter block as described below.
-    :param _builtins.str id: Id of the specific security group to retrieve.
+    :param _builtins.str id: ID of the specific security group to retrieve.
     :param _builtins.str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
-    :param _builtins.str vpc_id: Id of the VPC that the desired security group belongs to.
+    :param _builtins.str vpc_id: ID of the VPC that the desired security group belongs to.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

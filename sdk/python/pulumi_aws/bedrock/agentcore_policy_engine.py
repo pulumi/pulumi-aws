@@ -31,7 +31,7 @@ class AgentcorePolicyEngineArgs:
         The set of arguments for constructing a AgentcorePolicyEngine resource.
 
         :param pulumi.Input[_builtins.str] description: Description of the policy engine.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         :param pulumi.Input[_builtins.str] name: Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
                
                The following arguments are optional:
@@ -67,7 +67,7 @@ class AgentcorePolicyEngineArgs:
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         """
         return pulumi.get(self, "encryption_key_arn")
 
@@ -139,7 +139,7 @@ class _AgentcorePolicyEngineState:
         Input properties used for looking up and filtering AgentcorePolicyEngine resources.
 
         :param pulumi.Input[_builtins.str] description: Description of the policy engine.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         :param pulumi.Input[_builtins.str] name: Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
                
                The following arguments are optional:
@@ -184,7 +184,7 @@ class _AgentcorePolicyEngineState:
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         """
         return pulumi.get(self, "encryption_key_arn")
 
@@ -335,12 +335,12 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
 
         #### Required
 
-        - `policy_engine_id` (String) Policy engine ID.
+        * `policy_engine_id` (String) Policy engine ID.
 
         #### Optional
 
-        * `account_id` (String) AWS account ID for this resource.
-        * `region` (String) AWS Region for this resource.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import a Bedrock AgentCore Policy Engine by policy engine ID. For example:
 
@@ -352,7 +352,7 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy engine.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         :param pulumi.Input[_builtins.str] name: Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
                
                The following arguments are optional:
@@ -411,12 +411,12 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
 
         #### Required
 
-        - `policy_engine_id` (String) Policy engine ID.
+        * `policy_engine_id` (String) Policy engine ID.
 
         #### Optional
 
-        * `account_id` (String) AWS account ID for this resource.
-        * `region` (String) AWS Region for this resource.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import a Bedrock AgentCore Policy Engine by policy engine ID. For example:
 
@@ -491,7 +491,7 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy engine.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         :param pulumi.Input[_builtins.str] name: Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
                
                The following arguments are optional:
@@ -528,7 +528,7 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         """
         return pulumi.get(self, "encryption_key_arn")
 

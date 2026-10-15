@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import WAF Regional Geo Match Set using the id. For example:
+ * Using `pulumi import`, import WAF Regional Geo Match Set using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:wafregional/geoMatchSet:GeoMatchSet geo_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

@@ -32,14 +32,14 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
     }
 
     /**
-     * The file key for an object in an S3 bucket.
+     * File key for an object in an S3 bucket.
      * 
      */
     @Import(name="fileKey", required=true)
     private Output<String> fileKey;
 
     /**
-     * @return The file key for an object in an S3 bucket.
+     * @return File key for an object in an S3 bucket.
      * 
      */
     public Output<String> fileKey() {
@@ -47,14 +47,14 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
     }
 
     /**
-     * The version of an object in an S3 bucket.
+     * Version of an object in an S3 bucket.
      * 
      */
     @Import(name="objectVersion")
     private @Nullable Output<String> objectVersion;
 
     /**
-     * @return The version of an object in an S3 bucket.
+     * @return Version of an object in an S3 bucket.
      * 
      */
     public Optional<Output<String>> objectVersion() {
@@ -109,7 +109,7 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param fileKey The file key for an object in an S3 bucket.
+         * @param fileKey File key for an object in an S3 bucket.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param fileKey The file key for an object in an S3 bucket.
+         * @param fileKey File key for an object in an S3 bucket.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param objectVersion The version of an object in an S3 bucket.
+         * @param objectVersion Version of an object in an S3 bucket.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param objectVersion The version of an object in an S3 bucket.
+         * @param objectVersion Version of an object in an S3 bucket.
          * 
          * @return builder
          * 

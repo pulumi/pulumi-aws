@@ -124,8 +124,8 @@ class _HsmState:
 
         :param pulumi.Input[_builtins.str] availability_zone: The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
-        :param pulumi.Input[_builtins.str] hsm_eni_id: The id of the ENI interface allocated for HSM module.
-        :param pulumi.Input[_builtins.str] hsm_id: The id of the HSM module.
+        :param pulumi.Input[_builtins.str] hsm_eni_id: The ID of the ENI interface allocated for HSM module.
+        :param pulumi.Input[_builtins.str] hsm_id: The ID of the HSM module.
         :param pulumi.Input[_builtins.str] hsm_state: The state of the HSM module.
         :param pulumi.Input[_builtins.str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
                
@@ -178,7 +178,7 @@ class _HsmState:
     @pulumi.getter(name="hsmEniId")
     def hsm_eni_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The id of the ENI interface allocated for HSM module.
+        The ID of the ENI interface allocated for HSM module.
         """
         return pulumi.get(self, "hsm_eni_id")
 
@@ -190,7 +190,7 @@ class _HsmState:
     @pulumi.getter(name="hsmId")
     def hsm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The id of the HSM module.
+        The ID of the HSM module.
         """
         return pulumi.get(self, "hsm_id")
 
@@ -395,8 +395,8 @@ class Hsm(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
-        :param pulumi.Input[_builtins.str] hsm_eni_id: The id of the ENI interface allocated for HSM module.
-        :param pulumi.Input[_builtins.str] hsm_id: The id of the HSM module.
+        :param pulumi.Input[_builtins.str] hsm_eni_id: The ID of the ENI interface allocated for HSM module.
+        :param pulumi.Input[_builtins.str] hsm_id: The ID of the HSM module.
         :param pulumi.Input[_builtins.str] hsm_state: The state of the HSM module.
         :param pulumi.Input[_builtins.str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
                
@@ -438,7 +438,7 @@ class Hsm(pulumi.CustomResource):
     @pulumi.getter(name="hsmEniId")
     def hsm_eni_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the ENI interface allocated for HSM module.
+        The ID of the ENI interface allocated for HSM module.
         """
         return pulumi.get(self, "hsm_eni_id")
 
@@ -446,7 +446,7 @@ class Hsm(pulumi.CustomResource):
     @pulumi.getter(name="hsmId")
     def hsm_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the HSM module.
+        The ID of the HSM module.
         """
         return pulumi.get(self, "hsm_id")
 

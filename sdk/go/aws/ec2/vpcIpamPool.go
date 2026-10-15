@@ -245,7 +245,7 @@ type VpcIpamPool struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
-	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
 	SourceResource VpcIpamPoolSourceResourcePtrOutput `pulumi:"sourceResource"`
 	// State of the IPAM pool.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -327,7 +327,7 @@ type vpcIpamPoolState struct {
 	Region *string `pulumi:"region"`
 	// ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
-	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
 	SourceResource *VpcIpamPoolSourceResource `pulumi:"sourceResource"`
 	// State of the IPAM pool.
 	State *string `pulumi:"state"`
@@ -374,7 +374,7 @@ type VpcIpamPoolState struct {
 	Region pulumi.StringPtrInput
 	// ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
-	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
 	SourceResource VpcIpamPoolSourceResourcePtrInput
 	// State of the IPAM pool.
 	State pulumi.StringPtrInput
@@ -419,7 +419,7 @@ type vpcIpamPoolArgs struct {
 	Region *string `pulumi:"region"`
 	// ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
-	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
 	SourceResource *VpcIpamPoolSourceResource `pulumi:"sourceResource"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -457,7 +457,7 @@ type VpcIpamPoolArgs struct {
 	Region pulumi.StringPtrInput
 	// ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
-	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
 	SourceResource VpcIpamPoolSourceResourcePtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -640,7 +640,7 @@ func (o VpcIpamPoolOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.SourceIpamPoolId }).(pulumi.StringPtrOutput)
 }
 
-// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
 func (o VpcIpamPoolOutput) SourceResource() VpcIpamPoolSourceResourcePtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) VpcIpamPoolSourceResourcePtrOutput { return v.SourceResource }).(VpcIpamPoolSourceResourcePtrOutput)
 }

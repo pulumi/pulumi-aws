@@ -18,14 +18,14 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
     public static final ClusterClientAuthenticationArgs Empty = new ClusterClientAuthenticationArgs();
 
     /**
-     * Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+     * Configuration block for specifying SASL client authentication. See `sasl` Block below.
      * 
      */
     @Import(name="sasl")
     private @Nullable Output<ClusterClientAuthenticationSaslArgs> sasl;
 
     /**
-     * @return Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+     * @return Configuration block for specifying SASL client authentication. See `sasl` Block below.
      * 
      */
     public Optional<Output<ClusterClientAuthenticationSaslArgs>> sasl() {
@@ -33,14 +33,14 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+     * Configuration block for specifying TLS client authentication. See `tls` Block below.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ClusterClientAuthenticationTlsArgs> tls;
 
     /**
-     * @return Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+     * @return Configuration block for specifying TLS client authentication. See `tls` Block below.
      * 
      */
     public Optional<Output<ClusterClientAuthenticationTlsArgs>> tls() {
@@ -48,14 +48,14 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Enables unauthenticated access.
+     * Whether to enable unauthenticated access.
      * 
      */
     @Import(name="unauthenticated")
     private @Nullable Output<Boolean> unauthenticated;
 
     /**
-     * @return Enables unauthenticated access.
+     * @return Whether to enable unauthenticated access.
      * 
      */
     public Optional<Output<Boolean>> unauthenticated() {
@@ -89,7 +89,7 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sasl Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+         * @param sasl Configuration block for specifying SASL client authentication. See `sasl` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sasl Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
+         * @param sasl Configuration block for specifying SASL client authentication. See `sasl` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tls Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+         * @param tls Configuration block for specifying TLS client authentication. See `tls` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tls Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
+         * @param tls Configuration block for specifying TLS client authentication. See `tls` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param unauthenticated Enables unauthenticated access.
+         * @param unauthenticated Whether to enable unauthenticated access.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param unauthenticated Enables unauthenticated access.
+         * @param unauthenticated Whether to enable unauthenticated access.
          * 
          * @return builder
          * 

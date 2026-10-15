@@ -28,7 +28,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class WafregionalFunctions {
     /**
-     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -68,7 +68,7 @@ public final class WafregionalFunctions {
         return getIpset(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -108,7 +108,7 @@ public final class WafregionalFunctions {
         return getIpsetPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -148,7 +148,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getIpset:getIpset", TypeShape.of(GetIpsetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -188,7 +188,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getIpset:getIpset", TypeShape.of(GetIpsetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+     * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -228,7 +228,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invokeAsync("aws:wafregional/getIpset:getIpset", TypeShape.of(GetIpsetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -268,7 +268,7 @@ public final class WafregionalFunctions {
         return getRateBasedMod(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -308,7 +308,7 @@ public final class WafregionalFunctions {
         return getRateBasedModPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -348,7 +348,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", TypeShape.of(GetRateBasedModResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -388,7 +388,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", TypeShape.of(GetRateBasedModResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+     * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -428,7 +428,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invokeAsync("aws:wafregional/getRateBasedMod:getRateBasedMod", TypeShape.of(GetRateBasedModResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -468,7 +468,7 @@ public final class WafregionalFunctions {
         return getRule(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -508,7 +508,7 @@ public final class WafregionalFunctions {
         return getRulePlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -548,7 +548,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -588,7 +588,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+     * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1055,7 +1055,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invokeAsync("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", TypeShape.of(GetSubscribedRuleGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1095,7 +1095,7 @@ public final class WafregionalFunctions {
         return getWebAcl(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1135,7 +1135,7 @@ public final class WafregionalFunctions {
         return getWebAclPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1175,7 +1175,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1215,7 +1215,7 @@ public final class WafregionalFunctions {
         return Deployment.getInstance().invoke("aws:wafregional/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+     * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
      * 
      * ## Example Usage
      * 

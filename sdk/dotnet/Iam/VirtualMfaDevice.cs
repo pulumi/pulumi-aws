@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> SerialNumber { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the virtual MFA device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the virtual MFA device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the virtual MFA device. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -60,7 +60,8 @@ type GetBrokerNodesArgs struct {
 type GetBrokerNodesResult struct {
 	ClusterArn string `pulumi:"clusterArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string                       `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// List of MSK Broker Nodes, sorted by broker ID in ascending order. See `nodeInfoList` Block for details.
 	NodeInfoLists []GetBrokerNodesNodeInfoList `pulumi:"nodeInfoLists"`
 	Region        string                       `pulumi:"region"`
 }
@@ -106,6 +107,7 @@ func (o GetBrokerNodesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerNodesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of MSK Broker Nodes, sorted by broker ID in ascending order. See `nodeInfoList` Block for details.
 func (o GetBrokerNodesResultOutput) NodeInfoLists() GetBrokerNodesNodeInfoListArrayOutput {
 	return o.ApplyT(func(v GetBrokerNodesResult) []GetBrokerNodesNodeInfoList { return v.NodeInfoLists }).(GetBrokerNodesNodeInfoListArrayOutput)
 }

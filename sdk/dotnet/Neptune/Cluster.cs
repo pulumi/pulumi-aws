@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `Audit` and `Slowquery`.
+        /// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `Audit` and `Slowquery`.
         /// </summary>
         [Output("enableCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnableCloudwatchLogsExports { get; private set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _enableCloudwatchLogsExports;
 
         /// <summary>
-        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `Audit` and `Slowquery`.
+        /// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `Audit` and `Slowquery`.
         /// </summary>
         public InputList<string> EnableCloudwatchLogsExports
         {
@@ -638,7 +638,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _enableCloudwatchLogsExports;
 
         /// <summary>
-        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `Audit` and `Slowquery`.
+        /// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `Audit` and `Slowquery`.
         /// </summary>
         public InputList<string> EnableCloudwatchLogsExports
         {

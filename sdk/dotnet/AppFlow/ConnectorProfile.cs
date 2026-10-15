@@ -114,7 +114,7 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// #### Required
     /// 
-    /// * `Name` (String) Name of the Appflow connector profile.
+    /// * `Name` (String) Name of the AppFlow connector profile.
     /// 
     /// #### Optional
     /// 

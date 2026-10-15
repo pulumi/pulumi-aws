@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
 //
 // ```go
 // package main

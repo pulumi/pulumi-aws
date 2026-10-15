@@ -4388,7 +4388,7 @@ type EndpointMysqlSettings struct {
 	EventsPollInterval *int `pulumi:"eventsPollInterval"`
 	// Client statement timeout (in seconds) for a MySQL source endpoint.
 	ExecuteTimeout *int `pulumi:"executeTimeout"`
-	// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+	// Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
 	MaxFileSize *int `pulumi:"maxFileSize"`
 	// Number of threads to use to load the data into the MySQL-compatible target database.
 	ParallelLoadThreads *int `pulumi:"parallelLoadThreads"`
@@ -4422,7 +4422,7 @@ type EndpointMysqlSettingsArgs struct {
 	EventsPollInterval pulumi.IntPtrInput `pulumi:"eventsPollInterval"`
 	// Client statement timeout (in seconds) for a MySQL source endpoint.
 	ExecuteTimeout pulumi.IntPtrInput `pulumi:"executeTimeout"`
-	// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+	// Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
 	// Number of threads to use to load the data into the MySQL-compatible target database.
 	ParallelLoadThreads pulumi.IntPtrInput `pulumi:"parallelLoadThreads"`
@@ -4536,7 +4536,7 @@ func (o EndpointMysqlSettingsOutput) ExecuteTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.ExecuteTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+// Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
 func (o EndpointMysqlSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
@@ -4635,7 +4635,7 @@ func (o EndpointMysqlSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+// Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
 func (o EndpointMysqlSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
 		if v == nil {
@@ -5535,7 +5535,7 @@ type EndpointPostgresSettings struct {
 	MapJsonbAsClob *bool `pulumi:"mapJsonbAsClob"`
 	// Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
 	MapLongVarcharAs *string `pulumi:"mapLongVarcharAs"`
-	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+	// Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize *int `pulumi:"maxFileSize"`
 	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 	PluginName *string `pulumi:"pluginName"`
@@ -5585,7 +5585,7 @@ type EndpointPostgresSettingsArgs struct {
 	MapJsonbAsClob pulumi.BoolPtrInput `pulumi:"mapJsonbAsClob"`
 	// Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
 	MapLongVarcharAs pulumi.StringPtrInput `pulumi:"mapLongVarcharAs"`
-	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+	// Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
 	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 	PluginName pulumi.StringPtrInput `pulumi:"pluginName"`
@@ -5742,7 +5742,7 @@ func (o EndpointPostgresSettingsOutput) MapLongVarcharAs() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.MapLongVarcharAs }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+// Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 func (o EndpointPostgresSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
@@ -5926,7 +5926,7 @@ func (o EndpointPostgresSettingsPtrOutput) MapLongVarcharAs() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+// Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 func (o EndpointPostgresSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *int {
 		if v == nil {
@@ -6222,9 +6222,9 @@ type EndpointRedshiftSettings struct {
 	BucketFolder *string `pulumi:"bucketFolder"`
 	// Custom S3 Bucket name for intermediate storage.
 	BucketName *string `pulumi:"bucketName"`
-	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+	// The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode *string `pulumi:"encryptionMode"`
-	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+	// ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
@@ -6246,9 +6246,9 @@ type EndpointRedshiftSettingsArgs struct {
 	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
 	// Custom S3 Bucket name for intermediate storage.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+	// The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
-	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+	// ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
@@ -6341,12 +6341,12 @@ func (o EndpointRedshiftSettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+// The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointRedshiftSettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+// ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointRedshiftSettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -6400,7 +6400,7 @@ func (o EndpointRedshiftSettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+// The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -6410,7 +6410,7 @@ func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+// ARN or ID of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {

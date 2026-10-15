@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Data Source.
+ * Manages an AWS Agents for Amazon Bedrock Data Source.
  * 
  * ## Example Usage
  * 
@@ -256,6 +256,101 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
  *             .name("multimodal-example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### GraphRAG with Neptune Analytics
+ * 
+ * Knowledge bases that use `NEPTUNE_ANALYTICS` storage require every associated data source to set `contextEnrichmentConfiguration`.
+ * 
+ * The graph construction model must be one that GraphRAG currently supports, and the supported models are reachable only through a cross-Region [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html). Passing a plain foundation model ARN fails with `ValidationException: Invalid graph bedrock foundation model provided`.
+ * 
+ * The knowledge base service role needs:
+ * 
+ * * `bedrock:GetInferenceProfile` on `*`. Scoping this to the profile ARN is not honored, and creation fails with `Not authorized to call GetInferenceProfile` even when the granted ARN matches the one in the error.
+ * * `bedrock:InvokeModel` on the inference profile ARN.
+ * * `bedrock:InvokeModel` on the underlying foundation model in every Region the profile routes to, which `aws bedrock get-inference-profile` reports as `models[].modelArn`.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBase;
+ * import com.pulumi.aws.bedrock.AgentKnowledgeBaseArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs;
+ * import com.pulumi.aws.bedrock.AgentDataSource;
+ * import com.pulumi.aws.bedrock.AgentDataSourceArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
+ *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
+ *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
+ *                     .embeddingModelArn("arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3")
+ *                     .build())
+ *                 .type("VECTOR")
+ *                 .build())
+ *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
+ *                 .neptuneAnalyticsConfiguration(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs.builder()
+ *                     .fieldMapping(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs.builder()
+ *                         .metadataField("metadata")
+ *                         .textField("text")
+ *                         .build())
+ *                     .graphArn(exampleAwsNeptunegraphGraph.arn())
+ *                     .build())
+ *                 .type("NEPTUNE_ANALYTICS")
+ *                 .build())
+ *             .name("graphrag-example")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .build());
+ * 
+ *         var exampleAgentDataSource = new AgentDataSource("exampleAgentDataSource", AgentDataSourceArgs.builder()
+ *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
+ *                 .s3Configuration(AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.builder()
+ *                     .bucketArn(exampleAwsS3Bucket.arn())
+ *                     .build())
+ *                 .type("S3")
+ *                 .build())
+ *             .vectorIngestionConfiguration(AgentDataSourceVectorIngestionConfigurationArgs.builder()
+ *                 .contextEnrichmentConfiguration(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs.builder()
+ *                     .bedrockFoundationModelConfiguration(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs.builder()
+ *                         .enrichmentStrategyConfiguration(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs.builder()
+ *                             .method("CHUNK_ENTITY_EXTRACTION")
+ *                             .build())
+ *                         .modelArn(String.format("arn:aws:bedrock:us-east-1:%s:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0", current.accountId()))
+ *                         .build())
+ *                     .type("BEDROCK_FOUNDATION_MODEL")
+ *                     .build())
+ *                 .build())
+ *             .knowledgeBaseId(example.id())
+ *             .name("graphrag-example")
  *             .build());
  * 
  *     }

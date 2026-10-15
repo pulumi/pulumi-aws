@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
     /**
-     * @return Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+     * @return Captions channel, from 1 to 4, to extract from the ancillary captions. Complete this field if you plan to convert the ancillary captions to another format. Leave blank if you plan to choose Embedded as the captions destination in the output, because MediaLive ignores the field.
      * 
      */
     private @Nullable Integer sourceAncillaryChannelNumber;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings() {}
     /**
-     * @return Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+     * @return Captions channel, from 1 to 4, to extract from the ancillary captions. Complete this field if you plan to convert the ancillary captions to another format. Leave blank if you plan to choose Embedded as the captions destination in the output, because MediaLive ignores the field.
      * 
      */
     public Optional<Integer> sourceAncillaryChannelNumber() {

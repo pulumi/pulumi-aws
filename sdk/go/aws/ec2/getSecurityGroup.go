@@ -13,13 +13,13 @@ import (
 
 // `ec2.SecurityGroup` provides details about a specific Security Group.
 //
-// This resource can prove useful when a module accepts a Security Group id as
-// an input variable and needs to, for example, determine the id of the
+// This resource can prove useful when a module accepts a Security Group ID as
+// an input variable and needs to, for example, determine the ID of the
 // VPC that the security group belongs to.
 //
 // ## Example Usage
 //
-// The following example shows how one might accept a Security Group id as a variable
+// The following example shows how one might accept a Security Group ID as a variable
 // and use this data source to obtain the data necessary to create a subnet.
 //
 // ```go
@@ -70,7 +70,7 @@ func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opt
 type LookupSecurityGroupArgs struct {
 	// Custom filter block as described below.
 	Filters []GetSecurityGroupFilter `pulumi:"filters"`
-	// Id of the specific security group to retrieve.
+	// ID of the specific security group to retrieve.
 	Id *string `pulumi:"id"`
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
@@ -80,7 +80,7 @@ type LookupSecurityGroupArgs struct {
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags map[string]string `pulumi:"tags"`
-	// Id of the VPC that the desired security group belongs to.
+	// ID of the VPC that the desired security group belongs to.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
@@ -110,7 +110,7 @@ func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutp
 type LookupSecurityGroupOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetSecurityGroupFilterArrayInput `pulumi:"filters"`
-	// Id of the specific security group to retrieve.
+	// ID of the specific security group to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
@@ -120,7 +120,7 @@ type LookupSecurityGroupOutputArgs struct {
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Id of the VPC that the desired security group belongs to.
+	// ID of the VPC that the desired security group belongs to.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
     /**
-     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+     * @return Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
      * 
      */
     private String chunkingStrategy;
@@ -38,7 +38,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfiguration() {}
     /**
-     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+     * @return Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
      * 
      */
     public String chunkingStrategy() {

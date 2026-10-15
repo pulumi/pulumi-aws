@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorKafkaClusterAmazonMskCluster
     {
         /// <summary>
-        /// The ARN of an Amazon MSK cluster.
+        /// ARN of an Amazon MSK cluster.
         /// </summary>
         public readonly string MskClusterArn;
 

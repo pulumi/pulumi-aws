@@ -13,9 +13,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings
     {
+        /// <summary>
+        /// CBET check digits to use for the watermark.
+        /// </summary>
         public readonly string CbetCheckDigitString;
         /// <summary>
-        /// Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+        /// Method of CBET insertion mode when prior encoding is detected on the same layer.
         /// </summary>
         public readonly string CbetStepaside;
         /// <summary>

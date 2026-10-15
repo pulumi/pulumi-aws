@@ -233,6 +233,11 @@ export type QueryDefinition = import("./queryDefinition").QueryDefinition;
 export const QueryDefinition: typeof import("./queryDefinition").QueryDefinition = null as any;
 utilities.lazyLoad(exports, ["QueryDefinition"], () => require("./queryDefinition"));
 
+export { ResourceMetricsConfigurationArgs, ResourceMetricsConfigurationState } from "./resourceMetricsConfiguration";
+export type ResourceMetricsConfiguration = import("./resourceMetricsConfiguration").ResourceMetricsConfiguration;
+export const ResourceMetricsConfiguration: typeof import("./resourceMetricsConfiguration").ResourceMetricsConfiguration = null as any;
+utilities.lazyLoad(exports, ["ResourceMetricsConfiguration"], () => require("./resourceMetricsConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -312,6 +317,8 @@ const _module = {
                 return new OtelEnrichment(name, <any>undefined, { urn })
             case "aws:cloudwatch/queryDefinition:QueryDefinition":
                 return new QueryDefinition(name, <any>undefined, { urn })
+            case "aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration":
+                return new ResourceMetricsConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -354,3 +361,4 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricAlarm", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricStream", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/otelEnrichment", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/queryDefinition", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/resourceMetricsConfiguration", _module)

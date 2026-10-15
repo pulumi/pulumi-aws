@@ -14,19 +14,19 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsVideoDescription
     {
         /// <summary>
-        /// The video codec settings. See Video Codec Settings for more details.
+        /// Video codec settings. See `video_descriptions.codec_settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettings? CodecSettings;
         /// <summary>
-        /// Output video height in pixels.
+        /// Output video height, in pixels.
         /// </summary>
         public readonly int? Height;
         /// <summary>
-        /// The name of the video description.
+        /// Name of the video description.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicate how to respond to the AFD values that might be in the input video.
+        /// How to respond to the AFD values that might be in the input video.
         /// </summary>
         public readonly string? RespondToAfd;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? ScalingBehavior;
         /// <summary>
-        /// Changes the strength of the anti-alias filter used for scaling.
+        /// Strength of the anti-alias filter used for scaling.
         /// </summary>
         public readonly int? Sharpness;
         /// <summary>
-        /// Output video width in pixels.
+        /// Output video width, in pixels.
         /// </summary>
         public readonly int? Width;
 

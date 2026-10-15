@@ -17,14 +17,14 @@ public final class GetInputArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetInputArgs Empty = new GetInputArgs();
 
     /**
-     * The ID of the Input.
+     * ID of the Input.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Input.
+     * @return ID of the Input.
      * 
      */
     public Output<String> id() {
@@ -72,7 +72,7 @@ public final class GetInputArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Input.
+         * @param id ID of the Input.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetInputArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Input.
+         * @param id ID of the Input.
          * 
          * @return builder
          * 

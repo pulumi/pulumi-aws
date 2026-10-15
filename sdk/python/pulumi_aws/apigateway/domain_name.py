@@ -336,7 +336,7 @@ class _DomainNameState:
         :param pulumi.Input[_builtins.str] certificate_name: Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         :param pulumi.Input[_builtins.str] certificate_private_key: Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         :param pulumi.Input[_builtins.str] certificate_upload_date: Upload date associated with the domain certificate.
-        :param pulumi.Input[_builtins.str] cloudfront_domain_name: Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        :param pulumi.Input[_builtins.str] cloudfront_domain_name: Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
         :param pulumi.Input[_builtins.str] cloudfront_zone_id: For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         :param pulumi.Input[_builtins.str] domain_name: Fully-qualified domain name to register.
         :param pulumi.Input[_builtins.str] domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
@@ -494,7 +494,7 @@ class _DomainNameState:
     @pulumi.getter(name="cloudfrontDomainName")
     def cloudfront_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
         """
         return pulumi.get(self, "cloudfront_domain_name")
 
@@ -743,7 +743,7 @@ class DomainName(pulumi.CustomResource):
         API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
         API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
         addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
-        (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfront_domain_name`
+        (either Route53 alias or traditional CNAME) to the CloudFront domain name exported in the `cloudfront_domain_name`
         attribute.
 
         In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
@@ -879,7 +879,7 @@ class DomainName(pulumi.CustomResource):
         API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
         API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
         addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
-        (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfront_domain_name`
+        (either Route53 alias or traditional CNAME) to the CloudFront domain name exported in the `cloudfront_domain_name`
         attribute.
 
         In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
@@ -1096,7 +1096,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_name: Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         :param pulumi.Input[_builtins.str] certificate_private_key: Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         :param pulumi.Input[_builtins.str] certificate_upload_date: Upload date associated with the domain certificate.
-        :param pulumi.Input[_builtins.str] cloudfront_domain_name: Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        :param pulumi.Input[_builtins.str] cloudfront_domain_name: Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
         :param pulumi.Input[_builtins.str] cloudfront_zone_id: For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         :param pulumi.Input[_builtins.str] domain_name: Fully-qualified domain name to register.
         :param pulumi.Input[_builtins.str] domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
@@ -1206,7 +1206,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="cloudfrontDomainName")
     def cloudfront_domain_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
         """
         return pulumi.get(self, "cloudfront_domain_name")
 

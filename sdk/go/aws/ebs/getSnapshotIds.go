@@ -69,7 +69,7 @@ func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulum
 type GetSnapshotIdsArgs struct {
 	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
 	Filters []GetSnapshotIdsFilter `pulumi:"filters"`
-	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+	// Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
 	Owners []string `pulumi:"owners"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -98,7 +98,7 @@ func GetSnapshotIdsOutput(ctx *pulumi.Context, args GetSnapshotIdsOutputArgs, op
 type GetSnapshotIdsOutputArgs struct {
 	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
 	Filters GetSnapshotIdsFilterArrayInput `pulumi:"filters"`
-	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+	// Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

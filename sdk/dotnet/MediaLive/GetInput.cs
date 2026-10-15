@@ -94,7 +94,7 @@ namespace Pulumi.Aws.MediaLive
     public sealed class GetInputArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Input.
+        /// ID of the Input.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.MediaLive
     public sealed class GetInputInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Input.
+        /// ID of the Input.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -144,20 +144,23 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         public readonly ImmutableArray<string> AttachedChannels;
         /// <summary>
-        /// Destination settings for PUSH type inputs.
+        /// Destination settings for PUSH type inputs. See `Destinations` Block for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInputDestinationResult> Destinations;
+        /// <summary>
+        /// ID of the device.
+        /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The input class.
+        /// Input class.
         /// </summary>
         public readonly string InputClass;
         /// <summary>
-        /// Settings for the devices.
+        /// Settings for the devices. See `InputDevices` Block for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInputInputDeviceResult> InputDevices;
         /// <summary>
-        /// A list of IDs for all Inputs which are partners of this one.
+        /// IDs for all Inputs which are partners of this one.
         /// </summary>
         public readonly ImmutableArray<string> InputPartnerIds;
         /// <summary>
@@ -165,7 +168,7 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         public readonly string InputSourceType;
         /// <summary>
-        /// A list of the MediaConnect Flows.
+        /// MediaConnect Flows. See `MediaConnectFlows` Block for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInputMediaConnectFlowResult> MediaConnectFlows;
         /// <summary>
@@ -174,7 +177,7 @@ namespace Pulumi.Aws.MediaLive
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// The ARN of the role this input assumes during and after creation.
+        /// ARN of the role this input assumes during and after creation.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -182,19 +185,19 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// The source URLs for a PULL-type input.
+        /// Source URLs for a PULL-type input. See `Sources` Block for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInputSourceResult> Sources;
         /// <summary>
-        /// The state of the input.
+        /// State of the input.
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// A map of tags assigned to the Input.
+        /// Map of tags assigned to the Input.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of the input.
+        /// Type of the input.
         /// </summary>
         public readonly string Type;
 

@@ -121,7 +121,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import MQ Brokers using their broker id. For example:
+ * Using `pulumi import`, import MQ Brokers using their broker ID. For example:
  *
  * ```sh
  * $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -210,7 +210,7 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly hostInstanceType: pulumi.Output<string>;
     /**
-     * List of information about allocated brokers (both active & standby).
+     * List of information about allocated brokers (both active & standby). See `instances` Block for details.
      */
     declare public /*out*/ readonly instances: pulumi.Output<outputs.mq.BrokerInstance[]>;
     /**
@@ -246,7 +246,7 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
      */
     declare public /*out*/ readonly sharedResources: pulumi.Output<outputs.mq.BrokerSharedResource[]>;
     /**
@@ -415,7 +415,7 @@ export interface BrokerState {
      */
     hostInstanceType?: pulumi.Input<string | undefined>;
     /**
-     * List of information about allocated brokers (both active & standby).
+     * List of information about allocated brokers (both active & standby). See `instances` Block for details.
      */
     instances?: pulumi.Input<pulumi.Input<inputs.mq.BrokerInstance>[] | undefined>;
     /**
@@ -451,7 +451,7 @@ export interface BrokerState {
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
      */
     sharedResources?: pulumi.Input<pulumi.Input<inputs.mq.BrokerSharedResource>[] | undefined>;
     /**

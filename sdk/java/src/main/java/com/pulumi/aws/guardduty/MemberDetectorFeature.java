@@ -165,14 +165,14 @@ public class MemberDetectorFeature extends com.pulumi.resources.CustomResource {
         return this.detectorId;
     }
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * @return Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      * 
      */
     public Output<String> name() {
@@ -193,14 +193,14 @@ public class MemberDetectorFeature extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+     * Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Output<String> status() {

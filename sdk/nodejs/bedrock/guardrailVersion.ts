@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Bedrock Guardrail Version.
+ * Manages an AWS Bedrock Guardrail Version.
  *
  * ## Example Usage
  *
@@ -20,17 +20,17 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.bedrock.GuardrailVersion("example", {
  *     description: "example",
- *     guardrailArn: test.guardrailArn,
+ *     guardrailArn: exampleAwsBedrockGuardrail.guardrailArn,
  *     skipDestroy: true,
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrailArn` and `version`. For example:
+ * Using `pulumi import`, import Amazon Bedrock Guardrail Version using a comma-delimited string of `guardrailArn` and `version`. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
+ * $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail/guardrail-id-12345678,1
  * ```
  */
 export class GuardrailVersion extends pulumi.CustomResource {
@@ -76,7 +76,7 @@ export class GuardrailVersion extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
      */
     declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.GuardrailVersionTimeouts | undefined>;
@@ -140,7 +140,7 @@ export interface GuardrailVersionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
      */
     skipDestroy?: pulumi.Input<boolean | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts | undefined>;
@@ -169,7 +169,7 @@ export interface GuardrailVersionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
      */
     skipDestroy?: pulumi.Input<boolean | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts | undefined>;

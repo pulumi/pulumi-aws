@@ -26,7 +26,7 @@ public final class GetRouteTableRoutesRoute {
      */
     private String state;
     /**
-     * @return The id of the transit gateway route table announcement, most of the time it is an empty string.
+     * @return The ID of the transit gateway route table announcement, most of the time it is an empty string.
      * 
      */
     private String transitGatewayRouteTableAnnouncementId;
@@ -59,7 +59,7 @@ public final class GetRouteTableRoutesRoute {
         return this.state;
     }
     /**
-     * @return The id of the transit gateway route table announcement, most of the time it is an empty string.
+     * @return The ID of the transit gateway route table announcement, most of the time it is an empty string.
      * 
      */
     public String transitGatewayRouteTableAnnouncementId() {

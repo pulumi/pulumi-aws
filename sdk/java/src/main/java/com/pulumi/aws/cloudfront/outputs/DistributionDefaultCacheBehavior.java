@@ -55,12 +55,12 @@ public final class DistributionDefaultCacheBehavior {
      */
     private @Nullable DistributionDefaultCacheBehaviorForwardedValues forwardedValues;
     /**
-     * @return A config block that triggers a cloudfront function with specific actions (maximum 2).
+     * @return A config block that triggers a CloudFront function with specific actions (maximum 2).
      * 
      */
     private @Nullable List<DistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations;
     /**
-     * @return A config block that sets the grpc config.
+     * @return A config block that sets the gRPC config.
      * 
      */
     private @Nullable DistributionDefaultCacheBehaviorGrpcConfig grpcConfig;
@@ -171,14 +171,14 @@ public final class DistributionDefaultCacheBehavior {
         return Optional.ofNullable(this.forwardedValues);
     }
     /**
-     * @return A config block that triggers a cloudfront function with specific actions (maximum 2).
+     * @return A config block that triggers a CloudFront function with specific actions (maximum 2).
      * 
      */
     public List<DistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations() {
         return this.functionAssociations == null ? List.of() : this.functionAssociations;
     }
     /**
-     * @return A config block that sets the grpc config.
+     * @return A config block that sets the gRPC config.
      * 
      */
     public Optional<DistributionDefaultCacheBehaviorGrpcConfig> grpcConfig() {

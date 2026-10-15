@@ -41,14 +41,14 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
     }
 
     /**
-     * Local Gateway Route Table Id assigned to desired local gateway route table
+     * Local Gateway Route Table ID assigned to desired local gateway route table
      * 
      */
     @Import(name="localGatewayRouteTableId")
     private @Nullable Output<String> localGatewayRouteTableId;
 
     /**
-     * @return Local Gateway Route Table Id assigned to desired local gateway route table
+     * @return Local Gateway Route Table ID assigned to desired local gateway route table
      * 
      */
     public Optional<Output<String>> localGatewayRouteTableId() {
@@ -190,7 +190,7 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired local gateway route table
+         * @param localGatewayRouteTableId Local Gateway Route Table ID assigned to desired local gateway route table
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired local gateway route table
+         * @param localGatewayRouteTableId Local Gateway Route Table ID assigned to desired local gateway route table
          * 
          * @return builder
          * 

@@ -95,7 +95,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.appstream.Stack` using the id. For example:
+    /// Using `pulumi import`, import `aws.appstream.Stack` using the ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appstream/stack:Stack example stackID
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.AppStream
         public Output<Outputs.StackApplicationSettings> ApplicationSettings { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the appstream stack.
+        /// ARN of the AppStream stack.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.AppStream
         public Input<Inputs.StackApplicationSettingsGetArgs>? ApplicationSettings { get; set; }
 
         /// <summary>
-        /// ARN of the appstream stack.
+        /// ARN of the AppStream stack.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

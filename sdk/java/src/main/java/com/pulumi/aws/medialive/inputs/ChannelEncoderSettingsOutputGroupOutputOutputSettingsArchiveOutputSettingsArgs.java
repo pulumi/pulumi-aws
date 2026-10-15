@@ -17,14 +17,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs();
 
     /**
-     * Settings specific to the container type of the file. See Container Settings for more details.
+     * Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
      * 
      */
     @Import(name="containerSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs> containerSettings;
 
     /**
-     * @return Settings specific to the container type of the file. See Container Settings for more details.
+     * @return Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs>> containerSettings() {
@@ -88,7 +88,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
         }
 
         /**
-         * @param containerSettings Settings specific to the container type of the file. See Container Settings for more details.
+         * @param containerSettings Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
         }
 
         /**
-         * @param containerSettings Settings specific to the container type of the file. See Container Settings for more details.
+         * @param containerSettings Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
          * 
          * @return builder
          * 

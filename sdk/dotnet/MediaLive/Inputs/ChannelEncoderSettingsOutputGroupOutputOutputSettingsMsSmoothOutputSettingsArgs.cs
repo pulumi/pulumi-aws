@@ -12,11 +12,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+        /// </summary>
         [Input("h265PackagingType")]
         public Input<string>? H265PackagingType { get; set; }
 
         /// <summary>
-        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        /// String concatenated to the end of the destination filename.
         /// </summary>
         [Input("nameModifier")]
         public Input<string>? NameModifier { get; set; }

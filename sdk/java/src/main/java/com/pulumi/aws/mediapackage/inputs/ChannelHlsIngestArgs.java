@@ -17,14 +17,14 @@ public final class ChannelHlsIngestArgs extends com.pulumi.resources.ResourceArg
     public static final ChannelHlsIngestArgs Empty = new ChannelHlsIngestArgs();
 
     /**
-     * A list of the ingest endpoints
+     * List of the ingest endpoints
      * 
      */
     @Import(name="ingestEndpoints")
     private @Nullable Output<List<ChannelHlsIngestIngestEndpointArgs>> ingestEndpoints;
 
     /**
-     * @return A list of the ingest endpoints
+     * @return List of the ingest endpoints
      * 
      */
     public Optional<Output<List<ChannelHlsIngestIngestEndpointArgs>>> ingestEndpoints() {
@@ -56,7 +56,7 @@ public final class ChannelHlsIngestArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ingestEndpoints A list of the ingest endpoints
+         * @param ingestEndpoints List of the ingest endpoints
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ChannelHlsIngestArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ingestEndpoints A list of the ingest endpoints
+         * @param ingestEndpoints List of the ingest endpoints
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ChannelHlsIngestArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ingestEndpoints A list of the ingest endpoints
+         * @param ingestEndpoints List of the ingest endpoints
          * 
          * @return builder
          * 

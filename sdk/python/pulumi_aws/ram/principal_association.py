@@ -178,6 +178,18 @@ class PrincipalAssociation(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `principal` (String) Principal associated with the resource share.
+        * `resource_share_arn` (String) ARN of the resource share.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:
 
         ```sh
@@ -236,6 +248,18 @@ class PrincipalAssociation(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `principal` (String) Principal associated with the resource share.
+        * `resource_share_arn` (String) ARN of the resource share.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:
 

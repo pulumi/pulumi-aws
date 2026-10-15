@@ -57,7 +57,7 @@ export interface GetSnapshotResult {
      */
     readonly arn: string;
     /**
-     * The configuration of the cluster from which the snapshot was taken.
+     * Configuration of the cluster from which the snapshot was taken.
      */
     readonly clusterConfigurations: outputs.memorydb.GetSnapshotClusterConfiguration[];
     /**

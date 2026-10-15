@@ -109,7 +109,7 @@ type GetExperimentTemplatesArgs struct {
 
 // A collection of values returned by getExperimentTemplates.
 type GetExperimentTemplatesResult struct {
-	// List of all the experiment template ids found.
+	// List of all the experiment template IDs found.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -147,7 +147,7 @@ func (o GetExperimentTemplatesResultOutput) ToGetExperimentTemplatesResultOutput
 	return o
 }
 
-// List of all the experiment template ids found.
+// List of all the experiment template IDs found.
 func (o GetExperimentTemplatesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperimentTemplatesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

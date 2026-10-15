@@ -33,29 +33,45 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.destinationCidrBlock);
     }
 
+    /**
+     * Destination port range to match. If not specified, all destination ports are matched.
+     * 
+     */
     @Import(name="destinationPortRange")
     private @Nullable Output<String> destinationPortRange;
 
+    /**
+     * @return Destination port range to match. If not specified, all destination ports are matched.
+     * 
+     */
     public Optional<Output<String>> destinationPortRange() {
         return Optional.ofNullable(this.destinationPortRange);
     }
 
+    /**
+     * Destination Transit Gateway attachment ID to match.
+     * 
+     */
     @Import(name="destinationTransitGatewayAttachmentId")
     private @Nullable Output<String> destinationTransitGatewayAttachmentId;
 
+    /**
+     * @return Destination Transit Gateway attachment ID to match.
+     * 
+     */
     public Optional<Output<String>> destinationTransitGatewayAttachmentId() {
         return Optional.ofNullable(this.destinationTransitGatewayAttachmentId);
     }
 
     /**
-     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     @Import(name="destinationTransitGatewayAttachmentType")
     private @Nullable Output<String> destinationTransitGatewayAttachmentType;
 
     /**
-     * @return Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * @return Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     public Optional<Output<String>> destinationTransitGatewayAttachmentType() {
@@ -63,14 +79,14 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+     * The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
      * 
      */
     @Import(name="meteredAccount", required=true)
     private Output<String> meteredAccount;
 
     /**
-     * @return The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+     * @return The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
      * 
      */
     public Output<String> meteredAccount() {
@@ -137,29 +153,45 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.sourceCidrBlock);
     }
 
+    /**
+     * Source port range to match. If not specified, all source ports are matched.
+     * 
+     */
     @Import(name="sourcePortRange")
     private @Nullable Output<String> sourcePortRange;
 
+    /**
+     * @return Source port range to match. If not specified, all source ports are matched.
+     * 
+     */
     public Optional<Output<String>> sourcePortRange() {
         return Optional.ofNullable(this.sourcePortRange);
     }
 
+    /**
+     * Source Transit Gateway attachment ID to match.
+     * 
+     */
     @Import(name="sourceTransitGatewayAttachmentId")
     private @Nullable Output<String> sourceTransitGatewayAttachmentId;
 
+    /**
+     * @return Source Transit Gateway attachment ID to match.
+     * 
+     */
     public Optional<Output<String>> sourceTransitGatewayAttachmentId() {
         return Optional.ofNullable(this.sourceTransitGatewayAttachmentId);
     }
 
     /**
-     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     @Import(name="sourceTransitGatewayAttachmentType")
     private @Nullable Output<String> sourceTransitGatewayAttachmentType;
 
     /**
-     * @return Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * @return Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     public Optional<Output<String>> sourceTransitGatewayAttachmentType() {
@@ -250,26 +282,50 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
             return destinationCidrBlock(Output.of(destinationCidrBlock));
         }
 
+        /**
+         * @param destinationPortRange Destination port range to match. If not specified, all destination ports are matched.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationPortRange(@Nullable Output<String> destinationPortRange) {
             $.destinationPortRange = destinationPortRange;
             return this;
         }
 
+        /**
+         * @param destinationPortRange Destination port range to match. If not specified, all destination ports are matched.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationPortRange(String destinationPortRange) {
             return destinationPortRange(Output.of(destinationPortRange));
         }
 
+        /**
+         * @param destinationTransitGatewayAttachmentId Destination Transit Gateway attachment ID to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationTransitGatewayAttachmentId(@Nullable Output<String> destinationTransitGatewayAttachmentId) {
             $.destinationTransitGatewayAttachmentId = destinationTransitGatewayAttachmentId;
             return this;
         }
 
+        /**
+         * @param destinationTransitGatewayAttachmentId Destination Transit Gateway attachment ID to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationTransitGatewayAttachmentId(String destinationTransitGatewayAttachmentId) {
             return destinationTransitGatewayAttachmentId(Output.of(destinationTransitGatewayAttachmentId));
         }
 
         /**
-         * @param destinationTransitGatewayAttachmentType Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * @param destinationTransitGatewayAttachmentType Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
          * 
          * @return builder
          * 
@@ -280,7 +336,7 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationTransitGatewayAttachmentType Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * @param destinationTransitGatewayAttachmentType Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
          * 
          * @return builder
          * 
@@ -290,7 +346,7 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param meteredAccount The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+         * @param meteredAccount The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
          * 
          * @return builder
          * 
@@ -301,7 +357,7 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param meteredAccount The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+         * @param meteredAccount The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
          * 
          * @return builder
          * 
@@ -394,26 +450,50 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
             return sourceCidrBlock(Output.of(sourceCidrBlock));
         }
 
+        /**
+         * @param sourcePortRange Source port range to match. If not specified, all source ports are matched.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourcePortRange(@Nullable Output<String> sourcePortRange) {
             $.sourcePortRange = sourcePortRange;
             return this;
         }
 
+        /**
+         * @param sourcePortRange Source port range to match. If not specified, all source ports are matched.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourcePortRange(String sourcePortRange) {
             return sourcePortRange(Output.of(sourcePortRange));
         }
 
+        /**
+         * @param sourceTransitGatewayAttachmentId Source Transit Gateway attachment ID to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceTransitGatewayAttachmentId(@Nullable Output<String> sourceTransitGatewayAttachmentId) {
             $.sourceTransitGatewayAttachmentId = sourceTransitGatewayAttachmentId;
             return this;
         }
 
+        /**
+         * @param sourceTransitGatewayAttachmentId Source Transit Gateway attachment ID to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceTransitGatewayAttachmentId(String sourceTransitGatewayAttachmentId) {
             return sourceTransitGatewayAttachmentId(Output.of(sourceTransitGatewayAttachmentId));
         }
 
         /**
-         * @param sourceTransitGatewayAttachmentType Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * @param sourceTransitGatewayAttachmentType Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
          * 
          * @return builder
          * 
@@ -424,7 +504,7 @@ public final class MeteringPolicyEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourceTransitGatewayAttachmentType Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * @param sourceTransitGatewayAttachmentType Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
          * 
          * @return builder
          * 

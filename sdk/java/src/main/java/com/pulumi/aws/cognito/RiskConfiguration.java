@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * Import using the user pool ID and Client ID separated by a `:`:
  * 
- * **Using `pulumi import` to import** Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:
+ * **Using `pulumi import` to import** Cognito Risk Configurations using the user pool ID or the user pool ID and Client ID separated by a `:`. For example:
  * 
  * Import using the user pool ID:
  * 

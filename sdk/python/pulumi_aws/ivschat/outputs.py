@@ -105,7 +105,7 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
     def __init__(__self__, *,
                  log_group_name: _builtins.str):
         """
-        :param _builtins.str log_group_name: Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        :param _builtins.str log_group_name: Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
 
@@ -113,7 +113,7 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> _builtins.str:
         """
-        Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
         """
         return pulumi.get(self, "log_group_name")
 

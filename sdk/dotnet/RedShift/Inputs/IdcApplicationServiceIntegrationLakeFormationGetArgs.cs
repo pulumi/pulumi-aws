@@ -13,7 +13,7 @@ namespace Pulumi.Aws.RedShift.Inputs
     public sealed class IdcApplicationServiceIntegrationLakeFormationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lake formation scope.
+        /// Lake Formation scope.
         /// </summary>
         [Input("lakeFormationQuery")]
         public Input<Inputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryGetArgs>? LakeFormationQuery { get; set; }

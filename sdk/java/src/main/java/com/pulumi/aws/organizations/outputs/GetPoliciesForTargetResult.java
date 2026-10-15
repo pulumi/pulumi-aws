@@ -18,7 +18,7 @@ public final class GetPoliciesForTargetResult {
      */
     private String id;
     /**
-     * @return List of all the policy ids found.
+     * @return List of all the policy IDs found.
      * 
      */
     private List<String> ids;
@@ -36,7 +36,7 @@ public final class GetPoliciesForTargetResult {
         return this.id;
     }
     /**
-     * @return List of all the policy ids found.
+     * @return List of all the policy IDs found.
      * 
      */
     public List<String> ids() {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The revision of the worker configuration.
+        /// Revision of the worker configuration.
         /// </summary>
         public readonly int Revision;
 

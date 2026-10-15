@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class AnomalySubscriptionSubscriber {
     /**
-     * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+     * @return The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
      * 
      */
     private String address;
@@ -23,7 +23,7 @@ public final class AnomalySubscriptionSubscriber {
 
     private AnomalySubscriptionSubscriber() {}
     /**
-     * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+     * @return The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
      * 
      */
     public String address() {

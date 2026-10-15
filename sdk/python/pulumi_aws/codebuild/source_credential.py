@@ -29,7 +29,7 @@ class SourceCredentialArgs:
 
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
@@ -52,7 +52,7 @@ class SourceCredentialArgs:
         """
         The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         repository. Valid values are `BASIC_AUTH`,
-        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         """
         return pulumi.get(self, "auth_type")
 
@@ -127,7 +127,7 @@ class _SourceCredentialState:
         :param pulumi.Input[_builtins.str] arn: The ARN of Source Credential.
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -167,7 +167,7 @@ class _SourceCredentialState:
         """
         The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         repository. Valid values are `BASIC_AUTH`,
-        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         """
         return pulumi.get(self, "auth_type")
 
@@ -243,7 +243,7 @@ class SourceCredential(pulumi.CustomResource):
         Provides a CodeBuild Source Credentials Resource.
 
         > **NOTE:
-        ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
+        ** [CodeBuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
         Therefore, when you define `codebuild.SourceCredential`,
         `codebuild.Project` resource defined in the same module will use it.
 
@@ -292,7 +292,7 @@ class SourceCredential(pulumi.CustomResource):
 
         - `arn` (String) ARN of the CodeBuild source credential.
 
-        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
+        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential ARN. For example:
 
         ```sh
         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
@@ -303,7 +303,7 @@ class SourceCredential(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -322,7 +322,7 @@ class SourceCredential(pulumi.CustomResource):
         Provides a CodeBuild Source Credentials Resource.
 
         > **NOTE:
-        ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
+        ** [CodeBuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
         Therefore, when you define `codebuild.SourceCredential`,
         `codebuild.Project` resource defined in the same module will use it.
 
@@ -371,7 +371,7 @@ class SourceCredential(pulumi.CustomResource):
 
         - `arn` (String) ARN of the CodeBuild source credential.
 
-        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
+        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential ARN. For example:
 
         ```sh
         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
@@ -447,7 +447,7 @@ class SourceCredential(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of Source Credential.
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -482,7 +482,7 @@ class SourceCredential(pulumi.CustomResource):
         """
         The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         repository. Valid values are `BASIC_AUTH`,
-        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
         """
         return pulumi.get(self, "auth_type")
 

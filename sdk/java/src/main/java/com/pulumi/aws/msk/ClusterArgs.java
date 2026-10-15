@@ -26,14 +26,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterArgs Empty = new ClusterArgs();
 
     /**
-     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      * 
      */
     @Import(name="brokerNodeGroupInfo", required=true)
     private Output<ClusterBrokerNodeGroupInfoArgs> brokerNodeGroupInfo;
 
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      * 
      */
     public Output<ClusterBrokerNodeGroupInfoArgs> brokerNodeGroupInfo() {
@@ -41,14 +41,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      * 
      */
     @Import(name="clientAuthentication")
     private @Nullable Output<ClusterClientAuthenticationArgs> clientAuthentication;
 
     /**
-     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * @return Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      * 
      */
     public Optional<Output<ClusterClientAuthenticationArgs>> clientAuthentication() {
@@ -71,14 +71,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      * 
      */
     @Import(name="configurationInfo")
     private @Nullable Output<ClusterConfigurationInfoArgs> configurationInfo;
 
     /**
-     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      * 
      */
     public Optional<Output<ClusterConfigurationInfoArgs>> configurationInfo() {
@@ -86,14 +86,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * Configuration block for specifying encryption. See `encryptionInfo` Block below.
      * 
      */
     @Import(name="encryptionInfo")
     private @Nullable Output<ClusterEncryptionInfoArgs> encryptionInfo;
 
     /**
-     * @return Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * @return Configuration block for specifying encryption. See `encryptionInfo` Block below.
      * 
      */
     public Optional<Output<ClusterEncryptionInfoArgs>> encryptionInfo() {
@@ -101,14 +101,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      * 
      */
     @Import(name="enhancedMonitoring")
     private @Nullable Output<String> enhancedMonitoring;
 
     /**
-     * @return Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * @return Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      * 
      */
     public Optional<Output<String>> enhancedMonitoring() {
@@ -116,14 +116,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the desired Kafka software version.
+     * Desired Kafka software version.
      * 
      */
     @Import(name="kafkaVersion", required=true)
     private Output<String> kafkaVersion;
 
     /**
-     * @return Specify the desired Kafka software version.
+     * @return Desired Kafka software version.
      * 
      */
     public Output<String> kafkaVersion() {
@@ -131,14 +131,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      * 
      */
     @Import(name="loggingInfo")
     private @Nullable Output<ClusterLoggingInfoArgs> loggingInfo;
 
     /**
-     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      * 
      */
     public Optional<Output<ClusterLoggingInfoArgs>> loggingInfo() {
@@ -146,14 +146,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      * 
      */
     @Import(name="numberOfBrokerNodes", required=true)
     private Output<Integer> numberOfBrokerNodes;
 
     /**
-     * @return The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * @return Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      * 
      */
     public Output<Integer> numberOfBrokerNodes() {
@@ -161,14 +161,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      * 
      */
     @Import(name="openMonitoring")
     private @Nullable Output<ClusterOpenMonitoringArgs> openMonitoring;
 
     /**
-     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      * 
      */
     public Optional<Output<ClusterOpenMonitoringArgs>> openMonitoring() {
@@ -176,14 +176,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      * 
      */
     @Import(name="rebalancing")
     private @Nullable Output<ClusterRebalancingArgs> rebalancing;
 
     /**
-     * @return Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * @return Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      * 
      */
     public Optional<Output<ClusterRebalancingArgs>> rebalancing() {
@@ -221,14 +221,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -273,7 +273,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+         * @param brokerNodeGroupInfo Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+         * @param clientAuthentication Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+         * @param clientAuthentication Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+         * @param configurationInfo Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionInfo Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+         * @param encryptionInfo Configuration block for specifying encryption. See `encryptionInfo` Block below.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionInfo Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+         * @param encryptionInfo Configuration block for specifying encryption. See `encryptionInfo` Block below.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedMonitoring Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+         * @param enhancedMonitoring Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedMonitoring Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+         * @param enhancedMonitoring Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaVersion Specify the desired Kafka software version.
+         * @param kafkaVersion Desired Kafka software version.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaVersion Specify the desired Kafka software version.
+         * @param kafkaVersion Desired Kafka software version.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+         * @param loggingInfo Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfBrokerNodes The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+         * @param numberOfBrokerNodes Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfBrokerNodes The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+         * @param numberOfBrokerNodes Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+         * @param openMonitoring Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rebalancing Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+         * @param rebalancing Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rebalancing Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+         * @param rebalancing Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

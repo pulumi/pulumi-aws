@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Oidc Usage
+ * ### OIDC Usage
  * 
  * <pre>
  * {@code
@@ -194,14 +194,14 @@ public class Workforce extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
+     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source IP Config details below.
      * 
      */
     @Export(name="sourceIpConfig", refs={WorkforceSourceIpConfig.class}, tree="[0]")
     private Output<WorkforceSourceIpConfig> sourceIpConfig;
 
     /**
-     * @return A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
+     * @return A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source IP Config details below.
      * 
      */
     public Output<WorkforceSourceIpConfig> sourceIpConfig() {

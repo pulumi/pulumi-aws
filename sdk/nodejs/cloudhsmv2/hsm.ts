@@ -69,11 +69,11 @@ export class Hsm extends pulumi.CustomResource {
      */
     declare public readonly clusterId: pulumi.Output<string>;
     /**
-     * The id of the ENI interface allocated for HSM module.
+     * The ID of the ENI interface allocated for HSM module.
      */
     declare public /*out*/ readonly hsmEniId: pulumi.Output<string>;
     /**
-     * The id of the HSM module.
+     * The ID of the HSM module.
      */
     declare public /*out*/ readonly hsmId: pulumi.Output<string>;
     /**
@@ -148,11 +148,11 @@ export interface HsmState {
      */
     clusterId?: pulumi.Input<string | undefined>;
     /**
-     * The id of the ENI interface allocated for HSM module.
+     * The ID of the ENI interface allocated for HSM module.
      */
     hsmEniId?: pulumi.Input<string | undefined>;
     /**
-     * The id of the HSM module.
+     * The ID of the HSM module.
      */
     hsmId?: pulumi.Input<string | undefined>;
     /**

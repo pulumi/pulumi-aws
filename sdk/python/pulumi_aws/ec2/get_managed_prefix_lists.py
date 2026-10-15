@@ -62,7 +62,7 @@ class GetManagedPrefixListsResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the managed prefix list ids found.
+        List of all the managed prefix list IDs found.
         """
         return pulumi.get(self, "ids")
 
@@ -95,7 +95,7 @@ def get_managed_prefix_lists(filters: Optional[Sequence[Union['GetManagedPrefixL
                              tags: Optional[Mapping[str, _builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrefixListsResult:
     """
-    This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+    This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
 
     ## Example Usage
 
@@ -138,7 +138,7 @@ def get_managed_prefix_lists_output(filters: pulumi.Input[Optional[Optional[Sequ
                                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrefixListsResult]:
     """
-    This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+    This resource can be useful for getting back a list of managed prefix list IDs to be referenced elsewhere.
 
     ## Example Usage
 

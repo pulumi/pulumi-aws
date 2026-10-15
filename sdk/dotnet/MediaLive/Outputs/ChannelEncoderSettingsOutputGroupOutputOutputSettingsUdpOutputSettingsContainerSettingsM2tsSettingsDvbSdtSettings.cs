@@ -13,9 +13,21 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings
     {
+        /// <summary>
+        /// Service Description Table output behavior.
+        /// </summary>
         public readonly string? OutputSdt;
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         public readonly int? RepInterval;
+        /// <summary>
+        /// Service name placed in the `ServiceDescriptor` in the Service Description Table.
+        /// </summary>
         public readonly string? ServiceName;
+        /// <summary>
+        /// Service provider name placed in the `ServiceDescriptor` in the Service Description Table.
+        /// </summary>
         public readonly string? ServiceProviderName;
 
         [OutputConstructor]

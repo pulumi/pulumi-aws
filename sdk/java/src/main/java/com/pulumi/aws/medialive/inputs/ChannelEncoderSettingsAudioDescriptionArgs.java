@@ -21,14 +21,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     public static final ChannelEncoderSettingsAudioDescriptionArgs Empty = new ChannelEncoderSettingsAudioDescriptionArgs();
 
     /**
-     * Advanced audio normalization settings. See Audio Normalization Settings for more details.
+     * Advanced audio normalization settings. See `audioNormalizationSettings` Block for details.
      * 
      */
     @Import(name="audioNormalizationSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs> audioNormalizationSettings;
 
     /**
-     * @return Advanced audio normalization settings. See Audio Normalization Settings for more details.
+     * @return Advanced audio normalization settings. See `audioNormalizationSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs>> audioNormalizationSettings() {
@@ -36,14 +36,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * The name of the audio selector used as the source for this AudioDescription.
+     * Name of the audio selector used as the source for this audio description.
      * 
      */
     @Import(name="audioSelectorName", required=true)
     private Output<String> audioSelectorName;
 
     /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
+     * @return Name of the audio selector used as the source for this audio description.
      * 
      */
     public Output<String> audioSelectorName() {
@@ -51,14 +51,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+     * Applies only if `audioTypeControl` is `useConfigured`. Values for `audioType` are defined in ISO-IEC 13818-1.
      * 
      */
     @Import(name="audioType")
     private @Nullable Output<String> audioType;
 
     /**
-     * @return Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+     * @return Applies only if `audioTypeControl` is `useConfigured`. Values for `audioType` are defined in ISO-IEC 13818-1.
      * 
      */
     public Optional<Output<String>> audioType() {
@@ -66,14 +66,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Determined how audio type is determined.
+     * How audio type is determined.
      * 
      */
     @Import(name="audioTypeControl")
     private @Nullable Output<String> audioTypeControl;
 
     /**
-     * @return Determined how audio type is determined.
+     * @return How audio type is determined.
      * 
      */
     public Optional<Output<String>> audioTypeControl() {
@@ -81,14 +81,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+     * Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audioWatermarkSettings` Block for details.
      * 
      */
     @Import(name="audioWatermarkSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs> audioWatermarkSettings;
 
     /**
-     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audioWatermarkSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs>> audioWatermarkSettings() {
@@ -96,65 +96,89 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Audio codec settings. See Audio Codec Settings for more details.
+     * Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
      * 
      */
     @Import(name="codecSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs> codecSettings;
 
     /**
-     * @return Audio codec settings. See Audio Codec Settings for more details.
+     * @return Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs>> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
 
+    /**
+     * ISO 639-2 three-digit code for the language of this audio description.
+     * 
+     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
+    /**
+     * @return ISO 639-2 three-digit code for the language of this audio description.
+     * 
+     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
 
+    /**
+     * How to handle the audio language code.
+     * 
+     */
     @Import(name="languageCodeControl")
     private @Nullable Output<String> languageCodeControl;
 
+    /**
+     * @return How to handle the audio language code.
+     * 
+     */
     public Optional<Output<String>> languageCodeControl() {
         return Optional.ofNullable(this.languageCodeControl);
     }
 
     /**
-     * The name of this audio description.
+     * Name of this audio description.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of this audio description.
+     * @return Name of this audio description.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Settings to remix the audio. See `remixSettings` Block for details.
+     * 
+     */
     @Import(name="remixSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs> remixSettings;
 
+    /**
+     * @return Settings to remix the audio. See `remixSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs>> remixSettings() {
         return Optional.ofNullable(this.remixSettings);
     }
 
     /**
-     * Stream name RTMP destinations (URLs of type rtmp://)
+     * Stream name used to identify the audio description.
      * 
      */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
     /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * @return Stream name used to identify the audio description.
      * 
      */
     public Optional<Output<String>> streamName() {
@@ -196,7 +220,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioNormalizationSettings Advanced audio normalization settings. See Audio Normalization Settings for more details.
+         * @param audioNormalizationSettings Advanced audio normalization settings. See `audioNormalizationSettings` Block for details.
          * 
          * @return builder
          * 
@@ -207,7 +231,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioNormalizationSettings Advanced audio normalization settings. See Audio Normalization Settings for more details.
+         * @param audioNormalizationSettings Advanced audio normalization settings. See `audioNormalizationSettings` Block for details.
          * 
          * @return builder
          * 
@@ -217,7 +241,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
+         * @param audioSelectorName Name of the audio selector used as the source for this audio description.
          * 
          * @return builder
          * 
@@ -228,7 +252,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
+         * @param audioSelectorName Name of the audio selector used as the source for this audio description.
          * 
          * @return builder
          * 
@@ -238,7 +262,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioType Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+         * @param audioType Applies only if `audioTypeControl` is `useConfigured`. Values for `audioType` are defined in ISO-IEC 13818-1.
          * 
          * @return builder
          * 
@@ -249,7 +273,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioType Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+         * @param audioType Applies only if `audioTypeControl` is `useConfigured`. Values for `audioType` are defined in ISO-IEC 13818-1.
          * 
          * @return builder
          * 
@@ -259,7 +283,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioTypeControl Determined how audio type is determined.
+         * @param audioTypeControl How audio type is determined.
          * 
          * @return builder
          * 
@@ -270,7 +294,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioTypeControl Determined how audio type is determined.
+         * @param audioTypeControl How audio type is determined.
          * 
          * @return builder
          * 
@@ -280,7 +304,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioWatermarkSettings Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+         * @param audioWatermarkSettings Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audioWatermarkSettings` Block for details.
          * 
          * @return builder
          * 
@@ -291,7 +315,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param audioWatermarkSettings Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+         * @param audioWatermarkSettings Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audioWatermarkSettings` Block for details.
          * 
          * @return builder
          * 
@@ -301,7 +325,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param codecSettings Audio codec settings. See Audio Codec Settings for more details.
+         * @param codecSettings Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
          * 
          * @return builder
          * 
@@ -312,7 +336,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param codecSettings Audio codec settings. See Audio Codec Settings for more details.
+         * @param codecSettings Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
          * 
          * @return builder
          * 
@@ -321,26 +345,50 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
             return codecSettings(Output.of(codecSettings));
         }
 
+        /**
+         * @param languageCode ISO 639-2 three-digit code for the language of this audio description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode ISO 639-2 three-digit code for the language of this audio description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
+        /**
+         * @param languageCodeControl How to handle the audio language code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCodeControl(@Nullable Output<String> languageCodeControl) {
             $.languageCodeControl = languageCodeControl;
             return this;
         }
 
+        /**
+         * @param languageCodeControl How to handle the audio language code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCodeControl(String languageCodeControl) {
             return languageCodeControl(Output.of(languageCodeControl));
         }
 
         /**
-         * @param name The name of this audio description.
+         * @param name Name of this audio description.
          * 
          * @return builder
          * 
@@ -351,7 +399,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of this audio description.
+         * @param name Name of this audio description.
          * 
          * @return builder
          * 
@@ -360,17 +408,29 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
             return name(Output.of(name));
         }
 
+        /**
+         * @param remixSettings Settings to remix the audio. See `remixSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remixSettings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs> remixSettings) {
             $.remixSettings = remixSettings;
             return this;
         }
 
+        /**
+         * @param remixSettings Settings to remix the audio. See `remixSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remixSettings(ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs remixSettings) {
             return remixSettings(Output.of(remixSettings));
         }
 
         /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
+         * @param streamName Stream name used to identify the audio description.
          * 
          * @return builder
          * 
@@ -381,7 +441,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
+         * @param streamName Stream name used to identify the audio description.
          * 
          * @return builder
          * 

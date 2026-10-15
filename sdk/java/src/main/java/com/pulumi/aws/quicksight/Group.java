@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
+ * Using `pulumi import`, import QuickSight Group using the aws account ID, namespace and group name separated by `/`. For example:
  * 
  * ```sh
  * $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example

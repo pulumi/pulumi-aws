@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about a Workspaces image.
+ * Use this data source to get information about a WorkSpaces image.
  *
  * ## Example Usage
  *
@@ -69,7 +69,7 @@ export interface GetImageResult {
     readonly state: string;
 }
 /**
- * Use this data source to get information about a Workspaces image.
+ * Use this data source to get information about a WorkSpaces image.
  *
  * ## Example Usage
  *

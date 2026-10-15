@@ -18,14 +18,14 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
     public static final AclState Empty = new AclState();
 
     /**
-     * The ARN of the ACL.
+     * ARN of the ACL.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the ACL.
+     * @return ARN of the ACL.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum engine version supported by the ACL.
+     * Minimum engine version supported by the ACL.
      * 
      */
     @Import(name="minimumEngineVersion")
     private @Nullable Output<String> minimumEngineVersion;
 
     /**
-     * @return The minimum engine version supported by the ACL.
+     * @return Minimum engine version supported by the ACL.
      * 
      */
     public Optional<Output<String>> minimumEngineVersion() {
@@ -93,14 +93,14 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -108,14 +108,14 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -169,7 +169,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the ACL.
+         * @param arn ARN of the ACL.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the ACL.
+         * @param arn ARN of the ACL.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumEngineVersion The minimum engine version supported by the ACL.
+         * @param minimumEngineVersion Minimum engine version supported by the ACL.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumEngineVersion The minimum engine version supported by the ACL.
+         * @param minimumEngineVersion Minimum engine version supported by the ACL.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

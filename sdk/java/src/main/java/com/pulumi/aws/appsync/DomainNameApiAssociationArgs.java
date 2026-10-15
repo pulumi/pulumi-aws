@@ -32,14 +32,14 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Appsync domain name.
+     * AppSync domain name.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return Appsync domain name.
+     * @return AppSync domain name.
      * 
      */
     public Output<String> domainName() {
@@ -109,7 +109,7 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName Appsync domain name.
+         * @param domainName AppSync domain name.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName Appsync domain name.
+         * @param domainName AppSync domain name.
          * 
          * @return builder
          * 

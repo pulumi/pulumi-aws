@@ -12,6 +12,10 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource requires the `aws.observabilityadmin.TelemetryEnrichment` resource to be configured first. Without telemetry enrichment enabled, OTel enrichment will not function properly even if the API accepts the configuration.
  *
+ * > **NOTE:** Creating this Terraform resource starts AWS CloudWatch OTel enrichment and deleting this Terraform resource stops AWS CloudWatch OTel enrichment.
+ *
+ * Filters are evaluated as follows. `includeFilter` is applied first, then the `excludeFilter` match set is subtracted from the result. Exclusion always wins, so a metric matched by both is not enriched. An inactive direction is permissive: with no `includeFilter`, every supported namespace is in scope, and with no `excludeFilter`, nothing is removed. Namespaces and metric names are matched exactly and case-sensitively, with no wildcards or prefixes, so `AWS/EC2` matches only `AWS/EC2`. At most 100 selectors are allowed across `includeFilter` and `excludeFilter` **combined**. Two lists of 60 selectors each satisfy the per-list limit but are rejected together.
+ *
  * ## Example Usage
  *
  * ### Enable OTel Enrichment
@@ -22,6 +26,40 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEnrichment("example", {});
  * const exampleOtelEnrichment = new aws.cloudwatch.OtelEnrichment("example", {}, {
+ *     dependsOn: [example],
+ * });
+ * ```
+ *
+ * ### Filter Enrichment by Namespace and Metric
+ *
+ * By default every namespace that CloudWatch supports is enriched. Narrow that scope with `includeFilter` and `excludeFilter`. The configuration below enriches all of `AWS/EC2` except two network metrics, plus exactly two `AWS/RDS` metrics, and nothing else.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.observabilityadmin.TelemetryEnrichment("example", {});
+ * const exampleOtelEnrichment = new aws.cloudwatch.OtelEnrichment("example", {
+ *     excludeFilters: [{
+ *         namespace: "AWS/EC2",
+ *         metricNames: [
+ *             "NetworkPacketsIn",
+ *             "NetworkPacketsOut",
+ *         ],
+ *     }],
+ *     includeFilters: [
+ *         {
+ *             namespace: "AWS/EC2",
+ *         },
+ *         {
+ *             namespace: "AWS/RDS",
+ *             metricNames: [
+ *                 "CPUUtilization",
+ *                 "DatabaseConnections",
+ *             ],
+ *         },
+ *     ],
+ * }, {
  *     dependsOn: [example],
  * });
  * ```
@@ -74,6 +112,14 @@ export class OtelEnrichment extends pulumi.CustomResource {
     }
 
     /**
+     * Namespaces and metric names to leave unenriched. See below.
+     */
+    declare public readonly excludeFilters: pulumi.Output<outputs.cloudwatch.OtelEnrichmentExcludeFilter[] | undefined>;
+    /**
+     * Namespaces and metric names to enrich. See below.
+     */
+    declare public readonly includeFilters: pulumi.Output<outputs.cloudwatch.OtelEnrichmentIncludeFilter[] | undefined>;
+    /**
      * AWS region where this resource is managed.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -92,10 +138,14 @@ export class OtelEnrichment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OtelEnrichmentState | undefined;
+            resourceInputs["excludeFilters"] = state?.excludeFilters;
+            resourceInputs["includeFilters"] = state?.includeFilters;
             resourceInputs["region"] = state?.region;
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as OtelEnrichmentArgs | undefined;
+            resourceInputs["excludeFilters"] = args?.excludeFilters;
+            resourceInputs["includeFilters"] = args?.includeFilters;
             resourceInputs["region"] = args?.region;
             resourceInputs["timeouts"] = args?.timeouts;
         }
@@ -109,6 +159,14 @@ export class OtelEnrichment extends pulumi.CustomResource {
  */
 export interface OtelEnrichmentState {
     /**
+     * Namespaces and metric names to leave unenriched. See below.
+     */
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.OtelEnrichmentExcludeFilter>[] | undefined>;
+    /**
+     * Namespaces and metric names to enrich. See below.
+     */
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.OtelEnrichmentIncludeFilter>[] | undefined>;
+    /**
      * AWS region where this resource is managed.
      */
     region?: pulumi.Input<string | undefined>;
@@ -119,6 +177,14 @@ export interface OtelEnrichmentState {
  * The set of arguments for constructing a OtelEnrichment resource.
  */
 export interface OtelEnrichmentArgs {
+    /**
+     * Namespaces and metric names to leave unenriched. See below.
+     */
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.OtelEnrichmentExcludeFilter>[] | undefined>;
+    /**
+     * Namespaces and metric names to enrich. See below.
+     */
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.OtelEnrichmentIncludeFilter>[] | undefined>;
     /**
      * AWS region where this resource is managed.
      */

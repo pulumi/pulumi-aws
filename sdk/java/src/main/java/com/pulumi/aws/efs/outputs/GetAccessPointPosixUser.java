@@ -22,7 +22,7 @@ public final class GetAccessPointPosixUser {
      */
     private List<Integer> secondaryGids;
     /**
-     * @return User Id
+     * @return User ID
      * 
      */
     private Integer uid;
@@ -43,7 +43,7 @@ public final class GetAccessPointPosixUser {
         return this.secondaryGids;
     }
     /**
-     * @return User Id
+     * @return User ID
      * 
      */
     public Integer uid() {

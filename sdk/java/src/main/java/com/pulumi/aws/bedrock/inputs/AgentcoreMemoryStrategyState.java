@@ -134,14 +134,14 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     }
 
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
      * 
      */
     @Import(name="namespaceTemplates")
     private @Nullable Output<List<String>> namespaceTemplates;
 
     /**
-     * @return Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+     * @return Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
      * 
      */
     public Optional<Output<List<String>>> namespaceTemplates() {
@@ -149,7 +149,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     }
 
     /**
-     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
      * @deprecated
      * namespaces is deprecated. Use namespaceTemplates instead.
@@ -160,7 +160,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     private @Nullable Output<List<String>> namespaces;
 
     /**
-     * @return Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * @return Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
      * @deprecated
      * namespaces is deprecated. Use namespaceTemplates instead.
@@ -419,7 +419,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
          * 
          * @return builder
          * 

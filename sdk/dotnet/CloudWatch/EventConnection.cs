@@ -133,7 +133,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### Example Usage Invocation Http Parameters
+    /// ### Example Usage Invocation HTTP Parameters
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

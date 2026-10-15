@@ -81,7 +81,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
     declare public readonly defaultRunProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -93,7 +93,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public readonly maxConcurrentRuns: pulumi.Output<number | undefined>;
     /**
-     * The name you assign to this workflow.
+     * Name you assign to this workflow.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -155,7 +155,7 @@ export interface WorkflowState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
     defaultRunProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface WorkflowState {
      */
     maxConcurrentRuns?: pulumi.Input<number | undefined>;
     /**
-     * The name you assign to this workflow.
+     * Name you assign to this workflow.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface WorkflowState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -189,7 +189,7 @@ export interface WorkflowState {
  */
 export interface WorkflowArgs {
     /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
     defaultRunProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface WorkflowArgs {
      */
     maxConcurrentRuns?: pulumi.Input<number | undefined>;
     /**
-     * The name you assign to this workflow.
+     * Name you assign to this workflow.
      */
     name?: pulumi.Input<string | undefined>;
     /**

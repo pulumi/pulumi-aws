@@ -883,7 +883,7 @@ type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter struct 
 	//
 	// **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
 	MapBlockKey string `pulumi:"mapBlockKey"`
-	// Whether the parameter is required for the agent to complete the function for action group invocation.
+	// Whether to require the parameter for the agent to complete the function for action group invocation.
 	Required *bool `pulumi:"required"`
 	// Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
 	Type string `pulumi:"type"`
@@ -907,7 +907,7 @@ type AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs str
 	//
 	// **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
 	MapBlockKey pulumi.StringInput `pulumi:"mapBlockKey"`
-	// Whether the parameter is required for the agent to complete the function for action group invocation.
+	// Whether to require the parameter for the agent to complete the function for action group invocation.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -980,7 +980,7 @@ func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutpu
 	}).(pulumi.StringOutput)
 }
 
-// Whether the parameter is required for the agent to complete the function for action group invocation.
+// Whether to require the parameter for the agent to complete the function for action group invocation.
 func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
@@ -2236,7 +2236,7 @@ func (o AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput) Ind
 }
 
 type AgentAgentPromptOverrideConfiguration struct {
-	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
+	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` blocks must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda string `pulumi:"overrideLambda"`
 	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
 	PromptConfigurations []AgentAgentPromptOverrideConfigurationPromptConfiguration `pulumi:"promptConfigurations"`
@@ -2254,7 +2254,7 @@ type AgentAgentPromptOverrideConfigurationInput interface {
 }
 
 type AgentAgentPromptOverrideConfigurationArgs struct {
-	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
+	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` blocks must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda pulumi.StringInput `pulumi:"overrideLambda"`
 	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
 	PromptConfigurations AgentAgentPromptOverrideConfigurationPromptConfigurationArrayInput `pulumi:"promptConfigurations"`
@@ -2311,7 +2311,7 @@ func (o AgentAgentPromptOverrideConfigurationOutput) ToAgentAgentPromptOverrideC
 	return o
 }
 
-// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
+// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` blocks must contain a `parserMode` value that is set to `OVERRIDDEN`.
 func (o AgentAgentPromptOverrideConfigurationOutput) OverrideLambda() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) string { return v.OverrideLambda }).(pulumi.StringOutput)
 }
@@ -2344,7 +2344,7 @@ func (o AgentAgentPromptOverrideConfigurationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type AgentAgentPromptOverrideConfigurationPromptConfiguration struct {
-	// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+	// Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
 	BasePromptTemplate string `pulumi:"basePromptTemplate"`
 	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
 	InferenceConfigurations []AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration `pulumi:"inferenceConfigurations"`
@@ -2354,7 +2354,7 @@ type AgentAgentPromptOverrideConfigurationPromptConfiguration struct {
 	PromptCreationMode string `pulumi:"promptCreationMode"`
 	// Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
 	PromptState string `pulumi:"promptState"`
-	// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+	// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
 	PromptType string `pulumi:"promptType"`
 }
 
@@ -2370,7 +2370,7 @@ type AgentAgentPromptOverrideConfigurationPromptConfigurationInput interface {
 }
 
 type AgentAgentPromptOverrideConfigurationPromptConfigurationArgs struct {
-	// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+	// Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
 	BasePromptTemplate pulumi.StringInput `pulumi:"basePromptTemplate"`
 	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
 	InferenceConfigurations AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayInput `pulumi:"inferenceConfigurations"`
@@ -2380,7 +2380,7 @@ type AgentAgentPromptOverrideConfigurationPromptConfigurationArgs struct {
 	PromptCreationMode pulumi.StringInput `pulumi:"promptCreationMode"`
 	// Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
 	PromptState pulumi.StringInput `pulumi:"promptState"`
-	// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+	// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
 	PromptType pulumi.StringInput `pulumi:"promptType"`
 }
 
@@ -2435,7 +2435,7 @@ func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) ToAgentA
 	return o
 }
 
-// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+// Prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
 func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) BasePromptTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.BasePromptTemplate }).(pulumi.StringOutput)
 }
@@ -2462,7 +2462,7 @@ func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) PromptSt
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.PromptState }).(pulumi.StringOutput)
 }
 
-// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, `MEMORY_SUMMARIZATION`.
 func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) PromptType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.PromptType }).(pulumi.StringOutput)
 }
@@ -3956,6 +3956,8 @@ type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigur
 	DeletionProtectionConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration `pulumi:"deletionProtectionConfiguration"`
 	// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
 	MediaExtractionConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration `pulumi:"mediaExtractionConfiguration"`
+	// Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+	SyncSchedule *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule `pulumi:"syncSchedule"`
 }
 
 // AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationOutput values.
@@ -3976,6 +3978,8 @@ type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigur
 	DeletionProtectionConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationPtrInput `pulumi:"deletionProtectionConfiguration"`
 	// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
 	MediaExtractionConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrInput `pulumi:"mediaExtractionConfiguration"`
+	// Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+	SyncSchedule AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrInput `pulumi:"syncSchedule"`
 }
 
 func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs) ElementType() reflect.Type {
@@ -4076,6 +4080,13 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput)
 }
 
+// Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationOutput) SyncSchedule() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule {
+		return v.SyncSchedule
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput)
+}
+
 type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput) ElementType() reflect.Type {
@@ -4128,6 +4139,16 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 		}
 		return v.MediaExtractionConfiguration
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput)
+}
+
+// Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput) SyncSchedule() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.SyncSchedule
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput)
 }
 
 type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration struct {
@@ -4885,6 +4906,861 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 			return nil
 		}
 		return &v.VideoExtractionStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule struct {
+	// Daily sync that runs once a day at a system-chosen off-peak time. The run time is not configurable. See `daily` Block for details.
+	Daily *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily `pulumi:"daily"`
+	// Monthly sync that runs once a month on the specified day of the month. See `monthly` Block for details.
+	Monthly *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly `pulumi:"monthly"`
+	// Weekly sync that runs once a week on the specified day of the week. See `weekly` Block for details.
+	Weekly *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly `pulumi:"weekly"`
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs{...}
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs struct {
+	// Daily sync that runs once a day at a system-chosen off-peak time. The run time is not configurable. See `daily` Block for details.
+	Daily AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrInput `pulumi:"daily"`
+	// Monthly sync that runs once a month on the specified day of the month. See `monthly` Block for details.
+	Monthly AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrInput `pulumi:"monthly"`
+	// Weekly sync that runs once a week on the specified day of the week. See `weekly` Block for details.
+	Weekly AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrInput `pulumi:"weekly"`
+}
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput).ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs, AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtr and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrType AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs
+
+func AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtr(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrInput {
+	return (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput)
+}
+
+// Daily sync that runs once a day at a system-chosen off-peak time. The run time is not configurable. See `daily` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) Daily() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily {
+		return v.Daily
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput)
+}
+
+// Monthly sync that runs once a month on the specified day of the month. See `monthly` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) Monthly() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly {
+		return v.Monthly
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput)
+}
+
+// Weekly sync that runs once a week on the specified day of the week. See `weekly` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput) Weekly() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly {
+		return v.Weekly
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput) Elem() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput)
+}
+
+// Daily sync that runs once a day at a system-chosen off-peak time. The run time is not configurable. See `daily` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput) Daily() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily {
+		if v == nil {
+			return nil
+		}
+		return v.Daily
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput)
+}
+
+// Monthly sync that runs once a month on the specified day of the month. See `monthly` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput) Monthly() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly {
+		if v == nil {
+			return nil
+		}
+		return v.Monthly
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput)
+}
+
+// Weekly sync that runs once a week on the specified day of the week. See `weekly` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput) Weekly() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly {
+		if v == nil {
+			return nil
+		}
+		return v.Weekly
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily struct {
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs{...}
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs struct {
+}
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput).ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs, AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtr and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrType AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs
+
+func AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtr(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrInput {
+	return (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput) Elem() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDaily
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly struct {
+	// Day of the month on which the monthly sync runs. See `dayOfMonth` Block for details.
+	DayOfMonth AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth `pulumi:"dayOfMonth"`
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs{...}
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs struct {
+	// Day of the month on which the monthly sync runs. See `dayOfMonth` Block for details.
+	DayOfMonth AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthInput `pulumi:"dayOfMonth"`
+}
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput).ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs, AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtr and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrType AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs
+
+func AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtr(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrInput {
+	return (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput)
+}
+
+// Day of the month on which the monthly sync runs. See `dayOfMonth` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput) DayOfMonth() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth {
+		return v.DayOfMonth
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput) Elem() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput)
+}
+
+// Day of the month on which the monthly sync runs. See `dayOfMonth` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput) DayOfMonth() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthly) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfMonth
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth struct {
+	// Specific day of the month, from 1 to 28.
+	DayNumber *int `pulumi:"dayNumber"`
+	// Configure this option to run the monthly sync on the last calendar day of each month. See `lastDayOfMonth` Block for details.
+	LastDayOfMonth *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth `pulumi:"lastDayOfMonth"`
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs{...}
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs struct {
+	// Specific day of the month, from 1 to 28.
+	DayNumber pulumi.IntPtrInput `pulumi:"dayNumber"`
+	// Configure this option to run the monthly sync on the last calendar day of each month. See `lastDayOfMonth` Block for details.
+	LastDayOfMonth AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrInput `pulumi:"lastDayOfMonth"`
+}
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput).ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs, AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtr and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrType AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs
+
+func AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtr(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrInput {
+	return (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput)
+}
+
+// Specific day of the month, from 1 to 28.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput) DayNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth) *int {
+		return v.DayNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configure this option to run the monthly sync on the last calendar day of each month. See `lastDayOfMonth` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput) LastDayOfMonth() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth {
+		return v.LastDayOfMonth
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput) Elem() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput)
+}
+
+// Specific day of the month, from 1 to 28.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput) DayNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configure this option to run the monthly sync on the last calendar day of each month. See `lastDayOfMonth` Block for details.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput) LastDayOfMonth() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonth) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth {
+		if v == nil {
+			return nil
+		}
+		return v.LastDayOfMonth
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth struct {
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs{...}
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs struct {
+}
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput).ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs, AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtr and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrType AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs
+
+func AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtr(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrInput {
+	return (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput) Elem() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonth
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly struct {
+	// Day of the week on which the weekly sync runs. Valid values: `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs{...}
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs struct {
+	// Day of the week on which the weekly sync runs. Valid values: `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+}
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput).ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs, AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtr and AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput
+	ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrType AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs
+
+func AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtr(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrInput {
+	return (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrType) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput)
+}
+
+// Day of the week on which the weekly sync runs. Valid values: `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly) string {
+		return v.DayOfWeek
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput) ToAgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput) Elem() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly) AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput)
+}
+
+// Day of the week on which the weekly sync runs. Valid values: `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`.
+func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeekly) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfWeek
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7009,13 +7885,13 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) SourceC
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration struct {
 	// Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
 	CrawlerLimits *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits `pulumi:"crawlerLimits"`
-	// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+	// List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
-	// List of one or more inclusion regular expression patterns to include object types that match the pattern.
+	// List of one or more inclusion regular expression patterns to include URLs that match the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
 	// Scope of what is crawled for your URLs.
 	Scope *string `pulumi:"scope"`
-	// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+	// Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
 	UserAgent *string `pulumi:"userAgent"`
 }
 
@@ -7033,13 +7909,13 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationI
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs struct {
 	// Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
 	CrawlerLimits AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput `pulumi:"crawlerLimits"`
-	// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+	// List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
-	// List of one or more inclusion regular expression patterns to include object types that match the pattern.
+	// List of one or more inclusion regular expression patterns to include URLs that match the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
 	// Scope of what is crawled for your URLs.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+	// Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
 	UserAgent pulumi.StringPtrInput `pulumi:"userAgent"`
 }
 
@@ -7127,14 +8003,14 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
 }
 
-// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+// List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of one or more inclusion regular expression patterns to include object types that match the pattern.
+// List of one or more inclusion regular expression patterns to include URLs that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		return v.InclusionFilters
@@ -7148,7 +8024,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+// Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) UserAgent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		return v.UserAgent
@@ -7189,7 +8065,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
 }
 
-// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+// List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		if v == nil {
@@ -7199,7 +8075,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of one or more inclusion regular expression patterns to include object types that match the pattern.
+// List of one or more inclusion regular expression patterns to include URLs that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		if v == nil {
@@ -7219,7 +8095,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+// Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) UserAgent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		if v == nil {
@@ -8081,6 +8957,8 @@ func (o AgentDataSourceTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 type AgentDataSourceVectorIngestionConfiguration struct {
 	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
 	ChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration `pulumi:"chunkingConfiguration"`
+	// Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+	ContextEnrichmentConfiguration *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration `pulumi:"contextEnrichmentConfiguration"`
 	// Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 	CustomTransformationConfiguration *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration `pulumi:"customTransformationConfiguration"`
 	// Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
@@ -8101,6 +8979,8 @@ type AgentDataSourceVectorIngestionConfigurationInput interface {
 type AgentDataSourceVectorIngestionConfigurationArgs struct {
 	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
 	ChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
+	// Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+	ContextEnrichmentConfiguration AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrInput `pulumi:"contextEnrichmentConfiguration"`
 	// Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 	CustomTransformationConfiguration AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput `pulumi:"customTransformationConfiguration"`
 	// Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
@@ -8191,6 +9071,13 @@ func (o AgentDataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
+// Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+func (o AgentDataSourceVectorIngestionConfigurationOutput) ContextEnrichmentConfiguration() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration {
+		return v.ContextEnrichmentConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput)
+}
+
 // Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationOutput) CustomTransformationConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
@@ -8239,6 +9126,16 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfigurat
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
+// Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ContextEnrichmentConfiguration() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContextEnrichmentConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput)
+}
+
 // Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
@@ -8260,7 +9157,7 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ParsingConfigurati
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfiguration struct {
-	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+	// Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 	ChunkingStrategy string `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
 	FixedSizeChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
@@ -8282,7 +9179,7 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationInput inter
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs struct {
-	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+	// Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 	ChunkingStrategy pulumi.StringInput `pulumi:"chunkingStrategy"`
 	// Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
 	FixedSizeChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
@@ -8369,7 +9266,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) 
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
-// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+// Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) ChunkingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) string {
 		return v.ChunkingStrategy
@@ -8421,7 +9318,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput)
 }
 
-// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+// Option for chunking your source data. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) ChunkingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *string {
 		if v == nil {
@@ -9059,6 +9956,465 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 		}
 		return &v.MaxToken
 	}).(pulumi.IntPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration struct {
+	// Settings for a foundation model used to enrich the context of data source documents. Required when `type` is `BEDROCK_FOUNDATION_MODEL`. See `context_enrichment_configuration.bedrock_foundation_model_configuration` Block for details.
+	BedrockFoundationModelConfiguration *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
+	// Method used for context enrichment. Valid value: `BEDROCK_FOUNDATION_MODEL`.
+	Type string `pulumi:"type"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs and AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs struct {
+	// Settings for a foundation model used to enrich the context of data source documents. Required when `type` is `BEDROCK_FOUNDATION_MODEL`. See `context_enrichment_configuration.bedrock_foundation_model_configuration` Block for details.
+	BedrockFoundationModelConfiguration AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
+	// Method used for context enrichment. Valid value: `BEDROCK_FOUNDATION_MODEL`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs, AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtr and AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrType AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput)
+}
+
+// Settings for a foundation model used to enrich the context of data source documents. Required when `type` is `BEDROCK_FOUNDATION_MODEL`. See `context_enrichment_configuration.bedrock_foundation_model_configuration` Block for details.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration {
+		return v.BedrockFoundationModelConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// Method used for context enrichment. Valid value: `BEDROCK_FOUNDATION_MODEL`.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput)
+}
+
+// Settings for a foundation model used to enrich the context of data source documents. Required when `type` is `BEDROCK_FOUNDATION_MODEL`. See `context_enrichment_configuration.bedrock_foundation_model_configuration` Block for details.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockFoundationModelConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// Method used for context enrichment. Valid value: `BEDROCK_FOUNDATION_MODEL`.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration struct {
+	// Strategy used to enrich the context of data source documents. See `context_enrichment_configuration.bedrock_foundation_model_configuration.enrichment_strategy_configuration` Block for details.
+	EnrichmentStrategyConfiguration AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration `pulumi:"enrichmentStrategyConfiguration"`
+	// ARN of the model used to parse documents.
+	ModelArn string `pulumi:"modelArn"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs and AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs struct {
+	// Strategy used to enrich the context of data source documents. See `context_enrichment_configuration.bedrock_foundation_model_configuration.enrichment_strategy_configuration` Block for details.
+	EnrichmentStrategyConfiguration AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationInput `pulumi:"enrichmentStrategyConfiguration"`
+	// ARN of the model used to parse documents.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs, AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtr and AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrType AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// Strategy used to enrich the context of data source documents. See `context_enrichment_configuration.bedrock_foundation_model_configuration.enrichment_strategy_configuration` Block for details.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput) EnrichmentStrategyConfiguration() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration {
+		return v.EnrichmentStrategyConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput)
+}
+
+// ARN of the model used to parse documents.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration) string {
+		return v.ModelArn
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput)
+}
+
+// Strategy used to enrich the context of data source documents. See `context_enrichment_configuration.bedrock_foundation_model_configuration.enrichment_strategy_configuration` Block for details.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput) EnrichmentStrategyConfiguration() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EnrichmentStrategyConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput)
+}
+
+// ARN of the model used to parse documents.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration struct {
+	// Method used to enrich the context of data source documents. Valid value: `CHUNK_ENTITY_EXTRACTION`.
+	Method string `pulumi:"method"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs and AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs struct {
+	// Method used to enrich the context of data source documents. Valid value: `CHUNK_ENTITY_EXTRACTION`.
+	Method pulumi.StringInput `pulumi:"method"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs, AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtr and AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrType AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration) *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput)
+}
+
+// Method used to enrich the context of data source documents. Valid value: `CHUNK_ENTITY_EXTRACTION`.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration) string {
+		return v.Method
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration) AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput)
+}
+
+// Method used to enrich the context of data source documents. Valid value: `CHUNK_ENTITY_EXTRACTION`.
+func (o AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Method
+	}).(pulumi.StringPtrOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration struct {
@@ -9942,7 +11298,7 @@ type AgentDataSourceVectorIngestionConfigurationParsingConfiguration struct {
 	BedrockDataAutomationConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration `pulumi:"bedrockDataAutomationConfiguration"`
 	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
 	BedrockFoundationModelConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
-	// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+	// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
 	ParsingStrategy string `pulumi:"parsingStrategy"`
 }
 
@@ -9962,7 +11318,7 @@ type AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs struct 
 	BedrockDataAutomationConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput `pulumi:"bedrockDataAutomationConfiguration"`
 	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
 	BedrockFoundationModelConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
-	// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+	// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
 	ParsingStrategy pulumi.StringInput `pulumi:"parsingStrategy"`
 }
 
@@ -10057,7 +11413,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) B
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ParsingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) string {
 		return v.ParsingStrategy
@@ -10108,7 +11464,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) ParsingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *string {
 		if v == nil {
@@ -11330,13 +12686,13 @@ func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) TargetInput() p
 type AgentFlowDefinitionNode struct {
 	// Configurations for the node. See `definition.node.configuration` Block for details.
 	Configuration *AgentFlowDefinitionNodeConfiguration `pulumi:"configuration"`
-	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
 	Inputs []AgentFlowDefinitionNodeInputType `pulumi:"inputs"`
 	// Name for the flow.
 	//
 	// The following arguments are optional:
 	Name string `pulumi:"name"`
-	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
 	Outputs []AgentFlowDefinitionNodeOutputType `pulumi:"outputs"`
 	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
@@ -11356,13 +12712,13 @@ type AgentFlowDefinitionNodeInput interface {
 type AgentFlowDefinitionNodeArgs struct {
 	// Configurations for the node. See `definition.node.configuration` Block for details.
 	Configuration AgentFlowDefinitionNodeConfigurationPtrInput `pulumi:"configuration"`
-	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
 	Inputs AgentFlowDefinitionNodeInputTypeArrayInput `pulumi:"inputs"`
 	// Name for the flow.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
-	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
 	Outputs AgentFlowDefinitionNodeOutputTypeArrayInput `pulumi:"outputs"`
 	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -11424,7 +12780,7 @@ func (o AgentFlowDefinitionNodeOutput) Configuration() AgentFlowDefinitionNodeCo
 	return o.ApplyT(func(v AgentFlowDefinitionNode) *AgentFlowDefinitionNodeConfiguration { return v.Configuration }).(AgentFlowDefinitionNodeConfigurationPtrOutput)
 }
 
-// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeOutput) Inputs() AgentFlowDefinitionNodeInputTypeArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) []AgentFlowDefinitionNodeInputType { return v.Inputs }).(AgentFlowDefinitionNodeInputTypeArrayOutput)
 }
@@ -11436,7 +12792,7 @@ func (o AgentFlowDefinitionNodeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeOutput) Outputs() AgentFlowDefinitionNodeOutputTypeArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) []AgentFlowDefinitionNodeOutputType { return v.Outputs }).(AgentFlowDefinitionNodeOutputTypeArrayOutput)
 }
@@ -11475,17 +12831,17 @@ type AgentFlowDefinitionNodeConfiguration struct {
 	Condition *AgentFlowDefinitionNodeConfigurationCondition `pulumi:"condition"`
 	// Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
 	InlineCode *AgentFlowDefinitionNodeConfigurationInlineCode `pulumi:"inlineCode"`
-	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
 	Input *AgentFlowDefinitionNodeConfigurationInputType `pulumi:"input"`
 	// Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
 	Iterator *AgentFlowDefinitionNodeConfigurationIterator `pulumi:"iterator"`
-	// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+	// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
 	KnowledgeBase *AgentFlowDefinitionNodeConfigurationKnowledgeBase `pulumi:"knowledgeBase"`
 	// Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
 	LambdaFunction *AgentFlowDefinitionNodeConfigurationLambdaFunction `pulumi:"lambdaFunction"`
 	// Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
 	Lex *AgentFlowDefinitionNodeConfigurationLex `pulumi:"lex"`
-	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
 	Output *AgentFlowDefinitionNodeConfigurationOutputType `pulumi:"output"`
 	// Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
 	Prompt *AgentFlowDefinitionNodeConfigurationPrompt `pulumi:"prompt"`
@@ -11515,17 +12871,17 @@ type AgentFlowDefinitionNodeConfigurationArgs struct {
 	Condition AgentFlowDefinitionNodeConfigurationConditionPtrInput `pulumi:"condition"`
 	// Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
 	InlineCode AgentFlowDefinitionNodeConfigurationInlineCodePtrInput `pulumi:"inlineCode"`
-	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
 	Input AgentFlowDefinitionNodeConfigurationInputTypePtrInput `pulumi:"input"`
 	// Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
 	Iterator AgentFlowDefinitionNodeConfigurationIteratorPtrInput `pulumi:"iterator"`
-	// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+	// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
 	KnowledgeBase AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput `pulumi:"knowledgeBase"`
 	// Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
 	LambdaFunction AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput `pulumi:"lambdaFunction"`
 	// Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
 	Lex AgentFlowDefinitionNodeConfigurationLexPtrInput `pulumi:"lex"`
-	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+	// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
 	Output AgentFlowDefinitionNodeConfigurationOutputTypePtrInput `pulumi:"output"`
 	// Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
 	Prompt AgentFlowDefinitionNodeConfigurationPromptPtrInput `pulumi:"prompt"`
@@ -11640,7 +12996,7 @@ func (o AgentFlowDefinitionNodeConfigurationOutput) InlineCode() AgentFlowDefini
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
 }
 
-// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
 		return v.Input
@@ -11654,7 +13010,7 @@ func (o AgentFlowDefinitionNodeConfigurationOutput) Iterator() AgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
 }
 
-// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) KnowledgeBase() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBase {
 		return v.KnowledgeBase
@@ -11673,7 +13029,7 @@ func (o AgentFlowDefinitionNodeConfigurationOutput) Lex() AgentFlowDefinitionNod
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLex { return v.Lex }).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
 }
 
-// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
 		return v.Output
@@ -11765,7 +13121,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) InlineCode() AgentFlowDef
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
 }
 
-// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
 		if v == nil {
@@ -11785,7 +13141,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Iterator() AgentFlowDefin
 	}).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
 }
 
-// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) KnowledgeBase() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBase {
 		if v == nil {
@@ -11815,7 +13171,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Lex() AgentFlowDefinition
 	}).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
 }
 
-// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
 		if v == nil {
@@ -13611,7 +14967,7 @@ func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) LambdaArn()
 type AgentFlowDefinitionNodeConfigurationLex struct {
 	// ARN of the Amazon Lex bot alias to invoke.
 	BotAliasArn string `pulumi:"botAliasArn"`
-	// Region to invoke the Amazon Lex bot in.
+	// Locale to use when invoking the Amazon Lex bot, such as `en_US`.
 	LocaleId string `pulumi:"localeId"`
 }
 
@@ -13629,7 +14985,7 @@ type AgentFlowDefinitionNodeConfigurationLexInput interface {
 type AgentFlowDefinitionNodeConfigurationLexArgs struct {
 	// ARN of the Amazon Lex bot alias to invoke.
 	BotAliasArn pulumi.StringInput `pulumi:"botAliasArn"`
-	// Region to invoke the Amazon Lex bot in.
+	// Locale to use when invoking the Amazon Lex bot, such as `en_US`.
 	LocaleId pulumi.StringInput `pulumi:"localeId"`
 }
 
@@ -13715,7 +15071,7 @@ func (o AgentFlowDefinitionNodeConfigurationLexOutput) BotAliasArn() pulumi.Stri
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLex) string { return v.BotAliasArn }).(pulumi.StringOutput)
 }
 
-// Region to invoke the Amazon Lex bot in.
+// Locale to use when invoking the Amazon Lex bot, such as `en_US`.
 func (o AgentFlowDefinitionNodeConfigurationLexOutput) LocaleId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLex) string { return v.LocaleId }).(pulumi.StringOutput)
 }
@@ -13754,7 +15110,7 @@ func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) BotAliasArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Region to invoke the Amazon Lex bot in.
+// Locale to use when invoking the Amazon Lex bot, such as `en_US`.
 func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) LocaleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLex) *string {
 		if v == nil {
@@ -20625,7 +21981,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration struct {
 	// ARN of the KMS key used to encrypt the managed knowledge base.
 	//
-	// > **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+	// > **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -20643,7 +21999,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurati
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs struct {
 	// ARN of the KMS key used to encrypt the managed knowledge base.
 	//
-	// > **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+	// > **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -20726,7 +22082,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 
 // ARN of the KMS key used to encrypt the managed knowledge base.
 //
-// > **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+// > **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration) *string {
 		return v.KmsKeyArn
@@ -20759,7 +22115,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 
 // ARN of the KMS key used to encrypt the managed knowledge base.
 //
-// > **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+// > **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration) *string {
 		if v == nil {
@@ -21633,7 +22989,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration struct {
-	// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
+	// Configurations for authentication to Amazon Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration `pulumi:"authConfiguration"`
 	// ARN of the Amazon Redshift workgroup.
 	WorkgroupArn string `pulumi:"workgroupArn"`
@@ -21651,7 +23007,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs struct {
-	// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
+	// Configurations for authentication to Amazon Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationInput `pulumi:"authConfiguration"`
 	// ARN of the Amazon Redshift workgroup.
 	WorkgroupArn pulumi.StringInput `pulumi:"workgroupArn"`
@@ -21734,7 +23090,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput)
 }
 
-// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
+// Configurations for authentication to Amazon Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
 		return v.AuthConfiguration
@@ -21772,7 +23128,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput)
 }
 
-// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
+// Configurations for authentication to Amazon Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
 		if v == nil {
@@ -24874,11 +26230,11 @@ type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Endpoint URL of the MongoDB Atlas database.
 	Endpoint string `pulumi:"endpoint"`
-	// Name of the service that hosts the MongoDB Atlas database.
+	// Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
 	EndpointServiceName *string `pulumi:"endpointServiceName"`
 	// Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping `pulumi:"fieldMapping"`
-	// Name of the vector index.
+	// Name of the text search index in the MongoDB collection. Required for hybrid search.
 	TextIndexName *string `pulumi:"textIndexName"`
 	// Name of the vector index.
 	VectorIndexName string `pulumi:"vectorIndexName"`
@@ -24904,11 +26260,11 @@ type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs struct 
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Endpoint URL of the MongoDB Atlas database.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// Name of the service that hosts the MongoDB Atlas database.
+	// Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
 	EndpointServiceName pulumi.StringPtrInput `pulumi:"endpointServiceName"`
 	// Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingInput `pulumi:"fieldMapping"`
-	// Name of the vector index.
+	// Name of the text search index in the MongoDB collection. Required for hybrid search.
 	TextIndexName pulumi.StringPtrInput `pulumi:"textIndexName"`
 	// Name of the vector index.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
@@ -25015,7 +26371,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) E
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Name of the service that hosts the MongoDB Atlas database.
+// Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) EndpointServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		return v.EndpointServiceName
@@ -25029,7 +26385,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) F
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput)
 }
 
-// Name of the vector index.
+// Name of the text search index in the MongoDB collection. Required for hybrid search.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) TextIndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		return v.TextIndexName
@@ -25107,7 +26463,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the service that hosts the MongoDB Atlas database.
+// Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) EndpointServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25127,7 +26483,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
 }
 
-// Name of the vector index.
+// Name of the text search index in the MongoDB collection. Required for hybrid search.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) TextIndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -27919,7 +29275,7 @@ func (o AgentKnowledgeBaseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentPromptVariant struct {
-	// Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+	// Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
 	AdditionalModelRequestFields *string `pulumi:"additionalModelRequestFields"`
 	// Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
 	GenAiResource *AgentPromptVariantGenAiResource `pulumi:"genAiResource"`
@@ -27949,7 +29305,7 @@ type AgentPromptVariantInput interface {
 }
 
 type AgentPromptVariantArgs struct {
-	// Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+	// Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
 	AdditionalModelRequestFields pulumi.StringPtrInput `pulumi:"additionalModelRequestFields"`
 	// Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
 	GenAiResource AgentPromptVariantGenAiResourcePtrInput `pulumi:"genAiResource"`
@@ -28018,7 +29374,7 @@ func (o AgentPromptVariantOutput) ToAgentPromptVariantOutputWithContext(ctx cont
 	return o
 }
 
-// Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+// Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
 func (o AgentPromptVariantOutput) AdditionalModelRequestFields() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariant) *string { return v.AdditionalModelRequestFields }).(pulumi.StringPtrOutput)
 }
@@ -29251,7 +30607,7 @@ func (o AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput) Ind
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessage struct {
-	// Content for the message you pass to, or receive from a model. See `content` Block for more information.
+	// Content for the message you pass to, or receive from, a model. See `content` Block for more information.
 	Content *AgentPromptVariantTemplateConfigurationChatMessageContent `pulumi:"content"`
 	// Role that the message belongs to.
 	Role string `pulumi:"role"`
@@ -29269,7 +30625,7 @@ type AgentPromptVariantTemplateConfigurationChatMessageInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessageArgs struct {
-	// Content for the message you pass to, or receive from a model. See `content` Block for more information.
+	// Content for the message you pass to, or receive from, a model. See `content` Block for more information.
 	Content AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput `pulumi:"content"`
 	// Role that the message belongs to.
 	Role pulumi.StringInput `pulumi:"role"`
@@ -29326,7 +30682,7 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) ToAgentPromptV
 	return o
 }
 
-// Content for the message you pass to, or receive from a model. See `content` Block for more information.
+// Content for the message you pass to, or receive from, a model. See `content` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) Content() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessage) *AgentPromptVariantTemplateConfigurationChatMessageContent {
 		return v.Content
@@ -31752,7 +33108,7 @@ type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration struct {
 	Code *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode `pulumi:"code"`
 	// Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
 	EntryPoints []string `pulumi:"entryPoints"`
-	// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+	// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
 	Runtime string `pulumi:"runtime"`
 }
 
@@ -31772,7 +33128,7 @@ type AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs struct {
 	Code AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodePtrInput `pulumi:"code"`
 	// Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
 	EntryPoints pulumi.StringArrayInput `pulumi:"entryPoints"`
-	// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+	// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
 	Runtime pulumi.StringInput `pulumi:"runtime"`
 }
 
@@ -31865,7 +33221,7 @@ func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) EntryP
 	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) []string { return v.EntryPoints }).(pulumi.StringArrayOutput)
 }
 
-// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
 func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) string { return v.Runtime }).(pulumi.StringOutput)
 }
@@ -31914,7 +33270,7 @@ func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) Ent
 	}).(pulumi.StringArrayOutput)
 }
 
-// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
 func (o AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration) *string {
 		if v == nil {
@@ -36395,7 +37751,7 @@ func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput) SecretId()
 }
 
 type AgentcoreBrowserBrowserSigning struct {
-	// Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+	// Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -36411,7 +37767,7 @@ type AgentcoreBrowserBrowserSigningInput interface {
 }
 
 type AgentcoreBrowserBrowserSigningArgs struct {
-	// Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+	// Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -36492,7 +37848,7 @@ func (o AgentcoreBrowserBrowserSigningOutput) ToAgentcoreBrowserBrowserSigningPt
 	}).(AgentcoreBrowserBrowserSigningPtrOutput)
 }
 
-// Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+// Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
 func (o AgentcoreBrowserBrowserSigningOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AgentcoreBrowserBrowserSigning) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -36521,7 +37877,7 @@ func (o AgentcoreBrowserBrowserSigningPtrOutput) Elem() AgentcoreBrowserBrowserS
 	}).(AgentcoreBrowserBrowserSigningOutput)
 }
 
-// Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+// Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
 func (o AgentcoreBrowserBrowserSigningPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentcoreBrowserBrowserSigning) *bool {
 		if v == nil {
@@ -43774,7 +45130,7 @@ func (o AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationPtrOutput) S
 }
 
 type AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration struct {
-	// Boolean indicating whether response streaming is enabled for the gateway.
+	// Whether to enable response streaming for the gateway.
 	EnableResponseStreaming *bool `pulumi:"enableResponseStreaming"`
 }
 
@@ -43790,7 +45146,7 @@ type AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationInput interfa
 }
 
 type AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs struct {
-	// Boolean indicating whether response streaming is enabled for the gateway.
+	// Whether to enable response streaming for the gateway.
 	EnableResponseStreaming pulumi.BoolPtrInput `pulumi:"enableResponseStreaming"`
 }
 
@@ -43871,7 +45227,7 @@ func (o AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationOutput) To
 	}).(AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationPtrOutput)
 }
 
-// Boolean indicating whether response streaming is enabled for the gateway.
+// Whether to enable response streaming for the gateway.
 func (o AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationOutput) EnableResponseStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration) *bool {
 		return v.EnableResponseStreaming
@@ -43902,7 +45258,7 @@ func (o AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationPtrOutput)
 	}).(AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationOutput)
 }
 
-// Boolean indicating whether response streaming is enabled for the gateway.
+// Whether to enable response streaming for the gateway.
 func (o AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationPtrOutput) EnableResponseStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration) *bool {
 		if v == nil {
@@ -46393,7 +47749,7 @@ type AgentcoreGatewayTargetCredentialProviderConfigurationApiKey struct {
 	CredentialParameterName *string `pulumi:"credentialParameterName"`
 	// Prefix to add to the API key credential value.
 	CredentialPrefix *string `pulumi:"credentialPrefix"`
-	// ARN of the OIDC provider for API key authentication.
+	// ARN of the API key credential provider.
 	ProviderArn string `pulumi:"providerArn"`
 }
 
@@ -46415,7 +47771,7 @@ type AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs struct {
 	CredentialParameterName pulumi.StringPtrInput `pulumi:"credentialParameterName"`
 	// Prefix to add to the API key credential value.
 	CredentialPrefix pulumi.StringPtrInput `pulumi:"credentialPrefix"`
-	// ARN of the OIDC provider for API key authentication.
+	// ARN of the API key credential provider.
 	ProviderArn pulumi.StringInput `pulumi:"providerArn"`
 }
 
@@ -46515,7 +47871,7 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) Crede
 	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string { return v.CredentialPrefix }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the OIDC provider for API key authentication.
+// ARN of the API key credential provider.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) ProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) string { return v.ProviderArn }).(pulumi.StringOutput)
 }
@@ -46574,7 +47930,7 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the OIDC provider for API key authentication.
+// ARN of the API key credential provider.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) ProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string {
 		if v == nil {
@@ -46745,7 +48101,7 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredential
 }
 
 type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole struct {
-	// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+	// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Can only be set when `service` is set.
 	Region *string `pulumi:"region"`
 	// Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
 	Service *string `pulumi:"service"`
@@ -46763,7 +48119,7 @@ type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleInput in
 }
 
 type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs struct {
-	// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+	// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Can only be set when `service` is set.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
 	Service pulumi.StringPtrInput `pulumi:"service"`
@@ -46846,7 +48202,7 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutpu
 	}).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput)
 }
 
-// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Can only be set when `service` is set.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -46880,7 +48236,7 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOu
 	}).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput)
 }
 
-// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Can only be set when `service` is set.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole) *string {
 		if v == nil {
@@ -47023,9 +48379,9 @@ type AgentcoreGatewayTargetCredentialProviderConfigurationOauth struct {
 	CustomParameters map[string]string `pulumi:"customParameters"`
 	// URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
 	DefaultReturnUrl *string `pulumi:"defaultReturnUrl"`
-	// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+	// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
 	GrantType *string `pulumi:"grantType"`
-	// ARN of the Oauth credential provider for OAuth authentication.
+	// ARN of the OAuth credential provider.
 	ProviderArn string `pulumi:"providerArn"`
 	// Set of OAuth scopes to request.
 	Scopes []string `pulumi:"scopes"`
@@ -47047,9 +48403,9 @@ type AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs struct {
 	CustomParameters pulumi.StringMapInput `pulumi:"customParameters"`
 	// URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
 	DefaultReturnUrl pulumi.StringPtrInput `pulumi:"defaultReturnUrl"`
-	// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+	// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
 	GrantType pulumi.StringPtrInput `pulumi:"grantType"`
-	// ARN of the Oauth credential provider for OAuth authentication.
+	// ARN of the OAuth credential provider.
 	ProviderArn pulumi.StringInput `pulumi:"providerArn"`
 	// Set of OAuth scopes to request.
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
@@ -47144,12 +48500,12 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) Defaul
 	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string { return v.DefaultReturnUrl }).(pulumi.StringPtrOutput)
 }
 
-// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) GrantType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string { return v.GrantType }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Oauth credential provider for OAuth authentication.
+// ARN of the OAuth credential provider.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) string { return v.ProviderArn }).(pulumi.StringOutput)
 }
@@ -47203,7 +48559,7 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) Def
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) GrantType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string {
 		if v == nil {
@@ -47213,7 +48569,7 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) Gra
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Oauth credential provider for OAuth authentication.
+// ARN of the OAuth credential provider.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) ProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string {
 		if v == nil {
@@ -47948,7 +49304,7 @@ func (o AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourcePtrOutput
 }
 
 type AgentcoreGatewayTargetTargetConfiguration struct {
-	// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+	// HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
 	Http *AgentcoreGatewayTargetTargetConfigurationHttp `pulumi:"http"`
 	// Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
 	Inference *AgentcoreGatewayTargetTargetConfigurationInference `pulumi:"inference"`
@@ -47968,7 +49324,7 @@ type AgentcoreGatewayTargetTargetConfigurationInput interface {
 }
 
 type AgentcoreGatewayTargetTargetConfigurationArgs struct {
-	// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+	// HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
 	Http AgentcoreGatewayTargetTargetConfigurationHttpPtrInput `pulumi:"http"`
 	// Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
 	Inference AgentcoreGatewayTargetTargetConfigurationInferencePtrInput `pulumi:"inference"`
@@ -48053,7 +49409,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationOutput) ToAgentcoreGatewayTarge
 	}).(AgentcoreGatewayTargetTargetConfigurationPtrOutput)
 }
 
-// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+// HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationOutput) Http() AgentcoreGatewayTargetTargetConfigurationHttpPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfiguration) *AgentcoreGatewayTargetTargetConfigurationHttp {
 		return v.Http
@@ -48098,7 +49454,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) Elem() AgentcoreGate
 	}).(AgentcoreGatewayTargetTargetConfigurationOutput)
 }
 
-// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+// HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) Http() AgentcoreGatewayTargetTargetConfigurationHttpPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfiguration) *AgentcoreGatewayTargetTargetConfigurationHttp {
 		if v == nil {
@@ -50829,7 +52185,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingPt
 type AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix struct {
 	// Single character that separates the provider prefix from the model name (for example, `.`). Defaults to `.`.
 	Separator *string `pulumi:"separator"`
-	// Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+	// Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
 	Strip *bool `pulumi:"strip"`
 }
 
@@ -50847,7 +52203,7 @@ type AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProvi
 type AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefixArgs struct {
 	// Single character that separates the provider prefix from the model name (for example, `.`). Defaults to `.`.
 	Separator pulumi.StringPtrInput `pulumi:"separator"`
-	// Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+	// Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
 	Strip pulumi.BoolPtrInput `pulumi:"strip"`
 }
 
@@ -50935,7 +52291,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+// Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefixOutput) Strip() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix) *bool {
 		return v.Strip
@@ -50976,7 +52332,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+// Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefixPtrOutput) Strip() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix) *bool {
 		if v == nil {
@@ -51106,6 +52462,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationArray
 }
 
 type AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel struct {
+	// Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
 	Model string `pulumi:"model"`
 }
 
@@ -51121,6 +52478,7 @@ type AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelInp
 }
 
 type AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelArgs struct {
+	// Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
 	Model pulumi.StringInput `pulumi:"model"`
 }
 
@@ -51175,6 +52533,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel
 	return o
 }
 
+// Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
 func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelOutput) Model() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel) string {
 		return v.Model
@@ -52334,10 +53693,11 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationArrayO
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride struct {
-	// Description of the gateway target.
+	// Agent-facing description override for this parameter.
 	Description *string `pulumi:"description"`
-	Path        string  `pulumi:"path"`
-	// Whether this parameter is visible to the agent. If not specified, uses the service default.
+	// JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+	Path string `pulumi:"path"`
+	// Whether to make this parameter visible to the agent. If not specified, uses the service default.
 	Visible *bool `pulumi:"visible"`
 }
 
@@ -52353,10 +53713,11 @@ type AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameter
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverrideArgs struct {
-	// Description of the gateway target.
+	// Agent-facing description override for this parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Path        pulumi.StringInput    `pulumi:"path"`
-	// Whether this parameter is visible to the agent. If not specified, uses the service default.
+	// JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+	Path pulumi.StringInput `pulumi:"path"`
+	// Whether to make this parameter visible to the agent. If not specified, uses the service default.
 	Visible pulumi.BoolPtrInput `pulumi:"visible"`
 }
 
@@ -52411,20 +53772,21 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParame
 	return o
 }
 
-// Description of the gateway target.
+// Agent-facing description override for this parameter.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverrideOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
+// JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverrideOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride) string {
 		return v.Path
 	}).(pulumi.StringOutput)
 }
 
-// Whether this parameter is visible to the agent. If not specified, uses the service default.
+// Whether to make this parameter visible to the agent. If not specified, uses the service default.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverrideOutput) Visible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride) *bool {
 		return v.Visible
@@ -53557,7 +54919,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name string `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson *string `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -53583,7 +54945,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name pulumi.StringInput `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -53668,7 +55030,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty) *bool {
 		return v.Required
@@ -53711,7 +55073,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name string `pulumi:"name"`
 	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty `pulumi:"properties"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -53737,7 +55099,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayInput `pulumi:"properties"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -53822,7 +55184,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) *bool {
 		return v.Required
@@ -54269,7 +55631,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name string `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson *string `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -54295,7 +55657,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name pulumi.StringInput `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -54380,7 +55742,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty) *bool {
 		return v.Required
@@ -54423,7 +55785,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name string `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson *string `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -54449,7 +55811,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 	Name pulumi.StringInput `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -54534,7 +55896,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty) *bool {
 		return v.Required
@@ -55183,7 +56545,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name string `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson *string `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -55209,7 +56571,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name pulumi.StringInput `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -55294,7 +56656,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty) *bool {
 		return v.Required
@@ -55337,7 +56699,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name string `pulumi:"name"`
 	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty `pulumi:"properties"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -55363,7 +56725,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput `pulumi:"properties"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -55448,7 +56810,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) *bool {
 		return v.Required
@@ -55895,7 +57257,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name string `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson *string `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -55921,7 +57283,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name pulumi.StringInput `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -56006,7 +57368,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty) *bool {
 		return v.Required
@@ -56049,7 +57411,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name string `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson *string `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
 	// Data type of the property.
 	Type string `pulumi:"type"`
@@ -56075,7 +57437,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 	Name pulumi.StringInput `pulumi:"name"`
 	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
 	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
-	// Whether this property is required. Defaults to `false`.
+	// Whether to mark this property as required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// Data type of the property.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -56160,7 +57522,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether this property is required. Defaults to `false`.
+// Whether to mark this property as required. Defaults to `false`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty) *bool {
 		return v.Required
@@ -56357,7 +57719,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpMcpServer struct {
 	Endpoint string `pulumi:"endpoint"`
 	// Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
 	ListingMode *string `pulumi:"listingMode"`
-	// Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
+	// Tool schema configuration for the MCP server target. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
 	McpToolSchema *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema `pulumi:"mcpToolSchema"`
 	// Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
 	ResourcePriority *int `pulumi:"resourcePriority"`
@@ -56379,7 +57741,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs struct {
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
 	ListingMode pulumi.StringPtrInput `pulumi:"listingMode"`
-	// Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
+	// Tool schema configuration for the MCP server target. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
 	McpToolSchema AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaPtrInput `pulumi:"mcpToolSchema"`
 	// Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
 	ResourcePriority pulumi.IntPtrInput `pulumi:"resourcePriority"`
@@ -56472,7 +57834,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) ListingMode
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpMcpServer) *string { return v.ListingMode }).(pulumi.StringPtrOutput)
 }
 
-// Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
+// Tool schema configuration for the MCP server target. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerOutput) McpToolSchema() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpMcpServer) *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema {
 		return v.McpToolSchema
@@ -56528,7 +57890,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) ListingM
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
+// Tool schema configuration for the MCP server target. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) McpToolSchema() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer) *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema {
 		if v == nil {
@@ -67125,9 +68487,9 @@ func (o AgentcoreHarnessToolConfigAgentcoreGatewayPtrOutput) OutboundAuth() Agen
 }
 
 type AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth struct {
-	// Set to `true` to use AWS IAM authentication.
+	// Whether to use AWS IAM authentication. Must be `true` if set.
 	AwsIam *bool `pulumi:"awsIam"`
-	// Set to `true` to disable authentication.
+	// Whether to disable authentication. Must be `true` if set.
 	None *bool `pulumi:"none"`
 	// OAuth credential provider configuration. See `oauth` Block below.
 	Oauth *AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauth `pulumi:"oauth"`
@@ -67145,9 +68507,9 @@ type AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthInput interface {
 }
 
 type AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs struct {
-	// Set to `true` to use AWS IAM authentication.
+	// Whether to use AWS IAM authentication. Must be `true` if set.
 	AwsIam pulumi.BoolPtrInput `pulumi:"awsIam"`
-	// Set to `true` to disable authentication.
+	// Whether to disable authentication. Must be `true` if set.
 	None pulumi.BoolPtrInput `pulumi:"none"`
 	// OAuth credential provider configuration. See `oauth` Block below.
 	Oauth AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthPtrInput `pulumi:"oauth"`
@@ -67230,12 +68592,12 @@ func (o AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOutput) ToAgentcor
 	}).(AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthPtrOutput)
 }
 
-// Set to `true` to use AWS IAM authentication.
+// Whether to use AWS IAM authentication. Must be `true` if set.
 func (o AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOutput) AwsIam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth) *bool { return v.AwsIam }).(pulumi.BoolPtrOutput)
 }
 
-// Set to `true` to disable authentication.
+// Whether to disable authentication. Must be `true` if set.
 func (o AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOutput) None() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth) *bool { return v.None }).(pulumi.BoolPtrOutput)
 }
@@ -67271,7 +68633,7 @@ func (o AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthPtrOutput) Elem() 
 	}).(AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOutput)
 }
 
-// Set to `true` to use AWS IAM authentication.
+// Whether to use AWS IAM authentication. Must be `true` if set.
 func (o AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthPtrOutput) AwsIam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth) *bool {
 		if v == nil {
@@ -67281,7 +68643,7 @@ func (o AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthPtrOutput) AwsIam(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set to `true` to disable authentication.
+// Whether to disable authentication. Must be `true` if set.
 func (o AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthPtrOutput) None() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth) *bool {
 		if v == nil {
@@ -73163,7 +74525,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) SlackOau
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig struct {
 	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
@@ -73195,7 +74557,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provide
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs struct {
 	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
@@ -73297,7 +74659,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -73382,7 +74744,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *string {
 		if v == nil {
@@ -73868,11 +75230,11 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig struct {
-	// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+	// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`, `PRIVATE_KEY_JWT`.
 	ClientAuthenticationMethod *string `pulumi:"clientAuthenticationMethod"`
 	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL` or `clientAuthenticationMethod` is `AWS_IAM_ID_TOKEN_JWT` or `PRIVATE_KEY_JWT`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
@@ -73910,11 +75272,11 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs struct {
-	// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+	// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`, `PRIVATE_KEY_JWT`.
 	ClientAuthenticationMethod pulumi.StringPtrInput `pulumi:"clientAuthenticationMethod"`
 	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL` or `clientAuthenticationMethod` is `AWS_IAM_ID_TOKEN_JWT` or `PRIVATE_KEY_JWT`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
@@ -74017,7 +75379,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput)
 }
 
-// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`, `PRIVATE_KEY_JWT`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
 		return v.ClientAuthenticationMethod
@@ -74031,7 +75393,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL` or `clientAuthenticationMethod` is `AWS_IAM_ID_TOKEN_JWT` or `PRIVATE_KEY_JWT`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -74134,7 +75496,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput)
 }
 
-// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`, `PRIVATE_KEY_JWT`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
 		if v == nil {
@@ -74154,7 +75516,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL` or `clientAuthenticationMethod` is `AWS_IAM_ID_TOKEN_JWT` or `PRIVATE_KEY_JWT`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
 		if v == nil {
@@ -74586,1511 +75948,6 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
-	// OAuth2 authorization endpoint URL.
-	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
-	// OAuth2 authorization server issuer identifier.
-	Issuer string `pulumi:"issuer"`
-	// Set of OAuth2 response types supported by the authorization server.
-	ResponseTypes []string `pulumi:"responseTypes"`
-	// OAuth2 token endpoint URL.
-	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint.
-	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
-	// OAuth2 authorization endpoint URL.
-	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
-	// OAuth2 authorization server issuer identifier.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// Set of OAuth2 response types supported by the authorization server.
-	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
-	// OAuth2 token endpoint URL.
-	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint.
-	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
-}
-
-// OAuth2 authorization endpoint URL.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
-		return v.AuthorizationEndpoint
-	}).(pulumi.StringOutput)
-}
-
-// OAuth2 authorization server issuer identifier.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
-		return v.Issuer
-	}).(pulumi.StringOutput)
-}
-
-// Set of OAuth2 response types supported by the authorization server.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
-		return v.ResponseTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// OAuth2 token endpoint URL.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
-		return v.TokenEndpoint
-	}).(pulumi.StringOutput)
-}
-
-// List of authentication methods supported by the token endpoint.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
-		return v.TokenEndpointAuthMethods
-	}).(pulumi.StringArrayOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
-}
-
-// OAuth2 authorization endpoint URL.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AuthorizationEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// OAuth2 authorization server issuer identifier.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Issuer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set of OAuth2 response types supported by the authorization server.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ResponseTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ResponseTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// OAuth2 token endpoint URL.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TokenEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of authentication methods supported by the token endpoint.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TokenEndpointAuthMethods
-	}).(pulumi.StringArrayOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig struct {
-	// Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
-	GrantType string `pulumi:"grantType"`
-	// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
-	TokenExchangeGrantTypeConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig `pulumi:"tokenExchangeGrantTypeConfig"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs struct {
-	// Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
-	GrantType pulumi.StringInput `pulumi:"grantType"`
-	// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
-	TokenExchangeGrantTypeConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrInput `pulumi:"tokenExchangeGrantTypeConfig"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput)
-}
-
-// Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) GrantType() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) string {
-		return v.GrantType
-	}).(pulumi.StringOutput)
-}
-
-// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) TokenExchangeGrantTypeConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
-		return v.TokenExchangeGrantTypeConfig
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput)
-}
-
-// Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput) GrantType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.GrantType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput) TokenExchangeGrantTypeConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
-		if v == nil {
-			return nil
-		}
-		return v.TokenExchangeGrantTypeConfig
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig struct {
-	// Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
-	ActorTokenContent string `pulumi:"actorTokenContent"`
-	// Set of scopes for the actor token. Only valid when `actorTokenContent` is `M2M`.
-	ActorTokenScopes []string `pulumi:"actorTokenScopes"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs struct {
-	// Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
-	ActorTokenContent pulumi.StringInput `pulumi:"actorTokenContent"`
-	// Set of scopes for the actor token. Only valid when `actorTokenContent` is `M2M`.
-	ActorTokenScopes pulumi.StringArrayInput `pulumi:"actorTokenScopes"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput)
-}
-
-// Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput) ActorTokenContent() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig) string {
-		return v.ActorTokenContent
-	}).(pulumi.StringOutput)
-}
-
-// Set of scopes for the actor token. Only valid when `actorTokenContent` is `M2M`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput) ActorTokenScopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig) []string {
-		return v.ActorTokenScopes
-	}).(pulumi.StringArrayOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput)
-}
-
-// Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput) ActorTokenContent() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ActorTokenContent
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set of scopes for the actor token. Only valid when `actorTokenContent` is `M2M`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput) ActorTokenScopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ActorTokenScopes
-	}).(pulumi.StringArrayOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
-	ManagedVpcResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
-	SelfManagedLatticeResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
-	ManagedVpcResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
-	SelfManagedLatticeResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput)
-}
-
-// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) ManagedVpcResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
-		return v.ManagedVpcResource
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
-		return v.SelfManagedLatticeResource
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput)
-}
-
-// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) ManagedVpcResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedVpcResource
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) SelfManagedLatticeResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
-		if v == nil {
-			return nil
-		}
-		return v.SelfManagedLatticeResource
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource struct {
-	// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
-	// Routing domain for the managed VPC resource.
-	RoutingDomain *string `pulumi:"routingDomain"`
-	// Set of up to 5 security group IDs for the managed VPC resource.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Set of subnet IDs for the managed VPC resource.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of tags for the managed VPC resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the VPC.
-	VpcIdentifier string `pulumi:"vpcIdentifier"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs struct {
-	// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
-	// Routing domain for the managed VPC resource.
-	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
-	// Set of up to 5 security group IDs for the managed VPC resource.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// Set of subnet IDs for the managed VPC resource.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// Key-value map of tags for the managed VPC resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the VPC.
-	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) string {
-		return v.EndpointIpAddressType
-	}).(pulumi.StringOutput)
-}
-
-// Routing domain for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) *string {
-		return v.RoutingDomain
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set of up to 5 security group IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) []string {
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Set of subnet IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) []string {
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Key-value map of tags for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) map[string]string {
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-// Identifier of the VPC.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) string {
-		return v.VpcIdentifier
-	}).(pulumi.StringOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput)
-}
-
-// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointIpAddressType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Routing domain for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RoutingDomain
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set of up to 5 security group IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Set of subnet IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Key-value map of tags for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-// Identifier of the VPC.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VpcIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride struct {
-	// Domain the private endpoint override applies to.
-	Domain string `pulumi:"domain"`
-	// Private endpoint configuration for the domain. See `privateEndpoint` Block above.
-	PrivateEndpoint AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint `pulumi:"privateEndpoint"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs struct {
-	// Domain the private endpoint override applies to.
-	Domain pulumi.StringInput `pulumi:"domain"`
-	// Private endpoint configuration for the domain. See `privateEndpoint` Block above.
-	PrivateEndpoint AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointInput `pulumi:"privateEndpoint"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs{...} }
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideInput
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput {
-	return o
-}
-
-// Domain the private endpoint override applies to.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride) string {
-		return v.Domain
-	}).(pulumi.StringOutput)
-}
-
-// Private endpoint configuration for the domain. See `privateEndpoint` Block above.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput) PrivateEndpoint() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint {
-		return v.PrivateEndpoint
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride {
-		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride)[vs[1].(int)]
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
-	ManagedVpcResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
-	SelfManagedLatticeResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
-	ManagedVpcResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
-	SelfManagedLatticeResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput {
-	return o
-}
-
-// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput) ManagedVpcResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
-		return v.ManagedVpcResource
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-		return v.SelfManagedLatticeResource
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource struct {
-	// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
-	// Routing domain for the managed VPC resource.
-	RoutingDomain *string `pulumi:"routingDomain"`
-	// Set of up to 5 security group IDs for the managed VPC resource.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Set of subnet IDs for the managed VPC resource.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of tags for the managed VPC resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the VPC.
-	VpcIdentifier string `pulumi:"vpcIdentifier"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs struct {
-	// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
-	// Routing domain for the managed VPC resource.
-	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
-	// Set of up to 5 security group IDs for the managed VPC resource.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// Set of subnet IDs for the managed VPC resource.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// Key-value map of tags for the managed VPC resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the VPC.
-	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
-		return v.EndpointIpAddressType
-	}).(pulumi.StringOutput)
-}
-
-// Routing domain for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		return v.RoutingDomain
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set of up to 5 security group IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Set of subnet IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Key-value map of tags for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-// Identifier of the VPC.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
-		return v.VpcIdentifier
-	}).(pulumi.StringOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
-}
-
-// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointIpAddressType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Routing domain for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RoutingDomain
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set of up to 5 security group IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Set of subnet IDs for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Key-value map of tags for the managed VPC resource.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-// Identifier of the VPC.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VpcIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource struct {
-	// Identifier of the VPC Lattice resource configuration.
-	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs struct {
-	// Identifier of the VPC Lattice resource configuration.
-	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-// Identifier of the VPC Lattice resource configuration.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
-		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-// Identifier of the VPC Lattice resource configuration.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorPtrInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
@@ -76158,6 +76015,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationS3ConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationS3ConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs{})
@@ -76212,6 +76081,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs{})
@@ -77060,23 +76935,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaOutput{})
@@ -77143,6 +77001,18 @@ func init() {
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleDailyPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleMonthlyDayOfMonthLastDayOfMonthPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncScheduleWeeklyPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput{})
@@ -77197,6 +77067,12 @@ func init() {
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput{})
@@ -78045,21 +77921,4 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput{})
 }

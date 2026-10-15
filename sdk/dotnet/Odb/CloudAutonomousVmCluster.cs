@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> CloudExadataInfrastructureArn { get; private set; } = null!;
 
         /// <summary>
-        /// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `CloudExadataInfrastructureId` and `OdbNetworkId` or `CloudExadataInfrastructureArn` and `OdbNetworkArn` must be used.
+        /// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `CloudExadataInfrastructureId` and `OdbNetworkId` or `CloudExadataInfrastructureArn` and `OdbNetworkArn` must be used.
         /// </summary>
         [Output("cloudExadataInfrastructureId")]
         public Output<string> CloudExadataInfrastructureId { get; private set; } = null!;
@@ -514,7 +514,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? CloudExadataInfrastructureArn { get; set; }
 
         /// <summary>
-        /// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `CloudExadataInfrastructureId` and `OdbNetworkId` or `CloudExadataInfrastructureArn` and `OdbNetworkArn` must be used.
+        /// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `CloudExadataInfrastructureId` and `OdbNetworkId` or `CloudExadataInfrastructureArn` and `OdbNetworkArn` must be used.
         /// </summary>
         [Input("cloudExadataInfrastructureId")]
         public Input<string>? CloudExadataInfrastructureId { get; set; }
@@ -683,7 +683,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? CloudExadataInfrastructureArn { get; set; }
 
         /// <summary>
-        /// Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `CloudExadataInfrastructureId` and `OdbNetworkId` or `CloudExadataInfrastructureArn` and `OdbNetworkArn` must be used.
+        /// Exadata infrastructure ID. Changing this will force Terraform to create a new resource. Either the combination of `CloudExadataInfrastructureId` and `OdbNetworkId` or `CloudExadataInfrastructureArn` and `OdbNetworkArn` must be used.
         /// </summary>
         [Input("cloudExadataInfrastructureId")]
         public Input<string>? CloudExadataInfrastructureId { get; set; }

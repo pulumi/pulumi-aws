@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ChannelMaintenance {
     /**
-     * @return The day of the week to use for maintenance.
+     * @return Day of the week to use for maintenance.
      * 
      */
     private String maintenanceDay;
     /**
-     * @return The hour maintenance will start.
+     * @return Hour maintenance will start.
      * 
      */
     private String maintenanceStartTime;
 
     private ChannelMaintenance() {}
     /**
-     * @return The day of the week to use for maintenance.
+     * @return Day of the week to use for maintenance.
      * 
      */
     public String maintenanceDay() {
         return this.maintenanceDay;
     }
     /**
-     * @return The hour maintenance will start.
+     * @return Hour maintenance will start.
      * 
      */
     public String maintenanceStartTime() {

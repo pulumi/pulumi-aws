@@ -204,7 +204,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly agentRuntimeArn: pulumi.Output<string>;
     /**
-     * Container artifact configuration. See `agentRuntimeArtifact` below.
+     * Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      */
     declare public readonly agentRuntimeArtifact: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact>;
     /**
@@ -361,7 +361,7 @@ export interface AgentcoreAgentRuntimeState {
      */
     agentRuntimeArn?: pulumi.Input<string | undefined>;
     /**
-     * Container artifact configuration. See `agentRuntimeArtifact` below.
+     * Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      */
     agentRuntimeArtifact?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact | undefined>;
     /**
@@ -442,7 +442,7 @@ export interface AgentcoreAgentRuntimeState {
  */
 export interface AgentcoreAgentRuntimeArgs {
     /**
-     * Container artifact configuration. See `agentRuntimeArtifact` below.
+     * Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      */
     agentRuntimeArtifact: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact>;
     /**

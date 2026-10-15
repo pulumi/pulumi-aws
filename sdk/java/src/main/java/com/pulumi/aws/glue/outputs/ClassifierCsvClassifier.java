@@ -19,7 +19,7 @@ public final class ClassifierCsvClassifier {
      */
     private @Nullable Boolean allowSingleColumn;
     /**
-     * @return Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+     * @return Whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
      * 
      */
     private @Nullable String containsHeader;
@@ -29,32 +29,32 @@ public final class ClassifierCsvClassifier {
      */
     private @Nullable Boolean customDatatypeConfigured;
     /**
-     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * @return List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
      * 
      */
     private @Nullable List<String> customDatatypes;
     /**
-     * @return The delimiter used in the CSV to separate columns.
+     * @return Delimiter used in the CSV to separate columns.
      * 
      */
     private @Nullable String delimiter;
     /**
-     * @return Specifies whether to trim column values.
+     * @return Whether to trim column values.
      * 
      */
     private @Nullable Boolean disableValueTrimming;
     /**
-     * @return A list of strings representing column names.
+     * @return List of strings representing column names.
      * 
      */
     private @Nullable List<String> headers;
     /**
-     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * @return Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
      * 
      */
     private @Nullable String quoteSymbol;
     /**
-     * @return The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * @return SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
      * 
      */
     private @Nullable String serde;
@@ -68,7 +68,7 @@ public final class ClassifierCsvClassifier {
         return Optional.ofNullable(this.allowSingleColumn);
     }
     /**
-     * @return Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+     * @return Whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
      * 
      */
     public Optional<String> containsHeader() {
@@ -82,42 +82,42 @@ public final class ClassifierCsvClassifier {
         return Optional.ofNullable(this.customDatatypeConfigured);
     }
     /**
-     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * @return List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
      * 
      */
     public List<String> customDatatypes() {
         return this.customDatatypes == null ? List.of() : this.customDatatypes;
     }
     /**
-     * @return The delimiter used in the CSV to separate columns.
+     * @return Delimiter used in the CSV to separate columns.
      * 
      */
     public Optional<String> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
     /**
-     * @return Specifies whether to trim column values.
+     * @return Whether to trim column values.
      * 
      */
     public Optional<Boolean> disableValueTrimming() {
         return Optional.ofNullable(this.disableValueTrimming);
     }
     /**
-     * @return A list of strings representing column names.
+     * @return List of strings representing column names.
      * 
      */
     public List<String> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * @return Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
      * 
      */
     public Optional<String> quoteSymbol() {
         return Optional.ofNullable(this.quoteSymbol);
     }
     /**
-     * @return The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * @return SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
      * 
      */
     public Optional<String> serde() {

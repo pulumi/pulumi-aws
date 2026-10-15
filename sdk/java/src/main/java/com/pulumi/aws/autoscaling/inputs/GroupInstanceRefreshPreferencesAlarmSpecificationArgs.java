@@ -17,14 +17,14 @@ public final class GroupInstanceRefreshPreferencesAlarmSpecificationArgs extends
     public static final GroupInstanceRefreshPreferencesAlarmSpecificationArgs Empty = new GroupInstanceRefreshPreferencesAlarmSpecificationArgs();
 
     /**
-     * List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+     * List of CloudWatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
      * 
      */
     @Import(name="alarms")
     private @Nullable Output<List<String>> alarms;
 
     /**
-     * @return List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+     * @return List of CloudWatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
      * 
      */
     public Optional<Output<List<String>>> alarms() {
@@ -56,7 +56,7 @@ public final class GroupInstanceRefreshPreferencesAlarmSpecificationArgs extends
         }
 
         /**
-         * @param alarms List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+         * @param alarms List of CloudWatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class GroupInstanceRefreshPreferencesAlarmSpecificationArgs extends
         }
 
         /**
-         * @param alarms List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+         * @param alarms List of CloudWatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class GroupInstanceRefreshPreferencesAlarmSpecificationArgs extends
         }
 
         /**
-         * @param alarms List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+         * @param alarms List of CloudWatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
          * 
          * @return builder
          * 

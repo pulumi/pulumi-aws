@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// Number of cpu units reserved for the container, instead of the default value from the task definition.
+        /// Number of CPU units reserved for the container, instead of the default value from the task definition.
         /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }

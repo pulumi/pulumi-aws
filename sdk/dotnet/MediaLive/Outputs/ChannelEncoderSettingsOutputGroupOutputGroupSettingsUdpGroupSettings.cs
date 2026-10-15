@@ -14,13 +14,16 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings
     {
         /// <summary>
-        /// Specifies behavior of last resort when input video os lost.
+        /// Behavior of last resort when input video is lost.
         /// </summary>
         public readonly string? InputLossAction;
         /// <summary>
-        /// Indicates ID3 frame that has the timecode.
+        /// ID3 frame that has the timecode.
         /// </summary>
         public readonly string? TimedMetadataId3Frame;
+        /// <summary>
+        /// Timed metadata interval, in seconds.
+        /// </summary>
         public readonly int? TimedMetadataId3Period;
 
         [OutputConstructor]

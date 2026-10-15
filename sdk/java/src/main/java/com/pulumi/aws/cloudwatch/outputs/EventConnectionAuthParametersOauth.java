@@ -30,7 +30,7 @@ public final class EventConnectionAuthParametersOauth {
      */
     private String httpMethod;
     /**
-     * @return OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+     * @return OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
     private EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters;
@@ -58,7 +58,7 @@ public final class EventConnectionAuthParametersOauth {
         return this.httpMethod;
     }
     /**
-     * @return OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+     * @return OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
     public EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters() {

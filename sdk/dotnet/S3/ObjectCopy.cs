@@ -216,13 +216,13 @@ namespace Pulumi.Aws.S3
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Output("expectedSourceBucketOwner")]
         public Output<string?> ExpectedSourceBucketOwner { get; private set; } = null!;
@@ -560,13 +560,13 @@ namespace Pulumi.Aws.S3
         public Input<string>? CustomerKeyMd5 { get; set; }
 
         /// <summary>
-        /// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Input("expectedSourceBucketOwner")]
         public Input<string>? ExpectedSourceBucketOwner { get; set; }
@@ -913,13 +913,13 @@ namespace Pulumi.Aws.S3
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Input("expectedSourceBucketOwner")]
         public Input<string>? ExpectedSourceBucketOwner { get; set; }

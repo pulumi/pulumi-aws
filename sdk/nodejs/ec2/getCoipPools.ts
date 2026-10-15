@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following shows outputting all COIP Pool Ids.
+ * The following shows outputting all CoIP Pool IDs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -68,7 +68,7 @@ export interface GetCoipPoolsResult {
      */
     readonly id: string;
     /**
-     * Set of COIP Pool Identifiers
+     * Set of CoIP Pool Identifiers
      */
     readonly poolIds: string[];
     readonly region: string;
@@ -79,7 +79,7 @@ export interface GetCoipPoolsResult {
  *
  * ## Example Usage
  *
- * The following shows outputting all COIP Pool Ids.
+ * The following shows outputting all CoIP Pool IDs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

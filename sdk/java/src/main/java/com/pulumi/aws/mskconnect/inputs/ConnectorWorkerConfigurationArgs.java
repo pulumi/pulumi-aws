@@ -31,14 +31,14 @@ public final class ConnectorWorkerConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The revision of the worker configuration.
+     * Revision of the worker configuration.
      * 
      */
     @Import(name="revision", required=true)
     private Output<Integer> revision;
 
     /**
-     * @return The revision of the worker configuration.
+     * @return Revision of the worker configuration.
      * 
      */
     public Output<Integer> revision() {
@@ -92,7 +92,7 @@ public final class ConnectorWorkerConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param revision The revision of the worker configuration.
+         * @param revision Revision of the worker configuration.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorWorkerConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param revision The revision of the worker configuration.
+         * @param revision Revision of the worker configuration.
          * 
          * @return builder
          * 

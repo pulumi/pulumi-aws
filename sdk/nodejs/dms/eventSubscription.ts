@@ -86,11 +86,11 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * SNS topic arn to send events on.
+     * SNS topic ARN to send events on.
      */
     declare public readonly snsTopicArn: pulumi.Output<string>;
     /**
-     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+     * IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
     declare public readonly sourceIds: pulumi.Output<string[] | undefined>;
     /**
@@ -181,11 +181,11 @@ export interface EventSubscriptionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * SNS topic arn to send events on.
+     * SNS topic ARN to send events on.
      */
     snsTopicArn?: pulumi.Input<string | undefined>;
     /**
-     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+     * IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -223,11 +223,11 @@ export interface EventSubscriptionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * SNS topic arn to send events on.
+     * SNS topic ARN to send events on.
      */
     snsTopicArn: pulumi.Input<string>;
     /**
-     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+     * IDs of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

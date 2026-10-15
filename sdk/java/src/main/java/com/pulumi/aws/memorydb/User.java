@@ -96,6 +96,7 @@ public class User extends com.pulumi.resources.CustomResource {
     }
     /**
      * ARN of the user.
+     * * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -103,20 +104,21 @@ public class User extends com.pulumi.resources.CustomResource {
 
     /**
      * @return ARN of the user.
+     * * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `type` is set to `password`.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Denotes the user&#39;s authentication properties. Detailed below.
+     * Authentication properties for the user. Detailed below.
      * 
      */
     @Export(name="authenticationMode", refs={UserAuthenticationMode.class}, tree="[0]")
     private Output<UserAuthenticationMode> authenticationMode;
 
     /**
-     * @return Denotes the user&#39;s authentication properties. Detailed below.
+     * @return Authentication properties for the user. Detailed below.
      * 
      */
     public Output<UserAuthenticationMode> authenticationMode() {
@@ -151,28 +153,28 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+        /// Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

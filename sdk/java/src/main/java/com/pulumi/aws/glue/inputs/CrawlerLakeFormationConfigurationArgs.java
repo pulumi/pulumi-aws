@@ -32,14 +32,14 @@ public final class CrawlerLakeFormationConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+     * Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
      * 
      */
     @Import(name="useLakeFormationCredentials")
     private @Nullable Output<Boolean> useLakeFormationCredentials;
 
     /**
-     * @return Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+     * @return Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
      * 
      */
     public Optional<Output<Boolean>> useLakeFormationCredentials() {
@@ -93,7 +93,7 @@ public final class CrawlerLakeFormationConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param useLakeFormationCredentials Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+         * @param useLakeFormationCredentials Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CrawlerLakeFormationConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param useLakeFormationCredentials Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+         * @param useLakeFormationCredentials Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
          * 
          * @return builder
          * 

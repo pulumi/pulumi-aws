@@ -209,7 +209,7 @@ def get_queue(instance_id: Optional[_builtins.str] = None,
     :param _builtins.str name: Returns information on a specific Queue by name
            
            > **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
-    :param _builtins.str queue_id: Returns information on a specific Queue by Queue id
+    :param _builtins.str queue_id: Returns information on a specific Queue by Queue ID
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the Queue.
     """
@@ -271,7 +271,7 @@ def get_queue_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
     :param _builtins.str name: Returns information on a specific Queue by name
            
            > **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
-    :param _builtins.str queue_id: Returns information on a specific Queue by Queue id
+    :param _builtins.str queue_id: Returns information on a specific Queue by Queue ID
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the Queue.
     """

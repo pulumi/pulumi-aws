@@ -488,7 +488,7 @@ type Cluster struct {
 	KerberosAttributes ClusterKerberosAttributesPtrOutput `pulumi:"kerberosAttributes"`
 	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
 	ListStepsStates pulumi.StringArrayOutput `pulumi:"listStepsStates"`
-	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+	// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId pulumi.StringPtrOutput `pulumi:"logEncryptionKmsKeyId"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
 	LogUri pulumi.StringPtrOutput `pulumi:"logUri"`
@@ -640,7 +640,7 @@ type clusterState struct {
 	KerberosAttributes *ClusterKerberosAttributes `pulumi:"kerberosAttributes"`
 	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
 	ListStepsStates []string `pulumi:"listStepsStates"`
-	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+	// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId *string `pulumi:"logEncryptionKmsKeyId"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
 	LogUri *string `pulumi:"logUri"`
@@ -757,7 +757,7 @@ type ClusterState struct {
 	KerberosAttributes ClusterKerberosAttributesPtrInput
 	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
 	ListStepsStates pulumi.StringArrayInput
-	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+	// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId pulumi.StringPtrInput
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
 	LogUri pulumi.StringPtrInput
@@ -875,7 +875,7 @@ type clusterArgs struct {
 	KerberosAttributes *ClusterKerberosAttributes `pulumi:"kerberosAttributes"`
 	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
 	ListStepsStates []string `pulumi:"listStepsStates"`
-	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+	// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId *string `pulumi:"logEncryptionKmsKeyId"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
 	LogUri *string `pulumi:"logUri"`
@@ -986,7 +986,7 @@ type ClusterArgs struct {
 	KerberosAttributes ClusterKerberosAttributesPtrInput
 	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
 	ListStepsStates pulumi.StringArrayInput
-	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+	// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId pulumi.StringPtrInput
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
 	LogUri pulumi.StringPtrInput
@@ -1241,7 +1241,7 @@ func (o ClusterOutput) ListStepsStates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.ListStepsStates }).(pulumi.StringArrayOutput)
 }
 
-// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+// AWS KMS customer master key (CMK) key ID or ARN used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 func (o ClusterOutput) LogEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.LogEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }

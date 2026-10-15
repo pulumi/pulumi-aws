@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.macie.FindingsFilter` using the id. For example:
+ * Using `pulumi import`, import `aws.macie.FindingsFilter` using the ID. For example:
  *
  * ```sh
  * $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
@@ -70,7 +70,7 @@ export class FindingsFilter extends pulumi.CustomResource {
     }
 
     /**
-     * The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+     * Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
      */
     declare public readonly action: pulumi.Output<string>;
     /**
@@ -78,15 +78,15 @@ export class FindingsFilter extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A custom description of the filter. The description can contain as many as 512 characters.
+     * Custom description of the filter. Can contain as many as 512 characters.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The criteria to use to filter findings.
+     * Criteria to use to filter findings. See `findingCriteria` Block for details.
      */
     declare public readonly findingCriteria: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
     /**
-     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -94,7 +94,7 @@ export class FindingsFilter extends pulumi.CustomResource {
      */
     declare public readonly namePrefix: pulumi.Output<string>;
     /**
-     * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+     * Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      */
     declare public readonly position: pulumi.Output<number>;
     /**
@@ -106,7 +106,7 @@ export class FindingsFilter extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -162,7 +162,7 @@ export class FindingsFilter extends pulumi.CustomResource {
  */
 export interface FindingsFilterState {
     /**
-     * The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+     * Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
      */
     action?: pulumi.Input<string | undefined>;
     /**
@@ -170,15 +170,15 @@ export interface FindingsFilterState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A custom description of the filter. The description can contain as many as 512 characters.
+     * Custom description of the filter. Can contain as many as 512 characters.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The criteria to use to filter findings.
+     * Criteria to use to filter findings. See `findingCriteria` Block for details.
      */
     findingCriteria?: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria | undefined>;
     /**
-     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface FindingsFilterState {
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**
-     * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+     * Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      */
     position?: pulumi.Input<number | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface FindingsFilterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -208,19 +208,19 @@ export interface FindingsFilterState {
  */
 export interface FindingsFilterArgs {
     /**
-     * The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+     * Action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are `ARCHIVE`, to suppress (automatically archive) the findings, and `NOOP`, to not perform any action on the findings.
      */
     action: pulumi.Input<string>;
     /**
-     * A custom description of the filter. The description can contain as many as 512 characters.
+     * Custom description of the filter. Can contain as many as 512 characters.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The criteria to use to filter findings.
+     * Criteria to use to filter findings. See `findingCriteria` Block for details.
      */
     findingCriteria: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
     /**
-     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the filter. Must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -228,7 +228,7 @@ export interface FindingsFilterArgs {
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**
-     * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+     * Position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      */
     position?: pulumi.Input<number | undefined>;
     /**

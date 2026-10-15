@@ -72,14 +72,14 @@ type InputSecurityGroup struct {
 
 	// ARN of the InputSecurityGroup.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The list of inputs currently using this InputSecurityGroup.
+	// List of inputs currently using this InputSecurityGroup.
 	Inputs pulumi.StringArrayOutput `pulumi:"inputs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Whitelist rules. See Whitelist Rules for more details.
+	// Whitelist rules. See `whitelistRules` Block for more details.
 	//
 	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayOutput `pulumi:"whitelistRules"`
@@ -120,14 +120,14 @@ func GetInputSecurityGroup(ctx *pulumi.Context,
 type inputSecurityGroupState struct {
 	// ARN of the InputSecurityGroup.
 	Arn *string `pulumi:"arn"`
-	// The list of inputs currently using this InputSecurityGroup.
+	// List of inputs currently using this InputSecurityGroup.
 	Inputs []string `pulumi:"inputs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Whitelist rules. See Whitelist Rules for more details.
+	// Whitelist rules. See `whitelistRules` Block for more details.
 	//
 	// The following arguments are optional:
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
@@ -136,14 +136,14 @@ type inputSecurityGroupState struct {
 type InputSecurityGroupState struct {
 	// ARN of the InputSecurityGroup.
 	Arn pulumi.StringPtrInput
-	// The list of inputs currently using this InputSecurityGroup.
+	// List of inputs currently using this InputSecurityGroup.
 	Inputs pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// Whitelist rules. See Whitelist Rules for more details.
+	// Whitelist rules. See `whitelistRules` Block for more details.
 	//
 	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
@@ -158,7 +158,7 @@ type inputSecurityGroupArgs struct {
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Whitelist rules. See Whitelist Rules for more details.
+	// Whitelist rules. See `whitelistRules` Block for more details.
 	//
 	// The following arguments are optional:
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
@@ -170,7 +170,7 @@ type InputSecurityGroupArgs struct {
 	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Whitelist rules. See Whitelist Rules for more details.
+	// Whitelist rules. See `whitelistRules` Block for more details.
 	//
 	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
@@ -268,7 +268,7 @@ func (o InputSecurityGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The list of inputs currently using this InputSecurityGroup.
+// List of inputs currently using this InputSecurityGroup.
 func (o InputSecurityGroupOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringArrayOutput { return v.Inputs }).(pulumi.StringArrayOutput)
 }
@@ -287,7 +287,7 @@ func (o InputSecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Whitelist rules. See Whitelist Rules for more details.
+// Whitelist rules. See `whitelistRules` Block for more details.
 //
 // The following arguments are optional:
 func (o InputSecurityGroupOutput) WhitelistRules() InputSecurityGroupWhitelistRuleArrayOutput {

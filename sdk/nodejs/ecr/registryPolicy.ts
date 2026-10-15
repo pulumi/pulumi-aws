@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
+ * Using `pulumi import`, import ECR Registry Policy using the registry ID. For example:
  *
  * ```sh
  * $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012

@@ -50,14 +50,14 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
     }
 
     /**
-     * Service Descriptor. See Service Descriptor for more details.
+     * Service Descriptor. See `serviceDescriptor` Block for more details.
      * 
      */
     @Import(name="serviceDescriptor")
     private @Nullable Output<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs> serviceDescriptor;
 
     /**
-     * @return Service Descriptor. See Service Descriptor for more details.
+     * @return Service Descriptor. See `serviceDescriptor` Block for more details.
      * 
      */
     public Optional<Output<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>> serviceDescriptor() {
@@ -65,14 +65,14 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
     }
 
     /**
-     * Video settings. See Video Settings for more details.
+     * Video settings. See `videoSettings` Block for more details.
      * 
      */
     @Import(name="videoSettings")
     private @Nullable Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs> videoSettings;
 
     /**
-     * @return Video settings. See Video Settings for more details.
+     * @return Video settings. See `videoSettings` Block for more details.
      * 
      */
     public Optional<Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs>> videoSettings() {
@@ -149,7 +149,7 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
         }
 
         /**
-         * @param serviceDescriptor Service Descriptor. See Service Descriptor for more details.
+         * @param serviceDescriptor Service Descriptor. See `serviceDescriptor` Block for more details.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
         }
 
         /**
-         * @param serviceDescriptor Service Descriptor. See Service Descriptor for more details.
+         * @param serviceDescriptor Service Descriptor. See `serviceDescriptor` Block for more details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
         }
 
         /**
-         * @param videoSettings Video settings. See Video Settings for more details.
+         * @param videoSettings Video settings. See `videoSettings` Block for more details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
         }
 
         /**
-         * @param videoSettings Video settings. See Video Settings for more details.
+         * @param videoSettings Video settings. See `videoSettings` Block for more details.
          * 
          * @return builder
          * 

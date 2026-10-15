@@ -119,41 +119,57 @@ public class MeteringPolicyEntry extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> destinationCidrBlock() {
         return Codegen.optional(this.destinationCidrBlock);
     }
+    /**
+     * Destination port range to match. If not specified, all destination ports are matched.
+     * 
+     */
     @Export(name="destinationPortRange", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationPortRange;
 
+    /**
+     * @return Destination port range to match. If not specified, all destination ports are matched.
+     * 
+     */
     public Output<Optional<String>> destinationPortRange() {
         return Codegen.optional(this.destinationPortRange);
     }
+    /**
+     * Destination Transit Gateway attachment ID to match.
+     * 
+     */
     @Export(name="destinationTransitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationTransitGatewayAttachmentId;
 
+    /**
+     * @return Destination Transit Gateway attachment ID to match.
+     * 
+     */
     public Output<Optional<String>> destinationTransitGatewayAttachmentId() {
         return Codegen.optional(this.destinationTransitGatewayAttachmentId);
     }
     /**
-     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     @Export(name="destinationTransitGatewayAttachmentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationTransitGatewayAttachmentType;
 
     /**
-     * @return Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * @return Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     public Output<Optional<String>> destinationTransitGatewayAttachmentType() {
         return Codegen.optional(this.destinationTransitGatewayAttachmentType);
     }
     /**
-     * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+     * The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
      * 
      */
     @Export(name="meteredAccount", refs={String.class}, tree="[0]")
     private Output<String> meteredAccount;
 
     /**
-     * @return The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+     * @return The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
      * 
      */
     public Output<String> meteredAccount() {
@@ -215,27 +231,43 @@ public class MeteringPolicyEntry extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> sourceCidrBlock() {
         return Codegen.optional(this.sourceCidrBlock);
     }
+    /**
+     * Source port range to match. If not specified, all source ports are matched.
+     * 
+     */
     @Export(name="sourcePortRange", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourcePortRange;
 
+    /**
+     * @return Source port range to match. If not specified, all source ports are matched.
+     * 
+     */
     public Output<Optional<String>> sourcePortRange() {
         return Codegen.optional(this.sourcePortRange);
     }
+    /**
+     * Source Transit Gateway attachment ID to match.
+     * 
+     */
     @Export(name="sourceTransitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceTransitGatewayAttachmentId;
 
+    /**
+     * @return Source Transit Gateway attachment ID to match.
+     * 
+     */
     public Output<Optional<String>> sourceTransitGatewayAttachmentId() {
         return Codegen.optional(this.sourceTransitGatewayAttachmentId);
     }
     /**
-     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     @Export(name="sourceTransitGatewayAttachmentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceTransitGatewayAttachmentType;
 
     /**
-     * @return Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * @return Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      * 
      */
     public Output<Optional<String>> sourceTransitGatewayAttachmentType() {

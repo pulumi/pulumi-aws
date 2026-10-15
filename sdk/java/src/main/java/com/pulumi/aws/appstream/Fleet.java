@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.appstream.Fleet` using the id. For example:
+ * Using `pulumi import`, import `aws.appstream.Fleet` using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appstream/fleet:Fleet")
 public class Fleet extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the appstream fleet.
+     * ARN of the AppStream fleet.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the appstream fleet.
+     * @return ARN of the AppStream fleet.
      * 
      */
     public Output<String> arn() {

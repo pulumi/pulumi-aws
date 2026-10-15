@@ -53,14 +53,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the appstream stack.
+     * ARN of the AppStream stack.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the appstream stack.
+     * @return ARN of the AppStream stack.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -350,7 +350,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream stack.
+         * @param arn ARN of the AppStream stack.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream stack.
+         * @param arn ARN of the AppStream stack.
          * 
          * @return builder
          * 

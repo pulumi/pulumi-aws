@@ -81,9 +81,12 @@ export class CustomRoutingListener extends pulumi.CustomResource {
      * ARN of a custom routing accelerator.
      */
     declare public readonly acceleratorArn: pulumi.Output<string>;
+    /**
+     * ARN of the custom routing listener.
+     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      */
     declare public readonly portRanges: pulumi.Output<outputs.globalaccelerator.CustomRoutingListenerPortRange[]>;
 
@@ -128,9 +131,12 @@ export interface CustomRoutingListenerState {
      * ARN of a custom routing accelerator.
      */
     acceleratorArn?: pulumi.Input<string | undefined>;
+    /**
+     * ARN of the custom routing listener.
+     */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      */
     portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingListenerPortRange>[] | undefined>;
 }
@@ -144,7 +150,7 @@ export interface CustomRoutingListenerArgs {
      */
     acceleratorArn: pulumi.Input<string>;
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingListenerPortRange>[]>;
 }

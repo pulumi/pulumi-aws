@@ -166,6 +166,10 @@ namespace Pulumi.Aws.ResilienceHub
         public readonly string Name;
         public readonly string Region;
         /// <summary>
+        /// Whether the policy is shared with other member accounts of the organization.
+        /// </summary>
+        public readonly bool SharingEnabled;
+        /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -190,6 +194,8 @@ namespace Pulumi.Aws.ResilienceHub
 
             string region,
 
+            bool sharingEnabled,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -201,6 +207,7 @@ namespace Pulumi.Aws.ResilienceHub
             MultiRegions = multiRegions;
             Name = name;
             Region = region;
+            SharingEnabled = sharingEnabled;
             Tags = tags;
         }
     }

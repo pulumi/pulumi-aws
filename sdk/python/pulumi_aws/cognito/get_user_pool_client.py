@@ -353,7 +353,7 @@ def get_user_pool_client(client_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str client_id: Client Id of the user pool.
+    :param _builtins.str client_id: Client ID of the user pool.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str user_pool_id: User pool the client belongs to.
     """
@@ -409,7 +409,7 @@ def get_user_pool_client_output(client_id: pulumi.Input[Optional[_builtins.str]]
     ```
 
 
-    :param _builtins.str client_id: Client Id of the user pool.
+    :param _builtins.str client_id: Client ID of the user pool.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str user_pool_id: User pool the client belongs to.
     """

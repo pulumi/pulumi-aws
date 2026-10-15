@@ -15,14 +15,14 @@ public final class GetModelsPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetModelsPlainArgs Empty = new GetModelsPlainArgs();
 
     /**
-     * Customization type to filter on. Valid values are `FINE_TUNING`.
+     * Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
      * 
      */
     @Import(name="byCustomizationType")
     private @Nullable String byCustomizationType;
 
     /**
-     * @return Customization type to filter on. Valid values are `FINE_TUNING`.
+     * @return Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
      * 
      */
     public Optional<String> byCustomizationType() {
@@ -118,7 +118,7 @@ public final class GetModelsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param byCustomizationType Customization type to filter on. Valid values are `FINE_TUNING`.
+         * @param byCustomizationType Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
          * 
          * @return builder
          * 

@@ -88,7 +88,7 @@ type Cluster struct {
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+	// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	// DNS address of the Neptune instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -196,7 +196,7 @@ type clusterState struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+	// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// DNS address of the Neptune instance
 	Endpoint *string `pulumi:"endpoint"`
@@ -275,7 +275,7 @@ type ClusterState struct {
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
-	// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+	// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// DNS address of the Neptune instance
 	Endpoint pulumi.StringPtrInput
@@ -352,7 +352,7 @@ type clusterArgs struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+	// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
 	Engine *string `pulumi:"engine"`
@@ -418,7 +418,7 @@ type ClusterArgs struct {
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
-	// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+	// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
 	Engine pulumi.StringPtrInput
@@ -608,7 +608,7 @@ func (o ClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
-// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+// List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports `audit` and `slowquery`.
 func (o ClusterOutput) EnableCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.EnableCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }

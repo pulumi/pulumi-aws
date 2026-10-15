@@ -213,7 +213,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     declare public readonly self: pulumi.Output<boolean | undefined>;
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+     * Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
     declare public readonly sourceSecurityGroupId: pulumi.Output<string>;
     /**
@@ -336,7 +336,7 @@ export interface SecurityGroupRuleState {
      */
     self?: pulumi.Input<boolean | undefined>;
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+     * Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
     sourceSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -394,7 +394,7 @@ export interface SecurityGroupRuleArgs {
      */
     self?: pulumi.Input<boolean | undefined>;
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
+     * Security group ID to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
     sourceSecurityGroupId?: pulumi.Input<string | undefined>;
     /**

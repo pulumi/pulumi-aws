@@ -647,7 +647,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> EnableLocalWriteForwarding { get; private set; } = null!;
 
         /// <summary>
-        /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `Audit`, `Error`, `General`, `iam-db-auth-error`, `Instance`, `Postgresql` (PostgreSQL), `Slowquery`.
+        /// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `Audit`, `Error`, `General`, `iam-db-auth-error`, `Instance`, `Postgresql` (PostgreSQL), `Slowquery`.
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -826,6 +826,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `True` when `DbSubnetGroupName` is not set or is `Default`, and `False` otherwise. If `True`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `S3Import`.
+        /// </summary>
+        [Output("publiclyAccessible")]
+        public Output<bool> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
         /// Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
@@ -1155,7 +1161,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `Audit`, `Error`, `General`, `iam-db-auth-error`, `Instance`, `Postgresql` (PostgreSQL), `Slowquery`.
+        /// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `Audit`, `Error`, `General`, `iam-db-auth-error`, `Instance`, `Postgresql` (PostgreSQL), `Slowquery`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -1339,6 +1345,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `True` when `DbSubnetGroupName` is not set or is `Default`, and `False` otherwise. If `True`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `S3Import`.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1643,7 +1655,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `Audit`, `Error`, `General`, `iam-db-auth-error`, `Instance`, `Postgresql` (PostgreSQL), `Slowquery`.
+        /// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `Audit`, `Error`, `General`, `iam-db-auth-error`, `Instance`, `Postgresql` (PostgreSQL), `Slowquery`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -1857,6 +1869,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `True` when `DbSubnetGroupName` is not set or is `Default`, and `False` otherwise. If `True`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `S3Import`.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
         /// Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas

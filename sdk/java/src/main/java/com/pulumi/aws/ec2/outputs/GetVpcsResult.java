@@ -21,7 +21,7 @@ public final class GetVpcsResult {
      */
     private String id;
     /**
-     * @return List of all the VPC Ids found.
+     * @return List of all the VPC IDs found.
      * 
      */
     private List<String> ids;
@@ -40,7 +40,7 @@ public final class GetVpcsResult {
         return this.id;
     }
     /**
-     * @return List of all the VPC Ids found.
+     * @return List of all the VPC IDs found.
      * 
      */
     public List<String> ids() {

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Agent Action Group.
+// Manages an AWS Agents for Amazon Bedrock Agent Action Group.
 //
 // ## Example Usage
 //
@@ -196,7 +196,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
+// Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the action group ID, the agent ID, and the agent version separated by `,`. For example:
 //
 // ```sh
 // $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
@@ -226,11 +226,11 @@ type AgentAgentActionGroup struct {
 	FunctionSchema AgentAgentActionGroupFunctionSchemaPtrOutput `pulumi:"functionSchema"`
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrOutput `pulumi:"parentActionGroupSignature"`
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the action group.
+	// Whether to skip the in-use check when deleting the action group. Defaults to `false`.
 	SkipResourceInUseCheck pulumi.BoolOutput                      `pulumi:"skipResourceInUseCheck"`
 	Timeouts               AgentAgentActionGroupTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -296,11 +296,11 @@ type agentAgentActionGroupState struct {
 	FunctionSchema *AgentAgentActionGroupFunctionSchema `pulumi:"functionSchema"`
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the action group.
+	// Whether to skip the in-use check when deleting the action group. Defaults to `false`.
 	SkipResourceInUseCheck *bool                          `pulumi:"skipResourceInUseCheck"`
 	Timeouts               *AgentAgentActionGroupTimeouts `pulumi:"timeouts"`
 }
@@ -328,11 +328,11 @@ type AgentAgentActionGroupState struct {
 	FunctionSchema AgentAgentActionGroupFunctionSchemaPtrInput
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrInput
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether the in-use check is skipped when deleting the action group.
+	// Whether to skip the in-use check when deleting the action group. Defaults to `false`.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	Timeouts               AgentAgentActionGroupTimeoutsPtrInput
 }
@@ -362,11 +362,11 @@ type agentAgentActionGroupArgs struct {
 	FunctionSchema *AgentAgentActionGroupFunctionSchema `pulumi:"functionSchema"`
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the action group.
+	// Whether to skip the in-use check when deleting the action group. Defaults to `false`.
 	SkipResourceInUseCheck *bool                          `pulumi:"skipResourceInUseCheck"`
 	Timeouts               *AgentAgentActionGroupTimeouts `pulumi:"timeouts"`
 }
@@ -393,11 +393,11 @@ type AgentAgentActionGroupArgs struct {
 	FunctionSchema AgentAgentActionGroupFunctionSchemaPtrInput
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrInput
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether the in-use check is skipped when deleting the action group.
+	// Whether to skip the in-use check when deleting the action group. Defaults to `false`.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	Timeouts               AgentAgentActionGroupTimeoutsPtrInput
 }
@@ -543,7 +543,7 @@ func (o AgentAgentActionGroupOutput) ParentActionGroupSignature() pulumi.StringP
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringPtrOutput { return v.ParentActionGroupSignature }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+// Whether to prepare the agent after creation or modification. Defaults to `true`.
 func (o AgentAgentActionGroupOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
 }
@@ -553,7 +553,7 @@ func (o AgentAgentActionGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether the in-use check is skipped when deleting the action group.
+// Whether to skip the in-use check when deleting the action group. Defaults to `false`.
 func (o AgentAgentActionGroupOutput) SkipResourceInUseCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.BoolOutput { return v.SkipResourceInUseCheck }).(pulumi.BoolOutput)
 }

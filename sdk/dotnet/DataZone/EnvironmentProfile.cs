@@ -180,7 +180,7 @@ namespace Pulumi.Aws.DataZone
     public partial class EnvironmentProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Id of the AWS account being used.
+        /// ID of the AWS account being used.
         /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.DataZone
     public sealed class EnvironmentProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of the AWS account being used.
+        /// ID of the AWS account being used.
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.DataZone
     public sealed class EnvironmentProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of the AWS account being used.
+        /// ID of the AWS account being used.
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }

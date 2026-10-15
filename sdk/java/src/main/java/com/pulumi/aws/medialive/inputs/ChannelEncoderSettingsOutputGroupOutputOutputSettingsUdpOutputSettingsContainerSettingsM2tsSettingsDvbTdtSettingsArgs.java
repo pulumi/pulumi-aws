@@ -15,9 +15,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs();
 
+    /**
+     * Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     @Import(name="repInterval")
     private @Nullable Output<Integer> repInterval;
 
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Output<Integer>> repInterval() {
         return Optional.ofNullable(this.repInterval);
     }
@@ -46,11 +54,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param repInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repInterval(@Nullable Output<Integer> repInterval) {
             $.repInterval = repInterval;
             return this;
         }
 
+        /**
+         * @param repInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repInterval(Integer repInterval) {
             return repInterval(Output.of(repInterval));
         }

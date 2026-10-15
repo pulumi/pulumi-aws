@@ -46,14 +46,14 @@ public final class PresetVideoWatermarkArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+     * A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+     * @return A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
      * 
      */
     public Optional<Output<String>> id() {
@@ -241,7 +241,7 @@ public final class PresetVideoWatermarkArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+         * @param id A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PresetVideoWatermarkArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+         * @param id A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
          * 
          * @return builder
          * 

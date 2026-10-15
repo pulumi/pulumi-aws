@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ### Ignoring Changes to Scale
     /// 
-    /// You can utilize the generic resource lifecycle configuration block with `IgnoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+    /// You can utilize the Pulumi `ignoreChanges` resource option to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Auto Scaling).
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

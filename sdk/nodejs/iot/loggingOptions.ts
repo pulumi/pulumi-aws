@@ -60,7 +60,7 @@ export class LoggingOptions extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
+     * The ARN of the role that allows IoT to write to CloudWatch logs.
      */
     declare public readonly roleArn: pulumi.Output<string>;
 
@@ -116,7 +116,7 @@ export interface LoggingOptionsState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
+     * The ARN of the role that allows IoT to write to CloudWatch logs.
      */
     roleArn?: pulumi.Input<string | undefined>;
 }
@@ -138,7 +138,7 @@ export interface LoggingOptionsArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
+     * The ARN of the role that allows IoT to write to CloudWatch logs.
      */
     roleArn: pulumi.Input<string>;
 }

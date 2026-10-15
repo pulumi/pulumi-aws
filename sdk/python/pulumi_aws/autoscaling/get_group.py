@@ -265,7 +265,7 @@ class GetGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the Auto Scaling Group.
+        Name of the Auto Scaling group.
         """
         return pulumi.get(self, "name")
 
@@ -318,7 +318,7 @@ class GetGroupResult:
     @pulumi.getter(name="suspendedProcesses")
     def suspended_processes(self) -> Sequence[_builtins.str]:
         """
-        List of processes suspended processes for the Auto Scaling Group.
+        List of processes suspended processes for the Auto Scaling group.
         """
         return pulumi.get(self, "suspended_processes")
 
@@ -423,7 +423,7 @@ def get_group(name: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to get information on an existing autoscaling group.
+    Use this data source to get information on an existing Auto Scaling group.
 
     ## Example Usage
 
@@ -435,7 +435,7 @@ def get_group(name: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str name: Specify the exact name of the desired autoscaling group.
+    :param _builtins.str name: Specify the exact name of the desired Auto Scaling group.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -481,7 +481,7 @@ def get_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Use this data source to get information on an existing autoscaling group.
+    Use this data source to get information on an existing Auto Scaling group.
 
     ## Example Usage
 
@@ -493,7 +493,7 @@ def get_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str name: Specify the exact name of the desired autoscaling group.
+    :param _builtins.str name: Specify the exact name of the desired Auto Scaling group.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

@@ -15,22 +15,30 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
 
     public static final ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs Empty = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs();
 
+    /**
+     * Check digit string for the watermark.
+     * 
+     */
     @Import(name="checkDigitString", required=true)
     private Output<String> checkDigitString;
 
+    /**
+     * @return Check digit string for the watermark.
+     * 
+     */
     public Output<String> checkDigitString() {
         return this.checkDigitString;
     }
 
     /**
-     * The Nielsen Source ID to include in the watermark.
+     * Nielsen source ID to include in the watermark.
      * 
      */
     @Import(name="sid", required=true)
     private Output<Double> sid;
 
     /**
-     * @return The Nielsen Source ID to include in the watermark.
+     * @return Nielsen source ID to include in the watermark.
      * 
      */
     public Output<Double> sid() {
@@ -62,17 +70,29 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             $ = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param checkDigitString Check digit string for the watermark.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkDigitString(Output<String> checkDigitString) {
             $.checkDigitString = checkDigitString;
             return this;
         }
 
+        /**
+         * @param checkDigitString Check digit string for the watermark.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkDigitString(String checkDigitString) {
             return checkDigitString(Output.of(checkDigitString));
         }
 
         /**
-         * @param sid The Nielsen Source ID to include in the watermark.
+         * @param sid Nielsen source ID to include in the watermark.
          * 
          * @return builder
          * 
@@ -83,7 +103,7 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
         }
 
         /**
-         * @param sid The Nielsen Source ID to include in the watermark.
+         * @param sid Nielsen source ID to include in the watermark.
          * 
          * @return builder
          * 

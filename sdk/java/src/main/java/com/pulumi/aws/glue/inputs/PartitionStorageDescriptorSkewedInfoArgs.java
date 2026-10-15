@@ -18,14 +18,14 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
     public static final PartitionStorageDescriptorSkewedInfoArgs Empty = new PartitionStorageDescriptorSkewedInfoArgs();
 
     /**
-     * A list of names of columns that contain skewed values.
+     * List of names of columns that contain skewed values.
      * 
      */
     @Import(name="skewedColumnNames")
     private @Nullable Output<List<String>> skewedColumnNames;
 
     /**
-     * @return A list of names of columns that contain skewed values.
+     * @return List of names of columns that contain skewed values.
      * 
      */
     public Optional<Output<List<String>>> skewedColumnNames() {
@@ -33,14 +33,14 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
     }
 
     /**
-     * A list of values that appear so frequently as to be considered skewed.
+     * List of values that appear so frequently as to be considered skewed.
      * 
      */
     @Import(name="skewedColumnValueLocationMaps")
     private @Nullable Output<Map<String,String>> skewedColumnValueLocationMaps;
 
     /**
-     * @return A list of values that appear so frequently as to be considered skewed.
+     * @return List of values that appear so frequently as to be considered skewed.
      * 
      */
     public Optional<Output<Map<String,String>>> skewedColumnValueLocationMaps() {
@@ -48,14 +48,14 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
     }
 
     /**
-     * A map of skewed values to the columns that contain them.
+     * Map of skewed values to the columns that contain them.
      * 
      */
     @Import(name="skewedColumnValues")
     private @Nullable Output<List<String>> skewedColumnValues;
 
     /**
-     * @return A map of skewed values to the columns that contain them.
+     * @return Map of skewed values to the columns that contain them.
      * 
      */
     public Optional<Output<List<String>>> skewedColumnValues() {
@@ -89,7 +89,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnNames A list of names of columns that contain skewed values.
+         * @param skewedColumnNames List of names of columns that contain skewed values.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnNames A list of names of columns that contain skewed values.
+         * @param skewedColumnNames List of names of columns that contain skewed values.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnNames A list of names of columns that contain skewed values.
+         * @param skewedColumnNames List of names of columns that contain skewed values.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnValueLocationMaps A list of values that appear so frequently as to be considered skewed.
+         * @param skewedColumnValueLocationMaps List of values that appear so frequently as to be considered skewed.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnValueLocationMaps A list of values that appear so frequently as to be considered skewed.
+         * @param skewedColumnValueLocationMaps List of values that appear so frequently as to be considered skewed.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnValues A map of skewed values to the columns that contain them.
+         * @param skewedColumnValues Map of skewed values to the columns that contain them.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnValues A map of skewed values to the columns that contain them.
+         * @param skewedColumnValues Map of skewed values to the columns that contain them.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PartitionStorageDescriptorSkewedInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param skewedColumnValues A map of skewed values to the columns that contain them.
+         * @param skewedColumnValues Map of skewed values to the columns that contain them.
          * 
          * @return builder
          * 

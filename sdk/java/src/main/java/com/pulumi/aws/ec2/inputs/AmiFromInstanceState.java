@@ -214,17 +214,9 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.kernelId);
     }
 
-    /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     * 
-     */
     @Import(name="lastLaunchedTime")
     private @Nullable Output<String> lastLaunchedTime;
 
-    /**
-     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     * 
-     */
     public Optional<Output<String>> lastLaunchedTime() {
         return Optional.ofNullable(this.lastLaunchedTime);
     }
@@ -809,23 +801,11 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
             return kernelId(Output.of(kernelId));
         }
 
-        /**
-         * @param lastLaunchedTime Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastLaunchedTime(@Nullable Output<String> lastLaunchedTime) {
             $.lastLaunchedTime = lastLaunchedTime;
             return this;
         }
 
-        /**
-         * @param lastLaunchedTime Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastLaunchedTime(String lastLaunchedTime) {
             return lastLaunchedTime(Output.of(lastLaunchedTime));
         }

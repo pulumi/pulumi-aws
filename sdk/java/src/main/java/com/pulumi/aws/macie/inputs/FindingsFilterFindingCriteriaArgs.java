@@ -17,14 +17,14 @@ public final class FindingsFilterFindingCriteriaArgs extends com.pulumi.resource
     public static final FindingsFilterFindingCriteriaArgs Empty = new FindingsFilterFindingCriteriaArgs();
 
     /**
-     * A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+     * Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
      * 
      */
     @Import(name="criterions")
     private @Nullable Output<List<FindingsFilterFindingCriteriaCriterionArgs>> criterions;
 
     /**
-     * @return A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+     * @return Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
      * 
      */
     public Optional<Output<List<FindingsFilterFindingCriteriaCriterionArgs>>> criterions() {
@@ -56,7 +56,7 @@ public final class FindingsFilterFindingCriteriaArgs extends com.pulumi.resource
         }
 
         /**
-         * @param criterions A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+         * @param criterions Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class FindingsFilterFindingCriteriaArgs extends com.pulumi.resource
         }
 
         /**
-         * @param criterions A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+         * @param criterions Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class FindingsFilterFindingCriteriaArgs extends com.pulumi.resource
         }
 
         /**
-         * @param criterions A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+         * @param criterions Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
          * 
          * @return builder
          * 

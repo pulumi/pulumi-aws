@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult
     {
         /// <summary>
-        /// The encryption-at-rest mode for encrypting Data Catalog data.
+        /// Encryption-at-rest mode for encrypting Data Catalog data.
         /// </summary>
         public readonly string CatalogEncryptionMode;
         /// <summary>
-        /// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+        /// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
         /// </summary>
         public readonly string CatalogEncryptionServiceRole;
         /// <summary>

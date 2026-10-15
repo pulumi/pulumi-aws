@@ -126,7 +126,7 @@ class BuildStorageLocationArgsDict(TypedDict):
     """
     object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A specific version of the file. If not set, the latest version of the file is retrieved.
+    Specific version of the file. If not set, the latest version of the file is retrieved.
     """
 
 @pulumi.input_type
@@ -140,7 +140,7 @@ class BuildStorageLocationArgs:
         :param pulumi.Input[_builtins.str] bucket: Name of your S3 bucket.
         :param pulumi.Input[_builtins.str] key: Name of the zip file containing your build files.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-        :param pulumi.Input[_builtins.str] object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
+        :param pulumi.Input[_builtins.str] object_version: Specific version of the file. If not set, the latest version of the file is retrieved.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -188,7 +188,7 @@ class BuildStorageLocationArgs:
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A specific version of the file. If not set, the latest version of the file is retrieved.
+        Specific version of the file. If not set, the latest version of the file is retrieved.
         """
         return pulumi.get(self, "object_version")
 
@@ -200,7 +200,7 @@ class BuildStorageLocationArgs:
 class FleetCertificateConfigurationArgsDict(TypedDict):
     certificate_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+    Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
     """
 
 @pulumi.input_type
@@ -208,7 +208,7 @@ class FleetCertificateConfigurationArgs:
     def __init__(__self__, *,
                  certificate_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] certificate_type: Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+        :param pulumi.Input[_builtins.str] certificate_type: Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         """
         if certificate_type is not None:
             pulumi.set(__self__, "certificate_type", certificate_type)
@@ -217,7 +217,7 @@ class FleetCertificateConfigurationArgs:
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+        Whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         """
         return pulumi.get(self, "certificate_type")
 
@@ -500,10 +500,7 @@ class GameServerGroupAutoScalingPolicyArgsDict(TypedDict):
     target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgsDict']
     estimated_instance_warmup: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Length of time, in seconds, it takes for a new instance to start
-    new game server processes and register with GameLift FleetIQ.
-    Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-    because it avoids prematurely starting new instances. Defaults to `60`.
+    Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances. Defaults to `60`.
     """
 
 @pulumi.input_type
@@ -512,10 +509,7 @@ class GameServerGroupAutoScalingPolicyArgs:
                  target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs'],
                  estimated_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start
-               new game server processes and register with GameLift FleetIQ.
-               Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-               because it avoids prematurely starting new instances. Defaults to `60`.
+        :param pulumi.Input[_builtins.int] estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances. Defaults to `60`.
         """
         pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
@@ -534,10 +528,7 @@ class GameServerGroupAutoScalingPolicyArgs:
     @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Length of time, in seconds, it takes for a new instance to start
-        new game server processes and register with GameLift FleetIQ.
-        Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-        because it avoids prematurely starting new instances. Defaults to `60`.
+        Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances. Defaults to `60`.
         """
         return pulumi.get(self, "estimated_instance_warmup")
 
@@ -577,14 +568,11 @@ class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs:
 class GameServerGroupInstanceDefinitionArgsDict(TypedDict):
     instance_type: pulumi.Input[_builtins.str]
     """
-    An EC2 instance type.
+    EC2 instance type.
     """
     weighted_capacity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Instance weighting that indicates how much this instance type contributes
-    to the total capacity of a game server group.
-    Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
-    the most cost-effective options.
+    Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options.
     """
 
 @pulumi.input_type
@@ -593,11 +581,8 @@ class GameServerGroupInstanceDefinitionArgs:
                  instance_type: pulumi.Input[_builtins.str],
                  weighted_capacity: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] instance_type: An EC2 instance type.
-        :param pulumi.Input[_builtins.str] weighted_capacity: Instance weighting that indicates how much this instance type contributes
-               to the total capacity of a game server group.
-               Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
-               the most cost-effective options.
+        :param pulumi.Input[_builtins.str] instance_type: EC2 instance type.
+        :param pulumi.Input[_builtins.str] weighted_capacity: Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if weighted_capacity is not None:
@@ -607,7 +592,7 @@ class GameServerGroupInstanceDefinitionArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[_builtins.str]:
         """
-        An EC2 instance type.
+        EC2 instance type.
         """
         return pulumi.get(self, "instance_type")
 
@@ -619,10 +604,7 @@ class GameServerGroupInstanceDefinitionArgs:
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Instance weighting that indicates how much this instance type contributes
-        to the total capacity of a game server group.
-        Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
-        the most cost-effective options.
+        Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options.
         """
         return pulumi.get(self, "weighted_capacity")
 
@@ -634,15 +616,15 @@ class GameServerGroupInstanceDefinitionArgs:
 class GameServerGroupLaunchTemplateArgsDict(TypedDict):
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A unique identifier for an existing EC2 launch template.
+    Unique identifier for an existing EC2 launch template.
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A readable identifier for an existing EC2 launch template.
+    Readable identifier for an existing EC2 launch template.
     """
     version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of the EC2 launch template to use. If none is set, the default is the first version created.
+    Version of the EC2 launch template to use. If none is set, the default is the first version created.
     """
 
 @pulumi.input_type
@@ -652,9 +634,9 @@ class GameServerGroupLaunchTemplateArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] id: A unique identifier for an existing EC2 launch template.
-        :param pulumi.Input[_builtins.str] name: A readable identifier for an existing EC2 launch template.
-        :param pulumi.Input[_builtins.str] version: The version of the EC2 launch template to use. If none is set, the default is the first version created.
+        :param pulumi.Input[_builtins.str] id: Unique identifier for an existing EC2 launch template.
+        :param pulumi.Input[_builtins.str] name: Readable identifier for an existing EC2 launch template.
+        :param pulumi.Input[_builtins.str] version: Version of the EC2 launch template to use. If none is set, the default is the first version created.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -667,7 +649,7 @@ class GameServerGroupLaunchTemplateArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier for an existing EC2 launch template.
+        Unique identifier for an existing EC2 launch template.
         """
         return pulumi.get(self, "id")
 
@@ -679,7 +661,7 @@ class GameServerGroupLaunchTemplateArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A readable identifier for an existing EC2 launch template.
+        Readable identifier for an existing EC2 launch template.
         """
         return pulumi.get(self, "name")
 
@@ -691,7 +673,7 @@ class GameServerGroupLaunchTemplateArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the EC2 launch template to use. If none is set, the default is the first version created.
+        Version of the EC2 launch template to use. If none is set, the default is the first version created.
         """
         return pulumi.get(self, "version")
 
@@ -763,7 +745,7 @@ class ScriptStorageLocationArgsDict(TypedDict):
     """
     object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A specific version of the file. If not set, the latest version of the file is retrieved.
+    Specific version of the file. If not set, the latest version of the file is retrieved.
     """
 
 @pulumi.input_type
@@ -777,7 +759,7 @@ class ScriptStorageLocationArgs:
         :param pulumi.Input[_builtins.str] bucket: Name of your S3 bucket.
         :param pulumi.Input[_builtins.str] key: Name of the zip file containing your script files.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-        :param pulumi.Input[_builtins.str] object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
+        :param pulumi.Input[_builtins.str] object_version: Specific version of the file. If not set, the latest version of the file is retrieved.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -825,7 +807,7 @@ class ScriptStorageLocationArgs:
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A specific version of the file. If not set, the latest version of the file is retrieved.
+        Specific version of the file. If not set, the latest version of the file is retrieved.
         """
         return pulumi.get(self, "object_version")
 

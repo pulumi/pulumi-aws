@@ -16,14 +16,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     public static final JobSourceControlDetailsArgs Empty = new JobSourceControlDetailsArgs();
 
     /**
-     * The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+     * Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
      * 
      */
     @Import(name="authStrategy")
     private @Nullable Output<String> authStrategy;
 
     /**
-     * @return The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+     * @return Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
      * 
      */
     public Optional<Output<String>> authStrategy() {
@@ -31,14 +31,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The value of an authorization token.
+     * Value of an authorization token.
      * 
      */
     @Import(name="authToken")
     private @Nullable Output<String> authToken;
 
     /**
-     * @return The value of an authorization token.
+     * @return Value of an authorization token.
      * 
      */
     public Optional<Output<String>> authToken() {
@@ -46,14 +46,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A branch in the remote repository.
+     * Branch in the remote repository.
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return A branch in the remote repository.
+     * @return Branch in the remote repository.
      * 
      */
     public Optional<Output<String>> branch() {
@@ -61,14 +61,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A folder in the remote repository.
+     * Folder in the remote repository.
      * 
      */
     @Import(name="folder")
     private @Nullable Output<String> folder;
 
     /**
-     * @return A folder in the remote repository.
+     * @return Folder in the remote repository.
      * 
      */
     public Optional<Output<String>> folder() {
@@ -76,14 +76,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The last commit ID for a commit in the remote repository.
+     * Last commit ID for a commit in the remote repository.
      * 
      */
     @Import(name="lastCommitId")
     private @Nullable Output<String> lastCommitId;
 
     /**
-     * @return The last commit ID for a commit in the remote repository.
+     * @return Last commit ID for a commit in the remote repository.
      * 
      */
     public Optional<Output<String>> lastCommitId() {
@@ -91,14 +91,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The owner of the remote repository that contains the job artifacts.
+     * Owner of the remote repository that contains the job artifacts.
      * 
      */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
     /**
-     * @return The owner of the remote repository that contains the job artifacts.
+     * @return Owner of the remote repository that contains the job artifacts.
      * 
      */
     public Optional<Output<String>> owner() {
@@ -106,14 +106,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+     * Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+     * @return Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
      * 
      */
     public Optional<Output<String>> provider() {
@@ -121,14 +121,14 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the remote repository that contains the job artifacts.
+     * Name of the remote repository that contains the job artifacts.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The name of the remote repository that contains the job artifacts.
+     * @return Name of the remote repository that contains the job artifacts.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -167,7 +167,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authStrategy The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+         * @param authStrategy Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authStrategy The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+         * @param authStrategy Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authToken The value of an authorization token.
+         * @param authToken Value of an authorization token.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authToken The value of an authorization token.
+         * @param authToken Value of an authorization token.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branch A branch in the remote repository.
+         * @param branch Branch in the remote repository.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param branch A branch in the remote repository.
+         * @param branch Branch in the remote repository.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param folder A folder in the remote repository.
+         * @param folder Folder in the remote repository.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param folder A folder in the remote repository.
+         * @param folder Folder in the remote repository.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lastCommitId The last commit ID for a commit in the remote repository.
+         * @param lastCommitId Last commit ID for a commit in the remote repository.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lastCommitId The last commit ID for a commit in the remote repository.
+         * @param lastCommitId Last commit ID for a commit in the remote repository.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param owner The owner of the remote repository that contains the job artifacts.
+         * @param owner Owner of the remote repository that contains the job artifacts.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param owner The owner of the remote repository that contains the job artifacts.
+         * @param owner Owner of the remote repository that contains the job artifacts.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param provider The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+         * @param provider Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param provider The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+         * @param provider Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repository The name of the remote repository that contains the job artifacts.
+         * @param repository Name of the remote repository that contains the job artifacts.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class JobSourceControlDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repository The name of the remote repository that contains the job artifacts.
+         * @param repository Name of the remote repository that contains the job artifacts.
          * 
          * @return builder
          * 

@@ -56,19 +56,19 @@ export class ChannelGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the channel
+     * ARN of the channel group
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A description of the channel group
+     * Description of the channel group
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The egress domain of the channel group
+     * Egress domain of the channel group
      */
     declare public /*out*/ readonly egressDomain: pulumi.Output<string>;
     /**
-     * A unique identifier naming the channel group
+     * Unique identifier naming the channel group
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -76,11 +76,11 @@ export class ChannelGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -124,19 +124,19 @@ export class ChannelGroup extends pulumi.CustomResource {
  */
 export interface ChannelGroupState {
     /**
-     * The ARN of the channel
+     * ARN of the channel group
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A description of the channel group
+     * Description of the channel group
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The egress domain of the channel group
+     * Egress domain of the channel group
      */
     egressDomain?: pulumi.Input<string | undefined>;
     /**
-     * A unique identifier naming the channel group
+     * Unique identifier naming the channel group
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -144,11 +144,11 @@ export interface ChannelGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -158,11 +158,11 @@ export interface ChannelGroupState {
  */
 export interface ChannelGroupArgs {
     /**
-     * A description of the channel group
+     * Description of the channel group
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A unique identifier naming the channel group
+     * Unique identifier naming the channel group
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface ChannelGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

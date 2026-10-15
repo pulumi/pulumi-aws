@@ -61,7 +61,7 @@ class AwaitableGetIpsetResult(GetIpsetResult):
 def get_ipset(name: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpsetResult:
     """
-    `waf.IpSet` Retrieves a WAF IP Set Resource Id.
+    `waf.IpSet` Retrieves a WAF IP Set Resource ID.
 
     ## Example Usage
 
@@ -86,7 +86,7 @@ def get_ipset(name: Optional[_builtins.str] = None,
 def get_ipset_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpsetResult]:
     """
-    `waf.IpSet` Retrieves a WAF IP Set Resource Id.
+    `waf.IpSet` Retrieves a WAF IP Set Resource ID.
 
     ## Example Usage
 

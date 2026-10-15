@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information on an existing autoscaling group.
+// Use this data source to get information on an existing Auto Scaling group.
 //
 // ## Example Usage
 //
@@ -50,7 +50,7 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// Specify the exact name of the desired autoscaling group.
+	// Specify the exact name of the desired Auto Scaling group.
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -92,7 +92,7 @@ type LookupGroupResult struct {
 	MinSize int `pulumi:"minSize"`
 	// List of mixed instances policy objects for the group.
 	MixedInstancesPolicies []GetGroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicies"`
-	// Name of the Auto Scaling Group.
+	// Name of the Auto Scaling group.
 	Name string `pulumi:"name"`
 	// Whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	NewInstancesProtectedFromScaleIn bool `pulumi:"newInstancesProtectedFromScaleIn"`
@@ -105,7 +105,7 @@ type LookupGroupResult struct {
 	ServiceLinkedRoleArn string `pulumi:"serviceLinkedRoleArn"`
 	// Current state of the group when DeleteAutoScalingGroup is in progress.
 	Status string `pulumi:"status"`
-	// List of processes suspended processes for the Auto Scaling Group.
+	// List of processes suspended processes for the Auto Scaling group.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
 	// List of tags for the group.
 	Tags []GetGroupTag `pulumi:"tags"`
@@ -130,7 +130,7 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
-	// Specify the exact name of the desired autoscaling group.
+	// Specify the exact name of the desired Auto Scaling group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -240,7 +240,7 @@ func (o LookupGroupResultOutput) MixedInstancesPolicies() GetGroupMixedInstances
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupMixedInstancesPolicy { return v.MixedInstancesPolicies }).(GetGroupMixedInstancesPolicyArrayOutput)
 }
 
-// Name of the Auto Scaling Group.
+// Name of the Auto Scaling group.
 func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -274,7 +274,7 @@ func (o LookupGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// List of processes suspended processes for the Auto Scaling Group.
+// List of processes suspended processes for the Auto Scaling group.
 func (o LookupGroupResultOutput) SuspendedProcesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.SuspendedProcesses }).(pulumi.StringArrayOutput)
 }

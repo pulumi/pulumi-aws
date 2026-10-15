@@ -16,14 +16,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
     public static final ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs();
 
     /**
-     * The tag key.
+     * Tag key.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The tag key.
+     * @return Tag key.
      * 
      */
     public Optional<Output<String>> key() {
@@ -31,14 +31,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
     }
 
     /**
-     * The tag value.
+     * Tag value.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The tag value.
+     * @return Tag value.
      * 
      */
     public Optional<Output<String>> value() {
@@ -71,7 +71,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
         }
 
         /**
-         * @param key The tag key.
+         * @param key Tag key.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
         }
 
         /**
-         * @param key The tag key.
+         * @param key Tag key.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
         }
 
         /**
-         * @param value The tag value.
+         * @param value Tag value.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
         }
 
         /**
-         * @param value The tag value.
+         * @param value Tag value.
          * 
          * @return builder
          * 

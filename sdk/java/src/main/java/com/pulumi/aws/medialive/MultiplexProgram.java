@@ -126,18 +126,14 @@ public class MultiplexProgram extends com.pulumi.resources.CustomResource {
         return this.multiplexId;
     }
     /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
+     * MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
      * 
      */
     @Export(name="multiplexProgramSettings", refs={MultiplexProgramMultiplexProgramSettings.class}, tree="[0]")
     private Output</* @Nullable */ MultiplexProgramMultiplexProgramSettings> multiplexProgramSettings;
 
     /**
-     * @return MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
+     * @return MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
      * 
      */
     public Output<Optional<MultiplexProgramMultiplexProgramSettings>> multiplexProgramSettings() {
@@ -146,12 +142,16 @@ public class MultiplexProgram extends com.pulumi.resources.CustomResource {
     /**
      * Unique program name.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="programName", refs={String.class}, tree="[0]")
     private Output<String> programName;
 
     /**
      * @return Unique program name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> programName() {

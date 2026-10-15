@@ -14,38 +14,47 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsAudioDescription
     {
         /// <summary>
-        /// Advanced audio normalization settings. See Audio Normalization Settings for more details.
+        /// Advanced audio normalization settings. See `AudioNormalizationSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings? AudioNormalizationSettings;
         /// <summary>
-        /// The name of the audio selector used as the source for this AudioDescription.
+        /// Name of the audio selector used as the source for this audio description.
         /// </summary>
         public readonly string AudioSelectorName;
         /// <summary>
-        /// Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+        /// Applies only if `AudioTypeControl` is `useConfigured`. Values for `AudioType` are defined in ISO-IEC 13818-1.
         /// </summary>
         public readonly string? AudioType;
         /// <summary>
-        /// Determined how audio type is determined.
+        /// How audio type is determined.
         /// </summary>
         public readonly string? AudioTypeControl;
         /// <summary>
-        /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `AudioWatermarkSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings? AudioWatermarkSettings;
         /// <summary>
-        /// Audio codec settings. See Audio Codec Settings for more details.
+        /// Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings? CodecSettings;
+        /// <summary>
+        /// ISO 639-2 three-digit code for the language of this audio description.
+        /// </summary>
         public readonly string? LanguageCode;
+        /// <summary>
+        /// How to handle the audio language code.
+        /// </summary>
         public readonly string? LanguageCodeControl;
         /// <summary>
-        /// The name of this audio description.
+        /// Name of this audio description.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Settings to remix the audio. See `RemixSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings? RemixSettings;
         /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
+        /// Stream name used to identify the audio description.
         /// </summary>
         public readonly string? StreamName;
 

@@ -169,7 +169,7 @@ import (
 //
 // ```
 //
-// ### Elasticache Cluster in Outpost
+// ### ElastiCache Cluster in Outpost
 //
 // ```go
 // package main

@@ -31,22 +31,30 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * Name of the Column.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the Column.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
     /**
-     * The datatype of data in the Column.
+     * Datatype of data in the Column.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The datatype of data in the Column.
+     * @return Datatype of data in the Column.
      * 
      */
     public Optional<Output<String>> type() {
@@ -100,17 +108,29 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param name Name of the Column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the Column.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
         /**
-         * @param type The datatype of data in the Column.
+         * @param type Datatype of data in the Column.
          * 
          * @return builder
          * 
@@ -121,7 +141,7 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The datatype of data in the Column.
+         * @param type Datatype of data in the Column.
          * 
          * @return builder
          * 

@@ -46,14 +46,14 @@ public final class HsmState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the ENI interface allocated for HSM module.
+     * The ID of the ENI interface allocated for HSM module.
      * 
      */
     @Import(name="hsmEniId")
     private @Nullable Output<String> hsmEniId;
 
     /**
-     * @return The id of the ENI interface allocated for HSM module.
+     * @return The ID of the ENI interface allocated for HSM module.
      * 
      */
     public Optional<Output<String>> hsmEniId() {
@@ -61,14 +61,14 @@ public final class HsmState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the HSM module.
+     * The ID of the HSM module.
      * 
      */
     @Import(name="hsmId")
     private @Nullable Output<String> hsmId;
 
     /**
-     * @return The id of the HSM module.
+     * @return The ID of the HSM module.
      * 
      */
     public Optional<Output<String>> hsmId() {
@@ -213,7 +213,7 @@ public final class HsmState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmEniId The id of the ENI interface allocated for HSM module.
+         * @param hsmEniId The ID of the ENI interface allocated for HSM module.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class HsmState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmEniId The id of the ENI interface allocated for HSM module.
+         * @param hsmEniId The ID of the ENI interface allocated for HSM module.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class HsmState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmId The id of the HSM module.
+         * @param hsmId The ID of the HSM module.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class HsmState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmId The id of the HSM module.
+         * @param hsmId The ID of the HSM module.
          * 
          * @return builder
          * 

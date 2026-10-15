@@ -62,11 +62,11 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+	// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType string `pulumi:"accountAccessType"`
 	// ARN of the Grafana workspace.
 	Arn string `pulumi:"arn"`
-	// (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+	// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
 	// Creation date of the Grafana workspace.
 	CreatedDate string `pulumi:"createdDate"`
@@ -80,23 +80,24 @@ type LookupWorkspaceResult struct {
 	GrafanaVersion string `pulumi:"grafanaVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ID or ARN of the AWS KMS key for encrypting workspace data.
+	// ID or ARN of the AWS KMS key for encrypting workspace data.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Last updated date of the Grafana workspace.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Grafana workspace name.
 	Name string `pulumi:"name"`
-	// The notification destinations.
+	// Notification destinations.
 	NotificationDestinations []string `pulumi:"notificationDestinations"`
-	// The role name that the workspace uses to access resources through Amazon Organizations.
+	// Role name that the workspace uses to access resources through Amazon Organizations.
 	OrganizationRoleName string `pulumi:"organizationRoleName"`
-	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+	// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// Permission type of the workspace.
 	PermissionType string `pulumi:"permissionType"`
 	Region         string `pulumi:"region"`
 	// IAM role ARN that the workspace assumes.
-	RoleArn                 string `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
+	// Status of the SAML configuration.
 	SamlConfigurationStatus string `pulumi:"samlConfigurationStatus"`
 	// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName string `pulumi:"stackSetName"`
@@ -141,7 +142,7 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
-// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 func (o LookupWorkspaceResultOutput) AccountAccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.AccountAccessType }).(pulumi.StringOutput)
 }
@@ -151,7 +152,7 @@ func (o LookupWorkspaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 func (o LookupWorkspaceResultOutput) AuthenticationProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []string { return v.AuthenticationProviders }).(pulumi.StringArrayOutput)
 }
@@ -186,7 +187,7 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ID or ARN of the AWS KMS key for encrypting workspace data.
+// ID or ARN of the AWS KMS key for encrypting workspace data.
 func (o LookupWorkspaceResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -201,17 +202,17 @@ func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The notification destinations.
+// Notification destinations.
 func (o LookupWorkspaceResultOutput) NotificationDestinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []string { return v.NotificationDestinations }).(pulumi.StringArrayOutput)
 }
 
-// The role name that the workspace uses to access resources through Amazon Organizations.
+// Role name that the workspace uses to access resources through Amazon Organizations.
 func (o LookupWorkspaceResultOutput) OrganizationRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.OrganizationRoleName }).(pulumi.StringOutput)
 }
 
-// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 func (o LookupWorkspaceResultOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []string { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
@@ -230,6 +231,7 @@ func (o LookupWorkspaceResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Status of the SAML configuration.
 func (o LookupWorkspaceResultOutput) SamlConfigurationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.SamlConfigurationStatus }).(pulumi.StringOutput)
 }

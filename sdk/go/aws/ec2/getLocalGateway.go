@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// The following example shows how one might accept a local gateway id as a variable.
+// The following example shows how one might accept a local gateway ID as a variable.
 //
 // ```go
 // package main
@@ -58,7 +58,7 @@ func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pul
 type GetLocalGatewayArgs struct {
 	// Custom filter block as described below.
 	Filters []GetLocalGatewayFilter `pulumi:"filters"`
-	// Id of the specific Local Gateway to retrieve.
+	// ID of the specific Local Gateway to retrieve.
 	Id *string `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -97,7 +97,7 @@ func GetLocalGatewayOutput(ctx *pulumi.Context, args GetLocalGatewayOutputArgs, 
 type GetLocalGatewayOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetLocalGatewayFilterArrayInput `pulumi:"filters"`
-	// Id of the specific Local Gateway to retrieve.
+	// ID of the specific Local Gateway to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

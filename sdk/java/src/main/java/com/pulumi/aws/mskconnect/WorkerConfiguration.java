@@ -84,14 +84,14 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A summary description of the worker configuration.
+     * Summary description of the worker configuration.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A summary description of the worker configuration.
+     * @return Summary description of the worker configuration.
      * 
      */
     public Output<Optional<String>> description() {
@@ -112,14 +112,14 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
         return this.latestRevision;
     }
     /**
-     * The name of the worker configuration.
+     * Name of the worker configuration.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the worker configuration.
+     * @return Name of the worker configuration.
      * 
      */
     public Output<String> name() {
@@ -158,28 +158,28 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

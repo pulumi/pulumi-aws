@@ -69,36 +69,38 @@ import (
 type MultiRegionCluster struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the multi-region cluster.
+	// ARN of the multi-region cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// description for the multi-region cluster.
+	// Description for the multi-region cluster.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+	// Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+	// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The name of the multi-region cluster.
+	// Name of the multi-region cluster.
 	MultiRegionClusterName pulumi.StringOutput `pulumi:"multiRegionClusterName"`
-	// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+	// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
 	MultiRegionClusterNameSuffix pulumi.StringOutput `pulumi:"multiRegionClusterNameSuffix"`
-	// The name of the multi-region parameter group to be associated with the cluster.
+	// Name of the multi-region parameter group to be associated with the cluster.
 	MultiRegionParameterGroupName pulumi.StringOutput `pulumi:"multiRegionParameterGroupName"`
-	// The node type to be used for the multi-region cluster.
+	// Node type to be used for the multi-region cluster.
 	//
 	// The following arguments are optional:
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
-	// The number of shards for the multi-region cluster.
+	// Number of shards for the multi-region cluster.
 	NumShards pulumi.IntOutput `pulumi:"numShards"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Status of the multi-region cluster.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput              `pulumi:"tagsAll"`
 	Timeouts MultiRegionClusterTimeoutsPtrOutput `pulumi:"timeouts"`
-	// A flag to enable in-transit encryption on the cluster.
-	TlsEnabled     pulumi.BoolOutput      `pulumi:"tlsEnabled"`
+	// Whether to enable in-transit encryption on the cluster.
+	TlsEnabled pulumi.BoolOutput `pulumi:"tlsEnabled"`
+	// Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
 	UpdateStrategy pulumi.StringPtrOutput `pulumi:"updateStrategy"`
 }
 
@@ -138,70 +140,74 @@ func GetMultiRegionCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MultiRegionCluster resources.
 type multiRegionClusterState struct {
-	// The ARN of the multi-region cluster.
+	// ARN of the multi-region cluster.
 	Arn *string `pulumi:"arn"`
-	// description for the multi-region cluster.
+	// Description for the multi-region cluster.
 	Description *string `pulumi:"description"`
-	// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+	// Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
 	Engine *string `pulumi:"engine"`
-	// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+	// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The name of the multi-region cluster.
+	// Name of the multi-region cluster.
 	MultiRegionClusterName *string `pulumi:"multiRegionClusterName"`
-	// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+	// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
 	MultiRegionClusterNameSuffix *string `pulumi:"multiRegionClusterNameSuffix"`
-	// The name of the multi-region parameter group to be associated with the cluster.
+	// Name of the multi-region parameter group to be associated with the cluster.
 	MultiRegionParameterGroupName *string `pulumi:"multiRegionParameterGroupName"`
-	// The node type to be used for the multi-region cluster.
+	// Node type to be used for the multi-region cluster.
 	//
 	// The following arguments are optional:
 	NodeType *string `pulumi:"nodeType"`
-	// The number of shards for the multi-region cluster.
+	// Number of shards for the multi-region cluster.
 	NumShards *int `pulumi:"numShards"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Status of the multi-region cluster.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string           `pulumi:"tagsAll"`
 	Timeouts *MultiRegionClusterTimeouts `pulumi:"timeouts"`
-	// A flag to enable in-transit encryption on the cluster.
-	TlsEnabled     *bool   `pulumi:"tlsEnabled"`
+	// Whether to enable in-transit encryption on the cluster.
+	TlsEnabled *bool `pulumi:"tlsEnabled"`
+	// Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
 	UpdateStrategy *string `pulumi:"updateStrategy"`
 }
 
 type MultiRegionClusterState struct {
-	// The ARN of the multi-region cluster.
+	// ARN of the multi-region cluster.
 	Arn pulumi.StringPtrInput
-	// description for the multi-region cluster.
+	// Description for the multi-region cluster.
 	Description pulumi.StringPtrInput
-	// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+	// Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
 	Engine pulumi.StringPtrInput
-	// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+	// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringPtrInput
-	// The name of the multi-region cluster.
+	// Name of the multi-region cluster.
 	MultiRegionClusterName pulumi.StringPtrInput
-	// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+	// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
 	MultiRegionClusterNameSuffix pulumi.StringPtrInput
-	// The name of the multi-region parameter group to be associated with the cluster.
+	// Name of the multi-region parameter group to be associated with the cluster.
 	MultiRegionParameterGroupName pulumi.StringPtrInput
-	// The node type to be used for the multi-region cluster.
+	// Node type to be used for the multi-region cluster.
 	//
 	// The following arguments are optional:
 	NodeType pulumi.StringPtrInput
-	// The number of shards for the multi-region cluster.
+	// Number of shards for the multi-region cluster.
 	NumShards pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Status of the multi-region cluster.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts MultiRegionClusterTimeoutsPtrInput
-	// A flag to enable in-transit encryption on the cluster.
-	TlsEnabled     pulumi.BoolPtrInput
+	// Whether to enable in-transit encryption on the cluster.
+	TlsEnabled pulumi.BoolPtrInput
+	// Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
 	UpdateStrategy pulumi.StringPtrInput
 }
 
@@ -210,57 +216,59 @@ func (MultiRegionClusterState) ElementType() reflect.Type {
 }
 
 type multiRegionClusterArgs struct {
-	// description for the multi-region cluster.
+	// Description for the multi-region cluster.
 	Description *string `pulumi:"description"`
-	// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+	// Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
 	Engine *string `pulumi:"engine"`
-	// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+	// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+	// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
 	MultiRegionClusterNameSuffix string `pulumi:"multiRegionClusterNameSuffix"`
-	// The name of the multi-region parameter group to be associated with the cluster.
+	// Name of the multi-region parameter group to be associated with the cluster.
 	MultiRegionParameterGroupName *string `pulumi:"multiRegionParameterGroupName"`
-	// The node type to be used for the multi-region cluster.
+	// Node type to be used for the multi-region cluster.
 	//
 	// The following arguments are optional:
 	NodeType string `pulumi:"nodeType"`
-	// The number of shards for the multi-region cluster.
+	// Number of shards for the multi-region cluster.
 	NumShards *int `pulumi:"numShards"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string           `pulumi:"tags"`
 	Timeouts *MultiRegionClusterTimeouts `pulumi:"timeouts"`
-	// A flag to enable in-transit encryption on the cluster.
-	TlsEnabled     *bool   `pulumi:"tlsEnabled"`
+	// Whether to enable in-transit encryption on the cluster.
+	TlsEnabled *bool `pulumi:"tlsEnabled"`
+	// Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
 	UpdateStrategy *string `pulumi:"updateStrategy"`
 }
 
 // The set of arguments for constructing a MultiRegionCluster resource.
 type MultiRegionClusterArgs struct {
-	// description for the multi-region cluster.
+	// Description for the multi-region cluster.
 	Description pulumi.StringPtrInput
-	// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+	// Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
 	Engine pulumi.StringPtrInput
-	// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+	// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringPtrInput
-	// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+	// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
 	MultiRegionClusterNameSuffix pulumi.StringInput
-	// The name of the multi-region parameter group to be associated with the cluster.
+	// Name of the multi-region parameter group to be associated with the cluster.
 	MultiRegionParameterGroupName pulumi.StringPtrInput
-	// The node type to be used for the multi-region cluster.
+	// Node type to be used for the multi-region cluster.
 	//
 	// The following arguments are optional:
 	NodeType pulumi.StringInput
-	// The number of shards for the multi-region cluster.
+	// Number of shards for the multi-region cluster.
 	NumShards pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts MultiRegionClusterTimeoutsPtrInput
-	// A flag to enable in-transit encryption on the cluster.
-	TlsEnabled     pulumi.BoolPtrInput
+	// Whether to enable in-transit encryption on the cluster.
+	TlsEnabled pulumi.BoolPtrInput
+	// Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
 	UpdateStrategy pulumi.StringPtrInput
 }
 
@@ -351,49 +359,49 @@ func (o MultiRegionClusterOutput) ToMultiRegionClusterOutputWithContext(ctx cont
 	return o
 }
 
-// The ARN of the multi-region cluster.
+// ARN of the multi-region cluster.
 func (o MultiRegionClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// description for the multi-region cluster.
+// Description for the multi-region cluster.
 func (o MultiRegionClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+// Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
 func (o MultiRegionClusterOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+// Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
 func (o MultiRegionClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The name of the multi-region cluster.
+// Name of the multi-region cluster.
 func (o MultiRegionClusterOutput) MultiRegionClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.MultiRegionClusterName }).(pulumi.StringOutput)
 }
 
-// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+// Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
 func (o MultiRegionClusterOutput) MultiRegionClusterNameSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.MultiRegionClusterNameSuffix }).(pulumi.StringOutput)
 }
 
-// The name of the multi-region parameter group to be associated with the cluster.
+// Name of the multi-region parameter group to be associated with the cluster.
 func (o MultiRegionClusterOutput) MultiRegionParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.MultiRegionParameterGroupName }).(pulumi.StringOutput)
 }
 
-// The node type to be used for the multi-region cluster.
+// Node type to be used for the multi-region cluster.
 //
 // The following arguments are optional:
 func (o MultiRegionClusterOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// The number of shards for the multi-region cluster.
+// Number of shards for the multi-region cluster.
 func (o MultiRegionClusterOutput) NumShards() pulumi.IntOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.IntOutput { return v.NumShards }).(pulumi.IntOutput)
 }
@@ -403,16 +411,17 @@ func (o MultiRegionClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Status of the multi-region cluster.
 func (o MultiRegionClusterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MultiRegionClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MultiRegionClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -421,11 +430,12 @@ func (o MultiRegionClusterOutput) Timeouts() MultiRegionClusterTimeoutsPtrOutput
 	return o.ApplyT(func(v *MultiRegionCluster) MultiRegionClusterTimeoutsPtrOutput { return v.Timeouts }).(MultiRegionClusterTimeoutsPtrOutput)
 }
 
-// A flag to enable in-transit encryption on the cluster.
+// Whether to enable in-transit encryption on the cluster.
 func (o MultiRegionClusterOutput) TlsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.BoolOutput { return v.TlsEnabled }).(pulumi.BoolOutput)
 }
 
+// Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
 func (o MultiRegionClusterOutput) UpdateStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringPtrOutput { return v.UpdateStrategy }).(pulumi.StringPtrOutput)
 }

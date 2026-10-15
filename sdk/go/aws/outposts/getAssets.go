@@ -123,7 +123,7 @@ type GetAssetsArgs struct {
 // A collection of values returned by getAssets.
 type GetAssetsResult struct {
 	Arn string `pulumi:"arn"`
-	// List of all the asset ids found. This data source will fail if none are found.
+	// List of all the asset IDs found. This data source will fail if none are found.
 	AssetIds      []string `pulumi:"assetIds"`
 	HostIdFilters []string `pulumi:"hostIdFilters"`
 	// The provider-assigned unique ID for this managed resource.
@@ -172,7 +172,7 @@ func (o GetAssetsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetsResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of all the asset ids found. This data source will fail if none are found.
+// List of all the asset IDs found. This data source will fail if none are found.
 func (o GetAssetsResultOutput) AssetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAssetsResult) []string { return v.AssetIds }).(pulumi.StringArrayOutput)
 }

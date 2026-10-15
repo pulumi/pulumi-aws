@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Example Usage Invocation Http Parameters
+ * ### Example Usage Invocation HTTP Parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -74,20 +74,26 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("destinationCidrBlock")]
         public Output<string?> DestinationCidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// Destination port range to match. If not specified, all destination ports are matched.
+        /// </summary>
         [Output("destinationPortRange")]
         public Output<string?> DestinationPortRange { get; private set; } = null!;
 
+        /// <summary>
+        /// Destination Transit Gateway attachment ID to match.
+        /// </summary>
         [Output("destinationTransitGatewayAttachmentId")]
         public Output<string?> DestinationTransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `vpn-concentrator`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`, `network-function`, `client-vpn`.
         /// </summary>
         [Output("destinationTransitGatewayAttachmentType")]
         public Output<string?> DestinationTransitGatewayAttachmentType { get; private set; } = null!;
 
         /// <summary>
-        /// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        /// The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         /// </summary>
         [Output("meteredAccount")]
         public Output<string> MeteredAccount { get; private set; } = null!;
@@ -116,14 +122,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("sourceCidrBlock")]
         public Output<string?> SourceCidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// Source port range to match. If not specified, all source ports are matched.
+        /// </summary>
         [Output("sourcePortRange")]
         public Output<string?> SourcePortRange { get; private set; } = null!;
 
+        /// <summary>
+        /// Source Transit Gateway attachment ID to match.
+        /// </summary>
         [Output("sourceTransitGatewayAttachmentId")]
         public Output<string?> SourceTransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `vpn-concentrator`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`, `network-function`, `client-vpn`.
         /// </summary>
         [Output("sourceTransitGatewayAttachmentType")]
         public Output<string?> SourceTransitGatewayAttachmentType { get; private set; } = null!;
@@ -191,20 +203,26 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
+        /// <summary>
+        /// Destination port range to match. If not specified, all destination ports are matched.
+        /// </summary>
         [Input("destinationPortRange")]
         public Input<string>? DestinationPortRange { get; set; }
 
+        /// <summary>
+        /// Destination Transit Gateway attachment ID to match.
+        /// </summary>
         [Input("destinationTransitGatewayAttachmentId")]
         public Input<string>? DestinationTransitGatewayAttachmentId { get; set; }
 
         /// <summary>
-        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `vpn-concentrator`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`, `network-function`, `client-vpn`.
         /// </summary>
         [Input("destinationTransitGatewayAttachmentType")]
         public Input<string>? DestinationTransitGatewayAttachmentType { get; set; }
 
         /// <summary>
-        /// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        /// The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         /// </summary>
         [Input("meteredAccount", required: true)]
         public Input<string> MeteredAccount { get; set; } = null!;
@@ -233,14 +251,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("sourceCidrBlock")]
         public Input<string>? SourceCidrBlock { get; set; }
 
+        /// <summary>
+        /// Source port range to match. If not specified, all source ports are matched.
+        /// </summary>
         [Input("sourcePortRange")]
         public Input<string>? SourcePortRange { get; set; }
 
+        /// <summary>
+        /// Source Transit Gateway attachment ID to match.
+        /// </summary>
         [Input("sourceTransitGatewayAttachmentId")]
         public Input<string>? SourceTransitGatewayAttachmentId { get; set; }
 
         /// <summary>
-        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `vpn-concentrator`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`, `network-function`, `client-vpn`.
         /// </summary>
         [Input("sourceTransitGatewayAttachmentType")]
         public Input<string>? SourceTransitGatewayAttachmentType { get; set; }
@@ -270,20 +294,26 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
+        /// <summary>
+        /// Destination port range to match. If not specified, all destination ports are matched.
+        /// </summary>
         [Input("destinationPortRange")]
         public Input<string>? DestinationPortRange { get; set; }
 
+        /// <summary>
+        /// Destination Transit Gateway attachment ID to match.
+        /// </summary>
         [Input("destinationTransitGatewayAttachmentId")]
         public Input<string>? DestinationTransitGatewayAttachmentId { get; set; }
 
         /// <summary>
-        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `vpn-concentrator`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`, `network-function`, `client-vpn`.
         /// </summary>
         [Input("destinationTransitGatewayAttachmentType")]
         public Input<string>? DestinationTransitGatewayAttachmentType { get; set; }
 
         /// <summary>
-        /// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        /// The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         /// </summary>
         [Input("meteredAccount")]
         public Input<string>? MeteredAccount { get; set; }
@@ -312,14 +342,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("sourceCidrBlock")]
         public Input<string>? SourceCidrBlock { get; set; }
 
+        /// <summary>
+        /// Source port range to match. If not specified, all source ports are matched.
+        /// </summary>
         [Input("sourcePortRange")]
         public Input<string>? SourcePortRange { get; set; }
 
+        /// <summary>
+        /// Source Transit Gateway attachment ID to match.
+        /// </summary>
         [Input("sourceTransitGatewayAttachmentId")]
         public Input<string>? SourceTransitGatewayAttachmentId { get; set; }
 
         /// <summary>
-        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `vpn-concentrator`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`, `network-function`, `client-vpn`.
         /// </summary>
         [Input("sourceTransitGatewayAttachmentType")]
         public Input<string>? SourceTransitGatewayAttachmentType { get; set; }

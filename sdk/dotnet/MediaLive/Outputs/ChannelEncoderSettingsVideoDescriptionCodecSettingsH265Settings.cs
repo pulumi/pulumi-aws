@@ -18,11 +18,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? AdaptiveQuantization;
         /// <summary>
-        /// Indicates that AFD values will be written into the output stream.
+        /// Whether AFD values are written into the output stream.
         /// </summary>
         public readonly string? AfdSignaling;
         /// <summary>
-        /// Whether or not EML should insert an Alternative Transfer Function SEI message.
+        /// Whether EML inserts an Alternative Transfer Function SEI message.
         /// </summary>
         public readonly string? AlternativeTransferFunction;
         /// <summary>
@@ -30,25 +30,28 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int Bitrate;
         /// <summary>
-        /// Size of buffer in bits.
+        /// Size of the buffer in bits.
         /// </summary>
         public readonly int? BufSize;
         /// <summary>
-        /// Includes color space metadata in the output.
+        /// Whether color space metadata is included in the output.
         /// </summary>
         public readonly string? ColorMetadata;
         /// <summary>
-        /// Define the color metadata for the output. H265 Color Space Settings for more details.
+        /// Color metadata for the output. See `ColorSpaceSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings? ColorSpaceSettings;
         /// <summary>
-        /// Filters to apply to an encode. See H265 Filter Settings for more details.
+        /// Filters to apply to an encode. See `FilterSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings? FilterSettings;
         /// <summary>
-        /// Four bit AFD value to write on all frames of video in the output stream.
+        /// Four-bit AFD value to write on all frames of video in the output stream.
         /// </summary>
         public readonly string? FixedAfd;
+        /// <summary>
+        /// Makes adjustments within each frame to reduce flicker on the I-frames.
+        /// </summary>
         public readonly string? FlickerAq;
         /// <summary>
         /// Framerate denominator.
@@ -63,11 +66,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? GopClosedCadence;
         /// <summary>
-        /// GOP size in units of either frames of seconds per `GopSizeUnits`.
+        /// GOP size in units of either frames or seconds per `GopSizeUnits`.
         /// </summary>
         public readonly double? GopSize;
         /// <summary>
-        /// Indicates if the `GopSize` is specified in frames or seconds.
+        /// Whether `GopSize` is specified in frames or seconds.
         /// </summary>
         public readonly string? GopSizeUnits;
         /// <summary>
@@ -79,19 +82,19 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? LookAheadRateControl;
         /// <summary>
-        /// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        /// Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
         /// </summary>
         public readonly int? MaxBitrate;
         /// <summary>
-        /// Min interval.
+        /// Minimum interval, in frames, between two I-frames.
         /// </summary>
         public readonly int? MinIInterval;
         /// <summary>
-        /// Set the minimum QP.
+        /// Sets the minimum QP.
         /// </summary>
         public readonly int? MinQp;
         /// <summary>
-        /// Enables or disables motion vector over picture boundaries.
+        /// Enables or disables motion vectors over picture boundaries.
         /// </summary>
         public readonly string? MvOverPictureBoundaries;
         /// <summary>
@@ -99,11 +102,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? MvTemporalPredictor;
         /// <summary>
-        /// Pixel Aspect Ratio denominator.
+        /// Pixel aspect ratio denominator.
         /// </summary>
         public readonly int? ParDenominator;
         /// <summary>
-        /// Pixel Aspect Ratio numerator.
+        /// Pixel aspect ratio numerator.
         /// </summary>
         public readonly int? ParNumerator;
         /// <summary>
@@ -111,7 +114,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? Profile;
         /// <summary>
-        /// Controls the target quality for the video encode.
+        /// Target quality for the video encode.
         /// </summary>
         public readonly int? QvbrQualityLevel;
         /// <summary>
@@ -119,7 +122,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? RateControlMode;
         /// <summary>
-        /// Sets the scan type of the output.
+        /// Scan type of the output.
         /// </summary>
         public readonly string? ScanType;
         /// <summary>
@@ -131,11 +134,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? Slices;
         /// <summary>
-        /// Set the H265 tier in the output.
+        /// H265 tier in the output.
         /// </summary>
         public readonly string? Tier;
         /// <summary>
-        /// Sets the height of tiles.
+        /// Height of tiles.
         /// </summary>
         public readonly int? TileHeight;
         /// <summary>
@@ -143,19 +146,19 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? TilePadding;
         /// <summary>
-        /// Sets the width of tiles.
+        /// Width of tiles.
         /// </summary>
         public readonly int? TileWidth;
         /// <summary>
-        /// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        /// Apply a burned-in timecode. See `TimecodeBurninSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings? TimecodeBurninSettings;
         /// <summary>
-        /// Determines how timecodes should be inserted into the video elementary stream.
+        /// How timecodes are inserted into the video elementary stream.
         /// </summary>
         public readonly string? TimecodeInsertion;
         /// <summary>
-        /// Sets the size of the treeblock.
+        /// Size of the treeblock.
         /// </summary>
         public readonly string? TreeblockSize;
 

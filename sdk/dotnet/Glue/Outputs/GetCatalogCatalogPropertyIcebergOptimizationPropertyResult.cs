@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetCatalogCatalogPropertyIcebergOptimizationPropertyResult
     {
+        /// <summary>
+        /// Map of key-value pairs for compaction settings.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Compaction;
+        /// <summary>
+        /// Map of key-value pairs for orphan file deletion settings.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> OrphanFileDeletion;
+        /// <summary>
+        /// Map of key-value pairs for retention settings.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Retention;
+        /// <summary>
+        /// ARN of the IAM role for Iceberg optimization.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

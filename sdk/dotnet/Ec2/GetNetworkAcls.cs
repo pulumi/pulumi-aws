@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ## Example Usage
         /// 
-        /// The following shows outputting all network ACL ids in a vpc.
+        /// The following shows outputting all network ACL IDs in a VPC.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network ACL ids in a VPC with a custom
+        /// The following example retrieves a list of all network ACL IDs in a VPC with a custom
         /// tag of `Tier` set to a value of "Private".
         /// 
         /// ```csharp
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a network ACL id in a VPC which associated
+        /// The following example retrieves a network ACL ID in a VPC which associated
         /// with specific subnet.
         /// 
         /// ```csharp
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ## Example Usage
         /// 
-        /// The following shows outputting all network ACL ids in a vpc.
+        /// The following shows outputting all network ACL IDs in a VPC.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network ACL ids in a VPC with a custom
+        /// The following example retrieves a list of all network ACL IDs in a VPC with a custom
         /// tag of `Tier` set to a value of "Private".
         /// 
         /// ```csharp
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a network ACL id in a VPC which associated
+        /// The following example retrieves a network ACL ID in a VPC which associated
         /// with specific subnet.
         /// 
         /// ```csharp
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ## Example Usage
         /// 
-        /// The following shows outputting all network ACL ids in a vpc.
+        /// The following shows outputting all network ACL IDs in a VPC.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network ACL ids in a VPC with a custom
+        /// The following example retrieves a list of all network ACL IDs in a VPC with a custom
         /// tag of `Tier` set to a value of "Private".
         /// 
         /// ```csharp
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a network ACL id in a VPC which associated
+        /// The following example retrieves a network ACL ID in a VPC which associated
         /// with specific subnet.
         /// 
         /// ```csharp
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the network ACL ids found.
+        /// List of all the network ACL IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

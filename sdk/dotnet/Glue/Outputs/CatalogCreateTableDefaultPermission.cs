@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Permissions;
         /// <summary>
-        /// Principal who is granted permissions. See `Principal` below.
+        /// Principal who is granted permissions. See `Principal` Block below.
         /// </summary>
         public readonly Outputs.CatalogCreateTableDefaultPermissionPrincipal? Principal;
 

@@ -117,14 +117,14 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Origin domain id of the Form Type.
+     * Origin domain ID of the Form Type.
      * 
      */
     @Import(name="originDomainId")
     private @Nullable Output<String> originDomainId;
 
     /**
-     * @return Origin domain id of the Form Type.
+     * @return Origin domain ID of the Form Type.
      * 
      */
     public Optional<Output<String>> originDomainId() {
@@ -132,14 +132,14 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Origin project id of the Form Type.
+     * Origin project ID of the Form Type.
      * 
      */
     @Import(name="originProjectId")
     private @Nullable Output<String> originProjectId;
 
     /**
-     * @return Origin project id of the Form Type.
+     * @return Origin project ID of the Form Type.
      * 
      */
     public Optional<Output<String>> originProjectId() {
@@ -390,7 +390,7 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originDomainId Origin domain id of the Form Type.
+         * @param originDomainId Origin domain ID of the Form Type.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originDomainId Origin domain id of the Form Type.
+         * @param originDomainId Origin domain ID of the Form Type.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originProjectId Origin project id of the Form Type.
+         * @param originProjectId Origin project ID of the Form Type.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originProjectId Origin project id of the Form Type.
+         * @param originProjectId Origin project ID of the Form Type.
          * 
          * @return builder
          * 

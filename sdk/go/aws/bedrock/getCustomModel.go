@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Returns properties of a specific Amazon Bedrock custom model.
+// Provides details about a specific Amazon Bedrock custom model.
 //
 // ## Example Usage
 //
@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.LookupCustomModel(ctx, &bedrock.LookupCustomModelArgs{
-//				ModelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
+//				ModelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -69,7 +69,7 @@ type LookupCustomModelResult struct {
 	JobArn string `pulumi:"jobArn"`
 	// Job name associated with this model.
 	JobName string `pulumi:"jobName"`
-	// Key-value mapping of tags for the fine-tuning job.
+	// Key-value mapping of tags for the customization job.
 	JobTags map[string]string `pulumi:"jobTags"`
 	// ARN associated with this model.
 	ModelArn string `pulumi:"modelArn"`
@@ -154,7 +154,7 @@ func (o LookupCustomModelResultOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.JobName }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of tags for the fine-tuning job.
+// Key-value mapping of tags for the customization job.
 func (o LookupCustomModelResultOutput) JobTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) map[string]string { return v.JobTags }).(pulumi.StringMapOutput)
 }

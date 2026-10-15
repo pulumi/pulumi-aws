@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+        /// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {

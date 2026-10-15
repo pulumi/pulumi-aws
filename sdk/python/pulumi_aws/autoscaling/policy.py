@@ -38,7 +38,7 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
 
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the autoscaling group.
+        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Auto Scaling group.
         :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[_builtins.int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[_builtins.bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
@@ -126,7 +126,7 @@ class PolicyArgs:
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the autoscaling group.
+        Name of the Auto Scaling group.
         """
         return pulumi.get(self, "autoscaling_group_name")
 
@@ -355,7 +355,7 @@ class _PolicyState:
 
         :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the scaling policy.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the autoscaling group.
+        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Auto Scaling group.
         :param pulumi.Input[_builtins.int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[_builtins.bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
                
@@ -469,7 +469,7 @@ class _PolicyState:
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the autoscaling group.
+        Name of the Auto Scaling group.
         """
         return pulumi.get(self, "autoscaling_group_name")
 
@@ -688,7 +688,7 @@ class Policy(pulumi.CustomResource):
         Provides an AutoScaling Scaling Policy resource.
 
         > **NOTE:** You may want to omit `desired_capacity` attribute from attached `autoscaling.Group`
-        when using autoscaling policies. It's good practice to pick either
+        when using Auto Scaling policies. It's good practice to pick either
         [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
         or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
         (policy-based) scaling.
@@ -883,7 +883,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the autoscaling group.
+        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Auto Scaling group.
         :param pulumi.Input[_builtins.int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[_builtins.bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
                
@@ -948,7 +948,7 @@ class Policy(pulumi.CustomResource):
         Provides an AutoScaling Scaling Policy resource.
 
         > **NOTE:** You may want to omit `desired_capacity` attribute from attached `autoscaling.Group`
-        when using autoscaling policies. It's good practice to pick either
+        when using Auto Scaling policies. It's good practice to pick either
         [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
         or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
         (policy-based) scaling.
@@ -1229,7 +1229,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the scaling policy.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the autoscaling group.
+        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Auto Scaling group.
         :param pulumi.Input[_builtins.int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param pulumi.Input[_builtins.bool] enabled: Whether the scaling policy is enabled or disabled. Default: `true`.
                
@@ -1325,7 +1325,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the autoscaling group.
+        Name of the Auto Scaling group.
         """
         return pulumi.get(self, "autoscaling_group_name")
 

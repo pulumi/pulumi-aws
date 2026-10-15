@@ -71,7 +71,7 @@ type Tag struct {
 
 	// Tag name.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// Id of the Organizations resource to tag.
+	// ID of the Organizations resource to tag.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Tag value.
 	Value pulumi.StringOutput `pulumi:"value"`
@@ -118,7 +118,7 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// Tag name.
 	Key *string `pulumi:"key"`
-	// Id of the Organizations resource to tag.
+	// ID of the Organizations resource to tag.
 	ResourceId *string `pulumi:"resourceId"`
 	// Tag value.
 	Value *string `pulumi:"value"`
@@ -127,7 +127,7 @@ type tagState struct {
 type TagState struct {
 	// Tag name.
 	Key pulumi.StringPtrInput
-	// Id of the Organizations resource to tag.
+	// ID of the Organizations resource to tag.
 	ResourceId pulumi.StringPtrInput
 	// Tag value.
 	Value pulumi.StringPtrInput
@@ -140,7 +140,7 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// Tag name.
 	Key string `pulumi:"key"`
-	// Id of the Organizations resource to tag.
+	// ID of the Organizations resource to tag.
 	ResourceId string `pulumi:"resourceId"`
 	// Tag value.
 	Value string `pulumi:"value"`
@@ -150,7 +150,7 @@ type tagArgs struct {
 type TagArgs struct {
 	// Tag name.
 	Key pulumi.StringInput
-	// Id of the Organizations resource to tag.
+	// ID of the Organizations resource to tag.
 	ResourceId pulumi.StringInput
 	// Tag value.
 	Value pulumi.StringInput
@@ -248,7 +248,7 @@ func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Id of the Organizations resource to tag.
+// ID of the Organizations resource to tag.
 func (o TagOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

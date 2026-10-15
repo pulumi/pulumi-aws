@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult
     {
+        /// <summary>
+        /// Whether provisioned throughput is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+        /// </summary>
         public readonly int VolumeThroughput;
 
         [OutputConstructor]

@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
+ * Using `pulumi import`, import CloudFormation Stacks using the `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudformation/stack:Stack stack networking-stack

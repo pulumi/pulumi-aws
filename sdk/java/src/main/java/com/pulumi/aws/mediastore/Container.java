@@ -65,42 +65,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mediastore/container:Container")
 public class Container extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the container.
+     * ARN of the container.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the container.
+     * @return ARN of the container.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The DNS endpoint of the container.
+     * DNS endpoint of the container.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The DNS endpoint of the container.
+     * @return DNS endpoint of the container.
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * The name of the container. Must contain alphanumeric characters or underscores.
+     * Name of the container. Must contain alphanumeric characters or underscores.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the container. Must contain alphanumeric characters or underscores.
+     * @return Name of the container. Must contain alphanumeric characters or underscores.
      * 
      */
     public Output<String> name() {
@@ -121,28 +121,28 @@ public class Container extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

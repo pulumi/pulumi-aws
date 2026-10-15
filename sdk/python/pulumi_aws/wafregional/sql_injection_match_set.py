@@ -163,7 +163,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For example:
+        Using `pulumi import`, import WAF Regional SQL Injection Match Set using the ID. For example:
 
         ```sh
         $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -203,7 +203,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For example:
+        Using `pulumi import`, import WAF Regional SQL Injection Match Set using the ID. For example:
 
         ```sh
         $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

@@ -30,12 +30,12 @@ class DataQualityRulesetArgs:
         """
         The set of arguments for constructing a DataQualityRuleset resource.
 
-        :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        :param pulumi.Input[_builtins.str] ruleset: Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[_builtins.str] description: Description of the data quality ruleset.
         :param pulumi.Input[_builtins.str] name: Name of the data quality ruleset.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: Configuration block specifying a target table associated with the data quality ruleset. See `target_table` Block below.
         """
         pulumi.set(__self__, "ruleset", ruleset)
         if description is not None:
@@ -53,7 +53,7 @@ class DataQualityRulesetArgs:
     @pulumi.getter
     def ruleset(self) -> pulumi.Input[_builtins.str]:
         """
-        A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         """
         return pulumi.get(self, "ruleset")
 
@@ -113,7 +113,7 @@ class DataQualityRulesetArgs:
     @pulumi.getter(name="targetTable")
     def target_table(self) -> pulumi.Input[Optional['DataQualityRulesetTargetTableArgs']]:
         """
-        A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        Configuration block specifying a target table associated with the data quality ruleset. See `target_table` Block below.
         """
         return pulumi.get(self, "target_table")
 
@@ -140,16 +140,16 @@ class _DataQualityRulesetState:
         Input properties used for looking up and filtering DataQualityRuleset resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Data Quality Ruleset.
-        :param pulumi.Input[_builtins.str] created_on: The time and date that this data quality ruleset was created.
+        :param pulumi.Input[_builtins.str] created_on: Time and date that this data quality ruleset was created.
         :param pulumi.Input[_builtins.str] description: Description of the data quality ruleset.
-        :param pulumi.Input[_builtins.str] last_modified_on: The time and date that this data quality ruleset was created.
+        :param pulumi.Input[_builtins.str] last_modified_on: Time and date that this data quality ruleset was created.
         :param pulumi.Input[_builtins.str] name: Name of the data quality ruleset.
         :param pulumi.Input[_builtins.str] recommendation_run_id: When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        :param pulumi.Input[_builtins.str] ruleset: Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: Configuration block specifying a target table associated with the data quality ruleset. See `target_table` Block below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -190,7 +190,7 @@ class _DataQualityRulesetState:
     @pulumi.getter(name="createdOn")
     def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time and date that this data quality ruleset was created.
+        Time and date that this data quality ruleset was created.
         """
         return pulumi.get(self, "created_on")
 
@@ -214,7 +214,7 @@ class _DataQualityRulesetState:
     @pulumi.getter(name="lastModifiedOn")
     def last_modified_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time and date that this data quality ruleset was created.
+        Time and date that this data quality ruleset was created.
         """
         return pulumi.get(self, "last_modified_on")
 
@@ -262,7 +262,7 @@ class _DataQualityRulesetState:
     @pulumi.getter
     def ruleset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         """
         return pulumi.get(self, "ruleset")
 
@@ -286,7 +286,7 @@ class _DataQualityRulesetState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -298,7 +298,7 @@ class _DataQualityRulesetState:
     @pulumi.getter(name="targetTable")
     def target_table(self) -> pulumi.Input[Optional['DataQualityRulesetTargetTableArgs']]:
         """
-        A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        Configuration block specifying a target table associated with the data quality ruleset. See `target_table` Block below.
         """
         return pulumi.get(self, "target_table")
 
@@ -391,9 +391,9 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the data quality ruleset.
         :param pulumi.Input[_builtins.str] name: Name of the data quality ruleset.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        :param pulumi.Input[_builtins.str] ruleset: Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']] target_table: Configuration block specifying a target table associated with the data quality ruleset. See `target_table` Block below.
         """
         ...
     @overload
@@ -539,16 +539,16 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Data Quality Ruleset.
-        :param pulumi.Input[_builtins.str] created_on: The time and date that this data quality ruleset was created.
+        :param pulumi.Input[_builtins.str] created_on: Time and date that this data quality ruleset was created.
         :param pulumi.Input[_builtins.str] description: Description of the data quality ruleset.
-        :param pulumi.Input[_builtins.str] last_modified_on: The time and date that this data quality ruleset was created.
+        :param pulumi.Input[_builtins.str] last_modified_on: Time and date that this data quality ruleset was created.
         :param pulumi.Input[_builtins.str] name: Name of the data quality ruleset.
         :param pulumi.Input[_builtins.str] recommendation_run_id: When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        :param pulumi.Input[_builtins.str] ruleset: Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']] target_table: Configuration block specifying a target table associated with the data quality ruleset. See `target_table` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -579,7 +579,7 @@ class DataQualityRuleset(pulumi.CustomResource):
     @pulumi.getter(name="createdOn")
     def created_on(self) -> pulumi.Output[_builtins.str]:
         """
-        The time and date that this data quality ruleset was created.
+        Time and date that this data quality ruleset was created.
         """
         return pulumi.get(self, "created_on")
 
@@ -595,7 +595,7 @@ class DataQualityRuleset(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedOn")
     def last_modified_on(self) -> pulumi.Output[_builtins.str]:
         """
-        The time and date that this data quality ruleset was created.
+        Time and date that this data quality ruleset was created.
         """
         return pulumi.get(self, "last_modified_on")
 
@@ -627,7 +627,7 @@ class DataQualityRuleset(pulumi.CustomResource):
     @pulumi.getter
     def ruleset(self) -> pulumi.Output[_builtins.str]:
         """
-        A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         """
         return pulumi.get(self, "ruleset")
 
@@ -643,7 +643,7 @@ class DataQualityRuleset(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -651,7 +651,7 @@ class DataQualityRuleset(pulumi.CustomResource):
     @pulumi.getter(name="targetTable")
     def target_table(self) -> pulumi.Output[Optional['outputs.DataQualityRulesetTargetTable']]:
         """
-        A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        Configuration block specifying a target table associated with the data quality ruleset. See `target_table` Block below.
         """
         return pulumi.get(self, "target_table")
 

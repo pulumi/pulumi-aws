@@ -75,6 +75,7 @@ class ClusterArgs:
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_to_point_in_time: pulumi.Input[Optional['ClusterRestoreToPointInTimeArgs']] = None,
@@ -120,7 +121,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[_builtins.bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[_builtins.bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
         :param pulumi.Input[_builtins.str] engine_lifecycle_support: Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[Union[_builtins.str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[_builtins.str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
@@ -146,6 +147,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.int] port: Port on which the DB accepts connections.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
+        :param pulumi.Input[_builtins.bool] publicly_accessible: Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `db_subnet_group_name` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3_import`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
@@ -265,6 +267,8 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if publicly_accessible is not None:
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if replication_source_identifier is not None:
@@ -634,7 +638,7 @@ class ClusterArgs:
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+        Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
@@ -932,6 +936,18 @@ class ClusterArgs:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `db_subnet_group_name` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3_import`.
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @publicly_accessible.setter
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "publicly_accessible", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1160,6 +1176,7 @@ class _ClusterState:
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1210,7 +1227,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[_builtins.bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[_builtins.bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
         :param pulumi.Input[_builtins.str] endpoint: DNS address of the RDS instance
         :param pulumi.Input[Union[_builtins.str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[_builtins.str] engine_lifecycle_support: Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
@@ -1241,6 +1258,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.int] port: Port on which the DB accepts connections.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
+        :param pulumi.Input[_builtins.bool] publicly_accessible: Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `db_subnet_group_name` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3_import`.
         :param pulumi.Input[_builtins.str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
@@ -1378,6 +1396,8 @@ class _ClusterState:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if publicly_accessible is not None:
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if reader_endpoint is not None:
             pulumi.set(__self__, "reader_endpoint", reader_endpoint)
         if region is not None:
@@ -1777,7 +1797,7 @@ class _ClusterState:
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+        Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
@@ -2135,6 +2155,18 @@ class _ClusterState:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `db_subnet_group_name` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3_import`.
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @publicly_accessible.setter
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "publicly_accessible", value)
+
+    @_builtins.property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -2395,6 +2427,7 @@ class Cluster(pulumi.CustomResource):
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']]] = None,
@@ -2751,7 +2784,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[_builtins.bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[_builtins.bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
         :param pulumi.Input[Union[_builtins.str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[_builtins.str] engine_lifecycle_support: Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[Union[_builtins.str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
@@ -2778,6 +2811,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Port on which the DB accepts connections.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
+        :param pulumi.Input[_builtins.bool] publicly_accessible: Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `db_subnet_group_name` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3_import`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
@@ -3178,6 +3212,7 @@ class Cluster(pulumi.CustomResource):
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']]] = None,
@@ -3256,6 +3291,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["region"] = region
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
@@ -3352,6 +3388,7 @@ class Cluster(pulumi.CustomResource):
             port: pulumi.Input[Optional[_builtins.int]] = None,
             preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
             reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3406,7 +3443,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[_builtins.bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[_builtins.bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
         :param pulumi.Input[_builtins.str] endpoint: DNS address of the RDS instance
         :param pulumi.Input[Union[_builtins.str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[_builtins.str] engine_lifecycle_support: Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
@@ -3437,6 +3474,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Port on which the DB accepts connections.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
+        :param pulumi.Input[_builtins.bool] publicly_accessible: Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `db_subnet_group_name` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3_import`.
         :param pulumi.Input[_builtins.str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
@@ -3518,6 +3556,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+        __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["reader_endpoint"] = reader_endpoint
         __props__.__dict__["region"] = region
         __props__.__dict__["replication_source_identifier"] = replication_source_identifier
@@ -3781,7 +3820,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+        Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
@@ -4017,6 +4056,14 @@ class Cluster(pulumi.CustomResource):
         Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         """
         return pulumi.get(self, "preferred_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `db_subnet_group_name` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3_import`.
+        """
+        return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoint")

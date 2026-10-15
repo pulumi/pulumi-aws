@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
+ * Using `pulumi import`, import EMR task instance group using their EMR Cluster ID and Instance Group ID separated by a forward-slash `/`. For example:
  * 
  * ```sh
  * $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:emr/instanceGroup:InstanceGroup")
 public class InstanceGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+     * The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      * 
      */
     @Export(name="autoscalingPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoscalingPolicy;
 
     /**
-     * @return The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+     * @return The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      * 
      */
     public Output<Optional<String>> autoscalingPolicy() {
