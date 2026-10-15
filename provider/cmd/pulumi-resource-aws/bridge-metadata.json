@@ -5803,6 +5803,36 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "sync_schedule": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "daily": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "monthly": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "day_of_month": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "last_day_of_month": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "weekly": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -5981,6 +6011,23 @@
                                             },
                                             "semantic_chunking_configuration": {
                                                 "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "context_enrichment_configuration": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "bedrock_foundation_model_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "enrichment_strategy_configuration": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -12705,6 +12752,16 @@
                             }
                         }
                     },
+                    "evaluation_window": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "wall_clock_window": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "insufficient_data_actions": {
                         "maxItemsOne": false
                     },
@@ -12767,7 +12824,29 @@
             },
             "aws_cloudwatch_otel_enrichment": {
                 "current": "aws:cloudwatch/otelEnrichment:OtelEnrichment",
-                "majorVersion": 7
+                "majorVersion": 7,
+                "fields": {
+                    "exclude_filter": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "metric_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "include_filter": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "metric_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "aws_cloudwatch_query_definition": {
                 "current": "aws:cloudwatch/queryDefinition:QueryDefinition",
@@ -12775,6 +12854,53 @@
                 "fields": {
                     "log_group_names": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "aws_cloudwatch_resource_metrics_configuration": {
+                "current": "aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration",
+                "majorVersion": 7,
+                "fields": {
+                    "metric_selection": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "include_metrics": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "aws_cloudwatchomni_domain": {
+                "current": "aws:cloudwatchomni/domain:Domain",
+                "majorVersion": 7,
+                "fields": {
+                    "custom_endpoint_urls": {
+                        "maxItemsOne": false
+                    },
+                    "identity_provider_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_center_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "identity_providers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "aws_cloudwatchomni_space": {
+                "current": "aws:cloudwatchomni/space:Space",
+                "majorVersion": 7,
+                "fields": {
+                    "encryption_configuration": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -15773,6 +15899,10 @@
             },
             "aws_devicefarm_upload": {
                 "current": "aws:devicefarm/upload:Upload",
+                "majorVersion": 7
+            },
+            "aws_devopsagent_agent_space": {
+                "current": "aws:devopsagent/agentSpace:AgentSpace",
                 "majorVersion": 7
             },
             "aws_devopsguru_event_sources_config": {
@@ -35159,7 +35289,12 @@
             },
             "aws_observabilityadmin_telemetry_evaluation": {
                 "current": "aws:observabilityadmin/telemetryEvaluation:TelemetryEvaluation",
-                "majorVersion": 7
+                "majorVersion": 7,
+                "fields": {
+                    "regions": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "aws_observabilityadmin_telemetry_evaluation_for_organization": {
                 "current": "aws:observabilityadmin/telemetryEvaluationForOrganization:TelemetryEvaluationForOrganization",
@@ -36608,6 +36743,18 @@
             "aws_placement_group": {
                 "current": "aws:ec2/placementGroup:PlacementGroup",
                 "majorVersion": 7
+            },
+            "aws_pricingplanmanager_subscription": {
+                "current": "aws:pricingplanmanager/subscription:Subscription",
+                "majorVersion": 7,
+                "fields": {
+                    "resource_arns": {
+                        "maxItemsOne": false
+                    },
+                    "scheduled_change": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "aws_prometheus_alert_manager_definition": {
                 "current": "aws:amp/alertManagerDefinition:AlertManagerDefinition",
@@ -165236,6 +165383,23 @@
                                     "maxItemsOne": true,
                                     "elem": {
                                         "fields": {
+                                            "label_selector": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "match_expressions": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "values": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "namespaces": {
                                                 "maxItemsOne": false
                                             }
@@ -174312,6 +174476,30 @@
                     "custom_response_body": {
                         "maxItemsOne": false
                     },
+                    "monetization_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "crypto_config": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "payment_network": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "prices": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "rule": {
                         "maxItemsOne": false,
                         "elem": {
@@ -174404,6 +174592,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "monetize": {
+                                                "maxItemsOne": true
                                             }
                                         }
                                     }
@@ -187666,6 +187857,30 @@
                             }
                         }
                     },
+                    "monetization_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "crypto_config": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "payment_network": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "prices": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "rule": {
                         "maxItemsOne": false,
                         "elem": {
@@ -187758,6 +187973,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "monetize": {
+                                                "maxItemsOne": true
                                             }
                                         }
                                     }
@@ -334292,6 +334510,21 @@
                 }
             },
             "aws_cloudwatch_otel_enrichment": {},
+            "aws_cloudwatch_resource_metrics_configuration": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_cloudwatchomni_domain": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_cloudwatchomni_space": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_codeconnections_connection": {},
             "aws_codeconnections_host": {},
             "aws_codeguruprofiler_profiling_group": {},
@@ -334351,6 +334584,11 @@
             },
             "aws_datazone_project": {},
             "aws_datazone_user_profile": {},
+            "aws_devopsagent_agent_space": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_devopsguru_event_sources_config": {},
             "aws_devopsguru_notification_channel": {},
             "aws_devopsguru_resource_collection": {},
@@ -334874,6 +335112,11 @@
                 }
             },
             "aws_pinpointsmsvoicev2_sender_id": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_pricingplanmanager_subscription": {
                 "computeID": {
                     "kind": "missing"
                 }
@@ -335835,6 +336078,9 @@
             "aws:cloudwatch/metricStream:MetricStream": 0,
             "aws:cloudwatch/otelEnrichment:OtelEnrichment": 1,
             "aws:cloudwatch/queryDefinition:QueryDefinition": 0,
+            "aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration": 1,
+            "aws:cloudwatchomni/domain:Domain": 1,
+            "aws:cloudwatchomni/space:Space": 1,
             "aws:codeartifact/domain:Domain": 0,
             "aws:codeartifact/domainPermissions:DomainPermissions": 0,
             "aws:codeartifact/repository:Repository": 0,
@@ -335958,6 +336204,7 @@
             "aws:devicefarm/project:Project": 0,
             "aws:devicefarm/testGridProject:TestGridProject": 0,
             "aws:devicefarm/upload:Upload": 0,
+            "aws:devopsagent/agentSpace:AgentSpace": 1,
             "aws:devopsguru/eventSourcesConfig:EventSourcesConfig": 1,
             "aws:devopsguru/notificationChannel:NotificationChannel": 1,
             "aws:devopsguru/resourceCollection:ResourceCollection": 1,
@@ -336700,6 +336947,7 @@
             "aws:pinpoint/smsvoicev2ResourcePolicy:Smsvoicev2ResourcePolicy": 1,
             "aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId": 1,
             "aws:pipes/pipe:Pipe": 0,
+            "aws:pricingplanmanager/subscription:Subscription": 1,
             "aws:qbusiness/application:Application": 1,
             "aws:qldb/ledger:Ledger": 0,
             "aws:qldb/stream:Stream": 0,
@@ -338005,8 +338253,11 @@
             "aws:cloudwatch/logStream:LogStream": 1,
             "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter": 1,
             "aws:cloudwatch/metricAlarm:MetricAlarm": 1,
+            "aws:cloudwatchomni/domain:Domain": 1,
+            "aws:cloudwatchomni/space:Space": 1,
             "aws:codebuild/project:Project": 1,
             "aws:codepipeline/pipeline:Pipeline": 1,
+            "aws:devopsagent/agentSpace:AgentSpace": 1,
             "aws:directoryservice/ipRoute:IpRoute": 1,
             "aws:directoryservicedata/user:User": 1,
             "aws:dms/dataProvider:DataProvider": 1,
@@ -338124,6 +338375,8 @@
             "aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool": 1,
             "aws:pinpoint/smsvoicev2ResourcePolicy:Smsvoicev2ResourcePolicy": 1,
             "aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId": 1,
+            "aws:pricingplanmanager/subscription:Subscription": 1,
+            "aws:ram/principalAssociation:PrincipalAssociation": 1,
             "aws:ram/resourceAssociation:ResourceAssociation": 1,
             "aws:rds/cluster:Cluster": 1,
             "aws:rds/clusterInstance:ClusterInstance": 1,
@@ -338186,6 +338439,7 @@
             "aws:ssm/parameter:Parameter": 1,
             "aws:ssm/patchBaseline:PatchBaseline": 1,
             "aws:ssm/patchGroup:PatchGroup": 1,
+            "aws:ssm/serviceSetting:ServiceSetting": 1,
             "aws:ssoadmin/accountAssignment:AccountAssignment": 1,
             "aws:ssoadmin/region:Region": 1,
             "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule": 1,
