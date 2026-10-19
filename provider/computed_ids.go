@@ -68,7 +68,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_notifications_channel_association":                            computeIDWith("__", "notificationConfigurationArn", "arn"), //nolint:lll
 		"aws_prometheus_workspace_configuration":                           computeID("workspaceId"),
 		"aws_vpc_route_server":                                             computeID("routeServerId"),
-		"aws_vpc_route_server_propagation":                                 computeID("routeServerPropagationId"),
+		"aws_vpc_route_server_propagation":                                 computeID("routeServerId", "routeTableId"),
 		"aws_vpc_route_server_endpoint":                                    computeID("routeServerEndpointId"),
 		"aws_vpc_route_server_peer":                                        computeID("routeServerPeerId"),
 		"aws_dsql_cluster_peering":                                         computeID("identifier"),
@@ -78,7 +78,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_cognito_log_delivery_configuration":                           computeID("userPoolId"),
 		"aws_s3_bucket_metadata_configuration":                             computeID("bucket"),
 		"aws_networkfirewall_firewall_transit_gateway_attachment_accepter": computeID("id"),
-		"aws_connect_phone_number_contact_flow_association":                computeIDWith("__", "phoneNumberId", "instanceId", "contractFlowId"), //nolint:lll
+		"aws_connect_phone_number_contact_flow_association":                computeIDWith("__", "phoneNumberId", "instanceId", "contactFlowId"), //nolint:lll
 		"aws_quicksight_ip_restriction":                                    computeID("awsAccountId"),
 		"aws_quicksight_key_registration":                                  computeID("awsAccountId"),
 		"aws_nat_gateway_eip_association":                                  computeID("natGatewayId", "allocationId"),
@@ -88,14 +88,14 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_athena_capacity_reservation":                                  computeID("name"),
 		"aws_route53_records_exclusive":                                    computeID("zoneId"),
 		"aws_network_interface_permission":                                 computeID("networkInterfacePermissionId"),
-		"aws_lakeformation_opt_in":                                         computeID("principal.dataLakePrincipalIdentifier"), //nolint:lll
+		"aws_lakeformation_opt_in":                                         computeID("principals[0].dataLakePrincipalIdentifier"), //nolint:lll
 		"aws_lakeformation_lf_tag_expression":                              computeIDWith("__", "catalogId", "name"),
 		"aws_rds_shard_group":                                              computeID("dbShardGroupIdentifier"),
 		"aws_macie2_organization_configuration":                            computeID("autoEnable"),
 		"aws_xray_resource_policy":                                         computeID("policyName"),
 		"aws_quicksight_role_membership":                                   computeID("awsAccountId", "namespace", "role", "memberName"), //nolint:lll
 		"aws_cloudwatch_contributor_managed_insight_rule":                  computeID("arn"),
-		"aws_cloudwatch_contributor_insight_rule":                          computeID("name"),
+		"aws_cloudwatch_contributor_insight_rule":                          computeID("ruleName"),
 		"aws_guardduty_member_detector_feature":                            computeID("detectorId", "accountId", "name"),
 		"aws_memorydb_multi_region_cluster":                                computeID("multiRegionClusterName"),
 		"aws_cloudwatch_log_anomaly_detector":                              computeID("arn"),
@@ -109,7 +109,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_rds_instance_state":                                           computeID("identifier"),
 		"aws_vpc_security_group_vpc_association":                           computeID("id"),
 		"aws_opensearch_authorize_vpc_endpoint_access":                     computeID("domainName"),
-		"aws_ssmquicksetup_configuration_manager":                          computeID("managerARN"),
+		"aws_ssmquicksetup_configuration_manager":                          computeID("managerArn"),
 		"aws_resiliencehub_resiliency_policy":                              computeID("arn"),
 		"aws_iam_user_policy_attachments_exclusive":                        computeID("userName"),
 		"aws_iam_group_policy_attachments_exclusive":                       computeID("groupName"),
@@ -135,7 +135,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_datazone_environment_blueprint_configuration":                 computeIDWith("__", "domainId", "environmentBlueprintId"), //nolint:lll
 		"aws_lambda_runtime_management_config":                             computeIDWith("__", "functionName", "qualifier"),
 		"aws_quicksight_role_custom_permission":                            computeID("awsAccountId", "namespace", "role"),
-		"aws_wafv2_web_acl_rule_group_association":                         computeID("webAclArn", "ruleGroupArn", "ruleName"), //nolint:lll
+		"aws_wafv2_web_acl_rule_group_association":                         computeID("webAclArn", "ruleGroupReference.arn", "ruleName"), //nolint:lll
 		"aws_networkfirewall_vpc_endpoint_association":                     computeID("vpcEndpointAssociationArn"),
 		"aws_quicksight_custom_permissions":                                computeID("awsAccountId", "customPermissionsName"), //nolint:lll
 		"aws_quicksight_user_custom_permission":                            computeID("awsAccountId", "namespace", "userName"), //nolint:lll
