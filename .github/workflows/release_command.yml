@@ -14,15 +14,20 @@ jobs:
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         persist-credentials: false    
-    - env:
-        ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
-        ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: "false"
-        ESC_ACTION_OIDC_AUTH: "true"
-        ESC_ACTION_OIDC_ORGANIZATION: pulumi
-        ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
-      id: esc-secrets
+    - id: esc-auth
+      name: Authenticate with Pulumi Cloud
+      uses: pulumi/auth-actions@141415910c3beb54e03b48e9057c204c97b956f2
+      with:
+        export-environment-variables: "false"
+        organization: pulumi
+        requested-token-type: urn:pulumi:token-type:access_token:organization
+    - id: esc-secrets
       name: Fetch secrets from ESC
-      uses: pulumi/esc-action@57e332b6dfb0d7edcf6cb813ee9a98b9665f12c2
+      uses: pulumi/esc-action@ce885ce2ea6bf59194b7b0a3e94a4d3f7bacece0
+      with:
+        environment: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+        export-environment-variables: "false"
+        pulumi-access-token: ${{ steps.esc-auth.outputs.pulumi-access-token }}
     - name: Should release PR
       uses: pulumi/action-release-by-pr-label@main
       with:
