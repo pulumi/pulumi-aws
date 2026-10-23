@@ -764,7 +764,7 @@
     },
     {
       "old": "-> **Note:** Write-only arguments `cak_wo` and `ckn_wo` require Terraform v1.11.0 or later. Learn more about write-only arguments.\n",
-      "new": "-> **Note:** Write-only arguments `cak_wo` and `ckn_wo` require TODO v1.11.0 or later. Learn more about write-only arguments.\n"
+      "new": ""
     }
   ],
   "dynamodb_tag.html.markdown": [
@@ -2654,11 +2654,11 @@
     },
     {
       "old": "~> **NOTE:** This resource manages one specific version of a secret. If something else creates newer versions, such as rotation, another Terraform configuration, or the console, this resource keeps tracking its own version even after that version is no longer `AWSCURRENT`. To read the current value of a secret, use the `aws_secretsmanager_secret_version` data source.\n",
-      "new": "~> **NOTE:** This resource manages one specific version of a secret. If something else creates newer versions, such as rotation, another TODO configuration, or the console, this resource keeps tracking its own version even after that version is no longer `AWSCURRENT`. To read the current value of a secret, use the `aws_secretsmanager_secret_version` data source.\n"
+      "new": "~> **NOTE:** This resource manages one specific version of a secret. If something else creates newer versions, such as rotation, another Pulumi program, or the console, this resource keeps tracking its own version even after that version is no longer `AWSCURRENT`. To read the current value of a secret, use the `aws_secretsmanager_secret_version` data source.\n"
     },
     {
       "old": "~> **NOTE:** When a secret's KMS key changes, Secrets Manager re-encrypts only the `AWSCURRENT`, `AWSPENDING`, and `AWSPREVIOUS` versions with the new key. Once the previous key is disabled or deleted, older versions can no longer be decrypted. If this resource's version is one of them, Terraform keeps the value from state and shows a warning, but cannot import the version or move staging labels onto it. If the version is still `AWSCURRENT` or `AWSPENDING`, reading it fails. See [Change the encryption key for a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_update-encryption-key.html).\n",
-      "new": "~> **NOTE:** When a secret's KMS key changes, Secrets Manager re-encrypts only the `AWSCURRENT`, `AWSPENDING`, and `AWSPREVIOUS` versions with the new key. Once the previous key is disabled or deleted, older versions can no longer be decrypted. If this resource's version is one of them, TODO keeps the value from state and shows a warning, but cannot import the version or move staging labels onto it. If the version is still `AWSCURRENT` or `AWSPENDING`, reading it fails. See [Change the encryption key for a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_update-encryption-key.html).\n"
+      "new": "~> **NOTE:** When a secret's KMS key changes, Secrets Manager re-encrypts only the `AWSCURRENT`, `AWSPENDING`, and `AWSPREVIOUS` versions with the new key. Once the previous key is disabled or deleted, older versions can no longer be decrypted. If this resource's version is one of them, Pulumi keeps the value from state and shows a warning, but cannot import the version or move staging labels onto it. If the version is still `AWSCURRENT` or `AWSPENDING`, reading it fails. See [Change the encryption key for a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_update-encryption-key.html).\n"
     }
   ],
   "security_group.html.markdown": [
