@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string? CrossAccountRole;
         /// <summary>
-        /// Map of source DB instance identifiers to target DB instance ARNs.
+        /// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         /// </summary>
         public readonly ImmutableDictionary<string, string> DbInstanceArnMap;
         /// <summary>

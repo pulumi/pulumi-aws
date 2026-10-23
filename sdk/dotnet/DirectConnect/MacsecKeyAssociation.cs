@@ -10,16 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
-    /// Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
+    /// Manages a MAC Security (MACSec) secret key association for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
     /// 
     /// Creating this resource will also create a resource of type `aws.secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
     /// 
-    /// &gt; **Note:** All arguments including `Ckn` and `Cak` will be stored in the raw state as plain-text.
-    /// **Note:** The `SecretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
+    /// &gt; **Note:** The `Ckn` and `Cak` arguments are stored in the raw state as plain-text. Use `CknWo` and `CakWo` instead to avoid storing these values in the plan or state. When `CknWo` is configured, the API-returned CKN is not stored in `Ckn`.
+    /// **Note:** Write-only arguments `CakWo` and `CknWo` require Terraform v1.11.0 or later. Learn more about write-only arguments.
+    /// 
+    /// &gt; **Note:** The `SecretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
     /// 
     /// ## Example Usage
     /// 
-    /// ### Create MACSec key with CKN and CAK
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -34,7 +36,7 @@ namespace Pulumi.Aws.DirectConnect
     ///         Name = "tf-dx-connection",
     ///     });
     /// 
-    ///     var test = new Aws.DirectConnect.MacsecKeyAssociation("test", new()
+    ///     var exampleMacsecKeyAssociation = new Aws.DirectConnect.MacsecKeyAssociation("example", new()
     ///     {
     ///         ConnectionId = example.Apply(getConnectionResult =&gt; getConnectionResult.Id),
     ///         Ckn = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
@@ -43,6 +45,38 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Create MACSec key with write-only CKN and CAK
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.DirectConnect.GetConnection.Invoke(new()
+    ///     {
+    ///         Name = "tf-dx-connection",
+    ///     });
+    /// 
+    ///     var config = new Config();
+    ///     var cak = config.Require("cak");
+    ///     var ckn = config.Require("ckn");
+    ///     var exampleMacsecKeyAssociation = new Aws.DirectConnect.MacsecKeyAssociation("example", new()
+    ///     {
+    ///         ConnectionId = example.Apply(getConnectionResult =&gt; getConnectionResult.Id),
+    ///         CakWo = cak,
+    ///         CakWoVersion = 1,
+    ///         CknWo = ckn,
+    ///         CknWoVersion = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Changing a write-only value alone does not trigger a change. Increment its corresponding `CakWoVersion` or `CknWoVersion` to replace the association with the new key material. The version counters are independent; increment both when changing both values.
     /// 
     /// ### Create MACSec key with existing Secrets Manager secret
     /// 
@@ -64,7 +98,7 @@ namespace Pulumi.Aws.DirectConnect
     ///         Name = "directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
     ///     });
     /// 
-    ///     var test = new Aws.DirectConnect.MacsecKeyAssociation("test", new()
+    ///     var exampleMacsecKeyAssociation = new Aws.DirectConnect.MacsecKeyAssociation("example", new()
     ///     {
     ///         ConnectionId = example.Apply(getConnectionResult =&gt; getConnectionResult.Id),
     ///         SecretArn = exampleGetSecret.Apply(getSecretResult =&gt; getSecretResult.Arn),
@@ -77,19 +111,47 @@ namespace Pulumi.Aws.DirectConnect
     public partial class MacsecKeyAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Ckn`.
+        /// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `Ckn` or `CknWo` unless `CakWo` is configured. Conflicts with `CakWo`. Changing this argument replaces the association.
         /// </summary>
         [Output("cak")]
         public Output<string?> Cak { get; private set; } = null!;
 
         /// <summary>
-        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Cak`.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `CakWoVersion` and either `Ckn` or `CknWo`. Conflicts with `Cak` and `SecretArn`. This value is not stored in the plan or state.
+        /// </summary>
+        [Output("cakWo")]
+        public Output<string?> CakWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Positive integer used to trigger replacement when `CakWo` changes. Required with `CakWo`. Increment this value to replace the association using the current write-only values.
+        /// </summary>
+        [Output("cakWoVersion")]
+        public Output<int?> CakWoVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `Cak` or `CakWo` unless `CknWo` is configured. Conflicts with `CknWo`. Changing this argument replaces the association.
         /// </summary>
         [Output("ckn")]
         public Output<string> Ckn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `CknWoVersion` and either `Cak` or `CakWo`. Conflicts with `Ckn` and `SecretArn`. This value is not stored in the plan or state.
+        /// </summary>
+        [Output("cknWo")]
+        public Output<string?> CknWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Positive integer used to trigger replacement when `CknWo` changes. Required with `CknWo`. Increment this value to replace the association using the current write-only values.
+        /// </summary>
+        [Output("cknWoVersion")]
+        public Output<int?> CknWoVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("connectionId")]
         public Output<string> ConnectionId { get; private set; } = null!;
@@ -103,7 +165,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
-        /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
+        /// &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `SecretArn`. Do not combine key arguments with `SecretArn`.
         /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
@@ -143,6 +205,11 @@ namespace Pulumi.Aws.DirectConnect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "cakWo",
+                    "cknWo",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -167,19 +234,67 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class MacsecKeyAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Ckn`.
+        /// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `Ckn` or `CknWo` unless `CakWo` is configured. Conflicts with `CakWo`. Changing this argument replaces the association.
         /// </summary>
         [Input("cak")]
         public Input<string>? Cak { get; set; }
 
+        [Input("cakWo")]
+        private Input<string>? _cakWo;
+
         /// <summary>
-        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Cak`.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `CakWoVersion` and either `Ckn` or `CknWo`. Conflicts with `Cak` and `SecretArn`. This value is not stored in the plan or state.
+        /// </summary>
+        public Input<string>? CakWo
+        {
+            get => _cakWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cakWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Positive integer used to trigger replacement when `CakWo` changes. Required with `CakWo`. Increment this value to replace the association using the current write-only values.
+        /// </summary>
+        [Input("cakWoVersion")]
+        public Input<int>? CakWoVersion { get; set; }
+
+        /// <summary>
+        /// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `Cak` or `CakWo` unless `CknWo` is configured. Conflicts with `CknWo`. Changing this argument replaces the association.
         /// </summary>
         [Input("ckn")]
         public Input<string>? Ckn { get; set; }
 
+        [Input("cknWo")]
+        private Input<string>? _cknWo;
+
         /// <summary>
-        /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `CknWoVersion` and either `Cak` or `CakWo`. Conflicts with `Ckn` and `SecretArn`. This value is not stored in the plan or state.
+        /// </summary>
+        public Input<string>? CknWo
+        {
+            get => _cknWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cknWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Positive integer used to trigger replacement when `CknWo` changes. Required with `CknWo`. Increment this value to replace the association using the current write-only values.
+        /// </summary>
+        [Input("cknWoVersion")]
+        public Input<int>? CknWoVersion { get; set; }
+
+        /// <summary>
+        /// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
@@ -193,7 +308,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
-        /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
+        /// &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `SecretArn`. Do not combine key arguments with `SecretArn`.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
@@ -207,19 +322,67 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class MacsecKeyAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Ckn`.
+        /// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `Ckn` or `CknWo` unless `CakWo` is configured. Conflicts with `CakWo`. Changing this argument replaces the association.
         /// </summary>
         [Input("cak")]
         public Input<string>? Cak { get; set; }
 
+        [Input("cakWo")]
+        private Input<string>? _cakWo;
+
         /// <summary>
-        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `Cak`.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `CakWoVersion` and either `Ckn` or `CknWo`. Conflicts with `Cak` and `SecretArn`. This value is not stored in the plan or state.
+        /// </summary>
+        public Input<string>? CakWo
+        {
+            get => _cakWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cakWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Positive integer used to trigger replacement when `CakWo` changes. Required with `CakWo`. Increment this value to replace the association using the current write-only values.
+        /// </summary>
+        [Input("cakWoVersion")]
+        public Input<int>? CakWoVersion { get; set; }
+
+        /// <summary>
+        /// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `Cak` or `CakWo` unless `CknWo` is configured. Conflicts with `CknWo`. Changing this argument replaces the association.
         /// </summary>
         [Input("ckn")]
         public Input<string>? Ckn { get; set; }
 
+        [Input("cknWo")]
+        private Input<string>? _cknWo;
+
         /// <summary>
-        /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `CknWoVersion` and either `Cak` or `CakWo`. Conflicts with `Ckn` and `SecretArn`. This value is not stored in the plan or state.
+        /// </summary>
+        public Input<string>? CknWo
+        {
+            get => _cknWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cknWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Positive integer used to trigger replacement when `CknWo` changes. Required with `CknWo`. Increment this value to replace the association using the current write-only values.
+        /// </summary>
+        [Input("cknWoVersion")]
+        public Input<int>? CknWoVersion { get; set; }
+
+        /// <summary>
+        /// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
@@ -233,7 +396,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
-        /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
+        /// &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `SecretArn`. Do not combine key arguments with `SecretArn`.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

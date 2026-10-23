@@ -127,7 +127,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         }
 
         /// <summary>
-        /// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+        /// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
         /// </summary>
         [Input("executionBlockType", required: true)]
         public Input<string> ExecutionBlockType { get; set; } = null!;
@@ -197,6 +197,12 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
             get => _rdsPromoteReadReplicaConfigs ?? (_rdsPromoteReadReplicaConfigs = new InputList<Inputs.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigGetArgs>());
             set => _rdsPromoteReadReplicaConfigs = value;
         }
+
+        /// <summary>
+        /// Configuration for switching over RDS read replicas. See `RdsSwitchoverReadReplicaConfig` Block for details.
+        /// </summary>
+        [Input("rdsSwitchoverReadReplicaConfig")]
+        public Input<Inputs.PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigGetArgs>? RdsSwitchoverReadReplicaConfig { get; set; }
 
         [Input("regionSwitchPlanConfigs")]
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigGetArgs>? _regionSwitchPlanConfigs;

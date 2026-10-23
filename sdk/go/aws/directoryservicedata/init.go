@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:directoryservicedata/group:Group":
+		r = &Group{}
 	case "aws:directoryservicedata/user:User":
 		r = &User{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"directoryservicedata/group",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"directoryservicedata/user",

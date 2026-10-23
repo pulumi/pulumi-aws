@@ -621,7 +621,7 @@ type Instance struct {
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+	// Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
 	PasswordWo pulumi.StringPtrOutput `pulumi:"passwordWo"`
 	// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 	PasswordWoVersion pulumi.IntPtrOutput `pulumi:"passwordWoVersion"`
@@ -840,7 +840,7 @@ type instanceState struct {
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+	// Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
 	PasswordWo *string `pulumi:"passwordWo"`
 	// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
@@ -1016,7 +1016,7 @@ type InstanceState struct {
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+	// Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
 	PasswordWo pulumi.StringPtrInput
 	// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 	PasswordWoVersion pulumi.IntPtrInput
@@ -1180,7 +1180,7 @@ type instanceArgs struct {
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+	// Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
 	PasswordWo *string `pulumi:"passwordWo"`
 	// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
@@ -1331,7 +1331,7 @@ type InstanceArgs struct {
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+	// Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
 	PasswordWo pulumi.StringPtrInput
 	// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 	PasswordWoVersion pulumi.IntPtrInput
@@ -1757,7 +1757,7 @@ func (o InstanceOutput) Password() pulumi.StringPtrOutput {
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+// Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
 func (o InstanceOutput) PasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.PasswordWo }).(pulumi.StringPtrOutput)
 }

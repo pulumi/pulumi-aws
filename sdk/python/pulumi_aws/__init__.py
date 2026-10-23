@@ -2396,6 +2396,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/enforcedGuardrailConfiguration",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/enforcedGuardrailConfiguration:EnforcedGuardrailConfiguration": "EnforcedGuardrailConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/evaluationJob",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -3348,6 +3356,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatchomni/accessGrant",
+  "fqn": "pulumi_aws.cloudwatchomni",
+  "classes": {
+   "aws:cloudwatchomni/accessGrant:AccessGrant": "AccessGrant"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatchomni/accessProfile",
+  "fqn": "pulumi_aws.cloudwatchomni",
+  "classes": {
+   "aws:cloudwatchomni/accessProfile:AccessProfile": "AccessProfile"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatchomni/domain",
   "fqn": "pulumi_aws.cloudwatchomni",
   "classes": {
@@ -3360,6 +3384,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatchomni",
   "classes": {
    "aws:cloudwatchomni/space:Space": "Space"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatchomni/view",
+  "fqn": "pulumi_aws.cloudwatchomni",
+  "classes": {
+   "aws:cloudwatchomni/view:View": "View"
   }
  },
  {
@@ -4556,6 +4588,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "directoryservice/directorySetting",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/directorySetting:DirectorySetting": "DirectorySetting"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "directoryservice/ipRoute",
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
@@ -4616,6 +4656,14 @@ _utilities.register(
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
    "aws:directoryservice/trust:Trust": "Trust"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directoryservicedata/group",
+  "fqn": "pulumi_aws.directoryservicedata",
+  "classes": {
+   "aws:directoryservicedata/group:Group": "Group"
   }
  },
  {
@@ -12256,6 +12304,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/imageVersion:ImageVersion": "ImageVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/inferenceComponent",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/inferenceComponent:InferenceComponent": "InferenceComponent"
   }
  },
  {

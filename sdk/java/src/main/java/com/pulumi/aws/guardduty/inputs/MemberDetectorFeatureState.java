@@ -33,14 +33,14 @@ public final class MemberDetectorFeatureState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Additional feature configuration block. See below.
+     * Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      * 
      */
     @Import(name="additionalConfigurations")
     private @Nullable Output<List<MemberDetectorFeatureAdditionalConfigurationArgs>> additionalConfigurations;
 
     /**
-     * @return Additional feature configuration block. See below.
+     * @return Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      * 
      */
     public Optional<Output<List<MemberDetectorFeatureAdditionalConfigurationArgs>>> additionalConfigurations() {
@@ -158,7 +158,7 @@ public final class MemberDetectorFeatureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
+         * @param additionalConfigurations Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class MemberDetectorFeatureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
+         * @param additionalConfigurations Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class MemberDetectorFeatureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
+         * @param additionalConfigurations Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
          * 
          * @return builder
          * 

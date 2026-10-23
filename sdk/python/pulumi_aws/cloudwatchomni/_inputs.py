@@ -15,6 +15,20 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AccessGrantPrincipalArgs',
+    'AccessGrantPrincipalArgsDict',
+    'AccessGrantPrincipalPrincipalAttributeArgs',
+    'AccessGrantPrincipalPrincipalAttributeArgsDict',
+    'AccessGrantScopedActionArgs',
+    'AccessGrantScopedActionArgsDict',
+    'AccessGrantScopedActionResourceArgs',
+    'AccessGrantScopedActionResourceArgsDict',
+    'AccessGrantScopedActionResourceRowScopeGroupArgs',
+    'AccessGrantScopedActionResourceRowScopeGroupArgsDict',
+    'AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs',
+    'AccessGrantScopedActionResourceRowScopeGroupRowScopeArgsDict',
+    'AccessProfileTimeoutsArgs',
+    'AccessProfileTimeoutsArgsDict',
     'DomainIdentityProviderConfigurationArgs',
     'DomainIdentityProviderConfigurationArgsDict',
     'DomainIdentityProviderConfigurationIdentityCenterConfigurationArgs',
@@ -22,6 +36,400 @@ __all__ = [
     'SpaceEncryptionConfigurationArgs',
     'SpaceEncryptionConfigurationArgsDict',
 ]
+
+class AccessGrantPrincipalArgsDict(TypedDict):
+    principal_type: pulumi.Input[_builtins.str]
+    """
+    Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+    """
+    principal_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantPrincipalPrincipalAttributeArgsDict']]]]]
+    """
+    Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principal_type` is `IDC_USER`. Up to 10 blocks. See below.
+    """
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+    """
+
+@pulumi.input_type
+class AccessGrantPrincipalArgs:
+    def __init__(__self__, *,
+                 principal_type: pulumi.Input[_builtins.str],
+                 principal_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantPrincipalPrincipalAttributeArgs']]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] principal_type: Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessGrantPrincipalPrincipalAttributeArgs']]] principal_attributes: Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principal_type` is `IDC_USER`. Up to 10 blocks. See below.
+        :param pulumi.Input[_builtins.str] principal_id: ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+        """
+        pulumi.set(__self__, "principal_type", principal_type)
+        if principal_attributes is not None:
+            pulumi.set(__self__, "principal_attributes", principal_attributes)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "principal_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalAttributes")
+    def principal_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantPrincipalPrincipalAttributeArgs']]]]:
+        """
+        Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principal_type` is `IDC_USER`. Up to 10 blocks. See below.
+        """
+        return pulumi.get(self, "principal_attributes")
+
+    @principal_attributes.setter
+    def principal_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantPrincipalPrincipalAttributeArgs']]]]):
+        pulumi.set(self, "principal_attributes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "principal_id", value)
+
+
+class AccessGrantPrincipalPrincipalAttributeArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Attribute value. Must be 1-512 characters.
+    """
+
+@pulumi.input_type
+class AccessGrantPrincipalPrincipalAttributeArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key: Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+        :param pulumi.Input[_builtins.str] value: Attribute value. Must be 1-512 characters.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Attribute value. Must be 1-512 characters.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class AccessGrantScopedActionArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+    """
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceArgsDict']]]]]
+    """
+    Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+    """
+
+@pulumi.input_type
+class AccessGrantScopedActionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: 1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessGrantScopedActionResourceArgs']]] resources: Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceArgs']]]]:
+        """
+        Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceArgs']]]]):
+        pulumi.set(self, "resources", value)
+
+
+class AccessGrantScopedActionResourceArgsDict(TypedDict):
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    Resource type name, for example `DataSet` or `OmniDashboard`.
+    """
+    resource_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+    """
+    row_scope_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupArgsDict']]]]]
+    """
+    Row-level filter group. A row is visible when it matches every `row_scope` in any one group. Up to 20 blocks. Must be specified together with `signal_types`, on a `DataSet` resource scope. See below.
+    """
+    signal_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `row_scope_group`, on a `DataSet` resource scope.
+    """
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+    """
+
+@pulumi.input_type
+class AccessGrantScopedActionResourceArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[_builtins.str],
+                 resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 row_scope_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupArgs']]]] = None,
+                 signal_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] resource_type: Resource type name, for example `DataSet` or `OmniDashboard`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupArgs']]] row_scope_groups: Row-level filter group. A row is visible when it matches every `row_scope` in any one group. Up to 20 blocks. Must be specified together with `signal_types`, on a `DataSet` resource scope. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] signal_types: Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `row_scope_group`, on a `DataSet` resource scope.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        if resource_arns is not None:
+            pulumi.set(__self__, "resource_arns", resource_arns)
+        if row_scope_groups is not None:
+            pulumi.set(__self__, "row_scope_groups", row_scope_groups)
+        if signal_types is not None:
+            pulumi.set(__self__, "signal_types", signal_types)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource type name, for example `DataSet` or `OmniDashboard`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArns")
+    def resource_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+        """
+        return pulumi.get(self, "resource_arns")
+
+    @resource_arns.setter
+    def resource_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_arns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rowScopeGroups")
+    def row_scope_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupArgs']]]]:
+        """
+        Row-level filter group. A row is visible when it matches every `row_scope` in any one group. Up to 20 blocks. Must be specified together with `signal_types`, on a `DataSet` resource scope. See below.
+        """
+        return pulumi.get(self, "row_scope_groups")
+
+    @row_scope_groups.setter
+    def row_scope_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupArgs']]]]):
+        pulumi.set(self, "row_scope_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signalTypes")
+    def signal_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `row_scope_group`, on a `DataSet` resource scope.
+        """
+        return pulumi.get(self, "signal_types")
+
+    @signal_types.setter
+    def signal_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "signal_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+class AccessGrantScopedActionResourceRowScopeGroupArgsDict(TypedDict):
+    row_scopes: pulumi.Input[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupRowScopeArgsDict']]]
+    """
+    Row filter. 1-20 blocks. See below.
+    """
+
+@pulumi.input_type
+class AccessGrantScopedActionResourceRowScopeGroupArgs:
+    def __init__(__self__, *,
+                 row_scopes: pulumi.Input[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs']]] row_scopes: Row filter. 1-20 blocks. See below.
+        """
+        pulumi.set(__self__, "row_scopes", row_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="rowScopes")
+    def row_scopes(self) -> pulumi.Input[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs']]]:
+        """
+        Row filter. 1-20 blocks. See below.
+        """
+        return pulumi.get(self, "row_scopes")
+
+    @row_scopes.setter
+    def row_scopes(self, value: pulumi.Input[Sequence[pulumi.Input['AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs']]]):
+        pulumi.set(self, "row_scopes", value)
+
+
+class AccessGrantScopedActionResourceRowScopeGroupRowScopeArgsDict(TypedDict):
+    field: pulumi.Input[_builtins.str]
+    """
+    Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Match operator. Valid value is `IN`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+    """
+
+@pulumi.input_type
+class AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs:
+    def __init__(__self__, *,
+                 field: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] field: Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+        :param pulumi.Input[_builtins.str] operator: Match operator. Valid value is `IN`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+        """
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> pulumi.Input[_builtins.str]:
+        """
+        Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "field", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        Match operator. Valid value is `IN`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class AccessProfileTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AccessProfileTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
 
 class DomainIdentityProviderConfigurationArgsDict(TypedDict):
     identity_center_configuration: pulumi.Input['DomainIdentityProviderConfigurationIdentityCenterConfigurationArgsDict']

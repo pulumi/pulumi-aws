@@ -21,10 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:cloudwatchomni/accessGrant:AccessGrant":
+		r = &AccessGrant{}
+	case "aws:cloudwatchomni/accessProfile:AccessProfile":
+		r = &AccessProfile{}
 	case "aws:cloudwatchomni/domain:Domain":
 		r = &Domain{}
 	case "aws:cloudwatchomni/space:Space":
 		r = &Space{}
+	case "aws:cloudwatchomni/view:View":
+		r = &View{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -40,12 +46,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"cloudwatchomni/accessGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatchomni/accessProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"cloudwatchomni/domain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatchomni/space",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatchomni/view",
 		&module{version},
 	)
 }

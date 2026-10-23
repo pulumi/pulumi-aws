@@ -598,6 +598,8 @@ __all__ = [
     'CustomModelValidationDataConfigValidator',
     'CustomModelValidationMetric',
     'CustomModelVpcConfig',
+    'EnforcedGuardrailConfigurationModelEnforcement',
+    'EnforcedGuardrailConfigurationSelectiveContentGuarding',
     'EvaluationJobEvaluationConfig',
     'EvaluationJobEvaluationConfigAutomated',
     'EvaluationJobEvaluationConfigAutomatedCustomMetricConfig',
@@ -30196,6 +30198,85 @@ class CustomModelVpcConfig(dict):
         VPC configuration subnets.
         """
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class EnforcedGuardrailConfigurationModelEnforcement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedModels":
+            suggest = "excluded_models"
+        elif key == "includedModels":
+            suggest = "included_models"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnforcedGuardrailConfigurationModelEnforcement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnforcedGuardrailConfigurationModelEnforcement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnforcedGuardrailConfigurationModelEnforcement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 excluded_models: Sequence[_builtins.str],
+                 included_models: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] excluded_models: List of models to exclude from enforcement of the guardrail.
+        :param Sequence[_builtins.str] included_models: List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+        """
+        pulumi.set(__self__, "excluded_models", excluded_models)
+        pulumi.set(__self__, "included_models", included_models)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedModels")
+    def excluded_models(self) -> Sequence[_builtins.str]:
+        """
+        List of models to exclude from enforcement of the guardrail.
+        """
+        return pulumi.get(self, "excluded_models")
+
+    @_builtins.property
+    @pulumi.getter(name="includedModels")
+    def included_models(self) -> Sequence[_builtins.str]:
+        """
+        List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+        """
+        return pulumi.get(self, "included_models")
+
+
+@pulumi.output_type
+class EnforcedGuardrailConfigurationSelectiveContentGuarding(dict):
+    def __init__(__self__, *,
+                 messages: Optional[_builtins.str] = None,
+                 system: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str messages: Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        :param _builtins.str system: Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        """
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
+
+    @_builtins.property
+    @pulumi.getter
+    def messages(self) -> Optional[_builtins.str]:
+        """
+        Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        """
+        return pulumi.get(self, "messages")
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> Optional[_builtins.str]:
+        """
+        Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        """
+        return pulumi.get(self, "system")
 
 
 @pulumi.output_type

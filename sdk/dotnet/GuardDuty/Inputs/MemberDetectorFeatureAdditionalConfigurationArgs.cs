@@ -13,7 +13,7 @@ namespace Pulumi.Aws.GuardDuty.Inputs
     public sealed class MemberDetectorFeatureAdditionalConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        /// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

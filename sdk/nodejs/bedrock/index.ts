@@ -160,6 +160,11 @@ export type CustomModel = import("./customModel").CustomModel;
 export const CustomModel: typeof import("./customModel").CustomModel = null as any;
 utilities.lazyLoad(exports, ["CustomModel"], () => require("./customModel"));
 
+export { EnforcedGuardrailConfigurationArgs, EnforcedGuardrailConfigurationState } from "./enforcedGuardrailConfiguration";
+export type EnforcedGuardrailConfiguration = import("./enforcedGuardrailConfiguration").EnforcedGuardrailConfiguration;
+export const EnforcedGuardrailConfiguration: typeof import("./enforcedGuardrailConfiguration").EnforcedGuardrailConfiguration = null as any;
+utilities.lazyLoad(exports, ["EnforcedGuardrailConfiguration"], () => require("./enforcedGuardrailConfiguration"));
+
 export { EvaluationJobArgs, EvaluationJobState } from "./evaluationJob";
 export type EvaluationJob = import("./evaluationJob").EvaluationJob;
 export const EvaluationJob: typeof import("./evaluationJob").EvaluationJob = null as any;
@@ -287,6 +292,8 @@ const _module = {
                 return new AgentcoreWorkloadIdentity(name, <any>undefined, { urn })
             case "aws:bedrock/customModel:CustomModel":
                 return new CustomModel(name, <any>undefined, { urn })
+            case "aws:bedrock/enforcedGuardrailConfiguration:EnforcedGuardrailConfiguration":
+                return new EnforcedGuardrailConfiguration(name, <any>undefined, { urn })
             case "aws:bedrock/evaluationJob:EvaluationJob":
                 return new EvaluationJob(name, <any>undefined, { urn })
             case "aws:bedrock/guardrail:Guardrail":
@@ -335,6 +342,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreResourcePolicy", 
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreTokenVaultCmk", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreWorkloadIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/enforcedGuardrailConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/evaluationJob", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailVersion", _module)

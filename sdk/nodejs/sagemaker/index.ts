@@ -100,6 +100,11 @@ export type ImageVersion = import("./imageVersion").ImageVersion;
 export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
 utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
 
+export { InferenceComponentArgs, InferenceComponentState } from "./inferenceComponent";
+export type InferenceComponent = import("./inferenceComponent").InferenceComponent;
+export const InferenceComponent: typeof import("./inferenceComponent").InferenceComponent = null as any;
+utilities.lazyLoad(exports, ["InferenceComponent"], () => require("./inferenceComponent"));
+
 export { LabelingJobArgs, LabelingJobState } from "./labelingJob";
 export type LabelingJob = import("./labelingJob").LabelingJob;
 export const LabelingJob: typeof import("./labelingJob").LabelingJob = null as any;
@@ -241,6 +246,8 @@ const _module = {
                 return new Image(name, <any>undefined, { urn })
             case "aws:sagemaker/imageVersion:ImageVersion":
                 return new ImageVersion(name, <any>undefined, { urn })
+            case "aws:sagemaker/inferenceComponent:InferenceComponent":
+                return new InferenceComponent(name, <any>undefined, { urn })
             case "aws:sagemaker/labelingJob:LabelingJob":
                 return new LabelingJob(name, <any>undefined, { urn })
             case "aws:sagemaker/mlflowApp:MlflowApp":
@@ -304,6 +311,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/hyperParameterTuningJob", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/inferenceComponent", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/labelingJob", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/mlflowApp", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/mlflowTrackingServer", _module)

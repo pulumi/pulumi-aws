@@ -83,6 +83,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentcoreWorkloadIdentity{}
 	case "aws:bedrock/customModel:CustomModel":
 		r = &CustomModel{}
+	case "aws:bedrock/enforcedGuardrailConfiguration:EnforcedGuardrailConfiguration":
+		r = &EnforcedGuardrailConfiguration{}
 	case "aws:bedrock/evaluationJob:EvaluationJob":
 		r = &EvaluationJob{}
 	case "aws:bedrock/guardrail:Guardrail":
@@ -261,6 +263,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/customModel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/enforcedGuardrailConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
