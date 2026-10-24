@@ -10290,7 +10290,7 @@ export namespace arcregionswitch {
          */
         executionApprovalConfigs?: outputs.arcregionswitch.PlanWorkflowStepExecutionApprovalConfig[];
         /**
-         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
          */
         executionBlockType: string;
         /**
@@ -10321,6 +10321,10 @@ export namespace arcregionswitch {
          * Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          */
         rdsPromoteReadReplicaConfigs?: outputs.arcregionswitch.PlanWorkflowStepRdsPromoteReadReplicaConfig[];
+        /**
+         * Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+         */
+        rdsSwitchoverReadReplicaConfig?: outputs.arcregionswitch.PlanWorkflowStepRdsSwitchoverReadReplicaConfig;
         /**
          * Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
          */
@@ -10863,7 +10867,7 @@ export namespace arcregionswitch {
          */
         executionApprovalConfigs?: outputs.arcregionswitch.PlanWorkflowStepParallelConfigStepExecutionApprovalConfig[];
         /**
-         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
          */
         executionBlockType: string;
         /**
@@ -10890,6 +10894,10 @@ export namespace arcregionswitch {
          * Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          */
         rdsPromoteReadReplicaConfigs?: outputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig[];
+        /**
+         * Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+         */
+        rdsSwitchoverReadReplicaConfig?: outputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig;
         /**
          * Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
          */
@@ -11389,7 +11397,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: string;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: {[key: string]: string};
         /**
@@ -11408,7 +11416,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: string;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: {[key: string]: string};
         /**
@@ -11419,6 +11427,33 @@ export namespace arcregionswitch {
          * Timeout in minutes.
          */
         timeoutMinutes?: number;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: string;
+        /**
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+         */
+        dbInstanceArnMap: {[key: string]: string};
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: string;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: number;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+         */
+        ungraceful?: outputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful {
+        ungraceful: string;
     }
 
     export interface PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig {
@@ -11480,7 +11515,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: string;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: {[key: string]: string};
         /**
@@ -11499,7 +11534,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: string;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: {[key: string]: string};
         /**
@@ -11510,6 +11545,33 @@ export namespace arcregionswitch {
          * Timeout in minutes.
          */
         timeoutMinutes?: number;
+    }
+
+    export interface PlanWorkflowStepRdsSwitchoverReadReplicaConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: string;
+        /**
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+         */
+        dbInstanceArnMap: {[key: string]: string};
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: string;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: number;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+         */
+        ungraceful?: outputs.arcregionswitch.PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful;
+    }
+
+    export interface PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful {
+        ungraceful: string;
     }
 
     export interface PlanWorkflowStepRegionSwitchPlanConfig {
@@ -23189,6 +23251,28 @@ export namespace bedrock {
         subnetIds: string[];
     }
 
+    export interface EnforcedGuardrailConfigurationModelEnforcement {
+        /**
+         * List of models to exclude from enforcement of the guardrail.
+         */
+        excludedModels: string[];
+        /**
+         * List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+         */
+        includedModels: string[];
+    }
+
+    export interface EnforcedGuardrailConfigurationSelectiveContentGuarding {
+        /**
+         * Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+         */
+        messages?: string;
+        /**
+         * Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+         */
+        system?: string;
+    }
+
     export interface EvaluationJobEvaluationConfig {
         /**
          * Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
@@ -30447,6 +30531,95 @@ export namespace cloudwatch {
 }
 
 export namespace cloudwatchomni {
+    export interface AccessGrantPrincipal {
+        /**
+         * Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principalType` is `IDC_USER`. Up to 10 blocks. See below.
+         */
+        principalAttributes?: outputs.cloudwatchomni.AccessGrantPrincipalPrincipalAttribute[];
+        /**
+         * ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+         */
+        principalId?: string;
+        /**
+         * Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+         */
+        principalType: string;
+    }
+
+    export interface AccessGrantPrincipalPrincipalAttribute {
+        /**
+         * Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+         */
+        key: string;
+        /**
+         * Attribute value. Must be 1-512 characters.
+         */
+        value: string;
+    }
+
+    export interface AccessGrantScopedAction {
+        /**
+         * 1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+         */
+        actions: string[];
+        /**
+         * Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+         */
+        resources?: outputs.cloudwatchomni.AccessGrantScopedActionResource[];
+    }
+
+    export interface AccessGrantScopedActionResource {
+        /**
+         * Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+         */
+        resourceArns?: string[];
+        /**
+         * Resource type name, for example `DataSet` or `OmniDashboard`.
+         */
+        resourceType: string;
+        /**
+         * Row-level filter group. A row is visible when it matches every `rowScope` in any one group. Up to 20 blocks. Must be specified together with `signalTypes`, on a `DataSet` resource scope. See below.
+         */
+        rowScopeGroups?: outputs.cloudwatchomni.AccessGrantScopedActionResourceRowScopeGroup[];
+        /**
+         * Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `rowScopeGroup`, on a `DataSet` resource scope.
+         */
+        signalTypes?: string[];
+        /**
+         * Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+         */
+        tags?: {[key: string]: string};
+    }
+
+    export interface AccessGrantScopedActionResourceRowScopeGroup {
+        /**
+         * Row filter. 1-20 blocks. See below.
+         */
+        rowScopes: outputs.cloudwatchomni.AccessGrantScopedActionResourceRowScopeGroupRowScope[];
+    }
+
+    export interface AccessGrantScopedActionResourceRowScopeGroupRowScope {
+        /**
+         * Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+         */
+        field: string;
+        /**
+         * Match operator. Valid value is `IN`.
+         */
+        operator: string;
+        /**
+         * Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+         */
+        values: string[];
+    }
+
+    export interface AccessProfileTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface DomainIdentityProviderConfiguration {
         /**
          * IAM Identity Center configuration. See below.
@@ -40211,6 +40384,17 @@ export namespace directoryservice {
          * The identifier of the VPC that the directory is in.
          */
         vpcId: string;
+    }
+
+    export interface DirectorySettingTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface DirectoryVpcSettings {
@@ -62156,7 +62340,7 @@ export namespace guardduty {
 
     export interface DetectorFeatureAdditionalConfiguration {
         /**
-         * Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          */
         name: string;
         /**
@@ -62268,7 +62452,7 @@ export namespace guardduty {
 
     export interface MemberDetectorFeatureAdditionalConfiguration {
         /**
-         * Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+         * Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
          */
         name: string;
         /**
@@ -62340,7 +62524,7 @@ export namespace guardduty {
          */
         autoEnable: string;
         /**
-         * Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          */
         name: string;
     }
@@ -103904,7 +104088,7 @@ export namespace redshiftserverless {
 
     export interface WorkgroupConfigParameter {
         /**
-         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableLargeStringOptIn`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
          */
         parameterKey: string;
         /**
@@ -113478,6 +113662,252 @@ export namespace sagemaker {
          * Parent tuning job name.
          */
         name: string;
+    }
+
+    export interface InferenceComponentDeploymentConfig {
+        /**
+         * Automatic rollback configuration. See `autoRollbackConfiguration` Block.
+         */
+        autoRollbackConfiguration?: outputs.sagemaker.InferenceComponentDeploymentConfigAutoRollbackConfiguration;
+        /**
+         * Rolling deployment strategy. See `rollingUpdatePolicy` Block.
+         */
+        rollingUpdatePolicy: outputs.sagemaker.InferenceComponentDeploymentConfigRollingUpdatePolicy;
+    }
+
+    export interface InferenceComponentDeploymentConfigAutoRollbackConfiguration {
+        /**
+         * List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+         */
+        alarms?: outputs.sagemaker.InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm[];
+    }
+
+    export interface InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm {
+        /**
+         * Name of a CloudWatch alarm.
+         */
+        alarmName: string;
+    }
+
+    export interface InferenceComponentDeploymentConfigRollingUpdatePolicy {
+        /**
+         * Batch size for each rolling step. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+         */
+        maximumBatchSize: outputs.sagemaker.InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize;
+        /**
+         * Time limit for the total deployment. Valid values are between `600` and `28800`.
+         */
+        maximumExecutionTimeoutInSeconds?: number;
+        /**
+         * Batch size for a rollback. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+         */
+        rollbackMaximumBatchSize?: outputs.sagemaker.InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize;
+        /**
+         * Length of the baking period in seconds. Valid values: `0`-`3600`.
+         */
+        waitIntervalInSeconds: number;
+    }
+
+    export interface InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+        /**
+         * Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+         */
+        type: string;
+        /**
+         * Capacity size value.
+         */
+        value: number;
+    }
+
+    export interface InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+        /**
+         * Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+         */
+        type: string;
+        /**
+         * Capacity size value.
+         */
+        value: number;
+    }
+
+    export interface InferenceComponentRuntimeConfig {
+        /**
+         * Number of runtime copies of the model container to deploy.
+         */
+        copyCount: number;
+        /**
+         * Number of copies placed on this instance type.
+         */
+        currentCopyCount: number;
+        /**
+         * Number of runtime copies requested.
+         */
+        desiredCopyCount: number;
+        /**
+         * Placement status of the inference component copies across instance types. See below.
+         */
+        placementStatuses: outputs.sagemaker.InferenceComponentRuntimeConfigPlacementStatus[];
+    }
+
+    export interface InferenceComponentRuntimeConfigPlacementStatus {
+        /**
+         * Number of copies placed on this instance type.
+         */
+        currentCopyCount: number;
+        /**
+         * Instance type on which the copies are placed.
+         */
+        instanceType: string;
+    }
+
+    export interface InferenceComponentSpecification {
+        /**
+         * Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+         */
+        baseInferenceComponentName?: string;
+        /**
+         * Compute resources allocated to run a model. See `computeResourceRequirements` Block.
+         */
+        computeResourceRequirements?: outputs.sagemaker.InferenceComponentSpecificationComputeResourceRequirements;
+        /**
+         * Container that provides the runtime environment for a model. See `container` Block.
+         */
+        container?: outputs.sagemaker.InferenceComponentSpecificationContainer;
+        /**
+         * Settings that affect how the inference component caches data. See `dataCacheConfig` Block.
+         */
+        dataCacheConfig?: outputs.sagemaker.InferenceComponentSpecificationDataCacheConfig;
+        /**
+         * Instance type on which the copies are placed.
+         */
+        instanceType?: string;
+        /**
+         * Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+         */
+        modelName?: string;
+        /**
+         * Scheduling configuration for placing inference component copies. See `schedulingConfig` Block.
+         */
+        schedulingConfig?: outputs.sagemaker.InferenceComponentSpecificationSchedulingConfig;
+        /**
+         * Settings that take effect while the model container starts up. See `startupParameters` Block.
+         */
+        startupParameters?: outputs.sagemaker.InferenceComponentSpecificationStartupParameters;
+    }
+
+    export interface InferenceComponentSpecificationComputeResourceRequirements {
+        /**
+         * Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+         */
+        maxMemoryRequiredInMb: number;
+        /**
+         * Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+         */
+        minMemoryRequiredInMb: number;
+        /**
+         * Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+         */
+        numberOfAcceleratorDevicesRequired: number;
+        /**
+         * Number of CPU cores to allocate. Minimum value of `0.25`.
+         */
+        numberOfCpuCoresRequired: number;
+    }
+
+    export interface InferenceComponentSpecificationContainer {
+        /**
+         * Amazon S3 path where the model artifacts are stored (.tar.gz).
+         */
+        artifactUrl?: string;
+        /**
+         * Configuration for container metrics scraping. See `containerMetricsConfig` Block.
+         */
+        containerMetricsConfig?: outputs.sagemaker.InferenceComponentSpecificationContainerContainerMetricsConfig;
+        /**
+         * Environment variables to set in the Docker container.
+         */
+        environment?: {[key: string]: string};
+        /**
+         * Amazon ECR path where the Docker image for the model is stored.
+         */
+        image: string;
+        /**
+         * Specific digest path of the container image that was resolved and deployed.
+         */
+        resolvedImage: string;
+    }
+
+    export interface InferenceComponentSpecificationContainerContainerMetricsConfig {
+        /**
+         * Metrics endpoint configuration. See `metricsEndpoint` Block.
+         */
+        metricsEndpoint?: outputs.sagemaker.InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint;
+    }
+
+    export interface InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint {
+        /**
+         * Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+         */
+        metricPublishFrequencyInSeconds: number;
+        /**
+         * Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+         */
+        metricsEndpointPath: string;
+    }
+
+    export interface InferenceComponentSpecificationDataCacheConfig {
+        /**
+         * Whether the endpoint caches model artifacts and container images.
+         */
+        enableCaching: boolean;
+    }
+
+    export interface InferenceComponentSpecificationSchedulingConfig {
+        /**
+         * Configuration for balancing copies across Availability Zones. See `availabilityZoneBalance` Block.
+         */
+        availabilityZoneBalance?: outputs.sagemaker.InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance;
+        /**
+         * Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+         */
+        placementStrategy: string;
+    }
+
+    export interface InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance {
+        /**
+         * How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+         */
+        enforcementMode: string;
+        /**
+         * Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+         */
+        maxImbalance?: number;
+    }
+
+    export interface InferenceComponentSpecificationStartupParameters {
+        /**
+         * Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+         */
+        containerStartupHealthCheckTimeoutInSeconds?: number;
+        /**
+         * Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+         */
+        modelDataDownloadTimeoutInSeconds?: number;
+    }
+
+    export interface InferenceComponentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface LabelingJobHumanTaskConfig {

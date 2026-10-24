@@ -203,6 +203,12 @@ namespace Pulumi.Aws.Neptune
         public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// Port on which the Neptune accepts connections. Default is `8182`.
         /// </summary>
         [Output("port")]
@@ -465,6 +471,12 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneSubnetGroupName { get; set; }
 
         /// <summary>
+        /// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// Port on which the Neptune accepts connections. Default is `8182`.
         /// </summary>
         [Input("port")]
@@ -723,6 +735,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// Port on which the Neptune accepts connections. Default is `8182`.

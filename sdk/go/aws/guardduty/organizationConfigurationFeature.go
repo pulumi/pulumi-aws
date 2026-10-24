@@ -58,7 +58,7 @@ import (
 type OrganizationConfigurationFeature struct {
 	pulumi.CustomResourceState
 
-	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `autoEnable` instead.  See below.
 	AdditionalConfigurations OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput `pulumi:"additionalConfigurations"`
 	// Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringOutput `pulumi:"autoEnable"`
@@ -106,7 +106,7 @@ func GetOrganizationConfigurationFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationConfigurationFeature resources.
 type organizationConfigurationFeatureState struct {
-	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `autoEnable` instead.  See below.
 	AdditionalConfigurations []OrganizationConfigurationFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable *string `pulumi:"autoEnable"`
@@ -119,7 +119,7 @@ type organizationConfigurationFeatureState struct {
 }
 
 type OrganizationConfigurationFeatureState struct {
-	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `autoEnable` instead.  See below.
 	AdditionalConfigurations OrganizationConfigurationFeatureAdditionalConfigurationArrayInput
 	// Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringPtrInput
@@ -136,7 +136,7 @@ func (OrganizationConfigurationFeatureState) ElementType() reflect.Type {
 }
 
 type organizationConfigurationFeatureArgs struct {
-	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `autoEnable` instead.  See below.
 	AdditionalConfigurations []OrganizationConfigurationFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable string `pulumi:"autoEnable"`
@@ -150,7 +150,7 @@ type organizationConfigurationFeatureArgs struct {
 
 // The set of arguments for constructing a OrganizationConfigurationFeature resource.
 type OrganizationConfigurationFeatureArgs struct {
-	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `autoEnable` instead.  See below.
 	AdditionalConfigurations OrganizationConfigurationFeatureAdditionalConfigurationArrayInput
 	// Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringInput
@@ -249,7 +249,7 @@ func (o OrganizationConfigurationFeatureOutput) ToOrganizationConfigurationFeatu
 	return o
 }
 
-// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `autoEnable` instead.  See below.
 func (o OrganizationConfigurationFeatureOutput) AdditionalConfigurations() OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationFeature) OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
 		return v.AdditionalConfigurations

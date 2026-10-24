@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConditionalForwarder{}
 	case "aws:directoryservice/directory:Directory":
 		r = &Directory{}
+	case "aws:directoryservice/directorySetting:DirectorySetting":
+		r = &DirectorySetting{}
 	case "aws:directoryservice/ipRoute:IpRoute":
 		r = &IpRoute{}
 	case "aws:directoryservice/ipRoutesExclusive:IpRoutesExclusive":
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"directoryservice/directory",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"directoryservice/directorySetting",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

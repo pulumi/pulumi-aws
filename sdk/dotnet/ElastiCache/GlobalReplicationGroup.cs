@@ -221,7 +221,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `PrimaryReplicationGroupId` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
         /// </summary>
         [Output("primaryReplicationGroupId")]
         public Output<string> PrimaryReplicationGroupId { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `PrimaryReplicationGroupId` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
         /// </summary>
         [Input("primaryReplicationGroupId", required: true)]
         public Input<string> PrimaryReplicationGroupId { get; set; } = null!;
@@ -482,7 +482,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `PrimaryReplicationGroupId` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
         /// </summary>
         [Input("primaryReplicationGroupId")]
         public Input<string>? PrimaryReplicationGroupId { get; set; }

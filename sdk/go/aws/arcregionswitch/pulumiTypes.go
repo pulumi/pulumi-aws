@@ -1007,7 +1007,7 @@ type PlanWorkflowStep struct {
 	EksResourceScalingConfigs []PlanWorkflowStepEksResourceScalingConfig `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs []PlanWorkflowStepExecutionApprovalConfig `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType string `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs []PlanWorkflowStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
@@ -1023,6 +1023,8 @@ type PlanWorkflowStep struct {
 	RdsCreateCrossRegionReadReplicaConfigs []PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
 	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs []PlanWorkflowStepRdsPromoteReadReplicaConfig `pulumi:"rdsPromoteReadReplicaConfigs"`
+	// Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+	RdsSwitchoverReadReplicaConfig *PlanWorkflowStepRdsSwitchoverReadReplicaConfig `pulumi:"rdsSwitchoverReadReplicaConfig"`
 	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
 	RegionSwitchPlanConfigs []PlanWorkflowStepRegionSwitchPlanConfig `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
@@ -1061,7 +1063,7 @@ type PlanWorkflowStepArgs struct {
 	EksResourceScalingConfigs PlanWorkflowStepEksResourceScalingConfigArrayInput `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs PlanWorkflowStepExecutionApprovalConfigArrayInput `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType pulumi.StringInput `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs PlanWorkflowStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
@@ -1077,6 +1079,8 @@ type PlanWorkflowStepArgs struct {
 	RdsCreateCrossRegionReadReplicaConfigs PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
 	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput `pulumi:"rdsPromoteReadReplicaConfigs"`
+	// Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+	RdsSwitchoverReadReplicaConfig PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrInput `pulumi:"rdsSwitchoverReadReplicaConfig"`
 	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
 	RegionSwitchPlanConfigs PlanWorkflowStepRegionSwitchPlanConfigArrayInput `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
@@ -1196,7 +1200,7 @@ func (o PlanWorkflowStepOutput) ExecutionApprovalConfigs() PlanWorkflowStepExecu
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepExecutionApprovalConfig { return v.ExecutionApprovalConfigs }).(PlanWorkflowStepExecutionApprovalConfigArrayOutput)
 }
 
-// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
 func (o PlanWorkflowStepOutput) ExecutionBlockType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) string { return v.ExecutionBlockType }).(pulumi.StringOutput)
 }
@@ -1242,6 +1246,13 @@ func (o PlanWorkflowStepOutput) RdsPromoteReadReplicaConfigs() PlanWorkflowStepR
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepRdsPromoteReadReplicaConfig {
 		return v.RdsPromoteReadReplicaConfigs
 	}).(PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput)
+}
+
+// Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+func (o PlanWorkflowStepOutput) RdsSwitchoverReadReplicaConfig() PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStep) *PlanWorkflowStepRdsSwitchoverReadReplicaConfig {
+		return v.RdsSwitchoverReadReplicaConfig
+	}).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput)
 }
 
 // Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
@@ -5067,7 +5078,7 @@ type PlanWorkflowStepParallelConfigStep struct {
 	EksResourceScalingConfigs []PlanWorkflowStepParallelConfigStepEksResourceScalingConfig `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs []PlanWorkflowStepParallelConfigStepExecutionApprovalConfig `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType string `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs []PlanWorkflowStepParallelConfigStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
@@ -5081,6 +5092,8 @@ type PlanWorkflowStepParallelConfigStep struct {
 	RdsCreateCrossRegionReadReplicaConfigs []PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
 	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs []PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig `pulumi:"rdsPromoteReadReplicaConfigs"`
+	// Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+	RdsSwitchoverReadReplicaConfig *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig `pulumi:"rdsSwitchoverReadReplicaConfig"`
 	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
 	RegionSwitchPlanConfigs []PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
@@ -5119,7 +5132,7 @@ type PlanWorkflowStepParallelConfigStepArgs struct {
 	EksResourceScalingConfigs PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArrayInput `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArrayInput `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType pulumi.StringInput `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
@@ -5133,6 +5146,8 @@ type PlanWorkflowStepParallelConfigStepArgs struct {
 	RdsCreateCrossRegionReadReplicaConfigs PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
 	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput `pulumi:"rdsPromoteReadReplicaConfigs"`
+	// Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+	RdsSwitchoverReadReplicaConfig PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrInput `pulumi:"rdsSwitchoverReadReplicaConfig"`
 	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
 	RegionSwitchPlanConfigs PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayInput `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
@@ -5258,7 +5273,7 @@ func (o PlanWorkflowStepParallelConfigStepOutput) ExecutionApprovalConfigs() Pla
 	}).(PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArrayOutput)
 }
 
-// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
 func (o PlanWorkflowStepParallelConfigStepOutput) ExecutionBlockType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) string { return v.ExecutionBlockType }).(pulumi.StringOutput)
 }
@@ -5301,6 +5316,13 @@ func (o PlanWorkflowStepParallelConfigStepOutput) RdsPromoteReadReplicaConfigs()
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig {
 		return v.RdsPromoteReadReplicaConfigs
 	}).(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput)
+}
+
+// Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+func (o PlanWorkflowStepParallelConfigStepOutput) RdsSwitchoverReadReplicaConfig() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig {
+		return v.RdsSwitchoverReadReplicaConfig
+	}).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput)
 }
 
 // Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
@@ -9079,7 +9101,7 @@ func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulA
 type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId *string `pulumi:"externalId"`
@@ -9101,7 +9123,7 @@ type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigInpu
 type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
@@ -9167,7 +9189,7 @@ func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Map of source DB instance identifiers to target DB instance ARNs.
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig) map[string]string {
 		return v.DbInstanceArnMap
@@ -9211,7 +9233,7 @@ func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigA
 type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId *string `pulumi:"externalId"`
@@ -9233,7 +9255,7 @@ type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput interfac
 type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
@@ -9299,7 +9321,7 @@ func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) Cro
 	}).(pulumi.StringPtrOutput)
 }
 
-// Map of source DB instance identifiers to target DB instance ARNs.
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig) map[string]string {
 		return v.DbInstanceArnMap
@@ -9334,6 +9356,360 @@ func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig {
 		return vs[0].([]PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig)[vs[1].(int)]
 	}).(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+	Ungraceful *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful `pulumi:"ungraceful"`
+}
+
+// PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs and PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs{...}
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+	Ungraceful PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput)
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput).ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx)
+}
+
+// PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs, PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtr and PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrInput` via:
+//
+//	        PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput
+}
+
+type planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrType PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs
+
+func PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtr(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrInput {
+	return (*planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrType)(v)
+}
+
+func (*planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (i *planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrType) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrType) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig {
+		return &v
+	}).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) map[string]string {
+		return v.DbInstanceArnMap
+	}).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput) Ungraceful() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful {
+		return v.Ungraceful
+	}).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) Elem() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig
+		return ret
+	}).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.DbInstanceArnMap
+	}).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput) Ungraceful() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig) *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful {
+		if v == nil {
+			return nil
+		}
+		return v.Ungraceful
+	}).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful struct {
+	Ungraceful string `pulumi:"ungraceful"`
+}
+
+// PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs and PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs{...}
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs struct {
+	Ungraceful pulumi.StringInput `pulumi:"ungraceful"`
+}
+
+func (PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput)
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput).ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx)
+}
+
+// PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs, PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtr and PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput` via:
+//
+//	        PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput
+	ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput
+}
+
+type planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrType PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs
+
+func PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtr(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput {
+	return (*planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrType)(v)
+}
+
+func (*planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (i *planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrType) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i *planWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrType) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful) *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful {
+		return &v
+	}).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput) Ungraceful() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful) string {
+		return v.Ungraceful
+	}).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) ToPlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) Elem() PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful) PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful {
+		if v != nil {
+			return *v
+		}
+		var ret PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful
+		return ret
+	}).(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput)
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) Ungraceful() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ungraceful
+	}).(pulumi.StringPtrOutput)
 }
 
 type PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig struct {
@@ -9706,7 +10082,7 @@ func (o PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArray
 type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId *string `pulumi:"externalId"`
@@ -9728,7 +10104,7 @@ type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigInput interface {
 type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
@@ -9792,7 +10168,7 @@ func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) CrossAccoun
 	return o.ApplyT(func(v PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
 }
 
-// Map of source DB instance identifiers to target DB instance ARNs.
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig) map[string]string {
 		return v.DbInstanceArnMap
@@ -9832,7 +10208,7 @@ func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) Index(
 type PlanWorkflowStepRdsPromoteReadReplicaConfig struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId *string `pulumi:"externalId"`
@@ -9854,7 +10230,7 @@ type PlanWorkflowStepRdsPromoteReadReplicaConfigInput interface {
 type PlanWorkflowStepRdsPromoteReadReplicaConfigArgs struct {
 	// ARN of the cross-account role to assume.
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
-	// Map of source DB instance identifiers to target DB instance ARNs.
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
 	// External ID for cross-account role assumption.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
@@ -9918,7 +10294,7 @@ func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) CrossAccountRole() pu
 	return o.ApplyT(func(v PlanWorkflowStepRdsPromoteReadReplicaConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
 }
 
-// Map of source DB instance identifiers to target DB instance ARNs.
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
 func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PlanWorkflowStepRdsPromoteReadReplicaConfig) map[string]string { return v.DbInstanceArnMap }).(pulumi.StringMapOutput)
 }
@@ -9951,6 +10327,354 @@ func (o PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepRdsPromoteReadReplicaConfig {
 		return vs[0].([]PlanWorkflowStepRdsPromoteReadReplicaConfig)[vs[1].(int)]
 	}).(PlanWorkflowStepRdsPromoteReadReplicaConfigOutput)
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+	Ungraceful *PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful `pulumi:"ungraceful"`
+}
+
+// PlanWorkflowStepRdsSwitchoverReadReplicaConfigInput is an input type that accepts PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs and PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsSwitchoverReadReplicaConfigInput` via:
+//
+//	PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs{...}
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigOutputWithContext(context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+	Ungraceful PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput {
+	return i.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput)
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return i.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput).ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx)
+}
+
+// PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrInput is an input type that accepts PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs, PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtr and PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrInput` via:
+//
+//	        PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput
+}
+
+type planWorkflowStepRdsSwitchoverReadReplicaConfigPtrType PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs
+
+func PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtr(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs) PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrInput {
+	return (*planWorkflowStepRdsSwitchoverReadReplicaConfigPtrType)(v)
+}
+
+func (*planWorkflowStepRdsSwitchoverReadReplicaConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (i *planWorkflowStepRdsSwitchoverReadReplicaConfigPtrType) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return i.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *planWorkflowStepRdsSwitchoverReadReplicaConfigPtrType) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput)
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *PlanWorkflowStepRdsSwitchoverReadReplicaConfig {
+		return &v
+	}).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsSwitchoverReadReplicaConfig) map[string]string { return v.DbInstanceArnMap }).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput) Ungraceful() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful {
+		return v.Ungraceful
+	}).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepRdsSwitchoverReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) Elem() PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfig) PlanWorkflowStepRdsSwitchoverReadReplicaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PlanWorkflowStepRdsSwitchoverReadReplicaConfig
+		return ret
+	}).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.DbInstanceArnMap
+	}).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput) Ungraceful() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfig) *PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful {
+		if v == nil {
+			return nil
+		}
+		return v.Ungraceful
+	}).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful struct {
+	Ungraceful string `pulumi:"ungraceful"`
+}
+
+// PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulInput is an input type that accepts PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs and PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulInput` via:
+//
+//	PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs{...}
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs struct {
+	Ungraceful pulumi.StringInput `pulumi:"ungraceful"`
+}
+
+func (PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return i.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput)
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return i.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput).ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx)
+}
+
+// PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput is an input type that accepts PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs, PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtr and PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput` via:
+//
+//	        PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput
+	ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput
+}
+
+type planWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrType PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs
+
+func PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtr(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput {
+	return (*planWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrType)(v)
+}
+
+func (*planWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (i *planWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrType) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return i.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i *planWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrType) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful) *PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful {
+		return &v
+	}).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput)
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput) Ungraceful() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful) string { return v.Ungraceful }).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) ToPlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutputWithContext(ctx context.Context) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) Elem() PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful) PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful {
+		if v != nil {
+			return *v
+		}
+		var ret PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful
+		return ret
+	}).(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput)
+}
+
+func (o PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput) Ungraceful() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ungraceful
+	}).(pulumi.StringPtrOutput)
 }
 
 type PlanWorkflowStepRegionSwitchPlanConfig struct {
@@ -10598,6 +11322,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs{})
@@ -10608,6 +11336,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsPromoteReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepRdsPromoteReadReplicaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepRdsPromoteReadReplicaConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrInput)(nil)).Elem(), PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrInput)(nil)).Elem(), PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRegionSwitchPlanConfigInput)(nil)).Elem(), PlanWorkflowStepRegionSwitchPlanConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRegionSwitchPlanConfigArrayInput)(nil)).Elem(), PlanWorkflowStepRegionSwitchPlanConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRoute53HealthCheckConfigInput)(nil)).Elem(), PlanWorkflowStepRoute53HealthCheckConfigArgs{})
@@ -10762,6 +11494,10 @@ func init() {
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigPtrOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigOutput{})
@@ -10772,6 +11508,10 @@ func init() {
 	pulumi.RegisterOutputType(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRdsPromoteReadReplicaConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsSwitchoverReadReplicaConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsSwitchoverReadReplicaConfigPtrOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulPtrOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRegionSwitchPlanConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRegionSwitchPlanConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRoute53HealthCheckConfigOutput{})

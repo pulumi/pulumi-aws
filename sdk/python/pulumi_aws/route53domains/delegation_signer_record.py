@@ -22,7 +22,7 @@ __all__ = ['DelegationSignerRecordArgs', 'DelegationSignerRecord']
 class DelegationSignerRecordArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 signing_attributes: pulumi.Input[Optional['DelegationSignerRecordSigningAttributesArgs']] = None,
+                 signing_attributes: pulumi.Input['DelegationSignerRecordSigningAttributesArgs'],
                  timeouts: pulumi.Input[Optional['DelegationSignerRecordTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DelegationSignerRecord resource.
@@ -31,8 +31,7 @@ class DelegationSignerRecordArgs:
         :param pulumi.Input['DelegationSignerRecordSigningAttributesArgs'] signing_attributes: The information about a key, including the algorithm, public key-value, and flags.
         """
         pulumi.set(__self__, "domain_name", domain_name)
-        if signing_attributes is not None:
-            pulumi.set(__self__, "signing_attributes", signing_attributes)
+        pulumi.set(__self__, "signing_attributes", signing_attributes)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -50,14 +49,14 @@ class DelegationSignerRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="signingAttributes")
-    def signing_attributes(self) -> pulumi.Input[Optional['DelegationSignerRecordSigningAttributesArgs']]:
+    def signing_attributes(self) -> pulumi.Input['DelegationSignerRecordSigningAttributesArgs']:
         """
         The information about a key, including the algorithm, public key-value, and flags.
         """
         return pulumi.get(self, "signing_attributes")
 
     @signing_attributes.setter
-    def signing_attributes(self, value: pulumi.Input[Optional['DelegationSignerRecordSigningAttributesArgs']]):
+    def signing_attributes(self, value: pulumi.Input['DelegationSignerRecordSigningAttributesArgs']):
         pulumi.set(self, "signing_attributes", value)
 
     @_builtins.property
@@ -233,10 +232,10 @@ class DelegationSignerRecord(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
+        Using `pulumi import`, import delegation signer records using the domain name, flags, algorithm, and public key separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
+        $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,257,13,M1jizbcdK5IBt7d4lRIiFTx+N06BJzaeScK215EOfa8efd2akkUWmxD5OhodZCIiRMvL5ZnStUP5UReIeUmBeA==
         ```
 
 
@@ -335,10 +334,10 @@ class DelegationSignerRecord(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
+        Using `pulumi import`, import delegation signer records using the domain name, flags, algorithm, and public key separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
+        $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,257,13,M1jizbcdK5IBt7d4lRIiFTx+N06BJzaeScK215EOfa8efd2akkUWmxD5OhodZCIiRMvL5ZnStUP5UReIeUmBeA==
         ```
 
 
@@ -372,6 +371,8 @@ class DelegationSignerRecord(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            if signing_attributes is None and not opts.urn:
+                raise TypeError("Missing required property 'signing_attributes'")
             __props__.__dict__["signing_attributes"] = signing_attributes
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["dnssec_key_id"] = None
@@ -428,7 +429,7 @@ class DelegationSignerRecord(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="signingAttributes")
-    def signing_attributes(self) -> pulumi.Output[Optional['outputs.DelegationSignerRecordSigningAttributes']]:
+    def signing_attributes(self) -> pulumi.Output['outputs.DelegationSignerRecordSigningAttributes']:
         """
         The information about a key, including the algorithm, public key-value, and flags.
         """

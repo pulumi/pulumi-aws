@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,14 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
     public static final MacsecKeyAssociationState Empty = new MacsecKeyAssociationState();
 
     /**
-     * The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+     * MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
      * 
      */
     @Import(name="cak")
     private @Nullable Output<String> cak;
 
     /**
-     * @return The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+     * @return MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
      * 
      */
     public Optional<Output<String>> cak() {
@@ -31,14 +32,46 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    @Import(name="cakWo")
+    private @Nullable Output<String> cakWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    public Optional<Output<String>> cakWo() {
+        return Optional.ofNullable(this.cakWo);
+    }
+
+    /**
+     * Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    @Import(name="cakWoVersion")
+    private @Nullable Output<Integer> cakWoVersion;
+
+    /**
+     * @return Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    public Optional<Output<Integer>> cakWoVersion() {
+        return Optional.ofNullable(this.cakWoVersion);
+    }
+
+    /**
+     * MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
      * 
      */
     @Import(name="ckn")
     private @Nullable Output<String> ckn;
 
     /**
-     * @return The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+     * @return MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
      * 
      */
     public Optional<Output<String>> ckn() {
@@ -46,14 +79,50 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    @Import(name="cknWo")
+    private @Nullable Output<String> cknWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    public Optional<Output<String>> cknWo() {
+        return Optional.ofNullable(this.cknWo);
+    }
+
+    /**
+     * Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    @Import(name="cknWoVersion")
+    private @Nullable Output<Integer> cknWoVersion;
+
+    /**
+     * @return Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    public Optional<Output<Integer>> cknWoVersion() {
+        return Optional.ofNullable(this.cknWoVersion);
+    }
+
+    /**
+     * ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="connectionId")
     private @Nullable Output<String> connectionId;
 
     /**
-     * @return The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * @return ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> connectionId() {
@@ -78,7 +147,7 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
     /**
      * ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      * 
-     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+     * &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
      * 
      */
     @Import(name="secretArn")
@@ -87,7 +156,7 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
     /**
      * @return ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      * 
-     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+     * &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
      * 
      */
     public Optional<Output<String>> secretArn() {
@@ -128,7 +197,11 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
 
     private MacsecKeyAssociationState(MacsecKeyAssociationState $) {
         this.cak = $.cak;
+        this.cakWo = $.cakWo;
+        this.cakWoVersion = $.cakWoVersion;
         this.ckn = $.ckn;
+        this.cknWo = $.cknWo;
+        this.cknWoVersion = $.cknWoVersion;
         this.connectionId = $.connectionId;
         this.region = $.region;
         this.secretArn = $.secretArn;
@@ -155,7 +228,7 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cak The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+         * @param cak MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
          * 
          * @return builder
          * 
@@ -166,7 +239,7 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cak The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+         * @param cak MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
          * 
          * @return builder
          * 
@@ -176,7 +249,51 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ckn The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+         * @param cakWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cakWo(@Nullable Output<String> cakWo) {
+            $.cakWo = cakWo;
+            return this;
+        }
+
+        /**
+         * @param cakWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cakWo(String cakWo) {
+            return cakWo(Output.of(cakWo));
+        }
+
+        /**
+         * @param cakWoVersion Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cakWoVersion(@Nullable Output<Integer> cakWoVersion) {
+            $.cakWoVersion = cakWoVersion;
+            return this;
+        }
+
+        /**
+         * @param cakWoVersion Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cakWoVersion(Integer cakWoVersion) {
+            return cakWoVersion(Output.of(cakWoVersion));
+        }
+
+        /**
+         * @param ckn MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
          * 
          * @return builder
          * 
@@ -187,7 +304,7 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ckn The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+         * @param ckn MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
          * 
          * @return builder
          * 
@@ -197,7 +314,53 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param connectionId The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+         * @param cknWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cknWo(@Nullable Output<String> cknWo) {
+            $.cknWo = cknWo;
+            return this;
+        }
+
+        /**
+         * @param cknWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cknWo(String cknWo) {
+            return cknWo(Output.of(cknWo));
+        }
+
+        /**
+         * @param cknWoVersion Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cknWoVersion(@Nullable Output<Integer> cknWoVersion) {
+            $.cknWoVersion = cknWoVersion;
+            return this;
+        }
+
+        /**
+         * @param cknWoVersion Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cknWoVersion(Integer cknWoVersion) {
+            return cknWoVersion(Output.of(cknWoVersion));
+        }
+
+        /**
+         * @param connectionId ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -208,7 +371,9 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param connectionId The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+         * @param connectionId ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -241,7 +406,7 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         /**
          * @param secretArn ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
          * 
-         * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+         * &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
          * 
          * @return builder
          * 
@@ -254,7 +419,7 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
         /**
          * @param secretArn ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
          * 
-         * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+         * &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
          * 
          * @return builder
          * 

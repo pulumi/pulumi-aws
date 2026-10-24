@@ -37,15 +37,15 @@ public final class DelegationSignerRecordArgs extends com.pulumi.resources.Resou
      * The information about a key, including the algorithm, public key-value, and flags.
      * 
      */
-    @Import(name="signingAttributes")
-    private @Nullable Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes;
+    @Import(name="signingAttributes", required=true)
+    private Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes;
 
     /**
      * @return The information about a key, including the algorithm, public key-value, and flags.
      * 
      */
-    public Optional<Output<DelegationSignerRecordSigningAttributesArgs>> signingAttributes() {
-        return Optional.ofNullable(this.signingAttributes);
+    public Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes() {
+        return this.signingAttributes;
     }
 
     @Import(name="timeouts")
@@ -108,7 +108,7 @@ public final class DelegationSignerRecordArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder signingAttributes(@Nullable Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes) {
+        public Builder signingAttributes(Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes) {
             $.signingAttributes = signingAttributes;
             return this;
         }
@@ -135,6 +135,9 @@ public final class DelegationSignerRecordArgs extends com.pulumi.resources.Resou
         public DelegationSignerRecordArgs build() {
             if ($.domainName == null) {
                 throw new MissingRequiredPropertyException("DelegationSignerRecordArgs", "domainName");
+            }
+            if ($.signingAttributes == null) {
+                throw new MissingRequiredPropertyException("DelegationSignerRecordArgs", "signingAttributes");
             }
             return $;
         }

@@ -270,7 +270,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
                  name: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str name: Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        :param _builtins.str name: Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         :param _builtins.str status: Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
@@ -280,7 +280,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 
@@ -572,7 +572,7 @@ class MemberDetectorFeatureAdditionalConfiguration(dict):
                  name: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str name: Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        :param _builtins.str name: Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
         :param _builtins.str status: Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
@@ -582,7 +582,7 @@ class MemberDetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
         """
         return pulumi.get(self, "name")
 
@@ -874,7 +874,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
                  name: _builtins.str):
         """
         :param _builtins.str auto_enable: Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        :param _builtins.str name: Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        :param _builtins.str name: Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
         pulumi.set(__self__, "name", name)
@@ -891,7 +891,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 

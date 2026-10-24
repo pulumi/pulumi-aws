@@ -10,21 +10,25 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
+ * Manages a MAC Security (MACSec) secret key association for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
  * 
  * Creating this resource will also create a resource of type `aws.secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
  * 
- * &gt; **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
- * **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
+ * &gt; **Note:** The `ckn` and `cak` arguments are stored in the raw state as plain-text. Use `cknWo` and `cakWo` instead to avoid storing these values in the plan or state. When `cknWo` is configured, the API-returned CKN is not stored in `ckn`.
+ * **Note:** Write-only arguments `cakWo` and `cknWo` require Terraform v1.11.0 or later. Learn more about write-only arguments.
+ * 
+ * &gt; **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
  * 
  * ## Example Usage
  * 
- * ### Create MACSec key with CKN and CAK
+ * ### Basic Usage
  * 
  * <pre>
  * {@code
@@ -54,7 +58,7 @@ import javax.annotation.Nullable;
  *             .name("tf-dx-connection")
  *             .build());
  * 
- *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()
+ *         var exampleMacsecKeyAssociation = new MacsecKeyAssociation("exampleMacsecKeyAssociation", MacsecKeyAssociationArgs.builder()
  *             .connectionId(example.id())
  *             .ckn("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
  *             .cak("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
@@ -64,6 +68,54 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ### Create MACSec key with write-only CKN and CAK
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+ * import com.pulumi.aws.directconnect.inputs.GetConnectionArgs;
+ * import com.pulumi.aws.directconnect.MacsecKeyAssociation;
+ * import com.pulumi.aws.directconnect.MacsecKeyAssociationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
+ *             .name("tf-dx-connection")
+ *             .build());
+ * 
+ *         final var cak = config.require("cak");
+ *         final var ckn = config.require("ckn");
+ *         var exampleMacsecKeyAssociation = new MacsecKeyAssociation("exampleMacsecKeyAssociation", MacsecKeyAssociationArgs.builder()
+ *             .connectionId(example.id())
+ *             .cakWo(cak)
+ *             .cakWoVersion(1)
+ *             .cknWo(ckn)
+ *             .cknWoVersion(1)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Changing a write-only value alone does not trigger a change. Increment its corresponding `cakWoVersion` or `cknWoVersion` to replace the association with the new key material. The version counters are independent; increment both when changing both values.
  * 
  * ### Create MACSec key with existing Secrets Manager secret
  * 
@@ -101,7 +153,7 @@ import javax.annotation.Nullable;
  *             .name("directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
  *             .build());
  * 
- *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()
+ *         var exampleMacsecKeyAssociation = new MacsecKeyAssociation("exampleMacsecKeyAssociation", MacsecKeyAssociationArgs.builder()
  *             .connectionId(example.id())
  *             .secretArn(exampleGetSecret.arn())
  *             .build());
@@ -115,42 +167,106 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")
 public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+     * MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
      * 
      */
     @Export(name="cak", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cak;
 
     /**
-     * @return The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+     * @return MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
      * 
      */
     public Output<Optional<String>> cak() {
         return Codegen.optional(this.cak);
     }
     /**
-     * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    @Export(name="cakWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cakWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    public Output<Optional<String>> cakWo() {
+        return Codegen.optional(this.cakWo);
+    }
+    /**
+     * Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    @Export(name="cakWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> cakWoVersion;
+
+    /**
+     * @return Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    public Output<Optional<Integer>> cakWoVersion() {
+        return Codegen.optional(this.cakWoVersion);
+    }
+    /**
+     * MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
      * 
      */
     @Export(name="ckn", refs={String.class}, tree="[0]")
     private Output<String> ckn;
 
     /**
-     * @return The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+     * @return MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
      * 
      */
     public Output<String> ckn() {
         return this.ckn;
     }
     /**
-     * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    @Export(name="cknWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cknWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+     * 
+     */
+    public Output<Optional<String>> cknWo() {
+        return Codegen.optional(this.cknWo);
+    }
+    /**
+     * Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    @Export(name="cknWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> cknWoVersion;
+
+    /**
+     * @return Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+     * 
+     */
+    public Output<Optional<Integer>> cknWoVersion() {
+        return Codegen.optional(this.cknWoVersion);
+    }
+    /**
+     * ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
-     * @return The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * @return ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> connectionId() {
@@ -173,7 +289,7 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      * 
-     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+     * &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
      * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
@@ -182,7 +298,7 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
     /**
      * @return ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      * 
-     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+     * &gt; **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
      * 
      */
     public Output<String> secretArn() {
@@ -256,6 +372,10 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "cakWo",
+                "cknWo"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

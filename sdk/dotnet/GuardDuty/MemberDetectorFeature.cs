@@ -94,7 +94,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Additional feature configuration block. See below.
+        /// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `AdditionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `Status` instead. See below.
         /// </summary>
         [Output("additionalConfigurations")]
         public Output<ImmutableArray<Outputs.MemberDetectorFeatureAdditionalConfiguration>> AdditionalConfigurations { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs>? _additionalConfigurations;
 
         /// <summary>
-        /// Additional feature configuration block. See below.
+        /// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `AdditionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `Status` instead. See below.
         /// </summary>
         public InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs> AdditionalConfigurations
         {
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationGetArgs>? _additionalConfigurations;
 
         /// <summary>
-        /// Additional feature configuration block. See below.
+        /// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `AdditionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `Status` instead. See below.
         /// </summary>
         public InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationGetArgs> AdditionalConfigurations
         {
