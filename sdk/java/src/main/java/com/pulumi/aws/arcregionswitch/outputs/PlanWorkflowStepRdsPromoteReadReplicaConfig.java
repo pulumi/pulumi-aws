@@ -20,7 +20,7 @@ public final class PlanWorkflowStepRdsPromoteReadReplicaConfig {
      */
     private @Nullable String crossAccountRole;
     /**
-     * @return Map of source DB instance identifiers to target DB instance ARNs.
+     * @return Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
      * 
      */
     private Map<String,String> dbInstanceArnMap;
@@ -44,7 +44,7 @@ public final class PlanWorkflowStepRdsPromoteReadReplicaConfig {
         return Optional.ofNullable(this.crossAccountRole);
     }
     /**
-     * @return Map of source DB instance identifiers to target DB instance ARNs.
+     * @return Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
      * 
      */
     public Map<String,String> dbInstanceArnMap() {

@@ -12894,6 +12894,318 @@ func (o CustomModelVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type EnforcedGuardrailConfigurationModelEnforcement struct {
+	// List of models to exclude from enforcement of the guardrail.
+	ExcludedModels []string `pulumi:"excludedModels"`
+	// List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+	IncludedModels []string `pulumi:"includedModels"`
+}
+
+// EnforcedGuardrailConfigurationModelEnforcementInput is an input type that accepts EnforcedGuardrailConfigurationModelEnforcementArgs and EnforcedGuardrailConfigurationModelEnforcementOutput values.
+// You can construct a concrete instance of `EnforcedGuardrailConfigurationModelEnforcementInput` via:
+//
+//	EnforcedGuardrailConfigurationModelEnforcementArgs{...}
+type EnforcedGuardrailConfigurationModelEnforcementInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationModelEnforcementOutput() EnforcedGuardrailConfigurationModelEnforcementOutput
+	ToEnforcedGuardrailConfigurationModelEnforcementOutputWithContext(context.Context) EnforcedGuardrailConfigurationModelEnforcementOutput
+}
+
+type EnforcedGuardrailConfigurationModelEnforcementArgs struct {
+	// List of models to exclude from enforcement of the guardrail.
+	ExcludedModels pulumi.StringArrayInput `pulumi:"excludedModels"`
+	// List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+	IncludedModels pulumi.StringArrayInput `pulumi:"includedModels"`
+}
+
+func (EnforcedGuardrailConfigurationModelEnforcementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationModelEnforcement)(nil)).Elem()
+}
+
+func (i EnforcedGuardrailConfigurationModelEnforcementArgs) ToEnforcedGuardrailConfigurationModelEnforcementOutput() EnforcedGuardrailConfigurationModelEnforcementOutput {
+	return i.ToEnforcedGuardrailConfigurationModelEnforcementOutputWithContext(context.Background())
+}
+
+func (i EnforcedGuardrailConfigurationModelEnforcementArgs) ToEnforcedGuardrailConfigurationModelEnforcementOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationModelEnforcementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnforcedGuardrailConfigurationModelEnforcementOutput)
+}
+
+func (i EnforcedGuardrailConfigurationModelEnforcementArgs) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutput() EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return i.ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(context.Background())
+}
+
+func (i EnforcedGuardrailConfigurationModelEnforcementArgs) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnforcedGuardrailConfigurationModelEnforcementOutput).ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(ctx)
+}
+
+// EnforcedGuardrailConfigurationModelEnforcementPtrInput is an input type that accepts EnforcedGuardrailConfigurationModelEnforcementArgs, EnforcedGuardrailConfigurationModelEnforcementPtr and EnforcedGuardrailConfigurationModelEnforcementPtrOutput values.
+// You can construct a concrete instance of `EnforcedGuardrailConfigurationModelEnforcementPtrInput` via:
+//
+//	        EnforcedGuardrailConfigurationModelEnforcementArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnforcedGuardrailConfigurationModelEnforcementPtrInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationModelEnforcementPtrOutput() EnforcedGuardrailConfigurationModelEnforcementPtrOutput
+	ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(context.Context) EnforcedGuardrailConfigurationModelEnforcementPtrOutput
+}
+
+type enforcedGuardrailConfigurationModelEnforcementPtrType EnforcedGuardrailConfigurationModelEnforcementArgs
+
+func EnforcedGuardrailConfigurationModelEnforcementPtr(v *EnforcedGuardrailConfigurationModelEnforcementArgs) EnforcedGuardrailConfigurationModelEnforcementPtrInput {
+	return (*enforcedGuardrailConfigurationModelEnforcementPtrType)(v)
+}
+
+func (*enforcedGuardrailConfigurationModelEnforcementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcedGuardrailConfigurationModelEnforcement)(nil)).Elem()
+}
+
+func (i *enforcedGuardrailConfigurationModelEnforcementPtrType) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutput() EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return i.ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(context.Background())
+}
+
+func (i *enforcedGuardrailConfigurationModelEnforcementPtrType) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnforcedGuardrailConfigurationModelEnforcementPtrOutput)
+}
+
+type EnforcedGuardrailConfigurationModelEnforcementOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationModelEnforcementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationModelEnforcement)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationModelEnforcementOutput) ToEnforcedGuardrailConfigurationModelEnforcementOutput() EnforcedGuardrailConfigurationModelEnforcementOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationModelEnforcementOutput) ToEnforcedGuardrailConfigurationModelEnforcementOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationModelEnforcementOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationModelEnforcementOutput) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutput() EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return o.ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationModelEnforcementOutput) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnforcedGuardrailConfigurationModelEnforcement) *EnforcedGuardrailConfigurationModelEnforcement {
+		return &v
+	}).(EnforcedGuardrailConfigurationModelEnforcementPtrOutput)
+}
+
+// List of models to exclude from enforcement of the guardrail.
+func (o EnforcedGuardrailConfigurationModelEnforcementOutput) ExcludedModels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnforcedGuardrailConfigurationModelEnforcement) []string { return v.ExcludedModels }).(pulumi.StringArrayOutput)
+}
+
+// List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+func (o EnforcedGuardrailConfigurationModelEnforcementOutput) IncludedModels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnforcedGuardrailConfigurationModelEnforcement) []string { return v.IncludedModels }).(pulumi.StringArrayOutput)
+}
+
+type EnforcedGuardrailConfigurationModelEnforcementPtrOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationModelEnforcementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcedGuardrailConfigurationModelEnforcement)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationModelEnforcementPtrOutput) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutput() EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationModelEnforcementPtrOutput) ToEnforcedGuardrailConfigurationModelEnforcementPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationModelEnforcementPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationModelEnforcementPtrOutput) Elem() EnforcedGuardrailConfigurationModelEnforcementOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationModelEnforcement) EnforcedGuardrailConfigurationModelEnforcement {
+		if v != nil {
+			return *v
+		}
+		var ret EnforcedGuardrailConfigurationModelEnforcement
+		return ret
+	}).(EnforcedGuardrailConfigurationModelEnforcementOutput)
+}
+
+// List of models to exclude from enforcement of the guardrail.
+func (o EnforcedGuardrailConfigurationModelEnforcementPtrOutput) ExcludedModels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationModelEnforcement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedModels
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+func (o EnforcedGuardrailConfigurationModelEnforcementPtrOutput) IncludedModels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationModelEnforcement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedModels
+	}).(pulumi.StringArrayOutput)
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuarding struct {
+	// Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+	Messages *string `pulumi:"messages"`
+	// Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+	System *string `pulumi:"system"`
+}
+
+// EnforcedGuardrailConfigurationSelectiveContentGuardingInput is an input type that accepts EnforcedGuardrailConfigurationSelectiveContentGuardingArgs and EnforcedGuardrailConfigurationSelectiveContentGuardingOutput values.
+// You can construct a concrete instance of `EnforcedGuardrailConfigurationSelectiveContentGuardingInput` via:
+//
+//	EnforcedGuardrailConfigurationSelectiveContentGuardingArgs{...}
+type EnforcedGuardrailConfigurationSelectiveContentGuardingInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingOutput
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingOutputWithContext(context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingOutput
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingArgs struct {
+	// Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+	Messages pulumi.StringPtrInput `pulumi:"messages"`
+	// Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+	System pulumi.StringPtrInput `pulumi:"system"`
+}
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuarding)(nil)).Elem()
+}
+
+func (i EnforcedGuardrailConfigurationSelectiveContentGuardingArgs) ToEnforcedGuardrailConfigurationSelectiveContentGuardingOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingOutput {
+	return i.ToEnforcedGuardrailConfigurationSelectiveContentGuardingOutputWithContext(context.Background())
+}
+
+func (i EnforcedGuardrailConfigurationSelectiveContentGuardingArgs) ToEnforcedGuardrailConfigurationSelectiveContentGuardingOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnforcedGuardrailConfigurationSelectiveContentGuardingOutput)
+}
+
+func (i EnforcedGuardrailConfigurationSelectiveContentGuardingArgs) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return i.ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(context.Background())
+}
+
+func (i EnforcedGuardrailConfigurationSelectiveContentGuardingArgs) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnforcedGuardrailConfigurationSelectiveContentGuardingOutput).ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(ctx)
+}
+
+// EnforcedGuardrailConfigurationSelectiveContentGuardingPtrInput is an input type that accepts EnforcedGuardrailConfigurationSelectiveContentGuardingArgs, EnforcedGuardrailConfigurationSelectiveContentGuardingPtr and EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput values.
+// You can construct a concrete instance of `EnforcedGuardrailConfigurationSelectiveContentGuardingPtrInput` via:
+//
+//	        EnforcedGuardrailConfigurationSelectiveContentGuardingArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnforcedGuardrailConfigurationSelectiveContentGuardingPtrInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput
+}
+
+type enforcedGuardrailConfigurationSelectiveContentGuardingPtrType EnforcedGuardrailConfigurationSelectiveContentGuardingArgs
+
+func EnforcedGuardrailConfigurationSelectiveContentGuardingPtr(v *EnforcedGuardrailConfigurationSelectiveContentGuardingArgs) EnforcedGuardrailConfigurationSelectiveContentGuardingPtrInput {
+	return (*enforcedGuardrailConfigurationSelectiveContentGuardingPtrType)(v)
+}
+
+func (*enforcedGuardrailConfigurationSelectiveContentGuardingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcedGuardrailConfigurationSelectiveContentGuarding)(nil)).Elem()
+}
+
+func (i *enforcedGuardrailConfigurationSelectiveContentGuardingPtrType) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return i.ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(context.Background())
+}
+
+func (i *enforcedGuardrailConfigurationSelectiveContentGuardingPtrType) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput)
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuarding)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return o.ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnforcedGuardrailConfigurationSelectiveContentGuarding) *EnforcedGuardrailConfigurationSelectiveContentGuarding {
+		return &v
+	}).(EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput)
+}
+
+// Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingOutput) Messages() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnforcedGuardrailConfigurationSelectiveContentGuarding) *string { return v.Messages }).(pulumi.StringPtrOutput)
+}
+
+// Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingOutput) System() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnforcedGuardrailConfigurationSelectiveContentGuarding) *string { return v.System }).(pulumi.StringPtrOutput)
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcedGuardrailConfigurationSelectiveContentGuarding)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput) Elem() EnforcedGuardrailConfigurationSelectiveContentGuardingOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationSelectiveContentGuarding) EnforcedGuardrailConfigurationSelectiveContentGuarding {
+		if v != nil {
+			return *v
+		}
+		var ret EnforcedGuardrailConfigurationSelectiveContentGuarding
+		return ret
+	}).(EnforcedGuardrailConfigurationSelectiveContentGuardingOutput)
+}
+
+// Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput) Messages() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationSelectiveContentGuarding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(pulumi.StringPtrOutput)
+}
+
+// Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput) System() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationSelectiveContentGuarding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.System
+	}).(pulumi.StringPtrOutput)
+}
+
 type EvaluationJobEvaluationConfig struct {
 	// Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
 	Automated *EvaluationJobEvaluationConfigAutomated `pulumi:"automated"`
@@ -22487,6 +22799,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationMetricArrayInput)(nil)).Elem(), CustomModelValidationMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelVpcConfigInput)(nil)).Elem(), CustomModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelVpcConfigPtrInput)(nil)).Elem(), CustomModelVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationModelEnforcementInput)(nil)).Elem(), EnforcedGuardrailConfigurationModelEnforcementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationModelEnforcementPtrInput)(nil)).Elem(), EnforcedGuardrailConfigurationModelEnforcementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingInput)(nil)).Elem(), EnforcedGuardrailConfigurationSelectiveContentGuardingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingPtrInput)(nil)).Elem(), EnforcedGuardrailConfigurationSelectiveContentGuardingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedArgs{})
@@ -22784,6 +23100,10 @@ func init() {
 	pulumi.RegisterOutputType(CustomModelValidationMetricArrayOutput{})
 	pulumi.RegisterOutputType(CustomModelVpcConfigOutput{})
 	pulumi.RegisterOutputType(CustomModelVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationModelEnforcementOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationModelEnforcementPtrOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationSelectiveContentGuardingOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationSelectiveContentGuardingPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigOutput{})
 	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedOutput{})

@@ -161,6 +161,10 @@ __all__ = [
     'PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgsDict',
     'PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs',
     'PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgsDict',
+    'PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs',
+    'PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgsDict',
+    'PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs',
+    'PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgsDict',
     'PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs',
     'PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict',
     'PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs',
@@ -171,6 +175,10 @@ __all__ = [
     'PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgsDict',
     'PlanWorkflowStepRdsPromoteReadReplicaConfigArgs',
     'PlanWorkflowStepRdsPromoteReadReplicaConfigArgsDict',
+    'PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs',
+    'PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgsDict',
+    'PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs',
+    'PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgsDict',
     'PlanWorkflowStepRegionSwitchPlanConfigArgs',
     'PlanWorkflowStepRegionSwitchPlanConfigArgsDict',
     'PlanWorkflowStepRoute53HealthCheckConfigArgs',
@@ -703,7 +711,7 @@ class PlanWorkflowArgs:
 class PlanWorkflowStepArgsDict(TypedDict):
     execution_block_type: pulumi.Input[_builtins.str]
     """
-    Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+    Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -773,6 +781,10 @@ class PlanWorkflowStepArgsDict(TypedDict):
     """
     Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
     """
+    rds_switchover_read_replica_config: NotRequired[pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgsDict']]]
+    """
+    Configuration for switching over RDS read replicas. See `rds_switchover_read_replica_config` Block for details.
+    """
     region_switch_plan_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRegionSwitchPlanConfigArgsDict']]]]]
     """
     Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
@@ -803,10 +815,11 @@ class PlanWorkflowStepArgs:
                  parallel_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigArgs']]]] = None,
                  rds_create_cross_region_read_replica_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs']]]] = None,
                  rds_promote_read_replica_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRdsPromoteReadReplicaConfigArgs']]]] = None,
+                 rds_switchover_read_replica_config: pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs']] = None,
                  region_switch_plan_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRegionSwitchPlanConfigArgs']]]] = None,
                  route53_health_check_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+        :param pulumi.Input[_builtins.str] execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
         :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigArgs']]] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepAuroraProvisionedScalingConfigArgs']]] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
@@ -824,6 +837,7 @@ class PlanWorkflowStepArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigArgs']]] parallel_configs: Configuration for parallel execution of multiple steps. See `parallel_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs']]] rds_create_cross_region_read_replica_configs: Configuration for creating cross-region RDS read replicas. See `rds_create_cross_region_read_replica_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRdsPromoteReadReplicaConfigArgs']]] rds_promote_read_replica_configs: Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
+        :param pulumi.Input['PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs'] rds_switchover_read_replica_config: Configuration for switching over RDS read replicas. See `rds_switchover_read_replica_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRegionSwitchPlanConfigArgs']]] region_switch_plan_configs: Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigArgs']]] route53_health_check_configs: Configuration for Route53 health check operations. See `route53_health_check_config` Block for details.
         """
@@ -861,6 +875,8 @@ class PlanWorkflowStepArgs:
             pulumi.set(__self__, "rds_create_cross_region_read_replica_configs", rds_create_cross_region_read_replica_configs)
         if rds_promote_read_replica_configs is not None:
             pulumi.set(__self__, "rds_promote_read_replica_configs", rds_promote_read_replica_configs)
+        if rds_switchover_read_replica_config is not None:
+            pulumi.set(__self__, "rds_switchover_read_replica_config", rds_switchover_read_replica_config)
         if region_switch_plan_configs is not None:
             pulumi.set(__self__, "region_switch_plan_configs", region_switch_plan_configs)
         if route53_health_check_configs is not None:
@@ -870,7 +886,7 @@ class PlanWorkflowStepArgs:
     @pulumi.getter(name="executionBlockType")
     def execution_block_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+        Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
         """
         return pulumi.get(self, "execution_block_type")
 
@@ -1081,6 +1097,18 @@ class PlanWorkflowStepArgs:
     @rds_promote_read_replica_configs.setter
     def rds_promote_read_replica_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRdsPromoteReadReplicaConfigArgs']]]]):
         pulumi.set(self, "rds_promote_read_replica_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsSwitchoverReadReplicaConfig")
+    def rds_switchover_read_replica_config(self) -> pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs']]:
+        """
+        Configuration for switching over RDS read replicas. See `rds_switchover_read_replica_config` Block for details.
+        """
+        return pulumi.get(self, "rds_switchover_read_replica_config")
+
+    @rds_switchover_read_replica_config.setter
+    def rds_switchover_read_replica_config(self, value: pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs']]):
+        pulumi.set(self, "rds_switchover_read_replica_config", value)
 
     @_builtins.property
     @pulumi.getter(name="regionSwitchPlanConfigs")
@@ -3358,7 +3386,7 @@ class PlanWorkflowStepParallelConfigArgs:
 class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
     execution_block_type: pulumi.Input[_builtins.str]
     """
-    Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+    Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -3424,6 +3452,10 @@ class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
     """
     Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
     """
+    rds_switchover_read_replica_config: NotRequired[pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgsDict']]]
+    """
+    Configuration for switching over RDS read replicas. See `rds_switchover_read_replica_config` Block for details.
+    """
     region_switch_plan_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict']]]]]
     """
     Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
@@ -3453,10 +3485,11 @@ class PlanWorkflowStepParallelConfigStepArgs:
                  neptune_global_database_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs']]]] = None,
                  rds_create_cross_region_read_replica_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs']]]] = None,
                  rds_promote_read_replica_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs']]]] = None,
+                 rds_switchover_read_replica_config: pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs']] = None,
                  region_switch_plan_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs']]]] = None,
                  route53_health_check_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+        :param pulumi.Input[_builtins.str] execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
         :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs']]] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs']]] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
@@ -3473,6 +3506,7 @@ class PlanWorkflowStepParallelConfigStepArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs']]] neptune_global_database_configs: Configuration for Neptune global database operations. See `neptune_global_database_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs']]] rds_create_cross_region_read_replica_configs: Configuration for creating cross-region RDS read replicas. See `rds_create_cross_region_read_replica_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs']]] rds_promote_read_replica_configs: Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
+        :param pulumi.Input['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs'] rds_switchover_read_replica_config: Configuration for switching over RDS read replicas. See `rds_switchover_read_replica_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs']]] region_switch_plan_configs: Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs']]] route53_health_check_configs: Configuration for Route53 health check operations. See `route53_health_check_config` Block for details.
         """
@@ -3508,6 +3542,8 @@ class PlanWorkflowStepParallelConfigStepArgs:
             pulumi.set(__self__, "rds_create_cross_region_read_replica_configs", rds_create_cross_region_read_replica_configs)
         if rds_promote_read_replica_configs is not None:
             pulumi.set(__self__, "rds_promote_read_replica_configs", rds_promote_read_replica_configs)
+        if rds_switchover_read_replica_config is not None:
+            pulumi.set(__self__, "rds_switchover_read_replica_config", rds_switchover_read_replica_config)
         if region_switch_plan_configs is not None:
             pulumi.set(__self__, "region_switch_plan_configs", region_switch_plan_configs)
         if route53_health_check_configs is not None:
@@ -3517,7 +3553,7 @@ class PlanWorkflowStepParallelConfigStepArgs:
     @pulumi.getter(name="executionBlockType")
     def execution_block_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+        Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
         """
         return pulumi.get(self, "execution_block_type")
 
@@ -3716,6 +3752,18 @@ class PlanWorkflowStepParallelConfigStepArgs:
     @rds_promote_read_replica_configs.setter
     def rds_promote_read_replica_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs']]]]):
         pulumi.set(self, "rds_promote_read_replica_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsSwitchoverReadReplicaConfig")
+    def rds_switchover_read_replica_config(self) -> pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs']]:
+        """
+        Configuration for switching over RDS read replicas. See `rds_switchover_read_replica_config` Block for details.
+        """
+        return pulumi.get(self, "rds_switchover_read_replica_config")
+
+    @rds_switchover_read_replica_config.setter
+    def rds_switchover_read_replica_config(self, value: pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs']]):
+        pulumi.set(self, "rds_switchover_read_replica_config", value)
 
     @_builtins.property
     @pulumi.getter(name="regionSwitchPlanConfigs")
@@ -5964,7 +6012,7 @@ class PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArg
 class PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgsDict(TypedDict):
     db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
-    Map of source DB instance identifiers to target DB instance ARNs.
+    Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
     """
     cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -5987,7 +6035,7 @@ class PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArg
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of source DB instance identifiers to target DB instance ARNs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         :param pulumi.Input[_builtins.str] cross_account_role: ARN of the cross-account role to assume.
         :param pulumi.Input[_builtins.str] external_id: External ID for cross-account role assumption.
         :param pulumi.Input[_builtins.int] timeout_minutes: Timeout in minutes.
@@ -6004,7 +6052,7 @@ class PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArg
     @pulumi.getter(name="dbInstanceArnMap")
     def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
         """
-        Map of source DB instance identifiers to target DB instance ARNs.
+        Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         """
         return pulumi.get(self, "db_instance_arn_map")
 
@@ -6052,7 +6100,7 @@ class PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArg
 class PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgsDict(TypedDict):
     db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
-    Map of source DB instance identifiers to target DB instance ARNs.
+    Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
     """
     cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6075,7 +6123,7 @@ class PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs:
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of source DB instance identifiers to target DB instance ARNs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         :param pulumi.Input[_builtins.str] cross_account_role: ARN of the cross-account role to assume.
         :param pulumi.Input[_builtins.str] external_id: External ID for cross-account role assumption.
         :param pulumi.Input[_builtins.int] timeout_minutes: Timeout in minutes.
@@ -6092,7 +6140,7 @@ class PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs:
     @pulumi.getter(name="dbInstanceArnMap")
     def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
         """
-        Map of source DB instance identifiers to target DB instance ARNs.
+        Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         """
         return pulumi.get(self, "db_instance_arn_map")
 
@@ -6135,6 +6183,133 @@ class PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs:
     @timeout_minutes.setter
     def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_minutes", value)
+
+
+class PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgsDict(TypedDict):
+    db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+    """
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID for cross-account role assumption.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout in minutes.
+    """
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgsDict']]]
+    """
+    Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+    """
+
+@pulumi.input_type
+class PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigArgs:
+    def __init__(__self__, *,
+                 db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs']] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+        :param pulumi.Input[_builtins.str] cross_account_role: ARN of the cross-account role to assume.
+        :param pulumi.Input[_builtins.str] external_id: External ID for cross-account role assumption.
+        :param pulumi.Input[_builtins.int] timeout_minutes: Timeout in minutes.
+        :param pulumi.Input['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs'] ungraceful: Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+        """
+        pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceArnMap")
+    def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
+        """
+        Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+        """
+        return pulumi.get(self, "db_instance_arn_map")
+
+    @db_instance_arn_map.setter
+    def db_instance_arn_map(self, value: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "db_instance_arn_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @cross_account_role.setter
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cross_account_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+        """
+        return pulumi.get(self, "ungraceful")
+
+    @ungraceful.setter
+    def ungraceful(self, value: pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs']]):
+        pulumi.set(self, "ungraceful", value)
+
+
+class PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgsDict(TypedDict):
+    ungraceful: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngracefulArgs:
+    def __init__(__self__, *,
+                 ungraceful: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "ungraceful")
+
+    @ungraceful.setter
+    def ungraceful(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ungraceful", value)
 
 
 class PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict(TypedDict):
@@ -6382,7 +6557,7 @@ class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs:
 class PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgsDict(TypedDict):
     db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
-    Map of source DB instance identifiers to target DB instance ARNs.
+    Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
     """
     cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6405,7 +6580,7 @@ class PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs:
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of source DB instance identifiers to target DB instance ARNs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         :param pulumi.Input[_builtins.str] cross_account_role: ARN of the cross-account role to assume.
         :param pulumi.Input[_builtins.str] external_id: External ID for cross-account role assumption.
         :param pulumi.Input[_builtins.int] timeout_minutes: Timeout in minutes.
@@ -6422,7 +6597,7 @@ class PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs:
     @pulumi.getter(name="dbInstanceArnMap")
     def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
         """
-        Map of source DB instance identifiers to target DB instance ARNs.
+        Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         """
         return pulumi.get(self, "db_instance_arn_map")
 
@@ -6470,7 +6645,7 @@ class PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs:
 class PlanWorkflowStepRdsPromoteReadReplicaConfigArgsDict(TypedDict):
     db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
-    Map of source DB instance identifiers to target DB instance ARNs.
+    Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
     """
     cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6493,7 +6668,7 @@ class PlanWorkflowStepRdsPromoteReadReplicaConfigArgs:
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of source DB instance identifiers to target DB instance ARNs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         :param pulumi.Input[_builtins.str] cross_account_role: ARN of the cross-account role to assume.
         :param pulumi.Input[_builtins.str] external_id: External ID for cross-account role assumption.
         :param pulumi.Input[_builtins.int] timeout_minutes: Timeout in minutes.
@@ -6510,7 +6685,7 @@ class PlanWorkflowStepRdsPromoteReadReplicaConfigArgs:
     @pulumi.getter(name="dbInstanceArnMap")
     def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
         """
-        Map of source DB instance identifiers to target DB instance ARNs.
+        Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         """
         return pulumi.get(self, "db_instance_arn_map")
 
@@ -6553,6 +6728,133 @@ class PlanWorkflowStepRdsPromoteReadReplicaConfigArgs:
     @timeout_minutes.setter
     def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_minutes", value)
+
+
+class PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgsDict(TypedDict):
+    db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+    """
+    cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID for cross-account role assumption.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout in minutes.
+    """
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgsDict']]]
+    """
+    Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+    """
+
+@pulumi.input_type
+class PlanWorkflowStepRdsSwitchoverReadReplicaConfigArgs:
+    def __init__(__self__, *,
+                 db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
+                 cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ungraceful: pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs']] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] db_instance_arn_map: Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+        :param pulumi.Input[_builtins.str] cross_account_role: ARN of the cross-account role to assume.
+        :param pulumi.Input[_builtins.str] external_id: External ID for cross-account role assumption.
+        :param pulumi.Input[_builtins.int] timeout_minutes: Timeout in minutes.
+        :param pulumi.Input['PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs'] ungraceful: Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+        """
+        pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceArnMap")
+    def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
+        """
+        Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+        """
+        return pulumi.get(self, "db_instance_arn_map")
+
+    @db_instance_arn_map.setter
+    def db_instance_arn_map(self, value: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "db_instance_arn_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @cross_account_role.setter
+    def cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cross_account_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+        """
+        return pulumi.get(self, "ungraceful")
+
+    @ungraceful.setter
+    def ungraceful(self, value: pulumi.Input[Optional['PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs']]):
+        pulumi.set(self, "ungraceful", value)
+
+
+class PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgsDict(TypedDict):
+    ungraceful: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngracefulArgs:
+    def __init__(__self__, *,
+                 ungraceful: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "ungraceful")
+
+    @ungraceful.setter
+    def ungraceful(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ungraceful", value)
 
 
 class PlanWorkflowStepRegionSwitchPlanConfigArgsDict(TypedDict):

@@ -9,6 +9,10 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
  *
+ * > **NOTE:** This resource manages one specific version of a secret. If something else creates newer versions, such as rotation, another Terraform configuration, or the console, this resource keeps tracking its own version even after that version is no longer `AWSCURRENT`. To read the current value of a secret, use the `aws.secretsmanager.SecretVersion` data source.
+ *
+ * > **NOTE:** When a secret's KMS key changes, Secrets Manager re-encrypts only the `AWSCURRENT`, `AWSPENDING`, and `AWSPREVIOUS` versions with the new key. Once the previous key is disabled or deleted, older versions can no longer be decrypted. If this resource's version is one of them, Terraform keeps the value from state and shows a warning, but cannot import the version or move staging labels onto it. If the version is still `AWSCURRENT` or `AWSPENDING`, reading it fails. See [Change the encryption key for a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_update-encryption-key.html).
+ *
  * ## Example Usage
  *
  * ### Simple String Value

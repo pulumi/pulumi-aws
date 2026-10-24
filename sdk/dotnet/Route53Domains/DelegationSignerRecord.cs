@@ -136,10 +136,10 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import delegation signer records using the domain name, flags, algorithm, and public key separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
+    /// $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,257,13,M1jizbcdK5IBt7d4lRIiFTx+N06BJzaeScK215EOfa8efd2akkUWmxD5OhodZCIiRMvL5ZnStUP5UReIeUmBeA==
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53domains/delegationSignerRecord:DelegationSignerRecord")]
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Route53Domains
         /// The information about a key, including the algorithm, public key-value, and flags.
         /// </summary>
         [Output("signingAttributes")]
-        public Output<Outputs.DelegationSignerRecordSigningAttributes?> SigningAttributes { get; private set; } = null!;
+        public Output<Outputs.DelegationSignerRecordSigningAttributes> SigningAttributes { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.DelegationSignerRecordTimeouts?> Timeouts { get; private set; } = null!;
@@ -221,8 +221,8 @@ namespace Pulumi.Aws.Route53Domains
         /// <summary>
         /// The information about a key, including the algorithm, public key-value, and flags.
         /// </summary>
-        [Input("signingAttributes")]
-        public Input<Inputs.DelegationSignerRecordSigningAttributesArgs>? SigningAttributes { get; set; }
+        [Input("signingAttributes", required: true)]
+        public Input<Inputs.DelegationSignerRecordSigningAttributesArgs> SigningAttributes { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.DelegationSignerRecordTimeoutsArgs>? Timeouts { get; set; }

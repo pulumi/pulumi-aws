@@ -17,6 +17,7 @@ import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfigStep
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig;
+import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -80,7 +81,7 @@ public final class PlanWorkflowStepParallelConfigStep {
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepExecutionApprovalConfig> executionApprovalConfigs;
     /**
-     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
      * 
      */
     private String executionBlockType;
@@ -114,6 +115,11 @@ public final class PlanWorkflowStepParallelConfigStep {
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs;
+    /**
+     * @return Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+     * 
+     */
+    private @Nullable PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig rdsSwitchoverReadReplicaConfig;
     /**
      * @return Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
      * 
@@ -197,7 +203,7 @@ public final class PlanWorkflowStepParallelConfigStep {
         return this.executionApprovalConfigs == null ? List.of() : this.executionApprovalConfigs;
     }
     /**
-     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
      * 
      */
     public String executionBlockType() {
@@ -246,6 +252,13 @@ public final class PlanWorkflowStepParallelConfigStep {
         return this.rdsPromoteReadReplicaConfigs == null ? List.of() : this.rdsPromoteReadReplicaConfigs;
     }
     /**
+     * @return Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+     * 
+     */
+    public Optional<PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig> rdsSwitchoverReadReplicaConfig() {
+        return Optional.ofNullable(this.rdsSwitchoverReadReplicaConfig);
+    }
+    /**
      * @return Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
      * 
      */
@@ -286,6 +299,7 @@ public final class PlanWorkflowStepParallelConfigStep {
         private @Nullable List<PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig> neptuneGlobalDatabaseConfigs;
         private @Nullable List<PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs;
         private @Nullable List<PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs;
+        private @Nullable PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig rdsSwitchoverReadReplicaConfig;
         private @Nullable List<PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig> regionSwitchPlanConfigs;
         private @Nullable List<PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig> route53HealthCheckConfigs;
         public Builder() {}
@@ -308,6 +322,7 @@ public final class PlanWorkflowStepParallelConfigStep {
     	      this.neptuneGlobalDatabaseConfigs = defaults.neptuneGlobalDatabaseConfigs;
     	      this.rdsCreateCrossRegionReadReplicaConfigs = defaults.rdsCreateCrossRegionReadReplicaConfigs;
     	      this.rdsPromoteReadReplicaConfigs = defaults.rdsPromoteReadReplicaConfigs;
+    	      this.rdsSwitchoverReadReplicaConfig = defaults.rdsSwitchoverReadReplicaConfig;
     	      this.regionSwitchPlanConfigs = defaults.regionSwitchPlanConfigs;
     	      this.route53HealthCheckConfigs = defaults.route53HealthCheckConfigs;
         }
@@ -461,6 +476,12 @@ public final class PlanWorkflowStepParallelConfigStep {
             return rdsPromoteReadReplicaConfigs(List.of(rdsPromoteReadReplicaConfigs));
         }
         @CustomType.Setter
+        public Builder rdsSwitchoverReadReplicaConfig(@Nullable PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig rdsSwitchoverReadReplicaConfig) {
+
+            this.rdsSwitchoverReadReplicaConfig = rdsSwitchoverReadReplicaConfig;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regionSwitchPlanConfigs(@Nullable List<PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig> regionSwitchPlanConfigs) {
 
             this.regionSwitchPlanConfigs = regionSwitchPlanConfigs;
@@ -497,6 +518,7 @@ public final class PlanWorkflowStepParallelConfigStep {
             _resultValue.neptuneGlobalDatabaseConfigs = neptuneGlobalDatabaseConfigs;
             _resultValue.rdsCreateCrossRegionReadReplicaConfigs = rdsCreateCrossRegionReadReplicaConfigs;
             _resultValue.rdsPromoteReadReplicaConfigs = rdsPromoteReadReplicaConfigs;
+            _resultValue.rdsSwitchoverReadReplicaConfig = rdsSwitchoverReadReplicaConfig;
             _resultValue.regionSwitchPlanConfigs = regionSwitchPlanConfigs;
             _resultValue.route53HealthCheckConfigs = route53HealthCheckConfigs;
             return _resultValue;

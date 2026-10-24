@@ -80,9 +80,9 @@ export class DetectorFeature extends pulumi.CustomResource {
     }
 
     /**
-     * Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      */
-    declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.DetectorFeatureAdditionalConfiguration[] | undefined>;
+    declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.DetectorFeatureAdditionalConfiguration[]>;
     /**
      * Amazon GuardDuty detector ID.
      */
@@ -142,7 +142,7 @@ export class DetectorFeature extends pulumi.CustomResource {
  */
 export interface DetectorFeatureState {
     /**
-     * Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureAdditionalConfiguration>[] | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface DetectorFeatureState {
  */
 export interface DetectorFeatureArgs {
     /**
-     * Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureAdditionalConfiguration>[] | undefined>;
     /**

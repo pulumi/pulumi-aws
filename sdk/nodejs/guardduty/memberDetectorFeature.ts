@@ -87,7 +87,7 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * Additional feature configuration block. See below.
+     * Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      */
     declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.MemberDetectorFeatureAdditionalConfiguration[] | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface MemberDetectorFeatureState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * Additional feature configuration block. See below.
+     * Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.MemberDetectorFeatureAdditionalConfiguration>[] | undefined>;
     /**
@@ -188,7 +188,7 @@ export interface MemberDetectorFeatureArgs {
      */
     accountId: pulumi.Input<string>;
     /**
-     * Additional feature configuration block. See below.
+     * Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.MemberDetectorFeatureAdditionalConfiguration>[] | undefined>;
     /**

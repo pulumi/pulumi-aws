@@ -6,7 +6,10 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .access_grant import *
+from .access_profile import *
 from .domain import *
 from .space import *
+from .view import *
 from ._inputs import *
 from . import outputs

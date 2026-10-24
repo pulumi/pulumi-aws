@@ -397,14 +397,14 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.parameterGroupName);
     }
     /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
      * 
      */
     @Export(name="primaryReplicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> primaryReplicationGroupId;
 
     /**
-     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
      * 
      */
     public Output<String> primaryReplicationGroupId() {

@@ -143,10 +143,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
+// Using `pulumi import`, import delegation signer records using the domain name, flags, algorithm, and public key separated by a comma (`,`). For example:
 //
 // ```sh
-// $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
+// $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,257,13,M1jizbcdK5IBt7d4lRIiFTx+N06BJzaeScK215EOfa8efd2akkUWmxD5OhodZCIiRMvL5ZnStUP5UReIeUmBeA==
 // ```
 type DelegationSignerRecord struct {
 	pulumi.CustomResourceState
@@ -156,8 +156,8 @@ type DelegationSignerRecord struct {
 	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The information about a key, including the algorithm, public key-value, and flags.
-	SigningAttributes DelegationSignerRecordSigningAttributesPtrOutput `pulumi:"signingAttributes"`
-	Timeouts          DelegationSignerRecordTimeoutsPtrOutput          `pulumi:"timeouts"`
+	SigningAttributes DelegationSignerRecordSigningAttributesOutput `pulumi:"signingAttributes"`
+	Timeouts          DelegationSignerRecordTimeoutsPtrOutput       `pulumi:"timeouts"`
 }
 
 // NewDelegationSignerRecord registers a new resource with the given unique name, arguments, and options.
@@ -169,6 +169,9 @@ func NewDelegationSignerRecord(ctx *pulumi.Context,
 
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.SigningAttributes == nil {
+		return nil, errors.New("invalid value for required argument 'SigningAttributes'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DelegationSignerRecord
@@ -220,8 +223,8 @@ type delegationSignerRecordArgs struct {
 	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
 	DomainName string `pulumi:"domainName"`
 	// The information about a key, including the algorithm, public key-value, and flags.
-	SigningAttributes *DelegationSignerRecordSigningAttributes `pulumi:"signingAttributes"`
-	Timeouts          *DelegationSignerRecordTimeouts          `pulumi:"timeouts"`
+	SigningAttributes DelegationSignerRecordSigningAttributes `pulumi:"signingAttributes"`
+	Timeouts          *DelegationSignerRecordTimeouts         `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DelegationSignerRecord resource.
@@ -229,7 +232,7 @@ type DelegationSignerRecordArgs struct {
 	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
 	DomainName pulumi.StringInput
 	// The information about a key, including the algorithm, public key-value, and flags.
-	SigningAttributes DelegationSignerRecordSigningAttributesPtrInput
+	SigningAttributes DelegationSignerRecordSigningAttributesInput
 	Timeouts          DelegationSignerRecordTimeoutsPtrInput
 }
 
@@ -331,10 +334,10 @@ func (o DelegationSignerRecordOutput) DomainName() pulumi.StringOutput {
 }
 
 // The information about a key, including the algorithm, public key-value, and flags.
-func (o DelegationSignerRecordOutput) SigningAttributes() DelegationSignerRecordSigningAttributesPtrOutput {
-	return o.ApplyT(func(v *DelegationSignerRecord) DelegationSignerRecordSigningAttributesPtrOutput {
+func (o DelegationSignerRecordOutput) SigningAttributes() DelegationSignerRecordSigningAttributesOutput {
+	return o.ApplyT(func(v *DelegationSignerRecord) DelegationSignerRecordSigningAttributesOutput {
 		return v.SigningAttributes
-	}).(DelegationSignerRecordSigningAttributesPtrOutput)
+	}).(DelegationSignerRecordSigningAttributesOutput)
 }
 
 func (o DelegationSignerRecordOutput) Timeouts() DelegationSignerRecordTimeoutsPtrOutput {

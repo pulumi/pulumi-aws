@@ -192,7 +192,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly parameterGroupName: pulumi.Output<string | undefined>;
     /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
      */
     declare public readonly primaryReplicationGroupId: pulumi.Output<string>;
     /**
@@ -349,7 +349,7 @@ export interface GlobalReplicationGroupState {
      */
     parameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
      */
     primaryReplicationGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -415,7 +415,7 @@ export interface GlobalReplicationGroupArgs {
      */
     parameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
      */
     primaryReplicationGroupId: pulumi.Input<string>;
     /**

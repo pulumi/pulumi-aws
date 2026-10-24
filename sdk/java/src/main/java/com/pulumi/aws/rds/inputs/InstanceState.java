@@ -899,7 +899,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+     * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     @Import(name="passwordWo")
@@ -907,7 +907,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+     * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> passwordWo() {
@@ -2708,7 +2708,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+         * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -2720,7 +2720,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+         * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
          * 
          * @return builder
          * 

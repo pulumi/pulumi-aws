@@ -40,6 +40,7 @@ class ClusterArgs:
                  neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
@@ -74,6 +75,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         :param pulumi.Input[_builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[_builtins.str] network_type: Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
         :param pulumi.Input[_builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
@@ -125,6 +127,8 @@ class ClusterArgs:
             pulumi.set(__self__, "neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
         if neptune_subnet_group_name is not None:
             pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -379,6 +383,18 @@ class ClusterArgs:
         pulumi.set(self, "neptune_subnet_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -550,6 +566,7 @@ class _ClusterState:
                  neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
@@ -591,6 +608,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         :param pulumi.Input[_builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[_builtins.str] network_type: Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
         :param pulumi.Input[_builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
@@ -654,6 +672,8 @@ class _ClusterState:
             pulumi.set(__self__, "neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
         if neptune_subnet_group_name is not None:
             pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -972,6 +992,18 @@ class _ClusterState:
         pulumi.set(self, "neptune_subnet_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -1165,6 +1197,7 @@ class Cluster(pulumi.CustomResource):
                  neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1238,6 +1271,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         :param pulumi.Input[_builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[_builtins.str] network_type: Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
         :param pulumi.Input[_builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
@@ -1330,6 +1364,7 @@ class Cluster(pulumi.CustomResource):
                  neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1370,6 +1405,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["neptune_cluster_parameter_group_name"] = neptune_cluster_parameter_group_name
             __props__.__dict__["neptune_instance_parameter_group_name"] = neptune_instance_parameter_group_name
             __props__.__dict__["neptune_subnet_group_name"] = neptune_subnet_group_name
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -1423,6 +1459,7 @@ class Cluster(pulumi.CustomResource):
             neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
             port: pulumi.Input[Optional[_builtins.int]] = None,
             preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1468,6 +1505,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         :param pulumi.Input[_builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[_builtins.str] network_type: Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
         :param pulumi.Input[_builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
@@ -1511,6 +1549,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["neptune_cluster_parameter_group_name"] = neptune_cluster_parameter_group_name
         __props__.__dict__["neptune_instance_parameter_group_name"] = neptune_instance_parameter_group_name
         __props__.__dict__["neptune_subnet_group_name"] = neptune_subnet_group_name
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -1718,6 +1757,14 @@ class Cluster(pulumi.CustomResource):
         Neptune subnet group to associate with this Neptune instance.
         """
         return pulumi.get(self, "neptune_subnet_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter

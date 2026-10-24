@@ -137,14 +137,14 @@ public class MemberDetectorFeature extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * Additional feature configuration block. See below.
+     * Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      * 
      */
     @Export(name="additionalConfigurations", refs={List.class,MemberDetectorFeatureAdditionalConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MemberDetectorFeatureAdditionalConfiguration>> additionalConfigurations;
 
     /**
-     * @return Additional feature configuration block. See below.
+     * @return Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      * 
      */
     public Output<Optional<List<MemberDetectorFeatureAdditionalConfiguration>>> additionalConfigurations() {

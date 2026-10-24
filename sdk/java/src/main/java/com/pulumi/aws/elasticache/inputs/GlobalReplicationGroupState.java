@@ -279,14 +279,14 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
      * 
      */
     @Import(name="primaryReplicationGroupId")
     private @Nullable Output<String> primaryReplicationGroupId;
 
     /**
-     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
      * 
      */
     public Optional<Output<String>> primaryReplicationGroupId() {
@@ -725,7 +725,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. Changing this value will trigger a failover to the specified replication group.
          * 
          * @return builder
          * 
