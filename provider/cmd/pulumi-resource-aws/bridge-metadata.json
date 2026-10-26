@@ -4035,6 +4035,16 @@
                                                                     "rds_promote_read_replica_config": {
                                                                         "maxItemsOne": false
                                                                     },
+                                                                    "rds_switchover_read_replica_config": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "ungraceful": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
                                                                     "region_switch_plan_config": {
                                                                         "maxItemsOne": false
                                                                     },
@@ -4059,6 +4069,16 @@
                                             },
                                             "rds_promote_read_replica_config": {
                                                 "maxItemsOne": false
+                                            },
+                                            "rds_switchover_read_replica_config": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "ungraceful": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "region_switch_plan_config": {
                                                 "maxItemsOne": false
@@ -5216,6 +5236,28 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "aws_bedrock_enforced_guardrail_configuration": {
+                "current": "aws:bedrock/enforcedGuardrailConfiguration:EnforcedGuardrailConfiguration",
+                "majorVersion": 7,
+                "fields": {
+                    "model_enforcement": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "excluded_models": {
+                                    "maxItemsOne": false
+                                },
+                                "included_models": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "selective_content_guarding": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -12873,6 +12915,66 @@
                     }
                 }
             },
+            "aws_cloudwatchomni_access_grant": {
+                "current": "aws:cloudwatchomni/accessGrant:AccessGrant",
+                "majorVersion": 7,
+                "fields": {
+                    "principal": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "principal_attribute": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "scoped_action": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": false
+                                },
+                                "resource": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "resource_arns": {
+                                                "maxItemsOne": false
+                                            },
+                                            "row_scope_group": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "row_scope": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "values": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "signal_types": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "aws_cloudwatchomni_access_profile": {
+                "current": "aws:cloudwatchomni/accessProfile:AccessProfile",
+                "majorVersion": 7
+            },
             "aws_cloudwatchomni_domain": {
                 "current": "aws:cloudwatchomni/domain:Domain",
                 "majorVersion": 7,
@@ -12903,6 +13005,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "aws_cloudwatchomni_view": {
+                "current": "aws:cloudwatchomni/view:View",
+                "majorVersion": 7
             },
             "aws_codeartifact_domain": {
                 "current": "aws:codeartifact/domain:Domain",
@@ -16041,6 +16147,10 @@
                     }
                 }
             },
+            "aws_directory_service_directory_setting": {
+                "current": "aws:directoryservice/directorySetting:DirectorySetting",
+                "majorVersion": 7
+            },
             "aws_directory_service_ip_route": {
                 "current": "aws:directoryservice/ipRoute:IpRoute",
                 "majorVersion": 7
@@ -16111,6 +16221,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "aws_directoryservicedata_group": {
+                "current": "aws:directoryservicedata/group:Group",
+                "majorVersion": 7
             },
             "aws_directoryservicedata_user": {
                 "current": "aws:directoryservicedata/user:User",
@@ -168918,6 +169032,138 @@
                 "fields": {
                     "aliases": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "aws_sagemaker_inference_component": {
+                "current": "aws:sagemaker/inferenceComponent:InferenceComponent",
+                "majorVersion": 7,
+                "fields": {
+                    "deployment_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "auto_rollback_configuration": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "alarms": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "rolling_update_policy": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "maximum_batch_size": {
+                                                "maxItemsOne": true
+                                            },
+                                            "rollback_maximum_batch_size": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "runtime_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "placement_status": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "specification": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "compute_resource_requirements": {
+                                    "maxItemsOne": true
+                                },
+                                "container": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "container_metrics_config": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "metrics_endpoint": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "data_cache_config": {
+                                    "maxItemsOne": true
+                                },
+                                "scheduling_config": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "availability_zone_balance": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "startup_parameters": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "specifications": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "compute_resource_requirements": {
+                                    "maxItemsOne": true
+                                },
+                                "container": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "container_metrics_config": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "metrics_endpoint": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "data_cache_config": {
+                                    "maxItemsOne": true
+                                },
+                                "scheduling_config": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "availability_zone_balance": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "startup_parameters": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -334286,6 +334532,11 @@
             "aws_batch_job_queue": {},
             "aws_bcmdataexports_export": {},
             "aws_bedrock_custom_model": {},
+            "aws_bedrock_enforced_guardrail_configuration": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_bedrock_evaluation_job": {
                 "computeID": {
                     "kind": "missing"
@@ -334515,12 +334766,27 @@
                     "kind": "missing"
                 }
             },
+            "aws_cloudwatchomni_access_grant": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_cloudwatchomni_access_profile": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_cloudwatchomni_domain": {
                 "computeID": {
                     "kind": "missing"
                 }
             },
             "aws_cloudwatchomni_space": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "aws_cloudwatchomni_view": {
                 "computeID": {
                     "kind": "missing"
                 }
@@ -334593,6 +334859,11 @@
             "aws_devopsguru_notification_channel": {},
             "aws_devopsguru_resource_collection": {},
             "aws_devopsguru_service_integration": {},
+            "aws_directory_service_directory_setting": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_directory_service_ip_route": {
                 "computeID": {
                     "kind": "missing"
@@ -334604,6 +334875,11 @@
                 }
             },
             "aws_directory_service_trust": {},
+            "aws_directoryservicedata_group": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_directoryservicedata_user": {
                 "computeID": {
                     "kind": "missing"
@@ -335394,6 +335670,11 @@
                     "kind": "missing"
                 }
             },
+            "aws_sagemaker_inference_component": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
             "aws_sagemaker_labeling_job": {
                 "computeID": {
                     "kind": "missing"
@@ -335960,6 +336241,7 @@
             "aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk": 1,
             "aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity": 1,
             "aws:bedrock/customModel:CustomModel": 1,
+            "aws:bedrock/enforcedGuardrailConfiguration:EnforcedGuardrailConfiguration": 1,
             "aws:bedrock/evaluationJob:EvaluationJob": 1,
             "aws:bedrock/guardrail:Guardrail": 1,
             "aws:bedrock/guardrailVersion:GuardrailVersion": 1,
@@ -336079,8 +336361,11 @@
             "aws:cloudwatch/otelEnrichment:OtelEnrichment": 1,
             "aws:cloudwatch/queryDefinition:QueryDefinition": 0,
             "aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration": 1,
+            "aws:cloudwatchomni/accessGrant:AccessGrant": 1,
+            "aws:cloudwatchomni/accessProfile:AccessProfile": 1,
             "aws:cloudwatchomni/domain:Domain": 1,
             "aws:cloudwatchomni/space:Space": 1,
+            "aws:cloudwatchomni/view:View": 1,
             "aws:codeartifact/domain:Domain": 0,
             "aws:codeartifact/domainPermissions:DomainPermissions": 0,
             "aws:codeartifact/repository:Repository": 0,
@@ -336230,6 +336515,7 @@
             "aws:directconnect/transitVirtualInterface:TransitVirtualInterface": 0,
             "aws:directoryservice/conditionalForwarder:ConditionalForwarder": 0,
             "aws:directoryservice/directory:Directory": 0,
+            "aws:directoryservice/directorySetting:DirectorySetting": 1,
             "aws:directoryservice/ipRoute:IpRoute": 1,
             "aws:directoryservice/ipRoutesExclusive:IpRoutesExclusive": 1,
             "aws:directoryservice/logSubscription:LogSubscription": 0,
@@ -336238,6 +336524,7 @@
             "aws:directoryservice/sharedDirectory:SharedDirectory": 0,
             "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter": 0,
             "aws:directoryservice/trust:Trust": 1,
+            "aws:directoryservicedata/group:Group": 1,
             "aws:directoryservicedata/user:User": 1,
             "aws:dlm/lifecyclePolicy:LifecyclePolicy": 0,
             "aws:dms/certificate:Certificate": 0,
@@ -337193,6 +337480,7 @@
             "aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob": 1,
             "aws:sagemaker/image:Image": 0,
             "aws:sagemaker/imageVersion:ImageVersion": 0,
+            "aws:sagemaker/inferenceComponent:InferenceComponent": 1,
             "aws:sagemaker/labelingJob:LabelingJob": 1,
             "aws:sagemaker/mlflowApp:MlflowApp": 1,
             "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer": 0,
@@ -338253,12 +338541,17 @@
             "aws:cloudwatch/logStream:LogStream": 1,
             "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter": 1,
             "aws:cloudwatch/metricAlarm:MetricAlarm": 1,
+            "aws:cloudwatchomni/accessGrant:AccessGrant": 1,
+            "aws:cloudwatchomni/accessProfile:AccessProfile": 1,
             "aws:cloudwatchomni/domain:Domain": 1,
             "aws:cloudwatchomni/space:Space": 1,
+            "aws:cloudwatchomni/view:View": 1,
             "aws:codebuild/project:Project": 1,
             "aws:codepipeline/pipeline:Pipeline": 1,
             "aws:devopsagent/agentSpace:AgentSpace": 1,
+            "aws:directoryservice/directorySetting:DirectorySetting": 1,
             "aws:directoryservice/ipRoute:IpRoute": 1,
+            "aws:directoryservicedata/group:Group": 1,
             "aws:directoryservicedata/user:User": 1,
             "aws:dms/dataProvider:DataProvider": 1,
             "aws:dms/instanceProfile:InstanceProfile": 1,
@@ -338419,6 +338712,7 @@
             "aws:sagemaker/algorithm:Algorithm": 1,
             "aws:sagemaker/hubContentReference:HubContentReference": 1,
             "aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob": 1,
+            "aws:sagemaker/inferenceComponent:InferenceComponent": 1,
             "aws:sagemaker/trainingJob:TrainingJob": 1,
             "aws:scheduler/schedule:Schedule": 1,
             "aws:secretsmanager/secret:Secret": 1,

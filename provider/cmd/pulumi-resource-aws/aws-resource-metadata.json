@@ -654,6 +654,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_bedrock_enforced_guardrail_configuration": {
+    "hasUsableRegion": true
+  },
   "aws_bedrock_evaluation_job": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -1152,6 +1155,15 @@
   "aws_cloudwatch_resource_metrics_configuration": {
     "hasUsableRegion": true
   },
+  "aws_cloudwatchomni_access_grant": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatchomni_access_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
   "aws_cloudwatchomni_domain": {
     "hasInputName": true,
     "hasUsableRegion": true
@@ -1159,6 +1171,11 @@
   "aws_cloudwatchomni_space": {
     "hasInputName": true,
     "hasUsableRegion": true
+  },
+  "aws_cloudwatchomni_view": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_codeartifact_domain": {
     "hasUsableRegion": true,
@@ -1783,6 +1800,10 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_directory_service_directory_setting": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
   "aws_directory_service_ip_route": {
     "hasUsableRegion": true
   },
@@ -1806,6 +1827,9 @@
     "hasUsableRegion": true
   },
   "aws_directory_service_trust": {
+    "hasUsableRegion": true
+  },
+  "aws_directoryservicedata_group": {
     "hasUsableRegion": true
   },
   "aws_directoryservicedata_user": {
@@ -5088,6 +5112,11 @@
   },
   "aws_sagemaker_image_version": {
     "hasUsableRegion": true
+  },
+  "aws_sagemaker_inference_component": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_sagemaker_labeling_job": {
     "hasUsableRegion": true,
