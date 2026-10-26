@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .conditional_forwarder import *
 from .directory import *
+from .directory_setting import *
 from .get_directory import *
 from .ip_route import *
 from .ip_routes_exclusive import *

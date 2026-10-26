@@ -1405,7 +1405,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+     * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     @Export(name="passwordWo", refs={String.class}, tree="[0]")
@@ -1413,7 +1413,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+     * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> passwordWo() {

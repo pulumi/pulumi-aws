@@ -114,6 +114,8 @@ type Cluster struct {
 	NeptuneInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneInstanceParameterGroupName"`
 	// Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
+	// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// Port on which the Neptune accepts connections. Default is `8182`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -222,6 +224,8 @@ type clusterState struct {
 	NeptuneInstanceParameterGroupName *string `pulumi:"neptuneInstanceParameterGroupName"`
 	// Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
+	// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+	NetworkType *string `pulumi:"networkType"`
 	// Port on which the Neptune accepts connections. Default is `8182`.
 	Port *int `pulumi:"port"`
 	// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -301,6 +305,8 @@ type ClusterState struct {
 	NeptuneInstanceParameterGroupName pulumi.StringPtrInput
 	// Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
+	// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+	NetworkType pulumi.StringPtrInput
 	// Port on which the Neptune accepts connections. Default is `8182`.
 	Port pulumi.IntPtrInput
 	// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -374,6 +380,8 @@ type clusterArgs struct {
 	NeptuneInstanceParameterGroupName *string `pulumi:"neptuneInstanceParameterGroupName"`
 	// Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
+	// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+	NetworkType *string `pulumi:"networkType"`
 	// Port on which the Neptune accepts connections. Default is `8182`.
 	Port *int `pulumi:"port"`
 	// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -440,6 +448,8 @@ type ClusterArgs struct {
 	NeptuneInstanceParameterGroupName pulumi.StringPtrInput
 	// Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
+	// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+	NetworkType pulumi.StringPtrInput
 	// Port on which the Neptune accepts connections. Default is `8182`.
 	Port pulumi.IntPtrInput
 	// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -671,6 +681,11 @@ func (o ClusterOutput) NeptuneInstanceParameterGroupName() pulumi.StringPtrOutpu
 // Neptune subnet group to associate with this Neptune instance.
 func (o ClusterOutput) NeptuneSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NeptuneSubnetGroupName }).(pulumi.StringOutput)
+}
+
+// Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+func (o ClusterOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // Port on which the Neptune accepts connections. Default is `8182`.

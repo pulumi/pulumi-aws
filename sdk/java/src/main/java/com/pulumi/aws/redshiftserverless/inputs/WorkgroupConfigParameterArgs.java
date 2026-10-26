@@ -15,14 +15,14 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
     public static final WorkgroupConfigParameterArgs Empty = new WorkgroupConfigParameterArgs();
 
     /**
-     * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+     * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableLargeStringOptIn`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
      * 
      */
     @Import(name="parameterKey", required=true)
     private Output<String> parameterKey;
 
     /**
-     * @return The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+     * @return The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableLargeStringOptIn`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
      * 
      */
     public Output<String> parameterKey() {
@@ -70,7 +70,7 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param parameterKey The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+         * @param parameterKey The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableLargeStringOptIn`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param parameterKey The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+         * @param parameterKey The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableLargeStringOptIn`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
          * 
          * @return builder
          * 

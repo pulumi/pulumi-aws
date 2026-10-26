@@ -772,7 +772,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `PasswordWoVersion` to be set.
+        /// Password for the master DB user. Note that this may show up in logs. Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `PasswordWoVersion` to be set.
         /// </summary>
         [Output("passwordWo")]
         public Output<string?> PasswordWo { get; private set; } = null!;
@@ -1317,7 +1317,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `PasswordWoVersion` to be set.
+        /// Password for the master DB user. Note that this may show up in logs. Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `PasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? PasswordWo
         {
@@ -1874,7 +1874,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `PasswordWoVersion` to be set.
+        /// Password for the master DB user. Note that this may show up in logs. Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `PasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? PasswordWo
         {

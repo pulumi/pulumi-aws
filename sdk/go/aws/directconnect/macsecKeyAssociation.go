@@ -12,16 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
+// Manages a MAC Security (MACSec) secret key association for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
 //
 // Creating this resource will also create a resource of type `secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
 //
-// > **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
-// **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
+// > **Note:** The `ckn` and `cak` arguments are stored in the raw state as plain-text. Use `cknWo` and `cakWo` instead to avoid storing these values in the plan or state. When `cknWo` is configured, the API-returned CKN is not stored in `ckn`.
+//
+// > **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 //
 // ## Example Usage
 //
-// ### Create MACSec key with CKN and CAK
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -41,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
+//			_, err = directconnect.NewMacsecKeyAssociation(ctx, "example", &directconnect.MacsecKeyAssociationArgs{
 //				ConnectionId: pulumi.String(example.Id),
 //				Ckn:          pulumi.String("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"),
 //				Cak:          pulumi.String("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"),
@@ -54,6 +55,48 @@ import (
 //	}
 //
 // ```
+//
+// ### Create MACSec key with write-only CKN and CAK
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
+//				Name: "tf-dx-connection",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			cfg := config.New(ctx, "")
+//			cak := cfg.Require("cak")
+//			ckn := cfg.Require("ckn")
+//			_, err = directconnect.NewMacsecKeyAssociation(ctx, "example", &directconnect.MacsecKeyAssociationArgs{
+//				ConnectionId: pulumi.String(example.Id),
+//				CakWo:        pulumi.String(cak),
+//				CakWoVersion: pulumi.Int(1),
+//				CknWo:        pulumi.String(ckn),
+//				CknWoVersion: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Changing a write-only value alone does not trigger a change. Increment its corresponding `cakWoVersion` or `cknWoVersion` to replace the association with the new key material. The version counters are independent; increment both when changing both values.
 //
 // ### Create MACSec key with existing Secrets Manager secret
 //
@@ -82,7 +125,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
+//			_, err = directconnect.NewMacsecKeyAssociation(ctx, "example", &directconnect.MacsecKeyAssociationArgs{
 //				ConnectionId: pulumi.String(example.Id),
 //				SecretArn:    pulumi.String(exampleGetSecret.Arn),
 //			})
@@ -97,17 +140,29 @@ import (
 type MacsecKeyAssociation struct {
 	pulumi.CustomResourceState
 
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+	// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
 	Cak pulumi.StringPtrOutput `pulumi:"cak"`
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+	CakWo pulumi.StringPtrOutput `pulumi:"cakWo"`
+	// Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+	CakWoVersion pulumi.IntPtrOutput `pulumi:"cakWoVersion"`
+	// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
 	Ckn pulumi.StringOutput `pulumi:"ckn"`
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+	CknWo pulumi.StringPtrOutput `pulumi:"cknWo"`
+	// Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+	CknWoVersion pulumi.IntPtrOutput `pulumi:"cknWoVersion"`
+	// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	//
+	// The following arguments are optional:
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+	// > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
 	StartOn pulumi.StringOutput `pulumi:"startOn"`
@@ -125,6 +180,17 @@ func NewMacsecKeyAssociation(ctx *pulumi.Context,
 	if args.ConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionId'")
 	}
+	if args.CakWo != nil {
+		args.CakWo = pulumi.ToSecret(args.CakWo).(pulumi.StringPtrInput)
+	}
+	if args.CknWo != nil {
+		args.CknWo = pulumi.ToSecret(args.CknWo).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"cakWo",
+		"cknWo",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MacsecKeyAssociation
 	err := ctx.RegisterResource("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation", name, args, &resource, opts...)
@@ -148,17 +214,29 @@ func GetMacsecKeyAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MacsecKeyAssociation resources.
 type macsecKeyAssociationState struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+	// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
 	Cak *string `pulumi:"cak"`
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+	CakWo *string `pulumi:"cakWo"`
+	// Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+	CakWoVersion *int `pulumi:"cakWoVersion"`
+	// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
 	Ckn *string `pulumi:"ckn"`
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+	CknWo *string `pulumi:"cknWo"`
+	// Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+	CknWoVersion *int `pulumi:"cknWoVersion"`
+	// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	//
+	// The following arguments are optional:
 	ConnectionId *string `pulumi:"connectionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+	// > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
 	SecretArn *string `pulumi:"secretArn"`
 	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
 	StartOn *string `pulumi:"startOn"`
@@ -167,17 +245,29 @@ type macsecKeyAssociationState struct {
 }
 
 type MacsecKeyAssociationState struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+	// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
 	Cak pulumi.StringPtrInput
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+	CakWo pulumi.StringPtrInput
+	// Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+	CakWoVersion pulumi.IntPtrInput
+	// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
 	Ckn pulumi.StringPtrInput
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+	CknWo pulumi.StringPtrInput
+	// Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+	CknWoVersion pulumi.IntPtrInput
+	// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	//
+	// The following arguments are optional:
 	ConnectionId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+	// > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
 	SecretArn pulumi.StringPtrInput
 	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
 	StartOn pulumi.StringPtrInput
@@ -190,33 +280,57 @@ func (MacsecKeyAssociationState) ElementType() reflect.Type {
 }
 
 type macsecKeyAssociationArgs struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+	// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
 	Cak *string `pulumi:"cak"`
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+	CakWo *string `pulumi:"cakWo"`
+	// Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+	CakWoVersion *int `pulumi:"cakWoVersion"`
+	// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
 	Ckn *string `pulumi:"ckn"`
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+	CknWo *string `pulumi:"cknWo"`
+	// Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+	CknWoVersion *int `pulumi:"cknWoVersion"`
+	// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	//
+	// The following arguments are optional:
 	ConnectionId string `pulumi:"connectionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+	// > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
 // The set of arguments for constructing a MacsecKeyAssociation resource.
 type MacsecKeyAssociationArgs struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+	// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
 	Cak pulumi.StringPtrInput
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+	CakWo pulumi.StringPtrInput
+	// Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+	CakWoVersion pulumi.IntPtrInput
+	// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
 	Ckn pulumi.StringPtrInput
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+	CknWo pulumi.StringPtrInput
+	// Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+	CknWoVersion pulumi.IntPtrInput
+	// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	//
+	// The following arguments are optional:
 	ConnectionId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+	// > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
 	SecretArn pulumi.StringPtrInput
 }
 
@@ -307,17 +421,41 @@ func (o MacsecKeyAssociationOutput) ToMacsecKeyAssociationOutputWithContext(ctx 
 	return o
 }
 
-// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+// MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `cknWo` unless `cakWo` is configured. Conflicts with `cakWo`. Changing this argument replaces the association.
 func (o MacsecKeyAssociationOutput) Cak() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.Cak }).(pulumi.StringPtrOutput)
 }
 
-// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cakWoVersion` and either `ckn` or `cknWo`. Conflicts with `cak` and `secretArn`. This value is not stored in the plan or state.
+func (o MacsecKeyAssociationOutput) CakWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.CakWo }).(pulumi.StringPtrOutput)
+}
+
+// Positive integer used to trigger replacement when `cakWo` changes. Required with `cakWo`. Increment this value to replace the association using the current write-only values.
+func (o MacsecKeyAssociationOutput) CakWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.IntPtrOutput { return v.CakWoVersion }).(pulumi.IntPtrOutput)
+}
+
+// MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cakWo` unless `cknWo` is configured. Conflicts with `cknWo`. Changing this argument replaces the association.
 func (o MacsecKeyAssociationOutput) Ckn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.Ckn }).(pulumi.StringOutput)
 }
 
-// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cknWoVersion` and either `cak` or `cakWo`. Conflicts with `ckn` and `secretArn`. This value is not stored in the plan or state.
+func (o MacsecKeyAssociationOutput) CknWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.CknWo }).(pulumi.StringPtrOutput)
+}
+
+// Positive integer used to trigger replacement when `cknWo` changes. Required with `cknWo`. Increment this value to replace the association using the current write-only values.
+func (o MacsecKeyAssociationOutput) CknWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.IntPtrOutput { return v.CknWoVersion }).(pulumi.IntPtrOutput)
+}
+
+// ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+//
+// The following arguments are optional:
 func (o MacsecKeyAssociationOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
@@ -329,7 +467,7 @@ func (o MacsecKeyAssociationOutput) Region() pulumi.StringOutput {
 
 // ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 //
-// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+// > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secretArn`. Do not combine key arguments with `secretArn`.
 func (o MacsecKeyAssociationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }

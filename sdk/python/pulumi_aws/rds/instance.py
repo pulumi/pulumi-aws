@@ -149,7 +149,7 @@ class InstanceArgs:
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[_builtins.str] password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
+               Password for the master DB user. Note that this may show up in logs. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
         :param pulumi.Input[_builtins.int] password_wo_version: Required when `password_wo` is set. Changing this value triggers an update to `password_wo`.
         :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -924,7 +924,7 @@ class InstanceArgs:
     def password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
+        Password for the master DB user. Note that this may show up in logs. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
         """
         return pulumi.get(self, "password_wo")
 
@@ -1348,7 +1348,7 @@ class _InstanceState:
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[_builtins.str] password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
+               Password for the master DB user. Note that this may show up in logs. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
         :param pulumi.Input[_builtins.int] password_wo_version: Required when `password_wo` is set. Changing this value triggers an update to `password_wo`.
         :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -2251,7 +2251,7 @@ class _InstanceState:
     def password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
+        Password for the master DB user. Note that this may show up in logs. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
         """
         return pulumi.get(self, "password_wo")
 
@@ -3014,7 +3014,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[_builtins.str] password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
+               Password for the master DB user. Note that this may show up in logs. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
         :param pulumi.Input[_builtins.int] password_wo_version: Required when `password_wo` is set. Changing this value triggers an update to `password_wo`.
         :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -3690,7 +3690,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[_builtins.str] password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
+               Password for the master DB user. Note that this may show up in logs. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
         :param pulumi.Input[_builtins.int] password_wo_version: Required when `password_wo` is set. Changing this value triggers an update to `password_wo`.
         :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -4280,7 +4280,7 @@ class Instance(pulumi.CustomResource):
     def password_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
+        Password for the master DB user. Note that this may show up in logs. Cannot be set if `manage_master_user_password` is set to `true`. If set, requires `password_wo_version` to be set.
         """
         return pulumi.get(self, "password_wo")
 

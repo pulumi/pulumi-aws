@@ -25,6 +25,7 @@ from .human_task_ui import *
 from .hyper_parameter_tuning_job import *
 from .image import *
 from .image_version import *
+from .inference_component import *
 from .labeling_job import *
 from .mlflow_app import *
 from .mlflow_tracking_server import *

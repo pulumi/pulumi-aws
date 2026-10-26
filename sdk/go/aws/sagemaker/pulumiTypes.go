@@ -39089,6 +39089,3047 @@ func (o HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArray
 	}).(HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobOutput)
 }
 
+type InferenceComponentDeploymentConfig struct {
+	// Automatic rollback configuration. See `autoRollbackConfiguration` Block.
+	AutoRollbackConfiguration *InferenceComponentDeploymentConfigAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
+	// Rolling deployment strategy. See `rollingUpdatePolicy` Block.
+	RollingUpdatePolicy InferenceComponentDeploymentConfigRollingUpdatePolicy `pulumi:"rollingUpdatePolicy"`
+}
+
+// InferenceComponentDeploymentConfigInput is an input type that accepts InferenceComponentDeploymentConfigArgs and InferenceComponentDeploymentConfigOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigInput` via:
+//
+//	InferenceComponentDeploymentConfigArgs{...}
+type InferenceComponentDeploymentConfigInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigOutput() InferenceComponentDeploymentConfigOutput
+	ToInferenceComponentDeploymentConfigOutputWithContext(context.Context) InferenceComponentDeploymentConfigOutput
+}
+
+type InferenceComponentDeploymentConfigArgs struct {
+	// Automatic rollback configuration. See `autoRollbackConfiguration` Block.
+	AutoRollbackConfiguration InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrInput `pulumi:"autoRollbackConfiguration"`
+	// Rolling deployment strategy. See `rollingUpdatePolicy` Block.
+	RollingUpdatePolicy InferenceComponentDeploymentConfigRollingUpdatePolicyInput `pulumi:"rollingUpdatePolicy"`
+}
+
+func (InferenceComponentDeploymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfig)(nil)).Elem()
+}
+
+func (i InferenceComponentDeploymentConfigArgs) ToInferenceComponentDeploymentConfigOutput() InferenceComponentDeploymentConfigOutput {
+	return i.ToInferenceComponentDeploymentConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigArgs) ToInferenceComponentDeploymentConfigOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigOutput)
+}
+
+func (i InferenceComponentDeploymentConfigArgs) ToInferenceComponentDeploymentConfigPtrOutput() InferenceComponentDeploymentConfigPtrOutput {
+	return i.ToInferenceComponentDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigArgs) ToInferenceComponentDeploymentConfigPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigOutput).ToInferenceComponentDeploymentConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentDeploymentConfigPtrInput is an input type that accepts InferenceComponentDeploymentConfigArgs, InferenceComponentDeploymentConfigPtr and InferenceComponentDeploymentConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigPtrInput` via:
+//
+//	        InferenceComponentDeploymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentDeploymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigPtrOutput() InferenceComponentDeploymentConfigPtrOutput
+	ToInferenceComponentDeploymentConfigPtrOutputWithContext(context.Context) InferenceComponentDeploymentConfigPtrOutput
+}
+
+type inferenceComponentDeploymentConfigPtrType InferenceComponentDeploymentConfigArgs
+
+func InferenceComponentDeploymentConfigPtr(v *InferenceComponentDeploymentConfigArgs) InferenceComponentDeploymentConfigPtrInput {
+	return (*inferenceComponentDeploymentConfigPtrType)(v)
+}
+
+func (*inferenceComponentDeploymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfig)(nil)).Elem()
+}
+
+func (i *inferenceComponentDeploymentConfigPtrType) ToInferenceComponentDeploymentConfigPtrOutput() InferenceComponentDeploymentConfigPtrOutput {
+	return i.ToInferenceComponentDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentDeploymentConfigPtrType) ToInferenceComponentDeploymentConfigPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigPtrOutput)
+}
+
+type InferenceComponentDeploymentConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigOutput) ToInferenceComponentDeploymentConfigOutput() InferenceComponentDeploymentConfigOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigOutput) ToInferenceComponentDeploymentConfigOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigOutput) ToInferenceComponentDeploymentConfigPtrOutput() InferenceComponentDeploymentConfigPtrOutput {
+	return o.ToInferenceComponentDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentDeploymentConfigOutput) ToInferenceComponentDeploymentConfigPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentDeploymentConfig) *InferenceComponentDeploymentConfig {
+		return &v
+	}).(InferenceComponentDeploymentConfigPtrOutput)
+}
+
+// Automatic rollback configuration. See `autoRollbackConfiguration` Block.
+func (o InferenceComponentDeploymentConfigOutput) AutoRollbackConfiguration() InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfig) *InferenceComponentDeploymentConfigAutoRollbackConfiguration {
+		return v.AutoRollbackConfiguration
+	}).(InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+// Rolling deployment strategy. See `rollingUpdatePolicy` Block.
+func (o InferenceComponentDeploymentConfigOutput) RollingUpdatePolicy() InferenceComponentDeploymentConfigRollingUpdatePolicyOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfig) InferenceComponentDeploymentConfigRollingUpdatePolicy {
+		return v.RollingUpdatePolicy
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyOutput)
+}
+
+type InferenceComponentDeploymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigPtrOutput) ToInferenceComponentDeploymentConfigPtrOutput() InferenceComponentDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigPtrOutput) ToInferenceComponentDeploymentConfigPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigPtrOutput) Elem() InferenceComponentDeploymentConfigOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfig) InferenceComponentDeploymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentDeploymentConfig
+		return ret
+	}).(InferenceComponentDeploymentConfigOutput)
+}
+
+// Automatic rollback configuration. See `autoRollbackConfiguration` Block.
+func (o InferenceComponentDeploymentConfigPtrOutput) AutoRollbackConfiguration() InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfig) *InferenceComponentDeploymentConfigAutoRollbackConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRollbackConfiguration
+	}).(InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+// Rolling deployment strategy. See `rollingUpdatePolicy` Block.
+func (o InferenceComponentDeploymentConfigPtrOutput) RollingUpdatePolicy() InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfig) *InferenceComponentDeploymentConfigRollingUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return &v.RollingUpdatePolicy
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput)
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfiguration struct {
+	// List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+	Alarms []InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm `pulumi:"alarms"`
+}
+
+// InferenceComponentDeploymentConfigAutoRollbackConfigurationInput is an input type that accepts InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs and InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigAutoRollbackConfigurationInput` via:
+//
+//	InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs{...}
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationOutputWithContext(context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs struct {
+	// List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+	Alarms InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayInput `pulumi:"alarms"`
+}
+
+func (InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput {
+	return i.ToInferenceComponentDeploymentConfigAutoRollbackConfigurationOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput)
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return i.ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput).ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrInput is an input type that accepts InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs, InferenceComponentDeploymentConfigAutoRollbackConfigurationPtr and InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrInput` via:
+//
+//	        InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput
+}
+
+type inferenceComponentDeploymentConfigAutoRollbackConfigurationPtrType InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs
+
+func InferenceComponentDeploymentConfigAutoRollbackConfigurationPtr(v *InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs) InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrInput {
+	return (*inferenceComponentDeploymentConfigAutoRollbackConfigurationPtrType)(v)
+}
+
+func (*inferenceComponentDeploymentConfigAutoRollbackConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (i *inferenceComponentDeploymentConfigAutoRollbackConfigurationPtrType) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return i.ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentDeploymentConfigAutoRollbackConfigurationPtrType) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentDeploymentConfigAutoRollbackConfiguration) *InferenceComponentDeploymentConfigAutoRollbackConfiguration {
+		return &v
+	}).(InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+// List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput) Alarms() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigAutoRollbackConfiguration) []InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm {
+		return v.Alarms
+	}).(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput)
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput) Elem() InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigAutoRollbackConfiguration) InferenceComponentDeploymentConfigAutoRollbackConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentDeploymentConfigAutoRollbackConfiguration
+		return ret
+	}).(InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput)
+}
+
+// List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput) Alarms() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigAutoRollbackConfiguration) []InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput)
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm struct {
+	// Name of a CloudWatch alarm.
+	AlarmName string `pulumi:"alarmName"`
+}
+
+// InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmInput is an input type that accepts InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs and InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmInput` via:
+//
+//	InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs{...}
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs struct {
+	// Name of a CloudWatch alarm.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+}
+
+func (InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return i.ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput)
+}
+
+// InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayInput is an input type that accepts InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArray and InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayInput` via:
+//
+//	InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArray{ InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs{...} }
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput
+	ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArray []InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmInput
+
+func (InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArray) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return i.ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArray) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput)
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return o
+}
+
+// Name of a CloudWatch alarm.
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput) AlarmName() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
+}
+
+type InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput() InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) ToInferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) Index(i pulumi.IntInput) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm {
+		return vs[0].([]InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm)[vs[1].(int)]
+	}).(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicy struct {
+	// Batch size for each rolling step. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+	MaximumBatchSize InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize `pulumi:"maximumBatchSize"`
+	// Time limit for the total deployment. Valid values are between `600` and `28800`.
+	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Batch size for a rollback. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+	RollbackMaximumBatchSize *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize `pulumi:"rollbackMaximumBatchSize"`
+	// Length of the baking period in seconds. Valid values: `0`-`3600`.
+	WaitIntervalInSeconds int `pulumi:"waitIntervalInSeconds"`
+}
+
+// InferenceComponentDeploymentConfigRollingUpdatePolicyInput is an input type that accepts InferenceComponentDeploymentConfigRollingUpdatePolicyArgs and InferenceComponentDeploymentConfigRollingUpdatePolicyOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigRollingUpdatePolicyInput` via:
+//
+//	InferenceComponentDeploymentConfigRollingUpdatePolicyArgs{...}
+type InferenceComponentDeploymentConfigRollingUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyOutput
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyOutputWithContext(context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyOutput
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyArgs struct {
+	// Batch size for each rolling step. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+	MaximumBatchSize InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput `pulumi:"maximumBatchSize"`
+	// Time limit for the total deployment. Valid values are between `600` and `28800`.
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Batch size for a rollback. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+	RollbackMaximumBatchSize InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput `pulumi:"rollbackMaximumBatchSize"`
+	// Length of the baking period in seconds. Valid values: `0`-`3600`.
+	WaitIntervalInSeconds pulumi.IntInput `pulumi:"waitIntervalInSeconds"`
+}
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyOutput)
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyOutput).ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentDeploymentConfigRollingUpdatePolicyPtrInput is an input type that accepts InferenceComponentDeploymentConfigRollingUpdatePolicyArgs, InferenceComponentDeploymentConfigRollingUpdatePolicyPtr and InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigRollingUpdatePolicyPtrInput` via:
+//
+//	        InferenceComponentDeploymentConfigRollingUpdatePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentDeploymentConfigRollingUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput
+}
+
+type inferenceComponentDeploymentConfigRollingUpdatePolicyPtrType InferenceComponentDeploymentConfigRollingUpdatePolicyArgs
+
+func InferenceComponentDeploymentConfigRollingUpdatePolicyPtr(v *InferenceComponentDeploymentConfigRollingUpdatePolicyArgs) InferenceComponentDeploymentConfigRollingUpdatePolicyPtrInput {
+	return (*inferenceComponentDeploymentConfigRollingUpdatePolicyPtrType)(v)
+}
+
+func (*inferenceComponentDeploymentConfigRollingUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i *inferenceComponentDeploymentConfigRollingUpdatePolicyPtrType) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentDeploymentConfigRollingUpdatePolicyPtrType) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o.ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentDeploymentConfigRollingUpdatePolicy) *InferenceComponentDeploymentConfigRollingUpdatePolicy {
+		return &v
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput)
+}
+
+// Batch size for each rolling step. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) MaximumBatchSize() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicy) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		return v.MaximumBatchSize
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput)
+}
+
+// Time limit for the total deployment. Valid values are between `600` and `28800`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicy) *int {
+		return v.MaximumExecutionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Batch size for a rollback. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) RollbackMaximumBatchSize() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicy) *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		return v.RollbackMaximumBatchSize
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+// Length of the baking period in seconds. Valid values: `0`-`3600`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyOutput) WaitIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicy) int { return v.WaitIntervalInSeconds }).(pulumi.IntOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) Elem() InferenceComponentDeploymentConfigRollingUpdatePolicyOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicy) InferenceComponentDeploymentConfigRollingUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentDeploymentConfigRollingUpdatePolicy
+		return ret
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyOutput)
+}
+
+// Batch size for each rolling step. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) MaximumBatchSize() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicy) *InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumBatchSize
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput)
+}
+
+// Time limit for the total deployment. Valid values are between `600` and `28800`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Batch size for a rollback. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicy) *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackMaximumBatchSize
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+// Length of the baking period in seconds. Valid values: `0`-`3600`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WaitIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize struct {
+	// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Capacity size value.
+	Value int `pulumi:"value"`
+}
+
+// InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput is an input type that accepts InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs and InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput` via:
+//
+//	InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{...}
+type InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs struct {
+	// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Capacity size value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput)
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput).ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx)
+}
+
+// InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput is an input type that accepts InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs, InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtr and InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput` via:
+//
+//	        InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput
+}
+
+type inferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs
+
+func InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtr(v *InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput {
+	return (*inferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType)(v)
+}
+
+func (*inferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (i *inferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o.ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize) *InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		return &v
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput)
+}
+
+// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Capacity size value.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) Elem() InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize) InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize
+		return ret
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput)
+}
+
+// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Capacity size value.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize struct {
+	// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Capacity size value.
+	Value int `pulumi:"value"`
+}
+
+// InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput is an input type that accepts InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs and InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput` via:
+//
+//	InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{...}
+type InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs struct {
+	// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Capacity size value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput)
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput).ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx)
+}
+
+// InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput is an input type that accepts InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs, InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtr and InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput values.
+// You can construct a concrete instance of `InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput` via:
+//
+//	        InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput
+	ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput
+}
+
+type inferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs
+
+func InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtr(v *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput {
+	return (*inferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType)(v)
+}
+
+func (*inferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (i *inferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return i.ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		return &v
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Capacity size value.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) int {
+		return v.Value
+	}).(pulumi.IntOutput)
+}
+
+type InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) ToInferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) Elem() InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize
+		return ret
+	}).(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput)
+}
+
+// Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Capacity size value.
+func (o InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type InferenceComponentRuntimeConfig struct {
+	// Number of runtime copies of the model container to deploy.
+	CopyCount int `pulumi:"copyCount"`
+	// Number of copies placed on this instance type.
+	CurrentCopyCount *int `pulumi:"currentCopyCount"`
+	// Number of runtime copies requested.
+	DesiredCopyCount *int `pulumi:"desiredCopyCount"`
+	// Placement status of the inference component copies across instance types. See below.
+	PlacementStatuses []InferenceComponentRuntimeConfigPlacementStatus `pulumi:"placementStatuses"`
+}
+
+// InferenceComponentRuntimeConfigInput is an input type that accepts InferenceComponentRuntimeConfigArgs and InferenceComponentRuntimeConfigOutput values.
+// You can construct a concrete instance of `InferenceComponentRuntimeConfigInput` via:
+//
+//	InferenceComponentRuntimeConfigArgs{...}
+type InferenceComponentRuntimeConfigInput interface {
+	pulumi.Input
+
+	ToInferenceComponentRuntimeConfigOutput() InferenceComponentRuntimeConfigOutput
+	ToInferenceComponentRuntimeConfigOutputWithContext(context.Context) InferenceComponentRuntimeConfigOutput
+}
+
+type InferenceComponentRuntimeConfigArgs struct {
+	// Number of runtime copies of the model container to deploy.
+	CopyCount pulumi.IntInput `pulumi:"copyCount"`
+	// Number of copies placed on this instance type.
+	CurrentCopyCount pulumi.IntPtrInput `pulumi:"currentCopyCount"`
+	// Number of runtime copies requested.
+	DesiredCopyCount pulumi.IntPtrInput `pulumi:"desiredCopyCount"`
+	// Placement status of the inference component copies across instance types. See below.
+	PlacementStatuses InferenceComponentRuntimeConfigPlacementStatusArrayInput `pulumi:"placementStatuses"`
+}
+
+func (InferenceComponentRuntimeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentRuntimeConfig)(nil)).Elem()
+}
+
+func (i InferenceComponentRuntimeConfigArgs) ToInferenceComponentRuntimeConfigOutput() InferenceComponentRuntimeConfigOutput {
+	return i.ToInferenceComponentRuntimeConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentRuntimeConfigArgs) ToInferenceComponentRuntimeConfigOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigOutput)
+}
+
+func (i InferenceComponentRuntimeConfigArgs) ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput {
+	return i.ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentRuntimeConfigArgs) ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigOutput).ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentRuntimeConfigPtrInput is an input type that accepts InferenceComponentRuntimeConfigArgs, InferenceComponentRuntimeConfigPtr and InferenceComponentRuntimeConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentRuntimeConfigPtrInput` via:
+//
+//	        InferenceComponentRuntimeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentRuntimeConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput
+	ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Context) InferenceComponentRuntimeConfigPtrOutput
+}
+
+type inferenceComponentRuntimeConfigPtrType InferenceComponentRuntimeConfigArgs
+
+func InferenceComponentRuntimeConfigPtr(v *InferenceComponentRuntimeConfigArgs) InferenceComponentRuntimeConfigPtrInput {
+	return (*inferenceComponentRuntimeConfigPtrType)(v)
+}
+
+func (*inferenceComponentRuntimeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentRuntimeConfig)(nil)).Elem()
+}
+
+func (i *inferenceComponentRuntimeConfigPtrType) ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput {
+	return i.ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentRuntimeConfigPtrType) ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigPtrOutput)
+}
+
+type InferenceComponentRuntimeConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentRuntimeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentRuntimeConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfigOutput() InferenceComponentRuntimeConfigOutput {
+	return o
+}
+
+func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfigOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigOutput {
+	return o
+}
+
+func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput {
+	return o.ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentRuntimeConfig) *InferenceComponentRuntimeConfig {
+		return &v
+	}).(InferenceComponentRuntimeConfigPtrOutput)
+}
+
+// Number of runtime copies of the model container to deploy.
+func (o InferenceComponentRuntimeConfigOutput) CopyCount() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceComponentRuntimeConfig) int { return v.CopyCount }).(pulumi.IntOutput)
+}
+
+// Number of copies placed on this instance type.
+func (o InferenceComponentRuntimeConfigOutput) CurrentCopyCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentRuntimeConfig) *int { return v.CurrentCopyCount }).(pulumi.IntPtrOutput)
+}
+
+// Number of runtime copies requested.
+func (o InferenceComponentRuntimeConfigOutput) DesiredCopyCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentRuntimeConfig) *int { return v.DesiredCopyCount }).(pulumi.IntPtrOutput)
+}
+
+// Placement status of the inference component copies across instance types. See below.
+func (o InferenceComponentRuntimeConfigOutput) PlacementStatuses() InferenceComponentRuntimeConfigPlacementStatusArrayOutput {
+	return o.ApplyT(func(v InferenceComponentRuntimeConfig) []InferenceComponentRuntimeConfigPlacementStatus {
+		return v.PlacementStatuses
+	}).(InferenceComponentRuntimeConfigPlacementStatusArrayOutput)
+}
+
+type InferenceComponentRuntimeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentRuntimeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentRuntimeConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentRuntimeConfigPtrOutput) ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentRuntimeConfigPtrOutput) ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentRuntimeConfigPtrOutput) Elem() InferenceComponentRuntimeConfigOutput {
+	return o.ApplyT(func(v *InferenceComponentRuntimeConfig) InferenceComponentRuntimeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentRuntimeConfig
+		return ret
+	}).(InferenceComponentRuntimeConfigOutput)
+}
+
+// Number of runtime copies of the model container to deploy.
+func (o InferenceComponentRuntimeConfigPtrOutput) CopyCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentRuntimeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CopyCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of copies placed on this instance type.
+func (o InferenceComponentRuntimeConfigPtrOutput) CurrentCopyCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentRuntimeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentCopyCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of runtime copies requested.
+func (o InferenceComponentRuntimeConfigPtrOutput) DesiredCopyCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentRuntimeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredCopyCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Placement status of the inference component copies across instance types. See below.
+func (o InferenceComponentRuntimeConfigPtrOutput) PlacementStatuses() InferenceComponentRuntimeConfigPlacementStatusArrayOutput {
+	return o.ApplyT(func(v *InferenceComponentRuntimeConfig) []InferenceComponentRuntimeConfigPlacementStatus {
+		if v == nil {
+			return nil
+		}
+		return v.PlacementStatuses
+	}).(InferenceComponentRuntimeConfigPlacementStatusArrayOutput)
+}
+
+type InferenceComponentRuntimeConfigPlacementStatus struct {
+	// Number of copies placed on this instance type.
+	CurrentCopyCount int `pulumi:"currentCopyCount"`
+	// Instance type on which the copies are placed.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// InferenceComponentRuntimeConfigPlacementStatusInput is an input type that accepts InferenceComponentRuntimeConfigPlacementStatusArgs and InferenceComponentRuntimeConfigPlacementStatusOutput values.
+// You can construct a concrete instance of `InferenceComponentRuntimeConfigPlacementStatusInput` via:
+//
+//	InferenceComponentRuntimeConfigPlacementStatusArgs{...}
+type InferenceComponentRuntimeConfigPlacementStatusInput interface {
+	pulumi.Input
+
+	ToInferenceComponentRuntimeConfigPlacementStatusOutput() InferenceComponentRuntimeConfigPlacementStatusOutput
+	ToInferenceComponentRuntimeConfigPlacementStatusOutputWithContext(context.Context) InferenceComponentRuntimeConfigPlacementStatusOutput
+}
+
+type InferenceComponentRuntimeConfigPlacementStatusArgs struct {
+	// Number of copies placed on this instance type.
+	CurrentCopyCount pulumi.IntInput `pulumi:"currentCopyCount"`
+	// Instance type on which the copies are placed.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+}
+
+func (InferenceComponentRuntimeConfigPlacementStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentRuntimeConfigPlacementStatus)(nil)).Elem()
+}
+
+func (i InferenceComponentRuntimeConfigPlacementStatusArgs) ToInferenceComponentRuntimeConfigPlacementStatusOutput() InferenceComponentRuntimeConfigPlacementStatusOutput {
+	return i.ToInferenceComponentRuntimeConfigPlacementStatusOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentRuntimeConfigPlacementStatusArgs) ToInferenceComponentRuntimeConfigPlacementStatusOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPlacementStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigPlacementStatusOutput)
+}
+
+// InferenceComponentRuntimeConfigPlacementStatusArrayInput is an input type that accepts InferenceComponentRuntimeConfigPlacementStatusArray and InferenceComponentRuntimeConfigPlacementStatusArrayOutput values.
+// You can construct a concrete instance of `InferenceComponentRuntimeConfigPlacementStatusArrayInput` via:
+//
+//	InferenceComponentRuntimeConfigPlacementStatusArray{ InferenceComponentRuntimeConfigPlacementStatusArgs{...} }
+type InferenceComponentRuntimeConfigPlacementStatusArrayInput interface {
+	pulumi.Input
+
+	ToInferenceComponentRuntimeConfigPlacementStatusArrayOutput() InferenceComponentRuntimeConfigPlacementStatusArrayOutput
+	ToInferenceComponentRuntimeConfigPlacementStatusArrayOutputWithContext(context.Context) InferenceComponentRuntimeConfigPlacementStatusArrayOutput
+}
+
+type InferenceComponentRuntimeConfigPlacementStatusArray []InferenceComponentRuntimeConfigPlacementStatusInput
+
+func (InferenceComponentRuntimeConfigPlacementStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceComponentRuntimeConfigPlacementStatus)(nil)).Elem()
+}
+
+func (i InferenceComponentRuntimeConfigPlacementStatusArray) ToInferenceComponentRuntimeConfigPlacementStatusArrayOutput() InferenceComponentRuntimeConfigPlacementStatusArrayOutput {
+	return i.ToInferenceComponentRuntimeConfigPlacementStatusArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentRuntimeConfigPlacementStatusArray) ToInferenceComponentRuntimeConfigPlacementStatusArrayOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPlacementStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigPlacementStatusArrayOutput)
+}
+
+type InferenceComponentRuntimeConfigPlacementStatusOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentRuntimeConfigPlacementStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentRuntimeConfigPlacementStatus)(nil)).Elem()
+}
+
+func (o InferenceComponentRuntimeConfigPlacementStatusOutput) ToInferenceComponentRuntimeConfigPlacementStatusOutput() InferenceComponentRuntimeConfigPlacementStatusOutput {
+	return o
+}
+
+func (o InferenceComponentRuntimeConfigPlacementStatusOutput) ToInferenceComponentRuntimeConfigPlacementStatusOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPlacementStatusOutput {
+	return o
+}
+
+// Number of copies placed on this instance type.
+func (o InferenceComponentRuntimeConfigPlacementStatusOutput) CurrentCopyCount() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceComponentRuntimeConfigPlacementStatus) int { return v.CurrentCopyCount }).(pulumi.IntOutput)
+}
+
+// Instance type on which the copies are placed.
+func (o InferenceComponentRuntimeConfigPlacementStatusOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceComponentRuntimeConfigPlacementStatus) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+type InferenceComponentRuntimeConfigPlacementStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentRuntimeConfigPlacementStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceComponentRuntimeConfigPlacementStatus)(nil)).Elem()
+}
+
+func (o InferenceComponentRuntimeConfigPlacementStatusArrayOutput) ToInferenceComponentRuntimeConfigPlacementStatusArrayOutput() InferenceComponentRuntimeConfigPlacementStatusArrayOutput {
+	return o
+}
+
+func (o InferenceComponentRuntimeConfigPlacementStatusArrayOutput) ToInferenceComponentRuntimeConfigPlacementStatusArrayOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPlacementStatusArrayOutput {
+	return o
+}
+
+func (o InferenceComponentRuntimeConfigPlacementStatusArrayOutput) Index(i pulumi.IntInput) InferenceComponentRuntimeConfigPlacementStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceComponentRuntimeConfigPlacementStatus {
+		return vs[0].([]InferenceComponentRuntimeConfigPlacementStatus)[vs[1].(int)]
+	}).(InferenceComponentRuntimeConfigPlacementStatusOutput)
+}
+
+type InferenceComponentSpecification struct {
+	// Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+	BaseInferenceComponentName *string `pulumi:"baseInferenceComponentName"`
+	// Compute resources allocated to run a model. See `computeResourceRequirements` Block.
+	ComputeResourceRequirements *InferenceComponentSpecificationComputeResourceRequirements `pulumi:"computeResourceRequirements"`
+	// Container that provides the runtime environment for a model. See `container` Block.
+	Container *InferenceComponentSpecificationContainer `pulumi:"container"`
+	// Settings that affect how the inference component caches data. See `dataCacheConfig` Block.
+	DataCacheConfig *InferenceComponentSpecificationDataCacheConfig `pulumi:"dataCacheConfig"`
+	// Instance type on which the copies are placed.
+	InstanceType *string `pulumi:"instanceType"`
+	// Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+	ModelName *string `pulumi:"modelName"`
+	// Scheduling configuration for placing inference component copies. See `schedulingConfig` Block.
+	SchedulingConfig *InferenceComponentSpecificationSchedulingConfig `pulumi:"schedulingConfig"`
+	// Settings that take effect while the model container starts up. See `startupParameters` Block.
+	StartupParameters *InferenceComponentSpecificationStartupParameters `pulumi:"startupParameters"`
+}
+
+// InferenceComponentSpecificationInput is an input type that accepts InferenceComponentSpecificationArgs and InferenceComponentSpecificationOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationInput` via:
+//
+//	InferenceComponentSpecificationArgs{...}
+type InferenceComponentSpecificationInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationOutput() InferenceComponentSpecificationOutput
+	ToInferenceComponentSpecificationOutputWithContext(context.Context) InferenceComponentSpecificationOutput
+}
+
+type InferenceComponentSpecificationArgs struct {
+	// Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+	BaseInferenceComponentName pulumi.StringPtrInput `pulumi:"baseInferenceComponentName"`
+	// Compute resources allocated to run a model. See `computeResourceRequirements` Block.
+	ComputeResourceRequirements InferenceComponentSpecificationComputeResourceRequirementsPtrInput `pulumi:"computeResourceRequirements"`
+	// Container that provides the runtime environment for a model. See `container` Block.
+	Container InferenceComponentSpecificationContainerPtrInput `pulumi:"container"`
+	// Settings that affect how the inference component caches data. See `dataCacheConfig` Block.
+	DataCacheConfig InferenceComponentSpecificationDataCacheConfigPtrInput `pulumi:"dataCacheConfig"`
+	// Instance type on which the copies are placed.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+	ModelName pulumi.StringPtrInput `pulumi:"modelName"`
+	// Scheduling configuration for placing inference component copies. See `schedulingConfig` Block.
+	SchedulingConfig InferenceComponentSpecificationSchedulingConfigPtrInput `pulumi:"schedulingConfig"`
+	// Settings that take effect while the model container starts up. See `startupParameters` Block.
+	StartupParameters InferenceComponentSpecificationStartupParametersPtrInput `pulumi:"startupParameters"`
+}
+
+func (InferenceComponentSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecification)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationArgs) ToInferenceComponentSpecificationOutput() InferenceComponentSpecificationOutput {
+	return i.ToInferenceComponentSpecificationOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationArgs) ToInferenceComponentSpecificationOutputWithContext(ctx context.Context) InferenceComponentSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationOutput)
+}
+
+func (i InferenceComponentSpecificationArgs) ToInferenceComponentSpecificationPtrOutput() InferenceComponentSpecificationPtrOutput {
+	return i.ToInferenceComponentSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationArgs) ToInferenceComponentSpecificationPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationOutput).ToInferenceComponentSpecificationPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationPtrInput is an input type that accepts InferenceComponentSpecificationArgs, InferenceComponentSpecificationPtr and InferenceComponentSpecificationPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationPtrInput` via:
+//
+//	        InferenceComponentSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationPtrOutput() InferenceComponentSpecificationPtrOutput
+	ToInferenceComponentSpecificationPtrOutputWithContext(context.Context) InferenceComponentSpecificationPtrOutput
+}
+
+type inferenceComponentSpecificationPtrType InferenceComponentSpecificationArgs
+
+func InferenceComponentSpecificationPtr(v *InferenceComponentSpecificationArgs) InferenceComponentSpecificationPtrInput {
+	return (*inferenceComponentSpecificationPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecification)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationPtrType) ToInferenceComponentSpecificationPtrOutput() InferenceComponentSpecificationPtrOutput {
+	return i.ToInferenceComponentSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationPtrType) ToInferenceComponentSpecificationPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationPtrOutput)
+}
+
+// InferenceComponentSpecificationArrayInput is an input type that accepts InferenceComponentSpecificationArray and InferenceComponentSpecificationArrayOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationArrayInput` via:
+//
+//	InferenceComponentSpecificationArray{ InferenceComponentSpecificationArgs{...} }
+type InferenceComponentSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationArrayOutput() InferenceComponentSpecificationArrayOutput
+	ToInferenceComponentSpecificationArrayOutputWithContext(context.Context) InferenceComponentSpecificationArrayOutput
+}
+
+type InferenceComponentSpecificationArray []InferenceComponentSpecificationInput
+
+func (InferenceComponentSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceComponentSpecification)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationArray) ToInferenceComponentSpecificationArrayOutput() InferenceComponentSpecificationArrayOutput {
+	return i.ToInferenceComponentSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationArray) ToInferenceComponentSpecificationArrayOutputWithContext(ctx context.Context) InferenceComponentSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationArrayOutput)
+}
+
+type InferenceComponentSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecification)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationOutput) ToInferenceComponentSpecificationOutput() InferenceComponentSpecificationOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationOutput) ToInferenceComponentSpecificationOutputWithContext(ctx context.Context) InferenceComponentSpecificationOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationOutput) ToInferenceComponentSpecificationPtrOutput() InferenceComponentSpecificationPtrOutput {
+	return o.ToInferenceComponentSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationOutput) ToInferenceComponentSpecificationPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecification) *InferenceComponentSpecification {
+		return &v
+	}).(InferenceComponentSpecificationPtrOutput)
+}
+
+// Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+func (o InferenceComponentSpecificationOutput) BaseInferenceComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *string { return v.BaseInferenceComponentName }).(pulumi.StringPtrOutput)
+}
+
+// Compute resources allocated to run a model. See `computeResourceRequirements` Block.
+func (o InferenceComponentSpecificationOutput) ComputeResourceRequirements() InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *InferenceComponentSpecificationComputeResourceRequirements {
+		return v.ComputeResourceRequirements
+	}).(InferenceComponentSpecificationComputeResourceRequirementsPtrOutput)
+}
+
+// Container that provides the runtime environment for a model. See `container` Block.
+func (o InferenceComponentSpecificationOutput) Container() InferenceComponentSpecificationContainerPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *InferenceComponentSpecificationContainer { return v.Container }).(InferenceComponentSpecificationContainerPtrOutput)
+}
+
+// Settings that affect how the inference component caches data. See `dataCacheConfig` Block.
+func (o InferenceComponentSpecificationOutput) DataCacheConfig() InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *InferenceComponentSpecificationDataCacheConfig {
+		return v.DataCacheConfig
+	}).(InferenceComponentSpecificationDataCacheConfigPtrOutput)
+}
+
+// Instance type on which the copies are placed.
+func (o InferenceComponentSpecificationOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+func (o InferenceComponentSpecificationOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *string { return v.ModelName }).(pulumi.StringPtrOutput)
+}
+
+// Scheduling configuration for placing inference component copies. See `schedulingConfig` Block.
+func (o InferenceComponentSpecificationOutput) SchedulingConfig() InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *InferenceComponentSpecificationSchedulingConfig {
+		return v.SchedulingConfig
+	}).(InferenceComponentSpecificationSchedulingConfigPtrOutput)
+}
+
+// Settings that take effect while the model container starts up. See `startupParameters` Block.
+func (o InferenceComponentSpecificationOutput) StartupParameters() InferenceComponentSpecificationStartupParametersPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *InferenceComponentSpecificationStartupParameters {
+		return v.StartupParameters
+	}).(InferenceComponentSpecificationStartupParametersPtrOutput)
+}
+
+type InferenceComponentSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecification)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationPtrOutput) ToInferenceComponentSpecificationPtrOutput() InferenceComponentSpecificationPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationPtrOutput) ToInferenceComponentSpecificationPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationPtrOutput) Elem() InferenceComponentSpecificationOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) InferenceComponentSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecification
+		return ret
+	}).(InferenceComponentSpecificationOutput)
+}
+
+// Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+func (o InferenceComponentSpecificationPtrOutput) BaseInferenceComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseInferenceComponentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Compute resources allocated to run a model. See `computeResourceRequirements` Block.
+func (o InferenceComponentSpecificationPtrOutput) ComputeResourceRequirements() InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *InferenceComponentSpecificationComputeResourceRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeResourceRequirements
+	}).(InferenceComponentSpecificationComputeResourceRequirementsPtrOutput)
+}
+
+// Container that provides the runtime environment for a model. See `container` Block.
+func (o InferenceComponentSpecificationPtrOutput) Container() InferenceComponentSpecificationContainerPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *InferenceComponentSpecificationContainer {
+		if v == nil {
+			return nil
+		}
+		return v.Container
+	}).(InferenceComponentSpecificationContainerPtrOutput)
+}
+
+// Settings that affect how the inference component caches data. See `dataCacheConfig` Block.
+func (o InferenceComponentSpecificationPtrOutput) DataCacheConfig() InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *InferenceComponentSpecificationDataCacheConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DataCacheConfig
+	}).(InferenceComponentSpecificationDataCacheConfigPtrOutput)
+}
+
+// Instance type on which the copies are placed.
+func (o InferenceComponentSpecificationPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+func (o InferenceComponentSpecificationPtrOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Scheduling configuration for placing inference component copies. See `schedulingConfig` Block.
+func (o InferenceComponentSpecificationPtrOutput) SchedulingConfig() InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *InferenceComponentSpecificationSchedulingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchedulingConfig
+	}).(InferenceComponentSpecificationSchedulingConfigPtrOutput)
+}
+
+// Settings that take effect while the model container starts up. See `startupParameters` Block.
+func (o InferenceComponentSpecificationPtrOutput) StartupParameters() InferenceComponentSpecificationStartupParametersPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *InferenceComponentSpecificationStartupParameters {
+		if v == nil {
+			return nil
+		}
+		return v.StartupParameters
+	}).(InferenceComponentSpecificationStartupParametersPtrOutput)
+}
+
+type InferenceComponentSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceComponentSpecification)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationArrayOutput) ToInferenceComponentSpecificationArrayOutput() InferenceComponentSpecificationArrayOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationArrayOutput) ToInferenceComponentSpecificationArrayOutputWithContext(ctx context.Context) InferenceComponentSpecificationArrayOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationArrayOutput) Index(i pulumi.IntInput) InferenceComponentSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceComponentSpecification {
+		return vs[0].([]InferenceComponentSpecification)[vs[1].(int)]
+	}).(InferenceComponentSpecificationOutput)
+}
+
+type InferenceComponentSpecificationComputeResourceRequirements struct {
+	// Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+	MaxMemoryRequiredInMb *int `pulumi:"maxMemoryRequiredInMb"`
+	// Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+	MinMemoryRequiredInMb int `pulumi:"minMemoryRequiredInMb"`
+	// Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+	NumberOfAcceleratorDevicesRequired *float64 `pulumi:"numberOfAcceleratorDevicesRequired"`
+	// Number of CPU cores to allocate. Minimum value of `0.25`.
+	NumberOfCpuCoresRequired *float64 `pulumi:"numberOfCpuCoresRequired"`
+}
+
+// InferenceComponentSpecificationComputeResourceRequirementsInput is an input type that accepts InferenceComponentSpecificationComputeResourceRequirementsArgs and InferenceComponentSpecificationComputeResourceRequirementsOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationComputeResourceRequirementsInput` via:
+//
+//	InferenceComponentSpecificationComputeResourceRequirementsArgs{...}
+type InferenceComponentSpecificationComputeResourceRequirementsInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationComputeResourceRequirementsOutput() InferenceComponentSpecificationComputeResourceRequirementsOutput
+	ToInferenceComponentSpecificationComputeResourceRequirementsOutputWithContext(context.Context) InferenceComponentSpecificationComputeResourceRequirementsOutput
+}
+
+type InferenceComponentSpecificationComputeResourceRequirementsArgs struct {
+	// Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+	MaxMemoryRequiredInMb pulumi.IntPtrInput `pulumi:"maxMemoryRequiredInMb"`
+	// Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+	MinMemoryRequiredInMb pulumi.IntInput `pulumi:"minMemoryRequiredInMb"`
+	// Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+	NumberOfAcceleratorDevicesRequired pulumi.Float64PtrInput `pulumi:"numberOfAcceleratorDevicesRequired"`
+	// Number of CPU cores to allocate. Minimum value of `0.25`.
+	NumberOfCpuCoresRequired pulumi.Float64PtrInput `pulumi:"numberOfCpuCoresRequired"`
+}
+
+func (InferenceComponentSpecificationComputeResourceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationComputeResourceRequirements)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationComputeResourceRequirementsArgs) ToInferenceComponentSpecificationComputeResourceRequirementsOutput() InferenceComponentSpecificationComputeResourceRequirementsOutput {
+	return i.ToInferenceComponentSpecificationComputeResourceRequirementsOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationComputeResourceRequirementsArgs) ToInferenceComponentSpecificationComputeResourceRequirementsOutputWithContext(ctx context.Context) InferenceComponentSpecificationComputeResourceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationComputeResourceRequirementsOutput)
+}
+
+func (i InferenceComponentSpecificationComputeResourceRequirementsArgs) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutput() InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return i.ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationComputeResourceRequirementsArgs) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationComputeResourceRequirementsOutput).ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationComputeResourceRequirementsPtrInput is an input type that accepts InferenceComponentSpecificationComputeResourceRequirementsArgs, InferenceComponentSpecificationComputeResourceRequirementsPtr and InferenceComponentSpecificationComputeResourceRequirementsPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationComputeResourceRequirementsPtrInput` via:
+//
+//	        InferenceComponentSpecificationComputeResourceRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationComputeResourceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutput() InferenceComponentSpecificationComputeResourceRequirementsPtrOutput
+	ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(context.Context) InferenceComponentSpecificationComputeResourceRequirementsPtrOutput
+}
+
+type inferenceComponentSpecificationComputeResourceRequirementsPtrType InferenceComponentSpecificationComputeResourceRequirementsArgs
+
+func InferenceComponentSpecificationComputeResourceRequirementsPtr(v *InferenceComponentSpecificationComputeResourceRequirementsArgs) InferenceComponentSpecificationComputeResourceRequirementsPtrInput {
+	return (*inferenceComponentSpecificationComputeResourceRequirementsPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationComputeResourceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationComputeResourceRequirements)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationComputeResourceRequirementsPtrType) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutput() InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return i.ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationComputeResourceRequirementsPtrType) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationComputeResourceRequirementsPtrOutput)
+}
+
+type InferenceComponentSpecificationComputeResourceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationComputeResourceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationComputeResourceRequirements)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) ToInferenceComponentSpecificationComputeResourceRequirementsOutput() InferenceComponentSpecificationComputeResourceRequirementsOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) ToInferenceComponentSpecificationComputeResourceRequirementsOutputWithContext(ctx context.Context) InferenceComponentSpecificationComputeResourceRequirementsOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutput() InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return o.ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationComputeResourceRequirements) *InferenceComponentSpecificationComputeResourceRequirements {
+		return &v
+	}).(InferenceComponentSpecificationComputeResourceRequirementsPtrOutput)
+}
+
+// Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) MaxMemoryRequiredInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationComputeResourceRequirements) *int {
+		return v.MaxMemoryRequiredInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) MinMemoryRequiredInMb() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationComputeResourceRequirements) int { return v.MinMemoryRequiredInMb }).(pulumi.IntOutput)
+}
+
+// Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) NumberOfAcceleratorDevicesRequired() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationComputeResourceRequirements) *float64 {
+		return v.NumberOfAcceleratorDevicesRequired
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Number of CPU cores to allocate. Minimum value of `0.25`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsOutput) NumberOfCpuCoresRequired() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationComputeResourceRequirements) *float64 {
+		return v.NumberOfCpuCoresRequired
+	}).(pulumi.Float64PtrOutput)
+}
+
+type InferenceComponentSpecificationComputeResourceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationComputeResourceRequirements)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutput() InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) ToInferenceComponentSpecificationComputeResourceRequirementsPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationComputeResourceRequirementsPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) Elem() InferenceComponentSpecificationComputeResourceRequirementsOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationComputeResourceRequirements) InferenceComponentSpecificationComputeResourceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationComputeResourceRequirements
+		return ret
+	}).(InferenceComponentSpecificationComputeResourceRequirementsOutput)
+}
+
+// Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) MaxMemoryRequiredInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationComputeResourceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxMemoryRequiredInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) MinMemoryRequiredInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationComputeResourceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinMemoryRequiredInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) NumberOfAcceleratorDevicesRequired() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationComputeResourceRequirements) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfAcceleratorDevicesRequired
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Number of CPU cores to allocate. Minimum value of `0.25`.
+func (o InferenceComponentSpecificationComputeResourceRequirementsPtrOutput) NumberOfCpuCoresRequired() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationComputeResourceRequirements) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfCpuCoresRequired
+	}).(pulumi.Float64PtrOutput)
+}
+
+type InferenceComponentSpecificationContainer struct {
+	// Amazon S3 path where the model artifacts are stored (.tar.gz).
+	ArtifactUrl *string `pulumi:"artifactUrl"`
+	// Configuration for container metrics scraping. See `containerMetricsConfig` Block.
+	ContainerMetricsConfig *InferenceComponentSpecificationContainerContainerMetricsConfig `pulumi:"containerMetricsConfig"`
+	// Environment variables to set in the Docker container.
+	Environment map[string]string `pulumi:"environment"`
+	// Amazon ECR path where the Docker image for the model is stored.
+	Image *string `pulumi:"image"`
+	// Specific digest path of the container image that was resolved and deployed.
+	ResolvedImage *string `pulumi:"resolvedImage"`
+}
+
+// InferenceComponentSpecificationContainerInput is an input type that accepts InferenceComponentSpecificationContainerArgs and InferenceComponentSpecificationContainerOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationContainerInput` via:
+//
+//	InferenceComponentSpecificationContainerArgs{...}
+type InferenceComponentSpecificationContainerInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationContainerOutput() InferenceComponentSpecificationContainerOutput
+	ToInferenceComponentSpecificationContainerOutputWithContext(context.Context) InferenceComponentSpecificationContainerOutput
+}
+
+type InferenceComponentSpecificationContainerArgs struct {
+	// Amazon S3 path where the model artifacts are stored (.tar.gz).
+	ArtifactUrl pulumi.StringPtrInput `pulumi:"artifactUrl"`
+	// Configuration for container metrics scraping. See `containerMetricsConfig` Block.
+	ContainerMetricsConfig InferenceComponentSpecificationContainerContainerMetricsConfigPtrInput `pulumi:"containerMetricsConfig"`
+	// Environment variables to set in the Docker container.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// Amazon ECR path where the Docker image for the model is stored.
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Specific digest path of the container image that was resolved and deployed.
+	ResolvedImage pulumi.StringPtrInput `pulumi:"resolvedImage"`
+}
+
+func (InferenceComponentSpecificationContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationContainer)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationContainerArgs) ToInferenceComponentSpecificationContainerOutput() InferenceComponentSpecificationContainerOutput {
+	return i.ToInferenceComponentSpecificationContainerOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationContainerArgs) ToInferenceComponentSpecificationContainerOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerOutput)
+}
+
+func (i InferenceComponentSpecificationContainerArgs) ToInferenceComponentSpecificationContainerPtrOutput() InferenceComponentSpecificationContainerPtrOutput {
+	return i.ToInferenceComponentSpecificationContainerPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationContainerArgs) ToInferenceComponentSpecificationContainerPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerOutput).ToInferenceComponentSpecificationContainerPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationContainerPtrInput is an input type that accepts InferenceComponentSpecificationContainerArgs, InferenceComponentSpecificationContainerPtr and InferenceComponentSpecificationContainerPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationContainerPtrInput` via:
+//
+//	        InferenceComponentSpecificationContainerArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationContainerPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationContainerPtrOutput() InferenceComponentSpecificationContainerPtrOutput
+	ToInferenceComponentSpecificationContainerPtrOutputWithContext(context.Context) InferenceComponentSpecificationContainerPtrOutput
+}
+
+type inferenceComponentSpecificationContainerPtrType InferenceComponentSpecificationContainerArgs
+
+func InferenceComponentSpecificationContainerPtr(v *InferenceComponentSpecificationContainerArgs) InferenceComponentSpecificationContainerPtrInput {
+	return (*inferenceComponentSpecificationContainerPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationContainerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationContainer)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationContainerPtrType) ToInferenceComponentSpecificationContainerPtrOutput() InferenceComponentSpecificationContainerPtrOutput {
+	return i.ToInferenceComponentSpecificationContainerPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationContainerPtrType) ToInferenceComponentSpecificationContainerPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerPtrOutput)
+}
+
+type InferenceComponentSpecificationContainerOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationContainer)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationContainerOutput) ToInferenceComponentSpecificationContainerOutput() InferenceComponentSpecificationContainerOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerOutput) ToInferenceComponentSpecificationContainerOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerOutput) ToInferenceComponentSpecificationContainerPtrOutput() InferenceComponentSpecificationContainerPtrOutput {
+	return o.ToInferenceComponentSpecificationContainerPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationContainerOutput) ToInferenceComponentSpecificationContainerPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationContainer) *InferenceComponentSpecificationContainer {
+		return &v
+	}).(InferenceComponentSpecificationContainerPtrOutput)
+}
+
+// Amazon S3 path where the model artifacts are stored (.tar.gz).
+func (o InferenceComponentSpecificationContainerOutput) ArtifactUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainer) *string { return v.ArtifactUrl }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for container metrics scraping. See `containerMetricsConfig` Block.
+func (o InferenceComponentSpecificationContainerOutput) ContainerMetricsConfig() InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainer) *InferenceComponentSpecificationContainerContainerMetricsConfig {
+		return v.ContainerMetricsConfig
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput)
+}
+
+// Environment variables to set in the Docker container.
+func (o InferenceComponentSpecificationContainerOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+}
+
+// Amazon ECR path where the Docker image for the model is stored.
+func (o InferenceComponentSpecificationContainerOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Specific digest path of the container image that was resolved and deployed.
+func (o InferenceComponentSpecificationContainerOutput) ResolvedImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainer) *string { return v.ResolvedImage }).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentSpecificationContainerPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationContainerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationContainer)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationContainerPtrOutput) ToInferenceComponentSpecificationContainerPtrOutput() InferenceComponentSpecificationContainerPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerPtrOutput) ToInferenceComponentSpecificationContainerPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerPtrOutput) Elem() InferenceComponentSpecificationContainerOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainer) InferenceComponentSpecificationContainer {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationContainer
+		return ret
+	}).(InferenceComponentSpecificationContainerOutput)
+}
+
+// Amazon S3 path where the model artifacts are stored (.tar.gz).
+func (o InferenceComponentSpecificationContainerPtrOutput) ArtifactUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for container metrics scraping. See `containerMetricsConfig` Block.
+func (o InferenceComponentSpecificationContainerPtrOutput) ContainerMetricsConfig() InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainer) *InferenceComponentSpecificationContainerContainerMetricsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerMetricsConfig
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput)
+}
+
+// Environment variables to set in the Docker container.
+func (o InferenceComponentSpecificationContainerPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainer) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringMapOutput)
+}
+
+// Amazon ECR path where the Docker image for the model is stored.
+func (o InferenceComponentSpecificationContainerPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specific digest path of the container image that was resolved and deployed.
+func (o InferenceComponentSpecificationContainerPtrOutput) ResolvedImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResolvedImage
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfig struct {
+	// Metrics endpoint configuration. See `metricsEndpoint` Block.
+	MetricsEndpoint *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint `pulumi:"metricsEndpoint"`
+}
+
+// InferenceComponentSpecificationContainerContainerMetricsConfigInput is an input type that accepts InferenceComponentSpecificationContainerContainerMetricsConfigArgs and InferenceComponentSpecificationContainerContainerMetricsConfigOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationContainerContainerMetricsConfigInput` via:
+//
+//	InferenceComponentSpecificationContainerContainerMetricsConfigArgs{...}
+type InferenceComponentSpecificationContainerContainerMetricsConfigInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigOutput() InferenceComponentSpecificationContainerContainerMetricsConfigOutput
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigOutputWithContext(context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigOutput
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfigArgs struct {
+	// Metrics endpoint configuration. See `metricsEndpoint` Block.
+	MetricsEndpoint InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrInput `pulumi:"metricsEndpoint"`
+}
+
+func (InferenceComponentSpecificationContainerContainerMetricsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfig)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigOutput() InferenceComponentSpecificationContainerContainerMetricsConfigOutput {
+	return i.ToInferenceComponentSpecificationContainerContainerMetricsConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerContainerMetricsConfigOutput)
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return i.ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerContainerMetricsConfigOutput).ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationContainerContainerMetricsConfigPtrInput is an input type that accepts InferenceComponentSpecificationContainerContainerMetricsConfigArgs, InferenceComponentSpecificationContainerContainerMetricsConfigPtr and InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationContainerContainerMetricsConfigPtrInput` via:
+//
+//	        InferenceComponentSpecificationContainerContainerMetricsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationContainerContainerMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput
+}
+
+type inferenceComponentSpecificationContainerContainerMetricsConfigPtrType InferenceComponentSpecificationContainerContainerMetricsConfigArgs
+
+func InferenceComponentSpecificationContainerContainerMetricsConfigPtr(v *InferenceComponentSpecificationContainerContainerMetricsConfigArgs) InferenceComponentSpecificationContainerContainerMetricsConfigPtrInput {
+	return (*inferenceComponentSpecificationContainerContainerMetricsConfigPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationContainerContainerMetricsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationContainerContainerMetricsConfig)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationContainerContainerMetricsConfigPtrType) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return i.ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationContainerContainerMetricsConfigPtrType) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput)
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationContainerContainerMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigOutput() InferenceComponentSpecificationContainerContainerMetricsConfigOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return o.ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationContainerContainerMetricsConfig) *InferenceComponentSpecificationContainerContainerMetricsConfig {
+		return &v
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput)
+}
+
+// Metrics endpoint configuration. See `metricsEndpoint` Block.
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigOutput) MetricsEndpoint() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainerContainerMetricsConfig) *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint {
+		return v.MetricsEndpoint
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput)
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationContainerContainerMetricsConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput) Elem() InferenceComponentSpecificationContainerContainerMetricsConfigOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainerContainerMetricsConfig) InferenceComponentSpecificationContainerContainerMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationContainerContainerMetricsConfig
+		return ret
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigOutput)
+}
+
+// Metrics endpoint configuration. See `metricsEndpoint` Block.
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput) MetricsEndpoint() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainerContainerMetricsConfig) *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsEndpoint
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput)
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint struct {
+	// Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+	MetricPublishFrequencyInSeconds *int `pulumi:"metricPublishFrequencyInSeconds"`
+	// Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+	MetricsEndpointPath string `pulumi:"metricsEndpointPath"`
+}
+
+// InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointInput is an input type that accepts InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs and InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointInput` via:
+//
+//	InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs{...}
+type InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutputWithContext(context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs struct {
+	// Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+	MetricPublishFrequencyInSeconds pulumi.IntPtrInput `pulumi:"metricPublishFrequencyInSeconds"`
+	// Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+	MetricsEndpointPath pulumi.StringInput `pulumi:"metricsEndpointPath"`
+}
+
+func (InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput {
+	return i.ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput)
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return i.ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput).ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrInput is an input type that accepts InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs, InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtr and InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrInput` via:
+//
+//	        InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput
+	ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput
+}
+
+type inferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrType InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs
+
+func InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtr(v *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrInput {
+	return (*inferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrType) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return i.ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrType) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput)
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return o.ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint) *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint {
+		return &v
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput)
+}
+
+// Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput) MetricPublishFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint) *int {
+		return v.MetricPublishFrequencyInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput) MetricsEndpointPath() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint) string {
+		return v.MetricsEndpointPath
+	}).(pulumi.StringOutput)
+}
+
+type InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput) ToInferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput) Elem() InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint) InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint
+		return ret
+	}).(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput)
+}
+
+// Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput) MetricPublishFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricPublishFrequencyInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+func (o InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput) MetricsEndpointPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricsEndpointPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentSpecificationDataCacheConfig struct {
+	// Whether the endpoint caches model artifacts and container images.
+	EnableCaching bool `pulumi:"enableCaching"`
+}
+
+// InferenceComponentSpecificationDataCacheConfigInput is an input type that accepts InferenceComponentSpecificationDataCacheConfigArgs and InferenceComponentSpecificationDataCacheConfigOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationDataCacheConfigInput` via:
+//
+//	InferenceComponentSpecificationDataCacheConfigArgs{...}
+type InferenceComponentSpecificationDataCacheConfigInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationDataCacheConfigOutput() InferenceComponentSpecificationDataCacheConfigOutput
+	ToInferenceComponentSpecificationDataCacheConfigOutputWithContext(context.Context) InferenceComponentSpecificationDataCacheConfigOutput
+}
+
+type InferenceComponentSpecificationDataCacheConfigArgs struct {
+	// Whether the endpoint caches model artifacts and container images.
+	EnableCaching pulumi.BoolInput `pulumi:"enableCaching"`
+}
+
+func (InferenceComponentSpecificationDataCacheConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationDataCacheConfig)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationDataCacheConfigArgs) ToInferenceComponentSpecificationDataCacheConfigOutput() InferenceComponentSpecificationDataCacheConfigOutput {
+	return i.ToInferenceComponentSpecificationDataCacheConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationDataCacheConfigArgs) ToInferenceComponentSpecificationDataCacheConfigOutputWithContext(ctx context.Context) InferenceComponentSpecificationDataCacheConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationDataCacheConfigOutput)
+}
+
+func (i InferenceComponentSpecificationDataCacheConfigArgs) ToInferenceComponentSpecificationDataCacheConfigPtrOutput() InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return i.ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationDataCacheConfigArgs) ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationDataCacheConfigOutput).ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationDataCacheConfigPtrInput is an input type that accepts InferenceComponentSpecificationDataCacheConfigArgs, InferenceComponentSpecificationDataCacheConfigPtr and InferenceComponentSpecificationDataCacheConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationDataCacheConfigPtrInput` via:
+//
+//	        InferenceComponentSpecificationDataCacheConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationDataCacheConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationDataCacheConfigPtrOutput() InferenceComponentSpecificationDataCacheConfigPtrOutput
+	ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(context.Context) InferenceComponentSpecificationDataCacheConfigPtrOutput
+}
+
+type inferenceComponentSpecificationDataCacheConfigPtrType InferenceComponentSpecificationDataCacheConfigArgs
+
+func InferenceComponentSpecificationDataCacheConfigPtr(v *InferenceComponentSpecificationDataCacheConfigArgs) InferenceComponentSpecificationDataCacheConfigPtrInput {
+	return (*inferenceComponentSpecificationDataCacheConfigPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationDataCacheConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationDataCacheConfig)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationDataCacheConfigPtrType) ToInferenceComponentSpecificationDataCacheConfigPtrOutput() InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return i.ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationDataCacheConfigPtrType) ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationDataCacheConfigPtrOutput)
+}
+
+type InferenceComponentSpecificationDataCacheConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationDataCacheConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationDataCacheConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationDataCacheConfigOutput) ToInferenceComponentSpecificationDataCacheConfigOutput() InferenceComponentSpecificationDataCacheConfigOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationDataCacheConfigOutput) ToInferenceComponentSpecificationDataCacheConfigOutputWithContext(ctx context.Context) InferenceComponentSpecificationDataCacheConfigOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationDataCacheConfigOutput) ToInferenceComponentSpecificationDataCacheConfigPtrOutput() InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return o.ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationDataCacheConfigOutput) ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationDataCacheConfig) *InferenceComponentSpecificationDataCacheConfig {
+		return &v
+	}).(InferenceComponentSpecificationDataCacheConfigPtrOutput)
+}
+
+// Whether the endpoint caches model artifacts and container images.
+func (o InferenceComponentSpecificationDataCacheConfigOutput) EnableCaching() pulumi.BoolOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationDataCacheConfig) bool { return v.EnableCaching }).(pulumi.BoolOutput)
+}
+
+type InferenceComponentSpecificationDataCacheConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationDataCacheConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationDataCacheConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationDataCacheConfigPtrOutput) ToInferenceComponentSpecificationDataCacheConfigPtrOutput() InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationDataCacheConfigPtrOutput) ToInferenceComponentSpecificationDataCacheConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationDataCacheConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationDataCacheConfigPtrOutput) Elem() InferenceComponentSpecificationDataCacheConfigOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationDataCacheConfig) InferenceComponentSpecificationDataCacheConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationDataCacheConfig
+		return ret
+	}).(InferenceComponentSpecificationDataCacheConfigOutput)
+}
+
+// Whether the endpoint caches model artifacts and container images.
+func (o InferenceComponentSpecificationDataCacheConfigPtrOutput) EnableCaching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationDataCacheConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableCaching
+	}).(pulumi.BoolPtrOutput)
+}
+
+type InferenceComponentSpecificationSchedulingConfig struct {
+	// Configuration for balancing copies across Availability Zones. See `availabilityZoneBalance` Block.
+	AvailabilityZoneBalance *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance `pulumi:"availabilityZoneBalance"`
+	// Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+	PlacementStrategy string `pulumi:"placementStrategy"`
+}
+
+// InferenceComponentSpecificationSchedulingConfigInput is an input type that accepts InferenceComponentSpecificationSchedulingConfigArgs and InferenceComponentSpecificationSchedulingConfigOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationSchedulingConfigInput` via:
+//
+//	InferenceComponentSpecificationSchedulingConfigArgs{...}
+type InferenceComponentSpecificationSchedulingConfigInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationSchedulingConfigOutput() InferenceComponentSpecificationSchedulingConfigOutput
+	ToInferenceComponentSpecificationSchedulingConfigOutputWithContext(context.Context) InferenceComponentSpecificationSchedulingConfigOutput
+}
+
+type InferenceComponentSpecificationSchedulingConfigArgs struct {
+	// Configuration for balancing copies across Availability Zones. See `availabilityZoneBalance` Block.
+	AvailabilityZoneBalance InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrInput `pulumi:"availabilityZoneBalance"`
+	// Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+	PlacementStrategy pulumi.StringInput `pulumi:"placementStrategy"`
+}
+
+func (InferenceComponentSpecificationSchedulingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfig)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigArgs) ToInferenceComponentSpecificationSchedulingConfigOutput() InferenceComponentSpecificationSchedulingConfigOutput {
+	return i.ToInferenceComponentSpecificationSchedulingConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigArgs) ToInferenceComponentSpecificationSchedulingConfigOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationSchedulingConfigOutput)
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigArgs) ToInferenceComponentSpecificationSchedulingConfigPtrOutput() InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return i.ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigArgs) ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationSchedulingConfigOutput).ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationSchedulingConfigPtrInput is an input type that accepts InferenceComponentSpecificationSchedulingConfigArgs, InferenceComponentSpecificationSchedulingConfigPtr and InferenceComponentSpecificationSchedulingConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationSchedulingConfigPtrInput` via:
+//
+//	        InferenceComponentSpecificationSchedulingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationSchedulingConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationSchedulingConfigPtrOutput() InferenceComponentSpecificationSchedulingConfigPtrOutput
+	ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(context.Context) InferenceComponentSpecificationSchedulingConfigPtrOutput
+}
+
+type inferenceComponentSpecificationSchedulingConfigPtrType InferenceComponentSpecificationSchedulingConfigArgs
+
+func InferenceComponentSpecificationSchedulingConfigPtr(v *InferenceComponentSpecificationSchedulingConfigArgs) InferenceComponentSpecificationSchedulingConfigPtrInput {
+	return (*inferenceComponentSpecificationSchedulingConfigPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationSchedulingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationSchedulingConfig)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationSchedulingConfigPtrType) ToInferenceComponentSpecificationSchedulingConfigPtrOutput() InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return i.ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationSchedulingConfigPtrType) ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationSchedulingConfigPtrOutput)
+}
+
+type InferenceComponentSpecificationSchedulingConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationSchedulingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigOutput) ToInferenceComponentSpecificationSchedulingConfigOutput() InferenceComponentSpecificationSchedulingConfigOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigOutput) ToInferenceComponentSpecificationSchedulingConfigOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigOutput) ToInferenceComponentSpecificationSchedulingConfigPtrOutput() InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return o.ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigOutput) ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationSchedulingConfig) *InferenceComponentSpecificationSchedulingConfig {
+		return &v
+	}).(InferenceComponentSpecificationSchedulingConfigPtrOutput)
+}
+
+// Configuration for balancing copies across Availability Zones. See `availabilityZoneBalance` Block.
+func (o InferenceComponentSpecificationSchedulingConfigOutput) AvailabilityZoneBalance() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationSchedulingConfig) *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance {
+		return v.AvailabilityZoneBalance
+	}).(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput)
+}
+
+// Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+func (o InferenceComponentSpecificationSchedulingConfigOutput) PlacementStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationSchedulingConfig) string { return v.PlacementStrategy }).(pulumi.StringOutput)
+}
+
+type InferenceComponentSpecificationSchedulingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationSchedulingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationSchedulingConfig)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigPtrOutput) ToInferenceComponentSpecificationSchedulingConfigPtrOutput() InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigPtrOutput) ToInferenceComponentSpecificationSchedulingConfigPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigPtrOutput) Elem() InferenceComponentSpecificationSchedulingConfigOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationSchedulingConfig) InferenceComponentSpecificationSchedulingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationSchedulingConfig
+		return ret
+	}).(InferenceComponentSpecificationSchedulingConfigOutput)
+}
+
+// Configuration for balancing copies across Availability Zones. See `availabilityZoneBalance` Block.
+func (o InferenceComponentSpecificationSchedulingConfigPtrOutput) AvailabilityZoneBalance() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationSchedulingConfig) *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZoneBalance
+	}).(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput)
+}
+
+// Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+func (o InferenceComponentSpecificationSchedulingConfigPtrOutput) PlacementStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationSchedulingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PlacementStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance struct {
+	// How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+	EnforcementMode string `pulumi:"enforcementMode"`
+	// Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+	MaxImbalance *int `pulumi:"maxImbalance"`
+}
+
+// InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceInput is an input type that accepts InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs and InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceInput` via:
+//
+//	InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs{...}
+type InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput
+	ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutputWithContext(context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput
+}
+
+type InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs struct {
+	// How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+	EnforcementMode pulumi.StringInput `pulumi:"enforcementMode"`
+	// Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+	MaxImbalance pulumi.IntPtrInput `pulumi:"maxImbalance"`
+}
+
+func (InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput {
+	return i.ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput)
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return i.ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput).ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrInput is an input type that accepts InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs, InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtr and InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrInput` via:
+//
+//	        InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput
+	ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput
+}
+
+type inferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrType InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs
+
+func InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtr(v *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrInput {
+	return (*inferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrType)(v)
+}
+
+func (*inferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrType) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return i.ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrType) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput)
+}
+
+type InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return o.ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance) *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance {
+		return &v
+	}).(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput)
+}
+
+// How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput) EnforcementMode() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance) string {
+		return v.EnforcementMode
+	}).(pulumi.StringOutput)
+}
+
+// Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput) MaxImbalance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance) *int {
+		return v.MaxImbalance
+	}).(pulumi.IntPtrOutput)
+}
+
+type InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput) ToInferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput) Elem() InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance) InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance
+		return ret
+	}).(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput)
+}
+
+// How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EnforcementMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+func (o InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput) MaxImbalance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxImbalance
+	}).(pulumi.IntPtrOutput)
+}
+
+type InferenceComponentSpecificationStartupParameters struct {
+	// Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
+}
+
+// InferenceComponentSpecificationStartupParametersInput is an input type that accepts InferenceComponentSpecificationStartupParametersArgs and InferenceComponentSpecificationStartupParametersOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationStartupParametersInput` via:
+//
+//	InferenceComponentSpecificationStartupParametersArgs{...}
+type InferenceComponentSpecificationStartupParametersInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationStartupParametersOutput() InferenceComponentSpecificationStartupParametersOutput
+	ToInferenceComponentSpecificationStartupParametersOutputWithContext(context.Context) InferenceComponentSpecificationStartupParametersOutput
+}
+
+type InferenceComponentSpecificationStartupParametersArgs struct {
+	// Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
+}
+
+func (InferenceComponentSpecificationStartupParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationStartupParameters)(nil)).Elem()
+}
+
+func (i InferenceComponentSpecificationStartupParametersArgs) ToInferenceComponentSpecificationStartupParametersOutput() InferenceComponentSpecificationStartupParametersOutput {
+	return i.ToInferenceComponentSpecificationStartupParametersOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationStartupParametersArgs) ToInferenceComponentSpecificationStartupParametersOutputWithContext(ctx context.Context) InferenceComponentSpecificationStartupParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationStartupParametersOutput)
+}
+
+func (i InferenceComponentSpecificationStartupParametersArgs) ToInferenceComponentSpecificationStartupParametersPtrOutput() InferenceComponentSpecificationStartupParametersPtrOutput {
+	return i.ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentSpecificationStartupParametersArgs) ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationStartupParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationStartupParametersOutput).ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentSpecificationStartupParametersPtrInput is an input type that accepts InferenceComponentSpecificationStartupParametersArgs, InferenceComponentSpecificationStartupParametersPtr and InferenceComponentSpecificationStartupParametersPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentSpecificationStartupParametersPtrInput` via:
+//
+//	        InferenceComponentSpecificationStartupParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentSpecificationStartupParametersPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentSpecificationStartupParametersPtrOutput() InferenceComponentSpecificationStartupParametersPtrOutput
+	ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(context.Context) InferenceComponentSpecificationStartupParametersPtrOutput
+}
+
+type inferenceComponentSpecificationStartupParametersPtrType InferenceComponentSpecificationStartupParametersArgs
+
+func InferenceComponentSpecificationStartupParametersPtr(v *InferenceComponentSpecificationStartupParametersArgs) InferenceComponentSpecificationStartupParametersPtrInput {
+	return (*inferenceComponentSpecificationStartupParametersPtrType)(v)
+}
+
+func (*inferenceComponentSpecificationStartupParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationStartupParameters)(nil)).Elem()
+}
+
+func (i *inferenceComponentSpecificationStartupParametersPtrType) ToInferenceComponentSpecificationStartupParametersPtrOutput() InferenceComponentSpecificationStartupParametersPtrOutput {
+	return i.ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentSpecificationStartupParametersPtrType) ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationStartupParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentSpecificationStartupParametersPtrOutput)
+}
+
+type InferenceComponentSpecificationStartupParametersOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationStartupParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentSpecificationStartupParameters)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationStartupParametersOutput) ToInferenceComponentSpecificationStartupParametersOutput() InferenceComponentSpecificationStartupParametersOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationStartupParametersOutput) ToInferenceComponentSpecificationStartupParametersOutputWithContext(ctx context.Context) InferenceComponentSpecificationStartupParametersOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationStartupParametersOutput) ToInferenceComponentSpecificationStartupParametersPtrOutput() InferenceComponentSpecificationStartupParametersPtrOutput {
+	return o.ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentSpecificationStartupParametersOutput) ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationStartupParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentSpecificationStartupParameters) *InferenceComponentSpecificationStartupParameters {
+		return &v
+	}).(InferenceComponentSpecificationStartupParametersPtrOutput)
+}
+
+// Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+func (o InferenceComponentSpecificationStartupParametersOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationStartupParameters) *int {
+		return v.ContainerStartupHealthCheckTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+func (o InferenceComponentSpecificationStartupParametersOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecificationStartupParameters) *int {
+		return v.ModelDataDownloadTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type InferenceComponentSpecificationStartupParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentSpecificationStartupParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentSpecificationStartupParameters)(nil)).Elem()
+}
+
+func (o InferenceComponentSpecificationStartupParametersPtrOutput) ToInferenceComponentSpecificationStartupParametersPtrOutput() InferenceComponentSpecificationStartupParametersPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationStartupParametersPtrOutput) ToInferenceComponentSpecificationStartupParametersPtrOutputWithContext(ctx context.Context) InferenceComponentSpecificationStartupParametersPtrOutput {
+	return o
+}
+
+func (o InferenceComponentSpecificationStartupParametersPtrOutput) Elem() InferenceComponentSpecificationStartupParametersOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationStartupParameters) InferenceComponentSpecificationStartupParameters {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentSpecificationStartupParameters
+		return ret
+	}).(InferenceComponentSpecificationStartupParametersOutput)
+}
+
+// Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+func (o InferenceComponentSpecificationStartupParametersPtrOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationStartupParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerStartupHealthCheckTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+func (o InferenceComponentSpecificationStartupParametersPtrOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecificationStartupParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataDownloadTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type InferenceComponentTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// InferenceComponentTimeoutsInput is an input type that accepts InferenceComponentTimeoutsArgs and InferenceComponentTimeoutsOutput values.
+// You can construct a concrete instance of `InferenceComponentTimeoutsInput` via:
+//
+//	InferenceComponentTimeoutsArgs{...}
+type InferenceComponentTimeoutsInput interface {
+	pulumi.Input
+
+	ToInferenceComponentTimeoutsOutput() InferenceComponentTimeoutsOutput
+	ToInferenceComponentTimeoutsOutputWithContext(context.Context) InferenceComponentTimeoutsOutput
+}
+
+type InferenceComponentTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (InferenceComponentTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentTimeouts)(nil)).Elem()
+}
+
+func (i InferenceComponentTimeoutsArgs) ToInferenceComponentTimeoutsOutput() InferenceComponentTimeoutsOutput {
+	return i.ToInferenceComponentTimeoutsOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentTimeoutsArgs) ToInferenceComponentTimeoutsOutputWithContext(ctx context.Context) InferenceComponentTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentTimeoutsOutput)
+}
+
+func (i InferenceComponentTimeoutsArgs) ToInferenceComponentTimeoutsPtrOutput() InferenceComponentTimeoutsPtrOutput {
+	return i.ToInferenceComponentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentTimeoutsArgs) ToInferenceComponentTimeoutsPtrOutputWithContext(ctx context.Context) InferenceComponentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentTimeoutsOutput).ToInferenceComponentTimeoutsPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentTimeoutsPtrInput is an input type that accepts InferenceComponentTimeoutsArgs, InferenceComponentTimeoutsPtr and InferenceComponentTimeoutsPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentTimeoutsPtrInput` via:
+//
+//	        InferenceComponentTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentTimeoutsPtrOutput() InferenceComponentTimeoutsPtrOutput
+	ToInferenceComponentTimeoutsPtrOutputWithContext(context.Context) InferenceComponentTimeoutsPtrOutput
+}
+
+type inferenceComponentTimeoutsPtrType InferenceComponentTimeoutsArgs
+
+func InferenceComponentTimeoutsPtr(v *InferenceComponentTimeoutsArgs) InferenceComponentTimeoutsPtrInput {
+	return (*inferenceComponentTimeoutsPtrType)(v)
+}
+
+func (*inferenceComponentTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentTimeouts)(nil)).Elem()
+}
+
+func (i *inferenceComponentTimeoutsPtrType) ToInferenceComponentTimeoutsPtrOutput() InferenceComponentTimeoutsPtrOutput {
+	return i.ToInferenceComponentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentTimeoutsPtrType) ToInferenceComponentTimeoutsPtrOutputWithContext(ctx context.Context) InferenceComponentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentTimeoutsPtrOutput)
+}
+
+type InferenceComponentTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentTimeouts)(nil)).Elem()
+}
+
+func (o InferenceComponentTimeoutsOutput) ToInferenceComponentTimeoutsOutput() InferenceComponentTimeoutsOutput {
+	return o
+}
+
+func (o InferenceComponentTimeoutsOutput) ToInferenceComponentTimeoutsOutputWithContext(ctx context.Context) InferenceComponentTimeoutsOutput {
+	return o
+}
+
+func (o InferenceComponentTimeoutsOutput) ToInferenceComponentTimeoutsPtrOutput() InferenceComponentTimeoutsPtrOutput {
+	return o.ToInferenceComponentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentTimeoutsOutput) ToInferenceComponentTimeoutsPtrOutputWithContext(ctx context.Context) InferenceComponentTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentTimeouts) *InferenceComponentTimeouts {
+		return &v
+	}).(InferenceComponentTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceComponentTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o InferenceComponentTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceComponentTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentTimeouts)(nil)).Elem()
+}
+
+func (o InferenceComponentTimeoutsPtrOutput) ToInferenceComponentTimeoutsPtrOutput() InferenceComponentTimeoutsPtrOutput {
+	return o
+}
+
+func (o InferenceComponentTimeoutsPtrOutput) ToInferenceComponentTimeoutsPtrOutputWithContext(ctx context.Context) InferenceComponentTimeoutsPtrOutput {
+	return o
+}
+
+func (o InferenceComponentTimeoutsPtrOutput) Elem() InferenceComponentTimeoutsOutput {
+	return o.ApplyT(func(v *InferenceComponentTimeouts) InferenceComponentTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentTimeouts
+		return ret
+	}).(InferenceComponentTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceComponentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o InferenceComponentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceComponentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type LabelingJobHumanTaskConfig struct {
 	// How labels are consolidated across human workers. Fields are documented below.
 	AnnotationConsolidationConfig *LabelingJobHumanTaskConfigAnnotationConsolidationConfig `pulumi:"annotationConsolidationConfig"`
@@ -68698,6 +71739,43 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HyperParameterTuningJobWarmStartConfigPtrInput)(nil)).Elem(), HyperParameterTuningJobWarmStartConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobInput)(nil)).Elem(), HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArrayInput)(nil)).Elem(), HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigInput)(nil)).Elem(), InferenceComponentDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigPtrInput)(nil)).Elem(), InferenceComponentDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfigurationInput)(nil)).Elem(), InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrInput)(nil)).Elem(), InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmInput)(nil)).Elem(), InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayInput)(nil)).Elem(), InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyInput)(nil)).Elem(), InferenceComponentDeploymentConfigRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyPtrInput)(nil)).Elem(), InferenceComponentDeploymentConfigRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput)(nil)).Elem(), InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput)(nil)).Elem(), InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput)(nil)).Elem(), InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput)(nil)).Elem(), InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentRuntimeConfigInput)(nil)).Elem(), InferenceComponentRuntimeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentRuntimeConfigPtrInput)(nil)).Elem(), InferenceComponentRuntimeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentRuntimeConfigPlacementStatusInput)(nil)).Elem(), InferenceComponentRuntimeConfigPlacementStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentRuntimeConfigPlacementStatusArrayInput)(nil)).Elem(), InferenceComponentRuntimeConfigPlacementStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationInput)(nil)).Elem(), InferenceComponentSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationPtrInput)(nil)).Elem(), InferenceComponentSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationArrayInput)(nil)).Elem(), InferenceComponentSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationComputeResourceRequirementsInput)(nil)).Elem(), InferenceComponentSpecificationComputeResourceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationComputeResourceRequirementsPtrInput)(nil)).Elem(), InferenceComponentSpecificationComputeResourceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationContainerInput)(nil)).Elem(), InferenceComponentSpecificationContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationContainerPtrInput)(nil)).Elem(), InferenceComponentSpecificationContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfigInput)(nil)).Elem(), InferenceComponentSpecificationContainerContainerMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfigPtrInput)(nil)).Elem(), InferenceComponentSpecificationContainerContainerMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointInput)(nil)).Elem(), InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrInput)(nil)).Elem(), InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationDataCacheConfigInput)(nil)).Elem(), InferenceComponentSpecificationDataCacheConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationDataCacheConfigPtrInput)(nil)).Elem(), InferenceComponentSpecificationDataCacheConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfigInput)(nil)).Elem(), InferenceComponentSpecificationSchedulingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfigPtrInput)(nil)).Elem(), InferenceComponentSpecificationSchedulingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceInput)(nil)).Elem(), InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrInput)(nil)).Elem(), InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationStartupParametersInput)(nil)).Elem(), InferenceComponentSpecificationStartupParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationStartupParametersPtrInput)(nil)).Elem(), InferenceComponentSpecificationStartupParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentTimeoutsInput)(nil)).Elem(), InferenceComponentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentTimeoutsPtrInput)(nil)).Elem(), InferenceComponentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigInput)(nil)).Elem(), LabelingJobHumanTaskConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigPtrInput)(nil)).Elem(), LabelingJobHumanTaskConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigAnnotationConsolidationConfigInput)(nil)).Elem(), LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs{})
@@ -69516,6 +72594,43 @@ func init() {
 	pulumi.RegisterOutputType(HyperParameterTuningJobWarmStartConfigPtrOutput{})
 	pulumi.RegisterOutputType(HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobOutput{})
 	pulumi.RegisterOutputType(HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArrayOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigAutoRollbackConfigurationOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigAutoRollbackConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigRollingUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigRollingUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput{})
+	pulumi.RegisterOutputType(InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentRuntimeConfigOutput{})
+	pulumi.RegisterOutputType(InferenceComponentRuntimeConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentRuntimeConfigPlacementStatusOutput{})
+	pulumi.RegisterOutputType(InferenceComponentRuntimeConfigPlacementStatusArrayOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationComputeResourceRequirementsOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationComputeResourceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationContainerOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationContainerPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationContainerContainerMetricsConfigOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationContainerContainerMetricsConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationDataCacheConfigOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationDataCacheConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationSchedulingConfigOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationSchedulingConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalancePtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationStartupParametersOutput{})
+	pulumi.RegisterOutputType(InferenceComponentSpecificationStartupParametersPtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentTimeoutsOutput{})
+	pulumi.RegisterOutputType(InferenceComponentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigOutput{})
 	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigPtrOutput{})
 	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput{})

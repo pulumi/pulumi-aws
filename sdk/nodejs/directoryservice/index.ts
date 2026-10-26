@@ -15,6 +15,11 @@ export type Directory = import("./directory").Directory;
 export const Directory: typeof import("./directory").Directory = null as any;
 utilities.lazyLoad(exports, ["Directory"], () => require("./directory"));
 
+export { DirectorySettingArgs, DirectorySettingState } from "./directorySetting";
+export type DirectorySetting = import("./directorySetting").DirectorySetting;
+export const DirectorySetting: typeof import("./directorySetting").DirectorySetting = null as any;
+utilities.lazyLoad(exports, ["DirectorySetting"], () => require("./directorySetting"));
+
 export { GetDirectoryArgs, GetDirectoryResult, GetDirectoryOutputArgs } from "./getDirectory";
 export const getDirectory: typeof import("./getDirectory").getDirectory = null as any;
 export const getDirectoryOutput: typeof import("./getDirectory").getDirectoryOutput = null as any;
@@ -69,6 +74,8 @@ const _module = {
                 return new ConditionalForwarder(name, <any>undefined, { urn })
             case "aws:directoryservice/directory:Directory":
                 return new Directory(name, <any>undefined, { urn })
+            case "aws:directoryservice/directorySetting:DirectorySetting":
+                return new DirectorySetting(name, <any>undefined, { urn })
             case "aws:directoryservice/ipRoute:IpRoute":
                 return new IpRoute(name, <any>undefined, { urn })
             case "aws:directoryservice/ipRoutesExclusive:IpRoutesExclusive":
@@ -92,6 +99,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "directoryservice/conditionalForwarder", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/directory", _module)
+pulumi.runtime.registerResourceModule("aws", "directoryservice/directorySetting", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/ipRoute", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/ipRoutesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/logSubscription", _module)

@@ -94,10 +94,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
+ * Using `pulumi import`, import delegation signer records using the domain name, flags, algorithm, and public key separated by a comma (`,`). For example:
  *
  * ```sh
- * $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
+ * $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,257,13,M1jizbcdK5IBt7d4lRIiFTx+N06BJzaeScK215EOfa8efd2akkUWmxD5OhodZCIiRMvL5ZnStUP5UReIeUmBeA==
  * ```
  */
 export class DelegationSignerRecord extends pulumi.CustomResource {
@@ -139,7 +139,7 @@ export class DelegationSignerRecord extends pulumi.CustomResource {
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    declare public readonly signingAttributes: pulumi.Output<outputs.route53domains.DelegationSignerRecordSigningAttributes | undefined>;
+    declare public readonly signingAttributes: pulumi.Output<outputs.route53domains.DelegationSignerRecordSigningAttributes>;
     declare public readonly timeouts: pulumi.Output<outputs.route53domains.DelegationSignerRecordTimeouts | undefined>;
 
     /**
@@ -163,6 +163,9 @@ export class DelegationSignerRecord extends pulumi.CustomResource {
             const args = argsOrState as DelegationSignerRecordArgs | undefined;
             if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
+            }
+            if (args?.signingAttributes === undefined && !opts.urn) {
+                throw new Error("Missing required property 'signingAttributes'");
             }
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["signingAttributes"] = args?.signingAttributes;
@@ -204,6 +207,6 @@ export interface DelegationSignerRecordArgs {
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    signingAttributes?: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes | undefined>;
+    signingAttributes: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes>;
     timeouts?: pulumi.Input<inputs.route53domains.DelegationSignerRecordTimeouts | undefined>;
 }

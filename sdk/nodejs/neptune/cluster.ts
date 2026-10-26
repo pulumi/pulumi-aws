@@ -171,6 +171,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly neptuneSubnetGroupName: pulumi.Output<string>;
     /**
+     * Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+     */
+    declare public readonly networkType: pulumi.Output<string>;
+    /**
      * Port on which the Neptune accepts connections. Default is `8182`.
      */
     declare public readonly port: pulumi.Output<number | undefined>;
@@ -264,6 +268,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["neptuneClusterParameterGroupName"] = state?.neptuneClusterParameterGroupName;
             resourceInputs["neptuneInstanceParameterGroupName"] = state?.neptuneInstanceParameterGroupName;
             resourceInputs["neptuneSubnetGroupName"] = state?.neptuneSubnetGroupName;
+            resourceInputs["networkType"] = state?.networkType;
             resourceInputs["port"] = state?.port;
             resourceInputs["preferredBackupWindow"] = state?.preferredBackupWindow;
             resourceInputs["preferredMaintenanceWindow"] = state?.preferredMaintenanceWindow;
@@ -299,6 +304,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["neptuneClusterParameterGroupName"] = args?.neptuneClusterParameterGroupName;
             resourceInputs["neptuneInstanceParameterGroupName"] = args?.neptuneInstanceParameterGroupName;
             resourceInputs["neptuneSubnetGroupName"] = args?.neptuneSubnetGroupName;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["port"] = args?.port;
             resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
             resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
@@ -424,6 +430,10 @@ export interface ClusterState {
      * Neptune subnet group to associate with this Neptune instance.
      */
     neptuneSubnetGroupName?: pulumi.Input<string | undefined>;
+    /**
+     * Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * Port on which the Neptune accepts connections. Default is `8182`.
      */
@@ -562,6 +572,10 @@ export interface ClusterArgs {
      * Neptune subnet group to associate with this Neptune instance.
      */
     neptuneSubnetGroupName?: pulumi.Input<string | undefined>;
+    /**
+     * Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * Port on which the Neptune accepts connections. Default is `8182`.
      */

@@ -1179,6 +1179,10 @@ __all__ = [
     'CustomModelValidationMetricArgsDict',
     'CustomModelVpcConfigArgs',
     'CustomModelVpcConfigArgsDict',
+    'EnforcedGuardrailConfigurationModelEnforcementArgs',
+    'EnforcedGuardrailConfigurationModelEnforcementArgsDict',
+    'EnforcedGuardrailConfigurationSelectiveContentGuardingArgs',
+    'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict',
     'EvaluationJobEvaluationConfigArgs',
     'EvaluationJobEvaluationConfigArgsDict',
     'EvaluationJobEvaluationConfigAutomatedArgs',
@@ -35333,6 +35337,102 @@ class CustomModelVpcConfigArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "subnet_ids", value)
+
+
+class EnforcedGuardrailConfigurationModelEnforcementArgsDict(TypedDict):
+    excluded_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of models to exclude from enforcement of the guardrail.
+    """
+    included_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+    """
+
+@pulumi.input_type
+class EnforcedGuardrailConfigurationModelEnforcementArgs:
+    def __init__(__self__, *,
+                 excluded_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 included_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_models: List of models to exclude from enforcement of the guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_models: List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+        """
+        pulumi.set(__self__, "excluded_models", excluded_models)
+        pulumi.set(__self__, "included_models", included_models)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedModels")
+    def excluded_models(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of models to exclude from enforcement of the guardrail.
+        """
+        return pulumi.get(self, "excluded_models")
+
+    @excluded_models.setter
+    def excluded_models(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "excluded_models", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includedModels")
+    def included_models(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+        """
+        return pulumi.get(self, "included_models")
+
+    @included_models.setter
+    def included_models(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "included_models", value)
+
+
+class EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict(TypedDict):
+    messages: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+    """
+    system: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+    """
+
+@pulumi.input_type
+class EnforcedGuardrailConfigurationSelectiveContentGuardingArgs:
+    def __init__(__self__, *,
+                 messages: pulumi.Input[Optional[_builtins.str]] = None,
+                 system: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] messages: Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        :param pulumi.Input[_builtins.str] system: Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        """
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
+
+    @_builtins.property
+    @pulumi.getter
+    def messages(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        """
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "messages", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "system", value)
 
 
 class EvaluationJobEvaluationConfigArgsDict(TypedDict):

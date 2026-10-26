@@ -479,6 +479,42 @@ __all__ = [
     'HyperParameterTuningJobWarmStartConfigArgsDict',
     'HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArgs',
     'HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArgsDict',
+    'InferenceComponentDeploymentConfigArgs',
+    'InferenceComponentDeploymentConfigArgsDict',
+    'InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs',
+    'InferenceComponentDeploymentConfigAutoRollbackConfigurationArgsDict',
+    'InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs',
+    'InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgsDict',
+    'InferenceComponentDeploymentConfigRollingUpdatePolicyArgs',
+    'InferenceComponentDeploymentConfigRollingUpdatePolicyArgsDict',
+    'InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs',
+    'InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgsDict',
+    'InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs',
+    'InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgsDict',
+    'InferenceComponentRuntimeConfigArgs',
+    'InferenceComponentRuntimeConfigArgsDict',
+    'InferenceComponentRuntimeConfigPlacementStatusArgs',
+    'InferenceComponentRuntimeConfigPlacementStatusArgsDict',
+    'InferenceComponentSpecificationArgs',
+    'InferenceComponentSpecificationArgsDict',
+    'InferenceComponentSpecificationComputeResourceRequirementsArgs',
+    'InferenceComponentSpecificationComputeResourceRequirementsArgsDict',
+    'InferenceComponentSpecificationContainerArgs',
+    'InferenceComponentSpecificationContainerArgsDict',
+    'InferenceComponentSpecificationContainerContainerMetricsConfigArgs',
+    'InferenceComponentSpecificationContainerContainerMetricsConfigArgsDict',
+    'InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs',
+    'InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgsDict',
+    'InferenceComponentSpecificationDataCacheConfigArgs',
+    'InferenceComponentSpecificationDataCacheConfigArgsDict',
+    'InferenceComponentSpecificationSchedulingConfigArgs',
+    'InferenceComponentSpecificationSchedulingConfigArgsDict',
+    'InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs',
+    'InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgsDict',
+    'InferenceComponentSpecificationStartupParametersArgs',
+    'InferenceComponentSpecificationStartupParametersArgsDict',
+    'InferenceComponentTimeoutsArgs',
+    'InferenceComponentTimeoutsArgsDict',
     'LabelingJobHumanTaskConfigArgs',
     'LabelingJobHumanTaskConfigArgsDict',
     'LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs',
@@ -17245,6 +17281,1112 @@ class HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+
+class InferenceComponentDeploymentConfigArgsDict(TypedDict):
+    rolling_update_policy: pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyArgsDict']
+    """
+    Rolling deployment strategy. See `rolling_update_policy` Block.
+    """
+    auto_rollback_configuration: NotRequired[pulumi.Input[Optional['InferenceComponentDeploymentConfigAutoRollbackConfigurationArgsDict']]]
+    """
+    Automatic rollback configuration. See `auto_rollback_configuration` Block.
+    """
+
+@pulumi.input_type
+class InferenceComponentDeploymentConfigArgs:
+    def __init__(__self__, *,
+                 rolling_update_policy: pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyArgs'],
+                 auto_rollback_configuration: pulumi.Input[Optional['InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyArgs'] rolling_update_policy: Rolling deployment strategy. See `rolling_update_policy` Block.
+        :param pulumi.Input['InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs'] auto_rollback_configuration: Automatic rollback configuration. See `auto_rollback_configuration` Block.
+        """
+        pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyArgs']:
+        """
+        Rolling deployment strategy. See `rolling_update_policy` Block.
+        """
+        return pulumi.get(self, "rolling_update_policy")
+
+    @rolling_update_policy.setter
+    def rolling_update_policy(self, value: pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyArgs']):
+        pulumi.set(self, "rolling_update_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> pulumi.Input[Optional['InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs']]:
+        """
+        Automatic rollback configuration. See `auto_rollback_configuration` Block.
+        """
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @auto_rollback_configuration.setter
+    def auto_rollback_configuration(self, value: pulumi.Input[Optional['InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs']]):
+        pulumi.set(self, "auto_rollback_configuration", value)
+
+
+class InferenceComponentDeploymentConfigAutoRollbackConfigurationArgsDict(TypedDict):
+    alarms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgsDict']]]]]
+    """
+    List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+    """
+
+@pulumi.input_type
+class InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs:
+    def __init__(__self__, *,
+                 alarms: pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs']]] alarms: List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+        """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+
+    @_builtins.property
+    @pulumi.getter
+    def alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs']]]]:
+        """
+        List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+        """
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs']]]]):
+        pulumi.set(self, "alarms", value)
+
+
+class InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgsDict(TypedDict):
+    alarm_name: pulumi.Input[_builtins.str]
+    """
+    Name of a CloudWatch alarm.
+    """
+
+@pulumi.input_type
+class InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs:
+    def __init__(__self__, *,
+                 alarm_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] alarm_name: Name of a CloudWatch alarm.
+        """
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of a CloudWatch alarm.
+        """
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "alarm_name", value)
+
+
+class InferenceComponentDeploymentConfigRollingUpdatePolicyArgsDict(TypedDict):
+    maximum_batch_size: pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgsDict']
+    """
+    Batch size for each rolling step. See `maximum_batch_size` and `rollback_maximum_batch_size` Block.
+    """
+    wait_interval_in_seconds: pulumi.Input[_builtins.int]
+    """
+    Length of the baking period in seconds. Valid values: `0`-`3600`.
+    """
+    maximum_execution_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Time limit for the total deployment. Valid values are between `600` and `28800`.
+    """
+    rollback_maximum_batch_size: NotRequired[pulumi.Input[Optional['InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgsDict']]]
+    """
+    Batch size for a rollback. See `maximum_batch_size` and `rollback_maximum_batch_size` Block.
+    """
+
+@pulumi.input_type
+class InferenceComponentDeploymentConfigRollingUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 maximum_batch_size: pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs'],
+                 wait_interval_in_seconds: pulumi.Input[_builtins.int],
+                 maximum_execution_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 rollback_maximum_batch_size: pulumi.Input[Optional['InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']] = None):
+        """
+        :param pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs'] maximum_batch_size: Batch size for each rolling step. See `maximum_batch_size` and `rollback_maximum_batch_size` Block.
+        :param pulumi.Input[_builtins.int] wait_interval_in_seconds: Length of the baking period in seconds. Valid values: `0`-`3600`.
+        :param pulumi.Input[_builtins.int] maximum_execution_timeout_in_seconds: Time limit for the total deployment. Valid values are between `600` and `28800`.
+        :param pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs'] rollback_maximum_batch_size: Batch size for a rollback. See `maximum_batch_size` and `rollback_maximum_batch_size` Block.
+        """
+        pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs']:
+        """
+        Batch size for each rolling step. See `maximum_batch_size` and `rollback_maximum_batch_size` Block.
+        """
+        return pulumi.get(self, "maximum_batch_size")
+
+    @maximum_batch_size.setter
+    def maximum_batch_size(self, value: pulumi.Input['InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs']):
+        pulumi.set(self, "maximum_batch_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        Length of the baking period in seconds. Valid values: `0`-`3600`.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Time limit for the total deployment. Valid values are between `600` and `28800`.
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> pulumi.Input[Optional['InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']]:
+        """
+        Batch size for a rollback. See `maximum_batch_size` and `rollback_maximum_batch_size` Block.
+        """
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+    @rollback_maximum_batch_size.setter
+    def rollback_maximum_batch_size(self, value: pulumi.Input[Optional['InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']]):
+        pulumi.set(self, "rollback_maximum_batch_size", value)
+
+
+class InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Capacity size value.
+    """
+
+@pulumi.input_type
+class InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] type: Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+        :param pulumi.Input[_builtins.int] value: Capacity size value.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        Capacity size value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
+
+
+class InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Capacity size value.
+    """
+
+@pulumi.input_type
+class InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] type: Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+        :param pulumi.Input[_builtins.int] value: Capacity size value.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        Capacity size value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
+
+
+class InferenceComponentRuntimeConfigArgsDict(TypedDict):
+    copy_count: pulumi.Input[_builtins.int]
+    """
+    Number of runtime copies of the model container to deploy.
+    """
+    current_copy_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of copies placed on this instance type.
+    """
+    desired_copy_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of runtime copies requested.
+    """
+    placement_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentRuntimeConfigPlacementStatusArgsDict']]]]]
+    """
+    Placement status of the inference component copies across instance types. See below.
+    """
+
+@pulumi.input_type
+class InferenceComponentRuntimeConfigArgs:
+    def __init__(__self__, *,
+                 copy_count: pulumi.Input[_builtins.int],
+                 current_copy_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_copy_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 placement_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentRuntimeConfigPlacementStatusArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] copy_count: Number of runtime copies of the model container to deploy.
+        :param pulumi.Input[_builtins.int] current_copy_count: Number of copies placed on this instance type.
+        :param pulumi.Input[_builtins.int] desired_copy_count: Number of runtime copies requested.
+        :param pulumi.Input[Sequence[pulumi.Input['InferenceComponentRuntimeConfigPlacementStatusArgs']]] placement_statuses: Placement status of the inference component copies across instance types. See below.
+        """
+        pulumi.set(__self__, "copy_count", copy_count)
+        if current_copy_count is not None:
+            pulumi.set(__self__, "current_copy_count", current_copy_count)
+        if desired_copy_count is not None:
+            pulumi.set(__self__, "desired_copy_count", desired_copy_count)
+        if placement_statuses is not None:
+            pulumi.set(__self__, "placement_statuses", placement_statuses)
+
+    @_builtins.property
+    @pulumi.getter(name="copyCount")
+    def copy_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of runtime copies of the model container to deploy.
+        """
+        return pulumi.get(self, "copy_count")
+
+    @copy_count.setter
+    def copy_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "copy_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currentCopyCount")
+    def current_copy_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of copies placed on this instance type.
+        """
+        return pulumi.get(self, "current_copy_count")
+
+    @current_copy_count.setter
+    def current_copy_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "current_copy_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredCopyCount")
+    def desired_copy_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of runtime copies requested.
+        """
+        return pulumi.get(self, "desired_copy_count")
+
+    @desired_copy_count.setter
+    def desired_copy_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "desired_copy_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementStatuses")
+    def placement_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentRuntimeConfigPlacementStatusArgs']]]]:
+        """
+        Placement status of the inference component copies across instance types. See below.
+        """
+        return pulumi.get(self, "placement_statuses")
+
+    @placement_statuses.setter
+    def placement_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InferenceComponentRuntimeConfigPlacementStatusArgs']]]]):
+        pulumi.set(self, "placement_statuses", value)
+
+
+class InferenceComponentRuntimeConfigPlacementStatusArgsDict(TypedDict):
+    current_copy_count: pulumi.Input[_builtins.int]
+    """
+    Number of copies placed on this instance type.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Instance type on which the copies are placed.
+    """
+
+@pulumi.input_type
+class InferenceComponentRuntimeConfigPlacementStatusArgs:
+    def __init__(__self__, *,
+                 current_copy_count: pulumi.Input[_builtins.int],
+                 instance_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] current_copy_count: Number of copies placed on this instance type.
+        :param pulumi.Input[_builtins.str] instance_type: Instance type on which the copies are placed.
+        """
+        pulumi.set(__self__, "current_copy_count", current_copy_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+
+    @_builtins.property
+    @pulumi.getter(name="currentCopyCount")
+    def current_copy_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of copies placed on this instance type.
+        """
+        return pulumi.get(self, "current_copy_count")
+
+    @current_copy_count.setter
+    def current_copy_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "current_copy_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Instance type on which the copies are placed.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_type", value)
+
+
+class InferenceComponentSpecificationArgsDict(TypedDict):
+    base_inference_component_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+    """
+    compute_resource_requirements: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationComputeResourceRequirementsArgsDict']]]
+    """
+    Compute resources allocated to run a model. See `compute_resource_requirements` Block.
+    """
+    container: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationContainerArgsDict']]]
+    """
+    Container that provides the runtime environment for a model. See `container` Block.
+    """
+    data_cache_config: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationDataCacheConfigArgsDict']]]
+    """
+    Settings that affect how the inference component caches data. See `data_cache_config` Block.
+    """
+    instance_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Instance type on which the copies are placed.
+    """
+    model_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+    """
+    scheduling_config: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigArgsDict']]]
+    """
+    Scheduling configuration for placing inference component copies. See `scheduling_config` Block.
+    """
+    startup_parameters: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationStartupParametersArgsDict']]]
+    """
+    Settings that take effect while the model container starts up. See `startup_parameters` Block.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationArgs:
+    def __init__(__self__, *,
+                 base_inference_component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_resource_requirements: pulumi.Input[Optional['InferenceComponentSpecificationComputeResourceRequirementsArgs']] = None,
+                 container: pulumi.Input[Optional['InferenceComponentSpecificationContainerArgs']] = None,
+                 data_cache_config: pulumi.Input[Optional['InferenceComponentSpecificationDataCacheConfigArgs']] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduling_config: pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigArgs']] = None,
+                 startup_parameters: pulumi.Input[Optional['InferenceComponentSpecificationStartupParametersArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] base_inference_component_name: Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+        :param pulumi.Input['InferenceComponentSpecificationComputeResourceRequirementsArgs'] compute_resource_requirements: Compute resources allocated to run a model. See `compute_resource_requirements` Block.
+        :param pulumi.Input['InferenceComponentSpecificationContainerArgs'] container: Container that provides the runtime environment for a model. See `container` Block.
+        :param pulumi.Input['InferenceComponentSpecificationDataCacheConfigArgs'] data_cache_config: Settings that affect how the inference component caches data. See `data_cache_config` Block.
+        :param pulumi.Input[_builtins.str] instance_type: Instance type on which the copies are placed.
+        :param pulumi.Input[_builtins.str] model_name: Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+        :param pulumi.Input['InferenceComponentSpecificationSchedulingConfigArgs'] scheduling_config: Scheduling configuration for placing inference component copies. See `scheduling_config` Block.
+        :param pulumi.Input['InferenceComponentSpecificationStartupParametersArgs'] startup_parameters: Settings that take effect while the model container starts up. See `startup_parameters` Block.
+        """
+        if base_inference_component_name is not None:
+            pulumi.set(__self__, "base_inference_component_name", base_inference_component_name)
+        if compute_resource_requirements is not None:
+            pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if data_cache_config is not None:
+            pulumi.set(__self__, "data_cache_config", data_cache_config)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if scheduling_config is not None:
+            pulumi.set(__self__, "scheduling_config", scheduling_config)
+        if startup_parameters is not None:
+            pulumi.set(__self__, "startup_parameters", startup_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="baseInferenceComponentName")
+    def base_inference_component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+        """
+        return pulumi.get(self, "base_inference_component_name")
+
+    @base_inference_component_name.setter
+    def base_inference_component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "base_inference_component_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="computeResourceRequirements")
+    def compute_resource_requirements(self) -> pulumi.Input[Optional['InferenceComponentSpecificationComputeResourceRequirementsArgs']]:
+        """
+        Compute resources allocated to run a model. See `compute_resource_requirements` Block.
+        """
+        return pulumi.get(self, "compute_resource_requirements")
+
+    @compute_resource_requirements.setter
+    def compute_resource_requirements(self, value: pulumi.Input[Optional['InferenceComponentSpecificationComputeResourceRequirementsArgs']]):
+        pulumi.set(self, "compute_resource_requirements", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def container(self) -> pulumi.Input[Optional['InferenceComponentSpecificationContainerArgs']]:
+        """
+        Container that provides the runtime environment for a model. See `container` Block.
+        """
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: pulumi.Input[Optional['InferenceComponentSpecificationContainerArgs']]):
+        pulumi.set(self, "container", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataCacheConfig")
+    def data_cache_config(self) -> pulumi.Input[Optional['InferenceComponentSpecificationDataCacheConfigArgs']]:
+        """
+        Settings that affect how the inference component caches data. See `data_cache_config` Block.
+        """
+        return pulumi.get(self, "data_cache_config")
+
+    @data_cache_config.setter
+    def data_cache_config(self, value: pulumi.Input[Optional['InferenceComponentSpecificationDataCacheConfigArgs']]):
+        pulumi.set(self, "data_cache_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Instance type on which the copies are placed.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+        """
+        return pulumi.get(self, "model_name")
+
+    @model_name.setter
+    def model_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "model_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schedulingConfig")
+    def scheduling_config(self) -> pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigArgs']]:
+        """
+        Scheduling configuration for placing inference component copies. See `scheduling_config` Block.
+        """
+        return pulumi.get(self, "scheduling_config")
+
+    @scheduling_config.setter
+    def scheduling_config(self, value: pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigArgs']]):
+        pulumi.set(self, "scheduling_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startupParameters")
+    def startup_parameters(self) -> pulumi.Input[Optional['InferenceComponentSpecificationStartupParametersArgs']]:
+        """
+        Settings that take effect while the model container starts up. See `startup_parameters` Block.
+        """
+        return pulumi.get(self, "startup_parameters")
+
+    @startup_parameters.setter
+    def startup_parameters(self, value: pulumi.Input[Optional['InferenceComponentSpecificationStartupParametersArgs']]):
+        pulumi.set(self, "startup_parameters", value)
+
+
+class InferenceComponentSpecificationComputeResourceRequirementsArgsDict(TypedDict):
+    min_memory_required_in_mb: pulumi.Input[_builtins.int]
+    """
+    Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+    """
+    max_memory_required_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+    """
+    number_of_accelerator_devices_required: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+    """
+    number_of_cpu_cores_required: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Number of CPU cores to allocate. Minimum value of `0.25`.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationComputeResourceRequirementsArgs:
+    def __init__(__self__, *,
+                 min_memory_required_in_mb: pulumi.Input[_builtins.int],
+                 max_memory_required_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_accelerator_devices_required: pulumi.Input[Optional[_builtins.float]] = None,
+                 number_of_cpu_cores_required: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.int] min_memory_required_in_mb: Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+        :param pulumi.Input[_builtins.int] max_memory_required_in_mb: Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+        :param pulumi.Input[_builtins.float] number_of_accelerator_devices_required: Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+        :param pulumi.Input[_builtins.float] number_of_cpu_cores_required: Number of CPU cores to allocate. Minimum value of `0.25`.
+        """
+        pulumi.set(__self__, "min_memory_required_in_mb", min_memory_required_in_mb)
+        if max_memory_required_in_mb is not None:
+            pulumi.set(__self__, "max_memory_required_in_mb", max_memory_required_in_mb)
+        if number_of_accelerator_devices_required is not None:
+            pulumi.set(__self__, "number_of_accelerator_devices_required", number_of_accelerator_devices_required)
+        if number_of_cpu_cores_required is not None:
+            pulumi.set(__self__, "number_of_cpu_cores_required", number_of_cpu_cores_required)
+
+    @_builtins.property
+    @pulumi.getter(name="minMemoryRequiredInMb")
+    def min_memory_required_in_mb(self) -> pulumi.Input[_builtins.int]:
+        """
+        Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+        """
+        return pulumi.get(self, "min_memory_required_in_mb")
+
+    @min_memory_required_in_mb.setter
+    def min_memory_required_in_mb(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "min_memory_required_in_mb", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxMemoryRequiredInMb")
+    def max_memory_required_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+        """
+        return pulumi.get(self, "max_memory_required_in_mb")
+
+    @max_memory_required_in_mb.setter
+    def max_memory_required_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_memory_required_in_mb", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfAcceleratorDevicesRequired")
+    def number_of_accelerator_devices_required(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+        """
+        return pulumi.get(self, "number_of_accelerator_devices_required")
+
+    @number_of_accelerator_devices_required.setter
+    def number_of_accelerator_devices_required(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "number_of_accelerator_devices_required", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfCpuCoresRequired")
+    def number_of_cpu_cores_required(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Number of CPU cores to allocate. Minimum value of `0.25`.
+        """
+        return pulumi.get(self, "number_of_cpu_cores_required")
+
+    @number_of_cpu_cores_required.setter
+    def number_of_cpu_cores_required(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "number_of_cpu_cores_required", value)
+
+
+class InferenceComponentSpecificationContainerArgsDict(TypedDict):
+    artifact_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Amazon S3 path where the model artifacts are stored (.tar.gz).
+    """
+    container_metrics_config: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigArgsDict']]]
+    """
+    Configuration for container metrics scraping. See `container_metrics_config` Block.
+    """
+    environment: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Environment variables to set in the Docker container.
+    """
+    image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Amazon ECR path where the Docker image for the model is stored.
+    """
+    resolved_image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specific digest path of the container image that was resolved and deployed.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationContainerArgs:
+    def __init__(__self__, *,
+                 artifact_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_metrics_config: pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigArgs']] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolved_image: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] artifact_url: Amazon S3 path where the model artifacts are stored (.tar.gz).
+        :param pulumi.Input['InferenceComponentSpecificationContainerContainerMetricsConfigArgs'] container_metrics_config: Configuration for container metrics scraping. See `container_metrics_config` Block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment: Environment variables to set in the Docker container.
+        :param pulumi.Input[_builtins.str] image: Amazon ECR path where the Docker image for the model is stored.
+        :param pulumi.Input[_builtins.str] resolved_image: Specific digest path of the container image that was resolved and deployed.
+        """
+        if artifact_url is not None:
+            pulumi.set(__self__, "artifact_url", artifact_url)
+        if container_metrics_config is not None:
+            pulumi.set(__self__, "container_metrics_config", container_metrics_config)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if resolved_image is not None:
+            pulumi.set(__self__, "resolved_image", resolved_image)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactUrl")
+    def artifact_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Amazon S3 path where the model artifacts are stored (.tar.gz).
+        """
+        return pulumi.get(self, "artifact_url")
+
+    @artifact_url.setter
+    def artifact_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "artifact_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerMetricsConfig")
+    def container_metrics_config(self) -> pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigArgs']]:
+        """
+        Configuration for container metrics scraping. See `container_metrics_config` Block.
+        """
+        return pulumi.get(self, "container_metrics_config")
+
+    @container_metrics_config.setter
+    def container_metrics_config(self, value: pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigArgs']]):
+        pulumi.set(self, "container_metrics_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Environment variables to set in the Docker container.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "environment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Amazon ECR path where the Docker image for the model is stored.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resolvedImage")
+    def resolved_image(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specific digest path of the container image that was resolved and deployed.
+        """
+        return pulumi.get(self, "resolved_image")
+
+    @resolved_image.setter
+    def resolved_image(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resolved_image", value)
+
+
+class InferenceComponentSpecificationContainerContainerMetricsConfigArgsDict(TypedDict):
+    metrics_endpoint: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgsDict']]]
+    """
+    Metrics endpoint configuration. See `metrics_endpoint` Block.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationContainerContainerMetricsConfigArgs:
+    def __init__(__self__, *,
+                 metrics_endpoint: pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs']] = None):
+        """
+        :param pulumi.Input['InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs'] metrics_endpoint: Metrics endpoint configuration. See `metrics_endpoint` Block.
+        """
+        if metrics_endpoint is not None:
+            pulumi.set(__self__, "metrics_endpoint", metrics_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsEndpoint")
+    def metrics_endpoint(self) -> pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs']]:
+        """
+        Metrics endpoint configuration. See `metrics_endpoint` Block.
+        """
+        return pulumi.get(self, "metrics_endpoint")
+
+    @metrics_endpoint.setter
+    def metrics_endpoint(self, value: pulumi.Input[Optional['InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs']]):
+        pulumi.set(self, "metrics_endpoint", value)
+
+
+class InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgsDict(TypedDict):
+    metrics_endpoint_path: pulumi.Input[_builtins.str]
+    """
+    Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+    """
+    metric_publish_frequency_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpointArgs:
+    def __init__(__self__, *,
+                 metrics_endpoint_path: pulumi.Input[_builtins.str],
+                 metric_publish_frequency_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] metrics_endpoint_path: Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+        :param pulumi.Input[_builtins.int] metric_publish_frequency_in_seconds: Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+        """
+        pulumi.set(__self__, "metrics_endpoint_path", metrics_endpoint_path)
+        if metric_publish_frequency_in_seconds is not None:
+            pulumi.set(__self__, "metric_publish_frequency_in_seconds", metric_publish_frequency_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsEndpointPath")
+    def metrics_endpoint_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+        """
+        return pulumi.get(self, "metrics_endpoint_path")
+
+    @metrics_endpoint_path.setter
+    def metrics_endpoint_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metrics_endpoint_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricPublishFrequencyInSeconds")
+    def metric_publish_frequency_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+        """
+        return pulumi.get(self, "metric_publish_frequency_in_seconds")
+
+    @metric_publish_frequency_in_seconds.setter
+    def metric_publish_frequency_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "metric_publish_frequency_in_seconds", value)
+
+
+class InferenceComponentSpecificationDataCacheConfigArgsDict(TypedDict):
+    enable_caching: pulumi.Input[_builtins.bool]
+    """
+    Whether the endpoint caches model artifacts and container images.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationDataCacheConfigArgs:
+    def __init__(__self__, *,
+                 enable_caching: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enable_caching: Whether the endpoint caches model artifacts and container images.
+        """
+        pulumi.set(__self__, "enable_caching", enable_caching)
+
+    @_builtins.property
+    @pulumi.getter(name="enableCaching")
+    def enable_caching(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the endpoint caches model artifacts and container images.
+        """
+        return pulumi.get(self, "enable_caching")
+
+    @enable_caching.setter
+    def enable_caching(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enable_caching", value)
+
+
+class InferenceComponentSpecificationSchedulingConfigArgsDict(TypedDict):
+    placement_strategy: pulumi.Input[_builtins.str]
+    """
+    Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+    """
+    availability_zone_balance: NotRequired[pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgsDict']]]
+    """
+    Configuration for balancing copies across Availability Zones. See `availability_zone_balance` Block.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationSchedulingConfigArgs:
+    def __init__(__self__, *,
+                 placement_strategy: pulumi.Input[_builtins.str],
+                 availability_zone_balance: pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] placement_strategy: Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+        :param pulumi.Input['InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs'] availability_zone_balance: Configuration for balancing copies across Availability Zones. See `availability_zone_balance` Block.
+        """
+        pulumi.set(__self__, "placement_strategy", placement_strategy)
+        if availability_zone_balance is not None:
+            pulumi.set(__self__, "availability_zone_balance", availability_zone_balance)
+
+    @_builtins.property
+    @pulumi.getter(name="placementStrategy")
+    def placement_strategy(self) -> pulumi.Input[_builtins.str]:
+        """
+        Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+        """
+        return pulumi.get(self, "placement_strategy")
+
+    @placement_strategy.setter
+    def placement_strategy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "placement_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneBalance")
+    def availability_zone_balance(self) -> pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs']]:
+        """
+        Configuration for balancing copies across Availability Zones. See `availability_zone_balance` Block.
+        """
+        return pulumi.get(self, "availability_zone_balance")
+
+    @availability_zone_balance.setter
+    def availability_zone_balance(self, value: pulumi.Input[Optional['InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs']]):
+        pulumi.set(self, "availability_zone_balance", value)
+
+
+class InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgsDict(TypedDict):
+    enforcement_mode: pulumi.Input[_builtins.str]
+    """
+    How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+    """
+    max_imbalance: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalanceArgs:
+    def __init__(__self__, *,
+                 enforcement_mode: pulumi.Input[_builtins.str],
+                 max_imbalance: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] enforcement_mode: How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+        :param pulumi.Input[_builtins.int] max_imbalance: Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+        """
+        pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if max_imbalance is not None:
+            pulumi.set(__self__, "max_imbalance", max_imbalance)
+
+    @_builtins.property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+        """
+        return pulumi.get(self, "enforcement_mode")
+
+    @enforcement_mode.setter
+    def enforcement_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "enforcement_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxImbalance")
+    def max_imbalance(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+        """
+        return pulumi.get(self, "max_imbalance")
+
+    @max_imbalance.setter
+    def max_imbalance(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_imbalance", value)
+
+
+class InferenceComponentSpecificationStartupParametersArgsDict(TypedDict):
+    container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+    """
+    model_data_download_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+    """
+
+@pulumi.input_type
+class InferenceComponentSpecificationStartupParametersArgs:
+    def __init__(__self__, *,
+                 container_startup_health_check_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 model_data_download_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] container_startup_health_check_timeout_in_seconds: Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+        :param pulumi.Input[_builtins.int] model_data_download_timeout_in_seconds: Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+        """
+        if container_startup_health_check_timeout_in_seconds is not None:
+            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+        if model_data_download_timeout_in_seconds is not None:
+            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
+    def container_startup_health_check_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+        """
+        return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
+
+    @container_startup_health_check_timeout_in_seconds.setter
+    def container_startup_health_check_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "container_startup_health_check_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
+    def model_data_download_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+        """
+        return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @model_data_download_timeout_in_seconds.setter
+    def model_data_download_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "model_data_download_timeout_in_seconds", value)
+
+
+class InferenceComponentTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class InferenceComponentTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class LabelingJobHumanTaskConfigArgsDict(TypedDict):

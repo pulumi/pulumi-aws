@@ -9508,7 +9508,7 @@ export namespace arcregionswitch {
          */
         executionApprovalConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepExecutionApprovalConfig>[] | undefined>;
         /**
-         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
          */
         executionBlockType: pulumi.Input<string>;
         /**
@@ -9539,6 +9539,10 @@ export namespace arcregionswitch {
          * Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          */
         rdsPromoteReadReplicaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRdsPromoteReadReplicaConfig>[] | undefined>;
+        /**
+         * Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+         */
+        rdsSwitchoverReadReplicaConfig?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRdsSwitchoverReadReplicaConfig | undefined>;
         /**
          * Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
          */
@@ -10081,7 +10085,7 @@ export namespace arcregionswitch {
          */
         executionApprovalConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepExecutionApprovalConfig>[] | undefined>;
         /**
-         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
+         * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `RdsSwitchoverReadReplica`, `Route53HealthCheck`.
          */
         executionBlockType: pulumi.Input<string>;
         /**
@@ -10108,6 +10112,10 @@ export namespace arcregionswitch {
          * Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          */
         rdsPromoteReadReplicaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig>[] | undefined>;
+        /**
+         * Configuration for switching over RDS read replicas. See `rdsSwitchoverReadReplicaConfig` Block for details.
+         */
+        rdsSwitchoverReadReplicaConfig?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig | undefined>;
         /**
          * Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
          */
@@ -10607,7 +10615,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: pulumi.Input<string | undefined>;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -10626,7 +10634,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: pulumi.Input<string | undefined>;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -10637,6 +10645,33 @@ export namespace arcregionswitch {
          * Timeout in minutes.
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+         */
+        dbInstanceArnMap: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+         */
+        ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful | undefined>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepRdsSwitchoverReadReplicaConfigUngraceful {
+        ungraceful: pulumi.Input<string>;
     }
 
     export interface PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig {
@@ -10698,7 +10733,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: pulumi.Input<string | undefined>;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -10717,7 +10752,7 @@ export namespace arcregionswitch {
          */
         crossAccountRole?: pulumi.Input<string | undefined>;
         /**
-         * Map of source DB instance identifiers to target DB instance ARNs.
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          */
         dbInstanceArnMap: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -10728,6 +10763,33 @@ export namespace arcregionswitch {
          * Timeout in minutes.
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    export interface PlanWorkflowStepRdsSwitchoverReadReplicaConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
+         */
+        dbInstanceArnMap: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.rds_switchover_read_replica_config.ungraceful` Block for details.
+         */
+        ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful | undefined>;
+    }
+
+    export interface PlanWorkflowStepRdsSwitchoverReadReplicaConfigUngraceful {
+        ungraceful: pulumi.Input<string>;
     }
 
     export interface PlanWorkflowStepRegionSwitchPlanConfig {
@@ -21039,6 +21101,28 @@ export namespace bedrock {
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface EnforcedGuardrailConfigurationModelEnforcement {
+        /**
+         * List of models to exclude from enforcement of the guardrail.
+         */
+        excludedModels: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of models to enforce the guardrail on. Use `ALL` to enforce on all models.
+         */
+        includedModels: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EnforcedGuardrailConfigurationSelectiveContentGuarding {
+        /**
+         * Selective guarding mode for user messages. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+         */
+        messages?: pulumi.Input<string | undefined>;
+        /**
+         * Selective guarding mode for system prompts. Valid values: `SELECTIVE`, `COMPREHENSIVE`.
+         */
+        system?: pulumi.Input<string | undefined>;
+    }
+
     export interface EvaluationJobEvaluationConfig {
         /**
          * Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
@@ -27550,6 +27634,95 @@ export namespace cloudwatch {
 }
 
 export namespace cloudwatchomni {
+    export interface AccessGrantPrincipal {
+        /**
+         * Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principalType` is `IDC_USER`. Up to 10 blocks. See below.
+         */
+        principalAttributes?: pulumi.Input<pulumi.Input<inputs.cloudwatchomni.AccessGrantPrincipalPrincipalAttribute>[] | undefined>;
+        /**
+         * ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+         */
+        principalId?: pulumi.Input<string | undefined>;
+        /**
+         * Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+         */
+        principalType: pulumi.Input<string>;
+    }
+
+    export interface AccessGrantPrincipalPrincipalAttribute {
+        /**
+         * Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Attribute value. Must be 1-512 characters.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AccessGrantScopedAction {
+        /**
+         * 1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+         */
+        resources?: pulumi.Input<pulumi.Input<inputs.cloudwatchomni.AccessGrantScopedActionResource>[] | undefined>;
+    }
+
+    export interface AccessGrantScopedActionResource {
+        /**
+         * Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+         */
+        resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Resource type name, for example `DataSet` or `OmniDashboard`.
+         */
+        resourceType: pulumi.Input<string>;
+        /**
+         * Row-level filter group. A row is visible when it matches every `rowScope` in any one group. Up to 20 blocks. Must be specified together with `signalTypes`, on a `DataSet` resource scope. See below.
+         */
+        rowScopeGroups?: pulumi.Input<pulumi.Input<inputs.cloudwatchomni.AccessGrantScopedActionResourceRowScopeGroup>[] | undefined>;
+        /**
+         * Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `rowScopeGroup`, on a `DataSet` resource scope.
+         */
+        signalTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    export interface AccessGrantScopedActionResourceRowScopeGroup {
+        /**
+         * Row filter. 1-20 blocks. See below.
+         */
+        rowScopes: pulumi.Input<pulumi.Input<inputs.cloudwatchomni.AccessGrantScopedActionResourceRowScopeGroupRowScope>[]>;
+    }
+
+    export interface AccessGrantScopedActionResourceRowScopeGroupRowScope {
+        /**
+         * Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+         */
+        field: pulumi.Input<string>;
+        /**
+         * Match operator. Valid value is `IN`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AccessProfileTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+    }
+
     export interface DomainIdentityProviderConfiguration {
         /**
          * IAM Identity Center configuration. See below.
@@ -34309,6 +34482,17 @@ export namespace directoryservice {
          * The identifier of the VPC that the directory is in.
          */
         vpcId: pulumi.Input<string>;
+    }
+
+    export interface DirectorySettingTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
     }
 
     export interface DirectoryVpcSettings {
@@ -52098,7 +52282,7 @@ export namespace guardduty {
 
     export interface DetectorFeatureAdditionalConfiguration {
         /**
-         * Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          */
         name: pulumi.Input<string>;
         /**
@@ -52184,7 +52368,7 @@ export namespace guardduty {
 
     export interface MemberDetectorFeatureAdditionalConfiguration {
         /**
-         * Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+         * Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
          */
         name: pulumi.Input<string>;
         /**
@@ -52256,7 +52440,7 @@ export namespace guardduty {
          */
         autoEnable: pulumi.Input<string>;
         /**
-         * Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          */
         name: pulumi.Input<string>;
     }
@@ -90425,7 +90609,7 @@ export namespace redshiftserverless {
 
     export interface WorkgroupConfigParameter {
         /**
-         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableLargeStringOptIn`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
          */
         parameterKey: pulumi.Input<string>;
         /**
@@ -99366,6 +99550,252 @@ export namespace sagemaker {
          * Parent tuning job name.
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface InferenceComponentDeploymentConfig {
+        /**
+         * Automatic rollback configuration. See `autoRollbackConfiguration` Block.
+         */
+        autoRollbackConfiguration?: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigAutoRollbackConfiguration | undefined>;
+        /**
+         * Rolling deployment strategy. See `rollingUpdatePolicy` Block.
+         */
+        rollingUpdatePolicy: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigRollingUpdatePolicy>;
+    }
+
+    export interface InferenceComponentDeploymentConfigAutoRollbackConfiguration {
+        /**
+         * List of CloudWatch alarms that trigger rollback. See `alarms` Block.
+         */
+        alarms?: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm>[] | undefined>;
+    }
+
+    export interface InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarm {
+        /**
+         * Name of a CloudWatch alarm.
+         */
+        alarmName: pulumi.Input<string>;
+    }
+
+    export interface InferenceComponentDeploymentConfigRollingUpdatePolicy {
+        /**
+         * Batch size for each rolling step. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+         */
+        maximumBatchSize: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize>;
+        /**
+         * Time limit for the total deployment. Valid values are between `600` and `28800`.
+         */
+        maximumExecutionTimeoutInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * Batch size for a rollback. See `maximumBatchSize` and `rollbackMaximumBatchSize` Block.
+         */
+        rollbackMaximumBatchSize?: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize | undefined>;
+        /**
+         * Length of the baking period in seconds. Valid values: `0`-`3600`.
+         */
+        waitIntervalInSeconds: pulumi.Input<number>;
+    }
+
+    export interface InferenceComponentDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+        /**
+         * Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Capacity size value.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InferenceComponentDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+        /**
+         * Capacity size type. Valid values: `COPY_COUNT`, `CAPACITY_PERCENT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Capacity size value.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InferenceComponentRuntimeConfig {
+        /**
+         * Number of runtime copies of the model container to deploy.
+         */
+        copyCount: pulumi.Input<number>;
+        /**
+         * Number of copies placed on this instance type.
+         */
+        currentCopyCount?: pulumi.Input<number | undefined>;
+        /**
+         * Number of runtime copies requested.
+         */
+        desiredCopyCount?: pulumi.Input<number | undefined>;
+        /**
+         * Placement status of the inference component copies across instance types. See below.
+         */
+        placementStatuses?: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceComponentRuntimeConfigPlacementStatus>[] | undefined>;
+    }
+
+    export interface InferenceComponentRuntimeConfigPlacementStatus {
+        /**
+         * Number of copies placed on this instance type.
+         */
+        currentCopyCount: pulumi.Input<number>;
+        /**
+         * Instance type on which the copies are placed.
+         */
+        instanceType: pulumi.Input<string>;
+    }
+
+    export interface InferenceComponentSpecification {
+        /**
+         * Name of an existing inference component that is to contain the inference component that you're creating. Used for adapter inference components.
+         */
+        baseInferenceComponentName?: pulumi.Input<string | undefined>;
+        /**
+         * Compute resources allocated to run a model. See `computeResourceRequirements` Block.
+         */
+        computeResourceRequirements?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationComputeResourceRequirements | undefined>;
+        /**
+         * Container that provides the runtime environment for a model. See `container` Block.
+         */
+        container?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationContainer | undefined>;
+        /**
+         * Settings that affect how the inference component caches data. See `dataCacheConfig` Block.
+         */
+        dataCacheConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationDataCacheConfig | undefined>;
+        /**
+         * Instance type on which the copies are placed.
+         */
+        instanceType?: pulumi.Input<string | undefined>;
+        /**
+         * Name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
+         */
+        modelName?: pulumi.Input<string | undefined>;
+        /**
+         * Scheduling configuration for placing inference component copies. See `schedulingConfig` Block.
+         */
+        schedulingConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationSchedulingConfig | undefined>;
+        /**
+         * Settings that take effect while the model container starts up. See `startupParameters` Block.
+         */
+        startupParameters?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationStartupParameters | undefined>;
+    }
+
+    export interface InferenceComponentSpecificationComputeResourceRequirements {
+        /**
+         * Maximum MB of memory to allocate to run a model. Minimum value of `128`.
+         */
+        maxMemoryRequiredInMb?: pulumi.Input<number | undefined>;
+        /**
+         * Minimum MB of memory to allocate to run a model. Minimum value of `128`.
+         */
+        minMemoryRequiredInMb: pulumi.Input<number>;
+        /**
+         * Number of accelerators (GPUs or AWS Inferentia) to allocate. Minimum value of `1`.
+         */
+        numberOfAcceleratorDevicesRequired?: pulumi.Input<number | undefined>;
+        /**
+         * Number of CPU cores to allocate. Minimum value of `0.25`.
+         */
+        numberOfCpuCoresRequired?: pulumi.Input<number | undefined>;
+    }
+
+    export interface InferenceComponentSpecificationContainer {
+        /**
+         * Amazon S3 path where the model artifacts are stored (.tar.gz).
+         */
+        artifactUrl?: pulumi.Input<string | undefined>;
+        /**
+         * Configuration for container metrics scraping. See `containerMetricsConfig` Block.
+         */
+        containerMetricsConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationContainerContainerMetricsConfig | undefined>;
+        /**
+         * Environment variables to set in the Docker container.
+         */
+        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Amazon ECR path where the Docker image for the model is stored.
+         */
+        image?: pulumi.Input<string | undefined>;
+        /**
+         * Specific digest path of the container image that was resolved and deployed.
+         */
+        resolvedImage?: pulumi.Input<string | undefined>;
+    }
+
+    export interface InferenceComponentSpecificationContainerContainerMetricsConfig {
+        /**
+         * Metrics endpoint configuration. See `metricsEndpoint` Block.
+         */
+        metricsEndpoint?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint | undefined>;
+    }
+
+    export interface InferenceComponentSpecificationContainerContainerMetricsConfigMetricsEndpoint {
+        /**
+         * Interval in seconds at which metrics are published. Valid values: `10`, `30`, `60`, `120`, `180`, `240`, `300`. Defaults to `60`.
+         */
+        metricPublishFrequencyInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * Path to the metrics endpoint. Must start with `/`. Maximum 256 characters.
+         */
+        metricsEndpointPath: pulumi.Input<string>;
+    }
+
+    export interface InferenceComponentSpecificationDataCacheConfig {
+        /**
+         * Whether the endpoint caches model artifacts and container images.
+         */
+        enableCaching: pulumi.Input<boolean>;
+    }
+
+    export interface InferenceComponentSpecificationSchedulingConfig {
+        /**
+         * Configuration for balancing copies across Availability Zones. See `availabilityZoneBalance` Block.
+         */
+        availabilityZoneBalance?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance | undefined>;
+        /**
+         * Strategy for placing inference component copies. Valid values: `SPREAD`, `BINPACK`.
+         */
+        placementStrategy: pulumi.Input<string>;
+    }
+
+    export interface InferenceComponentSpecificationSchedulingConfigAvailabilityZoneBalance {
+        /**
+         * How strictly the AZ balance constraint is enforced. Valid values: `PERMISSIVE`.
+         */
+        enforcementMode: pulumi.Input<string>;
+        /**
+         * Maximum allowed difference in copy count between any two Availability Zones. Defaults to `0`, which the service applies but does not report, so the value stays absent from state unless configured.
+         */
+        maxImbalance?: pulumi.Input<number | undefined>;
+    }
+
+    export interface InferenceComponentSpecificationStartupParameters {
+        /**
+         * Timeout in seconds for the inference container to pass health check. Valid values: `60`-`3600`.
+         */
+        containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * Timeout in seconds to download and extract the model. Valid values: `60`-`3600`.
+         */
+        modelDataDownloadTimeoutInSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    export interface InferenceComponentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
     }
 
     export interface LabelingJobHumanTaskConfig {

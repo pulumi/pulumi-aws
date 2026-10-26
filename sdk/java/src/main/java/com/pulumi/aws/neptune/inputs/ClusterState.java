@@ -381,6 +381,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * Port on which the Neptune accepts connections. Default is `8182`.
      * 
      */
@@ -617,6 +632,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.neptuneClusterParameterGroupName = $.neptuneClusterParameterGroupName;
         this.neptuneInstanceParameterGroupName = $.neptuneInstanceParameterGroupName;
         this.neptuneSubnetGroupName = $.neptuneSubnetGroupName;
+        this.networkType = $.networkType;
         this.port = $.port;
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
@@ -1193,6 +1209,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder neptuneSubnetGroupName(String neptuneSubnetGroupName) {
             return neptuneSubnetGroupName(Output.of(neptuneSubnetGroupName));
+        }
+
+        /**
+         * @param networkType Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType Network type of the Neptune cluster. Valid values: `IPV4`, `DUAL`. Default: `IPV4`. Specifying `DUAL` enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the [Neptune dual-stack documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html) for prerequisites.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

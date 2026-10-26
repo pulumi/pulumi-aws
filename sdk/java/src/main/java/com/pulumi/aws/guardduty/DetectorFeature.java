@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -120,18 +119,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/detectorFeature:DetectorFeature")
 public class DetectorFeature extends com.pulumi.resources.CustomResource {
     /**
-     * Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      * 
      */
     @Export(name="additionalConfigurations", refs={List.class,DetectorFeatureAdditionalConfiguration.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<DetectorFeatureAdditionalConfiguration>> additionalConfigurations;
+    private Output<List<DetectorFeatureAdditionalConfiguration>> additionalConfigurations;
 
     /**
-     * @return Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+     * @return Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
      * 
      */
-    public Output<Optional<List<DetectorFeatureAdditionalConfiguration>>> additionalConfigurations() {
-        return Codegen.optional(this.additionalConfigurations);
+    public Output<List<DetectorFeatureAdditionalConfiguration>> additionalConfigurations() {
+        return this.additionalConfigurations;
     }
     /**
      * Amazon GuardDuty detector ID.

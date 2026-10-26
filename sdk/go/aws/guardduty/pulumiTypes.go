@@ -1017,7 +1017,7 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 }
 
 type DetectorFeatureAdditionalConfiguration struct {
-	// Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+	// Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name string `pulumi:"name"`
 	// Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
@@ -1035,7 +1035,7 @@ type DetectorFeatureAdditionalConfigurationInput interface {
 }
 
 type DetectorFeatureAdditionalConfigurationArgs struct {
-	// Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+	// Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1092,7 +1092,7 @@ func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditiona
 	return o
 }
 
-// Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+// Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 func (o DetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1914,7 +1914,7 @@ func (o MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) ObjectPrefixes(
 }
 
 type MemberDetectorFeatureAdditionalConfiguration struct {
-	// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+	// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
 	Name string `pulumi:"name"`
 	// Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
@@ -1932,7 +1932,7 @@ type MemberDetectorFeatureAdditionalConfigurationInput interface {
 }
 
 type MemberDetectorFeatureAdditionalConfigurationArgs struct {
-	// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+	// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1989,7 +1989,7 @@ func (o MemberDetectorFeatureAdditionalConfigurationOutput) ToMemberDetectorFeat
 	return o
 }
 
-// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+// Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
 func (o MemberDetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemberDetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3033,7 +3033,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi
 type OrganizationConfigurationFeatureAdditionalConfiguration struct {
 	// Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable string `pulumi:"autoEnable"`
-	// Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+	// Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name string `pulumi:"name"`
 }
 
@@ -3051,7 +3051,7 @@ type OrganizationConfigurationFeatureAdditionalConfigurationInput interface {
 type OrganizationConfigurationFeatureAdditionalConfigurationArgs struct {
 	// Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringInput `pulumi:"autoEnable"`
-	// Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+	// Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -3111,7 +3111,7 @@ func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) AutoEnabl
 	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.AutoEnable }).(pulumi.StringOutput)
 }
 
-// Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+// Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }

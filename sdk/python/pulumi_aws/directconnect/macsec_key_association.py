@@ -21,25 +21,45 @@ class MacsecKeyAssociationArgs:
     def __init__(__self__, *,
                  connection_id: pulumi.Input[_builtins.str],
                  cak: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  ckn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MacsecKeyAssociation resource.
 
-        :param pulumi.Input[_builtins.str] connection_id: The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-        :param pulumi.Input[_builtins.str] cak: The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-        :param pulumi.Input[_builtins.str] ckn: The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        :param pulumi.Input[_builtins.str] connection_id: ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] cak: MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `ckn_wo` unless `cak_wo` is configured. Conflicts with `cak_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] cak_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cak_wo_version` and either `ckn` or `ckn_wo`. Conflicts with `cak` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] cak_wo_version: Positive integer used to trigger replacement when `cak_wo` changes. Required with `cak_wo`. Increment this value to replace the association using the current write-only values.
+        :param pulumi.Input[_builtins.str] ckn: MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cak_wo` unless `ckn_wo` is configured. Conflicts with `ckn_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] ckn_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `ckn_wo_version` and either `cak` or `cak_wo`. Conflicts with `ckn` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] ckn_wo_version: Positive integer used to trigger replacement when `ckn_wo` changes. Required with `ckn_wo`. Increment this value to replace the association using the current write-only values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
                
-               > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+               > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secret_arn`. Do not combine key arguments with `secret_arn`.
         """
         pulumi.set(__self__, "connection_id", connection_id)
         if cak is not None:
             pulumi.set(__self__, "cak", cak)
+        if cak_wo is not None:
+            pulumi.set(__self__, "cak_wo", cak_wo)
+        if cak_wo_version is not None:
+            pulumi.set(__self__, "cak_wo_version", cak_wo_version)
         if ckn is not None:
             pulumi.set(__self__, "ckn", ckn)
+        if ckn_wo is not None:
+            pulumi.set(__self__, "ckn_wo", ckn_wo)
+        if ckn_wo_version is not None:
+            pulumi.set(__self__, "ckn_wo_version", ckn_wo_version)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if secret_arn is not None:
@@ -49,7 +69,9 @@ class MacsecKeyAssociationArgs:
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "connection_id")
 
@@ -61,7 +83,7 @@ class MacsecKeyAssociationArgs:
     @pulumi.getter
     def cak(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `ckn_wo` unless `cak_wo` is configured. Conflicts with `cak_wo`. Changing this argument replaces the association.
         """
         return pulumi.get(self, "cak")
 
@@ -70,16 +92,66 @@ class MacsecKeyAssociationArgs:
         pulumi.set(self, "cak", value)
 
     @_builtins.property
+    @pulumi.getter(name="cakWo")
+    def cak_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cak_wo_version` and either `ckn` or `ckn_wo`. Conflicts with `cak` and `secret_arn`. This value is not stored in the plan or state.
+        """
+        return pulumi.get(self, "cak_wo")
+
+    @cak_wo.setter
+    def cak_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cak_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cakWoVersion")
+    def cak_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Positive integer used to trigger replacement when `cak_wo` changes. Required with `cak_wo`. Increment this value to replace the association using the current write-only values.
+        """
+        return pulumi.get(self, "cak_wo_version")
+
+    @cak_wo_version.setter
+    def cak_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cak_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def ckn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cak_wo` unless `ckn_wo` is configured. Conflicts with `ckn_wo`. Changing this argument replaces the association.
         """
         return pulumi.get(self, "ckn")
 
     @ckn.setter
     def ckn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ckn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cknWo")
+    def ckn_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `ckn_wo_version` and either `cak` or `cak_wo`. Conflicts with `ckn` and `secret_arn`. This value is not stored in the plan or state.
+        """
+        return pulumi.get(self, "ckn_wo")
+
+    @ckn_wo.setter
+    def ckn_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ckn_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cknWoVersion")
+    def ckn_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Positive integer used to trigger replacement when `ckn_wo` changes. Required with `ckn_wo`. Increment this value to replace the association using the current write-only values.
+        """
+        return pulumi.get(self, "ckn_wo_version")
+
+    @ckn_wo_version.setter
+    def ckn_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ckn_wo_version", value)
 
     @_builtins.property
     @pulumi.getter
@@ -99,7 +171,7 @@ class MacsecKeyAssociationArgs:
         """
         ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 
-        > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+        > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secret_arn`. Do not combine key arguments with `secret_arn`.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -112,7 +184,11 @@ class MacsecKeyAssociationArgs:
 class _MacsecKeyAssociationState:
     def __init__(__self__, *,
                  cak: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  ckn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -121,20 +197,36 @@ class _MacsecKeyAssociationState:
         """
         Input properties used for looking up and filtering MacsecKeyAssociation resources.
 
-        :param pulumi.Input[_builtins.str] cak: The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-        :param pulumi.Input[_builtins.str] ckn: The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-        :param pulumi.Input[_builtins.str] connection_id: The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        :param pulumi.Input[_builtins.str] cak: MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `ckn_wo` unless `cak_wo` is configured. Conflicts with `cak_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] cak_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cak_wo_version` and either `ckn` or `ckn_wo`. Conflicts with `cak` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] cak_wo_version: Positive integer used to trigger replacement when `cak_wo` changes. Required with `cak_wo`. Increment this value to replace the association using the current write-only values.
+        :param pulumi.Input[_builtins.str] ckn: MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cak_wo` unless `ckn_wo` is configured. Conflicts with `ckn_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] ckn_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `ckn_wo_version` and either `cak` or `cak_wo`. Conflicts with `ckn` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] ckn_wo_version: Positive integer used to trigger replacement when `ckn_wo` changes. Required with `ckn_wo`. Increment this value to replace the association using the current write-only values.
+        :param pulumi.Input[_builtins.str] connection_id: ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
                
-               > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+               > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secret_arn`. Do not combine key arguments with `secret_arn`.
         :param pulumi.Input[_builtins.str] start_on: The date in UTC format that the MAC Security (MACsec) secret key takes effect.
         :param pulumi.Input[_builtins.str] state: The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
         """
         if cak is not None:
             pulumi.set(__self__, "cak", cak)
+        if cak_wo is not None:
+            pulumi.set(__self__, "cak_wo", cak_wo)
+        if cak_wo_version is not None:
+            pulumi.set(__self__, "cak_wo_version", cak_wo_version)
         if ckn is not None:
             pulumi.set(__self__, "ckn", ckn)
+        if ckn_wo is not None:
+            pulumi.set(__self__, "ckn_wo", ckn_wo)
+        if ckn_wo_version is not None:
+            pulumi.set(__self__, "ckn_wo_version", ckn_wo_version)
         if connection_id is not None:
             pulumi.set(__self__, "connection_id", connection_id)
         if region is not None:
@@ -150,7 +242,7 @@ class _MacsecKeyAssociationState:
     @pulumi.getter
     def cak(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `ckn_wo` unless `cak_wo` is configured. Conflicts with `cak_wo`. Changing this argument replaces the association.
         """
         return pulumi.get(self, "cak")
 
@@ -159,10 +251,35 @@ class _MacsecKeyAssociationState:
         pulumi.set(self, "cak", value)
 
     @_builtins.property
+    @pulumi.getter(name="cakWo")
+    def cak_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cak_wo_version` and either `ckn` or `ckn_wo`. Conflicts with `cak` and `secret_arn`. This value is not stored in the plan or state.
+        """
+        return pulumi.get(self, "cak_wo")
+
+    @cak_wo.setter
+    def cak_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cak_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cakWoVersion")
+    def cak_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Positive integer used to trigger replacement when `cak_wo` changes. Required with `cak_wo`. Increment this value to replace the association using the current write-only values.
+        """
+        return pulumi.get(self, "cak_wo_version")
+
+    @cak_wo_version.setter
+    def cak_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cak_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def ckn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cak_wo` unless `ckn_wo` is configured. Conflicts with `ckn_wo`. Changing this argument replaces the association.
         """
         return pulumi.get(self, "ckn")
 
@@ -171,10 +288,37 @@ class _MacsecKeyAssociationState:
         pulumi.set(self, "ckn", value)
 
     @_builtins.property
+    @pulumi.getter(name="cknWo")
+    def ckn_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `ckn_wo_version` and either `cak` or `cak_wo`. Conflicts with `ckn` and `secret_arn`. This value is not stored in the plan or state.
+        """
+        return pulumi.get(self, "ckn_wo")
+
+    @ckn_wo.setter
+    def ckn_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ckn_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cknWoVersion")
+    def ckn_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Positive integer used to trigger replacement when `ckn_wo` changes. Required with `ckn_wo`. Increment this value to replace the association using the current write-only values.
+        """
+        return pulumi.get(self, "ckn_wo_version")
+
+    @ckn_wo_version.setter
+    def ckn_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ckn_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "connection_id")
 
@@ -200,7 +344,7 @@ class _MacsecKeyAssociationState:
         """
         ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 
-        > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+        > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secret_arn`. Do not combine key arguments with `secret_arn`.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -240,33 +384,58 @@ class MacsecKeyAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cak: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  ckn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
+        Manages a MAC Security (MACSec) secret key association for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
 
         Creating this resource will also create a resource of type `secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
 
-        > **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
-        **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
+        > **Note:** The `ckn` and `cak` arguments are stored in the raw state as plain-text. Use `ckn_wo` and `cak_wo` instead to avoid storing these values in the plan or state. When `ckn_wo` is configured, the API-returned CKN is not stored in `ckn`.
+
+        > **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 
         ## Example Usage
 
-        ### Create MACSec key with CKN and CAK
+        ### Basic Usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.get_connection(name="tf-dx-connection")
-        test = aws.directconnect.MacsecKeyAssociation("test",
+        example_macsec_key_association = aws.directconnect.MacsecKeyAssociation("example",
             connection_id=example.id,
             ckn="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
             cak="abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
         ```
+
+        ### Create MACSec key with write-only CKN and CAK
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.get_connection(name="tf-dx-connection")
+        config = pulumi.Config()
+        cak = config.require("cak")
+        ckn = config.require("ckn")
+        example_macsec_key_association = aws.directconnect.MacsecKeyAssociation("example",
+            connection_id=example.id,
+            cak_wo=cak,
+            cak_wo_version=1,
+            ckn_wo=ckn,
+            ckn_wo_version=1)
+        ```
+
+        Changing a write-only value alone does not trigger a change. Increment its corresponding `cak_wo_version` or `ckn_wo_version` to replace the association with the new key material. The version counters are independent; increment both when changing both values.
 
         ### Create MACSec key with existing Secrets Manager secret
 
@@ -276,7 +445,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
         example = aws.directconnect.get_connection(name="tf-dx-connection")
         example_get_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
-        test = aws.directconnect.MacsecKeyAssociation("test",
+        example_macsec_key_association = aws.directconnect.MacsecKeyAssociation("example",
             connection_id=example.id,
             secret_arn=example_get_secret.arn)
         ```
@@ -284,13 +453,21 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cak: The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-        :param pulumi.Input[_builtins.str] ckn: The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-        :param pulumi.Input[_builtins.str] connection_id: The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        :param pulumi.Input[_builtins.str] cak: MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `ckn_wo` unless `cak_wo` is configured. Conflicts with `cak_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] cak_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cak_wo_version` and either `ckn` or `ckn_wo`. Conflicts with `cak` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] cak_wo_version: Positive integer used to trigger replacement when `cak_wo` changes. Required with `cak_wo`. Increment this value to replace the association using the current write-only values.
+        :param pulumi.Input[_builtins.str] ckn: MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cak_wo` unless `ckn_wo` is configured. Conflicts with `ckn_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] ckn_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `ckn_wo_version` and either `cak` or `cak_wo`. Conflicts with `ckn` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] ckn_wo_version: Positive integer used to trigger replacement when `ckn_wo` changes. Required with `ckn_wo`. Increment this value to replace the association using the current write-only values.
+        :param pulumi.Input[_builtins.str] connection_id: ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
                
-               > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+               > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secret_arn`. Do not combine key arguments with `secret_arn`.
         """
         ...
     @overload
@@ -299,27 +476,48 @@ class MacsecKeyAssociation(pulumi.CustomResource):
                  args: MacsecKeyAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
+        Manages a MAC Security (MACSec) secret key association for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
 
         Creating this resource will also create a resource of type `secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
 
-        > **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
-        **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
+        > **Note:** The `ckn` and `cak` arguments are stored in the raw state as plain-text. Use `ckn_wo` and `cak_wo` instead to avoid storing these values in the plan or state. When `ckn_wo` is configured, the API-returned CKN is not stored in `ckn`.
+
+        > **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 
         ## Example Usage
 
-        ### Create MACSec key with CKN and CAK
+        ### Basic Usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.directconnect.get_connection(name="tf-dx-connection")
-        test = aws.directconnect.MacsecKeyAssociation("test",
+        example_macsec_key_association = aws.directconnect.MacsecKeyAssociation("example",
             connection_id=example.id,
             ckn="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
             cak="abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
         ```
+
+        ### Create MACSec key with write-only CKN and CAK
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.get_connection(name="tf-dx-connection")
+        config = pulumi.Config()
+        cak = config.require("cak")
+        ckn = config.require("ckn")
+        example_macsec_key_association = aws.directconnect.MacsecKeyAssociation("example",
+            connection_id=example.id,
+            cak_wo=cak,
+            cak_wo_version=1,
+            ckn_wo=ckn,
+            ckn_wo_version=1)
+        ```
+
+        Changing a write-only value alone does not trigger a change. Increment its corresponding `cak_wo_version` or `ckn_wo_version` to replace the association with the new key material. The version counters are independent; increment both when changing both values.
 
         ### Create MACSec key with existing Secrets Manager secret
 
@@ -329,7 +527,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
         example = aws.directconnect.get_connection(name="tf-dx-connection")
         example_get_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
-        test = aws.directconnect.MacsecKeyAssociation("test",
+        example_macsec_key_association = aws.directconnect.MacsecKeyAssociation("example",
             connection_id=example.id,
             secret_arn=example_get_secret.arn)
         ```
@@ -351,7 +549,11 @@ class MacsecKeyAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cak: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 cak_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  ckn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 ckn_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -365,7 +567,11 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             __props__ = MacsecKeyAssociationArgs.__new__(MacsecKeyAssociationArgs)
 
             __props__.__dict__["cak"] = cak
+            __props__.__dict__["cak_wo"] = None if cak_wo is None else pulumi.Output.secret(cak_wo)
+            __props__.__dict__["cak_wo_version"] = cak_wo_version
             __props__.__dict__["ckn"] = ckn
+            __props__.__dict__["ckn_wo"] = None if ckn_wo is None else pulumi.Output.secret(ckn_wo)
+            __props__.__dict__["ckn_wo_version"] = ckn_wo_version
             if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")
             __props__.__dict__["connection_id"] = connection_id
@@ -373,6 +579,8 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             __props__.__dict__["secret_arn"] = secret_arn
             __props__.__dict__["start_on"] = None
             __props__.__dict__["state"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cakWo", "cknWo"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MacsecKeyAssociation, __self__).__init__(
             'aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation',
             resource_name,
@@ -384,7 +592,11 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cak: pulumi.Input[Optional[_builtins.str]] = None,
+            cak_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            cak_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             ckn: pulumi.Input[Optional[_builtins.str]] = None,
+            ckn_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            ckn_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             connection_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -397,13 +609,21 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cak: The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-        :param pulumi.Input[_builtins.str] ckn: The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-        :param pulumi.Input[_builtins.str] connection_id: The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        :param pulumi.Input[_builtins.str] cak: MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `ckn_wo` unless `cak_wo` is configured. Conflicts with `cak_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] cak_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cak_wo_version` and either `ckn` or `ckn_wo`. Conflicts with `cak` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] cak_wo_version: Positive integer used to trigger replacement when `cak_wo` changes. Required with `cak_wo`. Increment this value to replace the association using the current write-only values.
+        :param pulumi.Input[_builtins.str] ckn: MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cak_wo` unless `ckn_wo` is configured. Conflicts with `ckn_wo`. Changing this argument replaces the association.
+        :param pulumi.Input[_builtins.str] ckn_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `ckn_wo_version` and either `cak` or `cak_wo`. Conflicts with `ckn` and `secret_arn`. This value is not stored in the plan or state.
+        :param pulumi.Input[_builtins.int] ckn_wo_version: Positive integer used to trigger replacement when `ckn_wo` changes. Required with `ckn_wo`. Increment this value to replace the association using the current write-only values.
+        :param pulumi.Input[_builtins.str] connection_id: ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
                
-               > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+               > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secret_arn`. Do not combine key arguments with `secret_arn`.
         :param pulumi.Input[_builtins.str] start_on: The date in UTC format that the MAC Security (MACsec) secret key takes effect.
         :param pulumi.Input[_builtins.str] state: The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
         """
@@ -412,7 +632,11 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         __props__ = _MacsecKeyAssociationState.__new__(_MacsecKeyAssociationState)
 
         __props__.__dict__["cak"] = cak
+        __props__.__dict__["cak_wo"] = cak_wo
+        __props__.__dict__["cak_wo_version"] = cak_wo_version
         __props__.__dict__["ckn"] = ckn
+        __props__.__dict__["ckn_wo"] = ckn_wo
+        __props__.__dict__["ckn_wo_version"] = ckn_wo_version
         __props__.__dict__["connection_id"] = connection_id
         __props__.__dict__["region"] = region
         __props__.__dict__["secret_arn"] = secret_arn
@@ -424,23 +648,59 @@ class MacsecKeyAssociation(pulumi.CustomResource):
     @pulumi.getter
     def cak(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `ckn` or `ckn_wo` unless `cak_wo` is configured. Conflicts with `cak_wo`. Changing this argument replaces the association.
         """
         return pulumi.get(self, "cak")
+
+    @_builtins.property
+    @pulumi.getter(name="cakWo")
+    def cak_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only MAC Security (MACsec) CAK to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `cak_wo_version` and either `ckn` or `ckn_wo`. Conflicts with `cak` and `secret_arn`. This value is not stored in the plan or state.
+        """
+        return pulumi.get(self, "cak_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="cakWoVersion")
+    def cak_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Positive integer used to trigger replacement when `cak_wo` changes. Required with `cak_wo`. Increment this value to replace the association using the current write-only values.
+        """
+        return pulumi.get(self, "cak_wo_version")
 
     @_builtins.property
     @pulumi.getter
     def ckn(self) -> pulumi.Output[_builtins.str]:
         """
-        The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Required with `cak` or `cak_wo` unless `ckn_wo` is configured. Conflicts with `ckn_wo`. Changing this argument replaces the association.
         """
         return pulumi.get(self, "ckn")
+
+    @_builtins.property
+    @pulumi.getter(name="cknWo")
+    def ckn_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only MAC Security (MACsec) CKN to associate with the dedicated connection. Valid values are 64 hexadecimal characters (0-9, A-F). Requires `ckn_wo_version` and either `cak` or `cak_wo`. Conflicts with `ckn` and `secret_arn`. This value is not stored in the plan or state.
+        """
+        return pulumi.get(self, "ckn_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="cknWoVersion")
+    def ckn_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Positive integer used to trigger replacement when `ckn_wo` changes. Required with `ckn_wo`. Increment this value to replace the association using the current write-only values.
+        """
+        return pulumi.get(self, "ckn_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "connection_id")
 
@@ -458,7 +718,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         """
         ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 
-        > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+        > **Note:** Supply either a CAK/CKN pair (using regular or write-only arguments) or `secret_arn`. Do not combine key arguments with `secret_arn`.
         """
         return pulumi.get(self, "secret_arn")
 
