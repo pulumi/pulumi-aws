@@ -241,6 +241,162 @@ func (o DirectoryConnectSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DirectorySettingTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DirectorySettingTimeoutsInput is an input type that accepts DirectorySettingTimeoutsArgs and DirectorySettingTimeoutsOutput values.
+// You can construct a concrete instance of `DirectorySettingTimeoutsInput` via:
+//
+//	DirectorySettingTimeoutsArgs{...}
+type DirectorySettingTimeoutsInput interface {
+	pulumi.Input
+
+	ToDirectorySettingTimeoutsOutput() DirectorySettingTimeoutsOutput
+	ToDirectorySettingTimeoutsOutputWithContext(context.Context) DirectorySettingTimeoutsOutput
+}
+
+type DirectorySettingTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DirectorySettingTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySettingTimeouts)(nil)).Elem()
+}
+
+func (i DirectorySettingTimeoutsArgs) ToDirectorySettingTimeoutsOutput() DirectorySettingTimeoutsOutput {
+	return i.ToDirectorySettingTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DirectorySettingTimeoutsArgs) ToDirectorySettingTimeoutsOutputWithContext(ctx context.Context) DirectorySettingTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySettingTimeoutsOutput)
+}
+
+func (i DirectorySettingTimeoutsArgs) ToDirectorySettingTimeoutsPtrOutput() DirectorySettingTimeoutsPtrOutput {
+	return i.ToDirectorySettingTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DirectorySettingTimeoutsArgs) ToDirectorySettingTimeoutsPtrOutputWithContext(ctx context.Context) DirectorySettingTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySettingTimeoutsOutput).ToDirectorySettingTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DirectorySettingTimeoutsPtrInput is an input type that accepts DirectorySettingTimeoutsArgs, DirectorySettingTimeoutsPtr and DirectorySettingTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DirectorySettingTimeoutsPtrInput` via:
+//
+//	        DirectorySettingTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectorySettingTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDirectorySettingTimeoutsPtrOutput() DirectorySettingTimeoutsPtrOutput
+	ToDirectorySettingTimeoutsPtrOutputWithContext(context.Context) DirectorySettingTimeoutsPtrOutput
+}
+
+type directorySettingTimeoutsPtrType DirectorySettingTimeoutsArgs
+
+func DirectorySettingTimeoutsPtr(v *DirectorySettingTimeoutsArgs) DirectorySettingTimeoutsPtrInput {
+	return (*directorySettingTimeoutsPtrType)(v)
+}
+
+func (*directorySettingTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySettingTimeouts)(nil)).Elem()
+}
+
+func (i *directorySettingTimeoutsPtrType) ToDirectorySettingTimeoutsPtrOutput() DirectorySettingTimeoutsPtrOutput {
+	return i.ToDirectorySettingTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *directorySettingTimeoutsPtrType) ToDirectorySettingTimeoutsPtrOutputWithContext(ctx context.Context) DirectorySettingTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySettingTimeoutsPtrOutput)
+}
+
+type DirectorySettingTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DirectorySettingTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySettingTimeouts)(nil)).Elem()
+}
+
+func (o DirectorySettingTimeoutsOutput) ToDirectorySettingTimeoutsOutput() DirectorySettingTimeoutsOutput {
+	return o
+}
+
+func (o DirectorySettingTimeoutsOutput) ToDirectorySettingTimeoutsOutputWithContext(ctx context.Context) DirectorySettingTimeoutsOutput {
+	return o
+}
+
+func (o DirectorySettingTimeoutsOutput) ToDirectorySettingTimeoutsPtrOutput() DirectorySettingTimeoutsPtrOutput {
+	return o.ToDirectorySettingTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySettingTimeoutsOutput) ToDirectorySettingTimeoutsPtrOutputWithContext(ctx context.Context) DirectorySettingTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySettingTimeouts) *DirectorySettingTimeouts {
+		return &v
+	}).(DirectorySettingTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DirectorySettingTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectorySettingTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DirectorySettingTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectorySettingTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DirectorySettingTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySettingTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySettingTimeouts)(nil)).Elem()
+}
+
+func (o DirectorySettingTimeoutsPtrOutput) ToDirectorySettingTimeoutsPtrOutput() DirectorySettingTimeoutsPtrOutput {
+	return o
+}
+
+func (o DirectorySettingTimeoutsPtrOutput) ToDirectorySettingTimeoutsPtrOutputWithContext(ctx context.Context) DirectorySettingTimeoutsPtrOutput {
+	return o
+}
+
+func (o DirectorySettingTimeoutsPtrOutput) Elem() DirectorySettingTimeoutsOutput {
+	return o.ApplyT(func(v *DirectorySettingTimeouts) DirectorySettingTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySettingTimeouts
+		return ret
+	}).(DirectorySettingTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DirectorySettingTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectorySettingTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DirectorySettingTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectorySettingTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type DirectoryVpcSettings struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
@@ -1556,6 +1712,8 @@ func (o GetDirectoryVpcSettingArrayOutput) Index(i pulumi.IntInput) GetDirectory
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsPtrInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySettingTimeoutsInput)(nil)).Elem(), DirectorySettingTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySettingTimeoutsPtrInput)(nil)).Elem(), DirectorySettingTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsPtrInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpRouteTimeoutsInput)(nil)).Elem(), IpRouteTimeoutsArgs{})
@@ -1576,6 +1734,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingArrayInput)(nil)).Elem(), GetDirectoryVpcSettingArray{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DirectorySettingTimeoutsOutput{})
+	pulumi.RegisterOutputType(DirectorySettingTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsPtrOutput{})
 	pulumi.RegisterOutputType(IpRouteTimeoutsOutput{})

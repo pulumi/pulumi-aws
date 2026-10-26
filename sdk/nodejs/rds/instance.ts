@@ -603,7 +603,7 @@ export class Instance extends pulumi.CustomResource {
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+     * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
      */
     declare public readonly passwordWo: pulumi.Output<string | undefined>;
     /**
@@ -1151,7 +1151,7 @@ export interface InstanceState {
     password?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+     * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
      */
     passwordWo?: pulumi.Input<string | undefined>;
     /**
@@ -1470,7 +1470,7 @@ export interface InstanceArgs {
     password?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
+     * Password for the master DB user. Note that this may show up in logs. Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `passwordWoVersion` to be set.
      */
     passwordWo?: pulumi.Input<string | undefined>;
     /**

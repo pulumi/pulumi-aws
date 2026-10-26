@@ -31,7 +31,7 @@ class OrganizationConfigurationFeatureArgs:
 
         :param pulumi.Input[_builtins.str] auto_enable: Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[_builtins.str] detector_id: ID of the detector that configures the delegated administrator.
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `auto_enable` instead.  See below.
         :param pulumi.Input[_builtins.str] name: Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -72,7 +72,7 @@ class OrganizationConfigurationFeatureArgs:
     @pulumi.getter(name="additionalConfigurations")
     def additional_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]:
         """
-        Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `auto_enable` instead.  See below.
         """
         return pulumi.get(self, "additional_configurations")
 
@@ -116,7 +116,7 @@ class _OrganizationConfigurationFeatureState:
         """
         Input properties used for looking up and filtering OrganizationConfigurationFeature resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `auto_enable` instead.  See below.
         :param pulumi.Input[_builtins.str] auto_enable: Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[_builtins.str] detector_id: ID of the detector that configures the delegated administrator.
         :param pulumi.Input[_builtins.str] name: Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
@@ -137,7 +137,7 @@ class _OrganizationConfigurationFeatureState:
     @pulumi.getter(name="additionalConfigurations")
     def additional_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]:
         """
-        Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `auto_enable` instead.  See below.
         """
         return pulumi.get(self, "additional_configurations")
 
@@ -231,7 +231,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict', 'outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict', 'outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `auto_enable` instead.  See below.
         :param pulumi.Input[_builtins.str] auto_enable: Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[_builtins.str] detector_id: ID of the detector that configures the delegated administrator.
         :param pulumi.Input[_builtins.str] name: Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
@@ -326,7 +326,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict', 'outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict', 'outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `auto_enable` instead.  See below.
         :param pulumi.Input[_builtins.str] auto_enable: Status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[_builtins.str] detector_id: ID of the detector that configures the delegated administrator.
         :param pulumi.Input[_builtins.str] name: Name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`, `AI_PROTECTION`, `AI_ANALYST`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
@@ -345,9 +345,9 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]]:
+    def additional_configurations(self) -> pulumi.Output[Sequence['outputs.OrganizationConfigurationFeatureAdditionalConfiguration']]:
         """
-        Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`, or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `auto_enable` instead.  See below.
         """
         return pulumi.get(self, "additional_configurations")
 

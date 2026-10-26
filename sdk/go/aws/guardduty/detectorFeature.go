@@ -102,7 +102,7 @@ import (
 type DetectorFeature struct {
 	pulumi.CustomResourceState
 
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayOutput `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
@@ -150,7 +150,7 @@ func GetDetectorFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DetectorFeature resources.
 type detectorFeatureState struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId *string `pulumi:"detectorId"`
@@ -163,7 +163,7 @@ type detectorFeatureState struct {
 }
 
 type DetectorFeatureState struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayInput
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringPtrInput
@@ -180,7 +180,7 @@ func (DetectorFeatureState) ElementType() reflect.Type {
 }
 
 type detectorFeatureArgs struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId string `pulumi:"detectorId"`
@@ -194,7 +194,7 @@ type detectorFeatureArgs struct {
 
 // The set of arguments for constructing a DetectorFeature resource.
 type DetectorFeatureArgs struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayInput
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringInput
@@ -293,7 +293,7 @@ func (o DetectorFeatureOutput) ToDetectorFeatureOutputWithContext(ctx context.Co
 	return o
 }
 
-// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+// Additional feature configuration block for features `EKS_RUNTIME_MONITORING`, `RUNTIME_MONITORING` or `RDS_LOGIN_EVENTS`. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 func (o DetectorFeatureOutput) AdditionalConfigurations() DetectorFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v *DetectorFeature) DetectorFeatureAdditionalConfigurationArrayOutput {
 		return v.AdditionalConfigurations

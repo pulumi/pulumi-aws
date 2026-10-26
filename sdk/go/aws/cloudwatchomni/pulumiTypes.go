@@ -13,6 +13,879 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccessGrantPrincipal struct {
+	// Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principalType` is `IDC_USER`. Up to 10 blocks. See below.
+	PrincipalAttributes []AccessGrantPrincipalPrincipalAttribute `pulumi:"principalAttributes"`
+	// ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+	PrincipalId *string `pulumi:"principalId"`
+	// Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+	PrincipalType string `pulumi:"principalType"`
+}
+
+// AccessGrantPrincipalInput is an input type that accepts AccessGrantPrincipalArgs and AccessGrantPrincipalOutput values.
+// You can construct a concrete instance of `AccessGrantPrincipalInput` via:
+//
+//	AccessGrantPrincipalArgs{...}
+type AccessGrantPrincipalInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalOutput() AccessGrantPrincipalOutput
+	ToAccessGrantPrincipalOutputWithContext(context.Context) AccessGrantPrincipalOutput
+}
+
+type AccessGrantPrincipalArgs struct {
+	// Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principalType` is `IDC_USER`. Up to 10 blocks. See below.
+	PrincipalAttributes AccessGrantPrincipalPrincipalAttributeArrayInput `pulumi:"principalAttributes"`
+	// ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+}
+
+func (AccessGrantPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipal)(nil)).Elem()
+}
+
+func (i AccessGrantPrincipalArgs) ToAccessGrantPrincipalOutput() AccessGrantPrincipalOutput {
+	return i.ToAccessGrantPrincipalOutputWithContext(context.Background())
+}
+
+func (i AccessGrantPrincipalArgs) ToAccessGrantPrincipalOutputWithContext(ctx context.Context) AccessGrantPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalOutput)
+}
+
+func (i AccessGrantPrincipalArgs) ToAccessGrantPrincipalPtrOutput() AccessGrantPrincipalPtrOutput {
+	return i.ToAccessGrantPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i AccessGrantPrincipalArgs) ToAccessGrantPrincipalPtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalOutput).ToAccessGrantPrincipalPtrOutputWithContext(ctx)
+}
+
+// AccessGrantPrincipalPtrInput is an input type that accepts AccessGrantPrincipalArgs, AccessGrantPrincipalPtr and AccessGrantPrincipalPtrOutput values.
+// You can construct a concrete instance of `AccessGrantPrincipalPtrInput` via:
+//
+//	        AccessGrantPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessGrantPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalPtrOutput() AccessGrantPrincipalPtrOutput
+	ToAccessGrantPrincipalPtrOutputWithContext(context.Context) AccessGrantPrincipalPtrOutput
+}
+
+type accessGrantPrincipalPtrType AccessGrantPrincipalArgs
+
+func AccessGrantPrincipalPtr(v *AccessGrantPrincipalArgs) AccessGrantPrincipalPtrInput {
+	return (*accessGrantPrincipalPtrType)(v)
+}
+
+func (*accessGrantPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantPrincipal)(nil)).Elem()
+}
+
+func (i *accessGrantPrincipalPtrType) ToAccessGrantPrincipalPtrOutput() AccessGrantPrincipalPtrOutput {
+	return i.ToAccessGrantPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *accessGrantPrincipalPtrType) ToAccessGrantPrincipalPtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalPtrOutput)
+}
+
+type AccessGrantPrincipalOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipal)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalOutput) ToAccessGrantPrincipalOutput() AccessGrantPrincipalOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalOutput) ToAccessGrantPrincipalOutputWithContext(ctx context.Context) AccessGrantPrincipalOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalOutput) ToAccessGrantPrincipalPtrOutput() AccessGrantPrincipalPtrOutput {
+	return o.ToAccessGrantPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPrincipalOutput) ToAccessGrantPrincipalPtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantPrincipal) *AccessGrantPrincipal {
+		return &v
+	}).(AccessGrantPrincipalPtrOutput)
+}
+
+// Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principalType` is `IDC_USER`. Up to 10 blocks. See below.
+func (o AccessGrantPrincipalOutput) PrincipalAttributes() AccessGrantPrincipalPrincipalAttributeArrayOutput {
+	return o.ApplyT(func(v AccessGrantPrincipal) []AccessGrantPrincipalPrincipalAttribute { return v.PrincipalAttributes }).(AccessGrantPrincipalPrincipalAttributeArrayOutput)
+}
+
+// ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+func (o AccessGrantPrincipalOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessGrantPrincipal) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+func (o AccessGrantPrincipalOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantPrincipal) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+type AccessGrantPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantPrincipal)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalPtrOutput) ToAccessGrantPrincipalPtrOutput() AccessGrantPrincipalPtrOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPtrOutput) ToAccessGrantPrincipalPtrOutputWithContext(ctx context.Context) AccessGrantPrincipalPtrOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPtrOutput) Elem() AccessGrantPrincipalOutput {
+	return o.ApplyT(func(v *AccessGrantPrincipal) AccessGrantPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantPrincipal
+		return ret
+	}).(AccessGrantPrincipalOutput)
+}
+
+// Attribute condition for attribute-based access. When set, the grant targets any principal matching all conditions. Supported only when `principalType` is `IDC_USER`. Up to 10 blocks. See below.
+func (o AccessGrantPrincipalPtrOutput) PrincipalAttributes() AccessGrantPrincipalPrincipalAttributeArrayOutput {
+	return o.ApplyT(func(v *AccessGrantPrincipal) []AccessGrantPrincipalPrincipalAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalAttributes
+	}).(AccessGrantPrincipalPrincipalAttributeArrayOutput)
+}
+
+// ID of the principal, such as an IAM role ARN, an Identity Center user or group ID, or the ID of an access profile or alert. Must be 1-2048 characters and start with a letter or number.
+func (o AccessGrantPrincipalPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessGrantPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of principal. Valid values are `IDC_USER`, `IDC_GROUP`, `IAM_USER`, `IAM_ROLE`, `IAM_ROOT`, `ACCESS_PROFILE`, `ALERT` and `AGENT`.
+func (o AccessGrantPrincipalPtrOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessGrantPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantPrincipalPrincipalAttribute struct {
+	// Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+	Key string `pulumi:"key"`
+	// Attribute value. Must be 1-512 characters.
+	Value string `pulumi:"value"`
+}
+
+// AccessGrantPrincipalPrincipalAttributeInput is an input type that accepts AccessGrantPrincipalPrincipalAttributeArgs and AccessGrantPrincipalPrincipalAttributeOutput values.
+// You can construct a concrete instance of `AccessGrantPrincipalPrincipalAttributeInput` via:
+//
+//	AccessGrantPrincipalPrincipalAttributeArgs{...}
+type AccessGrantPrincipalPrincipalAttributeInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalPrincipalAttributeOutput() AccessGrantPrincipalPrincipalAttributeOutput
+	ToAccessGrantPrincipalPrincipalAttributeOutputWithContext(context.Context) AccessGrantPrincipalPrincipalAttributeOutput
+}
+
+type AccessGrantPrincipalPrincipalAttributeArgs struct {
+	// Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Attribute value. Must be 1-512 characters.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AccessGrantPrincipalPrincipalAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipalPrincipalAttribute)(nil)).Elem()
+}
+
+func (i AccessGrantPrincipalPrincipalAttributeArgs) ToAccessGrantPrincipalPrincipalAttributeOutput() AccessGrantPrincipalPrincipalAttributeOutput {
+	return i.ToAccessGrantPrincipalPrincipalAttributeOutputWithContext(context.Background())
+}
+
+func (i AccessGrantPrincipalPrincipalAttributeArgs) ToAccessGrantPrincipalPrincipalAttributeOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalPrincipalAttributeOutput)
+}
+
+// AccessGrantPrincipalPrincipalAttributeArrayInput is an input type that accepts AccessGrantPrincipalPrincipalAttributeArray and AccessGrantPrincipalPrincipalAttributeArrayOutput values.
+// You can construct a concrete instance of `AccessGrantPrincipalPrincipalAttributeArrayInput` via:
+//
+//	AccessGrantPrincipalPrincipalAttributeArray{ AccessGrantPrincipalPrincipalAttributeArgs{...} }
+type AccessGrantPrincipalPrincipalAttributeArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantPrincipalPrincipalAttributeArrayOutput() AccessGrantPrincipalPrincipalAttributeArrayOutput
+	ToAccessGrantPrincipalPrincipalAttributeArrayOutputWithContext(context.Context) AccessGrantPrincipalPrincipalAttributeArrayOutput
+}
+
+type AccessGrantPrincipalPrincipalAttributeArray []AccessGrantPrincipalPrincipalAttributeInput
+
+func (AccessGrantPrincipalPrincipalAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantPrincipalPrincipalAttribute)(nil)).Elem()
+}
+
+func (i AccessGrantPrincipalPrincipalAttributeArray) ToAccessGrantPrincipalPrincipalAttributeArrayOutput() AccessGrantPrincipalPrincipalAttributeArrayOutput {
+	return i.ToAccessGrantPrincipalPrincipalAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantPrincipalPrincipalAttributeArray) ToAccessGrantPrincipalPrincipalAttributeArrayOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantPrincipalPrincipalAttributeArrayOutput)
+}
+
+type AccessGrantPrincipalPrincipalAttributeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalPrincipalAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPrincipalPrincipalAttribute)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalPrincipalAttributeOutput) ToAccessGrantPrincipalPrincipalAttributeOutput() AccessGrantPrincipalPrincipalAttributeOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPrincipalAttributeOutput) ToAccessGrantPrincipalPrincipalAttributeOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalAttributeOutput {
+	return o
+}
+
+// Identity Center user attribute to match, for example `userName` or `enterprise.department`. Must be 1-128 characters. Each key may appear only once per grant.
+func (o AccessGrantPrincipalPrincipalAttributeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantPrincipalPrincipalAttribute) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Attribute value. Must be 1-512 characters.
+func (o AccessGrantPrincipalPrincipalAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantPrincipalPrincipalAttribute) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AccessGrantPrincipalPrincipalAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPrincipalPrincipalAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantPrincipalPrincipalAttribute)(nil)).Elem()
+}
+
+func (o AccessGrantPrincipalPrincipalAttributeArrayOutput) ToAccessGrantPrincipalPrincipalAttributeArrayOutput() AccessGrantPrincipalPrincipalAttributeArrayOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPrincipalAttributeArrayOutput) ToAccessGrantPrincipalPrincipalAttributeArrayOutputWithContext(ctx context.Context) AccessGrantPrincipalPrincipalAttributeArrayOutput {
+	return o
+}
+
+func (o AccessGrantPrincipalPrincipalAttributeArrayOutput) Index(i pulumi.IntInput) AccessGrantPrincipalPrincipalAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantPrincipalPrincipalAttribute {
+		return vs[0].([]AccessGrantPrincipalPrincipalAttribute)[vs[1].(int)]
+	}).(AccessGrantPrincipalPrincipalAttributeOutput)
+}
+
+type AccessGrantScopedAction struct {
+	// 1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+	Actions []string `pulumi:"actions"`
+	// Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+	Resources []AccessGrantScopedActionResource `pulumi:"resources"`
+}
+
+// AccessGrantScopedActionInput is an input type that accepts AccessGrantScopedActionArgs and AccessGrantScopedActionOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionInput` via:
+//
+//	AccessGrantScopedActionArgs{...}
+type AccessGrantScopedActionInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionOutput() AccessGrantScopedActionOutput
+	ToAccessGrantScopedActionOutputWithContext(context.Context) AccessGrantScopedActionOutput
+}
+
+type AccessGrantScopedActionArgs struct {
+	// 1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+	Resources AccessGrantScopedActionResourceArrayInput `pulumi:"resources"`
+}
+
+func (AccessGrantScopedActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedAction)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionArgs) ToAccessGrantScopedActionOutput() AccessGrantScopedActionOutput {
+	return i.ToAccessGrantScopedActionOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionArgs) ToAccessGrantScopedActionOutputWithContext(ctx context.Context) AccessGrantScopedActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionOutput)
+}
+
+// AccessGrantScopedActionArrayInput is an input type that accepts AccessGrantScopedActionArray and AccessGrantScopedActionArrayOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionArrayInput` via:
+//
+//	AccessGrantScopedActionArray{ AccessGrantScopedActionArgs{...} }
+type AccessGrantScopedActionArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionArrayOutput() AccessGrantScopedActionArrayOutput
+	ToAccessGrantScopedActionArrayOutputWithContext(context.Context) AccessGrantScopedActionArrayOutput
+}
+
+type AccessGrantScopedActionArray []AccessGrantScopedActionInput
+
+func (AccessGrantScopedActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedAction)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionArray) ToAccessGrantScopedActionArrayOutput() AccessGrantScopedActionArrayOutput {
+	return i.ToAccessGrantScopedActionArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionArray) ToAccessGrantScopedActionArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionArrayOutput)
+}
+
+type AccessGrantScopedActionOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedAction)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionOutput) ToAccessGrantScopedActionOutput() AccessGrantScopedActionOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionOutput) ToAccessGrantScopedActionOutputWithContext(ctx context.Context) AccessGrantScopedActionOutput {
+	return o
+}
+
+// 1-50 actions this group applies to, each in `vendor-code:Action` form, for example `cloudwatch:GetRecords`. Wildcards are not permitted.
+func (o AccessGrantScopedActionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedAction) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// Resource scope constraining these actions to specific resources. Up to 10 blocks. See below.
+func (o AccessGrantScopedActionOutput) Resources() AccessGrantScopedActionResourceArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedAction) []AccessGrantScopedActionResource { return v.Resources }).(AccessGrantScopedActionResourceArrayOutput)
+}
+
+type AccessGrantScopedActionArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedAction)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionArrayOutput) ToAccessGrantScopedActionArrayOutput() AccessGrantScopedActionArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionArrayOutput) ToAccessGrantScopedActionArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionArrayOutput) Index(i pulumi.IntInput) AccessGrantScopedActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantScopedAction {
+		return vs[0].([]AccessGrantScopedAction)[vs[1].(int)]
+	}).(AccessGrantScopedActionOutput)
+}
+
+type AccessGrantScopedActionResource struct {
+	// Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+	ResourceArns []string `pulumi:"resourceArns"`
+	// Resource type name, for example `DataSet` or `OmniDashboard`.
+	ResourceType string `pulumi:"resourceType"`
+	// Row-level filter group. A row is visible when it matches every `rowScope` in any one group. Up to 20 blocks. Must be specified together with `signalTypes`, on a `DataSet` resource scope. See below.
+	RowScopeGroups []AccessGrantScopedActionResourceRowScopeGroup `pulumi:"rowScopeGroups"`
+	// Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `rowScopeGroup`, on a `DataSet` resource scope.
+	SignalTypes []string `pulumi:"signalTypes"`
+	// Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// AccessGrantScopedActionResourceInput is an input type that accepts AccessGrantScopedActionResourceArgs and AccessGrantScopedActionResourceOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionResourceInput` via:
+//
+//	AccessGrantScopedActionResourceArgs{...}
+type AccessGrantScopedActionResourceInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionResourceOutput() AccessGrantScopedActionResourceOutput
+	ToAccessGrantScopedActionResourceOutputWithContext(context.Context) AccessGrantScopedActionResourceOutput
+}
+
+type AccessGrantScopedActionResourceArgs struct {
+	// Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
+	// Resource type name, for example `DataSet` or `OmniDashboard`.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Row-level filter group. A row is visible when it matches every `rowScope` in any one group. Up to 20 blocks. Must be specified together with `signalTypes`, on a `DataSet` resource scope. See below.
+	RowScopeGroups AccessGrantScopedActionResourceRowScopeGroupArrayInput `pulumi:"rowScopeGroups"`
+	// Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `rowScopeGroup`, on a `DataSet` resource scope.
+	SignalTypes pulumi.StringArrayInput `pulumi:"signalTypes"`
+	// Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (AccessGrantScopedActionResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActionResource)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionResourceArgs) ToAccessGrantScopedActionResourceOutput() AccessGrantScopedActionResourceOutput {
+	return i.ToAccessGrantScopedActionResourceOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionResourceArgs) ToAccessGrantScopedActionResourceOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionResourceOutput)
+}
+
+// AccessGrantScopedActionResourceArrayInput is an input type that accepts AccessGrantScopedActionResourceArray and AccessGrantScopedActionResourceArrayOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionResourceArrayInput` via:
+//
+//	AccessGrantScopedActionResourceArray{ AccessGrantScopedActionResourceArgs{...} }
+type AccessGrantScopedActionResourceArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionResourceArrayOutput() AccessGrantScopedActionResourceArrayOutput
+	ToAccessGrantScopedActionResourceArrayOutputWithContext(context.Context) AccessGrantScopedActionResourceArrayOutput
+}
+
+type AccessGrantScopedActionResourceArray []AccessGrantScopedActionResourceInput
+
+func (AccessGrantScopedActionResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActionResource)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionResourceArray) ToAccessGrantScopedActionResourceArrayOutput() AccessGrantScopedActionResourceArrayOutput {
+	return i.ToAccessGrantScopedActionResourceArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionResourceArray) ToAccessGrantScopedActionResourceArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionResourceArrayOutput)
+}
+
+type AccessGrantScopedActionResourceOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActionResource)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionResourceOutput) ToAccessGrantScopedActionResourceOutput() AccessGrantScopedActionResourceOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceOutput) ToAccessGrantScopedActionResourceOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceOutput {
+	return o
+}
+
+// Up to 5 resource ARNs or ARN patterns the actions are limited to. Defaults to all resources of the type.
+func (o AccessGrantScopedActionResourceOutput) ResourceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResource) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+// Resource type name, for example `DataSet` or `OmniDashboard`.
+func (o AccessGrantScopedActionResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Row-level filter group. A row is visible when it matches every `rowScope` in any one group. Up to 20 blocks. Must be specified together with `signalTypes`, on a `DataSet` resource scope. See below.
+func (o AccessGrantScopedActionResourceOutput) RowScopeGroups() AccessGrantScopedActionResourceRowScopeGroupArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResource) []AccessGrantScopedActionResourceRowScopeGroup {
+		return v.RowScopeGroups
+	}).(AccessGrantScopedActionResourceRowScopeGroupArrayOutput)
+}
+
+// Signal types the row filtering applies to. Valid values are `LOGS` and `TRACES`. Must be specified together with `rowScopeGroup`, on a `DataSet` resource scope.
+func (o AccessGrantScopedActionResourceOutput) SignalTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResource) []string { return v.SignalTypes }).(pulumi.StringArrayOutput)
+}
+
+// Map of up to 3 tag key-value pairs. Access applies only to resources carrying all of these tags.
+func (o AccessGrantScopedActionResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type AccessGrantScopedActionResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActionResource)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionResourceArrayOutput) ToAccessGrantScopedActionResourceArrayOutput() AccessGrantScopedActionResourceArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceArrayOutput) ToAccessGrantScopedActionResourceArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceArrayOutput) Index(i pulumi.IntInput) AccessGrantScopedActionResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantScopedActionResource {
+		return vs[0].([]AccessGrantScopedActionResource)[vs[1].(int)]
+	}).(AccessGrantScopedActionResourceOutput)
+}
+
+type AccessGrantScopedActionResourceRowScopeGroup struct {
+	// Row filter. 1-20 blocks. See below.
+	RowScopes []AccessGrantScopedActionResourceRowScopeGroupRowScope `pulumi:"rowScopes"`
+}
+
+// AccessGrantScopedActionResourceRowScopeGroupInput is an input type that accepts AccessGrantScopedActionResourceRowScopeGroupArgs and AccessGrantScopedActionResourceRowScopeGroupOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionResourceRowScopeGroupInput` via:
+//
+//	AccessGrantScopedActionResourceRowScopeGroupArgs{...}
+type AccessGrantScopedActionResourceRowScopeGroupInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionResourceRowScopeGroupOutput() AccessGrantScopedActionResourceRowScopeGroupOutput
+	ToAccessGrantScopedActionResourceRowScopeGroupOutputWithContext(context.Context) AccessGrantScopedActionResourceRowScopeGroupOutput
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupArgs struct {
+	// Row filter. 1-20 blocks. See below.
+	RowScopes AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayInput `pulumi:"rowScopes"`
+}
+
+func (AccessGrantScopedActionResourceRowScopeGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroup)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupArgs) ToAccessGrantScopedActionResourceRowScopeGroupOutput() AccessGrantScopedActionResourceRowScopeGroupOutput {
+	return i.ToAccessGrantScopedActionResourceRowScopeGroupOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupArgs) ToAccessGrantScopedActionResourceRowScopeGroupOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionResourceRowScopeGroupOutput)
+}
+
+// AccessGrantScopedActionResourceRowScopeGroupArrayInput is an input type that accepts AccessGrantScopedActionResourceRowScopeGroupArray and AccessGrantScopedActionResourceRowScopeGroupArrayOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionResourceRowScopeGroupArrayInput` via:
+//
+//	AccessGrantScopedActionResourceRowScopeGroupArray{ AccessGrantScopedActionResourceRowScopeGroupArgs{...} }
+type AccessGrantScopedActionResourceRowScopeGroupArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionResourceRowScopeGroupArrayOutput() AccessGrantScopedActionResourceRowScopeGroupArrayOutput
+	ToAccessGrantScopedActionResourceRowScopeGroupArrayOutputWithContext(context.Context) AccessGrantScopedActionResourceRowScopeGroupArrayOutput
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupArray []AccessGrantScopedActionResourceRowScopeGroupInput
+
+func (AccessGrantScopedActionResourceRowScopeGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActionResourceRowScopeGroup)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupArray) ToAccessGrantScopedActionResourceRowScopeGroupArrayOutput() AccessGrantScopedActionResourceRowScopeGroupArrayOutput {
+	return i.ToAccessGrantScopedActionResourceRowScopeGroupArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupArray) ToAccessGrantScopedActionResourceRowScopeGroupArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionResourceRowScopeGroupArrayOutput)
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionResourceRowScopeGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroup)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupOutput) ToAccessGrantScopedActionResourceRowScopeGroupOutput() AccessGrantScopedActionResourceRowScopeGroupOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupOutput) ToAccessGrantScopedActionResourceRowScopeGroupOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupOutput {
+	return o
+}
+
+// Row filter. 1-20 blocks. See below.
+func (o AccessGrantScopedActionResourceRowScopeGroupOutput) RowScopes() AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResourceRowScopeGroup) []AccessGrantScopedActionResourceRowScopeGroupRowScope {
+		return v.RowScopes
+	}).(AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput)
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionResourceRowScopeGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActionResourceRowScopeGroup)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupArrayOutput) ToAccessGrantScopedActionResourceRowScopeGroupArrayOutput() AccessGrantScopedActionResourceRowScopeGroupArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupArrayOutput) ToAccessGrantScopedActionResourceRowScopeGroupArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupArrayOutput) Index(i pulumi.IntInput) AccessGrantScopedActionResourceRowScopeGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantScopedActionResourceRowScopeGroup {
+		return vs[0].([]AccessGrantScopedActionResourceRowScopeGroup)[vs[1].(int)]
+	}).(AccessGrantScopedActionResourceRowScopeGroupOutput)
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupRowScope struct {
+	// Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+	Field string `pulumi:"field"`
+	// Match operator. Valid value is `IN`.
+	Operator string `pulumi:"operator"`
+	// Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+	Values []string `pulumi:"values"`
+}
+
+// AccessGrantScopedActionResourceRowScopeGroupRowScopeInput is an input type that accepts AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs and AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionResourceRowScopeGroupRowScopeInput` via:
+//
+//	AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs{...}
+type AccessGrantScopedActionResourceRowScopeGroupRowScopeInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionResourceRowScopeGroupRowScopeOutput() AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput
+	ToAccessGrantScopedActionResourceRowScopeGroupRowScopeOutputWithContext(context.Context) AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs struct {
+	// Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+	Field pulumi.StringInput `pulumi:"field"`
+	// Match operator. Valid value is `IN`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroupRowScope)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeOutput() AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput {
+	return i.ToAccessGrantScopedActionResourceRowScopeGroupRowScopeOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput)
+}
+
+// AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayInput is an input type that accepts AccessGrantScopedActionResourceRowScopeGroupRowScopeArray and AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput values.
+// You can construct a concrete instance of `AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayInput` via:
+//
+//	AccessGrantScopedActionResourceRowScopeGroupRowScopeArray{ AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs{...} }
+type AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayInput interface {
+	pulumi.Input
+
+	ToAccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput() AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput
+	ToAccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutputWithContext(context.Context) AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupRowScopeArray []AccessGrantScopedActionResourceRowScopeGroupRowScopeInput
+
+func (AccessGrantScopedActionResourceRowScopeGroupRowScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActionResourceRowScopeGroupRowScope)(nil)).Elem()
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupRowScopeArray) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput() AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput {
+	return i.ToAccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutputWithContext(context.Background())
+}
+
+func (i AccessGrantScopedActionResourceRowScopeGroupRowScopeArray) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput)
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroupRowScope)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeOutput() AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput {
+	return o
+}
+
+// Field the filter applies to, for example `serviceName`. Must be 1-256 characters.
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResourceRowScopeGroupRowScope) string { return v.Field }).(pulumi.StringOutput)
+}
+
+// Match operator. Valid value is `IN`.
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResourceRowScopeGroupRowScope) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Set of 1-100 values the field is matched against, each 1-256 characters. CloudWatch Omni stores the values sorted and without duplicates.
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessGrantScopedActionResourceRowScopeGroupRowScope) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessGrantScopedActionResourceRowScopeGroupRowScope)(nil)).Elem()
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput() AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput) ToAccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutputWithContext(ctx context.Context) AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput {
+	return o
+}
+
+func (o AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput) Index(i pulumi.IntInput) AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantScopedActionResourceRowScopeGroupRowScope {
+		return vs[0].([]AccessGrantScopedActionResourceRowScopeGroupRowScope)[vs[1].(int)]
+	}).(AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput)
+}
+
+type AccessProfileTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// AccessProfileTimeoutsInput is an input type that accepts AccessProfileTimeoutsArgs and AccessProfileTimeoutsOutput values.
+// You can construct a concrete instance of `AccessProfileTimeoutsInput` via:
+//
+//	AccessProfileTimeoutsArgs{...}
+type AccessProfileTimeoutsInput interface {
+	pulumi.Input
+
+	ToAccessProfileTimeoutsOutput() AccessProfileTimeoutsOutput
+	ToAccessProfileTimeoutsOutputWithContext(context.Context) AccessProfileTimeoutsOutput
+}
+
+type AccessProfileTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (AccessProfileTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessProfileTimeouts)(nil)).Elem()
+}
+
+func (i AccessProfileTimeoutsArgs) ToAccessProfileTimeoutsOutput() AccessProfileTimeoutsOutput {
+	return i.ToAccessProfileTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AccessProfileTimeoutsArgs) ToAccessProfileTimeoutsOutputWithContext(ctx context.Context) AccessProfileTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessProfileTimeoutsOutput)
+}
+
+func (i AccessProfileTimeoutsArgs) ToAccessProfileTimeoutsPtrOutput() AccessProfileTimeoutsPtrOutput {
+	return i.ToAccessProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AccessProfileTimeoutsArgs) ToAccessProfileTimeoutsPtrOutputWithContext(ctx context.Context) AccessProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessProfileTimeoutsOutput).ToAccessProfileTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AccessProfileTimeoutsPtrInput is an input type that accepts AccessProfileTimeoutsArgs, AccessProfileTimeoutsPtr and AccessProfileTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AccessProfileTimeoutsPtrInput` via:
+//
+//	        AccessProfileTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessProfileTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAccessProfileTimeoutsPtrOutput() AccessProfileTimeoutsPtrOutput
+	ToAccessProfileTimeoutsPtrOutputWithContext(context.Context) AccessProfileTimeoutsPtrOutput
+}
+
+type accessProfileTimeoutsPtrType AccessProfileTimeoutsArgs
+
+func AccessProfileTimeoutsPtr(v *AccessProfileTimeoutsArgs) AccessProfileTimeoutsPtrInput {
+	return (*accessProfileTimeoutsPtrType)(v)
+}
+
+func (*accessProfileTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessProfileTimeouts)(nil)).Elem()
+}
+
+func (i *accessProfileTimeoutsPtrType) ToAccessProfileTimeoutsPtrOutput() AccessProfileTimeoutsPtrOutput {
+	return i.ToAccessProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *accessProfileTimeoutsPtrType) ToAccessProfileTimeoutsPtrOutputWithContext(ctx context.Context) AccessProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessProfileTimeoutsPtrOutput)
+}
+
+type AccessProfileTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AccessProfileTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessProfileTimeouts)(nil)).Elem()
+}
+
+func (o AccessProfileTimeoutsOutput) ToAccessProfileTimeoutsOutput() AccessProfileTimeoutsOutput {
+	return o
+}
+
+func (o AccessProfileTimeoutsOutput) ToAccessProfileTimeoutsOutputWithContext(ctx context.Context) AccessProfileTimeoutsOutput {
+	return o
+}
+
+func (o AccessProfileTimeoutsOutput) ToAccessProfileTimeoutsPtrOutput() AccessProfileTimeoutsPtrOutput {
+	return o.ToAccessProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AccessProfileTimeoutsOutput) ToAccessProfileTimeoutsPtrOutputWithContext(ctx context.Context) AccessProfileTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessProfileTimeouts) *AccessProfileTimeouts {
+		return &v
+	}).(AccessProfileTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccessProfileTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessProfileTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type AccessProfileTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessProfileTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessProfileTimeouts)(nil)).Elem()
+}
+
+func (o AccessProfileTimeoutsPtrOutput) ToAccessProfileTimeoutsPtrOutput() AccessProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o AccessProfileTimeoutsPtrOutput) ToAccessProfileTimeoutsPtrOutputWithContext(ctx context.Context) AccessProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o AccessProfileTimeoutsPtrOutput) Elem() AccessProfileTimeoutsOutput {
+	return o.ApplyT(func(v *AccessProfileTimeouts) AccessProfileTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AccessProfileTimeouts
+		return ret
+	}).(AccessProfileTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccessProfileTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainIdentityProviderConfiguration struct {
 	// IAM Identity Center configuration. See below.
 	IdentityCenterConfiguration DomainIdentityProviderConfigurationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
@@ -448,12 +1321,40 @@ func (o SpaceEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalInput)(nil)).Elem(), AccessGrantPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalPtrInput)(nil)).Elem(), AccessGrantPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalPrincipalAttributeInput)(nil)).Elem(), AccessGrantPrincipalPrincipalAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPrincipalPrincipalAttributeArrayInput)(nil)).Elem(), AccessGrantPrincipalPrincipalAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionInput)(nil)).Elem(), AccessGrantScopedActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionArrayInput)(nil)).Elem(), AccessGrantScopedActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionResourceInput)(nil)).Elem(), AccessGrantScopedActionResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionResourceArrayInput)(nil)).Elem(), AccessGrantScopedActionResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroupInput)(nil)).Elem(), AccessGrantScopedActionResourceRowScopeGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroupArrayInput)(nil)).Elem(), AccessGrantScopedActionResourceRowScopeGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroupRowScopeInput)(nil)).Elem(), AccessGrantScopedActionResourceRowScopeGroupRowScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayInput)(nil)).Elem(), AccessGrantScopedActionResourceRowScopeGroupRowScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessProfileTimeoutsInput)(nil)).Elem(), AccessProfileTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessProfileTimeoutsPtrInput)(nil)).Elem(), AccessProfileTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationInput)(nil)).Elem(), DomainIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationPtrInput)(nil)).Elem(), DomainIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationIdentityCenterConfigurationInput)(nil)).Elem(), DomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationIdentityCenterConfigurationPtrInput)(nil)).Elem(), DomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationInput)(nil)).Elem(), SpaceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationPtrInput)(nil)).Elem(), SpaceEncryptionConfigurationArgs{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalOutput{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalPrincipalAttributeOutput{})
+	pulumi.RegisterOutputType(AccessGrantPrincipalPrincipalAttributeArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionResourceOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionResourceArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionResourceRowScopeGroupOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionResourceRowScopeGroupArrayOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionResourceRowScopeGroupRowScopeOutput{})
+	pulumi.RegisterOutputType(AccessGrantScopedActionResourceRowScopeGroupRowScopeArrayOutput{})
+	pulumi.RegisterOutputType(AccessProfileTimeoutsOutput{})
+	pulumi.RegisterOutputType(AccessProfileTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationIdentityCenterConfigurationOutput{})

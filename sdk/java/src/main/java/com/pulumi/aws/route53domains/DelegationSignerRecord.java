@@ -149,10 +149,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
+ * Using `pulumi import`, import delegation signer records using the domain name, flags, algorithm, and public key separated by a comma (`,`). For example:
  * 
  * ```sh
- * $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
+ * $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,257,13,M1jizbcdK5IBt7d4lRIiFTx+N06BJzaeScK215EOfa8efd2akkUWmxD5OhodZCIiRMvL5ZnStUP5UReIeUmBeA==
  * ```
  * 
  */
@@ -191,14 +191,14 @@ public class DelegationSignerRecord extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="signingAttributes", refs={DelegationSignerRecordSigningAttributes.class}, tree="[0]")
-    private Output</* @Nullable */ DelegationSignerRecordSigningAttributes> signingAttributes;
+    private Output<DelegationSignerRecordSigningAttributes> signingAttributes;
 
     /**
      * @return The information about a key, including the algorithm, public key-value, and flags.
      * 
      */
-    public Output<Optional<DelegationSignerRecordSigningAttributes>> signingAttributes() {
-        return Codegen.optional(this.signingAttributes);
+    public Output<DelegationSignerRecordSigningAttributes> signingAttributes() {
+        return this.signingAttributes;
     }
     @Export(name="timeouts", refs={DelegationSignerRecordTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ DelegationSignerRecordTimeouts> timeouts;

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputMap<string>? _dbInstanceArnMap;
 
         /// <summary>
-        /// Map of source DB instance identifiers to target DB instance ARNs.
+        /// Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
         /// </summary>
         public InputMap<string> DbInstanceArnMap
         {

@@ -34,14 +34,14 @@ public final class PlanWorkflowStepRdsPromoteReadReplicaConfigArgs extends com.p
     }
 
     /**
-     * Map of source DB instance identifiers to target DB instance ARNs.
+     * Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
      * 
      */
     @Import(name="dbInstanceArnMap", required=true)
     private Output<Map<String,String>> dbInstanceArnMap;
 
     /**
-     * @return Map of source DB instance identifiers to target DB instance ARNs.
+     * @return Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
      * 
      */
     public Output<Map<String,String>> dbInstanceArnMap() {
@@ -127,7 +127,7 @@ public final class PlanWorkflowStepRdsPromoteReadReplicaConfigArgs extends com.p
         }
 
         /**
-         * @param dbInstanceArnMap Map of source DB instance identifiers to target DB instance ARNs.
+         * @param dbInstanceArnMap Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class PlanWorkflowStepRdsPromoteReadReplicaConfigArgs extends com.p
         }
 
         /**
-         * @param dbInstanceArnMap Map of source DB instance identifiers to target DB instance ARNs.
+         * @param dbInstanceArnMap Map of regions to DB instance ARNs. Provide an ARN for each region in the plan.
          * 
          * @return builder
          * 

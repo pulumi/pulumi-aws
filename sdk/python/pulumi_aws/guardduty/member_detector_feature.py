@@ -33,7 +33,7 @@ class MemberDetectorFeatureArgs:
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[_builtins.str] status: Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
         :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -87,7 +87,7 @@ class MemberDetectorFeatureArgs:
     @pulumi.getter(name="additionalConfigurations")
     def additional_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]]]:
         """
-        Additional feature configuration block. See below.
+        Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
         """
         return pulumi.get(self, "additional_configurations")
 
@@ -133,7 +133,7 @@ class _MemberDetectorFeatureState:
         Input properties used for looking up and filtering MemberDetectorFeature resources.
 
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
-        :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -168,7 +168,7 @@ class _MemberDetectorFeatureState:
     @pulumi.getter(name="additionalConfigurations")
     def additional_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]]]:
         """
-        Additional feature configuration block. See below.
+        Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
         """
         return pulumi.get(self, "additional_configurations")
 
@@ -286,7 +286,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict', 'outputs.MemberDetectorFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict', 'outputs.MemberDetectorFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -409,7 +409,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict', 'outputs.MemberDetectorFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict', 'outputs.MemberDetectorFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -439,7 +439,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
     @pulumi.getter(name="additionalConfigurations")
     def additional_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.MemberDetectorFeatureAdditionalConfiguration']]]:
         """
-        Additional feature configuration block. See below.
+        Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additional_configuration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
         """
         return pulumi.get(self, "additional_configurations")
 

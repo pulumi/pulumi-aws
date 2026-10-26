@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class MemberDetectorFeatureAdditionalConfiguration {
     /**
-     * @return Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+     * @return Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class MemberDetectorFeatureAdditionalConfiguration {
 
     private MemberDetectorFeatureAdditionalConfiguration() {}
     /**
-     * @return Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+     * @return Name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, or `RDS_DATA_RISK`. `RDS_DATA_RISK` applies to the `RDS_LOGIN_EVENTS` feature.
      * 
      */
     public String name() {

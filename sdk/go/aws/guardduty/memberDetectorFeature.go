@@ -107,7 +107,7 @@ type MemberDetectorFeature struct {
 
 	// Member account ID to be updated.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations MemberDetectorFeatureAdditionalConfigurationArrayOutput `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
@@ -160,7 +160,7 @@ func GetMemberDetectorFeature(ctx *pulumi.Context,
 type memberDetectorFeatureState struct {
 	// Member account ID to be updated.
 	AccountId *string `pulumi:"accountId"`
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations []MemberDetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId *string `pulumi:"detectorId"`
@@ -175,7 +175,7 @@ type memberDetectorFeatureState struct {
 type MemberDetectorFeatureState struct {
 	// Member account ID to be updated.
 	AccountId pulumi.StringPtrInput
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations MemberDetectorFeatureAdditionalConfigurationArrayInput
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringPtrInput
@@ -194,7 +194,7 @@ func (MemberDetectorFeatureState) ElementType() reflect.Type {
 type memberDetectorFeatureArgs struct {
 	// Member account ID to be updated.
 	AccountId string `pulumi:"accountId"`
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations []MemberDetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId string `pulumi:"detectorId"`
@@ -210,7 +210,7 @@ type memberDetectorFeatureArgs struct {
 type MemberDetectorFeatureArgs struct {
 	// Member account ID to be updated.
 	AccountId pulumi.StringInput
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 	AdditionalConfigurations MemberDetectorFeatureAdditionalConfigurationArrayInput
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringInput
@@ -314,7 +314,7 @@ func (o MemberDetectorFeatureOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Additional feature configuration block. See below.
+// Additional feature configuration block. If omitted, Terraform does not track changes to additional configurations that AWS manages for the feature. Removing a previously declared `additionalConfiguration` block leaves the setting unchanged in AWS; to change a setting, update its `status` instead. See below.
 func (o MemberDetectorFeatureOutput) AdditionalConfigurations() MemberDetectorFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) MemberDetectorFeatureAdditionalConfigurationArrayOutput {
 		return v.AdditionalConfigurations
