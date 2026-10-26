@@ -166,7 +166,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			"inputs": "*",
 			"failures": [
 				{
-					"reason": "No valid credential sources found.\nTo sign in through your browser, run '''aws login''' (requires AWS CLI 2.32.0 or later) and try again.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\nYou can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run '''pulumi env setup aws'''.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
+					"reason": "No valid credential sources found.\nTo sign in through your browser, run '''aws login''' (requires AWS CLI 2.32.0 or later) and try again.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\n\nYou can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run '''pulumi env setup aws'''.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
 				}
 			]
 		},
