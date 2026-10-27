@@ -1,3 +1,0 @@
-name: queue
-runtime: nodejs
-description: A simple example of using the `Queue` APIs.
