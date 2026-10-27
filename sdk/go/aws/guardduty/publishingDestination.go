@@ -137,14 +137,14 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "gd_bucket_acl", &s3.BucketAclArgs{
-//				Bucket: gdBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: gdBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gd_bucket_policy", &s3.BucketPolicyArgs{
-//				Bucket: gdBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: gdBucket.ID(),
 //				Policy: bucketPol.Json(),
 //			})
 //			if err != nil {
@@ -159,7 +159,7 @@ import (
 //				return err
 //			}
 //			_, err = guardduty.NewPublishingDestination(ctx, "test", &guardduty.PublishingDestinationArgs{
-//				DetectorId:     testGd.ID().ToIDOutput().ToStringOutput(),
+//				DetectorId:     testGd.ID(),
 //				DestinationArn: gdBucket.Arn,
 //				KmsKeyArn:      gdKey.Arn,
 //			}, pulumi.DependsOn([]pulumi.Resource{

@@ -23,9 +23,7 @@ import * as utilities from "../utilities";
  *         Env: "test",
  *     },
  * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
- *     id: _arg0_.ids[__index],
- * })));
+ * const testEnvGetManagedPrefixList = _arg1_;
  * ```
  */
 export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListsResult> {
@@ -92,9 +90,7 @@ export interface GetManagedPrefixListsResult {
  *         Env: "test",
  *     },
  * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
- *     id: _arg0_.ids[__index],
- * })));
+ * const testEnvGetManagedPrefixList = _arg1_;
  * ```
  */
 export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrefixListsResult> {

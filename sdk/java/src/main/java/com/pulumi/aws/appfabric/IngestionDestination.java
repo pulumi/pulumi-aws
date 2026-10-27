@@ -64,13 +64,13 @@ import javax.annotation.Nullable;
  *                 .auditLog(IngestionDestinationDestinationConfigurationAuditLogArgs.builder()
  *                     .destination(IngestionDestinationDestinationConfigurationAuditLogDestinationArgs.builder()
  *                         .s3Bucket(IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs.builder()
- *                             .bucketName(exampleAwsS3Bucket.bucket())
+ *                             .bucketName(exampleAwsS3Bucket.get("bucket"))
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
- *             .appBundleArn(exampleAwsAppfabricAppBundle.arn())
- *             .ingestionArn(exampleAwsAppfabricIngestion.arn())
+ *             .appBundleArn(exampleAwsAppfabricAppBundle.get("arn"))
+ *             .ingestionArn(exampleAwsAppfabricIngestion.get("arn"))
  *             .build());
  * 
  *     }

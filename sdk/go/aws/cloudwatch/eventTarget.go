@@ -368,8 +368,8 @@ import (
 //						Actions: []string{
 //							"ecs:RunTask",
 //						},
-//						Resources: pulumi.StringArray{
-//							invokeReplace.Result,
+//						Resources: []string{
+//							*string(invokeReplace.Result),
 //						},
 //					},
 //				},
@@ -379,7 +379,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "ecs_events_run_task_with_any_role", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("ecs_events_run_task_with_any_role"),
-//				Role:   ecsEvents.ID().ToIDOutput().ToStringOutput(),
+//				Role:   ecsEvents.ID(),
 //				Policy: pulumi.String(ecsEventsRunTaskWithAnyRole.Json),
 //			})
 //			if err != nil {
@@ -449,7 +449,7 @@ import (
 //			}
 //			exampleStage, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
 //				RestApi:    pulumi.Any(exampleAwsApiGatewayRestApi.Id),
-//				Deployment: exampleDeployment.ID().ToIDOutput().ToStringOutput(),
+//				Deployment: exampleDeployment.ID(),
 //			})
 //			if err != nil {
 //				return err

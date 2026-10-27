@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *                 .tableName(testCatalogTable.name())
  *                 .build())
  *             .name("example")
- *             .roleArn(testAwsIamRole.arn())
+ *             .roleArn(testAwsIamRole.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testAwsIamRolePolicyAttachment)
  *                 .build());

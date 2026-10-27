@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()
- *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
- *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.get("gatewayArn"))
+ *             .networkInterfaceId(exampleAwsInstance.get("privateIp"))
  *             .targetName("example")
  *             .preserveExistingData(false)
- *             .diskId(test.id())
+ *             .diskId(test.get("id"))
  *             .build());
  * 
  *     }
@@ -86,12 +86,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()
- *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
- *             .networkInterfaceId(exampleAwsInstance.privateIp())
- *             .snapshotId(exampleAwsEbsSnapshot.id())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.get("gatewayArn"))
+ *             .networkInterfaceId(exampleAwsInstance.get("privateIp"))
+ *             .snapshotId(exampleAwsEbsSnapshot.get("id"))
  *             .targetName("example")
  *             .preserveExistingData(false)
- *             .diskId(test.id())
+ *             .diskId(test.get("id"))
  *             .build());
  * 
  *     }

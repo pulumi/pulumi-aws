@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
         ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
-        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime),
         ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
         ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
         ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
@@ -145,16 +145,16 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["versionComparison"] = 
+        ///         ["versionComparison"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "specificVersion", version.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
-        ///             { "latestVersion", latest.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
-        ///             { "codeDifference", Output.Tuple(version, latest).Apply(values =&gt;
+        ///             ["specificVersion"] = version.Apply(getFunctionResult =&gt; getFunctionResult.Version),
+        ///             ["latestVersion"] = latest.Apply(getFunctionResult =&gt; getFunctionResult.Version),
+        ///             ["codeDifference"] = Output.Tuple(version, latest).Apply(values =&gt;
         ///             {
         ///                 var version = values.Item1;
         ///                 var latest = values.Item2;
         ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
-        ///             }) },
+        ///             }),
         ///         },
         ///     };
         /// });
@@ -177,21 +177,21 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["durableSettings"] = 
+        ///         ["durableSettings"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length().Apply(length =&gt; length &gt; 0) },
-        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
+        ///             ["hasDurableConfig"] = durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0),
+        ///             ["executionTimeout"] = Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
-        ///             }) },
-        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
+        ///             }),
+        ///             ["retentionPeriod"] = Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.RetentionPeriod) : null;
-        ///             }) },
+        ///             }),
         ///         },
         ///     };
         /// });
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
         ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
-        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime),
         ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
         ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
         ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
@@ -334,16 +334,16 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["versionComparison"] = 
+        ///         ["versionComparison"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "specificVersion", version.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
-        ///             { "latestVersion", latest.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
-        ///             { "codeDifference", Output.Tuple(version, latest).Apply(values =&gt;
+        ///             ["specificVersion"] = version.Apply(getFunctionResult =&gt; getFunctionResult.Version),
+        ///             ["latestVersion"] = latest.Apply(getFunctionResult =&gt; getFunctionResult.Version),
+        ///             ["codeDifference"] = Output.Tuple(version, latest).Apply(values =&gt;
         ///             {
         ///                 var version = values.Item1;
         ///                 var latest = values.Item2;
         ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
-        ///             }) },
+        ///             }),
         ///         },
         ///     };
         /// });
@@ -366,21 +366,21 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["durableSettings"] = 
+        ///         ["durableSettings"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length().Apply(length =&gt; length &gt; 0) },
-        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
+        ///             ["hasDurableConfig"] = durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0),
+        ///             ["executionTimeout"] = Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
-        ///             }) },
-        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
+        ///             }),
+        ///             ["retentionPeriod"] = Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.RetentionPeriod) : null;
-        ///             }) },
+        ///             }),
         ///         },
         ///     };
         /// });
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
         ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
-        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime),
         ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
         ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
         ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
@@ -523,16 +523,16 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["versionComparison"] = 
+        ///         ["versionComparison"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "specificVersion", version.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
-        ///             { "latestVersion", latest.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
-        ///             { "codeDifference", Output.Tuple(version, latest).Apply(values =&gt;
+        ///             ["specificVersion"] = version.Apply(getFunctionResult =&gt; getFunctionResult.Version),
+        ///             ["latestVersion"] = latest.Apply(getFunctionResult =&gt; getFunctionResult.Version),
+        ///             ["codeDifference"] = Output.Tuple(version, latest).Apply(values =&gt;
         ///             {
         ///                 var version = values.Item1;
         ///                 var latest = values.Item2;
         ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
-        ///             }) },
+        ///             }),
         ///         },
         ///     };
         /// });
@@ -555,21 +555,21 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["durableSettings"] = 
+        ///         ["durableSettings"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length().Apply(length =&gt; length &gt; 0) },
-        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
+        ///             ["hasDurableConfig"] = durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0),
+        ///             ["executionTimeout"] = Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
-        ///             }) },
-        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
+        ///             }),
+        ///             ["retentionPeriod"] = Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.RetentionPeriod) : null;
-        ///             }) },
+        ///             }),
         ///         },
         ///     };
         /// });

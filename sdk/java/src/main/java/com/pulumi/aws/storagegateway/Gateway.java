@@ -58,18 +58,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testVolumeAttachment = new VolumeAttachment("testVolumeAttachment", VolumeAttachmentArgs.builder()
  *             .deviceName("/dev/xvdb")
- *             .volumeId(testAwsEbsVolume.id())
- *             .instanceId(testAwsInstance.id())
+ *             .volumeId(testAwsEbsVolume.get("id"))
+ *             .instanceId(testAwsInstance.get("id"))
  *             .build());
  * 
  *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
  *             .diskNode(testVolumeAttachment.deviceName())
- *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+ *             .gatewayArn(testAwsStoragegatewayGateway.get("arn"))
  *             .build());
  * 
  *         var testCache = new Cache("testCache", CacheArgs.builder()
  *             .diskId(test.applyValue(_test -> _test.diskId()))
- *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+ *             .gatewayArn(testAwsStoragegatewayGateway.get("arn"))
  *             .build());
  * 
  *     }
@@ -299,7 +299,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Gateway("example", GatewayArgs.builder()
- *             .gatewayIpAddress(sgw.privateIp())
+ *             .gatewayIpAddress(sgw.get("privateIp"))
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("gatewayIpAddress")
  *                 .build());

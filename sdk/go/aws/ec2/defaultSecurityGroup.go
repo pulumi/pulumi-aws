@@ -62,7 +62,7 @@ import (
 //						ToPort:   pulumi.Int(0),
 //					},
 //				},
-//				VpcId: mainvpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: mainvpc.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -104,7 +104,7 @@ import (
 //						ToPort:   pulumi.Int(0),
 //					},
 //				},
-//				VpcId: mainvpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: mainvpc.ID(),
 //			})
 //			if err != nil {
 //				return err

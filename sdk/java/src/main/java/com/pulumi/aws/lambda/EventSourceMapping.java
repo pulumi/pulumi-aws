@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .eventSourceArn(exampleAwsDynamodbTable.streamArn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsDynamodbTable.get("streamArn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .startingPosition("LATEST")
  *             .tags(Map.of("Name", "dynamodb-stream-mapping"))
  *             .build());
@@ -100,11 +100,11 @@ import javax.annotation.Nullable;
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .destinationConfig(EventSourceMappingDestinationConfigArgs.builder()
  *                 .onFailure(EventSourceMappingDestinationConfigOnFailureArgs.builder()
- *                     .destinationArn(dlq.arn())
+ *                     .destinationArn(dlq.get("arn"))
  *                     .build())
  *                 .build())
- *             .eventSourceArn(exampleAwsKinesisStream.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsKinesisStream.get("arn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .startingPosition("LATEST")
  *             .batchSize(100)
  *             .maximumBatchingWindowInSeconds(5)
@@ -145,8 +145,8 @@ import javax.annotation.Nullable;
  *             .scalingConfig(EventSourceMappingScalingConfigArgs.builder()
  *                 .maximumConcurrency(100)
  *                 .build())
- *             .eventSourceArn(exampleAwsSqsQueue.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsSqsQueue.get("arn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .batchSize(10)
  *             .build());
  * 
@@ -201,8 +201,8 @@ import javax.annotation.Nullable;
  *                         )))
  *                     .build())
  *                 .build())
- *             .eventSourceArn(exampleAwsSqsQueue.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsSqsQueue.get("arn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .build());
  * 
  *     }
@@ -239,8 +239,8 @@ import javax.annotation.Nullable;
  *             .amazonManagedKafkaEventSourceConfig(EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs.builder()
  *                 .consumerGroupId("lambda-consumer-group")
  *                 .build())
- *             .eventSourceArn(exampleAwsMskCluster.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsMskCluster.get("arn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .topics(            
  *                 "orders",
  *                 "inventory")
@@ -296,17 +296,17 @@ import javax.annotation.Nullable;
  *             .sourceAccessConfigurations(            
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                     .type("VPC_SUBNET")
- *                     .uri(String.format("subnet:%s", example1.id()))
+ *                     .uri(String.format("subnet:%s", example1.get("id")))
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                     .type("VPC_SUBNET")
- *                     .uri(String.format("subnet:%s", example2.id()))
+ *                     .uri(String.format("subnet:%s", example2.get("id")))
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                     .type("VPC_SECURITY_GROUP")
- *                     .uri(String.format("security_group:%s", exampleAwsSecurityGroup.id()))
+ *                     .uri(String.format("security_group:%s", exampleAwsSecurityGroup.get("id")))
  *                     .build())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .topics("orders")
  *             .startingPosition("TRIM_HORIZON")
  *             .build());
@@ -344,10 +344,10 @@ import javax.annotation.Nullable;
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                 .type("BASIC_AUTH")
- *                 .uri(exampleAwsSecretsmanagerSecretVersion.arn())
+ *                 .uri(exampleAwsSecretsmanagerSecretVersion.get("arn"))
  *                 .build())
- *             .eventSourceArn(exampleAwsMqBroker.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsMqBroker.get("arn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .queues("orders")
  *             .batchSize(10)
  *             .build());
@@ -390,10 +390,10 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                     .type("BASIC_AUTH")
- *                     .uri(exampleAwsSecretsmanagerSecretVersion.arn())
+ *                     .uri(exampleAwsSecretsmanagerSecretVersion.get("arn"))
  *                     .build())
- *             .eventSourceArn(exampleAwsMqBroker.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsMqBroker.get("arn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .queues("orders")
  *             .batchSize(1)
  *             .build());
@@ -437,10 +437,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                 .type("BASIC_AUTH")
- *                 .uri(exampleAwsSecretsmanagerSecretVersion.arn())
+ *                 .uri(exampleAwsSecretsmanagerSecretVersion.get("arn"))
  *                 .build())
- *             .eventSourceArn(exampleAwsDocdbCluster.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .eventSourceArn(exampleAwsDocdbCluster.get("arn"))
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .startingPosition("LATEST")
  *             .build());
  * 

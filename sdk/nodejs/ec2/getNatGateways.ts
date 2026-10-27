@@ -25,9 +25,7 @@ import * as utilities from "../utilities";
  *     }],
  *     vpcId: vpcId,
  * });
- * const ngw = .map(__index => (aws.ec2.getNatGateway({
- *     id: _arg0_.ids[__index],
- * })));
+ * const ngw = _arg1_;
  * ```
  */
 export function getNatGateways(args?: GetNatGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewaysResult> {
@@ -99,9 +97,7 @@ export interface GetNatGatewaysResult {
  *     }],
  *     vpcId: vpcId,
  * });
- * const ngw = .map(__index => (aws.ec2.getNatGateway({
- *     id: _arg0_.ids[__index],
- * })));
+ * const ngw = _arg1_;
  * ```
  */
 export function getNatGatewaysOutput(args?: GetNatGatewaysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNatGatewaysResult> {

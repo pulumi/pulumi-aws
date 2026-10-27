@@ -91,14 +91,14 @@ namespace Pulumi.Aws.Lambda
         ///         FunctionName = "api_function",
         ///     });
         /// 
-        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length(), example).Apply(values =&gt;
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
         ///         var example = values.Item2;
         ///         return length &gt; 0 ? example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors[0]) : null;
         ///     });
         /// 
-        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new[] {};
+        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new object?[] {};
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -190,14 +190,14 @@ namespace Pulumi.Aws.Lambda
         ///         FunctionName = "api_function",
         ///     });
         /// 
-        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length(), example).Apply(values =&gt;
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
         ///         var example = values.Item2;
         ///         return length &gt; 0 ? example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors[0]) : null;
         ///     });
         /// 
-        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new[] {};
+        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new object?[] {};
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -289,14 +289,14 @@ namespace Pulumi.Aws.Lambda
         ///         FunctionName = "api_function",
         ///     });
         /// 
-        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length(), example).Apply(values =&gt;
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
         ///         var example = values.Item2;
         ///         return length &gt; 0 ? example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors[0]) : null;
         ///     });
         /// 
-        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new[] {};
+        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new object?[] {};
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

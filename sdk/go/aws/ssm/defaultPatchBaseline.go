@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewDefaultPatchBaseline(ctx, "example", &ssm.DefaultPatchBaselineArgs{
-//				BaselineId:      examplePatchBaseline.ID().ToIDOutput().ToStringOutput(),
+//				BaselineId:      examplePatchBaseline.ID(),
 //				OperatingSystem: examplePatchBaseline.OperatingSystem,
 //			})
 //			if err != nil {

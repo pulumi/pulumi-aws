@@ -47,7 +47,7 @@ import (
 //				},
 //				Name:          pulumi.String("example-environment-tf"),
 //				Description:   pulumi.String("Example AppConfig Environment"),
-//				ApplicationId: exampleApplication.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationId: exampleApplication.ID(),
 //				Tags: pulumi.StringMap{
 //					"Type": pulumi.String("AppConfig Environment"),
 //				},

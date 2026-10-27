@@ -118,20 +118,20 @@ import javax.annotation.Nullable;
  *             .destinations(ChannelDestinationArgs.builder()
  *                 .settings(                
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format("s3://%s/test1", main.id()))
+ *                         .url(String.format("s3://%s/test1", main.get("id")))
  *                         .build(),
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format("s3://%s/test2", main2.id()))
+ *                         .url(String.format("s3://%s/test2", main2.get("id")))
  *                         .build())
  *                 .id("destination")
  *                 .build())
  *             .inputAttachments(ChannelInputAttachmentArgs.builder()
  *                 .inputAttachmentName("example-input")
- *                 .inputId(exampleAwsMedialiveInput.id())
+ *                 .inputId(exampleAwsMedialiveInput.get("id"))
  *                 .build())
  *             .name("example-channel")
  *             .channelClass("STANDARD")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

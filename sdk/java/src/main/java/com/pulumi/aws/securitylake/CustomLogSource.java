@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var example = new CustomLogSource("example", CustomLogSourceArgs.builder()
  *             .configuration(CustomLogSourceConfigurationArgs.builder()
  *                 .crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfigurationArgs.builder()
- *                     .roleArn(customLog.arn())
+ *                     .roleArn(customLog.get("arn"))
  *                     .build())
  *                 .providerIdentity(CustomLogSourceConfigurationProviderIdentityArgs.builder()
  *                     .externalId("example-id")

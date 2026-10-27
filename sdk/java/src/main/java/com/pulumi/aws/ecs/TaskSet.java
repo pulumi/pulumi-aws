@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TaskSet("example", TaskSetArgs.builder()
  *             .loadBalancers(TaskSetLoadBalancerArgs.builder()
- *                 .targetGroupArn(exampleAwsLbTargetGroup.arn())
+ *                 .targetGroupArn(exampleAwsLbTargetGroup.get("arn"))
  *                 .containerName("mongo")
  *                 .containerPort(8080)
  *                 .build())
- *             .service(exampleAwsEcsService.id())
- *             .cluster(exampleAwsEcsCluster.id())
- *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+ *             .service(exampleAwsEcsService.get("id"))
+ *             .cluster(exampleAwsEcsCluster.get("id"))
+ *             .taskDefinition(exampleAwsEcsTaskDefinition.get("arn"))
  *             .build());
  * 
  *     }

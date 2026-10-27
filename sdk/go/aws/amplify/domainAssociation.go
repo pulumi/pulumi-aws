@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      example.ID().ToIDOutput().ToStringOutput(),
+//				AppId:      example.ID(),
 //				BranchName: pulumi.String("master"),
 //			})
 //			if err != nil {
@@ -59,7 +59,7 @@ import (
 //						Prefix:     pulumi.String("www"),
 //					},
 //				},
-//				AppId:      example.ID().ToIDOutput().ToStringOutput(),
+//				AppId:      example.ID(),
 //				DomainName: pulumi.String("example.com"),
 //			})
 //			if err != nil {

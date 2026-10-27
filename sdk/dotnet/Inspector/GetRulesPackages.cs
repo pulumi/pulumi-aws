@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Inspector
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
         /// 
         ///     // e.g., Use in aws_inspector_assessment_template
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Inspector
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
         /// 
         ///     // e.g., Use in aws_inspector_assessment_template
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Inspector
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
         /// 
         ///     // e.g., Use in aws_inspector_assessment_template

@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: example.ID(),
 //				CidrIpv4:        pulumi.String("10.0.0.0/8"),
 //				FromPort:        pulumi.Int(80),
 //				IpProtocol:      pulumi.String("tcp"),

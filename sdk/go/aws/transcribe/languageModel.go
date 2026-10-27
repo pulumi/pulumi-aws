@@ -85,7 +85,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRolePolicy(ctx, "test_policy", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
-//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   exampleRole.ID(),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -99,7 +99,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //				Key:    pulumi.String("transcribe/test1.txt"),
 //				Source: pulumi.NewFileAsset("test1.txt"),
 //			})

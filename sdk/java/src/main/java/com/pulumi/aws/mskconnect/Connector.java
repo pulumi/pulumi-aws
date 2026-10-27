@@ -80,13 +80,13 @@ import javax.annotation.Nullable;
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
  *                 .apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs.builder()
  *                     .vpc(ConnectorKafkaClusterApacheKafkaClusterVpcArgs.builder()
- *                         .securityGroups(exampleAwsSecurityGroup.id())
+ *                         .securityGroups(exampleAwsSecurityGroup.get("id"))
  *                         .subnets(                        
- *                             example1.id(),
- *                             example2.id(),
- *                             example3.id())
+ *                             example1.get("id"),
+ *                             example2.get("id"),
+ *                             example3.get("id"))
  *                         .build())
- *                     .bootstrapServers(exampleAwsMskCluster.bootstrapBrokersTls())
+ *                     .bootstrapServers(exampleAwsMskCluster.get("bootstrapBrokersTls"))
  *                     .build())
  *                 .build())
  *             .kafkaClusterClientAuthentication(ConnectorKafkaClusterClientAuthenticationArgs.builder()
@@ -97,8 +97,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .plugins(ConnectorPluginArgs.builder()
  *                 .customPlugin(ConnectorPluginCustomPluginArgs.builder()
- *                     .arn(exampleAwsMskconnectCustomPlugin.arn())
- *                     .revision(exampleAwsMskconnectCustomPlugin.latestRevision())
+ *                     .arn(exampleAwsMskconnectCustomPlugin.get("arn"))
+ *                     .revision(exampleAwsMskconnectCustomPlugin.get("latestRevision"))
  *                     .build())
  *                 .build())
  *             .name("example")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 Map.entry("tasks.max", "1"),
  *                 Map.entry("topics", "example")
  *             ))
- *             .serviceExecutionRoleArn(exampleAwsIamRole.arn())
+ *             .serviceExecutionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

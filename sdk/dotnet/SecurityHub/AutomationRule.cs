@@ -46,7 +46,7 @@ namespace Pulumi.Aws.SecurityHub
     ///                     Severity = new Aws.SecurityHub.Inputs.AutomationRuleActionFindingFieldsUpdateSeverityArgs
     ///                     {
     ///                         Label = "CRITICAL",
-    ///                         Product = 0,
+    ///                         Product = 0.0,
     ///                     },
     ///                     Note = new Aws.SecurityHub.Inputs.AutomationRuleActionFindingFieldsUpdateNoteArgs
     ///                     {

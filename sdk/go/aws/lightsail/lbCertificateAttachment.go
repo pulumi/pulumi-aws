@@ -43,7 +43,7 @@ import (
 //			}
 //			exampleLbCertificate, err := lightsail.NewLbCertificate(ctx, "example", &lightsail.LbCertificateArgs{
 //				Name:       pulumi.String("example-load-balancer-certificate"),
-//				LbName:     example.ID().ToIDOutput().ToStringOutput(),
+//				LbName:     example.ID(),
 //				DomainName: pulumi.String("example.com"),
 //			})
 //			if err != nil {

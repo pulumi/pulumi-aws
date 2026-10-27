@@ -46,7 +46,7 @@ import (
 // return err
 // }
 // _, err = directoryservice.NewIpRoute(ctx, "example", &directoryservice.IpRouteArgs{
-// DirectoryId: example.ID().ToIDOutput().ToStringOutput(),
+// DirectoryId: example.ID(),
 // CidrIp: pulumi.String("10.0.0.0/24"),
 // Description: pulumi.String("On-premises network"),
 // })

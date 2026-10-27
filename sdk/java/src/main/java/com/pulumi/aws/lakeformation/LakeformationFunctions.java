@@ -335,9 +335,9 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(testAwsLakeformationResource.arn())
+     *                 .arn(testAwsLakeformationResource.get("arn"))
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -372,10 +372,10 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(testAwsGlueCatalogDatabase.name())
+     *                 .name(testAwsGlueCatalogDatabase.get("name"))
      *                 .catalogId("110376042874")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -424,7 +424,7 @@ public final class LakeformationFunctions {
      *                         .build())
      *                 .resourceType("DATABASE")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -470,9 +470,9 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(testAwsLakeformationResource.arn())
+     *                 .arn(testAwsLakeformationResource.get("arn"))
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -507,10 +507,10 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(testAwsGlueCatalogDatabase.name())
+     *                 .name(testAwsGlueCatalogDatabase.get("name"))
      *                 .catalogId("110376042874")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -559,7 +559,7 @@ public final class LakeformationFunctions {
      *                         .build())
      *                 .resourceType("DATABASE")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -605,9 +605,9 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(testAwsLakeformationResource.arn())
+     *                 .arn(testAwsLakeformationResource.get("arn"))
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -642,10 +642,10 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(testAwsGlueCatalogDatabase.name())
+     *                 .name(testAwsGlueCatalogDatabase.get("name"))
      *                 .catalogId("110376042874")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -694,7 +694,7 @@ public final class LakeformationFunctions {
      *                         .build())
      *                 .resourceType("DATABASE")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -740,9 +740,9 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(testAwsLakeformationResource.arn())
+     *                 .arn(testAwsLakeformationResource.get("arn"))
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -777,10 +777,10 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(testAwsGlueCatalogDatabase.name())
+     *                 .name(testAwsGlueCatalogDatabase.get("name"))
      *                 .catalogId("110376042874")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -829,7 +829,7 @@ public final class LakeformationFunctions {
      *                         .build())
      *                 .resourceType("DATABASE")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -875,9 +875,9 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
-     *                 .arn(testAwsLakeformationResource.arn())
+     *                 .arn(testAwsLakeformationResource.get("arn"))
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -912,10 +912,10 @@ public final class LakeformationFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .database(GetPermissionsDatabaseArgs.builder()
-     *                 .name(testAwsGlueCatalogDatabase.name())
+     *                 .name(testAwsGlueCatalogDatabase.get("name"))
      *                 .catalogId("110376042874")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }
@@ -964,7 +964,7 @@ public final class LakeformationFunctions {
      *                         .build())
      *                 .resourceType("DATABASE")
      *                 .build())
-     *             .principal(workflowRole.arn())
+     *             .principal(workflowRole.get("arn"))
      *             .build());
      * 
      *     }

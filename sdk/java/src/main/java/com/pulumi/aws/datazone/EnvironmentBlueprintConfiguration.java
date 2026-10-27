@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
  *             .name("example_domain")
- *             .domainExecutionRole(domainExecutionRole.arn())
+ *             .domainExecutionRole(domainExecutionRole.get("arn"))
  *             .build());
  * 
  *         final var defaultDataLake = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()

@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  *         var default_ = new SubnetGroup("default", SubnetGroupArgs.builder()
  *             .name("main")
  *             .subnetIds(            
- *                 frontend.id(),
- *                 backend.id())
+ *                 frontend.get("id"),
+ *                 backend.get("id"))
  *             .tags(Map.of("Name", "My docdb subnet group"))
  *             .build());
  * 

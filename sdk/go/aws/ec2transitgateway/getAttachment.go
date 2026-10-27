@@ -31,7 +31,7 @@ import (
 //				Filters: []ec2transitgateway.GetAttachmentFilter{
 //					{
 //						Name: "transit-gateway-id",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							exampleAwsEc2TransitGateway.Id,
 //						},
 //					},

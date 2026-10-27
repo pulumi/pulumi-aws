@@ -9,6 +9,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     principals: [{
+ *         type: "Service",
+ *         identifiers: ["credentials.iot.amazonaws.com"],
+ *     }],
+ *     effect: "Allow",
+ *     actions: ["sts:AssumeRole"],
+ * });
+ * const role = new aws.iam.Role("role", {
+ *     name: "dynamodb-access-role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const alias = new aws.iot.RoleAlias("alias", {
+ *     alias: "Thermostat-dynamodb-access-role-alias",
+ *     roleArn: role.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import IoT Role Alias using the alias. For example:

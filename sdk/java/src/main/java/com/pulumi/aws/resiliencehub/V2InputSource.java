@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .resourceConfiguration(V2InputSourceResourceConfigurationArgs.builder()
  *                 .cfnStackArn("arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/abc123")
  *                 .build())
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.get("arn"))
  *             .build());
  * 
  *     }
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .resourceConfiguration(V2InputSourceResourceConfigurationArgs.builder()
  *                 .tfStateFileUrl("s3://my-bucket/terraform.tfstate")
  *                 .build())
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.get("arn"))
  *             .build());
  * 
  *     }
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *                         "production")
  *                     .build())
  *                 .build())
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.get("arn"))
  *             .build());
  * 
  *     }
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *                     .namespaces("default")
  *                     .build())
  *                 .build())
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.get("arn"))
  *             .build());
  * 
  *     }

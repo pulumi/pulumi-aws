@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                 .sizeLessThan(52673613135872)
  *                 .trigger("ON_FILE_ACCESS")
  *                 .build())
- *             .fileSystemId(exampleAwsS3filesFileSystem.id())
+ *             .fileSystemId(exampleAwsS3filesFileSystem.get("id"))
  *             .build());
  * 
  *     }

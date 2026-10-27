@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("tf-redshift-scheduled-action")
  *             .schedule("cron(00 23 * * ? *)")
- *             .iamRole(exampleAwsIamRole.arn())
+ *             .iamRole(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

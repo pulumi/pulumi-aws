@@ -125,14 +125,14 @@ import (
 //				return err
 //			}
 //			testVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "test", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: testVpcIpamPool.ID().ToIDOutput().ToStringOutput(),
+//				IpamPoolId: testVpcIpamPool.ID(),
 //				Cidr:       pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testVpc, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    testVpcIpamPool.ID().ToIDOutput().ToStringOutput(),
+//				Ipv4IpamPoolId:    testVpcIpamPool.ID(),
 //				Ipv4NetmaskLength: pulumi.Int(24),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				testVpcIpamPoolCidr,
@@ -142,7 +142,7 @@ import (
 //			}
 //			vpc, err := ec2.NewVpcIpamPool(ctx, "vpc", &ec2.VpcIpamPoolArgs{
 //				SourceResource: &ec2.VpcIpamPoolSourceResourceArgs{
-//					ResourceId:     testVpc.ID().ToIDOutput().ToStringOutput(),
+//					ResourceId:     testVpc.ID(),
 //					ResourceOwner:  pulumi.Any(currentAwsCallerIdentity.AccountId),
 //					ResourceRegion: pulumi.String(current.Region),
 //					ResourceType:   pulumi.String("vpc"),
@@ -150,21 +150,21 @@ import (
 //				AddressFamily:    pulumi.String("ipv4"),
 //				IpamScopeId:      test.PrivateDefaultScopeId,
 //				Locale:           pulumi.String(current.Region),
-//				SourceIpamPoolId: testVpcIpamPool.ID().ToIDOutput().ToStringOutput(),
+//				SourceIpamPoolId: testVpcIpamPool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vpcVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "vpc", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: vpc.ID().ToIDOutput().ToStringOutput(),
+//				IpamPoolId: vpc.ID(),
 //				Cidr:       testVpc.CidrBlock,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewSubnet(ctx, "test", &ec2.SubnetArgs{
-//				VpcId:             testVpc.ID().ToIDOutput().ToStringOutput(),
-//				Ipv4IpamPoolId:    vpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:             testVpc.ID(),
+//				Ipv4IpamPoolId:    vpc.ID(),
 //				Ipv4NetmaskLength: pulumi.Int(28),
 //				AvailabilityZone:  pulumi.Any(available.Names[0]),
 //			}, pulumi.DependsOn([]pulumi.Resource{

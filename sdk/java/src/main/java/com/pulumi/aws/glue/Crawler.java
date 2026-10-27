@@ -62,9 +62,9 @@ import javax.annotation.Nullable;
  *             .dynamodbTargets(CrawlerDynamodbTargetArgs.builder()
  *                 .path("table-name")
  *                 .build())
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
  *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -99,12 +99,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .jdbcTargets(CrawlerJdbcTargetArgs.builder()
- *                 .connectionName(exampleAwsGlueConnection.name())
+ *                 .connectionName(exampleAwsGlueConnection.get("name"))
  *                 .path("database-name/%")
  *                 .build())
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
  *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -139,11 +139,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .s3Targets(CrawlerS3TargetArgs.builder()
- *                 .path(String.format("s3://%s", exampleAwsS3Bucket.bucket()))
+ *                 .path(String.format("s3://%s", exampleAwsS3Bucket.get("bucket")))
  *                 .build())
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
  *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -182,12 +182,12 @@ import javax.annotation.Nullable;
  *                 .deleteBehavior("LOG")
  *                 .build())
  *             .catalogTargets(CrawlerCatalogTargetArgs.builder()
- *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
- *                 .tables(exampleAwsGlueCatalogTable.name())
+ *                 .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
+ *                 .tables(exampleAwsGlueCatalogTable.get("name"))
  *                 .build())
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
  *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .configuration("""
  * {
  *   \"Version\":1.0,
@@ -230,12 +230,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .mongodbTargets(CrawlerMongodbTargetArgs.builder()
- *                 .connectionName(exampleAwsGlueConnection.name())
+ *                 .connectionName(exampleAwsGlueConnection.get("name"))
  *                 .path("database-name/%")
  *                 .build())
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
  *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -271,12 +271,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var eventsCrawler = new Crawler("eventsCrawler", CrawlerArgs.builder()
  *             .s3Targets(CrawlerS3TargetArgs.builder()
- *                 .path(String.format("s3://%s", dataLakeBucket.bucket()))
+ *                 .path(String.format("s3://%s", dataLakeBucket.get("bucket")))
  *                 .build())
- *             .databaseName(glueDatabase.name())
+ *             .databaseName(glueDatabase.get("name"))
  *             .schedule("cron(0 1 * * ? *)")
  *             .name(String.format("events_crawler_%s", environmentName))
- *             .role(glueRole.arn())
+ *             .role(glueRole.get("arn"))
  *             .tags(tags)
  *             .configuration(serializeJson(
  *                 jsonObject(

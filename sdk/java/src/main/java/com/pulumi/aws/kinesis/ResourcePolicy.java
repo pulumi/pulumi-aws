@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsKinesisStream.arn())
+ *             .resourceArn(exampleAwsKinesisStream.get("arn"))
  *             .policy("""
  * {
  *   \"Version\": \"2012-10-17\",
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *     \"Resource\": \"%s\"
  *   }]
  * }
- * ", exampleAwsKinesisStream.arn()))
+ * ", exampleAwsKinesisStream.get("arn")))
  *             .build());
  * 
  *     }

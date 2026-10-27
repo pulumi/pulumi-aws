@@ -336,13 +336,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var url = new FunctionUrl("url", FunctionUrlArgs.builder()
- *             .functionName(example.functionName())
+ *             .functionName(example.get("functionName"))
  *             .authorizationType("AWS_IAM")
  *             .build());
  * 
  *         var urlPermission = new Permission("urlPermission", PermissionArgs.builder()
  *             .action("lambda:InvokeFunctionUrl")
- *             .function(example.functionName())
+ *             .function(example.get("functionName"))
  *             .principal("arn:aws:iam::444455556666:role/example")
  *             .sourceAccount("444455556666")
  *             .functionUrlAuthType("AWS_IAM")

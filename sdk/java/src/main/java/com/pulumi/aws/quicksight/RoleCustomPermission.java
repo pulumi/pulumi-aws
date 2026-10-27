@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RoleCustomPermission("example", RoleCustomPermissionArgs.builder()
  *             .role("READER")
- *             .customPermissionsName(exampleAwsQuicksightCustomPermissions.customPermissionsName())
+ *             .customPermissionsName(exampleAwsQuicksightCustomPermissions.get("customPermissionsName"))
  *             .build());
  * 
  *     }

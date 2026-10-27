@@ -52,7 +52,7 @@ namespace Pulumi.Aws.LB
         ///     var example = Aws.LB.GetListenerRule.Invoke(new()
         ///     {
         ///         ListenerArn = lbListenerArn,
-        ///         Priority = lbRulePriority,
+        ///         Priority = (int)lbRulePriority,
         ///     });
         /// 
         /// });
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.LB
         ///     var example = Aws.LB.GetListenerRule.Invoke(new()
         ///     {
         ///         ListenerArn = lbListenerArn,
-        ///         Priority = lbRulePriority,
+        ///         Priority = (int)lbRulePriority,
         ///     });
         /// 
         /// });
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.LB
         ///     var example = Aws.LB.GetListenerRule.Invoke(new()
         ///     {
         ///         ListenerArn = lbListenerArn,
-        ///         Priority = lbRulePriority,
+        ///         Priority = (int)lbRulePriority,
         ///     });
         /// 
         /// });

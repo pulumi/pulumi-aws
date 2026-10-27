@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new OptIn("example", OptInArgs.builder()
  *             .principals(OptInPrincipalArgs.builder()
- *                 .dataLakePrincipalIdentifier(exampleAwsIamRole.arn())
+ *                 .dataLakePrincipalIdentifier(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .resourceDatas(OptInResourceDataArgs.builder()
  *                 .database(OptInResourceDataDatabaseArgs.builder()
- *                     .name(exampleAwsGlueCatalogDatabase.name())
- *                     .catalogId(current.accountId())
+ *                     .name(exampleAwsGlueCatalogDatabase.get("name"))
+ *                     .catalogId(current.get("accountId"))
  *                     .build())
  *                 .build())
  *             .build());

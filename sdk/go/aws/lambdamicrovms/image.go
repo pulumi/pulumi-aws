@@ -75,7 +75,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name: pulumi.String("example"),
-//				Role: example.ID().ToIDOutput().ToStringOutput(),
+//				Role: example.ID(),
 //				Policy: exampleBucket.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{

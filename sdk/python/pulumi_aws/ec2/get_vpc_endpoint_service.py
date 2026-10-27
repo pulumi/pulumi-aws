@@ -284,7 +284,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
         service_type="Gateway")
     # Create a VPC
@@ -376,7 +376,7 @@ def get_vpc_endpoint_service_output(filters: pulumi.Input[Optional[Optional[Sequ
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
         service_type="Gateway")
     # Create a VPC

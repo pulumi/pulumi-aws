@@ -59,8 +59,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSmsvoicev2EventDestination = new Smsvoicev2EventDestination("exampleSmsvoicev2EventDestination", Smsvoicev2EventDestinationArgs.builder()
  *             .cloudwatchLogsDestination(Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs.builder()
- *                 .iamRoleArn(exampleAwsIamRole.arn())
- *                 .logGroupArn(exampleAwsCloudwatchLogGroup.arn())
+ *                 .iamRoleArn(exampleAwsIamRole.get("arn"))
+ *                 .logGroupArn(exampleAwsCloudwatchLogGroup.get("arn"))
  *                 .build())
  *             .configurationSetName(example.name())
  *             .eventDestinationName("example")
@@ -105,8 +105,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSmsvoicev2EventDestination = new Smsvoicev2EventDestination("exampleSmsvoicev2EventDestination", Smsvoicev2EventDestinationArgs.builder()
  *             .kinesisFirehoseDestination(Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs.builder()
- *                 .deliveryStreamArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *                 .iamRoleArn(exampleAwsIamRole.arn())
+ *                 .deliveryStreamArn(exampleAwsKinesisFirehoseDeliveryStream.get("arn"))
+ *                 .iamRoleArn(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .configurationSetName(example.name())
  *             .eventDestinationName("example")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSmsvoicev2EventDestination = new Smsvoicev2EventDestination("exampleSmsvoicev2EventDestination", Smsvoicev2EventDestinationArgs.builder()
  *             .snsDestination(Smsvoicev2EventDestinationSnsDestinationArgs.builder()
- *                 .topicArn(exampleAwsSnsTopic.arn())
+ *                 .topicArn(exampleAwsSnsTopic.get("arn"))
  *                 .build())
  *             .configurationSetName(example.name())
  *             .eventDestinationName("example")

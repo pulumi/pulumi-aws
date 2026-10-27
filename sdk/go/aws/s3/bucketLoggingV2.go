@@ -136,7 +136,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -149,15 +149,15 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "log_bucket_acl", &s3.BucketAclArgs{
-//				Bucket: logBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: logBucket.ID(),
 //				Acl:    pulumi.String("log-delivery-write"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketLogging(ctx, "example", &s3.BucketLoggingArgs{
-//				Bucket:       example.ID().ToIDOutput().ToStringOutput(),
-//				TargetBucket: logBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket:       example.ID(),
+//				TargetBucket: logBucket.ID(),
 //				TargetPrefix: pulumi.String("log/"),
 //			})
 //			if err != nil {

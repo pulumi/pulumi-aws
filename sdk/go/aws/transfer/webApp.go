@@ -57,7 +57,7 @@ import (
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									current.AccountId,
 //								},
 //								Variable: "aws:SourceAccount",
@@ -95,7 +95,7 @@ import (
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									current.AccountId,
 //								},
 //								Variable: "s3:ResourceAccount",
@@ -114,7 +114,7 @@ import (
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									current.AccountId,
 //								},
 //								Variable: "s3:ResourceAccount",

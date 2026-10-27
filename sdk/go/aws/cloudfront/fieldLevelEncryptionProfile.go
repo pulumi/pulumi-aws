@@ -52,7 +52,7 @@ import (
 //									pulumi.String("DateOfBirth"),
 //								},
 //							},
-//							PublicKeyId: example.ID().ToIDOutput().ToStringOutput(),
+//							PublicKeyId: example.ID(),
 //							ProviderId:  pulumi.String("test provider"),
 //						},
 //					},

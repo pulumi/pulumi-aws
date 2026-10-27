@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.lambda.getFunctions({});
- * export const functionCount = all.then(all => all.functionNames).length;
+ * export const functionCount = all.then(all => all.functionNames.length);
  * export const allFunctionNames = all.then(all => all.functionNames);
  * ```
  *
@@ -26,32 +26,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Get all Lambda functions
- * const all = aws.lambda.getFunctions({});
- * // Create CloudWatch alarms for all functions
- * const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
- * all.then(all => all.functionNames).length.apply(rangeBody => {
- *     for (let range = 0; range < rangeBody; range++) {
- *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range}`, {
- *             name: all.then(all => `${all.functionNames[range]}-errors`),
- *             comparisonOperator: "GreaterThanThreshold",
- *             evaluationPeriods: 2,
- *             metricName: "Errors",
- *             namespace: "AWS/Lambda",
- *             period: 300,
- *             statistic: "Sum",
- *             threshold: 5,
- *             alarmDescription: "This metric monitors lambda errors",
- *             dimensions: {
- *                 FunctionName: all.then(all => all.functionNames[range]),
- *             },
- *             tags: {
- *                 Environment: "monitoring",
- *                 Purpose: "lambda-error-tracking",
- *             },
- *         }));
- *     }
- * });
+ * export = async () => {
+ *     // Get all Lambda functions
+ *     const all = await aws.lambda.getFunctions({});
+ *     // Create CloudWatch alarms for all functions
+ *     const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
+ * all.functionNames.length.apply(rangeBody => {
+ *         for (let range = 0; range < rangeBody; range++) {
+ *             lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range}`, {
+ *                 name: `${all.functionNames[range]}-errors`,
+ *                 comparisonOperator: "GreaterThanThreshold",
+ *                 evaluationPeriods: 2,
+ *                 metricName: "Errors",
+ *                 namespace: "AWS/Lambda",
+ *                 period: 300,
+ *                 statistic: "Sum",
+ *                 threshold: 5,
+ *                 alarmDescription: "This metric monitors lambda errors",
+ *                 dimensions: {
+ *                     FunctionName: all.functionNames[range],
+ *                 },
+ *                 tags: {
+ *                     Environment: "monitoring",
+ *                     Purpose: "lambda-error-tracking",
+ *                 },
+ *             }));
+ *         }
+ *     });
+ * }
  * ```
  *
  * ### Filter Functions by Name Pattern
@@ -105,16 +107,16 @@ import * as utilities from "../utilities";
  * export = async () => {
  *     const all = await aws.lambda.getFunctions({});
  *     // Get detailed information for each function
- *     const details = .map(__index => (await aws.lambda.getFunction({
+ *     const details = Array.from({length: all.functionNames.length}, (_, i) => i).apply(range => range.map(__index => (await aws.lambda.getFunction({
  *         functionName: all.functionNames[__index],
- *     })));
+ *     }))));
  *     const functionInventory = .map(([i, name]) => ({
  *         name: name,
  *         arn: all.functionArns[i],
- *         runtime: details.apply(details => details[i].runtime),
- *         memorySize: details.apply(details => details[i].memorySize),
- *         timeout: details.apply(details => details[i].timeout),
- *         handler: details.apply(details => details[i].handler),
+ *         runtime: details[i].runtime,
+ *         memorySize: details[i].memorySize,
+ *         timeout: details[i].timeout,
+ *         handler: details[i].handler,
  *     }));
  *     return {
  *         functionInventory: functionInventory,
@@ -170,7 +172,7 @@ export interface GetFunctionsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.lambda.getFunctions({});
- * export const functionCount = all.then(all => all.functionNames).length;
+ * export const functionCount = all.then(all => all.functionNames.length);
  * export const allFunctionNames = all.then(all => all.functionNames);
  * ```
  *
@@ -180,32 +182,34 @@ export interface GetFunctionsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Get all Lambda functions
- * const all = aws.lambda.getFunctions({});
- * // Create CloudWatch alarms for all functions
- * const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
- * all.then(all => all.functionNames).length.apply(rangeBody => {
- *     for (let range = 0; range < rangeBody; range++) {
- *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range}`, {
- *             name: all.then(all => `${all.functionNames[range]}-errors`),
- *             comparisonOperator: "GreaterThanThreshold",
- *             evaluationPeriods: 2,
- *             metricName: "Errors",
- *             namespace: "AWS/Lambda",
- *             period: 300,
- *             statistic: "Sum",
- *             threshold: 5,
- *             alarmDescription: "This metric monitors lambda errors",
- *             dimensions: {
- *                 FunctionName: all.then(all => all.functionNames[range]),
- *             },
- *             tags: {
- *                 Environment: "monitoring",
- *                 Purpose: "lambda-error-tracking",
- *             },
- *         }));
- *     }
- * });
+ * export = async () => {
+ *     // Get all Lambda functions
+ *     const all = await aws.lambda.getFunctions({});
+ *     // Create CloudWatch alarms for all functions
+ *     const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
+ * all.functionNames.length.apply(rangeBody => {
+ *         for (let range = 0; range < rangeBody; range++) {
+ *             lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range}`, {
+ *                 name: `${all.functionNames[range]}-errors`,
+ *                 comparisonOperator: "GreaterThanThreshold",
+ *                 evaluationPeriods: 2,
+ *                 metricName: "Errors",
+ *                 namespace: "AWS/Lambda",
+ *                 period: 300,
+ *                 statistic: "Sum",
+ *                 threshold: 5,
+ *                 alarmDescription: "This metric monitors lambda errors",
+ *                 dimensions: {
+ *                     FunctionName: all.functionNames[range],
+ *                 },
+ *                 tags: {
+ *                     Environment: "monitoring",
+ *                     Purpose: "lambda-error-tracking",
+ *                 },
+ *             }));
+ *         }
+ *     });
+ * }
  * ```
  *
  * ### Filter Functions by Name Pattern
@@ -259,16 +263,16 @@ export interface GetFunctionsResult {
  * export = async () => {
  *     const all = await aws.lambda.getFunctions({});
  *     // Get detailed information for each function
- *     const details = .map(__index => (await aws.lambda.getFunction({
+ *     const details = Array.from({length: all.functionNames.length}, (_, i) => i).apply(range => range.map(__index => (await aws.lambda.getFunction({
  *         functionName: all.functionNames[__index],
- *     })));
+ *     }))));
  *     const functionInventory = .map(([i, name]) => ({
  *         name: name,
  *         arn: all.functionArns[i],
- *         runtime: details.apply(details => details[i].runtime),
- *         memorySize: details.apply(details => details[i].memorySize),
- *         timeout: details.apply(details => details[i].timeout),
- *         handler: details.apply(details => details[i].handler),
+ *         runtime: details[i].runtime,
+ *         memorySize: details[i].memorySize,
+ *         timeout: details[i].timeout,
+ *         handler: details[i].handler,
  *     }));
  *     return {
  *         functionInventory: functionInventory,

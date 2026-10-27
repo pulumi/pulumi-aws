@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *         var example = new Alias("example", AliasArgs.builder()
  *             .name("production")
  *             .description("Production environment alias")
- *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .functionName(exampleAwsLambdaFunction.get("arn"))
  *             .functionVersion("1")
  *             .build());
  * 
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("staging")
  *             .description("Staging environment with traffic splitting")
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .functionVersion("2")
  *             .build());
  * 
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("live")
  *             .description("Live traffic with gradual rollout to new version")
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .functionVersion("5")
  *             .build());
  * 
@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  *         var example = new Alias("example", AliasArgs.builder()
  *             .name("dev")
  *             .description("Development environment - always points to latest")
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .functionVersion("$LATEST")
  *             .build());
  * 

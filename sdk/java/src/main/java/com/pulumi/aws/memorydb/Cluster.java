@@ -56,9 +56,9 @@ import javax.annotation.Nullable;
  *             .engine("redis")
  *             .engineVersion("7.1")
  *             .numShards(2)
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .snapshotRetentionLimit(7)
- *             .subnetGroupName(exampleAwsMemorydbSubnetGroup.id())
+ *             .subnetGroupName(exampleAwsMemorydbSubnetGroup.get("id"))
  *             .build());
  * 
  *     }

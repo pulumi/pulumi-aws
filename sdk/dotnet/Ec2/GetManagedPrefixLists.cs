@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var testEnvGetManagedPrefixList = ;
+        ///     var testEnvGetManagedPrefixList = _arg1_;
         /// 
         /// });
         /// ```
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var testEnvGetManagedPrefixList = ;
+        ///     var testEnvGetManagedPrefixList = _arg1_;
         /// 
         /// });
         /// ```
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var testEnvGetManagedPrefixList = ;
+        ///     var testEnvGetManagedPrefixList = _arg1_;
         /// 
         /// });
         /// ```

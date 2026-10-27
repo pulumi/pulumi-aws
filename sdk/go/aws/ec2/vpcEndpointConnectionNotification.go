@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcEndpointConnectionNotification(ctx, "foo", &ec2.VpcEndpointConnectionNotificationArgs{
-//				VpcEndpointServiceId:      foo.ID().ToIDOutput().ToStringOutput(),
+//				VpcEndpointServiceId:      foo.ID(),
 //				ConnectionNotificationArn: topicTopic.Arn,
 //				ConnectionEvents: pulumi.StringArray{
 //					pulumi.String("Accept"),

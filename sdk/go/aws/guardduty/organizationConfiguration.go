@@ -55,7 +55,7 @@ import (
 //					},
 //				},
 //				AutoEnableOrganizationMembers: pulumi.String("ALL"),
-//				DetectorId:                    example.ID().ToIDOutput().ToStringOutput(),
+//				DetectorId:                    example.ID(),
 //			})
 //			if err != nil {
 //				return err

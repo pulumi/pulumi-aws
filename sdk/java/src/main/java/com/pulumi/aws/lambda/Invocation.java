@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         var example = new Function("example", FunctionArgs.builder()
  *             .code(new FileArchive("function.zip"))
  *             .name("data_processor")
- *             .role(lambdaRole.arn())
+ *             .role(lambdaRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("python3.12")
  *             .build());
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         ctx.export("initializationResult", StdFunctions.jsondecode(JsondecodeArgs.builder()
  *             .input(exampleInvocation.result())
- *             .build()).applyValue(_invoke -> _invoke.result().status()));
+ *             .build()).applyValue(_invoke -> _invoke.result().get("status")));
  *     }
  * }
  * }
@@ -113,9 +113,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Invocation("example", InvocationArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .triggers(Map.ofEntries(
- *                 Map.entry("function_version", exampleAwsLambdaFunction.version()),
+ *                 Map.entry("function_version", exampleAwsLambdaFunction.get("version")),
  *                 Map.entry("config_hash", StdFunctions.sha256(Sha256Args.builder()
  *                     .input(serializeJson(
  *                         jsonObject(
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *                 jsonObject(
  *                     jsonProperty("operation", "process_data"),
  *                     jsonProperty("environment", environment),
- *                     jsonProperty("batch_id", batchId.result())
+ *                     jsonProperty("batch_id", batchId.get("result"))
  *                 )))
  *             .build());
  * 
@@ -164,11 +164,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Invocation("example", InvocationArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .input(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("resource_name", "database_setup"),
- *                     jsonProperty("database_url", exampleAwsDbInstance.endpoint()),
+ *                     jsonProperty("database_url", exampleAwsDbInstance.get("endpoint")),
  *                     jsonProperty("credentials", jsonObject(
  *                         jsonProperty("username", dbUsername),
  *                         jsonProperty("password", dbPassword)

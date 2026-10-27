@@ -45,7 +45,7 @@ namespace Pulumi.Aws.AutoScaling
     ///         return asg.Name;
     ///     }).ToList().ToDictionary(item =&gt; {
     ///         var entry = item.Value;
-    ///         return entry;
+    ///         return entry.ToString(System.Globalization.CultureInfo.InvariantCulture);
     ///     }, item =&gt; {
     ///         var entry = item.Value;
     ///         return entry;

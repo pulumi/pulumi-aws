@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                     .action(GatewayRouteSpecHttpRouteActionArgs.builder()
  *                         .target(GatewayRouteSpecHttpRouteActionTargetArgs.builder()
  *                             .virtualService(GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs.builder()
- *                                 .virtualServiceName(exampleAwsAppmeshVirtualService.name())
+ *                                 .virtualServiceName(exampleAwsAppmeshVirtualService.get("name"))
  *                                 .build())
  *                             .build())
  *                         .build())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example-gateway-route")
  *             .meshName("example-service-mesh")
- *             .virtualGatewayName(exampleAwsAppmeshVirtualGateway.name())
+ *             .virtualGatewayName(exampleAwsAppmeshVirtualGateway.get("name"))
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 

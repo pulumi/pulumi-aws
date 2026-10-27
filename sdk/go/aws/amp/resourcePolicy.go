@@ -74,7 +74,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
-//				WorkspaceId:    exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:    exampleWorkspace.ID(),
 //				PolicyDocument: example.Json(),
 //			})
 //			if err != nil {
@@ -130,7 +130,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = amp.NewResourcePolicy(ctx, "cross_account", &amp.ResourcePolicyArgs{
-//				WorkspaceId:    example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:    example.ID(),
 //				PolicyDocument: crossAccount.Json(),
 //			})
 //			if err != nil {
@@ -188,7 +188,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = amp.NewResourcePolicy(ctx, "service_access", &amp.ResourcePolicyArgs{
-//				WorkspaceId:    example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:    example.ID(),
 //				PolicyDocument: serviceAccess.Json(),
 //			})
 //			if err != nil {

@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  *             .targetType("alb")
  *             .port(80)
  *             .protocol("TCP")
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .build());
  * 
  *     }
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *             .name("tf-example-lb-nlb-tg")
  *             .port(25)
  *             .protocol("TCP")
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .build());
  * 
  *     }
@@ -268,7 +268,7 @@ import javax.annotation.Nullable;
  *             .name("tf-example-lb-nlb-tg")
  *             .port(80)
  *             .protocol("TCP")
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .build());
  * 
  *     }

@@ -55,10 +55,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
- *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.id())
- *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.get("id"))
+ *             .kmsKeyId(exampleAwsKmsKey.get("arn"))
  *             .storageCapacity(32)
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .throughputCapacity(32)
  *             .build());
  * 
@@ -103,9 +103,9 @@ import javax.annotation.Nullable;
  *                 .password("avoid-plaintext-passwords")
  *                 .username("Admin")
  *                 .build())
- *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .kmsKeyId(exampleAwsKmsKey.get("arn"))
  *             .storageCapacity(32)
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .throughputCapacity(32)
  *             .build());
  * 
@@ -145,11 +145,11 @@ import javax.annotation.Nullable;
  *                     "10.0.0.111",
  *                     "10.0.0.222")
  *                 .domainName("corp.example.com")
- *                 .domainJoinServiceAccountSecret(exampleAwsSecretsmanagerSecret.arn())
+ *                 .domainJoinServiceAccountSecret(exampleAwsSecretsmanagerSecret.get("arn"))
  *                 .build())
- *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .kmsKeyId(exampleAwsKmsKey.get("arn"))
  *             .storageCapacity(32)
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .throughputCapacity(32)
  *             .build());
  * 
@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("securityGroupIds")
  *                 .build());

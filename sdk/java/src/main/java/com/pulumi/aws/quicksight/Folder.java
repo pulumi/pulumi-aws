@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                     "quicksight:DeleteFolderMembership",
  *                     "quicksight:DescribeFolderPermissions",
  *                     "quicksight:UpdateFolderPermissions")
- *                 .principal(exampleAwsQuicksightUser.arn())
+ *                 .principal(exampleAwsQuicksightUser.get("arn"))
  *                 .build())
  *             .folderId("example-id")
  *             .name("example-name")

@@ -36,8 +36,8 @@ namespace Pulumi.Aws.Odb
     ///     {
     ///         AdminPasswordWo = autonomousDatabaseAdminPassword,
     ///         AdminPasswordWoVersion = 1,
-    ///         ComputeCount = 2,
-    ///         DataStorageSizeInTbs = 1,
+    ///         ComputeCount = 2.0,
+    ///         DataStorageSizeInTbs = 1.0,
     ///         DbName = "TFADBEXAMPLE",
     ///         DbWorkload = "OLTP",
     ///         DisplayName = "pulumi-adbs-example",

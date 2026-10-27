@@ -51,7 +51,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
-     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.get("id"))
      *             .build());
      * 
      *     }
@@ -93,7 +93,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
-     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.get("id"))
      *             .build());
      * 
      *     }
@@ -135,7 +135,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
-     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.get("id"))
      *             .build());
      * 
      *     }
@@ -177,7 +177,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
-     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.get("id"))
      *             .build());
      * 
      *     }
@@ -219,7 +219,7 @@ public final class VpcFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
-     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.get("id"))
      *             .build());
      * 
      *     }

@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .fileCacheType("LUSTRE")
  *             .fileCacheTypeVersion("2.12")
- *             .subnetIds(test1.id())
+ *             .subnetIds(test1.get("id"))
  *             .storageCapacity(1200)
  *             .build());
  * 

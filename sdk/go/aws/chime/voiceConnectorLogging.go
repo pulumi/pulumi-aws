@@ -38,7 +38,7 @@ import (
 //			_, err = chime.NewVoiceConnectorLogging(ctx, "default", &chime.VoiceConnectorLoggingArgs{
 //				EnableSipLogs:         pulumi.Bool(true),
 //				EnableMediaMetricLogs: pulumi.Bool(true),
-//				VoiceConnectorId:      _default.ID().ToIDOutput().ToStringOutput(),
+//				VoiceConnectorId:      _default.ID(),
 //			})
 //			if err != nil {
 //				return err

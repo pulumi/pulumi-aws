@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new Eip("lb", EipArgs.builder()
- *             .instance(web.id())
+ *             .instance(web.get("id"))
  *             .domain("vpc")
  *             .build());
  * 
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var multi_ip = new NetworkInterface("multi-ip", NetworkInterfaceArgs.builder()
- *             .subnetId(main.id())
+ *             .subnetId(main.get("id"))
  *             .privateIps(            
  *                 "10.0.0.10",
  *                 "10.0.0.11")

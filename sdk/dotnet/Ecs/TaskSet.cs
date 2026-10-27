@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ecs
     ///     {
     ///         Scale = new Aws.Ecs.Inputs.TaskSetScaleArgs
     ///         {
-    ///             Value = 50,
+    ///             Value = 50.0,
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

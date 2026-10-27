@@ -62,16 +62,16 @@ import (
 //						"Transitions": map[string]interface{}{},
 //					},
 //				},
-//				"Settings": map[string]interface{}{
+//				"Settings": map[string][]interface{}{
 //					"InputParameters":  []interface{}{},
 //					"OutputParameters": []interface{}{},
-//					"Transitions": []map[string]string{
-//						{
+//					"Transitions": []interface{}{
+//						map[string]string{
 //							"DisplayName":   "Success",
 //							"ReferenceName": "Success",
 //							"Description":   "",
 //						},
-//						{
+//						map[string]string{
 //							"DisplayName":   "Error",
 //							"ReferenceName": "Error",
 //							"Description":   "",

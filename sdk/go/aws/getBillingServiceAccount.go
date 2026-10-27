@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "billing_logs_acl", &s3.BucketAclArgs{
-//				Bucket: billingLogs.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: billingLogs.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -90,7 +90,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
-//				Bucket: billingLogs.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: billingLogs.ID(),
 //				Policy: allowBillingLogging.Json(),
 //			})
 //			if err != nil {

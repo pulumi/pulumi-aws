@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcBlockPublicAccessExclusion(ctx, "test", &ec2.VpcBlockPublicAccessExclusionArgs{
-//				VpcId:                        test.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:                        test.ID(),
 //				InternetGatewayExclusionMode: pulumi.String("allow-bidirectional"),
 //			})
 //			if err != nil {
@@ -71,13 +71,13 @@ import (
 //			}
 //			testSubnet, err := ec2.NewSubnet(ctx, "test", &ec2.SubnetArgs{
 //				CidrBlock: pulumi.String("10.1.1.0/24"),
-//				VpcId:     test.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:     test.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewVpcBlockPublicAccessExclusion(ctx, "test", &ec2.VpcBlockPublicAccessExclusionArgs{
-//				SubnetId:                     testSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                     testSubnet.ID(),
 //				InternetGatewayExclusionMode: pulumi.String("allow-egress"),
 //			})
 //			if err != nil {

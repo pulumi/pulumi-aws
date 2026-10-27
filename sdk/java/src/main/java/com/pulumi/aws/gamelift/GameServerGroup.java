@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(exampleAwsLaunchTemplate.id())
+ *                 .id(exampleAwsLaunchTemplate.get("id"))
  *                 .build())
  *             .instanceDefinitions(            
  *                 GameServerGroupInstanceDefinitionArgs.builder()
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .gameServerGroupName("example")
  *             .maxSize(1)
  *             .minSize(1)
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicyAttachment)
  *                 .build());
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *                 .estimatedInstanceWarmup(60)
  *                 .build())
  *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(exampleAwsLaunchTemplate.id())
+ *                 .id(exampleAwsLaunchTemplate.get("id"))
  *                 .version("1")
  *                 .build())
  *             .instanceDefinitions(            
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *             .gameServerProtectionPolicy("FULL_PROTECTION")
  *             .maxSize(1)
  *             .minSize(1)
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .tags(Map.of("Name", "example"))
  *             .vpcSubnets(            
  *                 "subnet-12345678",

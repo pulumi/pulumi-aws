@@ -56,7 +56,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
 //				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"Statement": []interface{}{
 //					map[string]interface{}{
 //						"Action": []string{
 //							"sts:AssumeRole",
@@ -110,7 +110,7 @@ import (
 //				return err
 //			}
 //			testProject, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainIdentifier: testDomain.ID().ToIDOutput().ToStringOutput(),
+//				DomainIdentifier: testDomain.ID(),
 //				GlossaryTerms: pulumi.StringArray{
 //					pulumi.String("2N8w6XJCwZf"),
 //				},
@@ -130,12 +130,12 @@ import (
 //				return err
 //			}
 //			testGetEnvironmentBlueprint := datazone.GetEnvironmentBlueprintOutput(ctx, datazone.GetEnvironmentBlueprintOutputArgs{
-//				DomainId: testDomain.ID().ToIDOutput().ToStringOutput(),
+//				DomainId: testDomain.ID(),
 //				Name:     pulumi.String("DefaultDataLake"),
 //				Managed:  pulumi.Bool(true),
 //			}, nil)
 //			_, err = datazone.NewEnvironmentBlueprintConfiguration(ctx, "test", &datazone.EnvironmentBlueprintConfigurationArgs{
-//				DomainId:               testDomain.ID().ToIDOutput().ToStringOutput(),
+//				DomainId:               testDomain.ID(),
 //				EnvironmentBlueprintId: testGetEnvironmentBlueprint.Id(),
 //				ProvisioningRoleArn:    domainExecutionRole.Arn,
 //				EnabledRegions: pulumi.StringArray{
@@ -157,8 +157,8 @@ import (
 //				Description:                    pulumi.String("description"),
 //				EnvironmentBlueprintIdentifier: testGetEnvironmentBlueprint.Id(),
 //				Name:                           pulumi.String("example-name"),
-//				ProjectIdentifier:              testProject.ID().ToIDOutput().ToStringOutput(),
-//				DomainIdentifier:               testDomain.ID().ToIDOutput().ToStringOutput(),
+//				ProjectIdentifier:              testProject.ID(),
+//				DomainIdentifier:               testDomain.ID(),
 //			})
 //			if err != nil {
 //				return err

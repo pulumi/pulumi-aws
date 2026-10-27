@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MeteringPolicyEntry("example", MeteringPolicyEntryArgs.builder()
- *             .transitGatewayMeteringPolicyId(exampleAwsEc2TransitGatewayMeteringPolicy.transitGatewayMeteringPolicyId())
+ *             .transitGatewayMeteringPolicyId(exampleAwsEc2TransitGatewayMeteringPolicy.get("transitGatewayMeteringPolicyId"))
  *             .policyRuleNumber(100)
  *             .meteredAccount("source-attachment-owner")
  *             .build());
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MeteringPolicyEntry("example", MeteringPolicyEntryArgs.builder()
- *             .transitGatewayMeteringPolicyId(exampleAwsEc2TransitGatewayMeteringPolicy.transitGatewayMeteringPolicyId())
+ *             .transitGatewayMeteringPolicyId(exampleAwsEc2TransitGatewayMeteringPolicy.get("transitGatewayMeteringPolicyId"))
  *             .policyRuleNumber(200)
  *             .meteredAccount("destination-attachment-owner")
  *             .sourceCidrBlock("10.0.0.0/8")

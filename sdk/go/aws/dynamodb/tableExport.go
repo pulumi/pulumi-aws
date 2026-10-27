@@ -63,7 +63,7 @@ import (
 //			}
 //			_, err = dynamodb.NewTableExport(ctx, "example", &dynamodb.TableExportArgs{
 //				TableArn: exampleTable.Arn,
-//				S3Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				S3Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FilesFileSystem("example", FilesFileSystemArgs.builder()
- *             .bucket(exampleAwsS3Bucket.arn())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .bucket(exampleAwsS3Bucket.get("arn"))
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

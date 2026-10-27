@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Catalog("example", CatalogArgs.builder()
  *             .federatedCatalog(CatalogFederatedCatalogArgs.builder()
- *                 .connectionName(exampleAwsGlueConnection.name())
+ *                 .connectionName(exampleAwsGlueConnection.get("name"))
  *                 .identifier("arn:aws:glue:us-east-1:123456789012:catalog")
  *                 .build())
  *             .name("example")

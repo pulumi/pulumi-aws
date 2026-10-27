@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Lambda
     ///     var exampleLayerVersionPermission = new Aws.Lambda.LayerVersionPermission("example", new()
     ///     {
     ///         LayerName = example.LayerName,
-    ///         VersionNumber = example.Version,
+    ///         VersionNumber = example.Version.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Principal = "123456789012",
     ///         Action = "lambda:GetLayerVersion",
     ///         StatementId = "dev-account-access",

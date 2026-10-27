@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                     .key("app")
  *                     .value("backend")
  *                     .build())
- *                 .clusterArn(exampleAwsEksCluster.arn())
+ *                 .clusterArn(exampleAwsEksCluster.get("arn"))
  *                 .build())
  *             .containerAssociationName("example-eks-association")
  *             .type("EKS")
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContainerAssociation("example", ContainerAssociationArgs.builder()
  *             .containerMonitoringConfigurations(ContainerAssociationContainerMonitoringConfigurationArgs.builder()
- *                 .clusterArn(exampleAwsEcsCluster.arn())
+ *                 .clusterArn(exampleAwsEcsCluster.get("arn"))
  *                 .build())
  *             .containerAssociationName("example-ecs-association")
  *             .type("ECS")

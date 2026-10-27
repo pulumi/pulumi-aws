@@ -116,7 +116,7 @@ import (
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "p", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("awsconfig-example"),
-//				Role:   r.ID().ToIDOutput().ToStringOutput(),
+//				Role:   r.ID(),
 //				Policy: p.Json(),
 //			})
 //			if err != nil {

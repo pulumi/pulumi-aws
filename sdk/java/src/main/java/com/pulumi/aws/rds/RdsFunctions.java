@@ -2507,7 +2507,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
-     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceIdentifier(exampleAwsDbInstance.get("identifier"))
      *             .sourceType("db-instance")
      *             .eventCategories(            
      *                 "failure",
@@ -2564,7 +2564,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
-     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceIdentifier(exampleAwsDbInstance.get("identifier"))
      *             .sourceType("db-instance")
      *             .eventCategories(            
      *                 "failure",
@@ -2621,7 +2621,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
-     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceIdentifier(exampleAwsDbInstance.get("identifier"))
      *             .sourceType("db-instance")
      *             .eventCategories(            
      *                 "failure",
@@ -2678,7 +2678,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
-     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceIdentifier(exampleAwsDbInstance.get("identifier"))
      *             .sourceType("db-instance")
      *             .eventCategories(            
      *                 "failure",
@@ -2735,7 +2735,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
-     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceIdentifier(exampleAwsDbInstance.get("identifier"))
      *             .sourceType("db-instance")
      *             .eventCategories(            
      *                 "failure",
@@ -2792,7 +2792,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
-     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceIdentifier(exampleAwsDbInstance.get("identifier"))
      *             .sourceType("db-instance")
      *             .eventCategories(            
      *                 "failure",
@@ -2849,7 +2849,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
-     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceIdentifier(exampleAwsDbInstance.get("identifier"))
      *             .sourceType("db-instance")
      *             .eventCategories(            
      *                 "failure",
@@ -2895,7 +2895,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
-     *             .identifier(test.globalClusterIdentifier())
+     *             .identifier(test.get("globalClusterIdentifier"))
      *             .build());
      * 
      *     }
@@ -2937,7 +2937,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
-     *             .identifier(test.globalClusterIdentifier())
+     *             .identifier(test.get("globalClusterIdentifier"))
      *             .build());
      * 
      *     }
@@ -2979,7 +2979,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
-     *             .identifier(test.globalClusterIdentifier())
+     *             .identifier(test.get("globalClusterIdentifier"))
      *             .build());
      * 
      *     }
@@ -3021,7 +3021,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
-     *             .identifier(test.globalClusterIdentifier())
+     *             .identifier(test.get("globalClusterIdentifier"))
      *             .build());
      * 
      *     }
@@ -3063,7 +3063,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
-     *             .identifier(test.globalClusterIdentifier())
+     *             .identifier(test.get("globalClusterIdentifier"))
      *             .build());
      * 
      *     }

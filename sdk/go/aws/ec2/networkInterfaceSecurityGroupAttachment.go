@@ -79,7 +79,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sg_attachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
-//				SecurityGroupId:    sg.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId:    sg.ID(),
 //				NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
 //			})
 //			if err != nil {
@@ -122,7 +122,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sg_attachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
-//				SecurityGroupId:    sg.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId:    sg.ID(),
 //				NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
 //			})
 //			if err != nil {

@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("jira-connector")
  *             .description("Jira Cloud integration for security findings")
- *             .kmsKeyArn(exampleAwsKmsKey.arn())
+ *             .kmsKeyArn(exampleAwsKmsKey.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSecurityhubAggregatorV2)
  *                 .build());

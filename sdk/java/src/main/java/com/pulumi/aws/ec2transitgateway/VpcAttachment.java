@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetIds(exampleAwsSubnet.id())
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
- *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.get("id"))
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }

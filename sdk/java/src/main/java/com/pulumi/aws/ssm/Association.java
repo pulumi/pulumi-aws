@@ -53,9 +53,9 @@ import javax.annotation.Nullable;
  *         var example = new Association("example", AssociationArgs.builder()
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
- *                 .values(exampleAwsInstance.id())
+ *                 .values(exampleAwsInstance.get("id"))
  *                 .build())
- *             .name(exampleAwsSsmDocument.name())
+ *             .name(exampleAwsSsmDocument.get("name"))
  *             .build());
  * 
  *     }
@@ -173,9 +173,9 @@ import javax.annotation.Nullable;
  *         var example = new Association("example", AssociationArgs.builder()
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
- *                 .values(exampleAwsInstance.id())
+ *                 .values(exampleAwsInstance.get("id"))
  *                 .build())
- *             .name(exampleAwsSsmDocument.name())
+ *             .name(exampleAwsSsmDocument.get("name"))
  *             .scheduleExpression("cron(0 2 ? * SUN *)")
  *             .build());
  * 
@@ -215,11 +215,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // First EC2 instance
  *         var webServer1 = new Instance("webServer1", InstanceArgs.builder()
- *             .ami(amazonLinux.id())
+ *             .ami(amazonLinux.get("id"))
  *             .instanceType("t3.micro")
- *             .subnetId(public_.id())
- *             .vpcSecurityGroupIds(ec2Sg.id())
- *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .subnetId(public_.get("id"))
+ *             .vpcSecurityGroupIds(ec2Sg.get("id"))
+ *             .iamInstanceProfile(ec2SsmProfile.get("name"))
  *             .userData("""
  * #!/bin/bash
  * yum update -y
@@ -231,11 +231,11 @@ import javax.annotation.Nullable;
  * 
  *         // Second EC2 instance
  *         var webServer2 = new Instance("webServer2", InstanceArgs.builder()
- *             .ami(amazonLinux.id())
+ *             .ami(amazonLinux.get("id"))
  *             .instanceType("t3.micro")
- *             .subnetId(public_.id())
- *             .vpcSecurityGroupIds(ec2Sg.id())
- *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .subnetId(public_.get("id"))
+ *             .vpcSecurityGroupIds(ec2Sg.get("id"))
+ *             .iamInstanceProfile(ec2SsmProfile.get("name"))
  *             .userData("""
  * #!/bin/bash
  * yum update -y
@@ -326,18 +326,18 @@ import javax.annotation.Nullable;
  *                     "WebServer",
  *                     "Database")
  *                 .build())
- *             .name(systemUpdate.name())
+ *             .name(systemUpdate.get("name"))
  *             .parameters(Map.of("restartServices", "true"))
  *             .scheduleExpression("cron(0 3 ? * SUN *)")
  *             .build());
  * 
  *         // EC2 Instance 1 - Web Server with "ServerType" tag
  *         var webServer = new Instance("webServer", InstanceArgs.builder()
- *             .ami(amazonLinux.id())
+ *             .ami(amazonLinux.get("id"))
  *             .instanceType("t3.micro")
- *             .subnetId(default_.id())
- *             .vpcSecurityGroupIds(ec2Sg.id())
- *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .subnetId(default_.get("id"))
+ *             .vpcSecurityGroupIds(ec2Sg.get("id"))
+ *             .iamInstanceProfile(ec2SsmProfile.get("name"))
  *             .userData(StdFunctions.base64encode(Base64encodeArgs.builder()
  *                 .input("""
  * #!/bin/bash
@@ -364,11 +364,11 @@ import javax.annotation.Nullable;
  * 
  *         // EC2 Instance 2 - Database Server with "Role" tag
  *         var databaseServer = new Instance("databaseServer", InstanceArgs.builder()
- *             .ami(amazonLinux.id())
+ *             .ami(amazonLinux.get("id"))
  *             .instanceType("t3.micro")
- *             .subnetId(default_.id())
- *             .vpcSecurityGroupIds(ec2Sg.id())
- *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .subnetId(default_.get("id"))
+ *             .vpcSecurityGroupIds(ec2Sg.get("id"))
+ *             .iamInstanceProfile(ec2SsmProfile.get("name"))
  *             .userData(StdFunctions.base64encode(Base64encodeArgs.builder()
  *                 .input("""
  * #!/bin/bash

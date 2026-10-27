@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var upstream = new Repository("upstream", RepositoryArgs.builder()
  *             .repository("upstream")
- *             .domain(testAwsCodeartifactDomain.domain())
+ *             .domain(testAwsCodeartifactDomain.get("domain"))
  *             .build());
  * 
  *         var test = new Repository("test", RepositoryArgs.builder()
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *                 .repositoryName(upstream.repository())
  *                 .build())
  *             .repository("example")
- *             .domain(example.domain())
+ *             .domain(example.get("domain"))
  *             .build());
  * 
  *     }
@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var upstream = new Repository("upstream", RepositoryArgs.builder()
  *             .repository("upstream")
- *             .domain(testAwsCodeartifactDomain.domain())
+ *             .domain(testAwsCodeartifactDomain.get("domain"))
  *             .build());
  * 
  *         var test = new Repository("test", RepositoryArgs.builder()
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  *                 .externalConnectionName("public:npmjs")
  *                 .build())
  *             .repository("example")
- *             .domain(example.domain())
+ *             .domain(example.get("domain"))
  *             .build());
  * 
  *     }

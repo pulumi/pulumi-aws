@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MetricsDestination("example", MetricsDestinationArgs.builder()
- *             .appMonitorName(exampleAwsRumAppMonitor.name())
+ *             .appMonitorName(exampleAwsRumAppMonitor.get("name"))
  *             .destination("CloudWatch")
  *             .build());
  * 

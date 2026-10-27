@@ -38,12 +38,12 @@ import (
 //					"-la",
 //				},
 //				"image": "busybox",
-//				"resourceRequirements": []map[string]string{
-//					{
+//				"resourceRequirements": []interface{}{
+//					map[string]string{
 //						"type":  "VCPU",
 //						"value": "0.25",
 //					},
-//					{
+//					map[string]string{
 //						"type":  "MEMORY",
 //						"value": "512",
 //					},
@@ -113,7 +113,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"mainNode": 0,
-//				"nodeRangeProperties": []map[string]interface{}{
+//				"nodeRangeProperties": []interface{}{
 //					map[string]interface{}{
 //						"container": map[string]interface{}{
 //							"command": []string{
@@ -280,12 +280,12 @@ import (
 //						"fargatePlatformConfiguration": map[string]string{
 //							"platformVersion": "LATEST",
 //						},
-//						"resourceRequirements": []map[string]string{
-//							{
+//						"resourceRequirements": []interface{}{
+//							map[string]string{
 //								"type":  "VCPU",
 //								"value": "0.25",
 //							},
-//							{
+//							map[string]string{
 //								"type":  "MEMORY",
 //								"value": "512",
 //							},
@@ -365,12 +365,12 @@ import (
 //								"name":                   "container_a",
 //								"privileged":             false,
 //								"readonlyRootFilesystem": false,
-//								"resourceRequirements": []map[string]string{
-//									{
+//								"resourceRequirements": []interface{}{
+//									map[string]string{
 //										"value": "1.0",
 //										"type":  "VCPU",
 //									},
-//									{
+//									map[string]string{
 //										"value": "2048",
 //										"type":  "MEMORY",
 //									},
@@ -384,12 +384,12 @@ import (
 //								},
 //								"name":      "container_b",
 //								"essential": false,
-//								"resourceRequirements": []map[string]string{
-//									{
+//								"resourceRequirements": []interface{}{
+//									map[string]string{
 //										"value": "1.0",
 //										"type":  "VCPU",
 //									},
-//									{
+//									map[string]string{
 //										"value": "2048",
 //										"type":  "MEMORY",
 //									},

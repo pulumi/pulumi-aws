@@ -600,7 +600,7 @@ class Connector(pulumi.CustomResource):
             plugins=[{
                 "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
-                    "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
+                    "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
                 },
             }],
             name="example",
@@ -694,7 +694,7 @@ class Connector(pulumi.CustomResource):
             plugins=[{
                 "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
-                    "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
+                    "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
                 },
             }],
             name="example",

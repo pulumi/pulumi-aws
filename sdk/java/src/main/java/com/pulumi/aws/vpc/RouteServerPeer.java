@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .bgpOptions(RouteServerPeerBgpOptionsArgs.builder()
  *                 .peerAsn(65200)
  *                 .build())
- *             .routeServerEndpointId(example.routeServerEndpointId())
+ *             .routeServerEndpointId(example.get("routeServerEndpointId"))
  *             .peerAddress("10.0.1.250")
  *             .tags(Map.of("Name", "Appliance 1"))
  *             .build());
@@ -102,12 +102,12 @@ import javax.annotation.Nullable;
  * 
  *         var testRouteServerVpcAssociation = new RouteServerVpcAssociation("testRouteServerVpcAssociation", RouteServerVpcAssociationArgs.builder()
  *             .routeServerId(test.routeServerId())
- *             .vpcId(testAwsVpc.id())
+ *             .vpcId(testAwsVpc.get("id"))
  *             .build());
  * 
  *         var testRouteServerEndpoint = new RouteServerEndpoint("testRouteServerEndpoint", RouteServerEndpointArgs.builder()
  *             .routeServerId(test.routeServerId())
- *             .subnetId(testAwsSubnet.id())
+ *             .subnetId(testAwsSubnet.get("id"))
  *             .tags(Map.of("Name", "Test Endpoint"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testRouteServerVpcAssociation)
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  * 
  *         var testRouteServerPropagation = new RouteServerPropagation("testRouteServerPropagation", RouteServerPropagationArgs.builder()
  *             .routeServerId(test.routeServerId())
- *             .routeTableId(testAwsRouteTable.id())
+ *             .routeTableId(testAwsRouteTable.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testRouteServerVpcAssociation)
  *                 .build());

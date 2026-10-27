@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Declare the data source
+//			// Declare the function
 //			s3, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
 //				Service:     pulumi.StringRef("s3"),
 //				ServiceType: pulumi.StringRef("Gateway"),
@@ -47,7 +47,7 @@ import (
 //			}
 //			// Create a VPC endpoint
 //			_, err = ec2.NewVpcEndpoint(ctx, "ep", &ec2.VpcEndpointArgs{
-//				VpcId:       foo.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:       foo.ID(),
 //				ServiceName: pulumi.String(s3.ServiceName),
 //			})
 //			if err != nil {

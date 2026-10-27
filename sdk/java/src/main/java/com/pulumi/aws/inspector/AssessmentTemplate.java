@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  *         var example = new AssessmentTemplate("example", AssessmentTemplateArgs.builder()
  *             .eventSubscriptions(AssessmentTemplateEventSubscriptionArgs.builder()
  *                 .event("ASSESSMENT_RUN_COMPLETED")
- *                 .topicArn(exampleAwsSnsTopic.arn())
+ *                 .topicArn(exampleAwsSnsTopic.get("arn"))
  *                 .build())
  *             .name("example")
- *             .targetArn(exampleAwsInspectorAssessmentTarget.arn())
+ *             .targetArn(exampleAwsInspectorAssessmentTarget.get("arn"))
  *             .duration(3600)
  *             .rulesPackageArns(            
  *                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",

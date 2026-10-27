@@ -147,14 +147,14 @@ import (
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "metric_stream_to_firehose", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("default"),
-//				Role:   metricStreamToFirehoseRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   metricStreamToFirehoseRole.ID(),
 //				Policy: metricStreamToFirehose.Json(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "bucket_acl", &s3.BucketAclArgs{
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: bucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -183,7 +183,7 @@ import (
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "firehose_to_s3", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("default"),
-//				Role:   firehoseToS3Role.ID().ToIDOutput().ToStringOutput(),
+//				Role:   firehoseToS3Role.ID(),
 //				Policy: firehoseToS3.Json(),
 //			})
 //			if err != nil {

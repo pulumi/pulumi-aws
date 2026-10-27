@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const rules = aws.inspector.getRulesPackages({});
  * // e.g., Use in aws_inspector_assessment_template
  * const group = new aws.inspector.ResourceGroup("group", {tags: {
@@ -76,7 +76,7 @@ export interface GetRulesPackagesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const rules = aws.inspector.getRulesPackages({});
  * // e.g., Use in aws_inspector_assessment_template
  * const group = new aws.inspector.ResourceGroup("group", {tags: {

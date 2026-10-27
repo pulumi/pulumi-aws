@@ -33,9 +33,7 @@ import * as utilities from "../utilities";
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getPeeringAttachment({
- *     id: _arg0_.ids[__index],
- * })));
+ * const unit = _arg1_;
  * ```
  */
 export function getPeeringAttachments(args?: GetPeeringAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentsResult> {
@@ -102,9 +100,7 @@ export interface GetPeeringAttachmentsResult {
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getPeeringAttachment({
- *     id: _arg0_.ids[__index],
- * })));
+ * const unit = _arg1_;
  * ```
  */
 export function getPeeringAttachmentsOutput(args?: GetPeeringAttachmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeeringAttachmentsResult> {

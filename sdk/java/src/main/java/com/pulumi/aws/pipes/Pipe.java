@@ -176,10 +176,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
- *             .enrichment(exampleAwsCloudwatchEventApiDestination.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
+ *             .source(source.get("arn"))
+ *             .target(target.get("arn"))
+ *             .enrichment(exampleAwsCloudwatchEventApiDestination.get("arn"))
  *             .build());
  * 
  *     }
@@ -227,9 +227,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
+ *             .source(source.get("arn"))
+ *             .target(target.get("arn"))
  *             .build());
  * 
  *     }
@@ -273,15 +273,15 @@ import javax.annotation.Nullable;
  *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()
  *             .logConfiguration(PipeLogConfigurationArgs.builder()
  *                 .cloudwatchLogsLogDestination(PipeLogConfigurationCloudwatchLogsLogDestinationArgs.builder()
- *                     .logGroupArn(targetAwsCloudwatchLogGroup.arn())
+ *                     .logGroupArn(targetAwsCloudwatchLogGroup.get("arn"))
  *                     .build())
  *                 .includeExecutionDatas("ALL")
  *                 .level("INFO")
  *                 .build())
  *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(sourceAwsSqsQueue.arn())
- *             .target(targetAwsSqsQueue.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
+ *             .source(sourceAwsSqsQueue.get("arn"))
+ *             .target(targetAwsSqsQueue.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     source,
@@ -335,9 +335,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
+ *             .source(source.get("arn"))
+ *             .target(target.get("arn"))
  *             .build());
  * 
  *     }

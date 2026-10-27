@@ -155,9 +155,9 @@ import javax.annotation.Nullable;
  *         var test = new Glossary("test", GlossaryArgs.builder()
  *             .description("description")
  *             .name("example_name")
- *             .owningProjectIdentifier(testAwsDatazoneProject.id())
+ *             .owningProjectIdentifier(testAwsDatazoneProject.get("id"))
  *             .status("DISABLED")
- *             .domainIdentifier(testAwsDatazoneProject.domainIdentifier())
+ *             .domainIdentifier(testAwsDatazoneProject.get("domainIdentifier"))
  *             .build());
  * 
  *     }

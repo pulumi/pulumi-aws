@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * const example = aws.lambda.getFunctionUrl({
  *     functionName: "api_function",
  * });
- * const corsConfig = pulumi.all([example.then(example => example.cors).length, example]).apply(([length, example]) => length > 0 ? example.cors?.[0] : null);
+ * const corsConfig = Promise.all([example.then(example => example.cors.length), example]).then(([length, example]) => length > 0 ? example.cors?.[0] : null);
  * const allowedOrigins = corsConfig != null ? corsConfig?.allowOrigins : [];
  * export const corsAllowedOrigins = allowedOrigins;
  * ```
@@ -187,7 +187,7 @@ export interface GetFunctionUrlResult {
  * const example = aws.lambda.getFunctionUrl({
  *     functionName: "api_function",
  * });
- * const corsConfig = pulumi.all([example.then(example => example.cors).length, example]).apply(([length, example]) => length > 0 ? example.cors?.[0] : null);
+ * const corsConfig = Promise.all([example.then(example => example.cors.length), example]).then(([length, example]) => length > 0 ? example.cors?.[0] : null);
  * const allowedOrigins = corsConfig != null ? corsConfig?.allowOrigins : [];
  * export const corsAllowedOrigins = allowedOrigins;
  * ```

@@ -30,9 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getAttachment({
- *     transitGatewayAttachmentId: _arg0_.ids[__index],
- * })));
+ * const unit = _arg1_;
  * ```
  */
 export function getAttachments(args?: GetAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachmentsResult> {
@@ -99,9 +97,7 @@ export interface GetAttachmentsResult {
  *         },
  *     ],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getAttachment({
- *     transitGatewayAttachmentId: _arg0_.ids[__index],
- * })));
+ * const unit = _arg1_;
  * ```
  */
 export function getAttachmentsOutput(args?: GetAttachmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachmentsResult> {

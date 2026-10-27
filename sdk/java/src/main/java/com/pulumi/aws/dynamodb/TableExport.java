@@ -111,8 +111,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TableExport("example", TableExportArgs.builder()
  *             .exportTime("2023-04-02T11:30:13+01:00")
- *             .s3Bucket(exampleAwsS3Bucket.id())
- *             .tableArn(exampleAwsDynamodbTable.arn())
+ *             .s3Bucket(exampleAwsS3Bucket.get("id"))
+ *             .tableArn(exampleAwsDynamodbTable.get("arn"))
  *             .build());
  * 
  *     }
@@ -151,8 +151,8 @@ import javax.annotation.Nullable;
  *                 .exportToTime("2025-02-09T13:00:00+01:00")
  *                 .build())
  *             .exportType("INCREMENTAL_EXPORT")
- *             .s3Bucket(exampleAwsS3Bucket.id())
- *             .tableArn(exampleAwsDynamodbTable.arn())
+ *             .s3Bucket(exampleAwsS3Bucket.get("id"))
+ *             .tableArn(exampleAwsDynamodbTable.get("arn"))
  *             .build());
  * 
  *     }

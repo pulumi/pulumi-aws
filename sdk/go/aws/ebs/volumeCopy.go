@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = ebs.NewVolumeCopy(ctx, "example", &ebs.VolumeCopyArgs{
-//				SourceVolumeId: source.ID().ToIDOutput().ToStringOutput(),
+//				SourceVolumeId: source.ID(),
 //				VolumeType:     pulumi.String("gp3"),
 //				Size:           pulumi.Int(20),
 //				Iops:           pulumi.Int(3000),

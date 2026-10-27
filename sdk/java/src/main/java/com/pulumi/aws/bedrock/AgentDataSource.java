@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *                     .parsingStrategy("SMART_PARSING")
  *                     .build())
  *                 .build())
- *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
+ *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.get("id"))
  *             .name("example-s3-managed")
  *             .build());
  * 
@@ -187,7 +187,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .type("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
  *                 .build())
- *             .knowledgeBaseId(example.id())
+ *             .knowledgeBaseId(example.get("id"))
  *             .name("example-sharepoint")
  *             .build());
  * 
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
  *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
  *                 .s3Configuration(AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketArn(exampleAwsS3Bucket.arn())
+ *                     .bucketArn(exampleAwsS3Bucket.get("arn"))
  *                     .build())
  *                 .type("S3")
  *                 .build())
@@ -254,7 +254,7 @@ import javax.annotation.Nullable;
  *                     .parsingStrategy("BEDROCK_FOUNDATION_MODEL")
  *                     .build())
  *                 .build())
- *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
+ *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.get("id"))
  *             .name("multimodal-example")
  *             .build());
  * 
@@ -323,18 +323,18 @@ import javax.annotation.Nullable;
  *                         .metadataField("metadata")
  *                         .textField("text")
  *                         .build())
- *                     .graphArn(exampleAwsNeptunegraphGraph.arn())
+ *                     .graphArn(exampleAwsNeptunegraphGraph.get("arn"))
  *                     .build())
  *                 .type("NEPTUNE_ANALYTICS")
  *                 .build())
  *             .name("graphrag-example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *         var exampleAgentDataSource = new AgentDataSource("exampleAgentDataSource", AgentDataSourceArgs.builder()
  *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
  *                 .s3Configuration(AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketArn(exampleAwsS3Bucket.arn())
+ *                     .bucketArn(exampleAwsS3Bucket.get("arn"))
  *                     .build())
  *                 .type("S3")
  *                 .build())
@@ -344,7 +344,7 @@ import javax.annotation.Nullable;
  *                         .enrichmentStrategyConfiguration(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs.builder()
  *                             .method("CHUNK_ENTITY_EXTRACTION")
  *                             .build())
- *                         .modelArn(String.format("arn:aws:bedrock:us-east-1:%s:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0", current.accountId()))
+ *                         .modelArn(String.format("arn:aws:bedrock:us-east-1:%s:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0", current.get("accountId")))
  *                         .build())
  *                     .type("BEDROCK_FOUNDATION_MODEL")
  *                     .build())

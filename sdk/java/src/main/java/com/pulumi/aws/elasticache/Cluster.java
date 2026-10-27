@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var replica = new Cluster("replica", ClusterArgs.builder()
  *             .clusterId("cluster-example")
- *             .replicationGroupId(example.id())
+ *             .replicationGroupId(example.get("id"))
  *             .build());
  * 
  *     }
@@ -183,13 +183,13 @@ import javax.annotation.Nullable;
  *         var test = new Cluster("test", ClusterArgs.builder()
  *             .logDeliveryConfigurations(            
  *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(example.name())
+ *                     .destination(example.get("name"))
  *                     .destinationType("cloudwatch-logs")
  *                     .logFormat("text")
  *                     .logType("slow-log")
  *                     .build(),
  *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.name())
+ *                     .destination(exampleAwsKinesisFirehoseDeliveryStream.get("name"))
  *                     .destinationType("kinesis-firehose")
  *                     .logFormat("json")
  *                     .logType("engine-log")

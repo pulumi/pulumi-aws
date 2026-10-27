@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new AssetType("test", AssetTypeArgs.builder()
  *             .description("example")
- *             .domainIdentifier(testAwsDatazoneDomain.id())
+ *             .domainIdentifier(testAwsDatazoneDomain.get("id"))
  *             .name("example")
- *             .owningProjectIdentifier(testAwsDatazoneProject.id())
+ *             .owningProjectIdentifier(testAwsDatazoneProject.get("id"))
  *             .build());
  * 
  *     }

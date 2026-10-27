@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .performanceInsightsRetentionPeriod(31)
  *             .enabledCloudwatchLogsExports("postgresql")
  *             .monitoringInterval(5)
- *             .monitoringRoleArn(exampleAwsIamRole.arn())
+ *             .monitoringRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *         var exampleShardGroup = new ShardGroup("exampleShardGroup", ShardGroupArgs.builder()

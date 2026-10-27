@@ -133,13 +133,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Connection("example", ConnectionArgs.builder()
  *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
- *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
- *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
- *                 .subnetId(exampleAwsSubnet.id())
+ *                 .availabilityZone(exampleAwsSubnet.get("availabilityZone"))
+ *                 .securityGroupIdLists(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetId(exampleAwsSubnet.get("id"))
  *                 .build())
  *             .name("example")
  *             .connectionProperties(Map.ofEntries(
- *                 Map.entry("JDBC_CONNECTION_URL", String.format("jdbc:mysql://%s/exampledatabase", exampleAwsRdsCluster.endpoint())),
+ *                 Map.entry("JDBC_CONNECTION_URL", String.format("jdbc:mysql://%s/exampledatabase", exampleAwsRdsCluster.get("endpoint"))),
  *                 Map.entry("PASSWORD", "examplepassword"),
  *                 Map.entry("USERNAME", "exampleusername")
  *             ))
@@ -601,23 +601,23 @@ import javax.annotation.Nullable;
  *         var example = new Connection("example", ConnectionArgs.builder()
  *             .authenticationConfiguration(ConnectionAuthenticationConfigurationArgs.builder()
  *                 .authenticationType("BASIC")
- *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .secretArn(exampleAwsSecretsmanagerSecret.get("arn"))
  *                 .build())
  *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
- *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
- *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
- *                 .subnetId(exampleAwsSubnet.id())
+ *                 .availabilityZone(exampleAwsSubnet.get("availabilityZone"))
+ *                 .securityGroupIdLists(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetId(exampleAwsSubnet.get("id"))
  *                 .build())
  *             .name("athenafederatedcatalog_mysql")
  *             .connectionType("MYSQL")
  *             .athenaProperties(Map.ofEntries(
  *                 Map.entry("lambda_function_arn", "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql"),
- *                 Map.entry("spill_bucket", exampleAwsS3Bucket.bucket())
+ *                 Map.entry("spill_bucket", exampleAwsS3Bucket.get("bucket"))
  *             ))
  *             .connectionProperties(Map.ofEntries(
- *                 Map.entry("HOST", exampleAwsRdsCluster.endpoint()),
- *                 Map.entry("PORT", exampleAwsRdsCluster.port()),
- *                 Map.entry("DATABASE", exampleAwsRdsCluster.databaseName())
+ *                 Map.entry("HOST", exampleAwsRdsCluster.get("endpoint")),
+ *                 Map.entry("PORT", exampleAwsRdsCluster.get("port")),
+ *                 Map.entry("DATABASE", exampleAwsRdsCluster.get("databaseName"))
  *             ))
  *             .build());
  * 

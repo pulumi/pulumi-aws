@@ -190,12 +190,12 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(example.arn())
+ *                         .insightsTarget(example.get("arn"))
  *                         .build())
  *                     .type("KinesisDataStreamSink")
  *                     .build())
  *             .name("MyCallAnalyticsConfiguration")
- *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
+ *             .resourceAccessRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -273,12 +273,12 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(example.arn())
+ *                         .insightsTarget(example.get("arn"))
  *                         .build())
  *                     .type("KinesisDataStreamSink")
  *                     .build())
  *             .name("MyRealTimeAlertConfiguration")
- *             .resourceAccessRoleArn(callAnalyticsRole.arn())
+ *             .resourceAccessRoleArn(callAnalyticsRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -333,12 +333,12 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(example.arn())
+ *                         .insightsTarget(example.get("arn"))
  *                         .build())
  *                     .type("KinesisDataStreamSink")
  *                     .build())
  *             .name("MyTranscribeConfiguration")
- *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
+ *             .resourceAccessRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -405,12 +405,12 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(test.arn())
+ *                         .insightsTarget(test.get("arn"))
  *                         .build())
  *                     .type("KinesisDataStreamSink")
  *                     .build())
  *             .name("MyVoiceAnalyticsConfiguration")
- *             .resourceAccessRoleArn(example.arn())
+ *             .resourceAccessRoleArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -452,7 +452,7 @@ import javax.annotation.Nullable;
  *                 .type("S3RecordingSink")
  *                 .build())
  *             .name("MyS3RecordingConfiguration")
- *             .resourceAccessRoleArn(example.arn())
+ *             .resourceAccessRoleArn(example.get("arn"))
  *             .build());
  * 
  *     }

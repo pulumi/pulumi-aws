@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  *             .rotationRules(SecretRotationRotationRulesArgs.builder()
  *                 .automaticallyAfterDays(30)
  *                 .build())
- *             .secretId(exampleAwsSecretsmanagerSecret.id())
- *             .rotationLambdaArn(exampleAwsLambdaFunction.arn())
+ *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
+ *             .rotationLambdaArn(exampleAwsLambdaFunction.get("arn"))
  *             .build());
  * 
  *     }
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *                     .value("v65.0")
  *                     .build())
  *             .secretId(example.id())
- *             .externalSecretRotationRoleArn(exampleAwsIamRole.arn())
+ *             .externalSecretRotationRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSecretRotation = new SecretRotation("exampleSecretRotation", SecretRotationArgs.builder()
- *             .secretId(example.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets[0].secretArn()))
+ *             .secretId(example.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets.get(0).secretArn()))
  *             .rotationEnabled(false)
  *             .build());
  * 

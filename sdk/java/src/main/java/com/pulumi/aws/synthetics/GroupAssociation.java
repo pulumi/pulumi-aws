@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GroupAssociation("example", GroupAssociationArgs.builder()
- *             .groupName(exampleAwsSyntheticsGroup.name())
- *             .canaryArn(exampleAwsSyntheticsCanary.arn())
+ *             .groupName(exampleAwsSyntheticsGroup.get("name"))
+ *             .canaryArn(exampleAwsSyntheticsCanary.get("arn"))
  *             .build());
  * 
  *     }

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AgentFlow("example", AgentFlowArgs.builder()
  *             .name("example-flow")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .build())
  *             .name("example")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

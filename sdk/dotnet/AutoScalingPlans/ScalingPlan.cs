@@ -81,7 +81,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///                         {
     ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
     ///                         },
-    ///                         TargetValue = 70,
+    ///                         TargetValue = 70.0,
     ///                     },
     ///                 },
     ///                 MaxCapacity = 3,
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///                         {
     ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
     ///                         },
-    ///                         TargetValue = 70,
+    ///                         TargetValue = 70.0,
     ///                     },
     ///                 },
     ///                 DisableDynamicScaling = true,

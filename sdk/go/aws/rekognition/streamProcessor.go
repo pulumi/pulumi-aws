@@ -89,7 +89,7 @@ import (
 //							var _zero string
 //							tmpJSON1, err := json.Marshal(map[string]interface{}{
 //								"Version": "2012-10-17",
-//								"Statement": []map[string]interface{}{
+//								"Statement": []interface{}{
 //									map[string]interface{}{
 //										"Action": []string{
 //											"s3:PutObject",
@@ -291,7 +291,7 @@ import (
 //				},
 //				Settings: &rekognition.StreamProcessorSettingsArgs{
 //					FaceSearch: &rekognition.StreamProcessorSettingsFaceSearchArgs{
-//						CollectionId: exampleCollection.ID().ToIDOutput().ToStringOutput(),
+//						CollectionId: exampleCollection.ID(),
 //					},
 //				},
 //				RegionsOfInterests: rekognition.StreamProcessorRegionsOfInterestArray{

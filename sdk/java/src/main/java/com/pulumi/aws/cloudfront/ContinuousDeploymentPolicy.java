@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(staging.domainName())
+ *                 .items(staging.get("domainName"))
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(staging.domainName())
+ *                 .items(staging.get("domainName"))
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()

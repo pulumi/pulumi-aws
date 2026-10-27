@@ -56,9 +56,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .alarmDescription("This is a composite alarm!")
  *             .alarmName("example-composite-alarm")
- *             .alarmActions(exampleAwsSnsTopic.arn())
- *             .okActions(exampleAwsSnsTopic.arn())
- *             .alarmRule(String.format("ALARM(%s) OR ALARM(%s)", alpha.alarmName(),bravo.alarmName()))
+ *             .alarmActions(exampleAwsSnsTopic.get("arn"))
+ *             .okActions(exampleAwsSnsTopic.get("arn"))
+ *             .alarmRule(String.format("ALARM(%s) OR ALARM(%s)", alpha.get("alarmName"),bravo.get("alarmName")))
  *             .build());
  * 
  *     }

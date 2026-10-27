@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *                     .statement("permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");")
  *                     .build())
  *                 .build())
- *             .policyStoreId(testAwsVerifiedpermissionsPolicyStore.id())
+ *             .policyStoreId(testAwsVerifiedpermissionsPolicyStore.get("id"))
  *             .build());
  * 
  *     }

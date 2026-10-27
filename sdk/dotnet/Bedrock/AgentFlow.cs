@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Bedrock
     ///                                             {
     ///                                                 "User:",
     ///                                             },
-    ///                                             Temperature = 0,
+    ///                                             Temperature = 0.0,
     ///                                             TopP = 0.8999999761581421,
     ///                                         },
     ///                                     },

@@ -53,16 +53,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bar = new Pipeline("bar", PipelineArgs.builder()
  *             .contentConfig(PipelineContentConfigArgs.builder()
- *                 .bucket(contentBucket.id())
+ *                 .bucket(contentBucket.get("id"))
  *                 .storageClass("Standard")
  *                 .build())
  *             .thumbnailConfig(PipelineThumbnailConfigArgs.builder()
- *                 .bucket(thumbBucket.id())
+ *                 .bucket(thumbBucket.get("id"))
  *                 .storageClass("Standard")
  *                 .build())
- *             .inputBucket(inputBucket.id())
+ *             .inputBucket(inputBucket.get("id"))
  *             .name("aws_elastictranscoder_pipeline_my_test_")
- *             .role(testRole.arn())
+ *             .role(testRole.get("arn"))
  *             .build());
  * 
  *     }

@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sfnActivity = new Activity("sfnActivity", ActivityArgs.builder()
  *             .encryptionConfiguration(ActivityEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(kmsKeyForSfn.arn())
+ *                 .kmsKeyId(kmsKeyForSfn.get("arn"))
  *                 .type("CUSTOMER_MANAGED_KMS_KEY")
  *                 .kmsDataKeyReusePeriodSeconds(900)
  *                 .build())

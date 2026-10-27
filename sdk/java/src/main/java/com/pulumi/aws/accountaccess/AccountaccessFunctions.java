@@ -621,7 +621,7 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -661,7 +661,7 @@ public final class AccountaccessFunctions {
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -716,7 +716,7 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -756,7 +756,7 @@ public final class AccountaccessFunctions {
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -811,7 +811,7 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -851,7 +851,7 @@ public final class AccountaccessFunctions {
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -906,7 +906,7 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -946,7 +946,7 @@ public final class AccountaccessFunctions {
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -1001,7 +1001,7 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -1041,7 +1041,7 @@ public final class AccountaccessFunctions {
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+     *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
      *             .build());
      * 
      *     }

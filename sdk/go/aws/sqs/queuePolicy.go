@@ -71,7 +71,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-//				QueueUrl: q.ID().ToIDOutput().ToStringOutput(),
+//				QueueUrl: q.ID(),
 //				Policy:   test.Json(),
 //			})
 //			if err != nil {
@@ -115,7 +115,7 @@ import (
 //				return err
 //			}
 //			_, err = sqs.NewQueuePolicy(ctx, "example", &sqs.QueuePolicyArgs{
-//				QueueUrl: exampleQueue.ID().ToIDOutput().ToStringOutput(),
+//				QueueUrl: exampleQueue.ID(),
 //				Policy: pulumi.All(exampleQueue.Arn, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
 //					exampleQueueArn := _args[0].(string)
 //					exampleArn := _args[1].(string)

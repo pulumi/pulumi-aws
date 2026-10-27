@@ -58,10 +58,10 @@ import javax.annotation.Nullable;
  *         var bar = new Pipeline("bar", PipelineArgs.builder()
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
- *                     .id(s3kmskey.arn())
+ *                     .id(s3kmskey.get("arn"))
  *                     .type("KMS")
  *                     .build())
- *                 .location(barAwsS3Bucket.bucket())
+ *                 .location(barAwsS3Bucket.get("bucket"))
  *                 .type("S3")
  *                 .build())
  *             .stages(            
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *                     .name("Build")
  *                     .build())
  *             .name("tf-test-pipeline")
- *             .roleArn(barAwsIamRole.arn())
+ *             .roleArn(barAwsIamRole.get("arn"))
  *             .build());
  * 
  *         final var webhookSecret = "super-secret";
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *                 .insecureSsl(true)
  *                 .secret(webhookSecret)
  *                 .build())
- *             .repository(repo.name())
+ *             .repository(repo.get("name"))
  *             .name("web")
  *             .events("push")
  *             .build());

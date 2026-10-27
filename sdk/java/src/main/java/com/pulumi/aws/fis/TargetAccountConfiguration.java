@@ -43,9 +43,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetAccountConfiguration("example", TargetAccountConfigurationArgs.builder()
- *             .experimentTemplateId(exampleAwsFisExperimentTemplate.id())
- *             .accountId(current.accountId())
- *             .roleArn(fisRole.arn())
+ *             .experimentTemplateId(exampleAwsFisExperimentTemplate.get("id"))
+ *             .accountId(current.get("accountId"))
+ *             .roleArn(fisRole.get("arn"))
  *             .description("Example")
  *             .build());
  * 

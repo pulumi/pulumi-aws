@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  *                 .type("namespace")
  *                 .namespaces("example-namespace")
  *                 .build())
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .policyArn("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy")
- *             .principalArn(exampleAwsIamUser.arn())
+ *             .principalArn(exampleAwsIamUser.get("arn"))
  *             .build());
  * 
  *     }

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.get("databaseName"))
  *             .tableName("example")
  *             .build());
  * 
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *                 .magneticStoreRetentionPeriodInDays(30)
  *                 .memoryStoreRetentionPeriodInHours(8)
  *                 .build())
- *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.get("databaseName"))
  *             .tableName("example")
  *             .tags(Map.of("Name", "example-timestream-table"))
  *             .build());
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *                     .type("DIMENSION")
  *                     .build())
  *                 .build())
- *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
+ *             .databaseName(exampleAwsTimestreamwriteDatabase.get("databaseName"))
  *             .tableName("example")
  *             .build());
  * 

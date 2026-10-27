@@ -398,7 +398,7 @@ import javax.annotation.Nullable;
  *             .name("ngrok-connection")
  *             .description("A connection description")
  *             .authorizationType("BASIC")
- *             .kmsKeyIdentifier(example.id())
+ *             .kmsKeyIdentifier(example.get("id"))
  *             .build());
  * 
  *     }

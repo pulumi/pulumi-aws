@@ -149,7 +149,7 @@ import (
 //							{
 //								Test:     "StringEquals",
 //								Variable: "AWS:SourceOwner",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									sns2.AccountId,
 //								},
 //							},

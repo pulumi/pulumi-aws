@@ -48,7 +48,7 @@ import (
 // Protocol: pulumi.String("GRE"),
 // },
 // CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+// TransportAttachmentId: example.ID(),
 // EdgeLocation: example.EdgeLocation,
 // })
 // if err != nil {
@@ -92,7 +92,7 @@ import (
 // return err
 // }
 // exampleAttachmentAccepter, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+// AttachmentId: example.ID(),
 // AttachmentType: example.AttachmentType,
 // })
 // if err != nil {
@@ -103,7 +103,7 @@ import (
 // Protocol: pulumi.String("GRE"),
 // },
 // CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+// TransportAttachmentId: example.ID(),
 // EdgeLocation: example.EdgeLocation,
 // }, pulumi.DependsOn([]pulumi.Resource{
 // exampleAttachmentAccepter,
@@ -112,7 +112,7 @@ import (
 // return err
 // }
 // _, err = networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: exampleConnectAttachment.ID().ToIDOutput().ToStringOutput(),
+// AttachmentId: exampleConnectAttachment.ID(),
 // AttachmentType: exampleConnectAttachment.AttachmentType,
 // })
 // if err != nil {

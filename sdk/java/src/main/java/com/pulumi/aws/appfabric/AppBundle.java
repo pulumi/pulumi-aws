@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AppBundle("example", AppBundleArgs.builder()
- *             .customerManagedKeyArn(exampleAwmsKmsKey.arn())
+ *             .customerManagedKeyArn(exampleAwmsKmsKey.get("arn"))
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 

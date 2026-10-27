@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var foo = new VpcEndpointService("foo", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(test.arn())
+ *             .networkLoadBalancerArns(test.get("arn"))
  *             .build());
  * 
  *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", VpcEndpointConnectionNotificationArgs.builder()

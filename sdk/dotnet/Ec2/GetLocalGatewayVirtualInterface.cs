@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = .ToDictionary(item =&gt; {
         ///         var __key = item.Key;
-        ///         return __key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///     }, item =&gt; {
         ///         var __value = item.Value;
         ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = .ToDictionary(item =&gt; {
         ///         var __key = item.Key;
-        ///         return __key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///     }, item =&gt; {
         ///         var __value = item.Value;
         ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = .ToDictionary(item =&gt; {
         ///         var __key = item.Key;
-        ///         return __key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///     }, item =&gt; {
         ///         var __value = item.Value;
         ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()

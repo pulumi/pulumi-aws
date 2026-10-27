@@ -60,7 +60,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.get("resourceIdentifier"))
      *             .build());
      * 
      *     }
@@ -102,7 +102,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.get("resourceIdentifier"))
      *             .build());
      * 
      *     }
@@ -144,7 +144,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.get("resourceIdentifier"))
      *             .build());
      * 
      *     }
@@ -186,7 +186,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.get("resourceIdentifier"))
      *             .build());
      * 
      *     }
@@ -228,7 +228,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
+     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.get("resourceIdentifier"))
      *             .build());
      * 
      *     }
@@ -475,7 +475,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.get("arn"))
      *             .build());
      * 
      *     }
@@ -517,7 +517,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.get("arn"))
      *             .build());
      * 
      *     }
@@ -559,7 +559,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.get("arn"))
      *             .build());
      * 
      *     }
@@ -601,7 +601,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.get("arn"))
      *             .build());
      * 
      *     }
@@ -643,7 +643,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
+     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.get("arn"))
      *             .build());
      * 
      *     }
@@ -1189,7 +1189,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.get("id"))
      *             .build());
      * 
      *     }
@@ -1222,7 +1222,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.get("id"))
      *             .build());
      * 
      *     }
@@ -1264,7 +1264,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.get("id"))
      *             .build());
      * 
      *     }
@@ -1297,7 +1297,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.get("id"))
      *             .build());
      * 
      *     }
@@ -1339,7 +1339,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.get("id"))
      *             .build());
      * 
      *     }
@@ -1372,7 +1372,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.get("id"))
      *             .build());
      * 
      *     }
@@ -1414,7 +1414,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.get("id"))
      *             .build());
      * 
      *     }
@@ -1447,7 +1447,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.get("id"))
      *             .build());
      * 
      *     }
@@ -1489,7 +1489,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.get("id"))
      *             .build());
      * 
      *     }
@@ -1522,7 +1522,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.get("id"))
      *             .build());
      * 
      *     }
@@ -1564,7 +1564,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.get("id"))
      *             .build());
      * 
      *     }
@@ -1597,7 +1597,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.get("id"))
      *             .build());
      * 
      *     }
@@ -1639,7 +1639,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.get("id"))
      *             .build());
      * 
      *     }
@@ -1672,7 +1672,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
-     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.get("id"))
      *             .build());
      * 
      *     }

@@ -304,7 +304,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example = aws.ssm.get_patch_baselines(default_baselines=True)
-        # transform the output of the aws_ssm_patch_baselines data source
+        # transform the output of the aws_ssm_patch_baselines function
         # into the format expected by the SelectedPatchBaselines parameter
         selected_patch_baselines = json.dumps({baseline.operating_system: {
             "value": baseline.baseline_id,
@@ -378,7 +378,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example = aws.ssm.get_patch_baselines(default_baselines=True)
-        # transform the output of the aws_ssm_patch_baselines data source
+        # transform the output of the aws_ssm_patch_baselines function
         # into the format expected by the SelectedPatchBaselines parameter
         selected_patch_baselines = json.dumps({baseline.operating_system: {
             "value": baseline.baseline_id,

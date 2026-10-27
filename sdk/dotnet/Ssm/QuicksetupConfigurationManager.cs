@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ssm
     ///         DefaultBaselines = true,
     ///     });
     /// 
-    ///     // transform the output of the aws_ssm_patch_baselines data source
+    ///     // transform the output of the aws_ssm_patch_baselines function
     ///     // into the format expected by the SelectedPatchBaselines parameter
     ///     var selectedPatchBaselines = JsonSerializer.Serialize(.ToDictionary(item =&gt; {
     ///         var baseline = item.Value;

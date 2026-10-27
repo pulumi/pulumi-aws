@@ -173,8 +173,8 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
     ///         {
-    ///             MaxCapacity = 1,
-    ///             MinCapacity = 0,
+    ///             MaxCapacity = 1.0,
+    ///             MinCapacity = 0.0,
     ///             SecondsUntilAutoPause = 3600,
     ///         },
     ///         ClusterIdentifier = "example",
@@ -435,8 +435,8 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
     ///         {
-    ///             MaxCapacity = 256,
-    ///             MinCapacity = 0,
+    ///             MaxCapacity = 256.0,
+    ///             MinCapacity = 0.0,
     ///             SecondsUntilAutoPause = 3600,
     ///         },
     ///     });

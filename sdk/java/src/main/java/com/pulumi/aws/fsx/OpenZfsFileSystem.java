@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new OpenZfsFileSystem("test", OpenZfsFileSystemArgs.builder()
  *             .storageCapacity(64)
- *             .subnetIds(test1.id())
+ *             .subnetIds(test1.get("id"))
  *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OpenZfsFileSystem("example", OpenZfsFileSystemArgs.builder()
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("securityGroupIds")
  *                 .build());

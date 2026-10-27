@@ -33,7 +33,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
@@ -138,7 +138,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
@@ -243,7 +243,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",

@@ -55,18 +55,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Endpoint("example", EndpointArgs.builder()
  *             .networkInterfaceOptions(EndpointNetworkInterfaceOptionsArgs.builder()
- *                 .networkInterfaceId(exampleAwsNetworkInterface.id())
+ *                 .networkInterfaceId(exampleAwsNetworkInterface.get("id"))
  *                 .port(443)
  *                 .protocol("https")
  *                 .build())
  *             .applicationDomain("example.com")
  *             .attachmentType("vpc")
  *             .description("example")
- *             .domainCertificateArn(exampleAwsAcmCertificate.arn())
+ *             .domainCertificateArn(exampleAwsAcmCertificate.get("arn"))
  *             .endpointDomainPrefix("example")
  *             .endpointType("network-interface")
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .verifiedAccessGroupId(exampleAwsVerifiedaccessGroup.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *             .verifiedAccessGroupId(exampleAwsVerifiedaccessGroup.get("id"))
  *             .build());
  * 
  *     }

@@ -186,7 +186,7 @@ import (
 //							},
 //							{
 //								Type: "AWS",
-//								Identifiers: pulumi.StringArray{
+//								Identifiers: []string{
 //									trustedRoleArn,
 //								},
 //							},
@@ -264,7 +264,7 @@ import (
 //						},
 //					},
 //				},
-//				SourcePolicyDocuments: pulumi.StringArray{
+//				SourcePolicyDocuments: []string{
 //					source.Json,
 //				},
 //			}, nil)
@@ -330,7 +330,7 @@ import (
 //						},
 //					},
 //				},
-//				OverridePolicyDocuments: pulumi.StringArray{
+//				OverridePolicyDocuments: []string{
 //					override.Json,
 //				},
 //			}, nil)
@@ -394,10 +394,10 @@ import (
 //				return err
 //			}
 //			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				SourcePolicyDocuments: pulumi.StringArray{
+//				SourcePolicyDocuments: []string{
 //					source.Json,
 //				},
-//				OverridePolicyDocuments: pulumi.StringArray{
+//				OverridePolicyDocuments: []string{
 //					override.Json,
 //				},
 //			}, nil)
@@ -477,7 +477,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				SourcePolicyDocuments: pulumi.StringArray{
+//				SourcePolicyDocuments: []string{
 //					sourceOne.Json,
 //					sourceTwo.Json,
 //				},
@@ -580,7 +580,7 @@ import (
 //						},
 //					},
 //				},
-//				OverridePolicyDocuments: pulumi.StringArray{
+//				OverridePolicyDocuments: []string{
 //					policyOne.Json,
 //					policyTwo.Json,
 //					policyThree.Json,

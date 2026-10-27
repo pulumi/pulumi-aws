@@ -43,7 +43,7 @@ import (
 //						AutoEnable: pulumi.String("NEW"),
 //					},
 //				},
-//				DetectorId: example.ID().ToIDOutput().ToStringOutput(),
+//				DetectorId: example.ID(),
 //				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
 //				AutoEnable: pulumi.String("ALL"),
 //			})

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .name("iot-")
  *             .domainName("iot.example.com")
  *             .serviceType("DATA")
- *             .serverCertificateArns(cert.arn())
+ *             .serverCertificateArns(cert.get("arn"))
  *             .build());
  * 
  *     }

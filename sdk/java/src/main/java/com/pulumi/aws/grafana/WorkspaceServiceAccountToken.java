@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  *         var example = new WorkspaceServiceAccount("example", WorkspaceServiceAccountArgs.builder()
  *             .name("example-admin")
  *             .grafanaRole("ADMIN")
- *             .workspaceId(exampleAwsGrafanaWorkspace.id())
+ *             .workspaceId(exampleAwsGrafanaWorkspace.get("id"))
  *             .build());
  * 
  *         var exampleWorkspaceServiceAccountToken = new WorkspaceServiceAccountToken("exampleWorkspaceServiceAccountToken", WorkspaceServiceAccountTokenArgs.builder()
  *             .name("example-key")
  *             .serviceAccountId(example.serviceAccountId())
  *             .secondsToLive(3600)
- *             .workspaceId(exampleAwsGrafanaWorkspace.id())
+ *             .workspaceId(exampleAwsGrafanaWorkspace.get("id"))
  *             .build());
  * 
  *     }

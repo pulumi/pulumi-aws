@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("serviceB")
- *             .meshName(simple.id())
+ *             .meshName(simple.get("id"))
  *             .build());
  * 
  *     }

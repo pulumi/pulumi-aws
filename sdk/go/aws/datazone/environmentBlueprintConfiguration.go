@@ -38,12 +38,12 @@ import (
 //				return err
 //			}
 //			defaultDataLake := datazone.GetEnvironmentBlueprintOutput(ctx, datazone.GetEnvironmentBlueprintOutputArgs{
-//				DomainId: example.ID().ToIDOutput().ToStringOutput(),
+//				DomainId: example.ID(),
 //				Name:     pulumi.String("DefaultDataLake"),
 //				Managed:  pulumi.Bool(true),
 //			}, nil)
 //			_, err = datazone.NewEnvironmentBlueprintConfiguration(ctx, "example", &datazone.EnvironmentBlueprintConfigurationArgs{
-//				DomainId:               example.ID().ToIDOutput().ToStringOutput(),
+//				DomainId:               example.ID(),
 //				EnvironmentBlueprintId: defaultDataLake.Id(),
 //				EnabledRegions: pulumi.StringArray{
 //					pulumi.String("us-east-1"),

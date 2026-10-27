@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testFleet = new ImageBuilder("testFleet", ImageBuilderArgs.builder()
  *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
- *                 .subnetIds(example.id())
+ *                 .subnetIds(example.get("id"))
  *                 .build())
  *             .name("Name")
  *             .description("Description of a ImageBuilder")

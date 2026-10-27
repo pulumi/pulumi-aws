@@ -52,7 +52,7 @@ import (
 //						BucketArn: inventory.Arn,
 //					},
 //				},
-//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
+//				Bucket:                 test.ID(),
 //				Name:                   pulumi.String("EntireBucketDaily"),
 //				IncludedObjectVersions: pulumi.String("All"),
 //			})
@@ -105,7 +105,7 @@ import (
 //						Prefix:    pulumi.String("inventory"),
 //					},
 //				},
-//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
+//				Bucket:                 test.ID(),
 //				Name:                   pulumi.String("DocumentsWeekly"),
 //				IncludedObjectVersions: pulumi.String("All"),
 //			})

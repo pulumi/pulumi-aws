@@ -31,7 +31,7 @@ import (
 //				Filters: []ec2.GetServiceLinkVirtualInterfacesFilter{
 //					{
 //						Name: "outpost-arn",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							exampleAwsOutpostsOutpost.Arn,
 //						},
 //					},

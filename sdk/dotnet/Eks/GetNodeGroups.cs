@@ -29,7 +29,17 @@ namespace Pulumi.Aws.Eks
         ///         ClusterName = "example",
         ///     });
         /// 
-        ///     var exampleGetNodeGroup = ;
+        ///     var exampleGetNodeGroup = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
+        ///         {
+        ///             ClusterName = "example",
+        ///             NodeGroupName = __value,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```
@@ -55,7 +65,17 @@ namespace Pulumi.Aws.Eks
         ///         ClusterName = "example",
         ///     });
         /// 
-        ///     var exampleGetNodeGroup = ;
+        ///     var exampleGetNodeGroup = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
+        ///         {
+        ///             ClusterName = "example",
+        ///             NodeGroupName = __value,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```
@@ -81,7 +101,17 @@ namespace Pulumi.Aws.Eks
         ///         ClusterName = "example",
         ///     });
         /// 
-        ///     var exampleGetNodeGroup = ;
+        ///     var exampleGetNodeGroup = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
+        ///         {
+        ///             ClusterName = "example",
+        ///             NodeGroupName = __value,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```

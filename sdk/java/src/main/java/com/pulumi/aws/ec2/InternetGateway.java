@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .tags(Map.of("Name", "main"))
  *             .build());
  * 
@@ -147,7 +147,7 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      * 
      *     public static void stack(Context ctx) {
      *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
-     *             .vpcId(main.id())
+     *             .vpcId(main.get("id"))
      *             .build());
      * 
      *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
@@ -194,7 +194,7 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      * 
      *     public static void stack(Context ctx) {
      *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
-     *             .vpcId(main.id())
+     *             .vpcId(main.get("id"))
      *             .build());
      * 
      *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()

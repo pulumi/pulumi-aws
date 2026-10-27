@@ -42,7 +42,7 @@ import (
 // return err
 // }
 // _, err = directoryservice.NewDirectorySetting(ctx, "example", &directoryservice.DirectorySettingArgs{
-// DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
+// DirectoryId: exampleDirectory.ID(),
 // Name: pulumi.String("TLS_1_0"),
 // Value: pulumi.String("Disable"),
 // })

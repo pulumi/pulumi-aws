@@ -52,10 +52,10 @@ import javax.annotation.Nullable;
  *             .controlSets(FrameworkControlSetArgs.builder()
  *                 .controls(                
  *                     FrameworkControlSetControlArgs.builder()
- *                         .id(test1.id())
+ *                         .id(test1.get("id"))
  *                         .build(),
  *                     FrameworkControlSetControlArgs.builder()
- *                         .id(test2.id())
+ *                         .id(test2.get("id"))
  *                         .build())
  *                 .name("example")
  *                 .build())

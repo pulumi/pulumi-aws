@@ -101,8 +101,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LayerVersionPermission("example", LayerVersionPermissionArgs.builder()
- *             .layerName(exampleAwsLambdaLayerVersion.layerName())
- *             .versionNumber(exampleAwsLambdaLayerVersion.version())
+ *             .layerName(exampleAwsLambdaLayerVersion.get("layerName"))
+ *             .versionNumber(exampleAwsLambdaLayerVersion.get("version"))
  *             .principal("*")
  *             .organizationId("o-1234567890")
  *             .action("lambda:GetLayerVersion")
@@ -139,8 +139,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LayerVersionPermission("example", LayerVersionPermissionArgs.builder()
- *             .layerName(exampleAwsLambdaLayerVersion.layerName())
- *             .versionNumber(exampleAwsLambdaLayerVersion.version())
+ *             .layerName(exampleAwsLambdaLayerVersion.get("layerName"))
+ *             .versionNumber(exampleAwsLambdaLayerVersion.get("version"))
  *             .principal("*")
  *             .action("lambda:GetLayerVersion")
  *             .statementId("public-access")
@@ -177,24 +177,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Share with multiple specific accounts
  *         var devAccount = new LayerVersionPermission("devAccount", LayerVersionPermissionArgs.builder()
- *             .layerName(example.layerName())
- *             .versionNumber(example.version())
+ *             .layerName(example.get("layerName"))
+ *             .versionNumber(example.get("version"))
  *             .principal("111111111111")
  *             .action("lambda:GetLayerVersion")
  *             .statementId("dev-account")
  *             .build());
  * 
  *         var stagingAccount = new LayerVersionPermission("stagingAccount", LayerVersionPermissionArgs.builder()
- *             .layerName(example.layerName())
- *             .versionNumber(example.version())
+ *             .layerName(example.get("layerName"))
+ *             .versionNumber(example.get("version"))
  *             .principal("222222222222")
  *             .action("lambda:GetLayerVersion")
  *             .statementId("staging-account")
  *             .build());
  * 
  *         var prodAccount = new LayerVersionPermission("prodAccount", LayerVersionPermissionArgs.builder()
- *             .layerName(example.layerName())
- *             .versionNumber(example.version())
+ *             .layerName(example.get("layerName"))
+ *             .versionNumber(example.get("version"))
  *             .principal("333333333333")
  *             .action("lambda:GetLayerVersion")
  *             .statementId("prod-account")

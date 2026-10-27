@@ -112,12 +112,12 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["deploymentStatus"] = 
+        ///         ["deploymentStatus"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "productionVersion", production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
-        ///             { "stagingVersion", staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
-        ///             { "versionDrift", versionDrift },
-        ///             { "readyForPromotion", !versionDrift },
+        ///             ["productionVersion"] = production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion),
+        ///             ["stagingVersion"] = staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion),
+        ///             ["versionDrift"] = versionDrift,
+        ///             ["readyForPromotion"] = !versionDrift,
         ///         },
         ///     };
         /// });
@@ -281,12 +281,12 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["deploymentStatus"] = 
+        ///         ["deploymentStatus"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "productionVersion", production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
-        ///             { "stagingVersion", staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
-        ///             { "versionDrift", versionDrift },
-        ///             { "readyForPromotion", !versionDrift },
+        ///             ["productionVersion"] = production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion),
+        ///             ["stagingVersion"] = staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion),
+        ///             ["versionDrift"] = versionDrift,
+        ///             ["readyForPromotion"] = !versionDrift,
         ///         },
         ///     };
         /// });
@@ -450,12 +450,12 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["deploymentStatus"] = 
+        ///         ["deploymentStatus"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "productionVersion", production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
-        ///             { "stagingVersion", staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
-        ///             { "versionDrift", versionDrift },
-        ///             { "readyForPromotion", !versionDrift },
+        ///             ["productionVersion"] = production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion),
+        ///             ["stagingVersion"] = staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion),
+        ///             ["versionDrift"] = versionDrift,
+        ///             ["readyForPromotion"] = !versionDrift,
         ///         },
         ///     };
         /// });

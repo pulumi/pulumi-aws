@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var mongo = new Service("mongo", ServiceArgs.builder()
  *             .loadBalancers(ServiceLoadBalancerArgs.builder()
- *                 .targetGroupArn(fooAwsLbTargetGroup.arn())
+ *                 .targetGroupArn(fooAwsLbTargetGroup.get("arn"))
  *                 .containerName("mongo")
  *                 .containerPort(8080)
  *                 .build())
@@ -81,10 +81,10 @@ import javax.annotation.Nullable;
  *                 .expression("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]")
  *                 .build())
  *             .name("mongodb")
- *             .cluster(fooAwsEcsCluster.id())
- *             .taskDefinition(mongoAwsEcsTaskDefinition.arn())
+ *             .cluster(fooAwsEcsCluster.get("id"))
+ *             .taskDefinition(mongoAwsEcsTaskDefinition.get("arn"))
  *             .desiredCount(3)
- *             .iamRole(fooAwsIamRole.arn())
+ *             .iamRole(fooAwsIamRole.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(foo)
  *                 .build());
@@ -158,8 +158,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bar = new Service("bar", ServiceArgs.builder()
  *             .name("bar")
- *             .cluster(foo.id())
- *             .taskDefinition(barAwsEcsTaskDefinition.arn())
+ *             .cluster(foo.get("id"))
+ *             .taskDefinition(barAwsEcsTaskDefinition.get("arn"))
  *             .schedulingStrategy("DAEMON")
  *             .build());
  * 
@@ -197,10 +197,10 @@ import javax.annotation.Nullable;
  *             .alarms(ServiceAlarmsArgs.builder()
  *                 .enable(true)
  *                 .rollback(true)
- *                 .alarmNames(exampleAwsCloudwatchMetricAlarm.alarmName())
+ *                 .alarmNames(exampleAwsCloudwatchMetricAlarm.get("alarmName"))
  *                 .build())
  *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
+ *             .cluster(exampleAwsEcsCluster.get("id"))
  *             .build());
  * 
  *     }
@@ -238,7 +238,7 @@ import javax.annotation.Nullable;
  *                 .type("EXTERNAL")
  *                 .build())
  *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
+ *             .cluster(exampleAwsEcsCluster.get("id"))
  *             .build());
  * 
  *     }
@@ -276,7 +276,7 @@ import javax.annotation.Nullable;
  *                 .strategy("BLUE_GREEN")
  *                 .build())
  *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
+ *             .cluster(exampleAwsEcsCluster.get("id"))
  *             .sigintRollback(true)
  *             .waitForSteadyState(true)
  *             .build());
@@ -322,7 +322,7 @@ import javax.annotation.Nullable;
  *                 .bakeTimeInMinutes("10")
  *                 .build())
  *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
+ *             .cluster(exampleAwsEcsCluster.get("id"))
  *             .build());
  * 
  *     }
@@ -366,7 +366,7 @@ import javax.annotation.Nullable;
  *                 .bakeTimeInMinutes("15")
  *                 .build())
  *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
+ *             .cluster(exampleAwsEcsCluster.get("id"))
  *             .build());
  * 
  *     }
@@ -472,11 +472,11 @@ import javax.annotation.Nullable;
  *                     .discoveryName("example")
  *                     .build())
  *                 .enabled(true)
- *                 .namespace(exampleAwsServiceDiscoveryHttpNamespace.arn())
+ *                 .namespace(exampleAwsServiceDiscoveryHttpNamespace.get("arn"))
  *                 .build())
  *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
- *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+ *             .cluster(exampleAwsEcsCluster.get("id"))
+ *             .taskDefinition(exampleAwsEcsTaskDefinition.get("arn"))
  *             .desiredCount(1)
  *             .build());
  * 

@@ -44,10 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationFsxWindows("example", LocationFsxWindowsArgs.builder()
- *             .fsxFilesystemArn(exampleAwsFsxWindowsFileSystem.arn())
+ *             .fsxFilesystemArn(exampleAwsFsxWindowsFileSystem.get("arn"))
  *             .user("SomeUser")
  *             .password("SuperSecretPassw0rd")
- *             .securityGroupArns(exampleAwsSecurityGroup.arn())
+ *             .securityGroupArns(exampleAwsSecurityGroup.get("arn"))
  *             .build());
  * 
  *     }

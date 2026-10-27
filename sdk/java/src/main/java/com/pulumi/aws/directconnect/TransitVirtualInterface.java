@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTransitVirtualInterface = new TransitVirtualInterface("exampleTransitVirtualInterface", TransitVirtualInterfaceArgs.builder()
- *             .connectionId(exampleAwsDxConnection.id())
+ *             .connectionId(exampleAwsDxConnection.get("id"))
  *             .dxGatewayId(example.id())
  *             .name("tf-transit-vif-example")
  *             .vlan(4094)

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  *         // Example Route53 MX record
  *         var exampleSesDomainMailFromMx = new Record("exampleSesDomainMailFromMx", RecordArgs.builder()
- *             .zoneId(exampleAwsRoute53Zone.id())
+ *             .zoneId(exampleAwsRoute53Zone.get("id"))
  *             .name(example.mailFromDomain())
  *             .type("MX")
  *             .ttl(600)
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         // Example Route53 TXT record for SPF
  *         var exampleSesDomainMailFromTxt = new Record("exampleSesDomainMailFromTxt", RecordArgs.builder()
- *             .zoneId(exampleAwsRoute53Zone.id())
+ *             .zoneId(exampleAwsRoute53Zone.get("id"))
  *             .name(example.mailFromDomain())
  *             .type("TXT")
  *             .ttl(600)

@@ -71,7 +71,7 @@ import (
 //				AppName:              pulumi.Any(fooApp.Name),
 //				DeploymentGroupName:  pulumi.String("bar"),
 //				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
+//				DeploymentConfigName: foo.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -126,7 +126,7 @@ import (
 //				AppName:              pulumi.Any(fooApp.Name),
 //				DeploymentGroupName:  pulumi.String("bar"),
 //				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
+//				DeploymentConfigName: foo.ID(),
 //			})
 //			if err != nil {
 //				return err

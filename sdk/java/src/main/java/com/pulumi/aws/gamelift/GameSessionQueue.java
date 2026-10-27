@@ -57,9 +57,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .name("example-session-queue")
  *             .destinations(            
- *                 usWest2Fleet.arn(),
- *                 euCentral1Fleet.arn())
- *             .notificationTarget(gameSessionQueueNotifications.arn())
+ *                 usWest2Fleet.get("arn"),
+ *                 euCentral1Fleet.get("arn"))
+ *             .notificationTarget(gameSessionQueueNotifications.get("arn"))
  *             .timeoutInSeconds(60)
  *             .build());
  * 

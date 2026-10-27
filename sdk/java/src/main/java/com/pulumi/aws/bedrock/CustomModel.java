@@ -73,15 +73,15 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCustomModel = new CustomModel("exampleCustomModel", CustomModelArgs.builder()
  *             .outputDataConfig(CustomModelOutputDataConfigArgs.builder()
- *                 .s3Uri(String.format("s3://%s/data/", output.id()))
+ *                 .s3Uri(String.format("s3://%s/data/", output.get("id")))
  *                 .build())
  *             .trainingDataConfig(CustomModelTrainingDataConfigArgs.builder()
- *                 .s3Uri(String.format("s3://%s/data/train.jsonl", training.id()))
+ *                 .s3Uri(String.format("s3://%s/data/train.jsonl", training.get("id")))
  *                 .build())
  *             .customModelName("example-model")
  *             .jobName("example-job-1")
  *             .baseModelIdentifier(example.modelArn())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .hyperparameters(Map.ofEntries(
  *                 Map.entry("epochCount", "1"),
  *                 Map.entry("batchSize", "1"),

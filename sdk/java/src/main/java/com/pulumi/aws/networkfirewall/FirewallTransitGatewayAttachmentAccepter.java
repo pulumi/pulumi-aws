@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallTransitGatewayAttachmentAccepter("example", FirewallTransitGatewayAttachmentAccepterArgs.builder()
- *             .transitGatewayAttachmentId(exampleAwsNetworkfirewallFirewall.firewallStatus()[0].transitGatewayAttachmentSyncState()[0].attachmentId())
+ *             .transitGatewayAttachmentId(exampleAwsNetworkfirewallFirewall.get("firewallStatus")[0].get("transitGatewayAttachmentSyncState")[0].get("attachmentId"))
  *             .build());
  * 
  *     }

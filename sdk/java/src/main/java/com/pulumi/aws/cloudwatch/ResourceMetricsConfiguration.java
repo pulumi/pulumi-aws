@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *                     "valkey.memory.used",
  *                     "valkey.commands.processed")
  *                 .build())
- *             .resourceArn(exampleAwsElasticacheReplicationGroup.arn())
+ *             .resourceArn(exampleAwsElasticacheReplicationGroup.get("arn"))
  *             .build());
  * 
  *     }

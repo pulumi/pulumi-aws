@@ -53,7 +53,7 @@ import (
 //						LogLevel:    pulumi.String("ERROR"),
 //					},
 //				},
-//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -130,7 +130,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "firehose", &iam.RolePolicyArgs{
 //				Name: pulumi.String("firehose-policy"),
-//				Role: firehose.ID().ToIDOutput().ToStringOutput(),
+//				Role: firehose.ID(),
 //				Policy: exampleBucket.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -191,7 +191,7 @@ import (
 //						LogLevel:    pulumi.String("INFO"),
 //					},
 //				},
-//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -241,7 +241,7 @@ import (
 //						LogLevel:    pulumi.String("INFO"),
 //					},
 //				},
-//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

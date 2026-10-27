@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var r = new Route("r", RouteArgs.builder()
- *             .routeTableId(testing.id())
+ *             .routeTableId(testing.get("id"))
  *             .destinationCidrBlock("10.0.1.0/22")
  *             .vpcPeeringConnectionId("pcx-45ff3dc1")
  *             .build());

@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("serviceBv1")
- *             .meshName(simple.id())
+ *             .meshName(simple.get("id"))
  *             .build());
  * 
  *     }
@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("serviceBv1")
- *             .meshName(simple.id())
+ *             .meshName(simple.get("id"))
  *             .build());
  * 
  *     }
@@ -209,7 +209,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("serviceBv1")
- *             .meshName(simple.id())
+ *             .meshName(simple.get("id"))
  *             .build());
  * 
  *     }
@@ -278,7 +278,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("serviceBv1")
- *             .meshName(simple.id())
+ *             .meshName(simple.get("id"))
  *             .build());
  * 
  *     }

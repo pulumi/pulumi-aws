@@ -169,7 +169,7 @@ class Tag(pulumi.CustomResource):
                     },
                     autoscaling_group_name=example_tag_range["value"])
 
-        std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda resolved_outputs: create_example({str(entry): entry for entry in [asg["name"] for asg in resolved_outputs['invoke'].result]}))
+        std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda resolved_outputs: create_example({str(entry): entry for entry in [asg["name"] for asg in resolved_outputs.result]}))
         ```
 
         ## Import
@@ -222,7 +222,7 @@ class Tag(pulumi.CustomResource):
                     },
                     autoscaling_group_name=example_tag_range["value"])
 
-        std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda resolved_outputs: create_example({str(entry): entry for entry in [asg["name"] for asg in resolved_outputs['invoke'].result]}))
+        std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda resolved_outputs: create_example({str(entry): entry for entry in [asg["name"] for asg in resolved_outputs.result]}))
         ```
 
         ## Import

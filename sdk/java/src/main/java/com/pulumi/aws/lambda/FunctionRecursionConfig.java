@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         var example = new Function("example", FunctionArgs.builder()
  *             .code(new FileArchive("function.zip"))
  *             .name("recursive_processor")
- *             .role(lambdaRole.arn())
+ *             .role(lambdaRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("python3.12")
  *             .build());
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *         var productionProcessor = new Function("productionProcessor", FunctionArgs.builder()
  *             .code(new FileArchive("processor.zip"))
  *             .name("production-data-processor")
- *             .role(lambdaRole.arn())
+ *             .role(lambdaRole.get("arn"))
  *             .handler("app.handler")
  *             .runtime("nodejs24.x")
  *             .tags(Map.ofEntries(

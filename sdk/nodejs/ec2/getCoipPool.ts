@@ -17,6 +17,17 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * The following example returns a specific CoIP pool ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const coipPoolId = config.requireObject<any>("coipPoolId");
+ * const selected = aws.ec2.getCoipPool({
+ *     id: coipPoolId,
+ * });
+ * ```
  */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {
     args = args || {};
@@ -89,6 +100,17 @@ export interface GetCoipPoolResult {
  * ## Example Usage
  *
  * The following example returns a specific CoIP pool ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const coipPoolId = config.requireObject<any>("coipPoolId");
+ * const selected = aws.ec2.getCoipPool({
+ *     id: coipPoolId,
+ * });
+ * ```
  */
 export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCoipPoolResult> {
     args = args || {};

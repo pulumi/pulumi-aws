@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new PipelineEndpoint("example", PipelineEndpointArgs.builder()
  *             .vpcOptions(PipelineEndpointVpcOptionsArgs.builder()
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(exampleAwsSubnet.id())
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetIds(exampleAwsSubnet.get("id"))
  *                 .build())
- *             .pipelineArn(exampleAwsOsisPipeline.pipelineArn())
+ *             .pipelineArn(exampleAwsOsisPipeline.get("pipelineArn"))
  *             .build());
  * 
  *     }

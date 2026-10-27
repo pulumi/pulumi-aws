@@ -54,16 +54,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
  *                 .type("certificate-authentication")
- *                 .rootCertificateChainArn(exampleAwsAcmCertificate.arn())
+ *                 .rootCertificateChainArn(exampleAwsAcmCertificate.get("arn"))
  *                 .build())
  *             .description("Example Client VPN endpoint")
- *             .serverCertificateArn(exampleAwsAcmCertificate.arn())
+ *             .serverCertificateArn(exampleAwsAcmCertificate.get("arn"))
  *             .clientCidrBlock("10.0.0.0/16")
  *             .build());
  * 
  *         var exampleNetworkAssociation = new NetworkAssociation("exampleNetworkAssociation", NetworkAssociationArgs.builder()
  *             .clientVpnEndpointId(exampleEndpoint.id())
- *             .subnetId(exampleAwsSubnet.id())
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *         var example = new Route("example", RouteArgs.builder()

@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisFirehoseConfig(InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs.builder()
- *                     .firehoseArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *                     .firehoseArn(exampleAwsKinesisFirehoseDeliveryStream.get("arn"))
  *                     .build())
  *                 .storageType("KINESIS_FIREHOSE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .resourceType("CONTACT_TRACE_RECORDS")
  *             .build());
  * 
@@ -91,11 +91,11 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .kinesisStreamConfig(InstanceStorageConfigStorageConfigKinesisStreamConfigArgs.builder()
- *                     .streamArn(exampleAwsKinesisStream.arn())
+ *                     .streamArn(exampleAwsKinesisStream.get("arn"))
  *                     .build())
  *                 .storageType("KINESIS_STREAM")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .resourceType("CONTACT_TRACE_RECORDS")
  *             .build());
  * 
@@ -136,14 +136,14 @@ import javax.annotation.Nullable;
  *                 .kinesisVideoStreamConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs.builder()
  *                     .encryptionConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.builder()
  *                         .encryptionType("KMS")
- *                         .keyId(exampleAwsKmsKey.arn())
+ *                         .keyId(exampleAwsKmsKey.get("arn"))
  *                         .build())
  *                     .prefix("example")
  *                     .retentionPeriodHours(3)
  *                     .build())
  *                 .storageType("KINESIS_VIDEO_STREAM")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .resourceType("MEDIA_STREAMS")
  *             .build());
  * 
@@ -181,12 +181,12 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
  *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
- *                     .bucketName(exampleAwsS3Bucket.id())
+ *                     .bucketName(exampleAwsS3Bucket.get("id"))
  *                     .bucketPrefix("example")
  *                     .build())
  *                 .storageType("S3")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .resourceType("CHAT_TRANSCRIPTS")
  *             .build());
  * 
@@ -227,14 +227,14 @@ import javax.annotation.Nullable;
  *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
  *                     .encryptionConfig(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs.builder()
  *                         .encryptionType("KMS")
- *                         .keyId(exampleAwsKmsKey.arn())
+ *                         .keyId(exampleAwsKmsKey.get("arn"))
  *                         .build())
- *                     .bucketName(exampleAwsS3Bucket.id())
+ *                     .bucketName(exampleAwsS3Bucket.get("id"))
  *                     .bucketPrefix("example")
  *                     .build())
  *                 .storageType("S3")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .resourceType("CHAT_TRANSCRIPTS")
  *             .build());
  * 

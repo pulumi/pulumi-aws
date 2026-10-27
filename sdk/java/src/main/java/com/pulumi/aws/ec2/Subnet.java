@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new Subnet("main", SubnetArgs.builder()
- *             .vpcId(mainAwsVpc.id())
+ *             .vpcId(mainAwsVpc.get("id"))
  *             .cidrBlock("10.0.1.0/24")
  *             .tags(Map.of("Name", "Main"))
  *             .build());
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var secondaryCidr = new VpcIpv4CidrBlockAssociation("secondaryCidr", VpcIpv4CidrBlockAssociationArgs.builder()
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .cidrBlock("172.20.0.0/16")
  *             .build());
  * 
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *         var vpc = new VpcIpamPool("vpc", VpcIpamPoolArgs.builder()
  *             .sourceResource(VpcIpamPoolSourceResourceArgs.builder()
  *                 .resourceId(testVpc.id())
- *                 .resourceOwner(currentAwsCallerIdentity.accountId())
+ *                 .resourceOwner(currentAwsCallerIdentity.get("accountId"))
  *                 .resourceRegion(current.region())
  *                 .resourceType("vpc")
  *                 .build())
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  *             .vpcId(testVpc.id())
  *             .ipv4IpamPoolId(vpc.id())
  *             .ipv4NetmaskLength(28)
- *             .availabilityZone(available.names()[0])
+ *             .availabilityZone(available.get("names")[0])
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(vpcVpcIpamPoolCidr)
  *                 .build());

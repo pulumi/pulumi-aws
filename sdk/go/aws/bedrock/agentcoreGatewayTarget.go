@@ -115,7 +115,7 @@ import (
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "gateway_lambda_invoke", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example-gateway-lambda-invoke"),
-//				Role:   gatewayRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   gatewayRole.ID(),
 //				Policy: gatewayLambdaInvoke.Json(),
 //			})
 //			if err != nil {

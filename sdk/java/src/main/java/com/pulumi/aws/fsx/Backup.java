@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()
  *             .storageCapacity(1200)
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .deploymentType("PERSISTENT_1")
  *             .perUnitStorageThroughput(50)
  *             .build());
@@ -89,10 +89,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleWindowsFileSystem = new WindowsFileSystem("exampleWindowsFileSystem", WindowsFileSystemArgs.builder()
- *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.get("id"))
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
- *             .subnetIds(example1.id())
+ *             .subnetIds(example1.get("id"))
  *             .throughputCapacity(8)
  *             .build());
  * 
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *             .junctionPath("/example")
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(test.id())
+ *             .storageVirtualMachineId(test.get("id"))
  *             .build());
  * 
  *         var example = new Backup("example", BackupArgs.builder()
@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()
  *             .storageCapacity(64)
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());

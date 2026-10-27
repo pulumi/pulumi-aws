@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ConfigurationProfile("example", ConfigurationProfileArgs.builder()
  *             .validators(ConfigurationProfileValidatorArgs.builder()
- *                 .content(exampleAwsLambdaFunction.arn())
+ *                 .content(exampleAwsLambdaFunction.get("arn"))
  *                 .type("LAMBDA")
  *                 .build())
- *             .applicationId(exampleAwsAppconfigApplication.id())
+ *             .applicationId(exampleAwsAppconfigApplication.get("id"))
  *             .description("Example Configuration Profile")
  *             .name("example-configuration-profile-tf")
  *             .locationUri("hosted")

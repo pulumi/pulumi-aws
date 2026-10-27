@@ -37,7 +37,7 @@ import (
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
-//								Identifiers: pulumi.StringArray{
+//								Identifiers: []string{
 //									current.AccountId,
 //								},
 //							},
@@ -51,7 +51,7 @@ import (
 //							"acm-pca:ListPermissions",
 //							"acm-pca:ListTags",
 //						},
-//						Resources: pulumi.StringArray{
+//						Resources: []string{
 //							exampleAwsAcmpcaCertificateAuthority.Arn,
 //						},
 //					},
@@ -68,7 +68,7 @@ import (
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
-//								Identifiers: pulumi.StringArray{
+//								Identifiers: []string{
 //									current.AccountId,
 //								},
 //							},
@@ -78,7 +78,7 @@ import (
 //						Actions: []string{
 //							"acm-pca:IssueCertificate",
 //						},
-//						Resources: pulumi.StringArray{
+//						Resources: []string{
 //							exampleAwsAcmpcaCertificateAuthority.Arn,
 //						},
 //					},

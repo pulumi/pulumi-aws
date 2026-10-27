@@ -137,6 +137,15 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
 
     The following example returns a specific CoIP pool ID
 
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    coip_pool_id = config.require_object("coipPoolId")
+    selected = aws.ec2.get_coip_pool(id=coip_pool_id)
+    ```
+
 
     :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table ID assigned to desired CoIP Pool
     :param _builtins.str pool_id: ID of the specific CoIP Pool to retrieve.
@@ -181,6 +190,15 @@ def get_coip_pool_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
     ## Example Usage
 
     The following example returns a specific CoIP pool ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    coip_pool_id = config.require_object("coipPoolId")
+    selected = aws.ec2.get_coip_pool(id=coip_pool_id)
+    ```
 
 
     :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table ID assigned to desired CoIP Pool

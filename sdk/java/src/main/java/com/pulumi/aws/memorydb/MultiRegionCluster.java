@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .aclName(exampleAwsMemorydbAcl.id())
+ *             .aclName(exampleAwsMemorydbAcl.get("id"))
  *             .autoMinorVersionUpgrade(false)
  *             .name("example")
  *             .nodeType("db.t4g.small")
  *             .numShards(2)
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .snapshotRetentionLimit(7)
- *             .subnetGroupName(exampleAwsMemorydbSubnetGroup.id())
+ *             .subnetGroupName(exampleAwsMemorydbSubnetGroup.get("id"))
  *             .multiRegionClusterName(example.multiRegionClusterName())
  *             .build());
  * 

@@ -273,7 +273,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.arn())
+     *             .applicationArn(exampleAwsSsoadminApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -315,7 +315,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.arn())
+     *             .applicationArn(exampleAwsSsoadminApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -357,7 +357,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.arn())
+     *             .applicationArn(exampleAwsSsoadminApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -399,7 +399,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.arn())
+     *             .applicationArn(exampleAwsSsoadminApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -441,7 +441,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.arn())
+     *             .applicationArn(exampleAwsSsoadminApplication.get("arn"))
      *             .build());
      * 
      *     }
@@ -1517,8 +1517,8 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
-     *             .instanceArn(test.arns()[0])
-     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .instanceArn(test.get("arns")[0])
+     *             .principalId(testAwsIdentitystoreUser.get("userId"))
      *             .principalType("USER")
      *             .build());
      * 
@@ -1561,8 +1561,8 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
-     *             .instanceArn(test.arns()[0])
-     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .instanceArn(test.get("arns")[0])
+     *             .principalId(testAwsIdentitystoreUser.get("userId"))
      *             .principalType("USER")
      *             .build());
      * 
@@ -1605,8 +1605,8 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
-     *             .instanceArn(test.arns()[0])
-     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .instanceArn(test.get("arns")[0])
+     *             .principalId(testAwsIdentitystoreUser.get("userId"))
      *             .principalType("USER")
      *             .build());
      * 
@@ -1649,8 +1649,8 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
-     *             .instanceArn(test.arns()[0])
-     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .instanceArn(test.get("arns")[0])
+     *             .principalId(testAwsIdentitystoreUser.get("userId"))
      *             .principalType("USER")
      *             .build());
      * 
@@ -1693,8 +1693,8 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
-     *             .instanceArn(test.arns()[0])
-     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .instanceArn(test.get("arns")[0])
+     *             .principalId(testAwsIdentitystoreUser.get("userId"))
      *             .principalType("USER")
      *             .build());
      * 

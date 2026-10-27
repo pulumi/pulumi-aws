@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()
- *             .bucket(exampleAwsS3controlBucket.arn())
+ *             .bucket(exampleAwsS3controlBucket.get("arn"))
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Id", "testBucketPolicy"),
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Principal", jsonObject(
  *                             jsonProperty("AWS", "*")
  *                         )),
- *                         jsonProperty("Resource", exampleAwsS3controlBucket.arn()),
+ *                         jsonProperty("Resource", exampleAwsS3controlBucket.get("arn")),
  *                         jsonProperty("Sid", "statement1")
  *                     ))),
  *                     jsonProperty("Version", "2012-10-17")

@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .identifier(example.arn())
  *                 .build())
  *             .monitorName("example-monitor")
- *             .scopeArn(exampleAwsNetworkflowmonitorScope.scopeArn())
+ *             .scopeArn(exampleAwsNetworkflowmonitorScope.get("scopeArn"))
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 

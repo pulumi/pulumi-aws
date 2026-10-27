@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sfnAlias = new Alias("sfnAlias", AliasArgs.builder()
  *             .routingConfigurations(AliasRoutingConfigurationArgs.builder()
- *                 .stateMachineVersionArn(sfnTest.stateMachineVersionArn())
+ *                 .stateMachineVersionArn(sfnTest.get("stateMachineVersionArn"))
  *                 .weight(100)
  *                 .build())
  *             .name("my_sfn_alias")

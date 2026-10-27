@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //						},
 //					},
 //				},
-//				FileSystemId: exampleLustreFileSystem.ID().ToIDOutput().ToStringOutput(),
+//				FileSystemId: exampleLustreFileSystem.ID(),
 //				DataRepositoryPath: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("s3://%v", id), nil
 //				}).(pulumi.StringOutput),

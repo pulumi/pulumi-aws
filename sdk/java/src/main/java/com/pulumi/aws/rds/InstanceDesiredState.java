@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new InstanceDesiredState("test", InstanceDesiredStateArgs.builder()
- *             .identifier(testAwsDbInstance.identifier())
+ *             .identifier(testAwsDbInstance.get("identifier"))
  *             .state("available")
  *             .build());
  * 

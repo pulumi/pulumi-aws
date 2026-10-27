@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *         var example = new Component("example", ComponentArgs.builder()
  *             .name("example")
  *             .platform("Linux")
- *             .uri(String.format("s3://%s/%s", exampleAwsS3Object.bucket(),exampleAwsS3Object.key()))
+ *             .uri(String.format("s3://%s/%s", exampleAwsS3Object.get("bucket"),exampleAwsS3Object.get("key")))
  *             .version("1.0.0")
  *             .build());
  * 

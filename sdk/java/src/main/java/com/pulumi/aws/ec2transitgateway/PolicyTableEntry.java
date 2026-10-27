@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyTableEntry("example", PolicyTableEntryArgs.builder()
- *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.id())
+ *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.get("id"))
  *             .policyRuleNumber("100")
- *             .targetRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
+ *             .targetRouteTableId(exampleAwsEc2TransitGatewayRouteTable.get("id"))
  *             .build());
  * 
  *     }
@@ -93,9 +93,9 @@ import javax.annotation.Nullable;
  *                 .destinationPortRange("443")
  *                 .protocol("6")
  *                 .build())
- *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.id())
+ *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.get("id"))
  *             .policyRuleNumber("200")
- *             .targetRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
+ *             .targetRouteTableId(exampleAwsEc2TransitGatewayRouteTable.get("id"))
  *             .build());
  * 
  *     }

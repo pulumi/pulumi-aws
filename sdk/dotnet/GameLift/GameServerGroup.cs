@@ -70,7 +70,7 @@ namespace Pulumi.Aws.GameLift
     ///         {
     ///             TargetTrackingConfiguration = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs
     ///             {
-    ///                 TargetValue = 75,
+    ///                 TargetValue = 75.0,
     ///             },
     ///             EstimatedInstanceWarmup = 60,
     ///         },

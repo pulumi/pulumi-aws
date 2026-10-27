@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .domainName("example.com")
  *             .name("example")
  *             .ruleType("FORWARD")
- *             .resolverEndpointId(foo.id())
+ *             .resolverEndpointId(foo.get("id"))
  *             .tags(Map.of("Environment", "Prod"))
  *             .build());
  * 
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *             .domainName("example.com")
  *             .name("example")
  *             .ruleType("FORWARD")
- *             .resolverEndpointId(foo.id())
+ *             .resolverEndpointId(foo.get("id"))
  *             .tags(Map.of("Environment", "Prod"))
  *             .build());
  * 

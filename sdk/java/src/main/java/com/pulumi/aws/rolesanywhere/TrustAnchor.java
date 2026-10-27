@@ -88,8 +88,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", CertificateAuthorityCertificateArgs.builder()
  *             .certificateAuthorityArn(example.arn())
- *             .certificate(exampleAwsAcmpcaCertificate.certificate())
- *             .certificateChain(exampleAwsAcmpcaCertificate.certificateChain())
+ *             .certificate(exampleAwsAcmpcaCertificate.get("certificate"))
+ *             .certificateChain(exampleAwsAcmpcaCertificate.get("certificateChain"))
  *             .build());
  * 
  *         var testTrustAnchor = new TrustAnchor("testTrustAnchor", TrustAnchorArgs.builder()

@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KeyvaluestoreKeysExclusive("example", KeyvaluestoreKeysExclusiveArgs.builder()
- *             .keyValueStoreArn(exampleAwsCloudfrontKeyValueStore.arn())
+ *             .keyValueStoreArn(exampleAwsCloudfrontKeyValueStore.get("arn"))
  *             .build());
  * 
  *     }

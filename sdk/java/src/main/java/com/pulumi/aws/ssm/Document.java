@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *         var test = new Document("test", DocumentArgs.builder()
  *             .attachmentsSources(DocumentAttachmentsSourceArgs.builder()
  *                 .key("SourceUrl")
- *                 .values(String.format("s3://%s/test.zip", objectBucket.bucket()))
+ *                 .values(String.format("s3://%s/test.zip", objectBucket.get("bucket")))
  *                 .build())
  *             .name("test_document")
  *             .documentType("Package")

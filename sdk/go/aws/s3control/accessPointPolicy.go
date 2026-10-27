@@ -47,7 +47,7 @@ import (
 //					IgnorePublicAcls:      pulumi.Bool(true),
 //					RestrictPublicBuckets: pulumi.Bool(false),
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Name:   pulumi.String("example"),
 //			}, pulumi.IgnoreChanges([]string{
 //				"policy",

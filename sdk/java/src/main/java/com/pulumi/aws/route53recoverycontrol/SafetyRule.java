@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *                 .threshold(1)
  *                 .type("ATLEAST")
  *                 .build())
- *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
+ *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.get("arn"))
  *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
  *             .name("daisyguttridge")
  *             .waitPeriodMs(5000)
@@ -95,8 +95,8 @@ import javax.annotation.Nullable;
  *             .name("i_o")
  *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
  *             .waitPeriodMs(5000)
- *             .gatingControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
- *             .targetControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
+ *             .gatingControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.get("arn"))
+ *             .targetControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.get("arn"))
  *             .build());
  * 
  *     }

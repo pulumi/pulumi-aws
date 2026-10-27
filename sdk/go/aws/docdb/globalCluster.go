@@ -46,7 +46,7 @@ import (
 //				ClusterIdentifier:       pulumi.String("test-primary-cluster"),
 //				MasterUsername:          pulumi.String("username"),
 //				MasterPassword:          pulumi.String("somepass123"),
-//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -55,7 +55,7 @@ import (
 //			primaryClusterInstance, err := docdb.NewClusterInstance(ctx, "primary", &docdb.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier: primary.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier: primary.ID(),
 //				InstanceClass:     pulumi.String("db.r5.large"),
 //			})
 //			if err != nil {
@@ -65,7 +65,7 @@ import (
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
-//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				primary,
@@ -76,7 +76,7 @@ import (
 //			_, err = docdb.NewClusterInstance(ctx, "secondary", &docdb.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier: secondary.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier: secondary.ID(),
 //				InstanceClass:     pulumi.String("db.r5.large"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				primaryClusterInstance,

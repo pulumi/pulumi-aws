@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = networkmanager.NewTransitGatewayRegistration(ctx, "example", &networkmanager.TransitGatewayRegistrationArgs{
-//				GlobalNetworkId:   example.ID().ToIDOutput().ToStringOutput(),
+//				GlobalNetworkId:   example.ID(),
 //				TransitGatewayArn: exampleTransitGateway.Arn,
 //			})
 //			if err != nil {

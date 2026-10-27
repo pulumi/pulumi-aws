@@ -39,8 +39,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInternetGatewayAttachment(ctx, "example", &ec2.InternetGatewayAttachmentArgs{
-//				InternetGatewayId: exampleInternetGateway.ID().ToIDOutput().ToStringOutput(),
-//				VpcId:             exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				InternetGatewayId: exampleInternetGateway.ID(),
+//				VpcId:             exampleVpc.ID(),
 //			})
 //			if err != nil {
 //				return err

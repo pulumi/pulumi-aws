@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EndpointPrivateDns("example", EndpointPrivateDnsArgs.builder()
- *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+ *             .vpcEndpointId(exampleAwsVpcEndpoint.get("id"))
  *             .privateDnsEnabled(true)
  *             .build());
  * 

@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                     .roleArn("arn:aws:iam::123456789012:role/Developer")
  *                     .build())
  *                 .build())
- *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+ *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
  *             .build());
  * 
  *     }
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *                     .roleArn("arn:aws:iam::123456789012:role/Engineering")
  *                     .build())
  *                 .build())
- *             .applicationArn(exampleAwsAccountaccessApplication.arn())
+ *             .applicationArn(exampleAwsAccountaccessApplication.get("arn"))
  *             .build());
  * 
  *     }

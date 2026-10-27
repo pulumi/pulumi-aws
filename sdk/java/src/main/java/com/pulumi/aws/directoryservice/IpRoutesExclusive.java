@@ -59,8 +59,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Directory("example", DirectoryArgs.builder()
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
- *                 .vpcId(exampleAwsVpc.id())
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                 .vpcId(exampleAwsVpc.get("id"))
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *                 .build())
  *             .name("corp.example.com")
  *             .password("SuperSecretPassw0rd")
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IpRoutesExclusive("example", IpRoutesExclusiveArgs.builder()
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.get("id"))
  *             .build());
  * 
  *     }

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                     .launchPath("C:\\game\\GomokuServer.exe")
  *                     .build())
  *                 .build())
- *             .buildId(exampleAwsGameliftBuild.id())
+ *             .buildId(exampleAwsGameliftBuild.get("id"))
  *             .ec2InstanceType("t2.micro")
  *             .fleetType("ON_DEMAND")
  *             .name("example-fleet-name")

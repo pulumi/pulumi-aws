@@ -87,7 +87,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "foo", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("tf-test-transfer-user-iam-policy"),
-//				Role:   fooRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   fooRole.ID(),
 //				Policy: pulumi.String(foo.Json),
 //			})
 //			if err != nil {
@@ -100,7 +100,7 @@ import (
 //						Target: pulumi.String("/bucket3/test-path/tftestuser.pdf"),
 //					},
 //				},
-//				ServerId:          fooServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:          fooServer.ID(),
 //				UserName:          pulumi.String("tftestuser"),
 //				Role:              fooRole.Arn,
 //				HomeDirectoryType: pulumi.String("LOGICAL"),

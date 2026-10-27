@@ -88,8 +88,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LayerVersion("example", LayerVersionArgs.builder()
- *             .s3Bucket(lambdaLayerZip.bucket())
- *             .s3Key(lambdaLayerZip.key())
+ *             .s3Bucket(lambdaLayerZip.get("bucket"))
+ *             .s3Key(lambdaLayerZip.get("key"))
  *             .layerName("lambda_layer_name")
  *             .compatibleRuntimes(            
  *                 "nodejs24.x",

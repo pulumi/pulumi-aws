@@ -44,7 +44,7 @@ import (
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{
 //						Type:    pulumi.String("IPMatch"),
-//						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
+//						DataId:  ipset.ID(),
 //						Negated: pulumi.Bool(false),
 //					},
 //				},

@@ -51,10 +51,10 @@ import (
 //				Details: &s3control.MultiRegionAccessPointDetailsArgs{
 //					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
 //						&s3control.MultiRegionAccessPointDetailsRegionArgs{
-//							Bucket: fooBucket.ID().ToIDOutput().ToStringOutput(),
+//							Bucket: fooBucket.ID(),
 //						},
 //						&s3control.MultiRegionAccessPointDetailsRegionArgs{
-//							Bucket: barBucket.ID().ToIDOutput().ToStringOutput(),
+//							Bucket: barBucket.ID(),
 //						},
 //					},
 //					Name: pulumi.String("example"),

@@ -68,11 +68,11 @@ public final class LbFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsLb.dnsName())
+     *                 .name(mainAwsLb.get("dnsName"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -121,11 +121,11 @@ public final class LbFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsLb.dnsName())
+     *                 .name(mainAwsLb.get("dnsName"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -174,11 +174,11 @@ public final class LbFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsLb.dnsName())
+     *                 .name(mainAwsLb.get("dnsName"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -227,11 +227,11 @@ public final class LbFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsLb.dnsName())
+     *                 .name(mainAwsLb.get("dnsName"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -280,11 +280,11 @@ public final class LbFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsLb.dnsName())
+     *                 .name(mainAwsLb.get("dnsName"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -333,11 +333,11 @@ public final class LbFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsLb.dnsName())
+     *                 .name(mainAwsLb.get("dnsName"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -386,11 +386,11 @@ public final class LbFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsLb.dnsName())
+     *                 .name(mainAwsLb.get("dnsName"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var this_ = new Group("this", GroupArgs.builder()
  *             .displayName("Example group")
  *             .description("Example description")
- *             .identityStoreId(example.identityStoreIds()[0])
+ *             .identityStoreId(example.get("identityStoreIds")[0])
  *             .build());
  * 
  *     }

@@ -624,7 +624,7 @@ public final class EcrFunctions {
      *             .build());
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
-     *             .repository(exampleAwsEcrRepository.name())
+     *             .repository(exampleAwsEcrRepository.get("name"))
      *             .policy(example.json())
      *             .build());
      * 
@@ -684,7 +684,7 @@ public final class EcrFunctions {
      *             .build());
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
-     *             .repository(exampleAwsEcrRepository.name())
+     *             .repository(exampleAwsEcrRepository.get("name"))
      *             .policy(example.json())
      *             .build());
      * 
@@ -744,7 +744,7 @@ public final class EcrFunctions {
      *             .build());
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
-     *             .repository(exampleAwsEcrRepository.name())
+     *             .repository(exampleAwsEcrRepository.get("name"))
      *             .policy(example.json())
      *             .build());
      * 
@@ -804,7 +804,7 @@ public final class EcrFunctions {
      *             .build());
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
-     *             .repository(exampleAwsEcrRepository.name())
+     *             .repository(exampleAwsEcrRepository.get("name"))
      *             .policy(example.json())
      *             .build());
      * 
@@ -864,7 +864,7 @@ public final class EcrFunctions {
      *             .build());
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
-     *             .repository(exampleAwsEcrRepository.name())
+     *             .repository(exampleAwsEcrRepository.get("name"))
      *             .policy(example.json())
      *             .build());
      * 

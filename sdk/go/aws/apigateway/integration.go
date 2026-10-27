@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
 //			})
@@ -44,8 +44,8 @@ import (
 //				return err
 //			}
 //			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
-//				RestApi:       myDemoAPI.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId:    myDemoResource.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:       myDemoAPI.ID(),
+//				ResourceId:    myDemoResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
 //				Authorization: pulumi.String("NONE"),
 //			})
@@ -53,8 +53,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
-//				RestApi:    myDemoAPI.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId: myDemoResource.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:    myDemoAPI.ID(),
+//				ResourceId: myDemoResource.ID(),
 //				HttpMethod: myDemoMethod.HttpMethod,
 //				Type:       pulumi.String("MOCK"),
 //				CacheKeyParameters: pulumi.StringArray{
@@ -120,14 +120,14 @@ import (
 //			resource, err := apigateway.NewResource(ctx, "resource", &apigateway.ResourceArgs{
 //				PathPart: pulumi.String("resource"),
 //				ParentId: api.RootResourceId,
-//				RestApi:  api.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:  api.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			method, err := apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
-//				RestApi:       api.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId:    resource.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:       api.ID(),
+//				ResourceId:    resource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
 //				Authorization: pulumi.String("NONE"),
 //			})
@@ -181,8 +181,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewIntegration(ctx, "integration", &apigateway.IntegrationArgs{
-//				RestApi:               api.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId:            resource.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:               api.ID(),
+//				ResourceId:            resource.ID(),
 //				HttpMethod:            method.HttpMethod,
 //				IntegrationHttpMethod: pulumi.String("POST"),
 //				Type:                  pulumi.String("AWS_PROXY"),
@@ -295,7 +295,7 @@ import (
 //				return err
 //			}
 //			testResource, err := apigateway.NewResource(ctx, "test", &apigateway.ResourceArgs{
-//				RestApi:  testRestApi.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:  testRestApi.ID(),
 //				ParentId: testRestApi.RootResourceId,
 //				PathPart: pulumi.String("test"),
 //			})
@@ -303,8 +303,8 @@ import (
 //				return err
 //			}
 //			testMethod, err := apigateway.NewMethod(ctx, "test", &apigateway.MethodArgs{
-//				RestApi:       testRestApi.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId:    testResource.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:       testRestApi.ID(),
+//				ResourceId:    testResource.ID(),
 //				HttpMethod:    pulumi.String("GET"),
 //				Authorization: pulumi.String("NONE"),
 //				RequestModels: pulumi.StringMap{
@@ -315,8 +315,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewIntegration(ctx, "test", &apigateway.IntegrationArgs{
-//				RestApi:    testRestApi.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId: testResource.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:    testRestApi.ID(),
+//				ResourceId: testResource.ID(),
 //				HttpMethod: testMethod.HttpMethod,
 //				RequestTemplates: pulumi.StringMap{
 //					"application/json": pulumi.String(""),
@@ -332,7 +332,7 @@ import (
 //				PassthroughBehavior:   pulumi.String("WHEN_NO_MATCH"),
 //				ContentHandling:       pulumi.String("CONVERT_TO_TEXT"),
 //				ConnectionType:        pulumi.String("VPC_LINK"),
-//				ConnectionId:          testVpcLink.ID().ToIDOutput().ToStringOutput(),
+//				ConnectionId:          testVpcLink.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -413,7 +413,7 @@ import (
 // return err
 // }
 // exampleResource, err := apigateway.NewResource(ctx, "example", &apigateway.ResourceArgs{
-// RestApi: exampleRestApi.ID().ToIDOutput().ToStringOutput(),
+// RestApi: exampleRestApi.ID(),
 // ParentId: exampleRestApi.RootResourceId,
 // PathPart: pulumi.String("example"),
 // })
@@ -421,8 +421,8 @@ import (
 // return err
 // }
 // exampleMethod, err := apigateway.NewMethod(ctx, "example", &apigateway.MethodArgs{
-// RestApi: exampleRestApi.ID().ToIDOutput().ToStringOutput(),
-// ResourceId: exampleResource.ID().ToIDOutput().ToStringOutput(),
+// RestApi: exampleRestApi.ID(),
+// ResourceId: exampleResource.ID(),
 // HttpMethod: pulumi.String("GET"),
 // Authorization: pulumi.String("NONE"),
 // })
@@ -430,13 +430,13 @@ import (
 // return err
 // }
 // _, err = apigateway.NewIntegration(ctx, "example", &apigateway.IntegrationArgs{
-// RestApi: exampleRestApi.ID().ToIDOutput().ToStringOutput(),
-// ResourceId: exampleResource.ID().ToIDOutput().ToStringOutput(),
+// RestApi: exampleRestApi.ID(),
+// ResourceId: exampleResource.ID(),
 // HttpMethod: exampleMethod.HttpMethod,
 // IntegrationHttpMethod: pulumi.String("GET"),
 // Type: pulumi.String("HTTP_PROXY"),
 // ConnectionType: pulumi.String("VPC_LINK"),
-// ConnectionId: example.ID().ToIDOutput().ToStringOutput(),
+// ConnectionId: example.ID(),
 // IntegrationTarget: exampleLoadBalancer.Arn,
 // Uri: pulumi.String("http://example.com"),
 // })

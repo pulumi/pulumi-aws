@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreAgentRuntimeEndpoint("example", AgentcoreAgentRuntimeEndpointArgs.builder()
  *             .name("example_endpoint")
- *             .agentRuntimeId(exampleAwsBedrockagentcoreAgentRuntime.agentRuntimeId())
+ *             .agentRuntimeId(exampleAwsBedrockagentcoreAgentRuntime.get("agentRuntimeId"))
  *             .description("Endpoint for agent runtime communication")
  *             .build());
  * 

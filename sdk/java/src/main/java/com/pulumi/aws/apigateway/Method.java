@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var cognitoUserPoolName = config.require("cognitoUserPoolName");
+ *         final var cognitoUserPoolName = config.requireObject("cognitoUserPoolName", com.pulumi.core.TypeShape.map(String.class, Object.class));
  *         final var this = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
  *             .name(cognitoUserPoolName)
  *             .build());

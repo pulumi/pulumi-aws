@@ -3560,7 +3560,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.get("id"))
      *             .build());
      * 
      *     }
@@ -3602,7 +3602,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.get("id"))
      *             .build());
      * 
      *     }
@@ -3644,7 +3644,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.get("id"))
      *             .build());
      * 
      *     }
@@ -3686,7 +3686,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.get("id"))
      *             .build());
      * 
      *     }
@@ -3728,7 +3728,7 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.id())
+     *             .firewallRuleGroupId(exampleAwsRoute53ResolverFirewallRuleGroup.get("id"))
      *             .build());
      * 
      *     }

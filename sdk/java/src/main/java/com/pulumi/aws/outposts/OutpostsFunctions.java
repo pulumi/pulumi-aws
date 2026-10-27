@@ -101,7 +101,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -134,7 +134,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
@@ -168,7 +168,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
@@ -211,7 +211,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -244,7 +244,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
@@ -278,7 +278,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
@@ -321,7 +321,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -354,7 +354,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
@@ -388,7 +388,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
@@ -431,7 +431,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -464,7 +464,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
@@ -498,7 +498,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
@@ -541,7 +541,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -574,7 +574,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
@@ -608,7 +608,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
@@ -931,7 +931,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .preferredInstanceTypes(            
      *                 "m5.large",
      *                 "m5.4xlarge")
@@ -980,7 +980,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .preferredInstanceTypes(            
      *                 "m5.large",
      *                 "m5.4xlarge")
@@ -1029,7 +1029,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .preferredInstanceTypes(            
      *                 "m5.large",
      *                 "m5.4xlarge")
@@ -1078,7 +1078,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .preferredInstanceTypes(            
      *                 "m5.large",
      *                 "m5.4xlarge")
@@ -1127,7 +1127,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .preferredInstanceTypes(            
      *                 "m5.large",
      *                 "m5.4xlarge")
@@ -1174,7 +1174,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -1214,7 +1214,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -1254,7 +1254,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -1294,7 +1294,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }
@@ -1334,7 +1334,7 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
-     *             .arn(exampleAwsOutpostsOutpost.arn())
+     *             .arn(exampleAwsOutpostsOutpost.get("arn"))
      *             .build());
      * 
      *     }

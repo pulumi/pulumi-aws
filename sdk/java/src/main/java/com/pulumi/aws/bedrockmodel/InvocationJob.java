@@ -60,17 +60,17 @@ import javax.annotation.Nullable;
  *         var example = new InvocationJob("example", InvocationJobArgs.builder()
  *             .inputDataConfig(InvocationJobInputDataConfigArgs.builder()
  *                 .s3InputDataConfig(InvocationJobInputDataConfigS3InputDataConfigArgs.builder()
- *                     .s3Uri(String.format("s3://%s/input/", exampleAwsS3Bucket.id()))
+ *                     .s3Uri(String.format("s3://%s/input/", exampleAwsS3Bucket.get("id")))
  *                     .build())
  *                 .build())
  *             .outputDataConfig(InvocationJobOutputDataConfigArgs.builder()
  *                 .s3OutputDataConfig(InvocationJobOutputDataConfigS3OutputDataConfigArgs.builder()
- *                     .s3Uri(String.format("s3://%s/output/", exampleAwsS3Bucket.id()))
+ *                     .s3Uri(String.format("s3://%s/output/", exampleAwsS3Bucket.get("id")))
  *                     .build())
  *                 .build())
  *             .jobName("example-job")
  *             .modelId("us.amazon.nova-2-lite-v1:0")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

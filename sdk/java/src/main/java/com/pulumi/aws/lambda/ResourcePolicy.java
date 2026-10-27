@@ -68,12 +68,12 @@ import javax.annotation.Nullable;
  *                 .sid("AllowInvokeFromS3")
  *                 .effect("Allow")
  *                 .actions("lambda:InvokeFunction")
- *                 .resources(exampleAwsLambdaFunction.arn())
+ *                 .resources(exampleAwsLambdaFunction.get("arn"))
  *                 .build())
  *             .build());
  * 
  *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsLambdaFunction.arn())
+ *             .resourceArn(exampleAwsLambdaFunction.get("arn"))
  *             .policy(example.json())
  *             .build());
  * 
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *                     .sid("AllowCrossAccountInvoke")
  *                     .effect("Allow")
  *                     .actions("lambda:InvokeFunction")
- *                     .resources(exampleAwsLambdaFunction.arn())
+ *                     .resources(exampleAwsLambdaFunction.get("arn"))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
@@ -138,12 +138,12 @@ import javax.annotation.Nullable;
  *                     .sid("AllowOrganizationInvoke")
  *                     .effect("Allow")
  *                     .actions("lambda:InvokeFunction")
- *                     .resources(exampleAwsLambdaFunction.arn())
+ *                     .resources(exampleAwsLambdaFunction.get("arn"))
  *                     .build())
  *             .build());
  * 
  *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsLambdaFunction.arn())
+ *             .resourceArn(exampleAwsLambdaFunction.get("arn"))
  *             .policy(example.json())
  *             .build());
  * 

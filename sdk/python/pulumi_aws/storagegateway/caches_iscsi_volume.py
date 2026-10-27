@@ -544,7 +544,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=int(existing["volumeSizeInBytes"]))
+            volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
 
         ## Import
@@ -624,7 +624,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=int(existing["volumeSizeInBytes"]))
+            volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
 
         ## Import

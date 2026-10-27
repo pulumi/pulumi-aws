@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  *             .options(TaskOptionsArgs.builder()
  *                 .bytesPerSecond(-1)
  *                 .build())
- *             .destinationLocationArn(destination.arn())
+ *             .destinationLocationArn(destination.get("arn"))
  *             .name("example")
- *             .sourceLocationArn(source.arn())
+ *             .sourceLocationArn(source.get("arn"))
  *             .build());
  * 
  *     }
@@ -91,9 +91,9 @@ import javax.annotation.Nullable;
  *             .schedule(TaskScheduleArgs.builder()
  *                 .scheduleExpression("cron(0 12 ? * SUN,WED *)")
  *                 .build())
- *             .destinationLocationArn(destination.arn())
+ *             .destinationLocationArn(destination.get("arn"))
  *             .name("example")
- *             .sourceLocationArn(source.arn())
+ *             .sourceLocationArn(source.get("arn"))
  *             .build());
  * 
  *     }
@@ -136,9 +136,9 @@ import javax.annotation.Nullable;
  *                 .filterType("SIMPLE_PATTERN")
  *                 .value("/folder1|/folder2")
  *                 .build())
- *             .destinationLocationArn(destination.arn())
+ *             .destinationLocationArn(destination.get("arn"))
  *             .name("example")
- *             .sourceLocationArn(source.arn())
+ *             .sourceLocationArn(source.get("arn"))
  *             .build());
  * 
  *     }
@@ -178,9 +178,9 @@ import javax.annotation.Nullable;
  *                 .uid("NONE")
  *                 .verifyMode("ONLY_FILES_TRANSFERRED")
  *                 .build())
- *             .destinationLocationArn(destination.arn())
+ *             .destinationLocationArn(destination.get("arn"))
  *             .name("example")
- *             .sourceLocationArn(source.arn())
+ *             .sourceLocationArn(source.get("arn"))
  *             .taskMode("ENHANCED")
  *             .build());
  * 

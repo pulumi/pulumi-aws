@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  *         var example = new IngressPoint("example", IngressPointArgs.builder()
  *             .name("example")
  *             .type("OPEN")
- *             .ruleSetId(exampleAwsMailmanagerRuleSet.id())
- *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.id())
+ *             .ruleSetId(exampleAwsMailmanagerRuleSet.get("id"))
+ *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.get("id"))
  *             .build());
  * 
  *     }
@@ -91,8 +91,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example")
  *             .type("AUTH")
- *             .ruleSetId(exampleAwsMailmanagerRuleSet.id())
- *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.id())
+ *             .ruleSetId(exampleAwsMailmanagerRuleSet.get("id"))
+ *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.get("id"))
  *             .build());
  * 
  *     }
@@ -129,13 +129,13 @@ import javax.annotation.Nullable;
  *         var example = new IngressPoint("example", IngressPointArgs.builder()
  *             .networkConfiguration(IngressPointNetworkConfigurationArgs.builder()
  *                 .privateNetworkConfiguration(IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs.builder()
- *                     .vpcEndpointId(exampleAwsVpcEndpoint.id())
+ *                     .vpcEndpointId(exampleAwsVpcEndpoint.get("id"))
  *                     .build())
  *                 .build())
  *             .name("example")
  *             .type("OPEN")
- *             .ruleSetId(exampleAwsMailmanagerRuleSet.id())
- *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.id())
+ *             .ruleSetId(exampleAwsMailmanagerRuleSet.get("id"))
+ *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.get("id"))
  *             .build());
  * 
  *     }

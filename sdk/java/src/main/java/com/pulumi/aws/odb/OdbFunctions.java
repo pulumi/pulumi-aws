@@ -94,7 +94,7 @@ public final class OdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .id(exampleAwsOdbAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -134,7 +134,7 @@ public final class OdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .id(exampleAwsOdbAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -174,7 +174,7 @@ public final class OdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .id(exampleAwsOdbAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -214,7 +214,7 @@ public final class OdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .id(exampleAwsOdbAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -254,7 +254,7 @@ public final class OdbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
-     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .id(exampleAwsOdbAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }

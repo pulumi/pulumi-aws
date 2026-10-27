@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
- *             .vpcId(foo.id())
+ *             .vpcId(foo.get("id"))
  *             .build());
  * 
  *         var barNetworkAclRule = new NetworkAclRule("barNetworkAclRule", NetworkAclRuleArgs.builder()
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .egress(false)
  *             .protocol("tcp")
  *             .ruleAction("allow")
- *             .cidrBlock(foo.cidrBlock())
+ *             .cidrBlock(foo.get("cidrBlock"))
  *             .fromPort(22)
  *             .toPort(22)
  *             .build());

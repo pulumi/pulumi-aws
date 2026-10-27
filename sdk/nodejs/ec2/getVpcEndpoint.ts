@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const s3 = aws.ec2.getVpcEndpoint({
  *     vpcId: foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
@@ -166,7 +166,7 @@ export interface GetVpcEndpointResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const s3 = aws.ec2.getVpcEndpoint({
  *     vpcId: foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",

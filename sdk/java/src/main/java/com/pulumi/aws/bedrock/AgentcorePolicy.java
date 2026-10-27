@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("example_policy")
- *             .policyEngineId(exampleAwsBedrockagentcorePolicyEngine.policyEngineId())
+ *             .policyEngineId(exampleAwsBedrockagentcorePolicyEngine.get("policyEngineId"))
  *             .description("Allow read access to example resources")
  *             .build());
  * 

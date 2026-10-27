@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var example = new Pipeline("example", PipelineArgs.builder()
  *             .pipelineName("example")
  *             .pipelineDisplayName("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .pipelineDefinition(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2020-12-01"),

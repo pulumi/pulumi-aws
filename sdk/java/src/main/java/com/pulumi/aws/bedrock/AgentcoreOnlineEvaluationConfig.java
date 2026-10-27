@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *         var filtered = new AgentcoreOnlineEvaluationConfig("filtered", AgentcoreOnlineEvaluationConfigArgs.builder()
  *             .dataSourceConfig(AgentcoreOnlineEvaluationConfigDataSourceConfigArgs.builder()
  *                 .cloudwatchLogs(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs.builder()
- *                     .logGroupNames(example.name())
+ *                     .logGroupNames(example.get("name"))
  *                     .serviceNames("my_agent_service")
  *                     .build())
  *                 .build())
@@ -171,7 +171,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .onlineEvaluationConfigName("filtered_evaluation")
  *             .enableOnCreate(true)
- *             .evaluationExecutionRoleArn(exampleAwsIamRole.arn())
+ *             .evaluationExecutionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

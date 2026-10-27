@@ -47,13 +47,13 @@ import (
 //			}
 //			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Name:  pulumi.String("example"),
-//				VpcId: example.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleSecurityGroupIngressRule, err := vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: exampleSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: exampleSecurityGroup.ID(),
 //				CidrIpv4:        pulumi.String("10.0.0.0/8"),
 //				FromPort:        pulumi.Int(80),
 //				ToPort:          pulumi.Int(80),
@@ -63,7 +63,7 @@ import (
 //				return err
 //			}
 //			exampleSecurityGroupEgressRule, err := vpc.NewSecurityGroupEgressRule(ctx, "example", &vpc.SecurityGroupEgressRuleArgs{
-//				SecurityGroupId: exampleSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: exampleSecurityGroup.ID(),
 //				CidrIpv4:        pulumi.String("0.0.0.0/0"),
 //				IpProtocol:      pulumi.String("-1"),
 //			})
@@ -71,12 +71,12 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcSecurityGroupRulesExclusive(ctx, "example", &ec2.VpcSecurityGroupRulesExclusiveArgs{
-//				SecurityGroupId: exampleSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: exampleSecurityGroup.ID(),
 //				IngressRuleIds: pulumi.StringArray{
-//					exampleSecurityGroupIngressRule.ID().ToIDOutput().ToStringOutput(),
+//					exampleSecurityGroupIngressRule.ID(),
 //				},
 //				EgressRuleIds: pulumi.StringArray{
-//					exampleSecurityGroupEgressRule.ID().ToIDOutput().ToStringOutput(),
+//					exampleSecurityGroupEgressRule.ID(),
 //				},
 //			})
 //			if err != nil {

@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .condition(EventPermissionConditionArgs.builder()
  *                 .key("aws:PrincipalOrgID")
  *                 .type("StringEquals")
- *                 .value(example.id())
+ *                 .value(example.get("id"))
  *                 .build())
  *             .principal("*")
  *             .statementId("OrganizationAccess")

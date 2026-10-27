@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration("exampleClassificationExportConfiguration", ClassificationExportConfigurationArgs.builder()
  *             .s3Destination(ClassificationExportConfigurationS3DestinationArgs.builder()
- *                 .bucketName(exampleAwsS3Bucket.bucket())
+ *                 .bucketName(exampleAwsS3Bucket.get("bucket"))
  *                 .keyPrefix("exampleprefix/")
- *                 .kmsKeyArn(exampleAwsKmsKey.arn())
+ *                 .kmsKeyArn(exampleAwsKmsKey.get("arn"))
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)

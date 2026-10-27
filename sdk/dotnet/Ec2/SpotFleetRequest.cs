@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Ec2
     ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
     ///                 {
     ///                     Id = foo.Id,
-    ///                     Version = foo.LatestVersion,
+    ///                     Version = foo.LatestVersion.Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
     ///                 },
     ///             },
     ///         },
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Ec2
     ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
     ///                 {
     ///                     Id = foo.Id,
-    ///                     Version = foo.LatestVersion,
+    ///                     Version = foo.LatestVersion.Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
     ///                 },
     ///                 Overrides = new[]
     ///                 {

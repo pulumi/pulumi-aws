@@ -91,7 +91,7 @@ import (
 //						Name: pulumi.String("SayHello"),
 //					},
 //				},
-//				PipelineId: _default.ID().ToIDOutput().ToStringOutput(),
+//				PipelineId: _default.ID(),
 //			})
 //			if err != nil {
 //				return err

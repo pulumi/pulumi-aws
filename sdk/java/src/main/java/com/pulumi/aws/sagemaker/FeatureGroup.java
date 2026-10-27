@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .featureGroupName("example")
  *             .recordIdentifierFeatureName("example")
  *             .eventTimeFeatureName("example")
- *             .roleArn(test.arn())
+ *             .roleArn(test.get("arn"))
  *             .build());
  * 
  *     }

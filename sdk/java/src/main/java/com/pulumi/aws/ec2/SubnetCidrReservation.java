@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *         var example = new SubnetCidrReservation("example", SubnetCidrReservationArgs.builder()
  *             .cidrBlock("10.0.0.16/28")
  *             .reservationType("prefix")
- *             .subnetId(exampleAwsSubnet.id())
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }

@@ -66,8 +66,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()
  *             .peerOwnerId(peerOwnerId)
- *             .peerVpcId(bar.id())
- *             .vpcId(fooAwsVpc.id())
+ *             .peerVpcId(bar.get("id"))
+ *             .vpcId(fooAwsVpc.get("id"))
  *             .build());
  * 
  *     }
@@ -109,8 +109,8 @@ import javax.annotation.Nullable;
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
  *             .peerOwnerId(peerOwnerId)
- *             .peerVpcId(bar.id())
- *             .vpcId(fooAwsVpc.id())
+ *             .peerVpcId(bar.get("id"))
+ *             .vpcId(fooAwsVpc.get("id"))
  *             .build());
  * 
  *     }

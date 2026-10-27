@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Budgets
     ///             new Aws.Budgets.Inputs.BudgetNotificationArgs
     ///             {
     ///                 ComparisonOperator = "GREATER_THAN",
-    ///                 Threshold = 100,
+    ///                 Threshold = 100.0,
     ///                 ThresholdType = "PERCENTAGE",
     ///                 NotificationType = "FORECASTED",
     ///                 SubscriberEmailAddresses = new[]
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Budgets
     ///             new Aws.Budgets.Inputs.BudgetNotificationArgs
     ///             {
     ///                 ComparisonOperator = "GREATER_THAN",
-    ///                 Threshold = 100,
+    ///                 Threshold = 100.0,
     ///                 ThresholdType = "PERCENTAGE",
     ///                 NotificationType = "FORECASTED",
     ///                 SubscriberEmailAddresses = new[]

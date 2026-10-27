@@ -68,13 +68,13 @@ public final class RedshiftFunctions {
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
+     *                     .roleArn(firehoseRole.get("arn"))
+     *                     .bucketArn(bucket.get("arn"))
      *                     .bufferSize(10)
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
-     *                 .roleArn(firehoseRole.arn())
+     *                 .roleArn(firehoseRole.get("arn"))
      *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
      *                 .username("exampleuser")
      *                 .password("Exampl3Pass")
@@ -133,13 +133,13 @@ public final class RedshiftFunctions {
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
+     *                     .roleArn(firehoseRole.get("arn"))
+     *                     .bucketArn(bucket.get("arn"))
      *                     .bufferSize(10)
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
-     *                 .roleArn(firehoseRole.arn())
+     *                 .roleArn(firehoseRole.get("arn"))
      *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
      *                 .username("exampleuser")
      *                 .password("Exampl3Pass")
@@ -198,13 +198,13 @@ public final class RedshiftFunctions {
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
+     *                     .roleArn(firehoseRole.get("arn"))
+     *                     .bucketArn(bucket.get("arn"))
      *                     .bufferSize(10)
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
-     *                 .roleArn(firehoseRole.arn())
+     *                 .roleArn(firehoseRole.get("arn"))
      *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
      *                 .username("exampleuser")
      *                 .password("Exampl3Pass")
@@ -263,13 +263,13 @@ public final class RedshiftFunctions {
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
+     *                     .roleArn(firehoseRole.get("arn"))
+     *                     .bucketArn(bucket.get("arn"))
      *                     .bufferSize(10)
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
-     *                 .roleArn(firehoseRole.arn())
+     *                 .roleArn(firehoseRole.get("arn"))
      *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
      *                 .username("exampleuser")
      *                 .password("Exampl3Pass")
@@ -328,13 +328,13 @@ public final class RedshiftFunctions {
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
+     *                     .roleArn(firehoseRole.get("arn"))
+     *                     .bucketArn(bucket.get("arn"))
      *                     .bufferSize(10)
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
-     *                 .roleArn(firehoseRole.arn())
+     *                 .roleArn(firehoseRole.get("arn"))
      *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
      *                 .username("exampleuser")
      *                 .password("Exampl3Pass")
@@ -383,8 +383,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
-     *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
+     *             .clusterIdentifier(exampleAwsRedshiftCluster.get("clusterIdentifier"))
+     *             .dbUser(exampleAwsRedshiftCluster.get("masterUsername"))
      *             .build());
      * 
      *     }
@@ -424,8 +424,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
-     *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
+     *             .clusterIdentifier(exampleAwsRedshiftCluster.get("clusterIdentifier"))
+     *             .dbUser(exampleAwsRedshiftCluster.get("masterUsername"))
      *             .build());
      * 
      *     }
@@ -465,8 +465,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
-     *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
+     *             .clusterIdentifier(exampleAwsRedshiftCluster.get("clusterIdentifier"))
+     *             .dbUser(exampleAwsRedshiftCluster.get("masterUsername"))
      *             .build());
      * 
      *     }
@@ -506,8 +506,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
-     *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
+     *             .clusterIdentifier(exampleAwsRedshiftCluster.get("clusterIdentifier"))
+     *             .dbUser(exampleAwsRedshiftCluster.get("masterUsername"))
      *             .build());
      * 
      *     }
@@ -547,8 +547,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
-     *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
+     *             .clusterIdentifier(exampleAwsRedshiftCluster.get("clusterIdentifier"))
+     *             .dbUser(exampleAwsRedshiftCluster.get("masterUsername"))
      *             .build());
      * 
      *     }
@@ -1386,7 +1386,7 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(exampleAwsRedshiftSubnetGroup.name())
+     *             .name(exampleAwsRedshiftSubnetGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1426,7 +1426,7 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(exampleAwsRedshiftSubnetGroup.name())
+     *             .name(exampleAwsRedshiftSubnetGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1466,7 +1466,7 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(exampleAwsRedshiftSubnetGroup.name())
+     *             .name(exampleAwsRedshiftSubnetGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1506,7 +1506,7 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(exampleAwsRedshiftSubnetGroup.name())
+     *             .name(exampleAwsRedshiftSubnetGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1546,7 +1546,7 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(exampleAwsRedshiftSubnetGroup.name())
+     *             .name(exampleAwsRedshiftSubnetGroup.get("name"))
      *             .build());
      * 
      *     }

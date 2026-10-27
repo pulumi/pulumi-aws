@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var example = new AccessGrantsInstance("example");
  * 
  *         var exampleAccessGrantsLocation = new AccessGrantsLocation("exampleAccessGrantsLocation", AccessGrantsLocationArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .locationScope("s3://")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)

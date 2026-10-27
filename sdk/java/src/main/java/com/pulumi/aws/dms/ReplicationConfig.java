@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var name = new ReplicationConfig("name", ReplicationConfigArgs.builder()
  *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
- *                 .replicationSubnetGroupId(default_.replicationSubnetGroupId())
+ *                 .replicationSubnetGroupId(default_.get("replicationSubnetGroupId"))
  *                 .maxCapacityUnits(64)
  *                 .minCapacityUnits(2)
  *                 .preferredMaintenanceWindow("sun:23:45-mon:00:30")
@@ -57,8 +57,8 @@ import javax.annotation.Nullable;
  *             .replicationConfigIdentifier("test-dms-serverless-replication-tf")
  *             .resourceIdentifier("test-dms-serverless-replication-tf")
  *             .replicationType("cdc")
- *             .sourceEndpointArn(source.endpointArn())
- *             .targetEndpointArn(target.endpointArn())
+ *             .sourceEndpointArn(source.get("endpointArn"))
+ *             .targetEndpointArn(target.get("endpointArn"))
  *             .tableMappings("""
  *   {
  *     \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"rule-action\":\"include\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"}}]

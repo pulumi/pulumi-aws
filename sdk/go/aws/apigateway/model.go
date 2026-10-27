@@ -45,7 +45,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = apigateway.NewModel(ctx, "MyDemoModel", &apigateway.ModelArgs{
-//				RestApi:     myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:     myDemoAPI.ID(),
 //				Name:        pulumi.String("user"),
 //				Description: pulumi.String("a JSON schema"),
 //				ContentType: pulumi.String("application/json"),

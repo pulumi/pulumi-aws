@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                 .environment(Map.of("MY_ENVIRONMENT_VARIABLE", "my_value"))
  *                 .ports(Map.of("80", "HTTP"))
  *                 .build())
- *             .serviceName(exampleAwsLightsailContainerService.name())
+ *             .serviceName(exampleAwsLightsailContainerService.get("name"))
  *             .build());
  * 
  *     }

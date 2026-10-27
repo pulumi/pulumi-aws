@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var target = new TrafficMirrorTarget("target", TrafficMirrorTargetArgs.builder()
- *             .networkLoadBalancerArn(lb.arn())
+ *             .networkLoadBalancerArn(lb.get("arn"))
  *             .build());
  * 
  *         var session = new TrafficMirrorSession("session", TrafficMirrorSessionArgs.builder()
  *             .description("traffic mirror session - example")
- *             .networkInterfaceId(test.primaryNetworkInterfaceId())
+ *             .networkInterfaceId(test.get("primaryNetworkInterfaceId"))
  *             .sessionNumber(1)
  *             .trafficMirrorFilterId(filter.id())
  *             .trafficMirrorTargetId(target.id())

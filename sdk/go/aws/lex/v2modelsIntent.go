@@ -84,7 +84,7 @@ import (
 //			}
 //			testV2modelsBotLocale, err := lex.NewV2modelsBotLocale(ctx, "test", &lex.V2modelsBotLocaleArgs{
 //				LocaleId:                     pulumi.String("en_US"),
-//				BotId:                        testV2modelsBot.ID().ToIDOutput().ToStringOutput(),
+//				BotId:                        testV2modelsBot.ID(),
 //				BotVersion:                   pulumi.String("DRAFT"),
 //				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
 //			})
@@ -92,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = lex.NewV2modelsBotVersion(ctx, "test", &lex.V2modelsBotVersionArgs{
-//				BotId: testV2modelsBot.ID().ToIDOutput().ToStringOutput(),
+//				BotId: testV2modelsBot.ID(),
 //				LocaleSpecification: testV2modelsBotLocale.LocaleId.ApplyT(func(localeId string) (map[string]map[string]string, error) {
 //					return map[string]map[string]string{
 //						localeId: map[string]string{
@@ -105,7 +105,7 @@ import (
 //				return err
 //			}
 //			_, err = lex.NewV2modelsIntent(ctx, "example", &lex.V2modelsIntentArgs{
-//				BotId:      testV2modelsBot.ID().ToIDOutput().ToStringOutput(),
+//				BotId:      testV2modelsBot.ID(),
 //				BotVersion: testV2modelsBotLocale.BotVersion,
 //				Name:       pulumi.String("botens_namn"),
 //				LocaleId:   testV2modelsBotLocale.LocaleId,

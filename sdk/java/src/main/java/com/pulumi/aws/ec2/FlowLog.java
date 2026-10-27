@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .iamRoleArn(exampleRole.arn())
  *             .logDestination(exampleLogGroup.arn())
  *             .trafficType("ALL")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -111,6 +111,107 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ### Amazon Data Firehose logging
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
+ *             .bucket("example")
+ *             .build());
+ * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("firehose.amazonaws.com")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
+ *             .name("firehose_test_role")
+ *             .assumeRolePolicy(assumeRole.json())
+ *             .build());
+ * 
+ *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream("exampleFirehoseDeliveryStream", FirehoseDeliveryStreamArgs.builder()
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
+ *                 .roleArn(exampleRole.arn())
+ *                 .bucketArn(exampleBucket.arn())
+ *                 .build())
+ *             .name("kinesis_firehose_test")
+ *             .destination("extended_s3")
+ *             .tags(Map.of("LogDeliveryEnabled", "true"))
+ *             .build());
+ * 
+ *         var exampleFlowLog = new FlowLog("exampleFlowLog", FlowLogArgs.builder()
+ *             .logDestination(exampleFirehoseDeliveryStream.arn())
+ *             .logDestinationType("kinesis-data-firehose")
+ *             .trafficType("ALL")
+ *             .vpcId(exampleAwsVpc.get("id"))
+ *             .build());
+ * 
+ *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
+ *             .bucket(exampleBucket.id())
+ *             .acl("private")
+ *             .build());
+ * 
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .effect("Allow")
+ *             .actions(Arrays.asList(            
+ *                 "logs:CreateLogDelivery",
+ *                 "logs:DeleteLogDelivery",
+ *                 "logs:ListLogDeliveries",
+ *                 "logs:GetLogDelivery",
+ *                 "firehose:TagDeliveryStream"))
+ *             .resources(Arrays.asList("*"))
+ *             .build());
+ * 
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
+ *             .name("test")
+ *             .role(exampleRole.id())
+ *             .policy(example.json())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ### S3 Logging
  * 
@@ -146,7 +247,7 @@ import javax.annotation.Nullable;
  *             .logDestination(exampleBucket.arn())
  *             .logDestinationType("s3")
  *             .trafficType("ALL")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }
@@ -193,7 +294,7 @@ import javax.annotation.Nullable;
  *             .logDestination(exampleBucket.arn())
  *             .logDestinationType("s3")
  *             .trafficType("ALL")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                         .entryPoint("default")
  *                         .build())
  *                     .build())
- *                 .executionRoleArn(exampleAwsIamRole.arn())
+ *                 .executionRoleArn(exampleAwsIamRole.get("arn"))
  *                 .releaseLabel("emr-6.10.0-latest")
  *                 .build())
  *             .name("example")

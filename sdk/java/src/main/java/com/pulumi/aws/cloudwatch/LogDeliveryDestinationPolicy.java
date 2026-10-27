@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LogDeliveryDestinationPolicy("example", LogDeliveryDestinationPolicyArgs.builder()
- *             .deliveryDestinationName(exampleAwsCloudwatchLogDeliveryDestination.name())
- *             .deliveryDestinationPolicy(exampleAwsIamPolicyDocument.json())
+ *             .deliveryDestinationName(exampleAwsCloudwatchLogDeliveryDestination.get("name"))
+ *             .deliveryDestinationPolicy(exampleAwsIamPolicyDocument.get("json"))
  *             .build());
  * 
  *     }

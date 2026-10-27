@@ -47,14 +47,14 @@ import (
 //				return err
 //			}
 //			exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
-//				ClientVpnEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				ClientVpnEndpointId: exampleEndpoint.ID(),
 //				SubnetId:            pulumi.Any(exampleAwsSubnet.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2clientvpn.NewRoute(ctx, "example", &ec2clientvpn.RouteArgs{
-//				ClientVpnEndpointId:  exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				ClientVpnEndpointId:  exampleEndpoint.ID(),
 //				DestinationCidrBlock: pulumi.String("0.0.0.0/0"),
 //				TargetVpcSubnetId:    exampleNetworkAssociation.SubnetId,
 //			})

@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SiteToSiteVpnAttachment("example", SiteToSiteVpnAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpnConnectionArn(exampleAwsVpnConnection.arn())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.get("id"))
+ *             .vpnConnectionArn(exampleAwsVpnConnection.get("arn"))
  *             .build());
  * 
  *     }
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                     .location(current.region())
+ *                     .location(current.get("region"))
  *                     .asn("64512")
  *                     .build())
  *                 .vpnEcmpSupport(false)
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testSiteToSiteVpnAttachment = new SiteToSiteVpnAttachment("testSiteToSiteVpnAttachment", SiteToSiteVpnAttachmentArgs.builder()
- *             .coreNetworkId(testNetworkmanagerCoreNetwork.id())
+ *             .coreNetworkId(testNetworkmanagerCoreNetwork.get("id"))
  *             .vpnConnectionArn(testVpnConnection.arn())
  *             .tags(Map.of("segment", "shared"))
  *             .build());

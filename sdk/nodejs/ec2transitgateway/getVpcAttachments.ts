@@ -24,9 +24,7 @@ import * as utilities from "../utilities";
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getVpcAttachment({
- *     id: _arg0_.ids[__index],
- * })));
+ * const unit = _arg1_;
  * ```
  */
 export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentsResult> {
@@ -84,9 +82,7 @@ export interface GetVpcAttachmentsResult {
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getVpcAttachment({
- *     id: _arg0_.ids[__index],
- * })));
+ * const unit = _arg1_;
  * ```
  */
 export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcAttachmentsResult> {

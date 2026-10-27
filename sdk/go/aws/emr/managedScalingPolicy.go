@@ -51,7 +51,7 @@ import (
 //						MaximumCoreCapacityUnits:     pulumi.Int(10),
 //					},
 //				},
-//				ClusterId: sample.ID().ToIDOutput().ToStringOutput(),
+//				ClusterId: sample.ID(),
 //			})
 //			if err != nil {
 //				return err

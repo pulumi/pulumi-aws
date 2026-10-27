@@ -338,7 +338,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("rate-limit")
  *             .priority(2)
- *             .webAclArn(example.arn())
+ *             .webAclArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -393,7 +393,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("aws-managed-rules")
  *             .priority(3)
- *             .webAclArn(example.arn())
+ *             .webAclArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -455,7 +455,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("captcha-with-headers")
  *             .priority(4)
- *             .webAclArn(example.arn())
+ *             .webAclArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -499,7 +499,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
  *                 .ipSetReferenceStatement(WebAclRuleStatementIpSetReferenceStatementArgs.builder()
- *                     .arn(blockedIpsAwsWafv2IpSet.arn())
+ *                     .arn(blockedIpsAwsWafv2IpSet.get("arn"))
  *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
@@ -509,7 +509,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("blocked-ips")
  *             .priority(1)
- *             .webAclArn(example.arn())
+ *             .webAclArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -566,26 +566,28 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .andStatement(Map.of("statements", Arrays.asList(                
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("CN")
- *                             .build())
- *                         .build(),
- *                     WebAclRuleStatementArgs.builder()
- *                         .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
- *                             .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
- *                                 .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
+ *                 .andStatement(WebAclRuleStatementAndStatementArgs.builder()
+ *                     .statements(                    
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("CN")
+ *                                 .build())
+ *                             .build(),
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
+ *                                 .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
+ *                                     .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
+ *                                         .build())
  *                                     .build())
+ *                                 .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
+ *                                     .priority(0)
+ *                                     .type("LOWERCASE")
+ *                                     .build())
+ *                                 .searchString("admin")
+ *                                 .positionalConstraint("CONTAINS")
  *                                 .build())
- *                             .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
- *                                 .priority(0)
- *                                 .type("LOWERCASE")
- *                                 .build())
- *                             .searchString("admin")
- *                             .positionalConstraint("CONTAINS")
  *                             .build())
- *                         .build())))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -594,7 +596,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("block-suspicious")
  *             .priority(1)
- *             .webAclArn(example.arn())
+ *             .webAclArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -640,17 +642,19 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .orStatement(Map.of("statements", Arrays.asList(                
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("CN")
+ *                 .orStatement(WebAclRuleStatementOrStatementArgs.builder()
+ *                     .statements(                    
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("CN")
+ *                                 .build())
+ *                             .build(),
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("RU")
+ *                                 .build())
  *                             .build())
- *                         .build(),
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("RU")
- *                             .build())
- *                         .build())))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -659,7 +663,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("block-countries")
  *             .priority(2)
- *             .webAclArn(example.arn())
+ *             .webAclArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -705,13 +709,15 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .notStatement(Map.of("statement", WebAclRuleStatementArgs.builder()
- *                     .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                         .countryCodes(                        
- *                             "US",
- *                             "CA")
+ *                 .notStatement(WebAclRuleStatementNotStatementArgs.builder()
+ *                     .statement(WebAclRuleStatementArgs.builder()
+ *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes(                            
+ *                                 "US",
+ *                                 "CA")
+ *                             .build())
  *                         .build())
- *                     .build()))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -720,7 +726,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("allow-only-us")
  *             .priority(3)
- *             .webAclArn(example.arn())
+ *             .webAclArn(example.get("arn"))
  *             .build());
  * 
  *     }

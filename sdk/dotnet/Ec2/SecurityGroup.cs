@@ -169,8 +169,8 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Name = "sg",
     ///         VpcId = exampleAwsVpc.Id,
-    ///         Ingress = new[] {},
-    ///         Egress = new[] {},
+    ///         Ingress = new() {},
+    ///         Egress = new() {},
     ///     });
     /// 
     /// });

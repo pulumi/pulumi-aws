@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsRedshiftCluster.clusterNamespaceArn())
+ *             .resourceArn(exampleAwsRedshiftCluster.get("clusterNamespaceArn"))
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("AWS", "arn:aws:iam::12345678901:root")
  *                         )),
  *                         jsonProperty("Action", "redshift:CreateInboundIntegration"),
- *                         jsonProperty("Resource", exampleAwsRedshiftCluster.clusterNamespaceArn()),
+ *                         jsonProperty("Resource", exampleAwsRedshiftCluster.get("clusterNamespaceArn")),
  *                         jsonProperty("Sid", "")
  *                     )))
  *                 )))

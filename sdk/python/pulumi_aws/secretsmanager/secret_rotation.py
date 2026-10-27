@@ -338,7 +338,7 @@ class SecretRotation(pulumi.CustomResource):
             type="SalesforceClientSecret")
         example_secret_rotation = aws.secretsmanager.SecretRotation("example",
             rotation_rules={
-                "automatically_after_days": int(rotation_days),
+                "automatically_after_days": rotation_days,
             },
             external_secret_rotation_metadatas=[
                 {
@@ -468,7 +468,7 @@ class SecretRotation(pulumi.CustomResource):
             type="SalesforceClientSecret")
         example_secret_rotation = aws.secretsmanager.SecretRotation("example",
             rotation_rules={
-                "automatically_after_days": int(rotation_days),
+                "automatically_after_days": rotation_days,
             },
             external_secret_rotation_metadatas=[
                 {

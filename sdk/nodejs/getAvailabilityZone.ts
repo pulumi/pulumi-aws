@@ -55,7 +55,7 @@ import * as utilities from "./utilities";
  * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: example.then(example => std.cidrsubnet({
  *     input: "10.0.0.0/8",
  *     newbits: 4,
- *     netnum: Number(regionNumber[example.region]),
+ *     netnum: regionNumber[example.region],
  * })).then(invoke => invoke.result)});
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
@@ -63,7 +63,7 @@ import * as utilities from "./utilities";
  *     cidrBlock: std.cidrsubnetOutput({
  *         input: exampleVpc.cidrBlock,
  *         newbits: 4,
- *         netnum: output(example.then(example => azNumber[example.nameSuffix])).apply(x =>Number(x)),
+ *         netnum: example.then(example => azNumber[example.nameSuffix]),
  *     }).result,
  * });
  * ```
@@ -206,7 +206,7 @@ export interface GetAvailabilityZoneResult {
  * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: example.then(example => std.cidrsubnet({
  *     input: "10.0.0.0/8",
  *     newbits: 4,
- *     netnum: Number(regionNumber[example.region]),
+ *     netnum: regionNumber[example.region],
  * })).then(invoke => invoke.result)});
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
@@ -214,7 +214,7 @@ export interface GetAvailabilityZoneResult {
  *     cidrBlock: std.cidrsubnetOutput({
  *         input: exampleVpc.cidrBlock,
  *         newbits: 4,
- *         netnum: output(example.then(example => azNumber[example.nameSuffix])).apply(x =>Number(x)),
+ *         netnum: example.then(example => azNumber[example.nameSuffix]),
  *     }).result,
  * });
  * ```

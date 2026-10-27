@@ -131,7 +131,7 @@ namespace Pulumi.Aws.SecretsManager
     ///             {
     ///                 { "automaticallyAfterDays", 30 },
     ///             },
-    ///         } : new[] {}),
+    ///         } : new object?[] {}),
     ///         SecretId = exampleAwsDbInstance.MasterUserSecret[0].SecretArn,
     ///         RotationEnabled = rotationEnabled,
     ///     });

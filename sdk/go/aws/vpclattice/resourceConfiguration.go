@@ -124,7 +124,7 @@ import (
 //				Name:                      pulumi.String("Example"),
 //				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
 //				CustomDomainName:          pulumi.String("custom.example.com"),
-//				DomainVerificationId:      example.ID().ToIDOutput().ToStringOutput(),
+//				DomainVerificationId:      example.ID(),
 //				PortRanges: pulumi.StringArray{
 //					pulumi.String("443"),
 //				},

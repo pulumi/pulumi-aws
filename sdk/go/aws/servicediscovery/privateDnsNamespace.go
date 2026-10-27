@@ -38,7 +38,7 @@ import (
 //			_, err = servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
 //				Name:        pulumi.String("hoge.example.local"),
 //				Description: pulumi.String("example"),
-//				Vpc:         example.ID().ToIDOutput().ToStringOutput(),
+//				Vpc:         example.ID(),
 //			})
 //			if err != nil {
 //				return err

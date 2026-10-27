@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  *             .settings(MethodSettingsSettingsArgs.builder()
  *                 .loggingLevel("OFF")
  *                 .build())
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
+ *             .restApi(example.get("id"))
+ *             .stageName(exampleAwsApiGatewayStage.get("stageName"))
  *             .methodPath("path1/GET")
  *             .build());
  * 
@@ -93,8 +93,8 @@ import javax.annotation.Nullable;
  *                 .metricsEnabled(true)
  *                 .dataTraceEnabled(false)
  *                 .build())
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
+ *             .restApi(example.get("id"))
+ *             .stageName(exampleAwsApiGatewayStage.get("stageName"))
  *             .methodPath("path1/GET")
  *             .build());
  * 
@@ -134,8 +134,8 @@ import javax.annotation.Nullable;
  *                 .metricsEnabled(true)
  *                 .dataTraceEnabled(false)
  *                 .build())
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
+ *             .restApi(example.get("id"))
+ *             .stageName(exampleAwsApiGatewayStage.get("stageName"))
  *             .methodPath("path1/GET")
  *             .build());
  * 
@@ -175,8 +175,8 @@ import javax.annotation.Nullable;
  *                 .metricsEnabled(true)
  *                 .dataTraceEnabled(true)
  *                 .build())
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
+ *             .restApi(example.get("id"))
+ *             .stageName(exampleAwsApiGatewayStage.get("stageName"))
  *             .methodPath("path1/GET")
  *             .build());
  * 

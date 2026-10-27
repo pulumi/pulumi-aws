@@ -69,10 +69,10 @@ import javax.annotation.Nullable;
  *                         .name("Parameter2")
  *                         .value("Value2")
  *                         .build())
- *                 .componentArn(exampleAwsImagebuilderComponent.arn())
+ *                 .componentArn(exampleAwsImagebuilderComponent.get("arn"))
  *                 .build())
  *             .name("example")
- *             .parentImage(String.format("arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x", current.partition(),currentAwsRegion.region()))
+ *             .parentImage(String.format("arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x", current.get("partition"),currentAwsRegion.get("region")))
  *             .version("1.0.0")
  *             .build());
  * 

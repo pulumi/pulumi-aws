@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  *                     .name("user-agent")
  *                     .build())
  *                 .build())
- *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *             .resourceArn(exampleAwsWafv2WebAcl.arn())
+ *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.get("arn"))
+ *             .resourceArn(exampleAwsWafv2WebAcl.get("arn"))
  *             .build());
  * 
  *     }
@@ -123,8 +123,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .defaultBehavior("KEEP")
  *                 .build())
- *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *             .resourceArn(exampleAwsWafv2WebAcl.arn())
+ *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.get("arn"))
+ *             .resourceArn(exampleAwsWafv2WebAcl.get("arn"))
  *             .build());
  * 
  *     }

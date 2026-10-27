@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RouteServerEndpoint("test", RouteServerEndpointArgs.builder()
- *             .routeServerId(example.routeServerId())
- *             .subnetId(main.id())
+ *             .routeServerId(example.get("routeServerId"))
+ *             .subnetId(main.get("id"))
  *             .tags(Map.of("Name", "Endpoint A"))
  *             .build());
  * 

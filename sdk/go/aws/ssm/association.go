@@ -239,8 +239,8 @@ import (
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							webServer1.ID().ToIDOutput().ToStringOutput(),
-//							webServer2.ID().ToIDOutput().ToStringOutput(),
+//							webServer1.ID(),
+//							webServer2.ID(),
 //						},
 //					},
 //				},

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SdkvoiceSipMediaApplication("example", SdkvoiceSipMediaApplicationArgs.builder()
  *             .endpoints(SdkvoiceSipMediaApplicationEndpointsArgs.builder()
- *                 .lambdaArn(test.arn())
+ *                 .lambdaArn(test.get("arn"))
  *                 .build())
  *             .awsRegion("us-east-1")
  *             .name("example-sip-media-application")

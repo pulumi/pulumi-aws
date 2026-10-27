@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .launchTemplateConfigs(FleetLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
- *                     .launchTemplateId(exampleAwsLaunchTemplate.id())
- *                     .version(exampleAwsLaunchTemplate.latestVersion())
+ *                     .launchTemplateId(exampleAwsLaunchTemplate.get("id"))
+ *                     .version(exampleAwsLaunchTemplate.get("latestVersion"))
  *                     .build())
  *                 .build())
  *             .build());

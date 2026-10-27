@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTableAssociation("example", RouteTableAssociationArgs.builder()
- *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
- *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
+ *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.get("id"))
+ *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.get("id"))
  *             .build());
  * 
  *     }

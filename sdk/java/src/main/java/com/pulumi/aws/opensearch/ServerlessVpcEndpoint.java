@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessVpcEndpoint("example", ServerlessVpcEndpointArgs.builder()
  *             .name("myendpoint")
- *             .subnetIds(exampleAwsSubnet.id())
- *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }

@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  *             .selectors(FargateProfileSelectorArgs.builder()
  *                 .namespace("example")
  *                 .build())
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .fargateProfileName("example")
- *             .podExecutionRoleArn(exampleAwsIamRole.arn())
- *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .podExecutionRoleArn(exampleAwsIamRole.get("arn"))
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build());
  * 
  *     }

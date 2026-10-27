@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .firewallRuleGroupId(example.id())
  *             .priority(100)
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }

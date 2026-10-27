@@ -59,7 +59,7 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(exampleAwsBedrockagentAgent.agentId())
+     *             .agentId(exampleAwsBedrockagentAgent.get("agentId"))
      *             .build());
      * 
      *     }
@@ -101,7 +101,7 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(exampleAwsBedrockagentAgent.agentId())
+     *             .agentId(exampleAwsBedrockagentAgent.get("agentId"))
      *             .build());
      * 
      *     }
@@ -143,7 +143,7 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(exampleAwsBedrockagentAgent.agentId())
+     *             .agentId(exampleAwsBedrockagentAgent.get("agentId"))
      *             .build());
      * 
      *     }
@@ -185,7 +185,7 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(exampleAwsBedrockagentAgent.agentId())
+     *             .agentId(exampleAwsBedrockagentAgent.get("agentId"))
      *             .build());
      * 
      *     }
@@ -227,7 +227,7 @@ public final class BedrockFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
-     *             .agentId(exampleAwsBedrockagentAgent.agentId())
+     *             .agentId(exampleAwsBedrockagentAgent.get("agentId"))
      *             .build());
      * 
      *     }

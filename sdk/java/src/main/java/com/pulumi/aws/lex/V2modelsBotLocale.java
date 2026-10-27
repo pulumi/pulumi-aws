@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
+ *             .botId(exampleAwsLexv2modelsBot.get("id"))
  *             .botVersion("DRAFT")
  *             .localeId("en_US")
  *             .nLuIntentConfidenceThreshold(0.7)
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *                 .voiceId("Kendra")
  *                 .engine("standard")
  *                 .build())
- *             .botId(exampleAwsLexv2modelsBot.id())
+ *             .botId(exampleAwsLexv2modelsBot.get("id"))
  *             .botVersion("DRAFT")
  *             .localeId("en_US")
  *             .nLuIntentConfidenceThreshold(0.7)

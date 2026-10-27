@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
+//				VoiceConnectorId: _default.ID(),
 //				DataRetention:    pulumi.Int(7),
 //				StreamingNotificationTargets: pulumi.StringArray{
 //					pulumi.String("SQS"),
@@ -141,7 +141,7 @@ import (
 //					ConfigurationArn: example.Arn,
 //				},
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
+//				VoiceConnectorId: _default.ID(),
 //				DataRetention:    pulumi.Int(7),
 //				StreamingNotificationTargets: pulumi.StringArray{
 //					pulumi.String("SQS"),

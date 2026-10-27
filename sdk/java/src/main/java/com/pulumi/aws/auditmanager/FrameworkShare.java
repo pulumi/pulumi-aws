@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new FrameworkShare("example", FrameworkShareArgs.builder()
  *             .destinationAccount("123456789012")
  *             .destinationRegion("us-east-1")
- *             .frameworkId(exampleAwsAuditmanagerFramework.id())
+ *             .frameworkId(exampleAwsAuditmanagerFramework.get("id"))
  *             .build());
  * 
  *     }

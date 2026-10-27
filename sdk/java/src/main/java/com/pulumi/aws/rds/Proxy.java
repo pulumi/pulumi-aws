@@ -56,16 +56,16 @@ import javax.annotation.Nullable;
  *                 .authScheme("SECRETS")
  *                 .description("example")
  *                 .iamAuth("DISABLED")
- *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .secretArn(exampleAwsSecretsmanagerSecret.get("arn"))
  *                 .build())
  *             .name("example")
  *             .debugLogging(false)
  *             .engineFamily("MYSQL")
  *             .idleClientTimeout(1800)
  *             .requireTls(true)
- *             .roleArn(exampleAwsIamRole.arn())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
- *             .vpcSubnetIds(exampleAwsSubnet.id())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *             .vpcSubnetIds(exampleAwsSubnet.get("id"))
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example"),
  *                 Map.entry("Key", "value")
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Proxy("example", ProxyArgs.builder()
  *             .name("example")
- *             .vpcSubnetIds(exampleAwsSubnet.id())
+ *             .vpcSubnetIds(exampleAwsSubnet.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("vpcSubnetIds")
  *                 .build());

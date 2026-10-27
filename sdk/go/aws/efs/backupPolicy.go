@@ -39,7 +39,7 @@ import (
 //				BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
 //					Status: pulumi.String("ENABLED"),
 //				},
-//				FileSystemId: fs.ID().ToIDOutput().ToStringOutput(),
+//				FileSystemId: fs.ID(),
 //			})
 //			if err != nil {
 //				return err

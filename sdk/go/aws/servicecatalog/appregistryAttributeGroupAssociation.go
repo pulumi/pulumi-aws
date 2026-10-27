@@ -55,8 +55,8 @@ import (
 //				return err
 //			}
 //			_, err = servicecatalog.NewAppregistryAttributeGroupAssociation(ctx, "example", &servicecatalog.AppregistryAttributeGroupAssociationArgs{
-//				ApplicationId:    example.ID().ToIDOutput().ToStringOutput(),
-//				AttributeGroupId: exampleAppregistryAttributeGroup.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationId:    example.ID(),
+//				AttributeGroupId: exampleAppregistryAttributeGroup.ID(),
 //			})
 //			if err != nil {
 //				return err

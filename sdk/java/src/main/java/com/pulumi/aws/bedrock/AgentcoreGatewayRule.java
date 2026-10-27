@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  *             .actions(AgentcoreGatewayRuleActionArgs.builder()
  *                 .routeToTarget(AgentcoreGatewayRuleActionRouteToTargetArgs.builder()
  *                     .staticRoute(AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs.builder()
- *                         .targetName(exampleAwsBedrockagentcoreGatewayTarget.name())
+ *                         .targetName(exampleAwsBedrockagentcoreGatewayTarget.get("name"))
  *                         .build())
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.get("gatewayId"))
  *             .priority(100)
  *             .description("Route all requests to the primary target")
  *             .build());
@@ -105,18 +105,18 @@ import javax.annotation.Nullable;
  *                         .trafficSplits(                        
  *                             AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs.builder()
  *                                 .name("primary")
- *                                 .targetName(primary.name())
+ *                                 .targetName(primary.get("name"))
  *                                 .weight(90)
  *                                 .build(),
  *                             AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs.builder()
  *                                 .name("canary")
- *                                 .targetName(canaryAwsBedrockagentcoreGatewayTarget.name())
+ *                                 .targetName(canaryAwsBedrockagentcoreGatewayTarget.get("name"))
  *                                 .weight(10)
  *                                 .build())
  *                         .build())
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(example.gatewayId())
+ *             .gatewayIdentifier(example.get("gatewayId"))
  *             .priority(100)
  *             .build());
  * 
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *             .actions(AgentcoreGatewayRuleActionArgs.builder()
  *                 .routeToTarget(AgentcoreGatewayRuleActionRouteToTargetArgs.builder()
  *                     .staticRoute(AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs.builder()
- *                         .targetName(example.name())
+ *                         .targetName(example.get("name"))
  *                         .build())
  *                     .build())
  *                 .build())
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  *                         .anyOfs("/api/*")
  *                         .build())
  *                     .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.get("gatewayId"))
  *             .priority(50)
  *             .build());
  * 

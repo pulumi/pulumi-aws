@@ -66,11 +66,11 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["layerInfo"] = 
+        ///         ["layerInfo"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "arn", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) },
-        ///             { "version", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) },
-        ///             { "description", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description) },
+        ///             ["arn"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///             ["version"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version),
+        ///             ["description"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description),
         ///         },
         ///     };
         /// });
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Lambda
         ///         Version = 3,
         ///     });
         /// 
-        ///     var useLatestLayer = latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5;
+        ///     var useLatestLayer = (double)latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5.0;
         /// 
         ///     var selectedLayer = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn);
         /// 
@@ -264,11 +264,11 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["layerInfo"] = 
+        ///         ["layerInfo"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "arn", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) },
-        ///             { "version", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) },
-        ///             { "description", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description) },
+        ///             ["arn"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///             ["version"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version),
+        ///             ["description"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description),
         ///         },
         ///     };
         /// });
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.Lambda
         ///         Version = 3,
         ///     });
         /// 
-        ///     var useLatestLayer = latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5;
+        ///     var useLatestLayer = (double)latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5.0;
         /// 
         ///     var selectedLayer = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn);
         /// 
@@ -462,11 +462,11 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["layerInfo"] = 
+        ///         ["layerInfo"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "arn", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) },
-        ///             { "version", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) },
-        ///             { "description", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description) },
+        ///             ["arn"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///             ["version"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version),
+        ///             ["description"] = example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description),
         ///         },
         ///     };
         /// });
@@ -541,7 +541,7 @@ namespace Pulumi.Aws.Lambda
         ///         Version = 3,
         ///     });
         /// 
-        ///     var useLatestLayer = latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5;
+        ///     var useLatestLayer = (double)latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5.0;
         /// 
         ///     var selectedLayer = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn);
         /// 

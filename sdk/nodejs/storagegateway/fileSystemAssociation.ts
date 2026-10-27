@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * const test = new aws.ec2.Instance("test", {
  *     ami: awsServiceStoragegatewayAmiFILES3Latest.then(awsServiceStoragegatewayAmiFILES3Latest => awsServiceStoragegatewayAmiFILES3Latest.value),
  *     associatePublicIpAddress: true,
- *     instanceType: aws.ec2.InstanceType[available.instanceType],
+ *     instanceType: available.instanceType,
  *     vpcSecurityGroupIds: [testAwsSecurityGroup.id],
  *     subnetId: testAwsSubnet[0].id,
  * }, {

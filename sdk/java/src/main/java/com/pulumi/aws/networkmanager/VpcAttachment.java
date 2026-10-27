@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.arn())
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
+ *             .subnetArns(exampleAwsSubnet.get("arn"))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.get("id"))
+ *             .vpcArn(exampleAwsVpc.get("arn"))
  *             .build());
  * 
  *     }
@@ -90,9 +90,9 @@ import javax.annotation.Nullable;
  *                 .ipv6Support(false)
  *                 .securityGroupReferencingSupport(true)
  *                 .build())
- *             .subnetArns(exampleAwsSubnet.arn())
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
+ *             .subnetArns(exampleAwsSubnet.get("arn"))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.get("id"))
+ *             .vpcArn(exampleAwsVpc.get("arn"))
  *             .build());
  * 
  *     }

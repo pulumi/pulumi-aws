@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ExportTask("example", ExportTaskArgs.builder()
  *             .exportTaskIdentifier("example")
- *             .sourceArn(exampleAwsDbSnapshot.dbSnapshotArn())
- *             .s3BucketName(exampleAwsS3Bucket.id())
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .sourceArn(exampleAwsDbSnapshot.get("dbSnapshotArn"))
+ *             .s3BucketName(exampleAwsS3Bucket.get("id"))
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
+ *             .kmsKeyId(exampleAwsKmsKey.get("arn"))
  *             .build());
  * 
  *     }

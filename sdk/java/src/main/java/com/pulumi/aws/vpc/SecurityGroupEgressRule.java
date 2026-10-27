@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroupEgressRule("example", SecurityGroupEgressRuleArgs.builder()
- *             .securityGroupId(exampleAwsSecurityGroup.id())
+ *             .securityGroupId(exampleAwsSecurityGroup.get("id"))
  *             .cidrIpv4("10.0.0.0/8")
  *             .fromPort(80)
  *             .ipProtocol("tcp")

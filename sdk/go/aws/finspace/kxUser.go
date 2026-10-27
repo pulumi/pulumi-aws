@@ -74,7 +74,7 @@ import (
 //			}
 //			_, err = finspace.NewKxUser(ctx, "example", &finspace.KxUserArgs{
 //				Name:          pulumi.String("my-tf-kx-user"),
-//				EnvironmentId: exampleKxEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				EnvironmentId: exampleKxEnvironment.ID(),
 //				IamRole:       exampleRole.Arn,
 //			})
 //			if err != nil {

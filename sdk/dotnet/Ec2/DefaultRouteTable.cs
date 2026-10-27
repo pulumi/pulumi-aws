@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2
     ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
     ///         DefaultRouteTableId = exampleAwsVpc.DefaultRouteTableId,
-    ///         Routes = new[] {},
+    ///         Routes = new() {},
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },

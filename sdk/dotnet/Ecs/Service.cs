@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             LinearConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationLinearConfigurationArgs
     ///             {
-    ///                 StepPercent = 25,
+    ///                 StepPercent = 25.0,
     ///                 StepBakeTimeInMinutes = "5",
     ///             },
     ///             Strategy = "LINEAR",
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             CanaryConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationCanaryConfigurationArgs
     ///             {
-    ///                 CanaryPercent = 10,
+    ///                 CanaryPercent = 10.0,
     ///                 CanaryBakeTimeInMinutes = "5",
     ///             },
     ///             Strategy = "CANARY",

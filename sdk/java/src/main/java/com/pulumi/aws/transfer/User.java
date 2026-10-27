@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  *         var example = new User("example", UserArgs.builder()
  *             .homeDirectoryMappings(UserHomeDirectoryMappingArgs.builder()
  *                 .entry("/")
- *                 .target(String.format("/%s/${{Transfer:UserName}}", foo.id()))
+ *                 .target(String.format("/%s/${{Transfer:UserName}}", foo.get("id")))
  *                 .build())
  *             .homeDirectoryType("LOGICAL")
  *             .build());

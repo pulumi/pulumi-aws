@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .internal(true)
  *             .loadBalancerType("application")
- *             .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .subnets(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .enableZonalShift(true)
  *             .build());
  * 
@@ -116,14 +116,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ZonalAutoshiftConfiguration("example", ZonalAutoshiftConfigurationArgs.builder()
  *             .blockingAlarms(ZonalAutoshiftConfigurationBlockingAlarmArgs.builder()
- *                 .alarmIdentifier(blocking.arn())
+ *                 .alarmIdentifier(blocking.get("arn"))
  *                 .type("CLOUDWATCH")
  *                 .build())
  *             .outcomeAlarms(ZonalAutoshiftConfigurationOutcomeAlarmArgs.builder()
- *                 .alarmIdentifier(outcome.arn())
+ *                 .alarmIdentifier(outcome.get("arn"))
  *                 .type("CLOUDWATCH")
  *                 .build())
- *             .resourceArn(exampleAwsLb.arn())
+ *             .resourceArn(exampleAwsLb.get("arn"))
  *             .zonalAutoshiftStatus("ENABLED")
  *             .build());
  * 
@@ -159,10 +159,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ZonalAutoshiftConfiguration("example", ZonalAutoshiftConfigurationArgs.builder()
  *             .outcomeAlarms(ZonalAutoshiftConfigurationOutcomeAlarmArgs.builder()
- *                 .alarmIdentifier(exampleAwsCloudwatchMetricAlarm.arn())
+ *                 .alarmIdentifier(exampleAwsCloudwatchMetricAlarm.get("arn"))
  *                 .type("CLOUDWATCH")
  *                 .build())
- *             .resourceArn(exampleAwsLb.arn())
+ *             .resourceArn(exampleAwsLb.get("arn"))
  *             .zonalAutoshiftStatus("ENABLED")
  *             .blockedWindows("Mon:00:00-Mon:08:00")
  *             .build());

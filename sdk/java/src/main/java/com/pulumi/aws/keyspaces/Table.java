@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                     .name("Message")
  *                     .build())
  *                 .build())
- *             .keyspaceName(exampleAwsKeyspacesKeyspace.name())
+ *             .keyspaceName(exampleAwsKeyspacesKeyspace.get("name"))
  *             .tableName("my_table")
  *             .build());
  * 

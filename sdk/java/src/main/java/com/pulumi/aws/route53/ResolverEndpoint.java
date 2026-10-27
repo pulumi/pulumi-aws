@@ -49,18 +49,18 @@ import javax.annotation.Nullable;
  *         var foo = new ResolverEndpoint("foo", ResolverEndpointArgs.builder()
  *             .ipAddresses(            
  *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(sn1.id())
+ *                     .subnetId(sn1.get("id"))
  *                     .build(),
  *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(sn2.id())
+ *                     .subnetId(sn2.get("id"))
  *                     .ip("10.0.64.4")
  *                     .build())
  *             .name("foo")
  *             .direction("INBOUND")
  *             .resolverEndpointType("IPV4")
  *             .securityGroupIds(            
- *                 sg1.id(),
- *                 sg2.id())
+ *                 sg1.get("id"),
+ *                 sg2.get("id"))
  *             .protocols(            
  *                 "Do53",
  *                 "DoH")

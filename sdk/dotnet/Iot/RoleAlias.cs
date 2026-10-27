@@ -14,6 +14,49 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Principals = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "Service" },
+    ///                 { "identifiers", new[]
+    ///                 {
+    ///                     "credentials.iot.amazonaws.com",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Effect = "Allow",
+    ///         Actions = new[]
+    ///         {
+    ///             "sts:AssumeRole",
+    ///         },
+    ///     });
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
+    ///     {
+    ///         Name = "dynamodb-access-role",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var @alias = new Aws.Iot.RoleAlias("alias", new()
+    ///     {
+    ///         Alias = "Thermostat-dynamodb-access-role-alias",
+    ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT Role Alias using the alias. For example:

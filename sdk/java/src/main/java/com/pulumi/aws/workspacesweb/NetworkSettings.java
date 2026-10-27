@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                     .newbits(8)
  *                     .netnum(range.value())
  *                     .build()).applyValue(_invoke -> _invoke.result()))
- *                 .availabilityZone(available.names()[range.value()])
+ *                 .availabilityZone(available.get("names").get(range.value()))
  *                 .build());
  * 
  *         
@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  *         var exampleNetworkSettings = new NetworkSettings("exampleNetworkSettings", NetworkSettingsArgs.builder()
  *             .vpcId(example.id())
  *             .subnetIds(            
- *                 exampleSubnet[0].id(),
- *                 exampleSubnet[1].id())
+ *                 exampleSubnet.get(0).id(),
+ *                 exampleSubnet.get(1).id())
  *             .securityGroupIds(            
- *                 exampleAwsSecurityGroup[0].id(),
- *                 exampleAwsSecurityGroup[1].id())
+ *                 exampleAwsSecurityGroup[0].get("id"),
+ *                 exampleAwsSecurityGroup[1].get("id"))
  *             .build());
  * 
  *     }

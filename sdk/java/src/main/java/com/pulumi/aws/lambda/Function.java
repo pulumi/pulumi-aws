@@ -75,9 +75,9 @@ import javax.annotation.Nullable;
  *                 .commands("app.handler")
  *                 .build())
  *             .name("example_container_function")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .packageType("Image")
- *             .imageUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
+ *             .imageUri(String.format("%s:latest", exampleAwsEcrRepository.get("repositoryUrl")))
  *             .memorySize(512)
  *             .timeout(30)
  *             .architectures("arm64")
@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_layered_function")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .layers(example.arn())
@@ -180,9 +180,9 @@ import javax.annotation.Nullable;
  *         var example = new Function("example", FunctionArgs.builder()
  *             .vpcConfig(FunctionVpcConfigArgs.builder()
  *                 .subnetIds(                
- *                     examplePrivate1.id(),
- *                     examplePrivate2.id())
- *                 .securityGroupIds(exampleLambda.id())
+ *                     examplePrivate1.get("id"),
+ *                     examplePrivate2.get("id"))
+ *                 .securityGroupIds(exampleLambda.get("id"))
  *                 .ipv6AllowedForDualStack(true)
  *                 .build())
  *             .ephemeralStorage(FunctionEphemeralStorageArgs.builder()
@@ -193,7 +193,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_vpc_function")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("app.handler")
  *             .runtime("python3.12")
  *             .memorySize(1024)
@@ -250,7 +250,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "lambda-efs"))
  *             .build());
  * 
- *         final var subnetIds = config.get("subnetIds").orElse(        
+ *         final var subnetIds = config.getObject("subnetIds", com.pulumi.core.TypeShape.list(String.class)).orElse(        
  *             "subnet-12345678",
  *             "subnet-87654321");
  *         // Mount target in each subnet
@@ -258,7 +258,7 @@ import javax.annotation.Nullable;
  *             new MountTarget("exampleMountTarget-" + i, MountTargetArgs.builder()
  *                 .fileSystemId(example.id())
  *                 .subnetId(subnetIds[range.value()])
- *                 .securityGroups(efs.id())
+ *                 .securityGroups(efs.get("id"))
  *                 .build());
  * 
  *         
@@ -284,7 +284,7 @@ import javax.annotation.Nullable;
  *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
  *             .vpcConfig(FunctionVpcConfigArgs.builder()
  *                 .subnetIds(subnetIds)
- *                 .securityGroupIds(lambda.id())
+ *                 .securityGroupIds(lambda.get("id"))
  *                 .build())
  *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
  *                 .arn(exampleAccessPoint.arn())
@@ -292,7 +292,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_efs_function")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .build(), CustomResourceOptions.builder()
@@ -373,7 +373,7 @@ import javax.annotation.Nullable;
  * 
  *         var forLambda = new FilesFileSystem("forLambda", FilesFileSystemArgs.builder()
  *             .bucket(lambdaFileSystem.arn())
- *             .roleArn(s3files.arn())
+ *             .roleArn(s3files.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(lambdaFileSystemBucketVersioning)
  *                 .build());
@@ -396,12 +396,12 @@ import javax.annotation.Nullable;
  * 
  *         var s3filesMountTargets = new SecurityGroup("s3filesMountTargets", SecurityGroupArgs.builder()
  *             .name("example-s3files-mount-targets-sg")
- *             .vpcId(vpcForLambda.id())
+ *             .vpcId(vpcForLambda.get("id"))
  *             .build());
  * 
  *         var lambdaS3files = new SecurityGroup("lambdaS3files", SecurityGroupArgs.builder()
  *             .name("example-lambda-s3files-sg")
- *             .vpcId(vpcForLambda.id())
+ *             .vpcId(vpcForLambda.get("id"))
  *             .build());
  * 
  *         var s3filesMountTargetsNfs = new SecurityGroupIngressRule("s3filesMountTargetsNfs", SecurityGroupIngressRuleArgs.builder()
@@ -422,7 +422,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Function("example", FunctionArgs.builder()
  *             .vpcConfig(FunctionVpcConfigArgs.builder()
- *                 .subnetIds(subnetForLambdaAz1.id())
+ *                 .subnetIds(subnetForLambdaAz1.get("id"))
  *                 .securityGroupIds(lambdaS3files.id())
  *                 .build())
  *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
@@ -431,7 +431,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_s3files_function")
- *             .role(iamForLambda.arn())
+ *             .role(iamForLambda.get("arn"))
  *             .handler("exports.example")
  *             .runtime("nodejs24.x")
  *             .build(), CustomResourceOptions.builder()
@@ -489,7 +489,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_function")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .build(), CustomResourceOptions.builder()
@@ -620,7 +620,7 @@ import javax.annotation.Nullable;
  *             .name(lambdaFunctionName)
  *             .handler("index.lambda_handler")
  *             .runtime("python3.13")
- *             .role(example.arn())
+ *             .role(example.get("arn"))
  *             .code(new FileArchive("function.zip"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(export)
@@ -665,11 +665,11 @@ import javax.annotation.Nullable;
  *         // Main Lambda function
  *         var example = new Function("example", FunctionArgs.builder()
  *             .deadLetterConfig(FunctionDeadLetterConfigArgs.builder()
- *                 .targetArn(dlq.arn())
+ *                 .targetArn(dlq.get("arn"))
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_function")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .build());
@@ -678,10 +678,10 @@ import javax.annotation.Nullable;
  *         var exampleFunctionEventInvokeConfig = new FunctionEventInvokeConfig("exampleFunctionEventInvokeConfig", FunctionEventInvokeConfigArgs.builder()
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
- *                     .destination(dlq.arn())
+ *                     .destination(dlq.get("arn"))
  *                     .build())
  *                 .onSuccess(FunctionEventInvokeConfigDestinationConfigOnSuccessArgs.builder()
- *                     .destination(success.arn())
+ *                     .destination(success.get("arn"))
  *                     .build())
  *                 .build())
  *             .functionName(example.name())
@@ -848,7 +848,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_durable_function")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .memorySize(512)
@@ -901,11 +901,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleCapacityProvider = new CapacityProvider("exampleCapacityProvider", CapacityProviderArgs.builder()
  *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.id())
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(exampleAwsSubnet.get("id"))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *                 .build())
  *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
- *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
+ *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .name("example")
  *             .build());
@@ -918,7 +918,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .memorySize(2048)

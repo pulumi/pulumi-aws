@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const example = aws.ssm.getPatchBaselines({
  *     defaultBaselines: true,
  * });
- * // transform the output of the aws_ssm_patch_baselines data source
+ * // transform the output of the aws_ssm_patch_baselines function
  * // into the format expected by the SelectedPatchBaselines parameter
  * const selectedPatchBaselines = JSON.stringify(example.then(example => .reduce((__obj, baseline) => ({ ...__obj, [baseline.operatingSystem]: {
  *     value: baseline.baselineId,

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuntimeManagementConfig("example", RuntimeManagementConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .updateRuntimeOn("FunctionUpdate")
  *             .build());
  * 
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuntimeManagementConfig("example", RuntimeManagementConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .updateRuntimeOn("Manual")
  *             .runtimeVersionArn("arn:aws:lambda:us-east-1::runtime:abcd1234")
  *             .build());

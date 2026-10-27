@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterRoleAssociation("example", ClusterRoleAssociationArgs.builder()
- *             .dbClusterIdentifier(exampleAwsRdsCluster.id())
+ *             .dbClusterIdentifier(exampleAwsRdsCluster.get("id"))
  *             .featureName("S3_INTEGRATION")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

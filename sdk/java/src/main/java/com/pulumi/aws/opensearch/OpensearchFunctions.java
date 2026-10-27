@@ -269,8 +269,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
-     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.get("name"))
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.get("type"))
      *             .build());
      * 
      *     }
@@ -312,8 +312,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
-     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.get("name"))
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.get("type"))
      *             .build());
      * 
      *     }
@@ -355,8 +355,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
-     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.get("name"))
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.get("type"))
      *             .build());
      * 
      *     }
@@ -398,8 +398,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
-     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.get("name"))
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.get("type"))
      *             .build());
      * 
      *     }
@@ -441,8 +441,8 @@ public final class OpensearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(exampleAwsOpensearchserverlessAccessPolicy.name())
-     *             .type(exampleAwsOpensearchserverlessAccessPolicy.type())
+     *             .name(exampleAwsOpensearchserverlessAccessPolicy.get("name"))
+     *             .type(exampleAwsOpensearchserverlessAccessPolicy.get("type"))
      *             .build());
      * 
      *     }

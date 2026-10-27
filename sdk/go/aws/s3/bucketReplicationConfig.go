@@ -137,13 +137,13 @@ import (
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
-//				Bucket: destination.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: destination.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "source_bucket_acl", &s3.BucketAclArgs{
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: source.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -153,7 +153,7 @@ import (
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: source.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -173,7 +173,7 @@ import (
 //					},
 //				},
 //				Role:   replicationRole.Arn,
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: source.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				sourceBucketVersioning,
 //			}))
@@ -302,14 +302,14 @@ import (
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
-//				Bucket: destination.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: destination.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "source_bucket_acl", &s3.BucketAclArgs{
 //				Region: pulumi.String("eu-central-1"),
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: source.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -320,7 +320,7 @@ import (
 //					Status: pulumi.String("Enabled"),
 //				},
 //				Region: pulumi.String("eu-central-1"),
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: source.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -341,7 +341,7 @@ import (
 //				},
 //				Region: pulumi.String("eu-central-1"),
 //				Role:   replicationRole.Arn,
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: source.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				sourceBucketVersioning,
 //			}))
@@ -379,7 +379,7 @@ import (
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
-//				Bucket: east.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: east.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -394,7 +394,7 @@ import (
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
-//				Bucket: west.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: west.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -414,7 +414,7 @@ import (
 //					},
 //				},
 //				Role:   pulumi.Any(eastReplication.Arn),
-//				Bucket: east.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: east.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				eastBucketVersioning,
 //			}))
@@ -436,7 +436,7 @@ import (
 //					},
 //				},
 //				Role:   pulumi.Any(westReplication.Arn),
-//				Bucket: west.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: west.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				westBucketVersioning,
 //			}))

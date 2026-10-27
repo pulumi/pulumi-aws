@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Schema("example", SchemaArgs.builder()
  *             .schemaName("example")
- *             .registryArn(test.arn())
+ *             .registryArn(test.get("arn"))
  *             .dataFormat("AVRO")
  *             .compatibility("NONE")
  *             .schemaDefinition("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}")

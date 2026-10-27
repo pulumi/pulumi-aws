@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ProvisioningArtifact("example", ProvisioningArtifactArgs.builder()
  *             .name("example")
- *             .productId(exampleAwsServicecatalogProduct.id())
+ *             .productId(exampleAwsServicecatalogProduct.get("id"))
  *             .type("CLOUD_FORMATION_TEMPLATE")
- *             .templateUrl(String.format("https://%s/%s", exampleAwsS3Bucket.bucketRegionalDomainName(),exampleAwsS3Object.key()))
+ *             .templateUrl(String.format("https://%s/%s", exampleAwsS3Bucket.get("bucketRegionalDomainName"),exampleAwsS3Object.get("key")))
  *             .build());
  * 
  *     }

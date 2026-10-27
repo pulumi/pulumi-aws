@@ -54,7 +54,7 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Name:   pulumi.String("EntireBucket"),
 //			})
 //			if err != nil {
@@ -94,7 +94,7 @@ import (
 //						"class":    pulumi.String("blue"),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Name:   pulumi.String("ImportantBlueDocuments"),
 //			})
 //			if err != nil {

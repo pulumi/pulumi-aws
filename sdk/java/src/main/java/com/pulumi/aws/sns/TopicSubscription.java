@@ -139,14 +139,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var sns = config.get("sns").orElse(Map.ofEntries(
+ *         final var sns = config.getObject("sns", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
  *             Map.entry("account-id", "111111111111"),
  *             Map.entry("displayName", "example"),
  *             Map.entry("name", "example-sns-topic"),
  *             Map.entry("region", "us-west-1"),
  *             Map.entry("role-name", "service/service")
  *         ));
- *         final var sqs = config.get("sqs").orElse(Map.ofEntries(
+ *         final var sqs = config.getObject("sqs", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
  *             Map.entry("account-id", "222222222222"),
  *             Map.entry("name", "example-sqs-queue"),
  *             Map.entry("region", "us-east-1"),
@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("AWS:SourceOwner")
- *                         .values(sns.account-id())
+ *                         .values(sns.get("account-id"))
  *                         .build())
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
@@ -174,14 +174,14 @@ import javax.annotation.Nullable;
  *                         "SNS:DeleteTopic",
  *                         "SNS:AddPermission")
  *                     .effect("Allow")
- *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
+ *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.get("region"),sns.get("account-id"),sns.get("name")))
  *                     .sid("__default_statement_ID")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringLike")
  *                         .variable("SNS:Endpoint")
- *                         .values(String.format("arn:aws:sqs:%s:%s:%s", sqs.region(),sqs.account-id(),sqs.name()))
+ *                         .values(String.format("arn:aws:sqs:%s:%s:%s", sqs.get("region"),sqs.get("account-id"),sqs.get("name")))
  *                         .build())
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  *                         "SNS:Subscribe",
  *                         "SNS:Receive")
  *                     .effect("Allow")
- *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
+ *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.get("region"),sns.get("account-id"),sns.get("name")))
  *                     .sid("__console_sub_0")
  *                     .build())
  *             .policyId("__default_policy_ID")
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
- *                     .values(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
+ *                     .values(String.format("arn:aws:sns:%s:%s:%s", sns.get("region"),sns.get("account-id"),sns.get("name")))
  *                     .build())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
@@ -211,19 +211,19 @@ import javax.annotation.Nullable;
  *                 .sid("example-sns-topic")
  *                 .effect("Allow")
  *                 .actions("SQS:SendMessage")
- *                 .resources(String.format("arn:aws:sqs:%s:%s:%s", sqs.region(),sqs.account-id(),sqs.name()))
+ *                 .resources(String.format("arn:aws:sqs:%s:%s:%s", sqs.get("region"),sqs.get("account-id"),sqs.get("name")))
  *                 .build())
- *             .policyId(String.format("arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy", sqs.region(),sqs.account-id(),sqs.name()))
+ *             .policyId(String.format("arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy", sqs.get("region"),sqs.get("account-id"),sqs.get("name")))
  *             .build());
  * 
  *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
- *             .name(sns.name())
- *             .displayName(sns.display_name())
+ *             .name(sns.get("name"))
+ *             .displayName(sns.get("display_name"))
  *             .policy(snsTopicPolicy.json())
  *             .build());
  * 
  *         var sqsQueue = new Queue("sqsQueue", QueueArgs.builder()
- *             .name(sqs.name())
+ *             .name(sqs.get("name"))
  *             .policy(sqsQueuePolicy.json())
  *             .build());
  * 

@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = apigatewayv2.NewRoute(ctx, "example", &apigatewayv2.RouteArgs{
-//				ApiId:    example.ID().ToIDOutput().ToStringOutput(),
+//				ApiId:    example.ID(),
 //				RouteKey: pulumi.String("$default"),
 //			})
 //			if err != nil {
@@ -76,7 +76,7 @@ import (
 //				return err
 //			}
 //			exampleIntegration, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:             example.ID().ToIDOutput().ToStringOutput(),
+//				ApiId:             example.ID(),
 //				IntegrationType:   pulumi.String("HTTP_PROXY"),
 //				IntegrationMethod: pulumi.String("ANY"),
 //				IntegrationUri:    pulumi.String("https://example.com/{proxy}"),
@@ -85,7 +85,7 @@ import (
 //				return err
 //			}
 //			_, err = apigatewayv2.NewRoute(ctx, "example", &apigatewayv2.RouteArgs{
-//				ApiId:    example.ID().ToIDOutput().ToStringOutput(),
+//				ApiId:    example.ID(),
 //				RouteKey: pulumi.String("ANY /example/{proxy+}"),
 //				Target: exampleIntegration.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("integrations/%v", id), nil

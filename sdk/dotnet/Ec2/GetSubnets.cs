@@ -45,14 +45,23 @@ namespace Pulumi.Aws.Ec2
         ///     var exampleGetSubnet = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ec2.GetSubnet.Invoke(new()
+        ///         {
+        ///             Id = __value,
+        ///         });
+        ///     }));
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["subnetCidrBlocks"] = exampleGetSubnet.Apply(exampleGetSubnet =&gt; (exampleGetSubnet).Values.Select(s =&gt; 
+        ///         ["subnetCidrBlocks"] = (exampleGetSubnet).Values.Select(s =&gt; 
         ///         {
         ///             return s.CidrBlock;
-        ///         }).ToList()),
+        ///         }).ToList(),
         ///     };
         /// });
         /// ```
@@ -139,14 +148,23 @@ namespace Pulumi.Aws.Ec2
         ///     var exampleGetSubnet = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ec2.GetSubnet.Invoke(new()
+        ///         {
+        ///             Id = __value,
+        ///         });
+        ///     }));
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["subnetCidrBlocks"] = exampleGetSubnet.Apply(exampleGetSubnet =&gt; (exampleGetSubnet).Values.Select(s =&gt; 
+        ///         ["subnetCidrBlocks"] = (exampleGetSubnet).Values.Select(s =&gt; 
         ///         {
         ///             return s.CidrBlock;
-        ///         }).ToList()),
+        ///         }).ToList(),
         ///     };
         /// });
         /// ```
@@ -233,14 +251,23 @@ namespace Pulumi.Aws.Ec2
         ///     var exampleGetSubnet = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ec2.GetSubnet.Invoke(new()
+        ///         {
+        ///             Id = __value,
+        ///         });
+        ///     }));
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["subnetCidrBlocks"] = exampleGetSubnet.Apply(exampleGetSubnet =&gt; (exampleGetSubnet).Values.Select(s =&gt; 
+        ///         ["subnetCidrBlocks"] = (exampleGetSubnet).Values.Select(s =&gt; 
         ///         {
         ///             return s.CidrBlock;
-        ///         }).ToList()),
+        ///         }).ToList(),
         ///     };
         /// });
         /// ```

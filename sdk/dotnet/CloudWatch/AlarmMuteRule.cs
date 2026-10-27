@@ -59,7 +59,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Namespace = "AWS/EC2",
     ///         Period = 120,
     ///         Statistic = "Average",
-    ///         Threshold = 80,
+    ///         Threshold = 80.0,
     ///     });
     /// 
     ///     var exampleAlarmMuteRule = new Aws.CloudWatch.AlarmMuteRule("example", new()

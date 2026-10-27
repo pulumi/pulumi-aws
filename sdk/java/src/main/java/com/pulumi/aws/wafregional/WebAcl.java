@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *                     .type("NONE")
  *                     .build())
  *                 .priority(1)
- *                 .ruleId(exampleAwsWafregionalRuleGroup.id())
+ *                 .ruleId(exampleAwsWafregionalRuleGroup.get("id"))
  *                 .type("GROUP")
  *                 .build())
  *             .name("example")
@@ -185,7 +185,7 @@ import javax.annotation.Nullable;
  *                             .type("HEADER")
  *                             .build())
  *                     .build())
- *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.get("arn"))
  *                 .build())
  *             .build());
  * 

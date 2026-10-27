@@ -44,7 +44,7 @@ import (
 //							Data: pulumi.String("User-Agent"),
 //							Type: pulumi.String("HEADER"),
 //						},
-//						RegexPatternSetId:  exampleRegexPatternSet.ID().ToIDOutput().ToStringOutput(),
+//						RegexPatternSetId:  exampleRegexPatternSet.ID(),
 //						TextTransformation: pulumi.String("NONE"),
 //					},
 //				},

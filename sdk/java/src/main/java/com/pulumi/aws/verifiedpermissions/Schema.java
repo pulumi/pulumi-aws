@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                         ))
  *                     )))
  *                 .build())
- *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.policyStoreId())
+ *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.get("policyStoreId"))
  *             .build());
  * 
  *     }

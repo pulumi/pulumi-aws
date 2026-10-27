@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .description("example")
  *             .edition("DEVELOPER_EDITION")
- *             .roleArn(this_.arn())
+ *             .roleArn(this_.get("arn"))
  *             .tags(Map.of("Key1", "Value1"))
  *             .build());
  * 
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example")
  *             .edition("DEVELOPER_EDITION")
- *             .roleArn(this_.arn())
+ *             .roleArn(this_.get("arn"))
  *             .build());
  * 
  *     }
@@ -131,10 +131,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Index("example", IndexArgs.builder()
  *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(this_.arn())
+ *                 .kmsKeyId(this_.get("arn"))
  *                 .build())
  *             .name("example")
- *             .roleArn(thisAwsIamRole.arn())
+ *             .roleArn(thisAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *                 .userGroupResolutionMode("AWS_SSO")
  *                 .build())
  *             .name("example")
- *             .roleArn(this_.arn())
+ *             .roleArn(this_.get("arn"))
  *             .build());
  * 
  *     }
@@ -422,7 +422,7 @@ import javax.annotation.Nullable;
  *                     .type("LONG_VALUE")
  *                     .build())
  *             .name("example")
- *             .roleArn(this_.arn())
+ *             .roleArn(this_.get("arn"))
  *             .build());
  * 
  *     }
@@ -728,7 +728,7 @@ import javax.annotation.Nullable;
  *                     .type("DATE_VALUE")
  *                     .build())
  *             .name("example")
- *             .roleArn(this_.arn())
+ *             .roleArn(this_.get("arn"))
  *             .build());
  * 
  *     }
@@ -770,7 +770,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("example")
- *             .roleArn(this_.arn())
+ *             .roleArn(this_.get("arn"))
  *             .build());
  * 
  *     }

@@ -80,10 +80,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .outputDataConfig(EvaluationJobOutputDataConfigArgs.builder()
- *                 .s3Uri(String.format("s3://%s/output/", exampleAwsS3Bucket.id()))
+ *                 .s3Uri(String.format("s3://%s/output/", exampleAwsS3Bucket.get("id")))
  *                 .build())
  *             .jobName("example-job")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

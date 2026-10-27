@@ -169,10 +169,10 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(4)
  *             .forceDelete(true)
  *             .placementGroup(test.id())
- *             .launchConfiguration(foobar.name())
+ *             .launchConfiguration(foobar.get("name"))
  *             .vpcZoneIdentifiers(            
- *                 example1.id(),
- *                 example2.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .customTimeouts(CustomTimeouts.builder()
  *                     .delete(CustomTimeouts.parseTimeoutString("15m"))
@@ -265,7 +265,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
- *             .imageId(exampleAwsAmi.id())
+ *             .imageId(exampleAwsAmi.get("id"))
  *             .instanceType("c5.large")
  *             .build());
  * 
@@ -330,7 +330,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
- *             .imageId(exampleAwsAmi.id())
+ *             .imageId(exampleAwsAmi.get("id"))
  *             .instanceType("c5.large")
  *             .build());
  * 
@@ -361,8 +361,8 @@ import javax.annotation.Nullable;
  *             .maxSize(15)
  *             .minSize(12)
  *             .vpcZoneIdentifiers(            
- *                 example1.id(),
- *                 example2.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
  *             .build());
  * 
  *     }
@@ -405,13 +405,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
- *             .imageId(exampleAwsAmi.id())
+ *             .imageId(exampleAwsAmi.get("id"))
  *             .instanceType("c5.large")
  *             .build());
  * 
  *         var example2 = new LaunchTemplate("example2", LaunchTemplateArgs.builder()
  *             .namePrefix("example2")
- *             .imageId(example2AwsAmi.id())
+ *             .imageId(example2AwsAmi.get("id"))
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
@@ -482,7 +482,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
- *             .imageId(exampleAwsAmi.id())
+ *             .imageId(exampleAwsAmi.get("id"))
  *             .instanceType("c5.large")
  *             .build());
  * 
@@ -541,7 +541,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var extraTags = config.get("extraTags").orElse(Arrays.asList(        
+ *         final var extraTags = config.getObject("extraTags", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Arrays.asList(        
  *             Map.ofEntries(
  *                 Map.entry("key", "Foo"),
  *                 Map.entry("propagateAtLaunch", true),
@@ -567,10 +567,10 @@ import javax.annotation.Nullable;
  *             .name("foobar3-test")
  *             .maxSize(5)
  *             .minSize(2)
- *             .launchConfiguration(foobar.name())
+ *             .launchConfiguration(foobar.get("name"))
  *             .vpcZoneIdentifiers(            
- *                 example1.id(),
- *                 example2.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
  *             .build());
  * 
  *     }
@@ -683,7 +683,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
- *             .imageId(exampleAwsAmi.id())
+ *             .imageId(exampleAwsAmi.get("id"))
  *             .instanceType("c5.large")
  *             .build());
  * 

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                         .namespace("default")
  *                         .build())
  *                     .build())
- *                 .id(exampleAwsEksCluster.name())
+ *                 .id(exampleAwsEksCluster.get("name"))
  *                 .type("EKS")
  *                 .build())
  *             .name("example")

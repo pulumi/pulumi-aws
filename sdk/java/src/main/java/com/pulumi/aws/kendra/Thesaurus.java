@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Thesaurus("example", ThesaurusArgs.builder()
  *             .sourceS3Path(ThesaurusSourceS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
+ *                 .bucket(exampleAwsS3Bucket.get("id"))
+ *                 .key(exampleAwsS3Object.get("key"))
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .tags(Map.of("Name", "Example Kendra Thesaurus"))
  *             .build());
  * 
