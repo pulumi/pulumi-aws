@@ -6,9 +6,8 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,18 +15,18 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
     public static final WebAclRuleStatementNotStatementArgs Empty = new WebAclRuleStatementNotStatementArgs();
 
     /**
-     * Single statement to negate. Exactly one statement must be specified.
+     * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    @Import(name="statement")
-    private @Nullable Output<WebAclRuleStatementArgs> statement;
+    @Import(name="statement", required=true)
+    private Output<WebAclRuleStatementArgs> statement;
 
     /**
-     * @return Single statement to negate. Exactly one statement must be specified.
+     * @return Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    public Optional<Output<WebAclRuleStatementArgs>> statement() {
-        return Optional.ofNullable(this.statement);
+    public Output<WebAclRuleStatementArgs> statement() {
+        return this.statement;
     }
 
     private WebAclRuleStatementNotStatementArgs() {}
@@ -55,18 +54,18 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
         }
 
         /**
-         * @param statement Single statement to negate. Exactly one statement must be specified.
+         * @param statement Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
          */
-        public Builder statement(@Nullable Output<WebAclRuleStatementArgs> statement) {
+        public Builder statement(Output<WebAclRuleStatementArgs> statement) {
             $.statement = statement;
             return this;
         }
 
         /**
-         * @param statement Single statement to negate. Exactly one statement must be specified.
+         * @param statement Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
@@ -76,6 +75,9 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
         }
 
         public WebAclRuleStatementNotStatementArgs build() {
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementNotStatementArgs", "statement");
+            }
             return $;
         }
     }

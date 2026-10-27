@@ -5,25 +5,24 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementNotStatement {
     /**
-     * @return Single statement to negate. Exactly one statement must be specified.
+     * @return Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    private @Nullable WebAclRuleStatement statement;
+    private WebAclRuleStatement statement;
 
     private WebAclRuleStatementNotStatement() {}
     /**
-     * @return Single statement to negate. Exactly one statement must be specified.
+     * @return Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    public Optional<WebAclRuleStatement> statement() {
-        return Optional.ofNullable(this.statement);
+    public WebAclRuleStatement statement() {
+        return this.statement;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class WebAclRuleStatementNotStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatement statement;
+        private WebAclRuleStatement statement;
         public Builder() {}
         public Builder(WebAclRuleStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class WebAclRuleStatementNotStatement {
         }
 
         @CustomType.Setter
-        public Builder statement(@Nullable WebAclRuleStatement statement) {
-
+        public Builder statement(WebAclRuleStatement statement) {
+            if (statement == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementNotStatement", "statement");
+            }
             this.statement = statement;
             return this;
         }

@@ -6,10 +6,9 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,18 +16,18 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
     public static final WebAclRuleStatementOrStatementArgs Empty = new WebAclRuleStatementOrStatementArgs();
 
     /**
-     * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    @Import(name="statements")
-    private @Nullable Output<List<WebAclRuleStatementArgs>> statements;
+    @Import(name="statements", required=true)
+    private Output<List<WebAclRuleStatementArgs>> statements;
 
     /**
-     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * @return List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    public Optional<Output<List<WebAclRuleStatementArgs>>> statements() {
-        return Optional.ofNullable(this.statements);
+    public Output<List<WebAclRuleStatementArgs>> statements() {
+        return this.statements;
     }
 
     private WebAclRuleStatementOrStatementArgs() {}
@@ -56,18 +55,18 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * @param statements List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
          */
-        public Builder statements(@Nullable Output<List<WebAclRuleStatementArgs>> statements) {
+        public Builder statements(Output<List<WebAclRuleStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
         /**
-         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * @param statements List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
@@ -77,7 +76,7 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * @param statements List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
@@ -87,6 +86,9 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
         }
 
         public WebAclRuleStatementOrStatementArgs build() {
+            if ($.statements == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementOrStatementArgs", "statements");
+            }
             return $;
         }
     }

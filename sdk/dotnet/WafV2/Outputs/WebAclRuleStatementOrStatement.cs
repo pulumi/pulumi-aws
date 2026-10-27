@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementOrStatement
     {
         /// <summary>
-        /// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        /// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `ManagedRuleGroupStatement`, `OrStatement`, `RateBasedStatement` and `RuleGroupReferenceStatement`.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatement> Statements;
 

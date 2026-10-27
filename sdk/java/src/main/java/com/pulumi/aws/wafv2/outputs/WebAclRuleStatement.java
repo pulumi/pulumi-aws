@@ -104,7 +104,7 @@ public final class WebAclRuleStatement {
     /**
      * @return Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule&#39;s `statement`, not inside a logical statement.
      * 
      */
     private @Nullable WebAclRuleStatementXssMatchStatement xssMatchStatement;
@@ -218,7 +218,7 @@ public final class WebAclRuleStatement {
     /**
      * @return Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule&#39;s `statement`, not inside a logical statement.
      * 
      */
     public Optional<WebAclRuleStatementXssMatchStatement> xssMatchStatement() {

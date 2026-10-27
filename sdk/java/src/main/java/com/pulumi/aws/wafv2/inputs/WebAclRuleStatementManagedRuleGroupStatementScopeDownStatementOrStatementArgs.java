@@ -6,10 +6,9 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,18 +16,18 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs();
 
     /**
-     * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    @Import(name="statements")
-    private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statements;
+    @Import(name="statements", required=true)
+    private Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statements;
 
     /**
-     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * @return List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>>> statements() {
-        return Optional.ofNullable(this.statements);
+    public Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statements() {
+        return this.statements;
     }
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs() {}
@@ -56,18 +55,18 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * @param statements List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
          */
-        public Builder statements(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statements) {
+        public Builder statements(Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
         /**
-         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * @param statements List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
@@ -77,7 +76,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * @param statements List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
@@ -87,6 +86,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs build() {
+            if ($.statements == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs", "statements");
+            }
             return $;
         }
     }

@@ -69386,7 +69386,7 @@ type WebAclRuleStatement struct {
 	SqliMatchStatement *WebAclRuleStatementSqliMatchStatement `pulumi:"sqliMatchStatement"`
 	// Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
 	//
-	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
+	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
 	XssMatchStatement *WebAclRuleStatementXssMatchStatement `pulumi:"xssMatchStatement"`
 }
 
@@ -69434,7 +69434,7 @@ type WebAclRuleStatementArgs struct {
 	SqliMatchStatement WebAclRuleStatementSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
 	// Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
 	//
-	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
+	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
 	XssMatchStatement WebAclRuleStatementXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
 }
 
@@ -69627,7 +69627,7 @@ func (o WebAclRuleStatementOutput) SqliMatchStatement() WebAclRuleStatementSqliM
 
 // Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
 //
-// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
+// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
 func (o WebAclRuleStatementOutput) XssMatchStatement() WebAclRuleStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatement) *WebAclRuleStatementXssMatchStatement { return v.XssMatchStatement }).(WebAclRuleStatementXssMatchStatementPtrOutput)
 }
@@ -69808,7 +69808,7 @@ func (o WebAclRuleStatementPtrOutput) SqliMatchStatement() WebAclRuleStatementSq
 
 // Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
 //
-// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
+// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
 func (o WebAclRuleStatementPtrOutput) XssMatchStatement() WebAclRuleStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatement) *WebAclRuleStatementXssMatchStatement {
 		if v == nil {
@@ -69839,7 +69839,7 @@ func (o WebAclRuleStatementArrayOutput) Index(i pulumi.IntInput) WebAclRuleState
 }
 
 type WebAclRuleStatementAndStatement struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements []WebAclRuleStatement `pulumi:"statements"`
 }
 
@@ -69855,7 +69855,7 @@ type WebAclRuleStatementAndStatementInput interface {
 }
 
 type WebAclRuleStatementAndStatementArgs struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements WebAclRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -69936,7 +69936,7 @@ func (o WebAclRuleStatementAndStatementOutput) ToWebAclRuleStatementAndStatement
 	}).(WebAclRuleStatementAndStatementPtrOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementAndStatementOutput) Statements() WebAclRuleStatementArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementAndStatement) []WebAclRuleStatement { return v.Statements }).(WebAclRuleStatementArrayOutput)
 }
@@ -69965,7 +69965,7 @@ func (o WebAclRuleStatementAndStatementPtrOutput) Elem() WebAclRuleStatementAndS
 	}).(WebAclRuleStatementAndStatementOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementAndStatementPtrOutput) Statements() WebAclRuleStatementArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementAndStatement) []WebAclRuleStatement {
 		if v == nil {
