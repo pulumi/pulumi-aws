@@ -9707,7 +9707,7 @@ type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement struct {
 	SqliMatchStatement *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement `pulumi:"sqliMatchStatement"`
 	// Match requests that appear to contain cross-site scripting attacks.
 	//
-	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 	XssMatchStatement *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement `pulumi:"xssMatchStatement"`
 }
 
@@ -9749,7 +9749,7 @@ type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs struct {
 	SqliMatchStatement WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
 	// Match requests that appear to contain cross-site scripting attacks.
 	//
-	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 	XssMatchStatement WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
 }
 
@@ -9941,7 +9941,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOutput) Sq
 
 // Match requests that appear to contain cross-site scripting attacks.
 //
-// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOutput) XssMatchStatement() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement) *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement {
 		return v.XssMatchStatement
@@ -10094,7 +10094,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput)
 
 // Match requests that appear to contain cross-site scripting attacks.
 //
-// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput) XssMatchStatement() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement) *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement {
 		if v == nil {
@@ -10125,7 +10125,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrayOutpu
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements []WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement `pulumi:"statements"`
 }
 
@@ -10141,7 +10141,7 @@ type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementI
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrayInput `pulumi:"statements"`
 }
 
@@ -10222,7 +10222,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStateme
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementPtrOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementOutput) Statements() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement) []WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
 		return v.Statements
@@ -10253,7 +10253,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStateme
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementPtrOutput) Statements() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement) []WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
 		if v == nil {
@@ -14908,8 +14908,8 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatch
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement struct {
-	// Single statement to negate. Exactly one statement must be specified.
-	Statement *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement `pulumi:"statement"`
+	// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+	Statement WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement `pulumi:"statement"`
 }
 
 // WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs and WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementOutput values.
@@ -14924,8 +14924,8 @@ type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementI
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs struct {
-	// Single statement to negate. Exactly one statement must be specified.
-	Statement WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrInput `pulumi:"statement"`
+	// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+	Statement WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementInput `pulumi:"statement"`
 }
 
 func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs) ElementType() reflect.Type {
@@ -15005,11 +15005,11 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStateme
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementPtrOutput)
 }
 
-// Single statement to negate. Exactly one statement must be specified.
-func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementOutput) Statement() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement) *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
+// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementOutput) Statement() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
 		return v.Statement
-	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput)
+	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOutput)
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementPtrOutput struct{ *pulumi.OutputState }
@@ -15036,18 +15036,18 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStateme
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementOutput)
 }
 
-// Single statement to negate. Exactly one statement must be specified.
+// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementPtrOutput) Statement() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement) *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
 		if v == nil {
 			return nil
 		}
-		return v.Statement
+		return &v.Statement
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput)
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements []WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement `pulumi:"statements"`
 }
 
@@ -15063,7 +15063,7 @@ type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementIn
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrayInput `pulumi:"statements"`
 }
 
@@ -15144,7 +15144,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatemen
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementPtrOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementOutput) Statements() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement) []WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
 		return v.Statements
@@ -15175,7 +15175,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatemen
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementPtrOutput) Statements() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement) []WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
 		if v == nil {
@@ -32580,8 +32580,8 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchSt
 }
 
 type WebAclRuleStatementNotStatement struct {
-	// Single statement to negate. Exactly one statement must be specified.
-	Statement *WebAclRuleStatement `pulumi:"statement"`
+	// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+	Statement WebAclRuleStatement `pulumi:"statement"`
 }
 
 // WebAclRuleStatementNotStatementInput is an input type that accepts WebAclRuleStatementNotStatementArgs and WebAclRuleStatementNotStatementOutput values.
@@ -32596,8 +32596,8 @@ type WebAclRuleStatementNotStatementInput interface {
 }
 
 type WebAclRuleStatementNotStatementArgs struct {
-	// Single statement to negate. Exactly one statement must be specified.
-	Statement WebAclRuleStatementPtrInput `pulumi:"statement"`
+	// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+	Statement WebAclRuleStatementInput `pulumi:"statement"`
 }
 
 func (WebAclRuleStatementNotStatementArgs) ElementType() reflect.Type {
@@ -32677,9 +32677,9 @@ func (o WebAclRuleStatementNotStatementOutput) ToWebAclRuleStatementNotStatement
 	}).(WebAclRuleStatementNotStatementPtrOutput)
 }
 
-// Single statement to negate. Exactly one statement must be specified.
-func (o WebAclRuleStatementNotStatementOutput) Statement() WebAclRuleStatementPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementNotStatement) *WebAclRuleStatement { return v.Statement }).(WebAclRuleStatementPtrOutput)
+// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+func (o WebAclRuleStatementNotStatementOutput) Statement() WebAclRuleStatementOutput {
+	return o.ApplyT(func(v WebAclRuleStatementNotStatement) WebAclRuleStatement { return v.Statement }).(WebAclRuleStatementOutput)
 }
 
 type WebAclRuleStatementNotStatementPtrOutput struct{ *pulumi.OutputState }
@@ -32706,18 +32706,18 @@ func (o WebAclRuleStatementNotStatementPtrOutput) Elem() WebAclRuleStatementNotS
 	}).(WebAclRuleStatementNotStatementOutput)
 }
 
-// Single statement to negate. Exactly one statement must be specified.
+// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementNotStatementPtrOutput) Statement() WebAclRuleStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementNotStatement) *WebAclRuleStatement {
 		if v == nil {
 			return nil
 		}
-		return v.Statement
+		return &v.Statement
 	}).(WebAclRuleStatementPtrOutput)
 }
 
 type WebAclRuleStatementOrStatement struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements []WebAclRuleStatement `pulumi:"statements"`
 }
 
@@ -32733,7 +32733,7 @@ type WebAclRuleStatementOrStatementInput interface {
 }
 
 type WebAclRuleStatementOrStatementArgs struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements WebAclRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -32814,7 +32814,7 @@ func (o WebAclRuleStatementOrStatementOutput) ToWebAclRuleStatementOrStatementPt
 	}).(WebAclRuleStatementOrStatementPtrOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementOrStatementOutput) Statements() WebAclRuleStatementArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementOrStatement) []WebAclRuleStatement { return v.Statements }).(WebAclRuleStatementArrayOutput)
 }
@@ -32843,7 +32843,7 @@ func (o WebAclRuleStatementOrStatementPtrOutput) Elem() WebAclRuleStatementOrSta
 	}).(WebAclRuleStatementOrStatementOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementOrStatementPtrOutput) Statements() WebAclRuleStatementArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementOrStatement) []WebAclRuleStatement {
 		if v == nil {
@@ -35644,7 +35644,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatement struct {
 	SqliMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement `pulumi:"sqliMatchStatement"`
 	// Match requests that appear to contain cross-site scripting attacks.
 	//
-	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 	XssMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement `pulumi:"xssMatchStatement"`
 }
 
@@ -35686,7 +35686,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementArgs struct {
 	SqliMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
 	// Match requests that appear to contain cross-site scripting attacks.
 	//
-	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+	// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 	XssMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
 }
 
@@ -35878,7 +35878,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) SqliMatch
 
 // Match requests that appear to contain cross-site scripting attacks.
 //
-// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) XssMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
 		return v.XssMatchStatement
@@ -36031,7 +36031,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) SqliMa
 
 // Match requests that appear to contain cross-site scripting attacks.
 //
-// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+// > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) XssMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
 		if v == nil {
@@ -36062,7 +36062,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementArrayOutput) Inde
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements []WebAclRuleStatementRateBasedStatementScopeDownStatement `pulumi:"statements"`
 }
 
@@ -36078,7 +36078,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementInput in
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements WebAclRuleStatementRateBasedStatementScopeDownStatementArrayInput `pulumi:"statements"`
 }
 
@@ -36159,7 +36159,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutpu
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) Statements() WebAclRuleStatementRateBasedStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatement {
 		return v.Statements
@@ -36190,7 +36190,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOu
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput) Statements() WebAclRuleStatementRateBasedStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatement {
 		if v == nil {
@@ -40845,8 +40845,8 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStateme
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement struct {
-	// Single statement to negate. Exactly one statement must be specified.
-	Statement *WebAclRuleStatementRateBasedStatementScopeDownStatement `pulumi:"statement"`
+	// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+	Statement WebAclRuleStatementRateBasedStatementScopeDownStatement `pulumi:"statement"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementOutput values.
@@ -40861,8 +40861,8 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementInput in
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs struct {
-	// Single statement to negate. Exactly one statement must be specified.
-	Statement WebAclRuleStatementRateBasedStatementScopeDownStatementPtrInput `pulumi:"statement"`
+	// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+	Statement WebAclRuleStatementRateBasedStatementScopeDownStatementInput `pulumi:"statement"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs) ElementType() reflect.Type {
@@ -40942,11 +40942,11 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementOutpu
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput)
 }
 
-// Single statement to negate. Exactly one statement must be specified.
-func (o WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementOutput) Statement() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatement {
+// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementOutput) Statement() WebAclRuleStatementRateBasedStatementScopeDownStatementOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement) WebAclRuleStatementRateBasedStatementScopeDownStatement {
 		return v.Statement
-	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput)
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementOutput)
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput struct{ *pulumi.OutputState }
@@ -40973,18 +40973,18 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOu
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementOutput)
 }
 
-// Single statement to negate. Exactly one statement must be specified.
+// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput) Statement() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatement {
 		if v == nil {
 			return nil
 		}
-		return v.Statement
+		return &v.Statement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput)
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements []WebAclRuleStatementRateBasedStatementScopeDownStatement `pulumi:"statements"`
 }
 
@@ -41000,7 +41000,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementInput int
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs struct {
-	// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+	// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 	Statements WebAclRuleStatementRateBasedStatementScopeDownStatementArrayInput `pulumi:"statements"`
 }
 
@@ -41081,7 +41081,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementOutput
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementOutput) Statements() WebAclRuleStatementRateBasedStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatement {
 		return v.Statements
@@ -41112,7 +41112,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOut
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementOutput)
 }
 
-// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+// List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput) Statements() WebAclRuleStatementRateBasedStatementScopeDownStatementArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatement {
 		if v == nil {

@@ -5,25 +5,24 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
     /**
-     * @return Single statement to negate. Exactly one statement must be specified.
+     * @return Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement;
+    private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement() {}
     /**
-     * @return Single statement to negate. Exactly one statement must be specified.
+     * @return Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statement() {
-        return Optional.ofNullable(this.statement);
+    public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement() {
+        return this.statement;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement;
+        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         @CustomType.Setter
-        public Builder statement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement) {
-
+        public Builder statement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement) {
+            if (statement == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement", "statement");
+            }
             this.statement = statement;
             return this;
         }

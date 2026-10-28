@@ -130638,16 +130638,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
          */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementXssMatchStatement;
     }
 
     export interface WebAclRuleStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatement[];
+        statements: outputs.wafv2.WebAclRuleStatement[];
     }
 
     export interface WebAclRuleStatementAsnMatchStatement {
@@ -131400,16 +131400,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement {
@@ -131735,16 +131735,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
+        statement: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement {
@@ -132917,16 +132917,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: outputs.wafv2.WebAclRuleStatement;
+        statement: outputs.wafv2.WebAclRuleStatement;
     }
 
     export interface WebAclRuleStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatement[];
+        statements: outputs.wafv2.WebAclRuleStatement[];
     }
 
     export interface WebAclRuleStatementRateBasedStatement {
@@ -133187,16 +133187,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement {
@@ -133522,16 +133522,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement;
+        statement: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {

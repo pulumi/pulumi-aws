@@ -5,25 +5,25 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementOrStatement {
     /**
-     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * @return List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    private @Nullable List<WebAclRuleStatement> statements;
+    private List<WebAclRuleStatement> statements;
 
     private WebAclRuleStatementOrStatement() {}
     /**
-     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * @return List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
     public List<WebAclRuleStatement> statements() {
-        return this.statements == null ? List.of() : this.statements;
+        return this.statements;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementOrStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<WebAclRuleStatement> statements;
+        private List<WebAclRuleStatement> statements;
         public Builder() {}
         public Builder(WebAclRuleStatementOrStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class WebAclRuleStatementOrStatement {
         }
 
         @CustomType.Setter
-        public Builder statements(@Nullable List<WebAclRuleStatement> statements) {
-
+        public Builder statements(List<WebAclRuleStatement> statements) {
+            if (statements == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementOrStatement", "statements");
+            }
             this.statements = statements;
             return this;
         }

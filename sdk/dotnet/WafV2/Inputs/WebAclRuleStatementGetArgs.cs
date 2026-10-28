@@ -105,7 +105,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         /// <summary>
         /// Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
         /// 
-        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `ManagedRuleGroupStatement`, `RateBasedStatement` and `RuleGroupReferenceStatement` can only be used at the top level of a rule's `Statement`, not inside a logical statement.
         /// </summary>
         [Input("xssMatchStatement")]
         public Input<Inputs.WebAclRuleStatementXssMatchStatementGetArgs>? XssMatchStatement { get; set; }
