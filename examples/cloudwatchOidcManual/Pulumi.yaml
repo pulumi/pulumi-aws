@@ -1,3 +1,0 @@
-name: CloudWatchOidcManual
-runtime: nodejs
-description: A simple example of using the `CloudWatch` APIs, with manual OIDC auth.

@@ -1,4 +1,0 @@
-The AWS SSO session for {{.ProfileLabel}} has expired or was not found.
-Run `aws sso login{{.ProfileFlag}}` to sign in again, then retry.
-You can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run `pulumi env setup aws`.
-Learn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc
