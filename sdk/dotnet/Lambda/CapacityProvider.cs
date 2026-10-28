@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Lambda
     ///                     new Aws.Lambda.Inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs
     ///                     {
     ///                         PredefinedMetricType = "LambdaCapacityProviderAverageCPUUtilization",
-    ///                         TargetValue = 50,
+    ///                         TargetValue = 50.0,
     ///                     },
     ///                 },
     ///             },

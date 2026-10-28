@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AttachmentRoutingPolicyLabel("example", AttachmentRoutingPolicyLabelArgs.builder()
- *             .coreNetworkId(exampleAwsNetworkmanagerCoreNetwork.id())
- *             .attachmentId(exampleAwsNetworkmanagerVpcAttachment.id())
+ *             .coreNetworkId(exampleAwsNetworkmanagerCoreNetwork.get("id"))
+ *             .attachmentId(exampleAwsNetworkmanagerVpcAttachment.get("id"))
  *             .routingPolicyLabel("attachmentPolicyLabel")
  *             .build());
  * 

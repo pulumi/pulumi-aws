@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HubContentReference("example", HubContentReferenceArgs.builder()
- *             .hubName(exampleAwsSagemakerHub.hubName())
+ *             .hubName(exampleAwsSagemakerHub.get("hubName"))
  *             .hubContentName("example-llama")
  *             .sagemakerPublicHubContentArn("arn:aws:sagemaker:us-east-1:aws:hub-content/SageMakerPublicHub/Model/meta-textgeneration-llama-3-1-8b-instruct")
  *             .minVersion("1.0.0")

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Integration("example", IntegrationArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .apiId(exampleAwsApigatewayv2Api.get("id"))
  *             .integrationType("MOCK")
  *             .build());
  * 
@@ -89,13 +89,13 @@ import javax.annotation.Nullable;
  *         var example = new Function("example", FunctionArgs.builder()
  *             .code(new FileArchive("example.zip"))
  *             .name("Example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .build());
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .apiId(exampleAwsApigatewayv2Api.get("id"))
  *             .integrationType("AWS_PROXY")
  *             .connectionType("INTERNET")
  *             .contentHandlingStrategy("CONVERT_TO_TEXT")
@@ -135,8 +135,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Integration("example", IntegrationArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .credentialsArn(exampleAwsIamRole.arn())
+ *             .apiId(exampleAwsApigatewayv2Api.get("id"))
+ *             .credentialsArn(exampleAwsIamRole.get("arn"))
  *             .description("SQS example")
  *             .integrationType("AWS_PROXY")
  *             .integrationSubtype("SQS-SendMessage")
@@ -190,14 +190,14 @@ import javax.annotation.Nullable;
  *                     .statusCode("200")
  *                     .mappings(Map.of("overwrite:statuscode", "204"))
  *                     .build())
- *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .credentialsArn(exampleAwsIamRole.arn())
+ *             .apiId(exampleAwsApigatewayv2Api.get("id"))
+ *             .credentialsArn(exampleAwsIamRole.get("arn"))
  *             .description("Example with a load balancer")
  *             .integrationType("HTTP_PROXY")
- *             .integrationUri(exampleAwsLbListener.arn())
+ *             .integrationUri(exampleAwsLbListener.get("arn"))
  *             .integrationMethod("ANY")
  *             .connectionType("VPC_LINK")
- *             .connectionId(exampleAwsApigatewayv2VpcLink.id())
+ *             .connectionId(exampleAwsApigatewayv2VpcLink.get("id"))
  *             .requestParameters(Map.ofEntries(
  *                 Map.entry("append:header.authforintegration", "$context.authorizer.authorizerResponse"),
  *                 Map.entry("overwrite:path", "staticValueForIntegration")

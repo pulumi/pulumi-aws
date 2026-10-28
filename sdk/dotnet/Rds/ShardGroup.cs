@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         DbShardGroupIdentifier = "example-shard-group",
     ///         DbClusterIdentifier = example.Id,
-    ///         MaxAcu = 1200,
+    ///         MaxAcu = 1200.0,
     ///     });
     /// 
     /// });

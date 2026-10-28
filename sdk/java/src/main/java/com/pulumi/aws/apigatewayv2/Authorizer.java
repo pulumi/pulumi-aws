@@ -49,9 +49,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Authorizer("example", AuthorizerArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .apiId(exampleAwsApigatewayv2Api.get("id"))
  *             .authorizerType("REQUEST")
- *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())
+ *             .authorizerUri(exampleAwsLambdaFunction.get("invokeArn"))
  *             .identitySources("route.request.header.Auth")
  *             .name("example-authorizer")
  *             .build());
@@ -86,9 +86,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Authorizer("example", AuthorizerArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .apiId(exampleAwsApigatewayv2Api.get("id"))
  *             .authorizerType("REQUEST")
- *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())
+ *             .authorizerUri(exampleAwsLambdaFunction.get("invokeArn"))
  *             .identitySources("$request.header.Authorization")
  *             .name("example-authorizer")
  *             .authorizerPayloadFormatVersion("2.0")

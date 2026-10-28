@@ -152,8 +152,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .targetTable(DataQualityRulesetTargetTableArgs.builder()
- *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
- *                 .tableName(exampleAwsGlueCatalogTable.name())
+ *                 .databaseName(exampleAwsGlueCatalogDatabase.get("name"))
+ *                 .tableName(exampleAwsGlueCatalogTable.get("name"))
  *                 .build())
  *             .name("example")
  *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")

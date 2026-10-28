@@ -55,8 +55,8 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewHostedPrivateVirtualInterfaceAccepter(ctx, "accepter", &directconnect.HostedPrivateVirtualInterfaceAccepterArgs{
-//				VirtualInterfaceId: creator.ID().ToIDOutput().ToStringOutput(),
-//				VpnGatewayId:       vpnGw.ID().ToIDOutput().ToStringOutput(),
+//				VirtualInterfaceId: creator.ID(),
+//				VpnGatewayId:       vpnGw.ID(),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},

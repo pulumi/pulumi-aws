@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TestGridProject("example", TestGridProjectArgs.builder()
  *             .vpcConfig(TestGridProjectVpcConfigArgs.builder()
- *                 .vpcId(exampleAwsVpc.id())
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .securityGroupIds(exampleAwsSecurityGroup.stream().map(element -> element.id()).collect(toList()))
+ *                 .vpcId(exampleAwsVpc.get("id"))
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.stream().map(element -> element.get("id")).collect(toList()))
  *                 .build())
  *             .name("example")
  *             .build());

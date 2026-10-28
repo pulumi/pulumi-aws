@@ -95,7 +95,7 @@ import (
 //					AuthProviders: appsync.ApiEventConfigAuthProviderArray{
 //						&appsync.ApiEventConfigAuthProviderArgs{
 //							CognitoConfig: &appsync.ApiEventConfigAuthProviderCognitoConfigArgs{
-//								UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
+//								UserPoolId: example.ID(),
 //								AwsRegion:  pulumi.String(current.Region),
 //							},
 //							AuthType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),

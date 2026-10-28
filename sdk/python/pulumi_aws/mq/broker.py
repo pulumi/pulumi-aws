@@ -909,7 +909,7 @@ class Broker(pulumi.CustomResource):
         example = aws.mq.Broker("example",
             configuration={
                 "id": test["id"],
-                "revision": int(test["latestRevision"]),
+                "revision": test["latestRevision"],
             },
             users=[{
                 "username": "example_user",
@@ -931,7 +931,7 @@ class Broker(pulumi.CustomResource):
         example = aws.mq.Broker("example",
             configuration={
                 "id": test["id"],
-                "revision": int(test["latestRevision"]),
+                "revision": test["latestRevision"],
             },
             users=[{
                 "username": "example_user",
@@ -1060,7 +1060,7 @@ class Broker(pulumi.CustomResource):
         example = aws.mq.Broker("example",
             configuration={
                 "id": test["id"],
-                "revision": int(test["latestRevision"]),
+                "revision": test["latestRevision"],
             },
             users=[{
                 "username": "example_user",
@@ -1082,7 +1082,7 @@ class Broker(pulumi.CustomResource):
         example = aws.mq.Broker("example",
             configuration={
                 "id": test["id"],
-                "revision": int(test["latestRevision"]),
+                "revision": test["latestRevision"],
             },
             users=[{
                 "username": "example_user",

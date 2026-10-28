@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AccessEntry("example", AccessEntryArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
- *             .principalArn(exampleAwsIamRole.arn())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
+ *             .principalArn(exampleAwsIamRole.get("arn"))
  *             .kubernetesGroups(            
  *                 "group-1",
  *                 "group-2")

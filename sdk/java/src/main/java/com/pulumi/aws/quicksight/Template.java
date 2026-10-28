@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         var example = new Template("example", TemplateArgs.builder()
  *             .sourceEntity(TemplateSourceEntityArgs.builder()
  *                 .sourceTemplate(TemplateSourceEntitySourceTemplateArgs.builder()
- *                     .arn(source.arn())
+ *                     .arn(source.get("arn"))
  *                     .build())
  *                 .build())
  *             .templateId("example-id")

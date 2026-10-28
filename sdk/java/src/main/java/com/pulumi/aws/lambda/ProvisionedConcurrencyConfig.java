@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProvisionedConcurrencyConfig("example", ProvisionedConcurrencyConfigArgs.builder()
- *             .functionName(exampleAwsLambdaAlias.functionName())
+ *             .functionName(exampleAwsLambdaAlias.get("functionName"))
  *             .provisionedConcurrentExecutions(1)
- *             .qualifier(exampleAwsLambdaAlias.name())
+ *             .qualifier(exampleAwsLambdaAlias.get("name"))
  *             .build());
  * 
  *     }
@@ -83,9 +83,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProvisionedConcurrencyConfig("example", ProvisionedConcurrencyConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionName(exampleAwsLambdaFunction.get("functionName"))
  *             .provisionedConcurrentExecutions(1)
- *             .qualifier(exampleAwsLambdaFunction.version())
+ *             .qualifier(exampleAwsLambdaFunction.get("version"))
  *             .build());
  * 
  *     }

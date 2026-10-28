@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GroupPolicyAttachmentsExclusive("example", GroupPolicyAttachmentsExclusiveArgs.builder()
- *             .groupName(exampleAwsIamGroup.name())
- *             .policyArns(exampleAwsIamPolicy.arn())
+ *             .groupName(exampleAwsIamGroup.get("name"))
+ *             .policyArns(exampleAwsIamPolicy.get("arn"))
  *             .build());
  * 
  *     }
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GroupPolicyAttachmentsExclusive("example", GroupPolicyAttachmentsExclusiveArgs.builder()
- *             .groupName(exampleAwsIamGroup.name())
+ *             .groupName(exampleAwsIamGroup.get("name"))
  *             .policyArns()
  *             .build());
  * 

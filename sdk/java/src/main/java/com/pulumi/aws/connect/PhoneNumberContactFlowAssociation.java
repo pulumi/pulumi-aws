@@ -41,9 +41,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PhoneNumberContactFlowAssociation("example", PhoneNumberContactFlowAssociationArgs.builder()
- *             .phoneNumberId(exampleAwsConnectPhoneNumber.id())
- *             .instanceId(exampleAwsConnectInstance.id())
- *             .contactFlowId(exampleAwsConnectContactFlow.contactFlowId())
+ *             .phoneNumberId(exampleAwsConnectPhoneNumber.get("id"))
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
+ *             .contactFlowId(exampleAwsConnectContactFlow.get("contactFlowId"))
  *             .build());
  * 
  *     }

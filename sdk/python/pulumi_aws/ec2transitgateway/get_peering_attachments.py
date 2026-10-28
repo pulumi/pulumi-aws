@@ -108,7 +108,7 @@ def get_peering_attachments(filters: Optional[Sequence[Union['GetPeeringAttachme
         "name": "state",
         "values": ["pendingAcceptance"],
     }])
-    unit = [aws.ec2transitgateway.get_peering_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
+    unit = range(len(filtered.ids)).apply(lambda range: [aws.ec2transitgateway.get_peering_attachment(id=filtered.ids[__index]) for __index in range])
     ```
 
 
@@ -153,7 +153,7 @@ def get_peering_attachments_output(filters: pulumi.Input[Optional[Optional[Seque
         "name": "state",
         "values": ["pendingAcceptance"],
     }])
-    unit = [aws.ec2transitgateway.get_peering_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
+    unit = range(len(filtered.ids)).apply(lambda range: [aws.ec2transitgateway.get_peering_attachment(id=filtered.ids[__index]) for __index in range])
     ```
 
 

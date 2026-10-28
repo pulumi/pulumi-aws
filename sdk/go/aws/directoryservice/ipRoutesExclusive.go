@@ -58,7 +58,7 @@ import (
 // Description: pulumi.String("Peered VPC"),
 // },
 // },
-// DirectoryId: example.ID().ToIDOutput().ToStringOutput(),
+// DirectoryId: example.ID(),
 // UpdateSecurityGroupForDirectoryControllers: pulumi.Bool(true),
 // })
 // if err != nil {

@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceAssociation("example", ResourceAssociationArgs.builder()
- *             .resourceArn(exampleAwsSubnet.arn())
- *             .resourceShareArn(exampleAwsRamResourceShare.arn())
+ *             .resourceArn(exampleAwsSubnet.get("arn"))
+ *             .resourceShareArn(exampleAwsRamResourceShare.get("arn"))
  *             .build());
  * 
  *     }

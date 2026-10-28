@@ -28,7 +28,7 @@ namespace Pulumi.Aws.AppConfig
     ///         Description = "Example Deployment Strategy",
     ///         DeploymentDurationInMinutes = 3,
     ///         FinalBakeTimeInMinutes = 4,
-    ///         GrowthFactor = 10,
+    ///         GrowthFactor = 10.0,
     ///         GrowthType = "LINEAR",
     ///         ReplicateTo = "NONE",
     ///         Tags = 

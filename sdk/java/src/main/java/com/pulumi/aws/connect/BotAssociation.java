@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *                 .lexRegion("us-west-2")
  *                 .name("Test")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .build());
  * 
  *     }
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *                 .lexRegion(current.region())
  *                 .name(exampleBot.name())
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .build());
  * 
  *     }

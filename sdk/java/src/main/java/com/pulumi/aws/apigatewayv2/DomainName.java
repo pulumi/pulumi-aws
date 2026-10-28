@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DomainName("example", DomainNameArgs.builder()
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(exampleAwsAcmCertificate.arn())
+ *                 .certificateArn(exampleAwsAcmCertificate.get("arn"))
  *                 .endpointType("REGIONAL")
  *                 .securityPolicy("TLS_1_2")
  *                 .build())
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DomainName("example", DomainNameArgs.builder()
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(exampleAwsAcmCertificate.arn())
+ *                 .certificateArn(exampleAwsAcmCertificate.get("arn"))
  *                 .endpointType("REGIONAL")
  *                 .securityPolicy("TLS_1_2")
  *                 .build())
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name(example.domainName())
  *             .type("A")
- *             .zoneId(exampleAwsRoute53Zone.zoneId())
+ *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
  *             .build());
  * 
  *     }

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
         ///     {
         ///         Filters = new[]
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     // get the details of each resource
-        ///     var pc = ;
+        ///     var pc = _arg1_;
         /// 
         /// });
         /// ```
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
         ///     {
         ///         Filters = new[]
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     // get the details of each resource
-        ///     var pc = ;
+        ///     var pc = _arg1_;
         /// 
         /// });
         /// ```
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
         ///     {
         ///         Filters = new[]
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     // get the details of each resource
-        ///     var pc = ;
+        ///     var pc = _arg1_;
         /// 
         /// });
         /// ```

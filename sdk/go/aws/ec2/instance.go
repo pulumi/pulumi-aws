@@ -183,7 +183,7 @@ import (
 //				return err
 //			}
 //			mySubnet, err := ec2.NewSubnet(ctx, "my_subnet", &ec2.SubnetArgs{
-//				VpcId:            myVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            myVpc.ID(),
 //				CidrBlock:        pulumi.String("172.16.10.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				Tags: pulumi.StringMap{
@@ -194,7 +194,7 @@ import (
 //				return err
 //			}
 //			example, err := ec2.NewNetworkInterface(ctx, "example", &ec2.NetworkInterfaceArgs{
-//				SubnetId: mySubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId: mySubnet.ID(),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("172.16.10.100"),
 //				},
@@ -207,7 +207,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 //				PrimaryNetworkInterface: &ec2.InstancePrimaryNetworkInterfaceArgs{
-//					NetworkInterfaceId: example.ID().ToIDOutput().ToStringOutput(),
+//					NetworkInterfaceId: example.ID(),
 //				},
 //				CreditSpecification: &ec2.InstanceCreditSpecificationArgs{
 //					CpuCredits: pulumi.String("unlimited"),
@@ -248,7 +248,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            example.ID(),
 //				CidrBlock:        pulumi.String("172.16.10.0/24"),
 //				AvailabilityZone: pulumi.String("us-east-2a"),
 //				Tags: pulumi.StringMap{
@@ -282,7 +282,7 @@ import (
 //				},
 //				Ami:          pulumi.String(amzn_linux_2023_ami.Id),
 //				InstanceType: pulumi.String(ec2.InstanceType_C6a_2XLarge),
-//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:     exampleSubnet.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-example"),
 //				},

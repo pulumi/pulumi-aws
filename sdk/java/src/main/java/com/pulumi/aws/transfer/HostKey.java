@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HostKey("example", HostKeyArgs.builder()
- *             .serverId(exampleAwsTransferServer.id())
+ *             .serverId(exampleAwsTransferServer.get("id"))
  *             .description("example additional host key")
  *             .hostKeyBodyWo("""
  * # Private key PEM.

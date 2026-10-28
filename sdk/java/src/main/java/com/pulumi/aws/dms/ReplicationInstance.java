@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *             .publiclyAccessible(true)
  *             .replicationInstanceClass("dms.t3.micro")
  *             .replicationInstanceId("test-dms-replication-instance-tf")
- *             .replicationSubnetGroupId(test_dms_replication_subnet_group_tf.id())
+ *             .replicationSubnetGroupId(test_dms_replication_subnet_group_tf.get("id"))
  *             .tags(Map.of("Name", "test"))
  *             .vpcSecurityGroupIds("sg-12345678")
  *             .build(), CustomResourceOptions.builder()

@@ -48,11 +48,11 @@ import (
 //			_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
 //				Connectors: chime.VoiceConnectorGroupConnectorArray{
 //					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc1.ID().ToIDOutput().ToStringOutput(),
+//						VoiceConnectorId: vc1.ID(),
 //						Priority:         pulumi.Int(1),
 //					},
 //					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc2.ID().ToIDOutput().ToStringOutput(),
+//						VoiceConnectorId: vc2.ID(),
 //						Priority:         pulumi.Int(3),
 //					},
 //				},

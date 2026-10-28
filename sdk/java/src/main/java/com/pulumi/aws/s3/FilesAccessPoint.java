@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *                 .gid(1001)
  *                 .uid(1001)
  *                 .build())
- *             .fileSystemId(exampleAwsS3filesFileSystem.id())
+ *             .fileSystemId(exampleAwsS3filesFileSystem.get("id"))
  *             .build());
  * 
  *     }

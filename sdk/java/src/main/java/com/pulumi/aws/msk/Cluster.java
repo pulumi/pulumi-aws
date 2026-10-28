@@ -266,10 +266,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .instanceType("kafka.m5.4xlarge")
  *                 .clientSubnets(                
- *                     subnetAz1.id(),
- *                     subnetAz2.id(),
- *                     subnetAz3.id())
- *                 .securityGroups(sg.id())
+ *                     subnetAz1.get("id"),
+ *                     subnetAz2.get("id"),
+ *                     subnetAz3.get("id"))
+ *                 .securityGroups(sg.get("id"))
  *                 .build())
  *             .clusterName("example")
  *             .kafkaVersion("3.8.x")

@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  *         var example = new KeyRegistration("example", KeyRegistrationArgs.builder()
  *             .keyRegistrations(            
  *                 KeyRegistrationKeyRegistrationArgs.builder()
- *                     .keyArn(example1.arn())
+ *                     .keyArn(example1.get("arn"))
  *                     .build(),
  *                 KeyRegistrationKeyRegistrationArgs.builder()
- *                     .keyArn(example2.arn())
+ *                     .keyArn(example2.get("arn"))
  *                     .defaultKey(true)
  *                     .build())
  *             .build());

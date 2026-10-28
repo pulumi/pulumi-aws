@@ -75,7 +75,7 @@ import (
 //				return err
 //			}
 //			source, err := iam.NewRolePolicy(ctx, "source", &iam.RolePolicyArgs{
-//				Role: example.ID().ToIDOutput().ToStringOutput(),
+//				Role: example.ID(),
 //				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -109,7 +109,7 @@ import (
 //				return err
 //			}
 //			target, err := iam.NewRolePolicy(ctx, "target", &iam.RolePolicyArgs{
-//				Role: example.ID().ToIDOutput().ToStringOutput(),
+//				Role: example.ID(),
 //				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{

@@ -43,7 +43,7 @@ import (
 //			_, err = waf.NewRateBasedRule(ctx, "wafrule", &waf.RateBasedRuleArgs{
 //				Predicates: waf.RateBasedRulePredicateArray{
 //					&waf.RateBasedRulePredicateArgs{
-//						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
+//						DataId:  ipset.ID(),
 //						Negated: pulumi.Bool(false),
 //						Type:    pulumi.String("IPMatch"),
 //					},

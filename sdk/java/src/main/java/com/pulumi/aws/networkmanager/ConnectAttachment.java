@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.get("id"))
+ *             .vpcArn(exampleAwsVpc.get("arn"))
  *             .build());
  * 
  *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
  *             .options(ConnectAttachmentOptionsArgs.builder()
  *                 .protocol("GRE")
  *                 .build())
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.get("id"))
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
  *             .build());
@@ -102,9 +102,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.get("id"))
+ *             .vpcArn(exampleAwsVpc.get("arn"))
  *             .build());
  * 
  *         var exampleAttachmentAccepter = new AttachmentAccepter("exampleAttachmentAccepter", AttachmentAccepterArgs.builder()
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *             .options(ConnectAttachmentOptionsArgs.builder()
  *                 .protocol("GRE")
  *                 .build())
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.get("id"))
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
  *             .build(), CustomResourceOptions.builder()

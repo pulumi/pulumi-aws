@@ -53,16 +53,16 @@ import javax.annotation.Nullable;
  *             .configuration(ExperienceConfigurationArgs.builder()
  *                 .contentSourceConfiguration(ExperienceConfigurationContentSourceConfigurationArgs.builder()
  *                     .directPutContent(true)
- *                     .faqIds(exampleAwsKendraFaq.faqId())
+ *                     .faqIds(exampleAwsKendraFaq.get("faqId"))
  *                     .build())
  *                 .userIdentityConfiguration(ExperienceConfigurationUserIdentityConfigurationArgs.builder()
  *                     .identityAttributeName("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245")
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .description("My Kendra Experience")
  *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *         var foo = new VpcEndpoint("foo", VpcEndpointArgs.builder()
  *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
  *                 .securityGroupIds(                
- *                     test.id(),
- *                     test2.id())
+ *                     test.get("id"),
+ *                     test2.get("id"))
  *                 .subnetIds(                
- *                     testAwsSubnet.id(),
- *                     test2AwsSubnet.id())
+ *                     testAwsSubnet.get("id"),
+ *                     test2AwsSubnet.get("id"))
  *                 .build())
- *             .domainArn(domain1.arn())
+ *             .domainArn(domain1.get("arn"))
  *             .build());
  * 
  *     }

@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example")
  *             .description("example")
- *             .kmsKey(test.arn())
+ *             .kmsKey(test.get("arn"))
  *             .sourceUri("Salesforce://AppFlow/example")
  *             .tags(Map.of("Key1", "Value1"))
  *             .build());

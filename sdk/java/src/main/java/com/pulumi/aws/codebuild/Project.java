@@ -137,8 +137,8 @@ import javax.annotation.Nullable;
  *                             .test("StringEquals")
  *                             .variable("ec2:Subnet")
  *                             .values(                            
- *                                 example1.arn(),
- *                                 example2.arn())
+ *                                 example1.get("arn"),
+ *                                 example2.get("arn"))
  *                             .build(),
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
@@ -214,13 +214,13 @@ import javax.annotation.Nullable;
  *                 .gitCloneDepth(1)
  *                 .build())
  *             .vpcConfig(ProjectVpcConfigArgs.builder()
- *                 .vpcId(exampleAwsVpc.id())
+ *                 .vpcId(exampleAwsVpc.get("id"))
  *                 .subnets(                
- *                     example1.id(),
- *                     example2.id())
+ *                     example1.get("id"),
+ *                     example2.get("id"))
  *                 .securityGroupIds(                
- *                     example1AwsSecurityGroup.id(),
- *                     example2AwsSecurityGroup.id())
+ *                     example1AwsSecurityGroup.get("id"),
+ *                     example2AwsSecurityGroup.get("id"))
  *                 .build())
  *             .name("test-project")
  *             .description("test_codebuild_project")

@@ -98,7 +98,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "parent_test", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: parent.ID().ToIDOutput().ToStringOutput(),
+//				IpamPoolId: parent.ID(),
 //				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
@@ -108,13 +108,13 @@ import (
 //				AddressFamily:    pulumi.String("ipv4"),
 //				IpamScopeId:      example.PrivateDefaultScopeId,
 //				Locale:           pulumi.String(current.Region),
-//				SourceIpamPoolId: parent.ID().ToIDOutput().ToStringOutput(),
+//				SourceIpamPoolId: parent.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "child_test", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: child.ID().ToIDOutput().ToStringOutput(),
+//				IpamPoolId: child.ID(),
 //				Cidr:       pulumi.String("172.20.0.0/24"),
 //			})
 //			if err != nil {
@@ -170,7 +170,7 @@ import (
 //				return err
 //			}
 //			testVpc, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    test.ID().ToIDOutput().ToStringOutput(),
+//				Ipv4IpamPoolId:    test.ID(),
 //				Ipv4NetmaskLength: pulumi.Int(24),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				testVpcIpamPoolCidr,
@@ -180,7 +180,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcIpamPool(ctx, "vpc", &ec2.VpcIpamPoolArgs{
 //				SourceResource: &ec2.VpcIpamPoolSourceResourceArgs{
-//					ResourceId:     testVpc.ID().ToIDOutput().ToStringOutput(),
+//					ResourceId:     testVpc.ID(),
 //					ResourceOwner:  pulumi.Any(currentAwsCallerIdentity.AccountId),
 //					ResourceRegion: pulumi.String(current.Region),
 //					ResourceType:   pulumi.String("vpc"),
@@ -188,7 +188,7 @@ import (
 //				AddressFamily:    pulumi.String("ipv4"),
 //				IpamScopeId:      pulumi.Any(testAwsVpcIpam.PrivateDefaultScopeId),
 //				Locale:           pulumi.String(current.Region),
-//				SourceIpamPoolId: test.ID().ToIDOutput().ToStringOutput(),
+//				SourceIpamPoolId: test.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VpcLink("example", VpcLinkArgs.builder()
  *             .name("example")
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .subnetIds(exampleAwsSubnets.ids())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *             .subnetIds(exampleAwsSubnets.get("ids"))
  *             .tags(Map.of("Usage", "example"))
  *             .build());
  * 

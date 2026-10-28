@@ -35,7 +35,7 @@ import (
 //				Filters: []ec2.GetInternetGatewayFilter{
 //					{
 //						Name: "attachment.vpc-id",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							vpcId,
 //						},
 //					},

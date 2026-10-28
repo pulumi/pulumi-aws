@@ -72,7 +72,7 @@ import (
 //					&ec2.GetInstanceFilterArgs{
 //						Name: pulumi.String("tag:aws:cloud9:environment"),
 //						Values: pulumi.StringArray{
-//							example.ID().ToIDOutput().ToStringOutput(),
+//							example.ID(),
 //						},
 //					},
 //				},
@@ -112,7 +112,7 @@ import (
 //					&ec2.GetInstanceFilterArgs{
 //						Name: pulumi.String("tag:aws:cloud9:environment"),
 //						Values: pulumi.StringArray{
-//							example.ID().ToIDOutput().ToStringOutput(),
+//							example.ID(),
 //						},
 //					},
 //				},

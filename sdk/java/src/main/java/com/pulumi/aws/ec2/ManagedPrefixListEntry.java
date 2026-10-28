@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var entry1 = new ManagedPrefixListEntry("entry1", ManagedPrefixListEntryArgs.builder()
- *             .cidr(exampleAwsVpc.cidrBlock())
+ *             .cidr(exampleAwsVpc.get("cidrBlock"))
  *             .description("Primary")
  *             .prefixListId(example.id())
  *             .build());

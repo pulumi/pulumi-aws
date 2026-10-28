@@ -50,9 +50,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Access("example", AccessArgs.builder()
  *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
- *             .serverId(exampleAwsTransferServer.id())
- *             .role(exampleAwsIamRole.arn())
- *             .homeDirectory(String.format("/%s/", exampleAwsS3Bucket.id()))
+ *             .serverId(exampleAwsTransferServer.get("id"))
+ *             .role(exampleAwsIamRole.get("arn"))
+ *             .homeDirectory(String.format("/%s/", exampleAwsS3Bucket.get("id")))
  *             .build());
  * 
  *     }
@@ -91,9 +91,9 @@ import javax.annotation.Nullable;
  *                 .uid(1000)
  *                 .build())
  *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
- *             .serverId(testAwsTransferServer.id())
- *             .role(testAwsIamRole.arn())
- *             .homeDirectory(String.format("/%s/", testAwsEfsFileSystem.id()))
+ *             .serverId(testAwsTransferServer.get("id"))
+ *             .role(testAwsIamRole.get("arn"))
+ *             .homeDirectory(String.format("/%s/", testAwsEfsFileSystem.get("id")))
  *             .build());
  * 
  *     }

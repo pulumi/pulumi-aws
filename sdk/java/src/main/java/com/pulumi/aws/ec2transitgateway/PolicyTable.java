@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyTable("example", PolicyTableArgs.builder()
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.get("id"))
  *             .tags(Map.of("Name", "Example Policy Table"))
  *             .build());
  * 

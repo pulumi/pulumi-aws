@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Topic("example", TopicArgs.builder()
  *             .name("Example")
- *             .clusterArn(exampleAwsMskCluster.arn())
+ *             .clusterArn(exampleAwsMskCluster.get("arn"))
  *             .partitionCount(2)
  *             .replicationFactor(2)
  *             .configs(serializeJson(

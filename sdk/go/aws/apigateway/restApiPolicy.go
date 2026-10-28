@@ -74,7 +74,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = apigateway.NewRestApiPolicy(ctx, "test", &apigateway.RestApiPolicyArgs{
-//				RestApiId: testRestApi.ID().ToIDOutput().ToStringOutput(),
+//				RestApiId: testRestApi.ID(),
 //				Policy:    test.Json(),
 //			})
 //			if err != nil {

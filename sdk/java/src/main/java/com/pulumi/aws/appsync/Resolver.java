@@ -121,9 +121,9 @@ import javax.annotation.Nullable;
  *         var mutationPipelineTest = new Resolver("mutationPipelineTest", ResolverArgs.builder()
  *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
  *                 .functions(                
- *                     test1.functionId(),
- *                     test2.functionId(),
- *                     test3.functionId())
+ *                     test1.get("functionId"),
+ *                     test2.get("functionId"),
+ *                     test3.get("functionId"))
  *                 .build())
  *             .type("Mutation")
  *             .apiId(test.id())
@@ -172,10 +172,10 @@ import javax.annotation.Nullable;
  *                 .runtimeVersion("1.0.0")
  *                 .build())
  *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
- *                 .functions(test.functionId())
+ *                 .functions(test.get("functionId"))
  *                 .build())
  *             .type("Query")
- *             .apiId(testAwsAppsyncGraphqlApi.id())
+ *             .apiId(testAwsAppsyncGraphqlApi.get("id"))
  *             .field("pipelineTest")
  *             .kind("PIPELINE")
  *             .code(StdFunctions.file(FileArgs.builder()

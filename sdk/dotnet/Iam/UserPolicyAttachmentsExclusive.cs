@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Iam
     ///     var example = new Aws.Iam.UserPolicyAttachmentsExclusive("example", new()
     ///     {
     ///         UserName = exampleAwsIamUser.Name,
-    ///         PolicyArns = new[] {},
+    ///         PolicyArns = new() {},
     ///     });
     /// 
     /// });

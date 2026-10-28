@@ -124,9 +124,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
  *             .userPoolConfig(GraphQLApiUserPoolConfigArgs.builder()
- *                 .awsRegion(current.region())
+ *                 .awsRegion(current.get("region"))
  *                 .defaultAction("DENY")
- *                 .userPoolId(exampleAwsCognitoUserPool.id())
+ *                 .userPoolId(exampleAwsCognitoUserPool.get("id"))
  *                 .build())
  *             .authenticationType("AMAZON_COGNITO_USER_POOLS")
  *             .name("example")

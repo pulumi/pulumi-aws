@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *                     .realtimeMetricsSubscriptionStatus("Enabled")
  *                     .build())
  *                 .build())
- *             .distributionId(exampleAwsCloudfrontDistribution.id())
+ *             .distributionId(exampleAwsCloudfrontDistribution.get("id"))
  *             .build());
  * 
  *     }

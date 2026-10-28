@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www = new Record("www", RecordArgs.builder()
- *             .zoneId(primary.zoneId())
+ *             .zoneId(primary.get("zoneId"))
  *             .name("www.example.com")
  *             .type("A")
  *             .ttl(300)
- *             .records(lb.publicIp())
+ *             .records(lb.get("publicIp"))
  *             .build());
  * 
  *     }
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(10)
  *                 .build())
- *             .zoneId(primary.zoneId())
+ *             .zoneId(primary.get("zoneId"))
  *             .name("www")
  *             .type("CNAME")
  *             .ttl(5)
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(90)
  *                 .build())
- *             .zoneId(primary.zoneId())
+ *             .zoneId(primary.get("zoneId"))
  *             .name("www")
  *             .type("CNAME")
  *             .ttl(5)
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *                     .longitude("-74.01")
  *                     .build())
  *                 .build())
- *             .zoneId(primary.zoneId())
+ *             .zoneId(primary.get("zoneId"))
  *             .name("www.example.com")
  *             .type("CNAME")
  *             .ttl(300)
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *                 .zoneId(main.zoneId())
  *                 .evaluateTargetHealth(true)
  *                 .build())
- *             .zoneId(primary.zoneId())
+ *             .zoneId(primary.get("zoneId"))
  *             .name("example.com")
  *             .type("A")
  *             .build());
@@ -268,7 +268,7 @@ import javax.annotation.Nullable;
  *                 .zoneId(main.hostedZoneId())
  *                 .evaluateTargetHealth(false)
  *                 .build())
- *             .zoneId(primary.zoneId())
+ *             .zoneId(primary.get("zoneId"))
  *             .name("example.com")
  *             .type("A")
  *             .build());
@@ -317,10 +317,10 @@ import javax.annotation.Nullable;
  *             .type("NS")
  *             .zoneId(example.zoneId())
  *             .records(            
- *                 example.nameServers().applyValue(_nameServers -> _nameServers[0]),
- *                 example.nameServers().applyValue(_nameServers -> _nameServers[1]),
- *                 example.nameServers().applyValue(_nameServers -> _nameServers[2]),
- *                 example.nameServers().applyValue(_nameServers -> _nameServers[3]))
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers.get(0)),
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers.get(1)),
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers.get(2)),
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers.get(3)))
  *             .build());
  * 
  *     }

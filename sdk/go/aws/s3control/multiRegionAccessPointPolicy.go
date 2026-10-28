@@ -54,7 +54,7 @@ import (
 //				Details: &s3control.MultiRegionAccessPointDetailsArgs{
 //					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
 //						&s3control.MultiRegionAccessPointDetailsRegionArgs{
-//							Bucket: fooBucket.ID().ToIDOutput().ToStringOutput(),
+//							Bucket: fooBucket.ID(),
 //						},
 //					},
 //					Name: pulumi.String("example"),
@@ -67,8 +67,8 @@ import (
 //				Details: &s3control.MultiRegionAccessPointPolicyDetailsArgs{
 //					Name: std.SplitOutput(ctx, std.SplitOutputArgs{
 //						Separator: pulumi.String(":"),
-//						Text:      example.ID().ToIDOutput().ToStringOutput(),
-//					}, nil).Result()[1],
+//						Text:      example.ID(),
+//					}, nil).Result()[1].(pulumi.String),
 //					Policy: example.Alias.ApplyT(func(alias string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{

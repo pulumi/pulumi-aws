@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ChannelNamespace("example", ChannelNamespaceArgs.builder()
  *             .name("example-channel-namespace")
- *             .apiId(exampleAwsAppsyncApi.apiId())
+ *             .apiId(exampleAwsAppsyncApi.get("apiId"))
  *             .build());
  * 
  *     }

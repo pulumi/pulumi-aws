@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sgEc2 = new SecurityGroupAssociation("sgEc2", SecurityGroupAssociationArgs.builder()
- *             .vpcEndpointId(ec2.id())
- *             .securityGroupId(sg.id())
+ *             .vpcEndpointId(ec2.get("id"))
+ *             .securityGroupId(sg.get("id"))
  *             .build());
  * 
  *     }

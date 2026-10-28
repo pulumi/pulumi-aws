@@ -200,27 +200,27 @@ import javax.annotation.Nullable;
  *                 .deploymentType("BLUE_GREEN")
  *                 .build())
  *             .ecsService(DeploymentGroupEcsServiceArgs.builder()
- *                 .clusterName(exampleAwsEcsCluster.name())
- *                 .serviceName(exampleAwsEcsService.name())
+ *                 .clusterName(exampleAwsEcsCluster.get("name"))
+ *                 .serviceName(exampleAwsEcsService.get("name"))
  *                 .build())
  *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
  *                 .targetGroupPairInfo(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs.builder()
  *                     .prodTrafficRoute(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs.builder()
- *                         .listenerArns(exampleAwsLbListener.arn())
+ *                         .listenerArns(exampleAwsLbListener.get("arn"))
  *                         .build())
  *                     .targetGroups(                    
  *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
- *                             .name(blue.name())
+ *                             .name(blue.get("name"))
  *                             .build(),
  *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
- *                             .name(green.name())
+ *                             .name(green.get("name"))
  *                             .build())
  *                     .build())
  *                 .build())
  *             .appName(example.name())
  *             .deploymentConfigName("CodeDeployDefault.ECSAllAtOnce")
  *             .deploymentGroupName("example")
- *             .serviceRoleArn(exampleAwsIamRole.arn())
+ *             .serviceRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -272,7 +272,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
  *                 .elbInfos(DeploymentGroupLoadBalancerInfoElbInfoArgs.builder()
- *                     .name(exampleAwsElb.name())
+ *                     .name(exampleAwsElb.get("name"))
  *                     .build())
  *                 .build())
  *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
@@ -289,7 +289,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .appName(example.name())
  *             .deploymentGroupName("example-group")
- *             .serviceRoleArn(exampleAwsIamRole.arn())
+ *             .serviceRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

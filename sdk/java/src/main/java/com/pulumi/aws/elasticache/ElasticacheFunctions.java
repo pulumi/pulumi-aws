@@ -885,7 +885,7 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
-     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .cacheClusterId(exampleAwsElasticacheCluster.get("clusterId"))
      *             .serviceUpdateStatuses("available")
      *             .build());
      * 
@@ -932,7 +932,7 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
-     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .cacheClusterId(exampleAwsElasticacheCluster.get("clusterId"))
      *             .serviceUpdateStatuses("available")
      *             .build());
      * 
@@ -979,7 +979,7 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
-     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .cacheClusterId(exampleAwsElasticacheCluster.get("clusterId"))
      *             .serviceUpdateStatuses("available")
      *             .build());
      * 
@@ -1026,7 +1026,7 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
-     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .cacheClusterId(exampleAwsElasticacheCluster.get("clusterId"))
      *             .serviceUpdateStatuses("available")
      *             .build());
      * 
@@ -1073,7 +1073,7 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
-     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .cacheClusterId(exampleAwsElasticacheCluster.get("clusterId"))
      *             .serviceUpdateStatuses("available")
      *             .build());
      * 
@@ -1120,7 +1120,7 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
-     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .cacheClusterId(exampleAwsElasticacheCluster.get("clusterId"))
      *             .serviceUpdateStatuses("available")
      *             .build());
      * 
@@ -1167,7 +1167,7 @@ public final class ElasticacheFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
-     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .cacheClusterId(exampleAwsElasticacheCluster.get("clusterId"))
      *             .serviceUpdateStatuses("available")
      *             .build());
      * 

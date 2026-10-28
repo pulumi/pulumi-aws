@@ -99,9 +99,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .subnetIds(                
- *                     az1.id(),
- *                     az2.id(),
- *                     az3.id())
+ *                     az1.get("id"),
+ *                     az2.get("id"),
+ *                     az3.get("id"))
  *                 .build())
  *             .name("example")
  *             .roleArn(cluster.arn())
@@ -235,9 +235,9 @@ import javax.annotation.Nullable;
  *                 .endpointPrivateAccess(true)
  *                 .endpointPublicAccess(true)
  *                 .subnetIds(                
- *                     az1.id(),
- *                     az2.id(),
- *                     az3.id())
+ *                     az1.get("id"),
+ *                     az2.get("id"),
+ *                     az3.get("id"))
  *                 .build())
  *             .name("example")
  *             .roleArn(cluster.arn())
@@ -341,9 +341,9 @@ import javax.annotation.Nullable;
  *                 .endpointPrivateAccess(true)
  *                 .endpointPublicAccess(true)
  *                 .subnetIds(                
- *                     az1.id(),
- *                     az2.id(),
- *                     az3.id())
+ *                     az1.get("id"),
+ *                     az2.get("id"),
+ *                     az3.get("id"))
  *                 .build())
  *             .name("example")
  *             .roleArn(cluster.arn())
@@ -432,9 +432,9 @@ import javax.annotation.Nullable;
  *                 .endpointPrivateAccess(true)
  *                 .endpointPublicAccess(false)
  *                 .subnetIds(                
- *                     az1.id(),
- *                     az2.id(),
- *                     az3.id())
+ *                     az1.get("id"),
+ *                     az2.get("id"),
+ *                     az3.get("id"))
  *                 .build())
  *             .outpostConfig(ClusterOutpostConfigArgs.builder()
  *                 .controlPlaneInstanceType("m5.large")

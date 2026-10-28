@@ -248,12 +248,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var integration = new Integration("integration", IntegrationArgs.builder()
- *             .restApi(api.id())
- *             .resourceId(resource.id())
- *             .httpMethod(method.httpMethod())
+ *             .restApi(api.get("id"))
+ *             .resourceId(resource.get("id"))
+ *             .httpMethod(method.get("httpMethod"))
  *             .integrationHttpMethod("POST")
  *             .type("AWS_PROXY")
- *             .uri(lambda.responseStreamingInvokeArn())
+ *             .uri(lambda.get("responseStreamingInvokeArn"))
  *             .responseTransferMode("STREAM")
  *             .timeoutMilliseconds(900000)
  *             .build());
@@ -298,8 +298,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var name = config.require("name");
- *         final var subnetId = config.require("subnetId");
+ *         final var name = config.requireObject("name", com.pulumi.core.TypeShape.map(String.class, Object.class));
+ *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
  *         var test = new LoadBalancer("test", LoadBalancerArgs.builder()
  *             .name(name)
  *             .internal(true)
@@ -398,16 +398,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VpcLink("example", VpcLinkArgs.builder()
  *             .name("example")
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
  *             .name("example-alb")
  *             .internal(true)
  *             .loadBalancerType("application")
- *             .securityGroups(exampleAwsSecurityGroup.id())
- *             .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .securityGroups(exampleAwsSecurityGroup.get("id"))
+ *             .subnets(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()

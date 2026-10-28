@@ -50,10 +50,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsSlot("example", V2modelsSlotArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion(exampleAwsLexv2modelsBotVersion.botVersion())
- *             .intentId(exampleAwsLexv2modelsIntent.id())
- *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
+ *             .botId(exampleAwsLexv2modelsBot.get("id"))
+ *             .botVersion(exampleAwsLexv2modelsBotVersion.get("botVersion"))
+ *             .intentId(exampleAwsLexv2modelsIntent.get("id"))
+ *             .localeId(exampleAwsLexv2modelsBotLocale.get("localeId"))
  *             .name("example")
  *             .build());
  * 
@@ -166,10 +166,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .slotConstraint("Required")
  *                 .build())
- *             .botId(test.id())
- *             .botVersion(testAwsLexv2modelsBotLocale.botVersion())
- *             .intentId(testAwsLexv2modelsIntent.intentId())
- *             .localeId(testAwsLexv2modelsBotLocale.localeId())
+ *             .botId(test.get("id"))
+ *             .botVersion(testAwsLexv2modelsBotLocale.get("botVersion"))
+ *             .intentId(testAwsLexv2modelsIntent.get("intentId"))
+ *             .localeId(testAwsLexv2modelsBotLocale.get("localeId"))
  *             .name("example")
  *             .build());
  * 

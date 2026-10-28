@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Amp
     ///                 },
     ///                 IgnoreNearExpectedFromBelow = new Aws.Amp.Inputs.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs
     ///                 {
-    ///                     Amount = 2,
+    ///                     Amount = 2.0,
     ///                 },
     ///                 Query = "avg(up)",
     ///                 SampleSize = 256,

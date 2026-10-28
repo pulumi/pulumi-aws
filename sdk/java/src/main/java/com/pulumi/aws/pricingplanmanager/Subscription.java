@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  *             .planFamily("CloudFront")
  *             .planTier("PRO")
  *             .resourceArns(            
- *                 exampleAwsCloudfrontDistribution.arn(),
- *                 exampleAwsWafv2WebAcl.arn())
+ *                 exampleAwsCloudfrontDistribution.get("arn"),
+ *                 exampleAwsWafv2WebAcl.get("arn"))
  *             .build());
  * 
  *     }
@@ -96,8 +96,8 @@ import javax.annotation.Nullable;
  *             .planFamily("CloudFront")
  *             .planTier("BUSINESS")
  *             .resourceArns(            
- *                 exampleAwsCloudfrontDistribution.arn(),
- *                 exampleAwsWafv2WebAcl.arn())
+ *                 exampleAwsCloudfrontDistribution.get("arn"),
+ *                 exampleAwsWafv2WebAcl.get("arn"))
  *             .build());
  * 
  *     }

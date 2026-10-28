@@ -41,7 +41,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("client"),
-//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: pool.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -74,7 +74,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
 //				Name:           pulumi.String("client"),
-//				UserPoolId:     pool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId:     pool.ID(),
 //				GenerateSecret: pulumi.Bool(true),
 //				ExplicitAuthFlows: pulumi.StringArray{
 //					pulumi.String("ADMIN_NO_SRP_AUTH"),
@@ -156,7 +156,7 @@ import (
 //					UserDataShared: pulumi.Bool(true),
 //				},
 //				Name:       pulumi.String("pool_client"),
-//				UserPoolId: testUserPool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: testUserPool.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -183,7 +183,7 @@ import (
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "test", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("role_policy"),
-//				Role:   testRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   testRole.ID(),
 //				Policy: test.Json(),
 //			})
 //			if err != nil {
@@ -217,7 +217,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "userpool_client", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("client"),
-//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: pool.ID(),
 //				CallbackUrls: pulumi.StringArray{
 //					pulumi.String("https://example.com"),
 //				},
@@ -269,7 +269,7 @@ import (
 //					RetryGracePeriodSeconds: pulumi.Int(10),
 //				},
 //				Name:       pulumi.String("client"),
-//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: pool.ID(),
 //				ExplicitAuthFlows: pulumi.StringArray{
 //					pulumi.String("ADMIN_NO_SRP_AUTH"),
 //				},

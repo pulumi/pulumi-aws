@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecretVersion("example", SecretVersionArgs.builder()
- *             .secretId(exampleAwsSecretsmanagerSecret.id())
+ *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
  *             .secretString("example-string-to-protect")
  *             .build());
  * 
@@ -90,12 +90,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var example = config.get("example").orElse(Map.ofEntries(
+ *         final var example = config.getObject("example", com.pulumi.core.TypeShape.map(String.class, String.class)).orElse(Map.ofEntries(
  *             Map.entry("key1", "value1"),
  *             Map.entry("key2", "value2")
  *         ));
  *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
- *             .secretId(exampleAwsSecretsmanagerSecret.id())
+ *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
  *             .secretString(serializeJson(
  *                 example))
  *             .build());
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
- *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+ *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
  *             .build()).result().key1());
  *     }
  * }

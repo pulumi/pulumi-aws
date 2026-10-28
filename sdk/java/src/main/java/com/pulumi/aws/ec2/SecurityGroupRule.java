@@ -59,8 +59,8 @@ import javax.annotation.Nullable;
  *             .fromPort(0)
  *             .toPort(65535)
  *             .protocol("tcp")
- *             .cidrBlocks(exampleAwsVpc.cidrBlock())
- *             .ipv6CidrBlocks(exampleAwsVpc.ipv6CidrBlock())
+ *             .cidrBlocks(exampleAwsVpc.get("cidrBlock"))
+ *             .ipv6CidrBlocks(exampleAwsVpc.get("ipv6CidrBlock"))
  *             .securityGroupId("sg-123456")
  *             .build());
  * 

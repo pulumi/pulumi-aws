@@ -311,7 +311,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(testAwsSsmDocument.name())
+     *             .name(testAwsSsmDocument.get("name"))
      *             .documentFormat("JSON")
      *             .build());
      * 
@@ -389,7 +389,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(testAwsSsmDocument.name())
+     *             .name(testAwsSsmDocument.get("name"))
      *             .documentFormat("JSON")
      *             .build());
      * 
@@ -467,7 +467,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(testAwsSsmDocument.name())
+     *             .name(testAwsSsmDocument.get("name"))
      *             .documentFormat("JSON")
      *             .build());
      * 
@@ -545,7 +545,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(testAwsSsmDocument.name())
+     *             .name(testAwsSsmDocument.get("name"))
      *             .documentFormat("JSON")
      *             .build());
      * 
@@ -623,7 +623,7 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(testAwsSsmDocument.name())
+     *             .name(testAwsSsmDocument.get("name"))
      *             .documentFormat("JSON")
      *             .build());
      * 

@@ -165,8 +165,8 @@ import javax.annotation.Nullable;
  * 
  *         // EventBridge Rule for Amplify notifications
  *         var amplifyAppMasterEventRule = new EventRule("amplifyAppMasterEventRule", EventRuleArgs.builder()
- *             .name(master.branchName().applyValue(_branchName -> String.format("amplify-%s-%s-branch-notification", app.id(),_branchName)))
- *             .description(master.branchName().applyValue(_branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.id(),_branchName)))
+ *             .name(master.branchName().applyValue(_branchName -> String.format("amplify-%s-%s-branch-notification", app.get("id"),_branchName)))
+ *             .description(master.branchName().applyValue(_branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.get("id"),_branchName)))
  *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -> }{{@code
  *                 var id = values.t1;
  *                 var branchName = values.t2;
@@ -189,7 +189,7 @@ import javax.annotation.Nullable;
  * 
  *         // SNS Topic for Amplify notifications
  *         var amplifyAppMasterTopic = new Topic("amplifyAppMasterTopic", TopicArgs.builder()
- *             .name(master.branchName().applyValue(_branchName -> String.format("amplify-%s_%s", app.id(),_branchName)))
+ *             .name(master.branchName().applyValue(_branchName -> String.format("amplify-%s_%s", app.get("id"),_branchName)))
  *             .build());
  * 
  *         var amplifyAppMasterEventTarget = new EventTarget("amplifyAppMasterEventTarget", EventTargetArgs.builder()

@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FileSystemAssociation("example", FileSystemAssociationArgs.builder()
- *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
- *             .locationArn(exampleAwsFsxWindowsFileSystem.arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.get("arn"))
+ *             .locationArn(exampleAwsFsxWindowsFileSystem.get("arn"))
  *             .username("Admin")
  *             .password("avoid-plaintext-passwords")
- *             .auditDestinationArn(exampleAwsS3Bucket.arn())
+ *             .auditDestinationArn(exampleAwsS3Bucket.get("arn"))
  *             .build());
  * 
  *     }
@@ -101,9 +101,9 @@ import javax.annotation.Nullable;
  *         var test = new Instance("test", InstanceArgs.builder()
  *             .ami(awsServiceStoragegatewayAmiFILES3Latest.value())
  *             .associatePublicIpAddress(true)
- *             .instanceType(available.instanceType())
- *             .vpcSecurityGroupIds(testAwsSecurityGroup.id())
- *             .subnetId(testAwsSubnet[0].id())
+ *             .instanceType(available.get("instanceType"))
+ *             .vpcSecurityGroupIds(testAwsSecurityGroup.get("id"))
+ *             .subnetId(testAwsSubnet[0].get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     testAwsRoute,
@@ -112,8 +112,8 @@ import javax.annotation.Nullable;
  * 
  *         var testGateway = new Gateway("testGateway", GatewayArgs.builder()
  *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
- *                 .domainName(testAwsDirectoryServiceDirectory.name())
- *                 .password(testAwsDirectoryServiceDirectory.password())
+ *                 .domainName(testAwsDirectoryServiceDirectory.get("name"))
+ *                 .password(testAwsDirectoryServiceDirectory.get("password"))
  *                 .username("Admin")
  *                 .build())
  *             .gatewayIpAddress(test.publicIp())
@@ -123,11 +123,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testWindowsFileSystem = new WindowsFileSystem("testWindowsFileSystem", WindowsFileSystemArgs.builder()
- *             .activeDirectoryId(testAwsDirectoryServiceDirectory.id())
- *             .securityGroupIds(testAwsSecurityGroup.id())
+ *             .activeDirectoryId(testAwsDirectoryServiceDirectory.get("id"))
+ *             .securityGroupIds(testAwsSecurityGroup.get("id"))
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
- *             .subnetIds(testAwsSubnet[0].id())
+ *             .subnetIds(testAwsSubnet[0].get("id"))
  *             .throughputCapacity(8)
  *             .build());
  * 
@@ -138,8 +138,8 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testGateway.arn())
  *             .locationArn(testWindowsFileSystem.arn())
  *             .username("Admin")
- *             .password(testAwsDirectoryServiceDirectory.password())
- *             .auditDestinationArn(testAwsCloudwatchLogGroup.arn())
+ *             .password(testAwsDirectoryServiceDirectory.get("password"))
+ *             .auditDestinationArn(testAwsCloudwatchLogGroup.get("arn"))
  *             .build());
  * 
  *     }

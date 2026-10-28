@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Iam
     ///     var example = new Aws.Iam.GroupPolicyAttachmentsExclusive("example", new()
     ///     {
     ///         GroupName = exampleAwsIamGroup.Name,
-    ///         PolicyArns = new[] {},
+    ///         PolicyArns = new() {},
     ///     });
     /// 
     /// });

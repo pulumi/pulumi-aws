@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .destination("127.0.0.1")
  *             .destinationPort(80)
  *             .protocol("TCP")
- *             .sourceArn(exampleAwsSubnet.arn())
+ *             .sourceArn(exampleAwsSubnet.get("arn"))
  *             .packetSize(200)
  *             .build());
  * 

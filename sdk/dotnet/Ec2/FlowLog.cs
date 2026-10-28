@@ -105,6 +105,107 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ### Amazon Data Firehose logging
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
+    ///     {
+    ///         BucketName = "example",
+    ///     });
+    /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "firehose.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         Name = "firehose_test_role",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
+    ///     {
+    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///         {
+    ///             RoleArn = exampleRole.Arn,
+    ///             BucketArn = exampleBucket.Arn,
+    ///         },
+    ///         Name = "kinesis_firehose_test",
+    ///         Destination = "extended_s3",
+    ///         Tags = 
+    ///         {
+    ///             { "LogDeliveryEnabled", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("example", new()
+    ///     {
+    ///         LogDestination = exampleFirehoseDeliveryStream.Arn,
+    ///         LogDestinationType = "kinesis-data-firehose",
+    ///         TrafficType = "ALL",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///     });
+    /// 
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
+    ///     {
+    ///         Bucket = exampleBucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Effect = "Allow",
+    ///         Actions = new[]
+    ///         {
+    ///             "logs:CreateLogDelivery",
+    ///             "logs:DeleteLogDelivery",
+    ///             "logs:ListLogDeliveries",
+    ///             "logs:GetLogDelivery",
+    ///             "firehose:TagDeliveryStream",
+    ///         },
+    ///         Resources = new[]
+    ///         {
+    ///             "*",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
+    ///     {
+    ///         Name = "test",
+    ///         Role = exampleRole.Id,
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### S3 Logging
     /// 
     /// ```csharp

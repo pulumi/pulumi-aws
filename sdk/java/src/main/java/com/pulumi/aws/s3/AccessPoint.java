@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
- *             .bucket(test.bucket())
+ *             .bucket(test.get("bucket"))
  *             .name("example--zoneId--xa-s3")
  *             .build());
  * 

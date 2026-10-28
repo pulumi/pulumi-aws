@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *                 .policyLanguage("SIMPLIFIED")
  *                 .build())
  *             .description("tf-acc-basic")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .defaultPolicy("VOLUME")
  *             .build());
  * 
@@ -263,7 +263,7 @@ import javax.annotation.Nullable;
  *                 .targetTags(Map.of("Snapshot", "true"))
  *                 .build())
  *             .description("example DLM lifecycle policy")
- *             .executionRoleArn(dlmLifecycleRole.arn())
+ *             .executionRoleArn(dlmLifecycleRole.get("arn"))
  *             .state("ENABLED")
  *             .build());
  * 
@@ -337,7 +337,7 @@ import javax.annotation.Nullable;
  *                 .policyType("EVENT_BASED_POLICY")
  *                 .build())
  *             .description("tf-acc-basic")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
@@ -345,7 +345,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(exampleAwsIamRole.id())
+ *             .role(exampleAwsIamRole.get("id"))
  *             .policyArn(example.arn())
  *             .build());
  * 
@@ -392,8 +392,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new RolePolicyAttachment("example", RolePolicyAttachmentArgs.builder()
- *             .role(testAwsIamRole.id())
- *             .policyArn(exampleAwsIamPolicy.arn())
+ *             .role(testAwsIamRole.get("id"))
+ *             .policyArn(exampleAwsIamPolicy.get("arn"))
  *             .build());
  * 
  *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
@@ -416,7 +416,7 @@ import javax.annotation.Nullable;
  *                 .targetTags(Map.of("tag1", "Windows"))
  *                 .build())
  *             .description("tf-acc-basic")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

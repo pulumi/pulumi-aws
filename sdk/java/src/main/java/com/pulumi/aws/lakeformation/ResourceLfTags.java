@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()
  *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
+ *                 .name(exampleAwsGlueCatalogDatabase.get("name"))
  *                 .build())
  *             .lfTags(ResourceLfTagsLfTagArgs.builder()
  *                 .key(example.key())
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()
  *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
+ *                 .name(exampleAwsGlueCatalogDatabase.get("name"))
  *                 .build())
  *             .lfTags(            
  *                 ResourceLfTagsLfTagArgs.builder()

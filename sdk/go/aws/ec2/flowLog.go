@@ -97,7 +97,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
-//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   exampleRole.ID(),
 //				Policy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
@@ -110,6 +110,115 @@ import (
 // ```
 //
 // ### Amazon Data Firehose logging
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+//				Bucket: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"firehose.amazonaws.com",
+//								},
+//							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("firehose_test_role"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
+//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
+//					RoleArn:   exampleRole.Arn,
+//					BucketArn: exampleBucket.Arn,
+//				},
+//				Name:        pulumi.String("kinesis_firehose_test"),
+//				Destination: pulumi.String("extended_s3"),
+//				Tags: pulumi.StringMap{
+//					"LogDeliveryEnabled": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewFlowLog(ctx, "example", &ec2.FlowLogArgs{
+//				LogDestination:     exampleFirehoseDeliveryStream.Arn,
+//				LogDestinationType: pulumi.String("kinesis-data-firehose"),
+//				TrafficType:        pulumi.String("ALL"),
+//				VpcId:              pulumi.Any(exampleAwsVpc.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
+//				Bucket: exampleBucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Effect: "Allow",
+//				Actions: []string{
+//					"logs:CreateLogDelivery",
+//					"logs:DeleteLogDelivery",
+//					"logs:ListLogDeliveries",
+//					"logs:GetLogDelivery",
+//					"firehose:TagDeliveryStream",
+//				},
+//				Resources: []string{
+//					"*",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("test"),
+//				Role:   exampleRole.ID(),
+//				Policy: pulumi.String(example.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ### S3 Logging
 //
@@ -335,7 +444,7 @@ import (
 //				LogDestinationType:      pulumi.String("kinesis-data-firehose"),
 //				LogDestination:          dstFirehoseDeliveryStream.Arn,
 //				TrafficType:             pulumi.String("ALL"),
-//				VpcId:                   src.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:                   src.ID(),
 //				IamRoleArn:              srcRole.Arn,
 //				DeliverCrossAccountRole: dst.Arn,
 //			})

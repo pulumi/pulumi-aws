@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("MyFilter")
  *             .action("ARCHIVE")
- *             .detectorId(example.id())
+ *             .detectorId(example.get("id"))
  *             .rank(1)
  *             .build());
  * 

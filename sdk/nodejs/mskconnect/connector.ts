@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     plugins: [{
  *         customPlugin: {
  *             arn: exampleAwsMskconnectCustomPlugin.arn,
- *             revision: Number(exampleAwsMskconnectCustomPlugin.latestRevision),
+ *             revision: exampleAwsMskconnectCustomPlugin.latestRevision,
  *         },
  *     }],
  *     name: "example",

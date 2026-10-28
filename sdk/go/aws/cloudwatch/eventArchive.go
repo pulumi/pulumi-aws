@@ -193,7 +193,7 @@ import (
 //			_, err = cloudwatch.NewEventArchive(ctx, "example", &cloudwatch.EventArchiveArgs{
 //				Name:             pulumi.String("example"),
 //				EventSourceArn:   example.Arn,
-//				KmsKeyIdentifier: exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				KmsKeyIdentifier: exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

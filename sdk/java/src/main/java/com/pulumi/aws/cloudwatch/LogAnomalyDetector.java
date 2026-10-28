@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * }
  *         var testLogAnomalyDetector = new LogAnomalyDetector("testLogAnomalyDetector", LogAnomalyDetectorArgs.builder()
  *             .detectorName("testing")
- *             .logGroupArnLists(test[0].arn())
+ *             .logGroupArnLists(test.get(0).arn())
  *             .anomalyVisibilityTime(7)
  *             .evaluationFrequency("TEN_MIN")
  *             .enabled(false)

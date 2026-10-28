@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserPoliciesExclusive("example", UserPoliciesExclusiveArgs.builder()
- *             .userName(exampleAwsIamUser.name())
- *             .policyNames(exampleAwsIamUserPolicy.name())
+ *             .userName(exampleAwsIamUser.get("name"))
+ *             .policyNames(exampleAwsIamUserPolicy.get("name"))
  *             .build());
  * 
  *     }
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserPoliciesExclusive("example", UserPoliciesExclusiveArgs.builder()
- *             .userName(exampleAwsIamUser.name())
+ *             .userName(exampleAwsIamUser.get("name"))
  *             .policyNames()
  *             .build());
  * 

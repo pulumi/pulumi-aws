@@ -335,7 +335,7 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name("my_sfn_alias")
-     *             .statemachineArn(sfnTest.arn())
+     *             .statemachineArn(sfnTest.get("arn"))
      *             .build());
      * 
      *     }
@@ -378,7 +378,7 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name("my_sfn_alias")
-     *             .statemachineArn(sfnTest.arn())
+     *             .statemachineArn(sfnTest.get("arn"))
      *             .build());
      * 
      *     }
@@ -421,7 +421,7 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name("my_sfn_alias")
-     *             .statemachineArn(sfnTest.arn())
+     *             .statemachineArn(sfnTest.get("arn"))
      *             .build());
      * 
      *     }
@@ -464,7 +464,7 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name("my_sfn_alias")
-     *             .statemachineArn(sfnTest.arn())
+     *             .statemachineArn(sfnTest.get("arn"))
      *             .build());
      * 
      *     }
@@ -507,7 +507,7 @@ public final class SfnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
      *             .name("my_sfn_alias")
-     *             .statemachineArn(sfnTest.arn())
+     *             .statemachineArn(sfnTest.get("arn"))
      *             .build());
      * 
      *     }
@@ -759,7 +759,7 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(testAwsSfnStateMachine.arn())
+     *             .statemachineArn(testAwsSfnStateMachine.get("arn"))
      *             .build());
      * 
      *     }
@@ -801,7 +801,7 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(testAwsSfnStateMachine.arn())
+     *             .statemachineArn(testAwsSfnStateMachine.get("arn"))
      *             .build());
      * 
      *     }
@@ -843,7 +843,7 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(testAwsSfnStateMachine.arn())
+     *             .statemachineArn(testAwsSfnStateMachine.get("arn"))
      *             .build());
      * 
      *     }
@@ -885,7 +885,7 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(testAwsSfnStateMachine.arn())
+     *             .statemachineArn(testAwsSfnStateMachine.get("arn"))
      *             .build());
      * 
      *     }
@@ -927,7 +927,7 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
-     *             .statemachineArn(testAwsSfnStateMachine.arn())
+     *             .statemachineArn(testAwsSfnStateMachine.get("arn"))
      *             .build());
      * 
      *     }

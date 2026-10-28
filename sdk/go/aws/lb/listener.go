@@ -282,7 +282,7 @@ import (
 //					&lb.ListenerDefaultActionArgs{
 //						AuthenticateCognito: &lb.ListenerDefaultActionAuthenticateCognitoArgs{
 //							UserPoolArn:      pool.Arn,
-//							UserPoolClientId: client.ID().ToIDOutput().ToStringOutput(),
+//							UserPoolClientId: client.ID(),
 //							UserPoolDomain:   domain.Domain,
 //						},
 //						Type: pulumi.String("authenticate-cognito"),
@@ -460,11 +460,11 @@ import (
 //			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
 //				DefaultActions: lb.ListenerDefaultActionArray{
 //					&lb.ListenerDefaultActionArgs{
-//						TargetGroupArn: exampleTargetGroup.ID().ToIDOutput().ToStringOutput(),
+//						TargetGroupArn: exampleTargetGroup.ID(),
 //						Type:           pulumi.String("forward"),
 //					},
 //				},
-//				LoadBalancerArn: example.ID().ToIDOutput().ToStringOutput(),
+//				LoadBalancerArn: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -506,11 +506,11 @@ import (
 //				},
 //				DefaultActions: lb.ListenerDefaultActionArray{
 //					&lb.ListenerDefaultActionArgs{
-//						TargetGroupArn: exampleTargetGroup.ID().ToIDOutput().ToStringOutput(),
+//						TargetGroupArn: exampleTargetGroup.ID(),
 //						Type:           pulumi.String("forward"),
 //					},
 //				},
-//				LoadBalancerArn: example.ID().ToIDOutput().ToStringOutput(),
+//				LoadBalancerArn: example.ID(),
 //			})
 //			if err != nil {
 //				return err

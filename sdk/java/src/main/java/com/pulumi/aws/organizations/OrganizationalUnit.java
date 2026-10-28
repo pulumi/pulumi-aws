@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationalUnit("example", OrganizationalUnitArgs.builder()
  *             .name("example")
- *             .parentId(exampleAwsOrganizationsOrganization.roots()[0].id())
+ *             .parentId(exampleAwsOrganizationsOrganization.get("roots")[0].get("id"))
  *             .build());
  * 
  *     }

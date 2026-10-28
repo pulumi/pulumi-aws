@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .name("example")
  *             .description("example")
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 

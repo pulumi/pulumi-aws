@@ -44,10 +44,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TopicRuleDestination("example", TopicRuleDestinationArgs.builder()
  *             .vpcConfiguration(TopicRuleDestinationVpcConfigurationArgs.builder()
- *                 .roleArn(exampleAwsIamRole.arn())
- *                 .securityGroups(exampleAwsSecurityGroup.id())
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .vpcId(exampleAwsVpc.id())
+ *                 .roleArn(exampleAwsIamRole.get("arn"))
+ *                 .securityGroups(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
+ *                 .vpcId(exampleAwsVpc.get("id"))
  *                 .build())
  *             .build());
  * 

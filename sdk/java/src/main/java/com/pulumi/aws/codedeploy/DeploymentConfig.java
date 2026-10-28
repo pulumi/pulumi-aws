@@ -80,9 +80,9 @@ import javax.annotation.Nullable;
  *                 .triggerName("foo-trigger")
  *                 .triggerTargetArn("foo-topic-arn")
  *                 .build())
- *             .appName(fooApp.name())
+ *             .appName(fooApp.get("name"))
  *             .deploymentGroupName("bar")
- *             .serviceRoleArn(fooRole.arn())
+ *             .serviceRoleArn(fooRole.get("arn"))
  *             .deploymentConfigName(foo.id())
  *             .build());
  * 
@@ -142,9 +142,9 @@ import javax.annotation.Nullable;
  *                 .alarms("my-alarm-name")
  *                 .enabled(true)
  *                 .build())
- *             .appName(fooApp.name())
+ *             .appName(fooApp.get("name"))
  *             .deploymentGroupName("bar")
- *             .serviceRoleArn(fooRole.arn())
+ *             .serviceRoleArn(fooRole.get("arn"))
  *             .deploymentConfigName(foo.id())
  *             .build());
  * 

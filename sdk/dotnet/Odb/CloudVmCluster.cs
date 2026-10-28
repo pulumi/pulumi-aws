@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Odb
     ///         IsLocalBackupEnabled = true,
     ///         IsSparseDiskgroupEnabled = true,
     ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DataStorageSizeInTbs = 20,
+    ///         DataStorageSizeInTbs = 20.0,
     ///         DbServers = new[]
     ///         {
     ///             "db-server-1",
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Odb
     ///         IsLocalBackupEnabled = true,
     ///         IsSparseDiskgroupEnabled = true,
     ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DataStorageSizeInTbs = 20,
+    ///         DataStorageSizeInTbs = 20.0,
     ///         DbServers = new[]
     ///         {
     ///             "my-dbserver-1",
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Odb
     ///         IsLocalBackupEnabled = true,
     ///         IsSparseDiskgroupEnabled = true,
     ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DataStorageSizeInTbs = 20,
+    ///         DataStorageSizeInTbs = 20.0,
     ///         DbServers = new[]
     ///         {
     ///             "my-dbserver-1",

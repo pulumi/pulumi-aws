@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *                     .id("rule-2")
  *                     .status("Enabled")
  *                     .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -254,7 +254,7 @@ import javax.annotation.Nullable;
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -304,7 +304,7 @@ import javax.annotation.Nullable;
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -355,7 +355,7 @@ import javax.annotation.Nullable;
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -404,7 +404,7 @@ import javax.annotation.Nullable;
  *                 .id("Allow small object transitions")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }
@@ -453,7 +453,7 @@ import javax.annotation.Nullable;
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.get("bucket"))
  *             .build());
  * 
  *     }

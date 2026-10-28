@@ -112,7 +112,7 @@ import (
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
-//								Identifiers: pulumi.StringArray{
+//								Identifiers: []string{
 //									exampleAwsCloudfrontOriginAccessIdentity.IamArn,
 //								},
 //							},

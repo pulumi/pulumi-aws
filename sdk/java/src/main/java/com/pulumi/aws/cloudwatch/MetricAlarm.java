@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .scalingAdjustment(4)
  *             .adjustmentType("ChangeInCapacity")
  *             .cooldown(300)
- *             .autoscalingGroupName(bar.name())
+ *             .autoscalingGroupName(bar.get("name"))
  *             .build());
  * 
  *         var batMetricAlarm = new MetricAlarm("batMetricAlarm", MetricAlarmArgs.builder()
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .period(120)
  *             .statistic("Average")
  *             .threshold(80.0)
- *             .dimensions(Map.of("AutoScalingGroupName", bar.name()))
+ *             .dimensions(Map.of("AutoScalingGroupName", bar.get("name")))
  *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .alarmActions(bat.arn())
  *             .build());
@@ -229,7 +229,7 @@ import javax.annotation.Nullable;
  *             .name("high-cpu-promql")
  *             .alarmDescription("Alarm when average CPU exceeds 80% using PromQL")
  *             .evaluationInterval(30)
- *             .alarmActions(alerts.arn())
+ *             .alarmActions(alerts.get("arn"))
  *             .build());
  * 
  *     }
@@ -383,11 +383,11 @@ import javax.annotation.Nullable;
  *             .threshold(logstashServersCount)
  *             .alarmDescription("Number of healthy nodes in Target Group")
  *             .actionsEnabled(true)
- *             .alarmActions(sns.arn())
- *             .okActions(sns.arn())
+ *             .alarmActions(sns.get("arn"))
+ *             .okActions(sns.get("arn"))
  *             .dimensions(Map.ofEntries(
- *                 Map.entry("TargetGroup", lb_tg.arnSuffix()),
- *                 Map.entry("LoadBalancer", lb.arnSuffix())
+ *                 Map.entry("TargetGroup", lb_tg.get("arnSuffix")),
+ *                 Map.entry("LoadBalancer", lb.get("arnSuffix"))
  *             ))
  *             .build());
  * 
@@ -434,7 +434,7 @@ import javax.annotation.Nullable;
  *             .statistic("Sum")
  *             .threshold(0.0)
  *             .treatMissingData("breaching")
- *             .alarmActions(exampleAwsSnsTopic.arn())
+ *             .alarmActions(exampleAwsSnsTopic.get("arn"))
  *             .build());
  * 
  *     }
@@ -482,7 +482,7 @@ import javax.annotation.Nullable;
  *             .period(86400)
  *             .statistic("Sum")
  *             .threshold(0.0)
- *             .alarmActions(exampleAwsSnsTopic.arn())
+ *             .alarmActions(exampleAwsSnsTopic.get("arn"))
  *             .build());
  * 
  *     }

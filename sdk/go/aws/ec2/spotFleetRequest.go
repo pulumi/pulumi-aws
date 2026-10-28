@@ -106,7 +106,7 @@ import (
 //				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
 //					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							Id:      foo.ID().ToIDOutput().ToStringOutput(),
+//							Id:      foo.ID(),
 //							Version: foo.LatestVersion,
 //						},
 //					},
@@ -193,7 +193,7 @@ import (
 //				Filters: []ec2.GetSubnetsFilter{
 //					{
 //						Name: "vpc-id",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							vpcId,
 //						},
 //					},
@@ -215,7 +215,7 @@ import (
 //				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
 //					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							Id:      foo.ID().ToIDOutput().ToStringOutput(),
+//							Id:      foo.ID(),
 //							Version: foo.LatestVersion,
 //						},
 //						Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{

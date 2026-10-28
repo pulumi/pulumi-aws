@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *         var wu_tang_root_ca_backend_auth_policy = new LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", LoadBalancerPolicyArgs.builder()
  *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
  *                 .name("PublicKeyPolicyName")
- *                 .value(wu_tang_root_ca_pubkey_policy.policyName())
+ *                 .value(wu_tang_root_ca_pubkey_policy.get("policyName"))
  *                 .build())
  *             .loadBalancerName(wu_tang.name())
  *             .policyName("wu-tang-root-ca-backend-auth-policy")

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .name("Variation1")
  *                 .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .description("example description")
  *             .tags(Map.of("Key1", "example Feature"))
  *             .build());
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *                     .name("Variation2")
  *                     .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .defaultVariation("Variation2")
  *             .build());
  * 
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *                     .name("Variation2")
  *                     .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .entityOverrides(Map.of("test1", "Variation1"))
  *             .build());
  * 
@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  *                 .name("Variation1")
  *                 .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .evaluationStrategy("ALL_RULES")
  *             .entityOverrides(Map.of("test1", "Variation1"))
  *             .build());

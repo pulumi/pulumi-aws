@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .subdirectory("/exported/path")
  *             .user("Guest")
  *             .password("ANotGreatPassword")
- *             .agentArns(exampleAwsDatasyncAgent.arn())
+ *             .agentArns(exampleAwsDatasyncAgent.get("arn"))
  *             .build());
  * 
  *     }

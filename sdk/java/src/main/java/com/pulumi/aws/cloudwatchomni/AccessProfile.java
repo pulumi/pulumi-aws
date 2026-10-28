@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AccessProfile("example", AccessProfileArgs.builder()
  *             .name("example")
- *             .spaceId(exampleAwsCloudwatchomniSpace.spaceId())
+ *             .spaceId(exampleAwsCloudwatchomniSpace.get("spaceId"))
  *             .build());
  * 
  *     }
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *         var example = new AccessProfile("example", AccessProfileArgs.builder()
  *             .name("example")
  *             .description("Example access profile")
- *             .spaceId(exampleAwsCloudwatchomniSpace.spaceId())
+ *             .spaceId(exampleAwsCloudwatchomniSpace.get("spaceId"))
  *             .build());
  * 
  *     }

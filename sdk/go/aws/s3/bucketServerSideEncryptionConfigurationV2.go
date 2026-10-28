@@ -55,7 +55,7 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: mybucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: mybucket.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -107,7 +107,7 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: mybucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: mybucket.ID(),
 //			})
 //			if err != nil {
 //				return err

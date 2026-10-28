@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AgentSpace("example", AgentSpaceArgs.builder()
  *             .name("my-agent-space")
- *             .kmsKeyArn(exampleAwsKmsKey.arn())
+ *             .kmsKeyArn(exampleAwsKmsKey.get("arn"))
  *             .build());
  * 
  *     }

@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *         var example = new VectorsVectorBucket("example", VectorsVectorBucketArgs.builder()
  *             .encryptionConfigurations(VectorsVectorBucketEncryptionConfigurationArgs.builder()
  *                 .sseType("aws:kms")
- *                 .kmsKeyArn(exampleAwsKmsKey.arn())
+ *                 .kmsKeyArn(exampleAwsKmsKey.get("arn"))
  *                 .build())
  *             .vectorBucketName("example-bucket")
  *             .build());

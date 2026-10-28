@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EfsLocation("example", EfsLocationArgs.builder()
  *             .ec2Config(EfsLocationEc2ConfigArgs.builder()
- *                 .securityGroupArns(exampleAwsSecurityGroup.arn())
- *                 .subnetArn(exampleAwsSubnet.arn())
+ *                 .securityGroupArns(exampleAwsSecurityGroup.get("arn"))
+ *                 .subnetArn(exampleAwsSubnet.get("arn"))
  *                 .build())
- *             .efsFileSystemArn(exampleAwsEfsMountTarget.fileSystemArn())
+ *             .efsFileSystemArn(exampleAwsEfsMountTarget.get("fileSystemArn"))
  *             .build());
  * 
  *     }

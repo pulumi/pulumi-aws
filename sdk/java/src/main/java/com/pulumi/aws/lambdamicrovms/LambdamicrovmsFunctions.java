@@ -45,8 +45,8 @@ public final class LambdamicrovmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdamicrovmsFunctions.getImageVersion(GetImageVersionArgs.builder()
-     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.arn())
-     *             .imageVersion(exampleAwsLambdamicrovmsImage.imageVersion())
+     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.get("arn"))
+     *             .imageVersion(exampleAwsLambdamicrovmsImage.get("imageVersion"))
      *             .build());
      * 
      *     }
@@ -88,8 +88,8 @@ public final class LambdamicrovmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdamicrovmsFunctions.getImageVersion(GetImageVersionArgs.builder()
-     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.arn())
-     *             .imageVersion(exampleAwsLambdamicrovmsImage.imageVersion())
+     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.get("arn"))
+     *             .imageVersion(exampleAwsLambdamicrovmsImage.get("imageVersion"))
      *             .build());
      * 
      *     }
@@ -131,8 +131,8 @@ public final class LambdamicrovmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdamicrovmsFunctions.getImageVersion(GetImageVersionArgs.builder()
-     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.arn())
-     *             .imageVersion(exampleAwsLambdamicrovmsImage.imageVersion())
+     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.get("arn"))
+     *             .imageVersion(exampleAwsLambdamicrovmsImage.get("imageVersion"))
      *             .build());
      * 
      *     }
@@ -174,8 +174,8 @@ public final class LambdamicrovmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdamicrovmsFunctions.getImageVersion(GetImageVersionArgs.builder()
-     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.arn())
-     *             .imageVersion(exampleAwsLambdamicrovmsImage.imageVersion())
+     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.get("arn"))
+     *             .imageVersion(exampleAwsLambdamicrovmsImage.get("imageVersion"))
      *             .build());
      * 
      *     }
@@ -217,8 +217,8 @@ public final class LambdamicrovmsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdamicrovmsFunctions.getImageVersion(GetImageVersionArgs.builder()
-     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.arn())
-     *             .imageVersion(exampleAwsLambdamicrovmsImage.imageVersion())
+     *             .imageIdentifier(exampleAwsLambdamicrovmsImage.get("arn"))
+     *             .imageVersion(exampleAwsLambdamicrovmsImage.get("imageVersion"))
      *             .build());
      * 
      *     }

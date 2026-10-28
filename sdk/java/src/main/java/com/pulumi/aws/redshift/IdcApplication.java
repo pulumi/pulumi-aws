@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IdcApplication("example", IdcApplicationArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .idcDisplayName("example")
- *             .idcInstanceArn(exampleAwsSsoadminInstances.arns()[0])
+ *             .idcInstanceArn(exampleAwsSsoadminInstances.get("arns")[0])
  *             .identityNamespace("example")
  *             .redshiftIdcApplicationName("example")
  *             .build());

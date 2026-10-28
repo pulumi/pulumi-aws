@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EndpointServicePrivateDnsVerification("example", EndpointServicePrivateDnsVerificationArgs.builder()
- *             .serviceId(exampleAwsVpcEndpointService.id())
+ *             .serviceId(exampleAwsVpcEndpointService.get("id"))
  *             .build());
  * 
  *     }

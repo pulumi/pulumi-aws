@@ -121,8 +121,8 @@ import javax.annotation.Nullable;
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
  *                 .managedPolicyArn("arn:aws:iam::aws:policy/ReadOnlyAccess")
  *                 .build())
- *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
- *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
+ *             .instanceArn(exampleAwsSsoadminPermissionSet.get("instanceArn"))
+ *             .permissionSetArn(exampleAwsSsoadminPermissionSet.get("arn"))
  *             .build());
  * 
  *     }

@@ -45,7 +45,7 @@ import (
 //			wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
 //				Predicates: waf.RulePredicateArray{
 //					&waf.RulePredicateArgs{
-//						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
+//						DataId:  ipset.ID(),
 //						Negated: pulumi.Bool(false),
 //						Type:    pulumi.String("IPMatch"),
 //					},
@@ -68,7 +68,7 @@ import (
 //							Type: pulumi.String("BLOCK"),
 //						},
 //						Priority: pulumi.Int(1),
-//						RuleId:   wafrule.ID().ToIDOutput().ToStringOutput(),
+//						RuleId:   wafrule.ID(),
 //						Type:     pulumi.String("REGULAR"),
 //					},
 //				},

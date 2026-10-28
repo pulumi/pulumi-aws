@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new SlackChannelConfiguration("test", SlackChannelConfigurationArgs.builder()
  *             .configurationName("min-slaka-kanal")
- *             .iamRoleArn(testAwsIamRole.arn())
+ *             .iamRoleArn(testAwsIamRole.get("arn"))
  *             .slackChannelId("C07EZ1ABC23")
  *             .slackTeamId("T07EA123LEP")
  *             .tags(Map.of("Name", "min-slaka-kanal"))

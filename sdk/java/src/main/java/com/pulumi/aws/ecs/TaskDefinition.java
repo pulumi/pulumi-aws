@@ -183,8 +183,8 @@ import javax.annotation.Nullable;
  *                     .driver("local")
  *                     .driverOpts(Map.ofEntries(
  *                         Map.entry("type", "nfs"),
- *                         Map.entry("device", String.format("%s:/", fs.dnsName())),
- *                         Map.entry("o", String.format("addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.dnsName()))
+ *                         Map.entry("device", String.format("%s:/", fs.get("dnsName"))),
+ *                         Map.entry("o", String.format("addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.get("dnsName")))
  *                     ))
  *                     .build())
  *                 .name("service-storage")
@@ -233,10 +233,10 @@ import javax.annotation.Nullable;
  *             .volumes(TaskDefinitionVolumeArgs.builder()
  *                 .efsVolumeConfiguration(TaskDefinitionVolumeEfsVolumeConfigurationArgs.builder()
  *                     .authorizationConfig(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.builder()
- *                         .accessPointId(test.id())
+ *                         .accessPointId(test.get("id"))
  *                         .iam("ENABLED")
  *                         .build())
- *                     .fileSystemId(fs.id())
+ *                     .fileSystemId(fs.get("id"))
  *                     .rootDirectory("/opt/data")
  *                     .transitEncryption("ENABLED")
  *                     .transitEncryptionPort(2999)
@@ -287,11 +287,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new SecretVersion("test", SecretVersionArgs.builder()
- *             .secretId(testAwsSecretsmanagerSecret.id())
+ *             .secretId(testAwsSecretsmanagerSecret.get("id"))
  *             .secretString(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("username", "admin"),
- *                     jsonProperty("password", testAwsDirectoryServiceDirectory.password())
+ *                     jsonProperty("password", testAwsDirectoryServiceDirectory.get("password"))
  *                 )))
  *             .build());
  * 
@@ -300,9 +300,9 @@ import javax.annotation.Nullable;
  *                 .fsxWindowsFileServerVolumeConfiguration(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs.builder()
  *                     .authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.builder()
  *                         .credentialsParameter(test.arn())
- *                         .domain(testAwsDirectoryServiceDirectory.name())
+ *                         .domain(testAwsDirectoryServiceDirectory.get("name"))
  *                         .build())
- *                     .fileSystemId(testAwsFsxWindowsFileSystem.id())
+ *                     .fileSystemId(testAwsFsxWindowsFileSystem.get("id"))
  *                     .rootDirectory("\\data")
  *                     .build())
  *                 .name("service-storage")

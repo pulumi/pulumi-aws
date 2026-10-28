@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .invocationEndpoint("https://api.destination.com/endpoint")
  *             .httpMethod("POST")
  *             .invocationRateLimitPerSecond(20)
- *             .connectionArn(testAwsCloudwatchEventConnection.arn())
+ *             .connectionArn(testAwsCloudwatchEventConnection.get("arn"))
  *             .build());
  * 
  *     }

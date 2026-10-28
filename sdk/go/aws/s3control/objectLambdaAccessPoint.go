@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Name:   pulumi.String("example"),
 //			})
 //			if err != nil {

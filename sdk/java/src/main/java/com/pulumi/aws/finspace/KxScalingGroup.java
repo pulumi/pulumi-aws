@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new KxScalingGroup("example", KxScalingGroupArgs.builder()
  *             .name("my-tf-kx-scalinggroup")
- *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
+ *             .environmentId(exampleAwsFinspaceKxEnvironment.get("id"))
  *             .availabilityZoneId("use1-az2")
  *             .hostType("kx.sg.4xlarge")
  *             .build());

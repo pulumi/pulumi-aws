@@ -73,7 +73,7 @@ import (
 //					pulumi.String("editor"),
 //				},
 //				IdpMetadataUrl: pulumi.String("https://my_idp_metadata.url"),
-//				WorkspaceId:    exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:    exampleWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err

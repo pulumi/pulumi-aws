@@ -83,7 +83,7 @@ import (
 //						Value: pulumi.String("v65.0"),
 //					},
 //				},
-//				SecretId:                      example.ID().ToIDOutput().ToStringOutput(),
+//				SecretId:                      example.ID(),
 //				ExternalSecretRotationRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
@@ -177,7 +177,7 @@ import (
 //				tmp0 = []interface{}{}
 //			}
 //			_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				RotationRules:   singleOrNone(tmp0),
+//				RotationRules:   secretsmanager.SecretRotationRotationRulesArgs(singleOrNone(tmp0)),
 //				SecretId:        pulumi.Any(exampleAwsDbInstance.MasterUserSecret[0].SecretArn),
 //				RotationEnabled: pulumi.Bool(rotationEnabled),
 //			})

@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .region("eu-west-1")
  *                 .build())
- *             .metaStoreManagerRoleArn(metaStoreManager.arn())
+ *             .metaStoreManagerRoleArn(metaStoreManager.get("arn"))
  *             .build());
  * 
  *     }
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .region("eu-west-1")
  *                 .build())
- *             .metaStoreManagerRoleArn(metaStoreManager.arn())
+ *             .metaStoreManagerRoleArn(metaStoreManager.get("arn"))
  *             .build());
  * 
  *     }

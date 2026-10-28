@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *
  * export = async () => {
  *     const foo = await aws.ec2.getVpcs({});
- *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *     const fooGetVpc = Array.from({length: foo.ids.length}, (_, i) => i).apply(range => range.map(__index => (await aws.ec2.getVpc({
  *         id: foo.ids[__index],
- *     })));
+ *     }))));
  *     const testFlowLog: aws.ec2.FlowLog[] = [];
  * foo.ids.length.apply(rangeBody => {
  *         for (let range = 0; range < rangeBody; range++) {
- *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range].id)}));
+ *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range}`, {vpcId: fooGetVpc[range].id}));
  *         }
  *     });
  *     return {
@@ -132,13 +132,13 @@ export interface GetVpcsResult {
  *
  * export = async () => {
  *     const foo = await aws.ec2.getVpcs({});
- *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *     const fooGetVpc = Array.from({length: foo.ids.length}, (_, i) => i).apply(range => range.map(__index => (await aws.ec2.getVpc({
  *         id: foo.ids[__index],
- *     })));
+ *     }))));
  *     const testFlowLog: aws.ec2.FlowLog[] = [];
  * foo.ids.length.apply(rangeBody => {
  *         for (let range = 0; range < rangeBody; range++) {
- *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range].id)}));
+ *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range}`, {vpcId: fooGetVpc[range].id}));
  *         }
  *     });
  *     return {

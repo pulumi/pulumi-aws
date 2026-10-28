@@ -37,13 +37,13 @@ namespace Pulumi.Aws.Bedrock
     ///                         new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs
     ///                         {
     ///                             Definition = "Not helpful at all.",
-    ///                             Value = 1,
+    ///                             Value = 1.0,
     ///                             Label = "1",
     ///                         },
     ///                         new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs
     ///                         {
     ///                             Definition = "Extremely helpful.",
-    ///                             Value = 5,
+    ///                             Value = 5.0,
     ///                             Label = "5",
     ///                         },
     ///                     },
@@ -55,8 +55,8 @@ namespace Pulumi.Aws.Bedrock
     ///                         InferenceConfig = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs
     ///                         {
     ///                             MaxTokens = 1024,
-    ///                             Temperature = 0,
-    ///                             TopP = 1,
+    ///                             Temperature = 0.0,
+    ///                             TopP = 1.0,
     ///                         },
     ///                         ModelId = "us.amazon.nova-2-lite-v1:0",
     ///                     },

@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *                         "ecr:BatchGetImage",
  *                         "ecr:GetDownloadUrlForLayer")
  *                     .effect("Allow")
- *                     .resources(exampleAwsEcrRepository.arn())
+ *                     .resources(exampleAwsEcrRepository.get("arn"))
  *                     .build())
  *             .build());
  * 
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *         var exampleAgentcoreAgentRuntime = new AgentcoreAgentRuntime("exampleAgentcoreAgentRuntime", AgentcoreAgentRuntimeArgs.builder()
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
- *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
+ *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.get("repositoryUrl")))
  *                     .build())
  *                 .build())
  *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
- *                     .containerUri(String.format("%s:v1.0", exampleAwsEcrRepository.repositoryUrl()))
+ *                     .containerUri(String.format("%s:v1.0", exampleAwsEcrRepository.get("repositoryUrl")))
  *                     .build())
  *                 .build())
  *             .authorizerConfiguration(AgentcoreAgentRuntimeAuthorizerConfigurationArgs.builder()
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .agentRuntimeName("example_agent_runtime")
  *             .description("Agent runtime with JWT authorization")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .environmentVariables(Map.ofEntries(
  *                 Map.entry("LOG_LEVEL", "INFO"),
  *                 Map.entry("ENV", "production")
@@ -221,7 +221,7 @@ import javax.annotation.Nullable;
  *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
- *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
+ *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.get("repositoryUrl")))
  *                     .build())
  *                 .build())
  *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
@@ -232,7 +232,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .agentRuntimeName("example_agui_runtime")
  *             .description("Agent runtime with AG-UI protocol")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -286,7 +286,7 @@ import javax.annotation.Nullable;
  *                 .networkMode("PUBLIC")
  *                 .build())
  *             .agentRuntimeName("example_agent_runtime")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

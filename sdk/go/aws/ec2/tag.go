@@ -44,8 +44,8 @@ import (
 //				return err
 //			}
 //			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID().ToIDOutput().ToStringOutput(),
-//				TransitGatewayId:  example.ID().ToIDOutput().ToStringOutput(),
+//				CustomerGatewayId: exampleCustomerGateway.ID(),
+//				TransitGatewayId:  example.ID(),
 //				Type:              exampleCustomerGateway.Type,
 //			})
 //			if err != nil {

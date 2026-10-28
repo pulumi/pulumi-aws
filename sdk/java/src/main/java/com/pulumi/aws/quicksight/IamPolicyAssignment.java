@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new IamPolicyAssignment("example", IamPolicyAssignmentArgs.builder()
  *             .identities(IamPolicyAssignmentIdentitiesArgs.builder()
- *                 .users(exampleAwsQuicksightUser.userName())
+ *                 .users(exampleAwsQuicksightUser.get("userName"))
  *                 .build())
  *             .assignmentName("example")
  *             .assignmentStatus("ENABLED")
- *             .policyArn(exampleAwsIamPolicy.arn())
+ *             .policyArn(exampleAwsIamPolicy.get("arn"))
  *             .build());
  * 
  *     }

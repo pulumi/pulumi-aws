@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			exampleA, err := ec2.NewSubnet(ctx, "example_a", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            exampleVpc.ID(),
 //				AvailabilityZone: pulumi.String("us-east-1a"),
 //				CidrBlock:        pulumi.String("10.0.0.0/24"),
 //			})
@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleB, err := ec2.NewSubnet(ctx, "example_b", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            exampleVpc.ID(),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //			})
@@ -56,10 +56,10 @@ import (
 //			}
 //			exampleDirectory, err := directoryservice.NewDirectory(ctx, "example", &directoryservice.DirectoryArgs{
 //				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-//					VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//					VpcId: exampleVpc.ID(),
 //					SubnetIds: pulumi.StringArray{
-//						exampleA.ID().ToIDOutput().ToStringOutput(),
-//						exampleB.ID().ToIDOutput().ToStringOutput(),
+//						exampleA.ID(),
+//						exampleB.ID(),
 //					},
 //				},
 //				Name:     pulumi.String("corp.example.com"),
@@ -111,7 +111,7 @@ import (
 //				return err
 //			}
 //			exampleC, err := ec2.NewSubnet(ctx, "example_c", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            exampleVpc.ID(),
 //				AvailabilityZone: pulumi.String("us-east-1c"),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
 //			})
@@ -119,7 +119,7 @@ import (
 //				return err
 //			}
 //			exampleD, err := ec2.NewSubnet(ctx, "example_d", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            exampleVpc.ID(),
 //				AvailabilityZone: pulumi.String("us-east-1d"),
 //				CidrBlock:        pulumi.String("10.0.3.0/24"),
 //			})
@@ -159,10 +159,10 @@ import (
 //					EnableMaintenanceMode:           pulumi.Bool(true),
 //					UserEnabledAsLocalAdministrator: pulumi.Bool(true),
 //				},
-//				DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
+//				DirectoryId: exampleDirectory.ID(),
 //				SubnetIds: pulumi.StringArray{
-//					exampleC.ID().ToIDOutput().ToStringOutput(),
-//					exampleD.ID().ToIDOutput().ToStringOutput(),
+//					exampleC.ID(),
+//					exampleD.ID(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Example": pulumi.String("true"),
@@ -260,7 +260,7 @@ import (
 //			_, err = workspaces.NewDirectory(ctx, "example", &workspaces.DirectoryArgs{
 //				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				IpGroupIds: pulumi.StringArray{
-//					exampleIpGroup.ID().ToIDOutput().ToStringOutput(),
+//					exampleIpGroup.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -309,7 +309,7 @@ import (
 //					exampleB.Id,
 //				},
 //				SecurityGroupIds: pulumi.StringArray{
-//					workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//					workspacesStreaming.ID(),
 //				},
 //				PrivateDnsEnabled: pulumi.Bool(true),
 //			})
@@ -322,7 +322,7 @@ import (
 //						AccessEndpoints: workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray{
 //							&workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs{
 //								AccessEndpointType: pulumi.String("STREAMING_WSP"),
-//								VpcEndpointId:      workspaces2.ID().ToIDOutput().ToStringOutput(),
+//								VpcEndpointId:      workspaces2.ID(),
 //							},
 //						},
 //						InternetFallbackProtocols: pulumi.StringArray{
@@ -337,7 +337,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_tcp_443", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: workspacesStreaming.ID(),
 //				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
 //				FromPort:        pulumi.Int(443),
 //				ToPort:          pulumi.Int(443),
@@ -347,7 +347,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_tcp_4195", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: workspacesStreaming.ID(),
 //				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
 //				FromPort:        pulumi.Int(4195),
 //				ToPort:          pulumi.Int(4195),
@@ -357,7 +357,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_udp_443", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: workspacesStreaming.ID(),
 //				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
 //				FromPort:        pulumi.Int(443),
 //				ToPort:          pulumi.Int(443),
@@ -367,7 +367,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_udp_4195", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId: workspacesStreaming.ID(),
 //				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
 //				FromPort:        pulumi.Int(4195),
 //				ToPort:          pulumi.Int(4195),

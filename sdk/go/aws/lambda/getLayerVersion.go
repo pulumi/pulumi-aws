@@ -170,7 +170,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			useLatestLayer := pulumi.Float64(latest.Version) > 5
+//			useLatestLayer := latest.Version > 5
 //			var tmp0 *string
 //			if useLatestLayer {
 //				tmp0 = latest.Arn

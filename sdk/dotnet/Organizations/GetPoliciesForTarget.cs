@@ -38,7 +38,16 @@ namespace Pulumi.Aws.Organizations
         ///     var exampleGetPolicy = Std.Toset.Invoke(new()
         ///     {
         ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Organizations.GetPolicy.Invoke(new()
+        ///         {
+        ///             PolicyId = __value,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```
@@ -73,7 +82,16 @@ namespace Pulumi.Aws.Organizations
         ///     var exampleGetPolicy = Std.Toset.Invoke(new()
         ///     {
         ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Organizations.GetPolicy.Invoke(new()
+        ///         {
+        ///             PolicyId = __value,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```
@@ -108,7 +126,16 @@ namespace Pulumi.Aws.Organizations
         ///     var exampleGetPolicy = Std.Toset.Invoke(new()
         ///     {
         ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Organizations.GetPolicy.Invoke(new()
+        ///         {
+        ///             PolicyId = __value,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```

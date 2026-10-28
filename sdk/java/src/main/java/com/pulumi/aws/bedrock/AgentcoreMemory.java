@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .description("Memory for customer service agent")
  *             .eventExpiryDuration(60)
  *             .encryptionKeyArn(example.arn())
- *             .memoryExecutionRoleArn(exampleAwsIamRole.arn())
+ *             .memoryExecutionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

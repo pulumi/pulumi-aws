@@ -80,7 +80,7 @@ import (
 //			_, err = codebuild.NewReportGroup(ctx, "example", &codebuild.ReportGroupArgs{
 //				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
 //					S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
-//						Bucket:             exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//						Bucket:             exampleBucket.ID(),
 //						EncryptionDisabled: pulumi.Bool(false),
 //						EncryptionKey:      exampleKey.Arn,
 //						Packaging:          pulumi.String("NONE"),

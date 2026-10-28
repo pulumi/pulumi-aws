@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ServiceQuotas
     ///         AwsRegion = "us-east-1",
     ///         QuotaCode = "L-2ACBD22F",
     ///         ServiceCode = "lambda",
-    ///         Value = 80,
+    ///         Value = 80.0,
     ///     });
     /// 
     /// });

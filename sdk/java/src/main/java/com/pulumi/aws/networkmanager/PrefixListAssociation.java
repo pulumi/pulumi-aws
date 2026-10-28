@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var plAssociation = new PrefixListAssociation("plAssociation", PrefixListAssociationArgs.builder()
- *             .coreNetworkId(coreNetwork.id())
+ *             .coreNetworkId(coreNetwork.get("id"))
  *             .prefixListArn(prefixList.arn())
  *             .prefixListAlias("exampleprefixlist")
  *             .build());

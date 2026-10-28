@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Permission("example", PermissionArgs.builder()
  *             .action("lambda:InvokeFunction")
- *             .function(exampleAwsLambdaFunction.arn())
+ *             .function(exampleAwsLambdaFunction.get("arn"))
  *             .principal("config.amazonaws.com")
  *             .statementId("AllowExecutionFromConfig")
  *             .build());
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationCustomRule = new OrganizationCustomRule("exampleOrganizationCustomRule", OrganizationCustomRuleArgs.builder()
- *             .lambdaFunctionArn(exampleAwsLambdaFunction.arn())
+ *             .lambdaFunctionArn(exampleAwsLambdaFunction.get("arn"))
  *             .name("example")
  *             .triggerTypes("ConfigurationItemChangeNotification")
  *             .build(), CustomResourceOptions.builder()

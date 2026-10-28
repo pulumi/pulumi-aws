@@ -48,15 +48,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(exampleAwsLb.arn())
+ *             .networkLoadBalancerArns(exampleAwsLb.get("arn"))
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
- *             .vpcId(testAlternate.id())
- *             .serviceName(test.serviceName())
+ *             .vpcId(testAlternate.get("id"))
+ *             .serviceName(test.get("serviceName"))
  *             .vpcEndpointType("Interface")
  *             .privateDnsEnabled(false)
- *             .securityGroupIds(testAwsSecurityGroup.id())
+ *             .securityGroupIds(testAwsSecurityGroup.get("id"))
  *             .build());
  * 
  *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", VpcEndpointConnectionAccepterArgs.builder()

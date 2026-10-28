@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTableAssociation("example", RouteTableAssociationArgs.builder()
- *             .subnetId(exampleAwsSubnet.id())
- *             .routeTableId(exampleAwsRouteTable.id())
+ *             .subnetId(exampleAwsSubnet.get("id"))
+ *             .routeTableId(exampleAwsRouteTable.get("id"))
  *             .build());
  * 
  *     }
@@ -75,8 +75,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTableAssociation("example", RouteTableAssociationArgs.builder()
- *             .gatewayId(exampleAwsInternetGateway.id())
- *             .routeTableId(exampleAwsRouteTable.id())
+ *             .gatewayId(exampleAwsInternetGateway.get("id"))
+ *             .routeTableId(exampleAwsRouteTable.get("id"))
  *             .build());
  * 
  *     }

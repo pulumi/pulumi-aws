@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VectorsIndex("example", VectorsIndexArgs.builder()
  *             .indexName("example-index")
- *             .vectorBucketName(exampleAwsS3vectorsVectorBucket.vectorBucketName())
+ *             .vectorBucketName(exampleAwsS3vectorsVectorBucket.get("vectorBucketName"))
  *             .dataType("float32")
  *             .dimension(2)
  *             .distanceMetric("euclidean")

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Namespace = "AWS/EC2",
     ///         Period = 120,
     ///         Statistic = "Average",
-    ///         Threshold = 80,
+    ///         Threshold = 80.0,
     ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///         InsufficientDataActions =  {},
     ///     });
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Namespace = "AWS/EC2",
     ///         Period = 120,
     ///         Statistic = "Average",
-    ///         Threshold = 80,
+    ///         Threshold = 80.0,
     ///         Dimensions = 
     ///         {
     ///             { "AutoScalingGroupName", bar.Name },
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Name = "test-foobar",
     ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
     ///         EvaluationPeriods = 2,
-    ///         Threshold = 10,
+    ///         Threshold = 10.0,
     ///         AlarmDescription = "Request error rate has exceeded 10%",
     ///         InsufficientDataActions =  {},
     ///     });
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Namespace = "ExampleApp",
     ///         Period = 60,
     ///         Statistic = "Sum",
-    ///         Threshold = 0,
+    ///         Threshold = 0.0,
     ///         TreatMissingData = "breaching",
     ///         AlarmActions = 
     ///         {
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Namespace = "ExampleApp",
     ///         Period = 86400,
     ///         Statistic = "Sum",
-    ///         Threshold = 0,
+    ///         Threshold = 0.0,
     ///         AlarmActions = 
     ///         {
     ///             exampleAwsSnsTopic.Arn,

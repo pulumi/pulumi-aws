@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                     .deleteAfter(14)
  *                     .build())
  *                 .ruleName("my_example_backup_rule")
- *                 .targetVaultName(test.name())
+ *                 .targetVaultName(test.get("name"))
  *                 .schedule("cron(0 12 * * ? *)")
  *                 .build())
  *             .name("my_example_backup_plan")

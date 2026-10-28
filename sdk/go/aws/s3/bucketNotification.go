@@ -89,7 +89,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: bucket.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -169,7 +169,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: bucket.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -261,7 +261,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: bucket.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				allowBucket,
 //			}))
@@ -382,7 +382,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: bucket.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				allowBucket1,
 //				allowBucket2,
@@ -474,7 +474,7 @@ import (
 //						FilterPrefix: pulumi.String("videos/"),
 //					},
 //				},
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: bucket.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -513,7 +513,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketNotification(ctx, "shared", &s3.BucketNotificationArgs{
-//				Bucket:      shared.ID().ToIDOutput().ToStringOutput(),
+//				Bucket:      shared.ID(),
 //				Eventbridge: pulumi.Bool(true),
 //			})
 //			if err != nil {

@@ -82,9 +82,9 @@ import javax.annotation.Nullable;
  *             .baseCapacity(8)
  *             .publiclyAccessible(false)
  *             .subnetIds(            
- *                 example1.id(),
- *                 example2.id(),
- *                 example3.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"),
+ *                 example3.get("id"))
  *             .build());
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
@@ -176,8 +176,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
  *             .integrationName("example")
- *             .sourceArn(exampleAwsDynamodbTable.arn())
- *             .targetArn(exampleAwsRedshiftserverlessNamespace.arn())
+ *             .sourceArn(exampleAwsDynamodbTable.get("arn"))
+ *             .targetArn(exampleAwsRedshiftserverlessNamespace.get("arn"))
  *             .kmsKeyId(example.arn())
  *             .additionalEncryptionContext(Map.of("example", "test"))
  *             .build());

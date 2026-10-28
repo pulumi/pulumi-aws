@@ -181,6 +181,16 @@ def get_virtual_gateway(mesh_name: Optional[_builtins.str] = None,
         name="example-mesh")
     ```
 
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    test = aws.appmesh.get_virtual_gateway(name="example.mesh.local",
+        mesh_name="example-mesh",
+        mesh_owner=current.account_id)
+    ```
+
 
     :param _builtins.str mesh_name: Name of the service mesh in which the virtual gateway exists.
     :param _builtins.str name: Name of the virtual gateway.
@@ -225,6 +235,16 @@ def get_virtual_gateway_output(mesh_name: pulumi.Input[Optional[_builtins.str]] 
 
     example = aws.appmesh.get_virtual_gateway(mesh_name="mesh-gateway",
         name="example-mesh")
+    ```
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    test = aws.appmesh.get_virtual_gateway(name="example.mesh.local",
+        mesh_name="example-mesh",
+        mesh_owner=current.account_id)
     ```
 
 

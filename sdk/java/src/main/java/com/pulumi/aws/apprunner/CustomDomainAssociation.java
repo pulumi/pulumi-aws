@@ -53,14 +53,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CustomDomainAssociation("example", CustomDomainAssociationArgs.builder()
  *             .domainName("example.com")
- *             .serviceArn(exampleAwsApprunnerService.arn())
+ *             .serviceArn(exampleAwsApprunnerService.get("arn"))
  *             .build());
  * 
  *         final var certificateValidationRecords = example.certificateValidationRecords();
  * 
  *         for (var i = 0; i < example.enableWwwSubdomain().applyValue(_enableWwwSubdomain -> _enableWwwSubdomain ? 3 : 2); i++) {
  *             new Record("validation-" + i, RecordArgs.builder()
- *                 .zoneId(exampleAwsRoute53Zone.zoneId())
+ *                 .zoneId(exampleAwsRoute53Zone.get("zoneId"))
  *                 .name(certificateValidationRecords.applyValue(_certificateValidationRecords -> _certificateValidationRecords[range.value()].name()))
  *                 .type("CNAME")
  *                 .ttl(300)

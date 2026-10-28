@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Firewall("example", FirewallArgs.builder()
  *             .subnetMappings(FirewallSubnetMappingArgs.builder()
- *                 .subnetId(exampleAwsSubnet.id())
+ *                 .subnetId(exampleAwsSubnet.get("id"))
  *                 .build())
  *             .name("example")
- *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
- *             .vpcId(exampleAwsVpc.id())
+ *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.get("arn"))
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .enabledAnalysisTypes(            
  *                 "TLS_SNI",
  *                 "HTTP_HOST")
@@ -118,8 +118,8 @@ import javax.annotation.Nullable;
  *                     .availabilityZoneId(example.zoneIds()[1])
  *                     .build())
  *             .name("example")
- *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+ *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.get("arn"))
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.get("id"))
  *             .build());
  * 
  *     }

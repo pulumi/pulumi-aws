@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Ingestion("example", IngestionArgs.builder()
  *             .app("OKTA")
- *             .appBundleArn(exampleAwsAppfabricAppBundle.arn())
+ *             .appBundleArn(exampleAwsAppfabricAppBundle.get("arn"))
  *             .tenantId("example.okta.com")
  *             .ingestionType("auditLog")
  *             .tags(Map.of("Environment", "test"))

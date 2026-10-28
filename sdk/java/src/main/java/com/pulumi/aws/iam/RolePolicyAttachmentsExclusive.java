@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RolePolicyAttachmentsExclusive("example", RolePolicyAttachmentsExclusiveArgs.builder()
- *             .roleName(exampleAwsIamRole.name())
- *             .policyArns(exampleAwsIamPolicy.arn())
+ *             .roleName(exampleAwsIamRole.get("name"))
+ *             .policyArns(exampleAwsIamPolicy.get("arn"))
  *             .build());
  * 
  *     }
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RolePolicyAttachmentsExclusive("example", RolePolicyAttachmentsExclusiveArgs.builder()
- *             .roleName(exampleAwsIamRole.name())
+ *             .roleName(exampleAwsIamRole.get("name"))
  *             .policyArns()
  *             .build());
  * 

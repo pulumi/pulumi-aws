@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new load balancer attachment
  *         var baz = new Attachment("baz", AttachmentArgs.builder()
- *             .elb(bar.id())
- *             .instance(foo.id())
+ *             .elb(bar.get("id"))
+ *             .instance(foo.get("id"))
  *             .build());
  * 
  *     }

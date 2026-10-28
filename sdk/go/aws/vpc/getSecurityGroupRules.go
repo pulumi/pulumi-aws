@@ -31,7 +31,7 @@ import (
 //				Filters: []vpc.GetSecurityGroupRulesFilter{
 //					{
 //						Name: "group-id",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							securityGroupId,
 //						},
 //					},

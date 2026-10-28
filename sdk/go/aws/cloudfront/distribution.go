@@ -171,7 +171,7 @@ import (
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
 //						DomainName:            b.BucketRegionalDomainName,
-//						OriginAccessControlId: _default.ID().ToIDOutput().ToStringOutput(),
+//						OriginAccessControlId: _default.ID(),
 //						OriginId:              pulumi.String(s3OriginId),
 //					},
 //				},
@@ -568,11 +568,11 @@ import (
 //			}
 //			_, err = cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
 //				ConnectionFunctionAssociation: &cloudfront.DistributionConnectionFunctionAssociationArgs{
-//					Id: example.ID().ToIDOutput().ToStringOutput(),
+//					Id: example.ID(),
 //				},
 //				ViewerMtlsConfig: &cloudfront.DistributionViewerMtlsConfigArgs{
 //					TrustStoreConfig: &cloudfront.DistributionViewerMtlsConfigTrustStoreConfigArgs{
-//						TrustStoreId:               exampleTrustStore.ID().ToIDOutput().ToStringOutput(),
+//						TrustStoreId:               exampleTrustStore.ID(),
 //						AdvertiseTrustStoreCaNames: pulumi.Bool(true),
 //						IgnoreCertificateExpiry:    pulumi.Bool(false),
 //					},

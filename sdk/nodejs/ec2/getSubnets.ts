@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getSubnet({
  *     id: __value,
  * }) }), {}));
- * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));
+ * export const subnetCidrBlocks = Object.values(exampleGetSubnet).map(s => (s.cidrBlock));
  * ```
  *
  * The following example retrieves a set of all subnets in a VPC with a custom
@@ -130,7 +130,7 @@ export interface GetSubnetsResult {
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getSubnet({
  *     id: __value,
  * }) }), {}));
- * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));
+ * export const subnetCidrBlocks = Object.values(exampleGetSubnet).map(s => (s.cidrBlock));
  * ```
  *
  * The following example retrieves a set of all subnets in a VPC with a custom

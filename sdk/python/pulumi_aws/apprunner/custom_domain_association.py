@@ -244,12 +244,12 @@ class CustomDomainAssociation(pulumi.CustomResource):
             for validation_range in [{"value": i} for i in range(0, range_body)]:
                 validation.append(aws.route53.Record(f"validation-{validation_range['value']}",
                     zone_id=example_aws_route53_zone["zoneId"],
-                    name=certificate_validation_records.apply(lambda certificate_validation_records: certificate_validation_records[validation_range["value"]].name),
+                    name=certificate_validation_records.apply(lambda certificate_validation_records, _validation_range=validation_range: certificate_validation_records[_validation_range["value"]].name),
                     type=aws.route53.RecordType.CNAME,
                     ttl=300,
-                    records=[certificate_validation_records.apply(lambda certificate_validation_records: certificate_validation_records[validation_range["value"]].value)]))
+                    records=[certificate_validation_records.apply(lambda certificate_validation_records, _validation_range=validation_range: certificate_validation_records[_validation_range["value"]].value)]))
 
-        example.enable_www_subdomain.apply(lambda resolved_outputs: create_validation(3 if resolved_outputs['enable_www_subdomain'] == "true" else 2))
+        example.enable_www_subdomain.apply(lambda resolved_outputs: create_validation(3 if resolved_outputs else 2))
         ```
 
         ## Import
@@ -297,12 +297,12 @@ class CustomDomainAssociation(pulumi.CustomResource):
             for validation_range in [{"value": i} for i in range(0, range_body)]:
                 validation.append(aws.route53.Record(f"validation-{validation_range['value']}",
                     zone_id=example_aws_route53_zone["zoneId"],
-                    name=certificate_validation_records.apply(lambda certificate_validation_records: certificate_validation_records[validation_range["value"]].name),
+                    name=certificate_validation_records.apply(lambda certificate_validation_records, _validation_range=validation_range: certificate_validation_records[_validation_range["value"]].name),
                     type=aws.route53.RecordType.CNAME,
                     ttl=300,
-                    records=[certificate_validation_records.apply(lambda certificate_validation_records: certificate_validation_records[validation_range["value"]].value)]))
+                    records=[certificate_validation_records.apply(lambda certificate_validation_records, _validation_range=validation_range: certificate_validation_records[_validation_range["value"]].value)]))
 
-        example.enable_www_subdomain.apply(lambda resolved_outputs: create_validation(3 if resolved_outputs['enable_www_subdomain'] == "true" else 2))
+        example.enable_www_subdomain.apply(lambda resolved_outputs: create_validation(3 if resolved_outputs else 2))
         ```
 
         ## Import

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceSet("example", ResourceSetArgs.builder()
  *             .resources(ResourceSetResourceArgs.builder()
- *                 .resourceArn(exampleAwsCloudwatchMetricAlarm.arn())
+ *                 .resourceArn(exampleAwsCloudwatchMetricAlarm.get("arn"))
  *                 .build())
  *             .resourceSetName(my_cw_alarm_set)
  *             .resourceSetType("AWS::CloudWatch::Alarm")

@@ -40,7 +40,7 @@ import (
 //			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
 //				Name:        pulumi.String("example.domain.local"),
 //				Description: pulumi.String("example"),
-//				Vpc:         example.ID().ToIDOutput().ToStringOutput(),
+//				Vpc:         example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -53,7 +53,7 @@ import (
 //							Type: pulumi.String("A"),
 //						},
 //					},
-//					NamespaceId:   examplePrivateDnsNamespace.ID().ToIDOutput().ToStringOutput(),
+//					NamespaceId:   examplePrivateDnsNamespace.ID(),
 //					RoutingPolicy: pulumi.String("MULTIVALUE"),
 //				},
 //				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
@@ -66,7 +66,7 @@ import (
 //			}
 //			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
 //				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ServiceId:  exampleService.ID(),
 //				Attributes: pulumi.StringMap{
 //					"AWS_INSTANCE_IPV4": pulumi.String("172.18.0.1"),
 //					"custom_attribute":  pulumi.String("custom"),
@@ -102,14 +102,14 @@ import (
 //			}
 //			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
 //				Name:        pulumi.String("example"),
-//				NamespaceId: example.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
 //				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ServiceId:  exampleService.ID(),
 //				Attributes: pulumi.StringMap{
 //					"AWS_EC2_INSTANCE_ID": pulumi.String("i-0abdg374kd892cj6dl"),
 //				},

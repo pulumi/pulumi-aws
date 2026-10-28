@@ -222,7 +222,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewClusterInstance(ctx, "example", &rds.ClusterInstanceArgs{
-//				ClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier: example.ID(),
 //				InstanceClass:     pulumi.String("db.serverless"),
 //				Engine:            example.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     example.EngineVersion,
@@ -339,7 +339,7 @@ import (
 //				return err
 //			}
 //			testClusterInstance, err := rds.NewClusterInstance(ctx, "test", &rds.ClusterInstanceArgs{
-//				ClusterIdentifier: test.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier: test.ID(),
 //				Identifier:        pulumi.String("example-1"),
 //				InstanceClass:     pulumi.String(rds.InstanceType_R6G_Large),
 //				Engine:            test.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),

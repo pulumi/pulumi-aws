@@ -264,7 +264,7 @@ def get_vpc_peering_connection(cidr_block: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     pc = aws.ec2.get_vpc_peering_connection(vpc_id=foo["id"],
         peer_cidr_block="10.0.1.0/22")
     # Create a route table
@@ -345,7 +345,7 @@ def get_vpc_peering_connection_output(cidr_block: pulumi.Input[Optional[Optional
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     pc = aws.ec2.get_vpc_peering_connection(vpc_id=foo["id"],
         peer_cidr_block="10.0.1.0/22")
     # Create a route table

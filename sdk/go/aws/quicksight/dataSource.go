@@ -155,7 +155,7 @@ import (
 //					var _zero string
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"Statement": []interface{}{
 //							map[string]interface{}{
 //								"Action": []string{
 //									"s3:GetObject",

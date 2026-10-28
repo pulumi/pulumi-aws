@@ -65,7 +65,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Tag the log group to declare it as a custom data source.
+//			// Tag the log group to declare it as a custom function.
 //			// Log stream messages are written to the "myapp__events" table
 //			// in the aws-cloudwatch table bucket.
 //			_, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{

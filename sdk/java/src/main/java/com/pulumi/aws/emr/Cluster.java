@@ -64,10 +64,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var cluster = new Cluster("cluster", ClusterArgs.builder()
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(main.id())
- *                 .emrManagedMasterSecurityGroup(sg.id())
- *                 .emrManagedSlaveSecurityGroup(sg.id())
- *                 .instanceProfile(emrProfile.arn())
+ *                 .subnetId(main.get("id"))
+ *                 .emrManagedMasterSecurityGroup(sg.get("id"))
+ *                 .emrManagedSlaveSecurityGroup(sg.get("id"))
+ *                 .instanceProfile(emrProfile.get("arn"))
  *                 .build())
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceType("m4.large")
@@ -168,7 +168,7 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  *             """)
- *             .serviceRole(iamEmrServiceRole.arn())
+ *             .serviceRole(iamEmrServiceRole.get("arn"))
  *             .build());
  * 
  *     }

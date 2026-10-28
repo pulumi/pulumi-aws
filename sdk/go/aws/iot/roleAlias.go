@@ -16,6 +16,56 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Principals: []map[string]interface{}{
+//					map[string]interface{}{
+//						"type": "Service",
+//						"identifiers": []string{
+//							"credentials.iot.amazonaws.com",
+//						},
+//					},
+//				},
+//				Effect: "Allow",
+//				Actions: []string{
+//					"sts:AssumeRole",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				Name:             pulumi.String("dynamodb-access-role"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewRoleAlias(ctx, "alias", &iot.RoleAliasArgs{
+//				Alias:   pulumi.String("Thermostat-dynamodb-access-role-alias"),
+//				RoleArn: role.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import IoT Role Alias using the alias. For example:

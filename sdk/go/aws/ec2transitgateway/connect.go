@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewConnect(ctx, "attachment", &ec2transitgateway.ConnectArgs{
-//				TransportAttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+//				TransportAttachmentId: example.ID(),
 //				TransitGatewayId:      pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {

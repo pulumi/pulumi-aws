@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			example, err := neptune.NewClusterInstance(ctx, "example", &neptune.ClusterInstanceArgs{
-//				ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier: _default.ID(),
 //				Engine:            pulumi.String("neptune"),
 //				InstanceClass:     pulumi.String("db.r4.large"),
 //				ApplyImmediately:  pulumi.Bool(true),
@@ -59,7 +59,7 @@ import (
 //				SnsTopicArn: defaultTopic.Arn,
 //				SourceType:  pulumi.String("db-instance"),
 //				SourceIds: pulumi.StringArray{
-//					example.ID().ToIDOutput().ToStringOutput(),
+//					example.ID(),
 //				},
 //				EventCategories: pulumi.StringArray{
 //					pulumi.String("maintenance"),

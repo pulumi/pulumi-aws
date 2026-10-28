@@ -54,7 +54,7 @@ namespace Pulumi.Aws
         ///         Tags = 
         ///         {
         ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
-        ///             { "SyncToken", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken) },
+        ///             { "SyncToken", Output.Create(europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)) },
         ///         },
         ///     });
         /// 
@@ -107,7 +107,7 @@ namespace Pulumi.Aws
         ///         Tags = 
         ///         {
         ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
-        ///             { "SyncToken", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken) },
+        ///             { "SyncToken", Output.Create(europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)) },
         ///         },
         ///     });
         /// 
@@ -160,7 +160,7 @@ namespace Pulumi.Aws
         ///         Tags = 
         ///         {
         ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
-        ///             { "SyncToken", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken) },
+        ///             { "SyncToken", Output.Create(europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)) },
         ///         },
         ///     });
         /// 

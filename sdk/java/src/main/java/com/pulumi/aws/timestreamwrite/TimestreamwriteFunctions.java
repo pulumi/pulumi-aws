@@ -258,8 +258,8 @@ public final class TimestreamwriteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = TimestreamwriteFunctions.getTable(GetTableArgs.builder()
-     *             .databaseName(testAwsTimestreamwriteDatabase.databaseName())
-     *             .name(testAwsTimestreamwriteTable.tableName())
+     *             .databaseName(testAwsTimestreamwriteDatabase.get("databaseName"))
+     *             .name(testAwsTimestreamwriteTable.get("tableName"))
      *             .build());
      * 
      *     }
@@ -301,8 +301,8 @@ public final class TimestreamwriteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = TimestreamwriteFunctions.getTable(GetTableArgs.builder()
-     *             .databaseName(testAwsTimestreamwriteDatabase.databaseName())
-     *             .name(testAwsTimestreamwriteTable.tableName())
+     *             .databaseName(testAwsTimestreamwriteDatabase.get("databaseName"))
+     *             .name(testAwsTimestreamwriteTable.get("tableName"))
      *             .build());
      * 
      *     }
@@ -344,8 +344,8 @@ public final class TimestreamwriteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = TimestreamwriteFunctions.getTable(GetTableArgs.builder()
-     *             .databaseName(testAwsTimestreamwriteDatabase.databaseName())
-     *             .name(testAwsTimestreamwriteTable.tableName())
+     *             .databaseName(testAwsTimestreamwriteDatabase.get("databaseName"))
+     *             .name(testAwsTimestreamwriteTable.get("tableName"))
      *             .build());
      * 
      *     }
@@ -387,8 +387,8 @@ public final class TimestreamwriteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = TimestreamwriteFunctions.getTable(GetTableArgs.builder()
-     *             .databaseName(testAwsTimestreamwriteDatabase.databaseName())
-     *             .name(testAwsTimestreamwriteTable.tableName())
+     *             .databaseName(testAwsTimestreamwriteDatabase.get("databaseName"))
+     *             .name(testAwsTimestreamwriteTable.get("tableName"))
      *             .build());
      * 
      *     }
@@ -430,8 +430,8 @@ public final class TimestreamwriteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = TimestreamwriteFunctions.getTable(GetTableArgs.builder()
-     *             .databaseName(testAwsTimestreamwriteDatabase.databaseName())
-     *             .name(testAwsTimestreamwriteTable.tableName())
+     *             .databaseName(testAwsTimestreamwriteDatabase.get("databaseName"))
+     *             .name(testAwsTimestreamwriteTable.get("tableName"))
      *             .build());
      * 
      *     }

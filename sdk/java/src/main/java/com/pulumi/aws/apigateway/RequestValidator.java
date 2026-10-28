@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RequestValidator("example", RequestValidatorArgs.builder()
  *             .name("example")
- *             .restApi(exampleAwsApiGatewayRestApi.id())
+ *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
  *             .validateRequestBody(true)
  *             .validateRequestParameters(true)
  *             .build());

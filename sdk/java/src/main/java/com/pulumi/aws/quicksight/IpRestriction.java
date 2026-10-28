@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var example = new IpRestriction("example", IpRestrictionArgs.builder()
  *             .enabled(true)
  *             .ipRestrictionRuleMap(Map.of("108.56.166.202/32", "Allow self"))
- *             .vpcIdRestrictionRuleMap(Map.of(exampleAwsVpc.id(), "Main VPC"))
+ *             .vpcIdRestrictionRuleMap(Map.of(exampleAwsVpc.get("id"), "Main VPC"))
  *             .build());
  * 
  *     }

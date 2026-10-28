@@ -34,6 +34,26 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var test = Aws.AppMesh.GetVirtualGateway.Invoke(new()
+        ///     {
+        ///         Name = "example.mesh.local",
+        ///         MeshName = "example-mesh",
+        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetVirtualGatewayResult> InvokeAsync(GetVirtualGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGatewayResult>("aws:appmesh/getVirtualGateway:getVirtualGateway", args ?? new GetVirtualGatewayArgs(), options.WithDefaults());
@@ -61,6 +81,26 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var test = Aws.AppMesh.GetVirtualGateway.Invoke(new()
+        ///     {
+        ///         Name = "example.mesh.local",
+        ///         MeshName = "example-mesh",
+        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetVirtualGatewayResult> Invoke(GetVirtualGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGatewayResult>("aws:appmesh/getVirtualGateway:getVirtualGateway", args ?? new GetVirtualGatewayInvokeArgs(), options.WithDefaults());
@@ -84,6 +124,26 @@ namespace Pulumi.Aws.AppMesh
         ///     {
         ///         MeshName = "mesh-gateway",
         ///         Name = "example-mesh",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var test = Aws.AppMesh.GetVirtualGateway.Invoke(new()
+        ///     {
+        ///         Name = "example.mesh.local",
+        ///         MeshName = "example-mesh",
+        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
         ///     });
         /// 
         /// });

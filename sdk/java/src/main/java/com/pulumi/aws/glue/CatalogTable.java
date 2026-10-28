@@ -268,7 +268,7 @@ import javax.annotation.Nullable;
  *                     .dialect("ATHENA")
  *                     .dialectVersion("3")
  *                     .viewOriginalText("SELECT * FROM catalog_database.base_table")
- *                     .validationConnection(exampleAwsGlueConnection.name())
+ *                     .validationConnection(exampleAwsGlueConnection.get("name"))
  *                     .build())
  *                 .isProtected(true)
  *                 .build())

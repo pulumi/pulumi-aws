@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *                 "us-west-2a",
  *                 "us-west-2b",
  *                 "us-west-2c")
- *             .instances(foo.id())
+ *             .instances(foo.get("id"))
  *             .crossZoneLoadBalancing(true)
  *             .idleTimeout(400)
  *             .connectionDraining(true)

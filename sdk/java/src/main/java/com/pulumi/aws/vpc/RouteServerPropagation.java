@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteServerPropagation("example", RouteServerPropagationArgs.builder()
- *             .routeServerId(exampleAwsVpcRouteServer.routeServerId())
- *             .routeTableId(exampleAwsRouteTable.id())
+ *             .routeServerId(exampleAwsVpcRouteServer.get("routeServerId"))
+ *             .routeTableId(exampleAwsRouteTable.get("id"))
  *             .build());
  * 
  *     }

@@ -119,9 +119,9 @@ import javax.annotation.Nullable;
  *                 .key("foo")
  *                 .value("bar")
  *                 .build())
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("my_example_backup_selection")
- *             .planId(exampleAwsBackupPlan.id())
+ *             .planId(exampleAwsBackupPlan.get("id"))
  *             .build());
  * 
  *     }
@@ -177,9 +177,9 @@ import javax.annotation.Nullable;
  *                     .value("test*")
  *                     .build())
  *                 .build())
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("my_example_backup_selection")
- *             .planId(exampleAwsBackupPlan.id())
+ *             .planId(exampleAwsBackupPlan.get("id"))
  *             .resources("*")
  *             .build());
  * 
@@ -213,13 +213,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection("example", SelectionArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("my_example_backup_selection")
- *             .planId(exampleAwsBackupPlan.id())
+ *             .planId(exampleAwsBackupPlan.get("id"))
  *             .resources(            
- *                 exampleAwsDbInstance.arn(),
- *                 exampleAwsEbsVolume.arn(),
- *                 exampleAwsEfsFileSystem.arn())
+ *                 exampleAwsDbInstance.get("arn"),
+ *                 exampleAwsEbsVolume.get("arn"),
+ *                 exampleAwsEfsFileSystem.get("arn"))
  *             .build());
  * 
  *     }
@@ -252,13 +252,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection("example", SelectionArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("my_example_backup_selection")
- *             .planId(exampleAwsBackupPlan.id())
+ *             .planId(exampleAwsBackupPlan.get("id"))
  *             .notResources(            
- *                 exampleAwsDbInstance.arn(),
- *                 exampleAwsEbsVolume.arn(),
- *                 exampleAwsEfsFileSystem.arn())
+ *                 exampleAwsDbInstance.get("arn"),
+ *                 exampleAwsEbsVolume.get("arn"),
+ *                 exampleAwsEfsFileSystem.get("arn"))
  *             .build());
  * 
  *     }

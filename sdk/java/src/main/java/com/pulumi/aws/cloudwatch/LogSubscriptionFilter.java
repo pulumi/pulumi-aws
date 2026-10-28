@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testLambdafunctionLogfilter = new LogSubscriptionFilter("testLambdafunctionLogfilter", LogSubscriptionFilterArgs.builder()
  *             .name("test_lambdafunction_logfilter")
- *             .roleArn(iamForLambda.arn())
+ *             .roleArn(iamForLambda.get("arn"))
  *             .logGroup("/aws/lambda/example_lambda_name")
  *             .filterPattern("logtype test")
- *             .destinationArn(testLogstream.arn())
+ *             .destinationArn(testLogstream.get("arn"))
  *             .distribution("Random")
  *             .build());
  * 

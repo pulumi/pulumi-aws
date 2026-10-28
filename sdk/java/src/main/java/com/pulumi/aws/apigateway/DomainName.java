@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainName("example", DomainNameArgs.builder()
- *             .certificateArn(exampleAwsAcmCertificateValidation.certificateArn())
+ *             .certificateArn(exampleAwsAcmCertificateValidation.get("certificateArn"))
  *             .domainName("api.example.com")
  *             .build());
  * 
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name(example.domainName())
  *             .type("A")
- *             .zoneId(exampleAwsRoute53Zone.id())
+ *             .zoneId(exampleAwsRoute53Zone.get("id"))
  *             .build());
  * 
  *     }
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *                 .types("REGIONAL")
  *                 .build())
  *             .domainName("api.example.com")
- *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
+ *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.get("certificateArn"))
  *             .build());
  * 
  *         // Example DNS record using Route53.
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name(example.domainName())
  *             .type("A")
- *             .zoneId(exampleAwsRoute53Zone.id())
+ *             .zoneId(exampleAwsRoute53Zone.get("id"))
  *             .build());
  * 
  *     }
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *                 .types("REGIONAL")
  *                 .build())
  *             .domainName("api.example.com")
- *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
+ *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.get("certificateArn"))
  *             .securityPolicy("SecurityPolicy_TLS13_1_3_2025_09")
  *             .endpointAccessMode("STRICT")
  *             .build());

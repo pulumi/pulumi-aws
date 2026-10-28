@@ -345,7 +345,7 @@ public final class DatazoneFunctions {
      *     public static void stack(Context ctx) {
      *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
-     *             .domainExecutionRole(domainExecutionRole.arn())
+     *             .domainExecutionRole(domainExecutionRole.get("arn"))
      *             .build());
      * 
      *         final var example = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()
@@ -396,7 +396,7 @@ public final class DatazoneFunctions {
      *     public static void stack(Context ctx) {
      *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
-     *             .domainExecutionRole(domainExecutionRole.arn())
+     *             .domainExecutionRole(domainExecutionRole.get("arn"))
      *             .build());
      * 
      *         final var example = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()
@@ -447,7 +447,7 @@ public final class DatazoneFunctions {
      *     public static void stack(Context ctx) {
      *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
-     *             .domainExecutionRole(domainExecutionRole.arn())
+     *             .domainExecutionRole(domainExecutionRole.get("arn"))
      *             .build());
      * 
      *         final var example = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()
@@ -498,7 +498,7 @@ public final class DatazoneFunctions {
      *     public static void stack(Context ctx) {
      *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
-     *             .domainExecutionRole(domainExecutionRole.arn())
+     *             .domainExecutionRole(domainExecutionRole.get("arn"))
      *             .build());
      * 
      *         final var example = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()
@@ -549,7 +549,7 @@ public final class DatazoneFunctions {
      *     public static void stack(Context ctx) {
      *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
-     *             .domainExecutionRole(domainExecutionRole.arn())
+     *             .domainExecutionRole(domainExecutionRole.get("arn"))
      *             .build());
      * 
      *         final var example = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()

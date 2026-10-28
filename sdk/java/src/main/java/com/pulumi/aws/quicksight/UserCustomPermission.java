@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserCustomPermission("example", UserCustomPermissionArgs.builder()
- *             .userName(exampleAwsQuicksightUser.userName())
- *             .customPermissionsName(exampleAwsQuicksightCustomPermissions.customPermissionsName())
+ *             .userName(exampleAwsQuicksightUser.get("userName"))
+ *             .customPermissionsName(exampleAwsQuicksightCustomPermissions.get("customPermissionsName"))
  *             .build());
  * 
  *     }

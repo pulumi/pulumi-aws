@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NfsLocation("example", NfsLocationArgs.builder()
  *             .onPremConfig(NfsLocationOnPremConfigArgs.builder()
- *                 .agentArns(exampleAwsDatasyncAgent.arn())
+ *                 .agentArns(exampleAwsDatasyncAgent.get("arn"))
  *                 .build())
  *             .serverHostname("nfs.example.com")
  *             .subdirectory("/exported/path")

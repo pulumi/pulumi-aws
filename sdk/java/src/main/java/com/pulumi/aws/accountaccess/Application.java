@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *         var example = new Application("example", ApplicationArgs.builder()
  *             .identitySource(ApplicationIdentitySourceArgs.builder()
  *                 .identityCenter(ApplicationIdentitySourceIdentityCenterArgs.builder()
- *                     .instanceArn(exampleAwsSsoadminInstances.arns()[0])
+ *                     .instanceArn(exampleAwsSsoadminInstances.get("arns")[0])
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(

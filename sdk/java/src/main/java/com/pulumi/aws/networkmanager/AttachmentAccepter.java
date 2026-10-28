@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
- *             .attachmentId(exampleAwsNetworkmanagerVpcAttachment.id())
- *             .attachmentType(exampleAwsNetworkmanagerVpcAttachment.attachmentType())
+ *             .attachmentId(exampleAwsNetworkmanagerVpcAttachment.get("id"))
+ *             .attachmentType(exampleAwsNetworkmanagerVpcAttachment.get("attachmentType"))
  *             .build());
  * 
  *     }
@@ -81,8 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
- *             .attachmentId(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.id())
- *             .attachmentType(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.attachmentType())
+ *             .attachmentId(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.get("id"))
+ *             .attachmentType(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.get("attachmentType"))
  *             .build());
  * 
  *     }
@@ -115,8 +115,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
- *             .attachmentId(exampleAwsNetworkmanagerConnectAttachment.id())
- *             .attachmentType(exampleAwsNetworkmanagerConnectAttachment.attachmentType())
+ *             .attachmentId(exampleAwsNetworkmanagerConnectAttachment.get("id"))
+ *             .attachmentType(exampleAwsNetworkmanagerConnectAttachment.get("attachmentType"))
  *             .build());
  * 
  *     }
@@ -149,8 +149,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
- *             .attachmentId(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.id())
- *             .attachmentType(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.attachmentType())
+ *             .attachmentId(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.get("id"))
+ *             .attachmentType(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.get("attachmentType"))
  *             .build());
  * 
  *     }
@@ -183,8 +183,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
- *             .attachmentId(exampleAwsNetworkmanagerDxGatewayAttachment.id())
- *             .attachmentType(exampleAwsNetworkmanagerDxGatewayAttachment.attachmentType())
+ *             .attachmentId(exampleAwsNetworkmanagerDxGatewayAttachment.get("id"))
+ *             .attachmentType(exampleAwsNetworkmanagerDxGatewayAttachment.get("attachmentType"))
  *             .build());
  * 
  *     }

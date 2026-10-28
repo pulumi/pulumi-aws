@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
+ *                 .bucket(exampleAwsS3Bucket.get("id"))
+ *                 .key(exampleAwsS3Object.get("key"))
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .tags(Map.of("Name", "Example Kendra Faq"))
  *             .build());
  * 
@@ -89,13 +89,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
+ *                 .bucket(exampleAwsS3Bucket.get("id"))
+ *                 .key(exampleAwsS3Object.get("key"))
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("Example")
  *             .fileFormat("CSV")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -130,13 +130,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
  *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
+ *                 .bucket(exampleAwsS3Bucket.get("id"))
+ *                 .key(exampleAwsS3Object.get("key"))
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("Example")
  *             .languageCode("en")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

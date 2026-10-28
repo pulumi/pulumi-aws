@@ -58,10 +58,10 @@ import javax.annotation.Nullable;
  *                     .namespace("argocd")
  *                     .build())
  *                 .build())
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .capabilityName("argocd")
  *             .type("ARGOCD")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .deletePropagationPolicy("RETAIN")
  *             .tags(Map.of("Name", "example-capability"))
  *             .build());
@@ -107,10 +107,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Capability("example", CapabilityArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .capabilityName("ack")
  *             .type("ACK")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .deletePropagationPolicy("RETAIN")
  *             .build());
  * 

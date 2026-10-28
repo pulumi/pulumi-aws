@@ -129,7 +129,7 @@ import (
 //						GatewayId: pulumi.String("local"),
 //					},
 //				},
-//				VpcId: test.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: test.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -162,13 +162,13 @@ import (
 //			}
 //			testSubnet, err := ec2.NewSubnet(ctx, "test", &ec2.SubnetArgs{
 //				CidrBlock: pulumi.String("10.1.1.0/24"),
-//				VpcId:     test.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:     test.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testNetworkInterface, err := ec2.NewNetworkInterface(ctx, "test", &ec2.NetworkInterfaceArgs{
-//				SubnetId: testSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId: testSubnet.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -177,10 +177,10 @@ import (
 //				Routes: ec2.RouteTableRouteArray{
 //					&ec2.RouteTableRouteArgs{
 //						CidrBlock:          test.CidrBlock,
-//						NetworkInterfaceId: testNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//						NetworkInterfaceId: testNetworkInterface.ID(),
 //					},
 //				},
-//				VpcId: test.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: test.ID(),
 //			})
 //			if err != nil {
 //				return err

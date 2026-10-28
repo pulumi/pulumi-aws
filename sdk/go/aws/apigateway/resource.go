@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				RestApi:  myDemoAPI.ID(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
 //			})

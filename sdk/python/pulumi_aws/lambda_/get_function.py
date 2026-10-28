@@ -581,7 +581,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         name="new-function",
         role=reference.role,
         handler=reference.handler,
-        runtime=aws.lambda_.Runtime(reference.runtime),
+        runtime=reference.runtime,
         memory_size=reference.memory_size,
         timeout=reference.timeout,
         architectures=reference.architectures)
@@ -614,9 +614,9 @@ def get_function(function_name: Optional[_builtins.str] = None,
 
     durable_function = aws.lambda_.get_function(function_name="my-durable-function")
     pulumi.export("durableSettings", {
-        "hasDurableConfig": len(durable_function.durable_configs).apply(lambda length: length > 0),
-        "executionTimeout": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].execution_timeout if length > 0 else None),
-        "retentionPeriod": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].retention_period if length > 0 else None),
+        "hasDurableConfig": len(durable_function.durable_configs) > 0,
+        "executionTimeout": durable_function.durable_configs[0].execution_timeout if len(durable_function.durable_configs) > 0 else None,
+        "retentionPeriod": durable_function.durable_configs[0].retention_period if len(durable_function.durable_configs) > 0 else None,
     })
     ```
 
@@ -748,7 +748,7 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
         name="new-function",
         role=reference.role,
         handler=reference.handler,
-        runtime=aws.lambda_.Runtime(reference.runtime),
+        runtime=reference.runtime,
         memory_size=reference.memory_size,
         timeout=reference.timeout,
         architectures=reference.architectures)
@@ -781,9 +781,9 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
 
     durable_function = aws.lambda_.get_function(function_name="my-durable-function")
     pulumi.export("durableSettings", {
-        "hasDurableConfig": len(durable_function.durable_configs).apply(lambda length: length > 0),
-        "executionTimeout": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].execution_timeout if length > 0 else None),
-        "retentionPeriod": len(durable_function.durable_configs).apply(lambda length: durable_function.durable_configs[0].retention_period if length > 0 else None),
+        "hasDurableConfig": len(durable_function.durable_configs) > 0,
+        "executionTimeout": durable_function.durable_configs[0].execution_timeout if len(durable_function.durable_configs) > 0 else None,
+        "retentionPeriod": durable_function.durable_configs[0].retention_period if len(durable_function.durable_configs) > 0 else None,
     })
     ```
 

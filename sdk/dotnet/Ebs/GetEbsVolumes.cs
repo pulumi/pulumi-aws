@@ -36,17 +36,36 @@ namespace Pulumi.Aws.Ebs
         ///         },
         ///     });
         /// 
-        ///     var exampleGetVolume = ;
+        ///     var exampleGetVolume = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ebs.GetVolume.Invoke(new()
+        ///         {
+        ///             Filters = new[]
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
+        ///                 {
+        ///                     Name = "volume-id",
+        ///                     Values = new[]
+        ///                     {
+        ///                         __value,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
+        ///         ["availabilityZoneToVolumeId"] = (exampleGetVolume).Values.ToDictionary(item =&gt; {
         ///             var s = item.Value;
-        ///             return s.Id;
+        ///             return s.Id.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///         }, item =&gt; {
         ///             var s = item.Value;
         ///             return s.AvailabilityZone;
-        ///         })),
+        ///         }),
         ///     };
         /// });
         /// ```
@@ -79,17 +98,36 @@ namespace Pulumi.Aws.Ebs
         ///         },
         ///     });
         /// 
-        ///     var exampleGetVolume = ;
+        ///     var exampleGetVolume = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ebs.GetVolume.Invoke(new()
+        ///         {
+        ///             Filters = new[]
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
+        ///                 {
+        ///                     Name = "volume-id",
+        ///                     Values = new[]
+        ///                     {
+        ///                         __value,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
+        ///         ["availabilityZoneToVolumeId"] = (exampleGetVolume).Values.ToDictionary(item =&gt; {
         ///             var s = item.Value;
-        ///             return s.Id;
+        ///             return s.Id.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///         }, item =&gt; {
         ///             var s = item.Value;
         ///             return s.AvailabilityZone;
-        ///         })),
+        ///         }),
         ///     };
         /// });
         /// ```
@@ -122,17 +160,36 @@ namespace Pulumi.Aws.Ebs
         ///         },
         ///     });
         /// 
-        ///     var exampleGetVolume = ;
+        ///     var exampleGetVolume = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Ebs.GetVolume.Invoke(new()
+        ///         {
+        ///             Filters = new[]
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
+        ///                 {
+        ///                     Name = "volume-id",
+        ///                     Values = new[]
+        ///                     {
+        ///                         __value,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
+        ///         ["availabilityZoneToVolumeId"] = (exampleGetVolume).Values.ToDictionary(item =&gt; {
         ///             var s = item.Value;
-        ///             return s.Id;
+        ///             return s.Id.ToString(System.Globalization.CultureInfo.InvariantCulture);
         ///         }, item =&gt; {
         ///             var s = item.Value;
         ///             return s.AvailabilityZone;
-        ///         })),
+        ///         }),
         ///     };
         /// });
         /// ```

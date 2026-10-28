@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Acm
     ///     var example = new List&lt;Aws.Route53.Record&gt;();
     ///     foreach (var range in .ToDictionary(item =&gt; {
     ///         var dvo = item.Value;
-    ///         return dvo.DomainName;
+    ///         return dvo.DomainName.ToString(System.Globalization.CultureInfo.InvariantCulture);
     ///     }, item =&gt; {
     ///         var dvo = item.Value;
     ///         return 
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Acm
     ///                 range.Value.Record,
     ///             },
     ///             Ttl = 60,
-    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType&gt;(range.Value.Type),
+    ///             Type = range.Value.Type,
     ///             ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         }));
     ///     }

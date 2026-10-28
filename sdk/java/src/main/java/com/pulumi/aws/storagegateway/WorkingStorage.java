@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WorkingStorage("example", WorkingStorageArgs.builder()
- *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
- *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
+ *             .diskId(exampleAwsStoragegatewayLocalDisk.get("id"))
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.get("arn"))
  *             .build());
  * 
  *     }

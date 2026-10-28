@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .receiveWaitTimeSeconds(10)
  *             .redrivePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty("deadLetterTargetArn", queueDeadletter.arn()),
+ *                     jsonProperty("deadLetterTargetArn", queueDeadletter.get("arn")),
  *                     jsonProperty("maxReceiveCount", 4)
  *                 )))
  *             .tags(Map.of("Environment", "production"))

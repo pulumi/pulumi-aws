@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType("SOFT_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .name("example")
  *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
- *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.get("routingProfileId"))
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.get("securityProfileId"))
  *             .build());
  * 
  *     }
@@ -106,12 +106,12 @@ import javax.annotation.Nullable;
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType("SOFT_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .name("example")
  *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
- *             .hierarchyGroupId(exampleAwsConnectUserHierarchyGroup.hierarchyGroupId())
- *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.get("routingProfileId"))
+ *             .hierarchyGroupId(exampleAwsConnectUserHierarchyGroup.get("hierarchyGroupId"))
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.get("securityProfileId"))
  *             .build());
  * 
  *     }
@@ -156,11 +156,11 @@ import javax.annotation.Nullable;
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType("SOFT_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .name("example")
  *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
- *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.get("routingProfileId"))
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.get("securityProfileId"))
  *             .build());
  * 
  *     }}{@code
@@ -198,11 +198,11 @@ import javax.annotation.Nullable;
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType("SOFT_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .name("example")
  *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
- *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.get("routingProfileId"))
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.get("securityProfileId"))
  *             .build());
  * 
  *     }
@@ -242,13 +242,13 @@ import javax.annotation.Nullable;
  *                 .deskPhoneNumber("+112345678912")
  *                 .phoneType("DESK_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
+ *             .instanceId(exampleAwsConnectInstance.get("id"))
  *             .name("example")
  *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.get("routingProfileId"))
  *             .securityProfileIds(            
- *                 exampleAwsConnectSecurityProfile.securityProfileId(),
- *                 example2.securityProfileId())
+ *                 exampleAwsConnectSecurityProfile.get("securityProfileId"),
+ *                 example2.get("securityProfileId"))
  *             .build());
  * 
  *     }

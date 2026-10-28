@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyTableAssociation("example", PolicyTableAssociationArgs.builder()
- *             .transitGatewayAttachmentId(exampleAwsNetworkmanagerTransitGatewayPeering.transitGatewayPeeringAttachmentId())
- *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.id())
+ *             .transitGatewayAttachmentId(exampleAwsNetworkmanagerTransitGatewayPeering.get("transitGatewayPeeringAttachmentId"))
+ *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.get("id"))
  *             .build());
  * 
  *     }

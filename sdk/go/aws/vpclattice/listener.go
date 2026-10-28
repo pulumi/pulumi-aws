@@ -44,7 +44,7 @@ import (
 //				},
 //				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTPS"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				ServiceIdentifier: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -93,7 +93,7 @@ import (
 //						&vpclattice.ListenerDefaultActionForwardArgs{
 //							TargetGroups: vpclattice.ListenerDefaultActionForwardTargetGroupArray{
 //								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: exampleTargetGroup.ID().ToIDOutput().ToStringOutput(),
+//									TargetGroupIdentifier: exampleTargetGroup.ID(),
 //								},
 //							},
 //						},
@@ -101,7 +101,7 @@ import (
 //				},
 //				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				ServiceIdentifier: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -162,11 +162,11 @@ import (
 //						&vpclattice.ListenerDefaultActionForwardArgs{
 //							TargetGroups: vpclattice.ListenerDefaultActionForwardTargetGroupArray{
 //								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: example1.ID().ToIDOutput().ToStringOutput(),
+//									TargetGroupIdentifier: example1.ID(),
 //									Weight:                pulumi.Int(80),
 //								},
 //								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: example2.ID().ToIDOutput().ToStringOutput(),
+//									TargetGroupIdentifier: example2.ID(),
 //									Weight:                pulumi.Int(20),
 //								},
 //							},
@@ -175,7 +175,7 @@ import (
 //				},
 //				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				ServiceIdentifier: example.ID(),
 //			})
 //			if err != nil {
 //				return err

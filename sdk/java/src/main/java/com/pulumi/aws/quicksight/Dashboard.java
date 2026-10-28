@@ -57,10 +57,10 @@ import javax.annotation.Nullable;
  *             .sourceEntity(DashboardSourceEntityArgs.builder()
  *                 .sourceTemplate(DashboardSourceEntitySourceTemplateArgs.builder()
  *                     .dataSetReferences(DashboardSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(dataset.arn())
+ *                         .dataSetArn(dataset.get("arn"))
  *                         .dataSetPlaceholder("1")
  *                         .build())
- *                     .arn(source.arn())
+ *                     .arn(source.get("arn"))
  *                     .build())
  *                 .build())
  *             .dashboardId("example-id")
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *         var example = new Dashboard("example", DashboardArgs.builder()
  *             .definition(Map.ofEntries(
  *                 Map.entry("dataSetIdentifiersDeclarations", Arrays.asList(Map.ofEntries(
- *                     Map.entry("dataSetArn", dataset.arn()),
+ *                     Map.entry("dataSetArn", dataset.get("arn")),
  *                     Map.entry("identifier", "1")
  *                 ))),
  *                 Map.entry("sheets", Arrays.asList(Map.ofEntries(

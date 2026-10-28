@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .name("my-state-machine")
- *             .roleArn(iamForSfn.arn())
+ *             .roleArn(iamForSfn.get("arn"))
  *             .definition("""
  * {
  *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * ", lambda.arn()))
+ * ", lambda.get("arn")))
  *             .build());
  * 
  *     }
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .name("my-state-machine")
- *             .roleArn(iamForSfn.arn())
+ *             .roleArn(iamForSfn.get("arn"))
  *             .type("EXPRESS")
  *             .definition("""
  * {
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * ", lambda.arn()))
+ * ", lambda.get("arn")))
  *             .build());
  * 
  *     }
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .name("my-state-machine")
- *             .roleArn(iamForSfn.arn())
+ *             .roleArn(iamForSfn.get("arn"))
  *             .publish(true)
  *             .type("EXPRESS")
  *             .definition("""
@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * ", lambda.arn()))
+ * ", lambda.get("arn")))
  *             .build());
  * 
  *     }
@@ -201,12 +201,12 @@ import javax.annotation.Nullable;
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
- *                 .logDestination(String.format("%s:*", logGroupForSfn.arn()))
+ *                 .logDestination(String.format("%s:*", logGroupForSfn.get("arn")))
  *                 .includeExecutionData(true)
  *                 .level("ERROR")
  *                 .build())
  *             .name("my-state-machine")
- *             .roleArn(iamForSfn.arn())
+ *             .roleArn(iamForSfn.get("arn"))
  *             .definition("""
  * {
  *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * ", lambda.arn()))
+ * ", lambda.get("arn")))
  *             .build());
  * 
  *     }
@@ -257,12 +257,12 @@ import javax.annotation.Nullable;
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
  *             .encryptionConfiguration(StateMachineEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(kmsKeyForSfn.arn())
+ *                 .kmsKeyId(kmsKeyForSfn.get("arn"))
  *                 .type("CUSTOMER_MANAGED_KMS_KEY")
  *                 .kmsDataKeyReusePeriodSeconds(900)
  *                 .build())
  *             .name("my-state-machine")
- *             .roleArn(iamForSfn.arn())
+ *             .roleArn(iamForSfn.get("arn"))
  *             .definition("""
  * {
  *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
@@ -275,7 +275,7 @@ import javax.annotation.Nullable;
  *     }
  *   }
  * }
- * ", lambda.arn()))
+ * ", lambda.get("arn")))
  *             .build());
  * 
  *     }

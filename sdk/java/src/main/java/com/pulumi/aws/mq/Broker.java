@@ -66,8 +66,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Broker("example", BrokerArgs.builder()
  *             .configuration(BrokerConfigurationArgs.builder()
- *                 .id(test.id())
- *                 .revision(test.latestRevision())
+ *                 .id(test.get("id"))
+ *                 .revision(test.get("latestRevision"))
  *                 .build())
  *             .users(BrokerUserArgs.builder()
  *                 .username("example_user")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .engineType("ActiveMQ")
  *             .engineVersion("5.17.6")
  *             .hostInstanceType("mq.t2.micro")
- *             .securityGroups(testAwsSecurityGroup.id())
+ *             .securityGroups(testAwsSecurityGroup.get("id"))
  *             .build());
  * 
  *     }
@@ -113,8 +113,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Broker("example", BrokerArgs.builder()
  *             .configuration(BrokerConfigurationArgs.builder()
- *                 .id(test.id())
- *                 .revision(test.latestRevision())
+ *                 .id(test.get("id"))
+ *                 .revision(test.get("latestRevision"))
  *                 .build())
  *             .users(BrokerUserArgs.builder()
  *                 .username("example_user")
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .engineVersion("5.17.6")
  *             .storageType("ebs")
  *             .hostInstanceType("mq.m5.large")
- *             .securityGroups(testAwsSecurityGroup.id())
+ *             .securityGroups(testAwsSecurityGroup.get("id"))
  *             .build());
  * 
  *     }
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *             .engineType("ActiveMQ")
  *             .engineVersion("5.17.6")
  *             .hostInstanceType("mq.m5.large")
- *             .securityGroups(examplePrimaryAwsSecurityGroup.id())
+ *             .securityGroups(examplePrimaryAwsSecurityGroup.get("id"))
  *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
  *             .build());
  * 
@@ -194,10 +194,10 @@ import javax.annotation.Nullable;
  *             .engineType("ActiveMQ")
  *             .engineVersion("5.17.6")
  *             .hostInstanceType("mq.m5.large")
- *             .securityGroups(exampleAwsSecurityGroup.id())
+ *             .securityGroups(exampleAwsSecurityGroup.get("id"))
  *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
  *             .dataReplicationMode("CRDR")
- *             .dataReplicationPrimaryBrokerArn(primary.arn())
+ *             .dataReplicationPrimaryBrokerArn(primary.get("arn"))
  *             .build());
  * 
  *     }

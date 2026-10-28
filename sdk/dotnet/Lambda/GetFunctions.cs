@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length(),
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
         ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
         ///     };
         /// });
@@ -41,35 +41,36 @@ namespace Pulumi.Aws.Lambda
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
+        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// return await Deployment.RunAsync(async() =&gt; 
         /// {
         ///     // Get all Lambda functions
-        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        ///     var all = await Aws.Lambda.GetFunctions.InvokeAsync();
         /// 
         ///     // Create CloudWatch alarms for all functions
         ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
-        ///     all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length().Apply(rangeBody =&gt;
+        ///     all.FunctionNames.Length.Apply(rangeBody =&gt;
         ///     {
         ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
         ///             var range = new { Value = rangeIndex };
         ///             lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
         ///             {
-        ///                 Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///                 Name = $"{all.FunctionNames[range.Value]}-errors",
         ///                 ComparisonOperator = "GreaterThanThreshold",
         ///                 EvaluationPeriods = 2,
         ///                 MetricName = "Errors",
         ///                 Namespace = "AWS/Lambda",
         ///                 Period = 300,
         ///                 Statistic = "Sum",
-        ///                 Threshold = 5,
+        ///                 Threshold = 5.0,
         ///                 AlarmDescription = "This metric monitors lambda errors",
         ///                 Dimensions = 
         ///                 {
-        ///                     { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///                     { "FunctionName", all.FunctionNames[range.Value] },
         ///                 },
         ///                 Tags = 
         ///                 {
@@ -100,7 +101,7 @@ namespace Pulumi.Aws.Lambda
         ///     var all = Aws.Lambda.GetFunctions.Invoke();
         /// 
         ///     // Get detailed information for each function
-        ///     var details = ;
+        ///     var details = _arg1_;
         /// 
         ///     var functionInventory = Output.Tuple(all, details).Apply(values =&gt;
         ///     {
@@ -149,7 +150,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length(),
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
         ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
         ///     };
         /// });
@@ -160,35 +161,36 @@ namespace Pulumi.Aws.Lambda
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
+        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// return await Deployment.RunAsync(async() =&gt; 
         /// {
         ///     // Get all Lambda functions
-        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        ///     var all = await Aws.Lambda.GetFunctions.InvokeAsync();
         /// 
         ///     // Create CloudWatch alarms for all functions
         ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
-        ///     all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length().Apply(rangeBody =&gt;
+        ///     all.FunctionNames.Length.Apply(rangeBody =&gt;
         ///     {
         ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
         ///             var range = new { Value = rangeIndex };
         ///             lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
         ///             {
-        ///                 Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///                 Name = $"{all.FunctionNames[range.Value]}-errors",
         ///                 ComparisonOperator = "GreaterThanThreshold",
         ///                 EvaluationPeriods = 2,
         ///                 MetricName = "Errors",
         ///                 Namespace = "AWS/Lambda",
         ///                 Period = 300,
         ///                 Statistic = "Sum",
-        ///                 Threshold = 5,
+        ///                 Threshold = 5.0,
         ///                 AlarmDescription = "This metric monitors lambda errors",
         ///                 Dimensions = 
         ///                 {
-        ///                     { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///                     { "FunctionName", all.FunctionNames[range.Value] },
         ///                 },
         ///                 Tags = 
         ///                 {
@@ -219,7 +221,7 @@ namespace Pulumi.Aws.Lambda
         ///     var all = Aws.Lambda.GetFunctions.Invoke();
         /// 
         ///     // Get detailed information for each function
-        ///     var details = ;
+        ///     var details = _arg1_;
         /// 
         ///     var functionInventory = Output.Tuple(all, details).Apply(values =&gt;
         ///     {
@@ -268,7 +270,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length(),
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
         ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
         ///     };
         /// });
@@ -279,35 +281,36 @@ namespace Pulumi.Aws.Lambda
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
+        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// return await Deployment.RunAsync(async() =&gt; 
         /// {
         ///     // Get all Lambda functions
-        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        ///     var all = await Aws.Lambda.GetFunctions.InvokeAsync();
         /// 
         ///     // Create CloudWatch alarms for all functions
         ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
-        ///     all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length().Apply(rangeBody =&gt;
+        ///     all.FunctionNames.Length.Apply(rangeBody =&gt;
         ///     {
         ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
         ///             var range = new { Value = rangeIndex };
         ///             lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
         ///             {
-        ///                 Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///                 Name = $"{all.FunctionNames[range.Value]}-errors",
         ///                 ComparisonOperator = "GreaterThanThreshold",
         ///                 EvaluationPeriods = 2,
         ///                 MetricName = "Errors",
         ///                 Namespace = "AWS/Lambda",
         ///                 Period = 300,
         ///                 Statistic = "Sum",
-        ///                 Threshold = 5,
+        ///                 Threshold = 5.0,
         ///                 AlarmDescription = "This metric monitors lambda errors",
         ///                 Dimensions = 
         ///                 {
-        ///                     { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///                     { "FunctionName", all.FunctionNames[range.Value] },
         ///                 },
         ///                 Tags = 
         ///                 {
@@ -338,7 +341,7 @@ namespace Pulumi.Aws.Lambda
         ///     var all = Aws.Lambda.GetFunctions.Invoke();
         /// 
         ///     // Get detailed information for each function
-        ///     var details = ;
+        ///     var details = _arg1_;
         /// 
         ///     var functionInventory = Output.Tuple(all, details).Apply(values =&gt;
         ///     {

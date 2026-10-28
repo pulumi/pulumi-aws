@@ -89,7 +89,7 @@ import (
 //			}
 //			_, err = fsx.NewOpenZfsSnapshot(ctx, "example", &fsx.OpenZfsSnapshotArgs{
 //				Name:     pulumi.String("example"),
-//				VolumeId: exampleOpenZfsVolume.ID().ToIDOutput().ToStringOutput(),
+//				VolumeId: exampleOpenZfsVolume.ID(),
 //			})
 //			if err != nil {
 //				return err

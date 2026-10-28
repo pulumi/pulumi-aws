@@ -78,7 +78,7 @@ import (
 //					},
 //				},
 //				Name:         pulumi.String("foo-policy"),
-//				LoadBalancer: lb.ID().ToIDOutput().ToStringOutput(),
+//				LoadBalancer: lb.ID(),
 //				LbPort:       pulumi.Int(443),
 //			})
 //			if err != nil {

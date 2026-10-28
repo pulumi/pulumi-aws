@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
- *                     .values(example.arn())
+ *                     .values(example.get("arn"))
  *                     .build())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("*")

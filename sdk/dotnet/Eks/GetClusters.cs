@@ -30,7 +30,16 @@ namespace Pulumi.Aws.Eks
         ///     var exampleGetCluster = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getClustersResult =&gt; getClustersResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetCluster.Invoke(new()
+        ///         {
+        ///             Name = __value,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```
@@ -57,7 +66,16 @@ namespace Pulumi.Aws.Eks
         ///     var exampleGetCluster = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getClustersResult =&gt; getClustersResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetCluster.Invoke(new()
+        ///         {
+        ///             Name = __value,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```
@@ -84,7 +102,16 @@ namespace Pulumi.Aws.Eks
         ///     var exampleGetCluster = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getClustersResult =&gt; getClustersResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.Eks.GetCluster.Invoke(new()
+        ///         {
+        ///             Name = __value,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```

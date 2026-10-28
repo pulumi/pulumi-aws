@@ -39,14 +39,14 @@ import (
 //					Type: pulumi.String("API"),
 //				},
 //				Properties: pulumi.String("{\"description\":\"Example\"}"),
-//				RestApiId:  exampleRestApi.ID().ToIDOutput().ToStringOutput(),
+//				RestApiId:  exampleRestApi.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewDocumentationVersion(ctx, "example", &apigateway.DocumentationVersionArgs{
 //				Version:     pulumi.String("example_version"),
-//				RestApiId:   exampleRestApi.ID().ToIDOutput().ToStringOutput(),
+//				RestApiId:   exampleRestApi.ID(),
 //				Description: pulumi.String("Example description"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleDocumentationPart,

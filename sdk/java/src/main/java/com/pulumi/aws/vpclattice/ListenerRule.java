@@ -76,18 +76,18 @@ import javax.annotation.Nullable;
  *                 .forward(ListenerRuleActionForwardArgs.builder()
  *                     .targetGroups(                    
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
+ *                             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.get("id"))
  *                             .weight(1)
  *                             .build(),
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(example2.id())
+ *                             .targetGroupIdentifier(example2.get("id"))
  *                             .weight(2)
  *                             .build())
  *                     .build())
  *                 .build())
  *             .name("example")
- *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
- *             .serviceIdentifier(exampleAwsVpclatticeService.id())
+ *             .listenerIdentifier(exampleAwsVpclatticeListener.get("listenerId"))
+ *             .serviceIdentifier(exampleAwsVpclatticeService.get("id"))
  *             .priority(20)
  *             .build());
  * 
@@ -143,8 +143,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("example")
- *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
- *             .serviceIdentifier(exampleAwsVpclatticeService.id())
+ *             .listenerIdentifier(exampleAwsVpclatticeListener.get("listenerId"))
+ *             .serviceIdentifier(exampleAwsVpclatticeService.get("id"))
  *             .priority(10)
  *             .build());
  * 

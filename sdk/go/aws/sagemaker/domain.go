@@ -114,7 +114,7 @@ import (
 //				return err
 //			}
 //			exampleImageVersion, err := sagemaker.NewImageVersion(ctx, "example", &sagemaker.ImageVersionArgs{
-//				ImageName: example.ID().ToIDOutput().ToStringOutput(),
+//				ImageName: example.ID(),
 //				BaseImage: pulumi.String("base-image"),
 //			})
 //			if err != nil {

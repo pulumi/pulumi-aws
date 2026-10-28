@@ -34,7 +34,7 @@ import (
 //			}
 //			_, err = amp.NewRuleGroupNamespace(ctx, "demo", &amp.RuleGroupNamespaceArgs{
 //				Name:        pulumi.String("rules"),
-//				WorkspaceId: demo.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: demo.ID(),
 //				Data: pulumi.String(`groups:
 //	  - name: test
 //	    rules:

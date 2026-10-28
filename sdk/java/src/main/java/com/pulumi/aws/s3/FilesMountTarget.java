@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FilesMountTarget("example", FilesMountTargetArgs.builder()
- *             .fileSystemId(exampleAwsS3filesFileSystem.id())
- *             .subnetId(exampleAwsSubnet.id())
+ *             .fileSystemId(exampleAwsS3filesFileSystem.get("id"))
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }

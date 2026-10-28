@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()
  *             .policy(test.json())
- *             .eventBusName(testAwsCloudwatchEventBus.name())
+ *             .eventBusName(testAwsCloudwatchEventBus.get("name"))
  *             .build());
  * 
  *     }
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .variable("aws:PrincipalOrgID")
- *                     .values(example.id())
+ *                     .values(example.get("id"))
  *                     .build())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * 
  *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()
  *             .policy(test.json())
- *             .eventBusName(testAwsCloudwatchEventBus.name())
+ *             .eventBusName(testAwsCloudwatchEventBus.get("name"))
  *             .build());
  * 
  *     }
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("aws:PrincipalOrgID")
- *                         .values(example.id())
+ *                         .values(example.get("id"))
  *                         .build())
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  * 
  *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()
  *             .policy(test.json())
- *             .eventBusName(testAwsCloudwatchEventBus.name())
+ *             .eventBusName(testAwsCloudwatchEventBus.get("name"))
  *             .build());
  * 
  *     }

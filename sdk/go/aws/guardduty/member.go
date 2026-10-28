@@ -42,7 +42,7 @@ import (
 //			}
 //			_, err = guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
 //				AccountId:         member.AccountId,
-//				DetectorId:        primary.ID().ToIDOutput().ToStringOutput(),
+//				DetectorId:        primary.ID(),
 //				Email:             pulumi.String("required@example.com"),
 //				Invite:            pulumi.Bool(true),
 //				InvitationMessage: pulumi.String("please accept guardduty invitation"),

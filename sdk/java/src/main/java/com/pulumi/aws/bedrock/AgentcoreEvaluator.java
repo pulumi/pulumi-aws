@@ -189,7 +189,7 @@ import javax.annotation.Nullable;
  *             .evaluatorConfig(AgentcoreEvaluatorEvaluatorConfigArgs.builder()
  *                 .codeBased(AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs.builder()
  *                     .lambdaConfig(AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs.builder()
- *                         .lambdaArn(exampleAwsLambdaFunction.arn())
+ *                         .lambdaArn(exampleAwsLambdaFunction.get("arn"))
  *                         .lambdaTimeoutInSeconds(60)
  *                         .build())
  *                     .build())

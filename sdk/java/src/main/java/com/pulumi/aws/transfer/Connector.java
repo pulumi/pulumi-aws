@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *                 .compression("DISABLED")
  *                 .encryptionAlgorithm("AWS128_CBC")
  *                 .messageSubject("For Connector")
- *                 .localProfileId(local.profileId())
+ *                 .localProfileId(local.get("profileId"))
  *                 .mdnResponse("NONE")
  *                 .mdnSigningAlgorithm("NONE")
- *                 .partnerProfileId(partner.profileId())
+ *                 .partnerProfileId(partner.get("profileId"))
  *                 .signingAlgorithm("NONE")
  *                 .build())
- *             .accessRole(test.arn())
+ *             .accessRole(test.get("arn"))
  *             .url("http://www.test.com")
  *             .build());
  * 
@@ -96,9 +96,9 @@ import javax.annotation.Nullable;
  *         var example = new Connector("example", ConnectorArgs.builder()
  *             .sftpConfig(ConnectorSftpConfigArgs.builder()
  *                 .trustedHostKeys("ssh-rsa AAAAB3NYourKeysHere")
- *                 .userSecretId(exampleAwsSecretsmanagerSecret.id())
+ *                 .userSecretId(exampleAwsSecretsmanagerSecret.get("id"))
  *                 .build())
- *             .accessRole(test.arn())
+ *             .accessRole(test.get("arn"))
  *             .url("sftp://test.com")
  *             .build());
  * 
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *         var example = new Connector("example", ConnectorArgs.builder()
  *             .sftpConfig(ConnectorSftpConfigArgs.builder()
  *                 .trustedHostKeys("ssh-rsa AAAAB3NYourKeysHere")
- *                 .userSecretId(exampleAwsSecretsmanagerSecret.id())
+ *                 .userSecretId(exampleAwsSecretsmanagerSecret.get("id"))
  *                 .build())
  *             .egressConfig(ConnectorEgressConfigArgs.builder()
  *                 .vpcLattice(ConnectorEgressConfigVpcLatticeArgs.builder()
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  *                     .portNumber(22)
  *                     .build())
  *                 .build())
- *             .accessRole(test.arn())
+ *             .accessRole(test.get("arn"))
  *             .build());
  * 
  *     }

@@ -32,7 +32,17 @@ namespace Pulumi.Aws.AppConfig
         ///         ApplicationId = "a1d3rpe",
         ///     });
         /// 
-        ///     var exampleGetConfigurationProfile = ;
+        ///     var exampleGetConfigurationProfile = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
+        ///         {
+        ///             ConfigurationProfileId = __value,
+        ///             ApplicationId = exampleAwsAppconfigApplication.Id,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```
@@ -61,7 +71,17 @@ namespace Pulumi.Aws.AppConfig
         ///         ApplicationId = "a1d3rpe",
         ///     });
         /// 
-        ///     var exampleGetConfigurationProfile = ;
+        ///     var exampleGetConfigurationProfile = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
+        ///         {
+        ///             ConfigurationProfileId = __value,
+        ///             ApplicationId = exampleAwsAppconfigApplication.Id,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```
@@ -90,7 +110,17 @@ namespace Pulumi.Aws.AppConfig
         ///         ApplicationId = "a1d3rpe",
         ///     });
         /// 
-        ///     var exampleGetConfigurationProfile = ;
+        ///     var exampleGetConfigurationProfile = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
+        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
+        ///         {
+        ///             ConfigurationProfileId = __value,
+        ///             ApplicationId = exampleAwsAppconfigApplication.Id,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```

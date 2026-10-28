@@ -123,8 +123,8 @@ import (
 //			}
 //			_, err = ec2.NewVpcPeeringConnection(ctx, "foo", &ec2.VpcPeeringConnectionArgs{
 //				PeerOwnerId: pulumi.Any(peerOwnerId),
-//				PeerVpcId:   bar.ID().ToIDOutput().ToStringOutput(),
-//				VpcId:       fooVpc.ID().ToIDOutput().ToStringOutput(),
+//				PeerVpcId:   bar.ID(),
+//				VpcId:       fooVpc.ID(),
 //				AutoAccept:  pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("VPC Peering between foo and bar"),
@@ -167,8 +167,8 @@ import (
 //			}
 //			_, err = ec2.NewVpcPeeringConnection(ctx, "foo", &ec2.VpcPeeringConnectionArgs{
 //				PeerOwnerId: pulumi.Any(peerOwnerId),
-//				PeerVpcId:   bar.ID().ToIDOutput().ToStringOutput(),
-//				VpcId:       fooVpc.ID().ToIDOutput().ToStringOutput(),
+//				PeerVpcId:   bar.ID(),
+//				VpcId:       fooVpc.ID(),
 //				PeerRegion:  pulumi.String("us-east-1"),
 //			})
 //			if err != nil {

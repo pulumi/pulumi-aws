@@ -90,7 +90,7 @@ import (
 //			}
 //			// Create a subnet for the AZ within the regional VPC
 //			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: exampleVpc.ID(),
 //				CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //					Input:   exampleVpc.CidrBlock,
 //					Newbits: pulumi.Int(4),

@@ -59,7 +59,7 @@ import (
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
 //					Endpoint: pulumi.String("http://example.com"),
 //				},
-//				ApiId: example.ID().ToIDOutput().ToStringOutput(),
+//				ApiId: example.ID(),
 //				Name:  pulumi.String("example"),
 //				Type:  pulumi.String("HTTP"),
 //			})
@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
-//				ApiId:      example.ID().ToIDOutput().ToStringOutput(),
+//				ApiId:      example.ID(),
 //				DataSource: exampleDataSource.Name,
 //				Name:       pulumi.String("example"),
 //				RequestMappingTemplate: pulumi.String(`{

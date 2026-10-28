@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .queryArgProfileConfig(FieldLevelEncryptionConfigQueryArgProfileConfigArgs.builder()
  *                 .queryArgProfiles(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.builder()
  *                     .items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.builder()
- *                         .profileId(testAwsCloudfrontFieldLevelEncryptionProfile.id())
+ *                         .profileId(testAwsCloudfrontFieldLevelEncryptionProfile.get("id"))
  *                         .queryArg("Arg1")
  *                         .build())
  *                     .build())

@@ -260,7 +260,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var vpc = config.require("vpc");
+ *         final var vpc = config.requireObject("vpc", com.pulumi.core.TypeShape.map(String.class, Object.class));
  *         final var domain = config.get("domain").orElse("tf-test");
  *         final var example = Ec2Functions.getVpc(GetVpcArgs.builder()
  *             .tags(Map.of("Name", vpc))

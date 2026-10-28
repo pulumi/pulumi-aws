@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new FilesFileSystemPolicy("example", FilesFileSystemPolicyArgs.builder()
- *             .fileSystemId(exampleAwsS3filesFileSystem.id())
+ *             .fileSystemId(exampleAwsS3filesFileSystem.get("id"))
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),

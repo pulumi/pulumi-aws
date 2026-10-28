@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *                 .protocol("-1")
  *                 .ruleNo(100)
  *                 .action("allow")
- *                 .cidrBlock(mainvpcAwsDefaultVpc.cidrBlock())
+ *                 .cidrBlock(mainvpcAwsDefaultVpc.get("cidrBlock"))
  *                 .fromPort(0)
  *                 .toPort(0)
  *                 .build())

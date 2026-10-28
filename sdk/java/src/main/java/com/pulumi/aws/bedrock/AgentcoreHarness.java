@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *                 .strategy("sliding_window")
  *                 .build())
  *             .harnessName("example_with_tools")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .allowedTools("*")
  *             .maxIterations(10)
  *             .maxTokens(4096)
@@ -247,7 +247,7 @@ import javax.annotation.Nullable;
  *                 .text("You are a helpful assistant.")
  *                 .build())
  *             .harnessName("my_harness")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

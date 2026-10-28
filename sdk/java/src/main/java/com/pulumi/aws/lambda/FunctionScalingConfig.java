@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
  *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *                 .build())
  *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
- *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
+ *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .name("example")
  *             .build());
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .code(new FileArchive("lambda_function.zip"))
  *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .handler("index.handler")
  *             .runtime("python3.14")
  *             .memorySize(32768)

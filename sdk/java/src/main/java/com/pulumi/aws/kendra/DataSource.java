@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource("example", DataSourceArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .description("example")
  *             .languageCode("en")
@@ -91,13 +91,13 @@ import javax.annotation.Nullable;
  *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(exampleAwsS3Bucket.id())
+ *                     .bucketName(exampleAwsS3Bucket.get("id"))
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("S3")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .schedule("cron(9 10 1 * ? *)")
  *             .build());
  * 
@@ -137,15 +137,15 @@ import javax.annotation.Nullable;
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
  *                     .accessControlListConfiguration(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.builder()
- *                         .keyPath(String.format("s3://%s/path-1", exampleAwsS3Bucket.id()))
+ *                         .keyPath(String.format("s3://%s/path-1", exampleAwsS3Bucket.get("id")))
  *                         .build())
- *                     .bucketName(exampleAwsS3Bucket.id())
+ *                     .bucketName(exampleAwsS3Bucket.get("id"))
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("S3")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -186,16 +186,16 @@ import javax.annotation.Nullable;
  *                     .documentsMetadataConfiguration(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs.builder()
  *                         .s3Prefix("example")
  *                         .build())
- *                     .bucketName(exampleAwsS3Bucket.id())
+ *                     .bucketName(exampleAwsS3Bucket.get("id"))
  *                     .exclusionPatterns("example")
  *                     .inclusionPatterns("hello")
  *                     .inclusionPrefixes("world")
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("S3")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -243,10 +243,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -292,10 +292,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -342,10 +342,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -389,7 +389,7 @@ import javax.annotation.Nullable;
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .authenticationConfiguration(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs.builder()
  *                         .basicAuthentications(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs.builder()
- *                             .credentials(exampleAwsSecretsmanagerSecret.arn())
+ *                             .credentials(exampleAwsSecretsmanagerSecret.get("arn"))
  *                             .host("a.example.com")
  *                             .port(443)
  *                             .build())
@@ -401,10 +401,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSecretsmanagerSecretVersion)
  *                 .build());
@@ -453,10 +453,10 @@ import javax.annotation.Nullable;
  *                     .crawlDepth(3)
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -503,10 +503,10 @@ import javax.annotation.Nullable;
  *                     .maxLinksPerPage(100)
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -553,10 +553,10 @@ import javax.annotation.Nullable;
  *                     .maxUrlsPerMinuteCrawlRate(300)
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -598,7 +598,7 @@ import javax.annotation.Nullable;
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .proxyConfiguration(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs.builder()
- *                         .credentials(exampleAwsSecretsmanagerSecret.arn())
+ *                         .credentials(exampleAwsSecretsmanagerSecret.get("arn"))
  *                         .host("a.example.com")
  *                         .port(443)
  *                         .build())
@@ -609,10 +609,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSecretsmanagerSecretVersion)
  *                 .build());
@@ -662,10 +662,10 @@ import javax.annotation.Nullable;
  *                     .urlInclusionPatterns("hello")
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("WEBCRAWLER")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -721,10 +721,10 @@ import javax.annotation.Nullable;
  *                         )))
  *                     .build())
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("example")
  *             .type("TEMPLATE")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

@@ -45,7 +45,7 @@ public final class BudgetsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(testAwsBudgetsBudget.name())
+     *             .name(testAwsBudgetsBudget.get("name"))
      *             .build());
      * 
      *     }
@@ -87,7 +87,7 @@ public final class BudgetsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(testAwsBudgetsBudget.name())
+     *             .name(testAwsBudgetsBudget.get("name"))
      *             .build());
      * 
      *     }
@@ -129,7 +129,7 @@ public final class BudgetsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(testAwsBudgetsBudget.name())
+     *             .name(testAwsBudgetsBudget.get("name"))
      *             .build());
      * 
      *     }
@@ -171,7 +171,7 @@ public final class BudgetsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(testAwsBudgetsBudget.name())
+     *             .name(testAwsBudgetsBudget.get("name"))
      *             .build());
      * 
      *     }
@@ -213,7 +213,7 @@ public final class BudgetsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(testAwsBudgetsBudget.name())
+     *             .name(testAwsBudgetsBudget.get("name"))
      *             .build());
      * 
      *     }

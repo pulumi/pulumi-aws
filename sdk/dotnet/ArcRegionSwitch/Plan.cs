@@ -165,7 +165,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                                     },
     ///                                 },
     ///                                 RegionToRun = "activatingRegion",
-    ///                                 RetryIntervalMinutes = 5,
+    ///                                 RetryIntervalMinutes = 5.0,
     ///                                 TimeoutMinutes = 30,
     ///                             },
     ///                         },

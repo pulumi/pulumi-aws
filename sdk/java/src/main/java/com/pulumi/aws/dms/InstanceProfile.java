@@ -84,9 +84,9 @@ import javax.annotation.Nullable;
  *             .description("example instance profile")
  *             .networkType("IPV4")
  *             .publiclyAccessible(false)
- *             .subnetGroupIdentifier(exampleAwsDmsReplicationSubnetGroup.id())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
- *             .kmsKeyArn(exampleAwsKmsKey.arn())
+ *             .subnetGroupIdentifier(exampleAwsDmsReplicationSubnetGroup.get("id"))
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *             .kmsKeyArn(exampleAwsKmsKey.get("arn"))
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 

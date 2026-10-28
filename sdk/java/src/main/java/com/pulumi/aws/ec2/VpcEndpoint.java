@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .serviceName("com.amazonaws.us-west-2.s3")
  *             .build());
  * 
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .serviceName("com.amazonaws.us-west-2.s3")
  *             .tags(Map.of("Environment", "test"))
  *             .build());
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()
  *             .region("us-west-2")
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .serviceName("com.amazonaws.us-east-2.s3")
  *             .serviceRegion("us-east-2")
  *             .tags(Map.of("Environment", "test"))
@@ -164,10 +164,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ec2 = new VpcEndpoint("ec2", VpcEndpointArgs.builder()
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .serviceName("com.amazonaws.us-west-2.ec2")
  *             .vpcEndpointType("Interface")
- *             .securityGroupIds(sg1.id())
+ *             .securityGroupIds(sg1.get("id"))
  *             .privateDnsEnabled(true)
  *             .build());
  * 
@@ -205,18 +205,18 @@ import javax.annotation.Nullable;
  *             .subnetConfigurations(            
  *                 VpcEndpointSubnetConfigurationArgs.builder()
  *                     .ipv4("10.0.1.10")
- *                     .subnetId(example1.id())
+ *                     .subnetId(example1.get("id"))
  *                     .build(),
  *                 VpcEndpointSubnetConfigurationArgs.builder()
  *                     .ipv4("10.0.2.10")
- *                     .subnetId(example2.id())
+ *                     .subnetId(example2.get("id"))
  *                     .build())
- *             .vpcId(example.id())
+ *             .vpcId(example.get("id"))
  *             .serviceName("com.amazonaws.us-west-2.ec2")
  *             .vpcEndpointType("Interface")
  *             .subnetIds(            
- *                 example1.id(),
- *                 example2.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
  *             .build());
  * 
  *     }
@@ -258,14 +258,14 @@ import javax.annotation.Nullable;
  *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
  *             .allowedPrincipals(current.arn())
- *             .gatewayLoadBalancerArns(exampleAwsLb.arn())
+ *             .gatewayLoadBalancerArns(exampleAwsLb.get("arn"))
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
  *             .serviceName(example.serviceName())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .vpcEndpointType(example.serviceType())
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }
@@ -298,10 +298,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcEndpoint("example", VpcEndpointArgs.builder()
- *             .resourceConfigurationArn(exampleAwsVpclatticeResourceConfiguration.arn())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .resourceConfigurationArn(exampleAwsVpclatticeResourceConfiguration.get("arn"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .vpcEndpointType("Resource")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }
@@ -334,10 +334,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcEndpoint("example", VpcEndpointArgs.builder()
- *             .serviceNetworkArn(exampleAwsVpclatticeServiceNetwork.arn())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .serviceNetworkArn(exampleAwsVpclatticeServiceNetwork.get("arn"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .vpcEndpointType("ServiceNetwork")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }
@@ -377,7 +377,7 @@ import javax.annotation.Nullable;
  *             .vpcId(vpcId)
  *             .serviceName(ptfeServiceConfig)
  *             .vpcEndpointType("Interface")
- *             .securityGroupIds(ptfeServiceAwsSecurityGroup.id())
+ *             .securityGroupIds(ptfeServiceAwsSecurityGroup.get("id"))
  *             .subnetIds(subnetIds)
  *             .privateDnsEnabled(false)
  *             .build());
@@ -393,7 +393,7 @@ import javax.annotation.Nullable;
  *             .name(String.format("ptfe.%s", internal.name()))
  *             .type("CNAME")
  *             .ttl(300)
- *             .records(ptfeService.dnsEntries().applyValue(_dnsEntries -> _dnsEntries[0].dns_name()))
+ *             .records(ptfeService.dnsEntries().applyValue(_dnsEntries -> _dnsEntries.get(0).dns_name()))
  *             .build());
  * 
  *     }

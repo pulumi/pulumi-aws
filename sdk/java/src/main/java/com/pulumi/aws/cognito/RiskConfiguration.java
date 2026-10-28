@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .riskExceptionConfiguration(RiskConfigurationRiskExceptionConfigurationArgs.builder()
  *                 .blockedIpRangeLists("10.10.10.10/32")
  *                 .build())
- *             .userPoolId(exampleAwsCognitoUserPool.id())
+ *             .userPoolId(exampleAwsCognitoUserPool.get("id"))
  *             .build());
  * 
  *     }

@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *     engine: custom_oracle.then(custom_oracle => custom_oracle.engine),
  *     engineVersion: custom_oracle.then(custom_oracle => custom_oracle.engineVersion),
  *     identifier: "ee-instance-demo",
- *     instanceClass: aws.rds.InstanceType[custom_oracle.then(custom_oracle => custom_oracle.instanceClass)],
+ *     instanceClass: custom_oracle.then(custom_oracle => custom_oracle.instanceClass),
  *     kmsKeyId: byId.then(byId => byId.arn),
  *     licenseModel: custom_oracle.then(custom_oracle => custom_oracle.licenseModel),
  *     multiAz: false,
@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  *     customIamInstanceProfile: "AWSRDSCustomInstanceProfile",
  *     backupRetentionPeriod: 7,
  *     identifier: "ee-instance-replica",
- *     instanceClass: aws.rds.InstanceType[custom_oracle.then(custom_oracle => custom_oracle.instanceClass)],
+ *     instanceClass: custom_oracle.then(custom_oracle => custom_oracle.instanceClass),
  *     kmsKeyId: byId.then(byId => byId.arn),
  *     multiAz: false,
  *     skipFinalSnapshot: true,
@@ -146,7 +146,7 @@ import * as utilities from "../utilities";
  *     engine: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.engine),
  *     engineVersion: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.engineVersion),
  *     identifier: "sql-instance-demo",
- *     instanceClass: aws.rds.InstanceType[custom_sqlserver.then(custom_sqlserver => custom_sqlserver.instanceClass)],
+ *     instanceClass: custom_sqlserver.then(custom_sqlserver => custom_sqlserver.instanceClass),
  *     kmsKeyId: byId.then(byId => byId.arn),
  *     multiAz: false,
  *     password: "avoid-plaintext-passwords",
@@ -200,7 +200,7 @@ import * as utilities from "../utilities";
  *     name: "db-db2-params",
  *     family: _default.then(_default => _default.parameterGroupFamily),
  * });
- * // Create the RDS Db2 instance, use the data sources defined to set attributes
+ * // Create the RDS Db2 instance, use the functions defined to set attributes
  * const exampleInstance = new aws.rds.Instance("example", {
  *     allocatedStorage: 100,
  *     backupRetentionPeriod: 7,
@@ -208,7 +208,7 @@ import * as utilities from "../utilities";
  *     engine: example.then(example => example.engine),
  *     engineVersion: example.then(example => example.engineVersion),
  *     identifier: "db2-instance-demo",
- *     instanceClass: aws.rds.InstanceType[example.then(example => example.instanceClass)],
+ *     instanceClass: example.then(example => example.instanceClass),
  *     parameterGroupName: exampleParameterGroup.name,
  *     password: "avoid-plaintext-passwords",
  *     username: "test",

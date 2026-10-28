@@ -86,7 +86,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "cloudwatch", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("default"),
-//				Role:   cloudwatchRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   cloudwatchRole.ID(),
 //				Policy: pulumi.String(cloudwatch.Json),
 //			})
 //			if err != nil {

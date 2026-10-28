@@ -23,6 +23,18 @@ import * as utilities from "../utilities";
  *     name: "example-mesh",
  * });
  * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const test = aws.appmesh.getVirtualGateway({
+ *     name: "example.mesh.local",
+ *     meshName: "example-mesh",
+ *     meshOwner: current.then(current => current.accountId),
+ * });
+ * ```
  */
 export function getVirtualGateway(args: GetVirtualGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,6 +122,18 @@ export interface GetVirtualGatewayResult {
  * const example = aws.appmesh.getVirtualGateway({
  *     meshName: "mesh-gateway",
  *     name: "example-mesh",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const test = aws.appmesh.getVirtualGateway({
+ *     name: "example.mesh.local",
+ *     meshName: "example-mesh",
+ *     meshOwner: current.then(current => current.accountId),
  * });
  * ```
  */

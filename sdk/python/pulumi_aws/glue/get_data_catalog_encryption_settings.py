@@ -88,6 +88,13 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[_builtins.str] = N
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.glue.get_data_catalog_encryption_settings(id="123456789123")
+    ```
+
 
     :param _builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -110,6 +117,13 @@ def get_data_catalog_encryption_settings_output(catalog_id: pulumi.Input[Optiona
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.glue.get_data_catalog_encryption_settings(id="123456789123")
+    ```
 
 
     :param _builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.

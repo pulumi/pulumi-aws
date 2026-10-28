@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = elb.NewLoadBalancerCookieStickinessPolicy(ctx, "foo", &elb.LoadBalancerCookieStickinessPolicyArgs{
 //				Name:                   pulumi.String("foo-policy"),
-//				LoadBalancer:           lb.ID().ToIDOutput().ToStringOutput(),
+//				LoadBalancer:           lb.ID(),
 //				LbPort:                 pulumi.Int(80),
 //				CookieExpirationPeriod: pulumi.Int(600),
 //			})

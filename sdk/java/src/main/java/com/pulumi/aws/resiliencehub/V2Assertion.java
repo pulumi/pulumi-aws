@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2Assertion("example", V2AssertionArgs.builder()
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.get("arn"))
  *             .text("The service must recover within 5 minutes of an AZ failure")
  *             .build());
  * 

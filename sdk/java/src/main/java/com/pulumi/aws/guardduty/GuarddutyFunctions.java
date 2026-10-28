@@ -321,7 +321,7 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(exampleAwsGuarddutyDetector.id())
+     *             .detectorId(exampleAwsGuarddutyDetector.get("id"))
      *             .build());
      * 
      *     }
@@ -363,7 +363,7 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(exampleAwsGuarddutyDetector.id())
+     *             .detectorId(exampleAwsGuarddutyDetector.get("id"))
      *             .build());
      * 
      *     }
@@ -405,7 +405,7 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(exampleAwsGuarddutyDetector.id())
+     *             .detectorId(exampleAwsGuarddutyDetector.get("id"))
      *             .build());
      * 
      *     }
@@ -447,7 +447,7 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(exampleAwsGuarddutyDetector.id())
+     *             .detectorId(exampleAwsGuarddutyDetector.get("id"))
      *             .build());
      * 
      *     }
@@ -489,7 +489,7 @@ public final class GuarddutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(exampleAwsGuarddutyDetector.id())
+     *             .detectorId(exampleAwsGuarddutyDetector.get("id"))
      *             .build());
      * 
      *     }

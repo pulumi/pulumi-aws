@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Profile("example", ProfileArgs.builder()
  *             .as2Id("example")
- *             .certificateIds(exampleAwsTransferCertificate.certificateId())
+ *             .certificateIds(exampleAwsTransferCertificate.get("certificateId"))
  *             .usage("LOCAL")
  *             .build());
  * 

@@ -115,7 +115,7 @@ def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs',
             "values": ["vpc"],
         },
     ])
-    unit = [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
+    unit = range(len(filtered.ids)).apply(lambda range: [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in range])
     ```
 
 
@@ -160,7 +160,7 @@ def get_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Unio
             "values": ["vpc"],
         },
     ])
-    unit = [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
+    unit = range(len(filtered.ids)).apply(lambda range: [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in range])
     ```
 
 

@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Constraint("example", ConstraintArgs.builder()
  *             .description("Back off, man. I'm a scientist.")
- *             .portfolioId(exampleAwsServicecatalogPortfolio.id())
- *             .productId(exampleAwsServicecatalogProduct.id())
+ *             .portfolioId(exampleAwsServicecatalogPortfolio.get("id"))
+ *             .productId(exampleAwsServicecatalogProduct.get("id"))
  *             .type("LAUNCH")
  *             .parameters(serializeJson(
  *                 jsonObject(

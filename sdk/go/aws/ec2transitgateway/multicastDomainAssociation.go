@@ -38,22 +38,22 @@ import (
 //				SubnetIds: pulumi.StringArray{
 //					exampleAwsSubnet.Id,
 //				},
-//				TransitGatewayId: example.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayId: example.ID(),
 //				VpcId:            pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleMulticastDomain, err := ec2transitgateway.NewMulticastDomain(ctx, "example", &ec2transitgateway.MulticastDomainArgs{
-//				TransitGatewayId: example.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "example", &ec2transitgateway.MulticastDomainAssociationArgs{
 //				SubnetId:                        pulumi.Any(exampleAwsSubnet.Id),
-//				TransitGatewayAttachmentId:      exampleVpcAttachment.ID().ToIDOutput().ToStringOutput(),
-//				TransitGatewayMulticastDomainId: exampleMulticastDomain.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayAttachmentId:      exampleVpcAttachment.ID(),
+//				TransitGatewayMulticastDomainId: exampleMulticastDomain.ID(),
 //			})
 //			if err != nil {
 //				return err

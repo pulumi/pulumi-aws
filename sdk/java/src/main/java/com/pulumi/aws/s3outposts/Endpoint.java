@@ -44,9 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Endpoint("example", EndpointArgs.builder()
- *             .outpostId(exampleAwsOutpostsOutpost.id())
- *             .securityGroupId(exampleAwsSecurityGroup.id())
- *             .subnetId(exampleAwsSubnet.id())
+ *             .outpostId(exampleAwsOutpostsOutpost.get("id"))
+ *             .securityGroupId(exampleAwsSecurityGroup.get("id"))
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }

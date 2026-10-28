@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ImageVersion("example", ImageVersionArgs.builder()
- *             .imageName(test.id())
+ *             .imageName(test.get("id"))
  *             .baseImage("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
  *             .build());
  * 
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ImageVersion("test", ImageVersionArgs.builder()
- *             .imageName(testAwsSagemakerImage.id())
+ *             .imageName(testAwsSagemakerImage.get("id"))
  *             .baseImage("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
  *             .aliases(            
  *                 "latest",

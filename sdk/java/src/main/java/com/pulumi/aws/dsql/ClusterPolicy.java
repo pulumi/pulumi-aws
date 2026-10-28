@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Resource", _arn),
  *                         jsonProperty("Condition", jsonObject(
  *                             jsonProperty("StringNotEquals", jsonObject(
- *                                 jsonProperty("aws:SourceVpc", exampleAwsVpc.id())
+ *                                 jsonProperty("aws:SourceVpc", exampleAwsVpc.get("id"))
  *                             ))
  *                         ))
  *                     )))

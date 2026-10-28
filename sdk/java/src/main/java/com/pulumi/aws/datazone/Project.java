@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Project("test", ProjectArgs.builder()
- *             .domainId(testAwsDatazoneDomain.id())
+ *             .domainId(testAwsDatazoneDomain.get("id"))
  *             .glossaryTerms("2N8w6XJCwZf")
  *             .name("name")
  *             .description("desc")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Project("test", ProjectArgs.builder()
- *             .domainIdentifier(testAwsDatazoneDomain.id())
+ *             .domainIdentifier(testAwsDatazoneDomain.get("id"))
  *             .name("name")
  *             .build());
  * 

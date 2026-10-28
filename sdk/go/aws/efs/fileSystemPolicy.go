@@ -68,7 +68,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
-//				FileSystemId: fs.ID().ToIDOutput().ToStringOutput(),
+//				FileSystemId: fs.ID(),
 //				Policy:       policy.Json(),
 //			})
 //			if err != nil {

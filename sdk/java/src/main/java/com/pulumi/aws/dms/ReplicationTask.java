@@ -49,13 +49,13 @@ import javax.annotation.Nullable;
  *         var test = new ReplicationTask("test", ReplicationTaskArgs.builder()
  *             .cdcStartTime("1993-05-21T05:50:00Z")
  *             .migrationType("full-load")
- *             .replicationInstanceArn(test_dms_replication_instance_tf.replicationInstanceArn())
+ *             .replicationInstanceArn(test_dms_replication_instance_tf.get("replicationInstanceArn"))
  *             .replicationTaskId("test-dms-replication-task-tf")
  *             .replicationTaskSettings("...")
- *             .sourceEndpointArn(test_dms_source_endpoint_tf.endpointArn())
+ *             .sourceEndpointArn(test_dms_source_endpoint_tf.get("endpointArn"))
  *             .tableMappings("{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}")
  *             .tags(Map.of("Name", "test"))
- *             .targetEndpointArn(test_dms_target_endpoint_tf.endpointArn())
+ *             .targetEndpointArn(test_dms_target_endpoint_tf.get("endpointArn"))
  *             .build());
  * 
  *     }

@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("mcp-gateway")
  *             .description("Gateway for MCP communication")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .authorizerType("CUSTOM_JWT")
  *             .protocolType("MCP")
  *             .build());
@@ -193,7 +193,7 @@ import javax.annotation.Nullable;
  *         var interceptor = new Function("interceptor", FunctionArgs.builder()
  *             .code(new FileArchive("interceptor.zip"))
  *             .name("gateway-interceptor")
- *             .role(lambda.arn())
+ *             .role(lambda.get("arn"))
  *             .handler("index.handler")
  *             .runtime("python3.12")
  *             .build());
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *                     "RESPONSE")
  *                 .build())
  *             .name("gateway-with-interceptor")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .authorizerType("AWS_IAM")
  *             .protocolType("MCP")
  *             .build());

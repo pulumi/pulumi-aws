@@ -32,10 +32,10 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Aws.OpenSearch.Inputs.ServerlessCollectionGroupCapacityLimitArgs
     ///             {
-    ///                 MinIndexingCapacityInOcu = 2,
-    ///                 MaxIndexingCapacityInOcu = 16,
-    ///                 MinSearchCapacityInOcu = 2,
-    ///                 MaxSearchCapacityInOcu = 16,
+    ///                 MinIndexingCapacityInOcu = 2.0,
+    ///                 MaxIndexingCapacityInOcu = 16.0,
+    ///                 MinSearchCapacityInOcu = 2.0,
+    ///                 MaxSearchCapacityInOcu = 16.0,
     ///             },
     ///         },
     ///         Name = "example-group",

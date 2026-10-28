@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                 .selectionMode("COUNT(1)")
  *                 .build())
  *             .description("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -189,7 +189,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var reportAccessRolePolicyAttachment = new RolePolicyAttachment("reportAccessRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(test.name())
+ *             .role(test.get("name"))
  *             .policyArn(reportAccessPolicy.arn())
  *             .build());
  * 
@@ -197,12 +197,12 @@ import javax.annotation.Nullable;
  *             .experimentReportConfiguration(ExperimentTemplateExperimentReportConfigurationArgs.builder()
  *                 .dataSources(ExperimentTemplateExperimentReportConfigurationDataSourcesArgs.builder()
  *                     .cloudwatchDashboards(ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs.builder()
- *                         .dashboardArn(exampleAwsCloudwatchDashboard.dashboardArn())
+ *                         .dashboardArn(exampleAwsCloudwatchDashboard.get("dashboardArn"))
  *                         .build())
  *                     .build())
  *                 .outputs(ExperimentTemplateExperimentReportConfigurationOutputsArgs.builder()
  *                     .s3Configuration(ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs.builder()
- *                         .bucketName(exampleAwsS3Bucket.bucket())
+ *                         .bucketName(exampleAwsS3Bucket.get("bucket"))
  *                         .prefix("fis-example-reports")
  *                         .build())
  *                     .build())

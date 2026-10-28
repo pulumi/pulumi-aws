@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                     .quantity(1)
  *                     .build())
  *                 .name("example-vpc-origin")
- *                 .arn(this_.arn())
+ *                 .arn(this_.get("arn"))
  *                 .httpPort(8080)
  *                 .httpsPort(8443)
  *                 .originProtocolPolicy("https-only")

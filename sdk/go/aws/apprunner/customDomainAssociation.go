@@ -45,15 +45,13 @@ import (
 //			certificateValidationRecords := example.CertificateValidationRecords
 //			var validation []*route53.Record
 //			for index := 0; index < int(example.EnableWwwSubdomain.ApplyT(func(enableWwwSubdomain *bool) (int, error) {
-//				return int(enableWwwSubdomain.ApplyT(func(__convert bool) (int, error) {
-//					var tmp0 int
-//					if __convert {
-//						tmp0 = 3
-//					} else {
-//						tmp0 = 2
-//					}
-//					return tmp0, nil
-//				}).(pulumi.IntOutput)), nil
+//				var tmp0 int
+//				if enableWwwSubdomain {
+//					tmp0 = 3
+//				} else {
+//					tmp0 = 2
+//				}
+//				return tmp0, nil
 //			}).(pulumi.IntOutput)); index++ {
 //				key0 := index
 //				val0 := index

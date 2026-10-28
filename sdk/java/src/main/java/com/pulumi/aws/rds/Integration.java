@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
  *             .baseCapacity(8)
  *             .publiclyAccessible(false)
  *             .subnetIds(            
- *                 example1.id(),
- *                 example2.id(),
- *                 example3.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"),
+ *                 example3.get("id"))
  *             .build());
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
  *             .integrationName("example")
- *             .sourceArn(exampleAwsRdsCluster.arn())
+ *             .sourceArn(exampleAwsRdsCluster.get("arn"))
  *             .targetArn(example.arn())
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("kmsKeyId")
@@ -145,8 +145,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
  *             .integrationName("example")
- *             .sourceArn(exampleAwsRdsCluster.arn())
- *             .targetArn(exampleAwsRedshiftserverlessNamespace.arn())
+ *             .sourceArn(exampleAwsRdsCluster.get("arn"))
+ *             .targetArn(exampleAwsRedshiftserverlessNamespace.get("arn"))
  *             .kmsKeyId(example.arn())
  *             .additionalEncryptionContext(Map.of("example", "test"))
  *             .build());

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .bucket(exampleAwsS3Bucket.bucket())
+ *             .bucket(exampleAwsS3Bucket.get("bucket"))
  *             .build());
  * 
  *     }

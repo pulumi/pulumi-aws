@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("example")
- *             .outpostId(exampleAwsOutpostsOutpost.id())
+ *             .outpostId(exampleAwsOutpostsOutpost.get("id"))
  *             .build());
  * 
  *     }

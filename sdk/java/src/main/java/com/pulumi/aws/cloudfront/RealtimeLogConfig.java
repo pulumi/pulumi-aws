@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                     "kinesis:DescribeStream",
  *                     "kinesis:PutRecord",
  *                     "kinesis:PutRecords")
- *                 .resources(exampleAwsKinesisStream.arn())
+ *                 .resources(exampleAwsKinesisStream.get("arn"))
  *                 .build())
  *             .build());
  * 
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
  *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
  *                     .roleArn(exampleRole.arn())
- *                     .streamArn(exampleAwsKinesisStream.arn())
+ *                     .streamArn(exampleAwsKinesisStream.get("arn"))
  *                     .build())
  *                 .streamType("Kinesis")
  *                 .build())
@@ -161,8 +161,8 @@ import javax.annotation.Nullable;
  *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()
  *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
  *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
- *                     .roleArn(exampleAwsIamRole.arn())
- *                     .streamArn(exampleAwsKinesisStream.arn())
+ *                     .roleArn(exampleAwsIamRole.get("arn"))
+ *                     .streamArn(exampleAwsKinesisStream.get("arn"))
  *                     .build())
  *                 .streamType("Kinesis")
  *                 .build())

@@ -416,14 +416,14 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *         final var regionNumber = config.getObject("regionNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("ap-northeast-1", 5),
      *             Map.entry("eu-central-1", 4),
      *             Map.entry("us-east-1", 1),
      *             Map.entry("us-west-1", 2),
      *             Map.entry("us-west-2", 3)
      *         ));
-     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *         final var azNumber = config.getObject("azNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("a", 1),
      *             Map.entry("b", 2),
      *             Map.entry("c", 3),
@@ -442,7 +442,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.region()])
+     *                 .netnum(regionNumber.get(example.region()))
      *                 .build()).result())
      *             .build());
      * 
@@ -452,7 +452,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
-     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .netnum(azNumber.get(example.nameSuffix()))
      *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
@@ -512,14 +512,14 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *         final var regionNumber = config.getObject("regionNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("ap-northeast-1", 5),
      *             Map.entry("eu-central-1", 4),
      *             Map.entry("us-east-1", 1),
      *             Map.entry("us-west-1", 2),
      *             Map.entry("us-west-2", 3)
      *         ));
-     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *         final var azNumber = config.getObject("azNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("a", 1),
      *             Map.entry("b", 2),
      *             Map.entry("c", 3),
@@ -538,7 +538,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.region()])
+     *                 .netnum(regionNumber.get(example.region()))
      *                 .build()).result())
      *             .build());
      * 
@@ -548,7 +548,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
-     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .netnum(azNumber.get(example.nameSuffix()))
      *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
@@ -608,14 +608,14 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *         final var regionNumber = config.getObject("regionNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("ap-northeast-1", 5),
      *             Map.entry("eu-central-1", 4),
      *             Map.entry("us-east-1", 1),
      *             Map.entry("us-west-1", 2),
      *             Map.entry("us-west-2", 3)
      *         ));
-     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *         final var azNumber = config.getObject("azNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("a", 1),
      *             Map.entry("b", 2),
      *             Map.entry("c", 3),
@@ -634,7 +634,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.region()])
+     *                 .netnum(regionNumber.get(example.region()))
      *                 .build()).result())
      *             .build());
      * 
@@ -644,7 +644,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
-     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .netnum(azNumber.get(example.nameSuffix()))
      *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
@@ -704,14 +704,14 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *         final var regionNumber = config.getObject("regionNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("ap-northeast-1", 5),
      *             Map.entry("eu-central-1", 4),
      *             Map.entry("us-east-1", 1),
      *             Map.entry("us-west-1", 2),
      *             Map.entry("us-west-2", 3)
      *         ));
-     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *         final var azNumber = config.getObject("azNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("a", 1),
      *             Map.entry("b", 2),
      *             Map.entry("c", 3),
@@ -730,7 +730,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.region()])
+     *                 .netnum(regionNumber.get(example.region()))
      *                 .build()).result())
      *             .build());
      * 
@@ -740,7 +740,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
-     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .netnum(azNumber.get(example.nameSuffix()))
      *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
@@ -800,14 +800,14 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *         final var regionNumber = config.getObject("regionNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("ap-northeast-1", 5),
      *             Map.entry("eu-central-1", 4),
      *             Map.entry("us-east-1", 1),
      *             Map.entry("us-west-1", 2),
      *             Map.entry("us-west-2", 3)
      *         ));
-     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *         final var azNumber = config.getObject("azNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("a", 1),
      *             Map.entry("b", 2),
      *             Map.entry("c", 3),
@@ -826,7 +826,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.region()])
+     *                 .netnum(regionNumber.get(example.region()))
      *                 .build()).result())
      *             .build());
      * 
@@ -836,7 +836,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
-     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .netnum(azNumber.get(example.nameSuffix()))
      *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
@@ -896,14 +896,14 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *         final var regionNumber = config.getObject("regionNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("ap-northeast-1", 5),
      *             Map.entry("eu-central-1", 4),
      *             Map.entry("us-east-1", 1),
      *             Map.entry("us-west-1", 2),
      *             Map.entry("us-west-2", 3)
      *         ));
-     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *         final var azNumber = config.getObject("azNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("a", 1),
      *             Map.entry("b", 2),
      *             Map.entry("c", 3),
@@ -922,7 +922,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.region()])
+     *                 .netnum(regionNumber.get(example.region()))
      *                 .build()).result())
      *             .build());
      * 
@@ -932,7 +932,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
-     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .netnum(azNumber.get(example.nameSuffix()))
      *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
@@ -992,14 +992,14 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *         final var regionNumber = config.getObject("regionNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("ap-northeast-1", 5),
      *             Map.entry("eu-central-1", 4),
      *             Map.entry("us-east-1", 1),
      *             Map.entry("us-west-1", 2),
      *             Map.entry("us-west-2", 3)
      *         ));
-     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *         final var azNumber = config.getObject("azNumber", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Map.ofEntries(
      *             Map.entry("a", 1),
      *             Map.entry("b", 2),
      *             Map.entry("c", 3),
@@ -1018,7 +1018,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.region()])
+     *                 .netnum(regionNumber.get(example.region()))
      *                 .build()).result())
      *             .build());
      * 
@@ -1028,7 +1028,7 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
-     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .netnum(azNumber.get(example.nameSuffix()))
      *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
@@ -1079,7 +1079,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state("available")
      *             .build());
@@ -1219,7 +1219,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state("available")
      *             .build());
@@ -1359,7 +1359,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state("available")
      *             .build());
@@ -1499,7 +1499,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state("available")
      *             .build());
@@ -1639,7 +1639,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state("available")
      *             .build());
@@ -1779,7 +1779,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state("available")
      *             .build());
@@ -1919,7 +1919,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state("available")
      *             .build());

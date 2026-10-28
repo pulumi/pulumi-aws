@@ -167,14 +167,14 @@ def get_functions(region: Optional[_builtins.str] = None,
 
     all = aws.lambda_.get_functions()
     # Get detailed information for each function
-    details = [aws.lambda_.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
+    details = range(len(all.function_names)).apply(lambda range: [aws.lambda_.get_function(function_name=all.function_names[__index]) for __index in range])
     function_inventory = [{
         "name": name,
         "arn": all.function_arns[i],
-        "runtime": details.apply(lambda details: details[i].runtime),
-        "memorySize": details.apply(lambda details: details[i].memory_size),
-        "timeout": details.apply(lambda details: details[i].timeout),
-        "handler": details.apply(lambda details: details[i].handler),
+        "runtime": details[i]["runtime"],
+        "memorySize": details[i]["memorySize"],
+        "timeout": details[i]["timeout"],
+        "handler": details[i]["handler"],
     } for i, name in enumerate(all.function_names)]
     pulumi.export("functionInventory", function_inventory)
     ```
@@ -277,14 +277,14 @@ def get_functions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]]
 
     all = aws.lambda_.get_functions()
     # Get detailed information for each function
-    details = [aws.lambda_.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
+    details = range(len(all.function_names)).apply(lambda range: [aws.lambda_.get_function(function_name=all.function_names[__index]) for __index in range])
     function_inventory = [{
         "name": name,
         "arn": all.function_arns[i],
-        "runtime": details.apply(lambda details: details[i].runtime),
-        "memorySize": details.apply(lambda details: details[i].memory_size),
-        "timeout": details.apply(lambda details: details[i].timeout),
-        "handler": details.apply(lambda details: details[i].handler),
+        "runtime": details[i]["runtime"],
+        "memorySize": details[i]["memorySize"],
+        "timeout": details[i]["timeout"],
+        "handler": details[i]["handler"],
     } for i, name in enumerate(all.function_names)]
     pulumi.export("functionInventory", function_inventory)
     ```

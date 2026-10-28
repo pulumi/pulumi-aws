@@ -59,7 +59,7 @@ import (
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
 //					Endpoint: pulumi.String("http://example.com"),
 //				},
-//				ApiId: test.ID().ToIDOutput().ToStringOutput(),
+//				ApiId: test.ID(),
 //				Name:  pulumi.String("my_example"),
 //				Type:  pulumi.String("HTTP"),
 //			})
@@ -75,7 +75,7 @@ import (
 //					},
 //					Ttl: pulumi.Int(60),
 //				},
-//				ApiId:      test.ID().ToIDOutput().ToStringOutput(),
+//				ApiId:      test.ID(),
 //				Field:      pulumi.String("singlePost"),
 //				Type:       pulumi.String("Query"),
 //				DataSource: testDataSource.Name,
@@ -114,7 +114,7 @@ import (
 //					},
 //				},
 //				Type:             pulumi.String("Mutation"),
-//				ApiId:            test.ID().ToIDOutput().ToStringOutput(),
+//				ApiId:            test.ID(),
 //				Field:            pulumi.String("pipelineTest"),
 //				RequestTemplate:  pulumi.String("{}"),
 //				ResponseTemplate: pulumi.String("$util.toJson($ctx.result)"),

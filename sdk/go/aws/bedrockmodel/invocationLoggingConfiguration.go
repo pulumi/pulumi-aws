@@ -89,7 +89,7 @@ import (
 //			_, err = bedrockmodel.NewInvocationLoggingConfiguration(ctx, "example", &bedrockmodel.InvocationLoggingConfigurationArgs{
 //				LoggingConfig: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigArgs{
 //					S3Config: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs{
-//						BucketName: example.ID().ToIDOutput().ToStringOutput(),
+//						BucketName: example.ID(),
 //						KeyPrefix:  pulumi.String("bedrock"),
 //					},
 //					EmbeddingDataDeliveryEnabled: pulumi.Bool(true),

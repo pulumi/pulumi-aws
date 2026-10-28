@@ -87,11 +87,11 @@ namespace Pulumi.Aws.Lambda
         ///     // Use dynamic configuration
         ///     var example = new Aws.ElastiCache.Cluster("example", new()
         ///     {
-        ///         ClusterId = config?.Cache?.ClusterId,
-        ///         Engine = config?.Cache?.Engine,
-        ///         NodeType = config?.Cache?.NodeType,
-        ///         NumCacheNodes = config?.Cache?.Nodes,
-        ///         ParameterGroupName = config?.Cache?.ParameterGroup,
+        ///         ClusterId = config?.Cache?.ClusterId.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         Engine = config?.Cache?.Engine.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         NodeType = config?.Cache?.NodeType.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         NumCacheNodes = int.Parse(config?.Cache?.Nodes, System.Globalization.CultureInfo.InvariantCulture),
+        ///         ParameterGroupName = config?.Cache?.ParameterGroup.ToString(System.Globalization.CultureInfo.InvariantCulture),
         ///         Tags = config?.Tags,
         ///     });
         /// 
@@ -177,11 +177,11 @@ namespace Pulumi.Aws.Lambda
         ///     // Use dynamic configuration
         ///     var example = new Aws.ElastiCache.Cluster("example", new()
         ///     {
-        ///         ClusterId = config?.Cache?.ClusterId,
-        ///         Engine = config?.Cache?.Engine,
-        ///         NodeType = config?.Cache?.NodeType,
-        ///         NumCacheNodes = config?.Cache?.Nodes,
-        ///         ParameterGroupName = config?.Cache?.ParameterGroup,
+        ///         ClusterId = config?.Cache?.ClusterId.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         Engine = config?.Cache?.Engine.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         NodeType = config?.Cache?.NodeType.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         NumCacheNodes = int.Parse(config?.Cache?.Nodes, System.Globalization.CultureInfo.InvariantCulture),
+        ///         ParameterGroupName = config?.Cache?.ParameterGroup.ToString(System.Globalization.CultureInfo.InvariantCulture),
         ///         Tags = config?.Tags,
         ///     });
         /// 
@@ -267,11 +267,11 @@ namespace Pulumi.Aws.Lambda
         ///     // Use dynamic configuration
         ///     var example = new Aws.ElastiCache.Cluster("example", new()
         ///     {
-        ///         ClusterId = config?.Cache?.ClusterId,
-        ///         Engine = config?.Cache?.Engine,
-        ///         NodeType = config?.Cache?.NodeType,
-        ///         NumCacheNodes = config?.Cache?.Nodes,
-        ///         ParameterGroupName = config?.Cache?.ParameterGroup,
+        ///         ClusterId = config?.Cache?.ClusterId.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         Engine = config?.Cache?.Engine.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         NodeType = config?.Cache?.NodeType.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///         NumCacheNodes = int.Parse(config?.Cache?.Nodes, System.Globalization.CultureInfo.InvariantCulture),
+        ///         ParameterGroupName = config?.Cache?.ParameterGroup.ToString(System.Globalization.CultureInfo.InvariantCulture),
         ///         Tags = config?.Tags,
         ///     });
         /// 

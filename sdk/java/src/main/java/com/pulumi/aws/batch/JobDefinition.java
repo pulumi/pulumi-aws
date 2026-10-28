@@ -343,7 +343,7 @@ import javax.annotation.Nullable;
  *             .ecsProperties(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("taskProperties", jsonArray(jsonObject(
- *                         jsonProperty("executionRoleArn", ecsTaskExecutionRole.arn()),
+ *                         jsonProperty("executionRoleArn", ecsTaskExecutionRole.get("arn")),
  *                         jsonProperty("containers", jsonArray(
  *                             jsonObject(
  *                                 jsonProperty("image", "public.ecr.aws/amazonlinux/amazonlinux:1"),

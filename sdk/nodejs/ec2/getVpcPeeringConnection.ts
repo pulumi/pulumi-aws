@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const pc = aws.ec2.getVpcPeeringConnection({
  *     vpcId: foo.id,
  *     peerCidrBlock: "10.0.1.0/22",
@@ -165,7 +165,7 @@ export interface GetVpcPeeringConnectionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const pc = aws.ec2.getVpcPeeringConnection({
  *     vpcId: foo.id,
  *     peerCidrBlock: "10.0.1.0/22",

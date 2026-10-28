@@ -122,7 +122,7 @@ import (
 //			}, nil).Result
 //			// Conditional resource creation based on signing profile validation
 //			var tmp0 int
-//			if pulumi.Bool(profileAllowed) {
+//			if profileAllowed {
 //				tmp0 = 1
 //			} else {
 //				tmp0 = 0
@@ -144,7 +144,7 @@ import (
 //				conditional = append(conditional, __res)
 //			}
 //			var tmp1 string
-//			if pulumi.Bool(profileAllowed) {
+//			if profileAllowed {
 //				tmp1 = "Function deployed with valid signing profile"
 //			} else {
 //				tmp1 = "Deployment blocked - signing profile not allowed"
@@ -152,7 +152,7 @@ import (
 //			ctx.Export("deploymentStatus", pulumi.Map{
 //				"profileAllowed":  profileAllowed,
 //				"functionCreated": profileAllowed,
-//				"message":         pulumi.String(tmp1),
+//				"message":         tmp1,
 //			})
 //			return nil
 //		})

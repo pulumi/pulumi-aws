@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewNetworkAclRule(ctx, "private_s3", &ec2.NetworkAclRuleArgs{
-//				NetworkAclId: bar.ID().ToIDOutput().ToStringOutput(),
+//				NetworkAclId: bar.ID(),
 //				RuleNumber:   pulumi.Int(200),
 //				Egress:       pulumi.Bool(false),
 //				Protocol:     pulumi.String("tcp"),

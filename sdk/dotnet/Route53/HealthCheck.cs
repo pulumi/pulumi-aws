@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Route53
     ///         Namespace = "AWS/EC2",
     ///         Period = 120,
     ///         Statistic = "Average",
-    ///         Threshold = 80,
+    ///         Threshold = 80.0,
     ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///     });
     /// 
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Route53
     ///         Namespace = "AWS/EC2",
     ///         Period = 120,
     ///         Statistic = "Average",
-    ///         Threshold = 80,
+    ///         Threshold = 80.0,
     ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///     });
     /// 
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Route53
     ///         InsufficientDataHealthStatus = "Healthy",
     ///         Triggers = 
     ///         {
-    ///             { "threshold", example.Threshold },
+    ///             { "threshold", example.Threshold.Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)) },
     ///         },
     ///     });
     /// 

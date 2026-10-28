@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Database("example", DatabaseArgs.builder()
  *             .name("database_name")
- *             .bucket(exampleAwsS3Bucket.id())
+ *             .bucket(exampleAwsS3Bucket.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("bucket")
  *                 .build());

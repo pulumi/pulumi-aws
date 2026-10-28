@@ -49,9 +49,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RestoreTestingSelection("example", RestoreTestingSelectionArgs.builder()
  *             .name("ec2_selection")
- *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.name())
+ *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.get("name"))
  *             .protectedResourceType("EC2")
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .protectedResourceArns("*")
  *             .build());
  * 
@@ -94,9 +94,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("ec2_selection")
- *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.name())
+ *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.get("name"))
  *             .protectedResourceType("EC2")
- *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(exampleAwsEvidentlyFeature.name())
+ *                 .feature(exampleAwsEvidentlyFeature.get("name"))
  *                 .name("Variation1")
  *                 .variation("Variation1")
  *                 .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .build());
  * 
  *     }
@@ -110,12 +110,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(exampleAwsEvidentlyFeature.name())
+ *                 .feature(exampleAwsEvidentlyFeature.get("name"))
  *                 .name("Variation1")
  *                 .variation("Variation1")
  *                 .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .description("example description")
  *             .build());
  * 
@@ -163,19 +163,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(exampleAwsEvidentlyFeature.name())
+ *                     .feature(exampleAwsEvidentlyFeature.get("name"))
  *                     .name("Variation1")
  *                     .variation("Variation1")
  *                     .description("first-group")
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(exampleAwsEvidentlyFeature.name())
+ *                     .feature(exampleAwsEvidentlyFeature.get("name"))
  *                     .name("Variation2")
  *                     .variation("Variation2")
  *                     .description("second-group")
  *                     .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .build());
  * 
  *     }
@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(exampleAwsEvidentlyFeature.name())
+ *                 .feature(exampleAwsEvidentlyFeature.get("name"))
  *                 .name("Variation1")
  *                 .variation("Variation1")
  *                 .build())
@@ -244,7 +244,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .build());
  * 
  *     }
@@ -287,12 +287,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .groups(LaunchGroupArgs.builder()
- *                 .feature(exampleAwsEvidentlyFeature.name())
+ *                 .feature(exampleAwsEvidentlyFeature.get("name"))
  *                 .name("Variation1")
  *                 .variation("Variation1")
  *                 .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .randomizationSalt("example randomization salt")
  *             .build());
  * 
@@ -348,17 +348,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(exampleAwsEvidentlyFeature.name())
+ *                     .feature(exampleAwsEvidentlyFeature.get("name"))
  *                     .name("Variation1")
  *                     .variation("Variation1")
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(exampleAwsEvidentlyFeature.name())
+ *                     .feature(exampleAwsEvidentlyFeature.get("name"))
  *                     .name("Variation2")
  *                     .variation("Variation2")
  *                     .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .build());
  * 
  *     }
@@ -400,12 +400,12 @@ import javax.annotation.Nullable;
  *                     .segmentOverrides(                    
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(1)
- *                             .segment(exampleAwsEvidentlySegment.name())
+ *                             .segment(exampleAwsEvidentlySegment.get("name"))
  *                             .weights(Map.of("Variation2", 10000))
  *                             .build(),
  *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
  *                             .evaluationOrder(2)
- *                             .segment(exampleAwsEvidentlySegment.name())
+ *                             .segment(exampleAwsEvidentlySegment.get("name"))
  *                             .weights(Map.ofEntries(
  *                                 Map.entry("Variation1", 40000),
  *                                 Map.entry("Variation2", 30000)
@@ -420,17 +420,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groups(            
  *                 LaunchGroupArgs.builder()
- *                     .feature(exampleAwsEvidentlyFeature.name())
+ *                     .feature(exampleAwsEvidentlyFeature.get("name"))
  *                     .name("Variation1")
  *                     .variation("Variation1")
  *                     .build(),
  *                 LaunchGroupArgs.builder()
- *                     .feature(exampleAwsEvidentlyFeature.name())
+ *                     .feature(exampleAwsEvidentlyFeature.get("name"))
  *                     .name("Variation2")
  *                     .variation("Variation2")
  *                     .build())
  *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
+ *             .project(exampleAwsEvidentlyProject.get("name"))
  *             .build());
  * 
  *     }

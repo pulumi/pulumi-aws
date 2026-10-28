@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 OptionGroupOptionArgs.builder()
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
  *                         .name("IAM_ROLE_ARN")
- *                         .value(exampleAwsIamRole.arn())
+ *                         .value(exampleAwsIamRole.get("arn"))
  *                         .build())
  *                     .optionName("SQLSERVER_BACKUP_RESTORE")
  *                     .build(),

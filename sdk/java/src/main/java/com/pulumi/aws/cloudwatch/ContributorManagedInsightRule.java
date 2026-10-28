@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContributorManagedInsightRule("example", ContributorManagedInsightRuleArgs.builder()
- *             .resourceArn(test.arn())
+ *             .resourceArn(test.get("arn"))
  *             .templateName("VpcEndpointService-BytesByEndpointId-v1")
  *             .ruleState("DISABLED")
  *             .build());

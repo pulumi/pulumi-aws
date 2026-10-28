@@ -213,7 +213,7 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := efs.NewMountTarget(ctx, fmt.Sprintf("example-%v", key0), &efs.MountTargetArgs{
-//					FileSystemId: example.ID().ToIDOutput().ToStringOutput(),
+//					FileSystemId: example.ID(),
 //					SubnetId:     subnetIds[val0],
 //					SecurityGroups: pulumi.StringArray{
 //						efs.Id,
@@ -238,7 +238,7 @@ import (
 //					Gid: pulumi.Int(1000),
 //					Uid: pulumi.Int(1000),
 //				},
-//				FileSystemId: example.ID().ToIDOutput().ToStringOutput(),
+//				FileSystemId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -342,7 +342,7 @@ import (
 //						Path: pulumi.String("/lambda"),
 //					},
 //				},
-//				FileSystemId: forLambda.ID().ToIDOutput().ToStringOutput(),
+//				FileSystemId: forLambda.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -365,18 +365,18 @@ import (
 //				IpProtocol:                pulumi.String("tcp"),
 //				FromPort:                  pulumi.Int(2049),
 //				ToPort:                    pulumi.Int(2049),
-//				ReferencedSecurityGroupId: lambdaS3files.ID().ToIDOutput().ToStringOutput(),
-//				SecurityGroupId:           s3filesMountTargets.ID().ToIDOutput().ToStringOutput(),
+//				ReferencedSecurityGroupId: lambdaS3files.ID(),
+//				SecurityGroupId:           s3filesMountTargets.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupEgressRule(ctx, "lambda_s3files_nfs", &vpc.SecurityGroupEgressRuleArgs{
 //				IpProtocol:                pulumi.String("tcp"),
-//				SecurityGroupId:           lambdaS3files.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId:           lambdaS3files.ID(),
 //				FromPort:                  pulumi.Int(2049),
 //				ToPort:                    pulumi.Int(2049),
-//				ReferencedSecurityGroupId: s3filesMountTargets.ID().ToIDOutput().ToStringOutput(),
+//				ReferencedSecurityGroupId: s3filesMountTargets.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -387,7 +387,7 @@ import (
 //						subnetForLambdaAz1.Id,
 //					},
 //					SecurityGroupIds: pulumi.StringArray{
-//						lambdaS3files.ID().ToIDOutput().ToStringOutput(),
+//						lambdaS3files.ID(),
 //					},
 //				},
 //				FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{

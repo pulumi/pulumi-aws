@@ -79,7 +79,7 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///         RuleName = "suppress-guardduty-low",
     ///         Description = "Suppress low severity GuardDuty findings",
-    ///         RuleOrder = 100,
+    ///         RuleOrder = 100.0,
     ///         RuleStatus = "ENABLED",
     ///     }, new CustomResourceOptions
     ///     {

@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
-//				RestApiId:    main.ID().ToIDOutput().ToStringOutput(),
+//				RestApiId:    main.ID(),
 //				StatusCode:   pulumi.String("401"),
 //				ResponseType: pulumi.String("UNAUTHORIZED"),
 //				ResponseTemplates: pulumi.StringMap{

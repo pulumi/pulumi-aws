@@ -128,10 +128,10 @@ import (
 //			_, err = route53.NewZone(ctx, "private", &route53.ZoneArgs{
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
-//						VpcId: primary.ID().ToIDOutput().ToStringOutput(),
+//						VpcId: primary.ID(),
 //					},
 //					&route53.ZoneVpcArgs{
-//						VpcId: secondary.ID().ToIDOutput().ToStringOutput(),
+//						VpcId: secondary.ID(),
 //					},
 //				},
 //				Name: pulumi.String("example.com"),

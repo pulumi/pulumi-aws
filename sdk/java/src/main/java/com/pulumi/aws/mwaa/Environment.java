@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetIds(private_.stream().map(element -> element.get("id")).collect(toList()))
  *                 .build())
  *             .dagS3Path("dags/")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("example")
- *             .sourceBucketArn(exampleAwsS3Bucket.arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.get("arn"))
  *             .build());
  * 
  *     }
@@ -95,17 +95,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetIds(private_.stream().map(element -> element.get("id")).collect(toList()))
  *                 .build())
  *             .airflowConfigurationOptions(Map.ofEntries(
  *                 Map.entry("core.default_task_retries", "16"),
  *                 Map.entry("core.parallelism", "1")
  *             ))
  *             .dagS3Path("dags/")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("example")
- *             .sourceBucketArn(exampleAwsS3Bucket.arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.get("arn"))
  *             .build());
  * 
  *     }
@@ -170,13 +170,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetIds(private_.stream().map(element -> element.get("id")).collect(toList()))
  *                 .build())
  *             .dagS3Path("dags/")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("example")
- *             .sourceBucketArn(exampleAwsS3Bucket.arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.get("arn"))
  *             .build());
  * 
  *     }
@@ -211,13 +211,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
+ *                 .subnetIds(private_.stream().map(element -> element.get("id")).collect(toList()))
  *                 .build())
  *             .dagS3Path("dags/")
- *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .executionRoleArn(exampleAwsIamRole.get("arn"))
  *             .name("example")
- *             .sourceBucketArn(exampleAwsS3Bucket.arn())
+ *             .sourceBucketArn(exampleAwsS3Bucket.get("arn"))
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example"),
  *                 Map.entry("Environment", "production")

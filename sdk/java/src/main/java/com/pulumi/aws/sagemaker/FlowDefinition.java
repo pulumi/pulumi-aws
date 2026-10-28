@@ -52,18 +52,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
+ *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.get("arn"))
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
  *                 .taskDescription("example")
  *                 .taskTitle("example")
- *                 .workteamArn(exampleAwsSagemakerWorkteam.arn())
+ *                 .workteamArn(exampleAwsSagemakerWorkteam.get("arn"))
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
+ *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.get("bucket")))
  *                 .build())
  *             .flowDefinitionName("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -107,18 +107,18 @@ import javax.annotation.Nullable;
  *                         .tenthFractionsOfACent(2)
  *                         .build())
  *                     .build())
- *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
+ *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.get("arn"))
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
  *                 .taskDescription("example")
  *                 .taskTitle("example")
- *                 .workteamArn(String.format("arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default", current.region()))
+ *                 .workteamArn(String.format("arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default", current.get("region")))
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
+ *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.get("bucket")))
  *                 .build())
  *             .flowDefinitionName("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -157,12 +157,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
+ *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.get("arn"))
  *                 .taskAvailabilityLifetimeInSeconds(1)
  *                 .taskCount(1)
  *                 .taskDescription("example")
  *                 .taskTitle("example")
- *                 .workteamArn(exampleAwsSagemakerWorkteam.arn())
+ *                 .workteamArn(exampleAwsSagemakerWorkteam.get("arn"))
  *                 .build())
  *             .humanLoopRequestSource(FlowDefinitionHumanLoopRequestSourceArgs.builder()
  *                 .awsManagedHumanLoopRequestSource("AWS/Textract/AnalyzeDocument/Forms/V1")
@@ -184,10 +184,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
+ *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.get("bucket")))
  *                 .build())
  *             .flowDefinitionName("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

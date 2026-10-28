@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new MountTarget("example", MountTargetArgs.builder()
- *             .fileSystemId(exampleAwsEfsFileSystem.id())
+ *             .fileSystemId(exampleAwsEfsFileSystem.get("id"))
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 

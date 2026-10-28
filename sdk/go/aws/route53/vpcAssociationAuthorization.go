@@ -40,7 +40,7 @@ import (
 //			exampleZone, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
-//						VpcId: example.ID().ToIDOutput().ToStringOutput(),
+//						VpcId: example.ID(),
 //					},
 //				},
 //				Name: pulumi.String("example.com"),
@@ -59,8 +59,8 @@ import (
 //				return err
 //			}
 //			exampleVpcAssociationAuthorization, err := route53.NewVpcAssociationAuthorization(ctx, "example", &route53.VpcAssociationAuthorizationArgs{
-//				VpcId:  alternate.ID().ToIDOutput().ToStringOutput(),
-//				ZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:  alternate.ID(),
+//				ZoneId: exampleZone.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -46,10 +46,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroupAttachment("example", TargetGroupAttachmentArgs.builder()
  *             .target(TargetGroupAttachmentTargetArgs.builder()
- *                 .id(exampleAwsLb.arn())
+ *                 .id(exampleAwsLb.get("arn"))
  *                 .port(80)
  *                 .build())
- *             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
+ *             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.get("id"))
  *             .build());
  * 
  *     }

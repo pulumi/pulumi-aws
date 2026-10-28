@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  *                 "creation",
  *                 "failure")
  *             .name("my-favorite-event-subscription")
- *             .snsTopicArn(exampleAwsSnsTopic.arn())
- *             .sourceIds(exampleAwsDmsReplicationTask.replicationTaskId())
+ *             .snsTopicArn(exampleAwsSnsTopic.get("arn"))
+ *             .sourceIds(exampleAwsDmsReplicationTask.get("replicationTaskId"))
  *             .sourceType("replication-task")
  *             .tags(Map.of("Name", "example"))
  *             .build());

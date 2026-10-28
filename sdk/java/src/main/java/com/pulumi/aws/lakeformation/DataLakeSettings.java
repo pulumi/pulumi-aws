@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
  *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
+ *                 test.get("arn"),
+ *                 testAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -93,15 +93,15 @@ import javax.annotation.Nullable;
  *                     "SELECT",
  *                     "ALTER",
  *                     "DROP")
- *                 .principal(test.arn())
+ *                 .principal(test.get("arn"))
  *                 .build())
  *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
  *                 .permissions("ALL")
- *                 .principal(testAwsIamRole.arn())
+ *                 .principal(testAwsIamRole.get("arn"))
  *                 .build())
  *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
+ *                 test.get("arn"),
+ *                 testAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -141,19 +141,19 @@ import javax.annotation.Nullable;
  *                     "SELECT",
  *                     "ALTER",
  *                     "DROP")
- *                 .principal(test.arn())
+ *                 .principal(test.get("arn"))
  *                 .build())
  *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
  *                 .permissions("ALL")
- *                 .principal(testAwsIamRole.arn())
+ *                 .principal(testAwsIamRole.get("arn"))
  *                 .build())
  *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
+ *                 test.get("arn"),
+ *                 testAwsIamRole.get("arn"))
  *             .allowExternalDataFiltering(true)
  *             .externalDataFilteringAllowLists(            
- *                 current.accountId(),
- *                 thirdParty.accountId())
+ *                 current.get("accountId"),
+ *                 thirdParty.get("accountId"))
  *             .authorizedSessionTagValueLists("Amazon EMR")
  *             .allowFullTableExternalDataAccess(true)
  *             .build());

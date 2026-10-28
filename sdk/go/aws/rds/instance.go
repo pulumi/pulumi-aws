@@ -115,7 +115,7 @@ import (
 //				Engine:                   pulumi.String(custom_oracle.Engine),
 //				EngineVersion:            pulumi.String(custom_oracle.EngineVersion),
 //				Identifier:               pulumi.String("ee-instance-demo"),
-//				InstanceClass:            custom_oracle.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				InstanceClass:            pulumi.String(custom_oracle.InstanceClass),
 //				KmsKeyId:                 pulumi.String(byId.Arn),
 //				LicenseModel:             pulumi.String(custom_oracle.LicenseModel),
 //				MultiAz:                  pulumi.Bool(false),
@@ -133,7 +133,7 @@ import (
 //				CustomIamInstanceProfile: pulumi.String("AWSRDSCustomInstanceProfile"),
 //				BackupRetentionPeriod:    pulumi.Int(7),
 //				Identifier:               pulumi.String("ee-instance-replica"),
-//				InstanceClass:            custom_oracle.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				InstanceClass:            pulumi.String(custom_oracle.InstanceClass),
 //				KmsKeyId:                 pulumi.String(byId.Arn),
 //				MultiAz:                  pulumi.Bool(false),
 //				SkipFinalSnapshot:        pulumi.Bool(true),
@@ -193,7 +193,7 @@ import (
 //				Engine:                   pulumi.String(custom_sqlserver.Engine),
 //				EngineVersion:            pulumi.String(custom_sqlserver.EngineVersion),
 //				Identifier:               pulumi.String("sql-instance-demo"),
-//				InstanceClass:            custom_sqlserver.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				InstanceClass:            pulumi.String(custom_sqlserver.InstanceClass),
 //				KmsKeyId:                 pulumi.String(byId.Arn),
 //				MultiAz:                  pulumi.Bool(false),
 //				Password:                 pulumi.String("avoid-plaintext-passwords"),
@@ -265,7 +265,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Create the RDS Db2 instance, use the data sources defined to set attributes
+//			// Create the RDS Db2 instance, use the functions defined to set attributes
 //			_, err = rds.NewInstance(ctx, "example", &rds.InstanceArgs{
 //				AllocatedStorage:      pulumi.Int(100),
 //				BackupRetentionPeriod: pulumi.Int(7),
@@ -273,7 +273,7 @@ import (
 //				Engine:                pulumi.String(example.Engine),
 //				EngineVersion:         pulumi.String(example.EngineVersion),
 //				Identifier:            pulumi.String("db2-instance-demo"),
-//				InstanceClass:         example.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				InstanceClass:         pulumi.String(example.InstanceClass),
 //				ParameterGroupName:    exampleParameterGroup.Name,
 //				Password:              pulumi.String("avoid-plaintext-passwords"),
 //				Username:              pulumi.String("test"),

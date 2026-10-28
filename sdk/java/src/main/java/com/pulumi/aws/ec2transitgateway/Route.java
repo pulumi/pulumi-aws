@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Route("example", RouteArgs.builder()
  *             .destinationCidrBlock("0.0.0.0/0")
- *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
- *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
+ *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.get("id"))
+ *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.get("associationDefaultRouteTableId"))
  *             .build());
  * 
  *     }
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *         var example = new Route("example", RouteArgs.builder()
  *             .destinationCidrBlock("0.0.0.0/0")
  *             .blackhole(true)
- *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
+ *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.get("associationDefaultRouteTableId"))
  *             .build());
  * 
  *     }

@@ -53,10 +53,10 @@ namespace Pulumi.Aws.SecretsManager
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
-    ///     var example = config.GetObject&lt;Dictionary&lt;string, string&gt;&gt;("example") ?? 
+    ///     var example = config.GetObject&lt;Dictionary&lt;string, string&gt;&gt;("example") ?? new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         { "key1", "value1" },
-    ///         { "key2", "value2" },
+    ///         ["key1"] = "value1",
+    ///         ["key2"] = "value2",
     ///     };
     ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
     ///     {

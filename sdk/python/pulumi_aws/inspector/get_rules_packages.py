@@ -83,7 +83,7 @@ def get_rules_packages(region: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     rules = aws.inspector.get_rules_packages()
     # e.g., Use in aws_inspector_assessment_template
     group = aws.inspector.ResourceGroup("group", tags={
@@ -124,7 +124,7 @@ def get_rules_packages_output(region: pulumi.Input[Optional[Optional[_builtins.s
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     rules = aws.inspector.get_rules_packages()
     # e.g., Use in aws_inspector_assessment_template
     group = aws.inspector.ResourceGroup("group", tags={

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ManagedUserPoolClient("example", ManagedUserPoolClientArgs.builder()
  *             .namePattern("^AmazonOpenSearchService-example-(\\w+)$")
- *             .userPoolId(exampleAwsCognitoUserPool.id())
+ *             .userPoolId(exampleAwsCognitoUserPool.get("id"))
  *             .build());
  * 
  *     }

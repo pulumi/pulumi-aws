@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceNetworkVpcAssociation("example", ServiceNetworkVpcAssociationArgs.builder()
- *             .vpcIdentifier(exampleAwsVpc.id())
- *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .vpcIdentifier(exampleAwsVpc.get("id"))
+ *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.get("id"))
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .build());
  * 
  *     }

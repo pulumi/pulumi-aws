@@ -35,7 +35,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"Statement": []interface{}{
 //					map[string]interface{}{
 //						"Action": []string{
 //							"sts:AssumeRole",
@@ -135,7 +135,7 @@ import (
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									current.AccountId,
 //								},
 //								Variable: "aws:SourceAccount",
@@ -194,7 +194,7 @@ import (
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									current.AccountId,
 //								},
 //								Variable: "aws:SourceAccount",

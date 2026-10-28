@@ -112,22 +112,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			corsConfig := len(example.Cors).ApplyT(func(length int) (lambda.GetFunctionUrlCor, error) {
-//				var tmp0 lambda.GetFunctionUrlCor
-//				if length > 0 {
-//					tmp0 = example.Cors[0].(lambda.GetFunctionUrlCor)
-//				} else {
-//					tmp0 = nil
-//				}
-//				return tmp0, nil
-//			}).(lambda.GetFunctionUrlCorOutput)
-//			var tmp1 []string
-//			if corsConfig != nil {
-//				tmp1 = corsConfig.AllowOrigins
+//			var tmp0 lambda.GetFunctionUrlCor
+//			if bool(len(example.Cors) > 0) {
+//				tmp0 = example.Cors[0]
 //			} else {
-//				tmp1 = []interface{}{}
+//				tmp0 = nil
 //			}
-//			allowedOrigins := tmp1
+//			corsConfig := tmp0
+//			allowedOrigins := corsConfig.ApplyT(func(corsConfig lambda.GetFunctionUrlCor) ([]string, error) {
+//				var tmp1 []string
+//				if corsConfig != nil {
+//					tmp1 = corsConfig.AllowOrigins
+//				} else {
+//					tmp1 = []interface{}{}
+//				}
+//				return tmp1, nil
+//			}).(pulumi.StringArrayOutput)
 //			ctx.Export("corsAllowedOrigins", allowedOrigins)
 //			return nil
 //		})

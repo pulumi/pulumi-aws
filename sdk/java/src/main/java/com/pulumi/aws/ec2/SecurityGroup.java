@@ -65,13 +65,13 @@ import javax.annotation.Nullable;
  *         var allowTls = new SecurityGroup("allowTls", SecurityGroupArgs.builder()
  *             .name("allow_tls")
  *             .description("Allow TLS inbound traffic and all outbound traffic")
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .tags(Map.of("Name", "allow_tls"))
  *             .build());
  * 
  *         var allowTlsIpv4 = new SecurityGroupIngressRule("allowTlsIpv4", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(allowTls.id())
- *             .cidrIpv4(main.cidrBlock())
+ *             .cidrIpv4(main.get("cidrBlock"))
  *             .fromPort(443)
  *             .ipProtocol("tcp")
  *             .toPort(443)
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  *         var allowTlsIpv6 = new SecurityGroupIngressRule("allowTlsIpv6", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(allowTls.id())
- *             .cidrIpv6(main.ipv6CidrBlock())
+ *             .cidrIpv6(main.get("ipv6CidrBlock"))
  *             .fromPort(443)
  *             .ipProtocol("tcp")
  *             .toPort(443)
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .name("sg")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .ingress()
  *             .egress()
  *             .build());
@@ -347,14 +347,14 @@ import javax.annotation.Nullable;
  *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
  *             .triggers(Map.of("rerunUponChangeOf", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
- *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
+ *                 .input(exampleAwsVpcEndpoint.get("securityGroupIds"))
  *                 .build()).result()))
  *             .build());
  * 
  *         var exampleResourceProvisioner0 = new Command("exampleResourceProvisioner0", CommandArgs.builder()
  *             .create("""
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
- * ", exampleAwsVpcEndpoint.id(),default_.id()))
+ * ", exampleAwsVpcEndpoint.get("id"),default_.id()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(Arrays.asList(exampleResource))
  *                 .build());

@@ -136,7 +136,7 @@ import (
 //				},
 //			}, nil)
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Policy: acmpcaBucketAccess.Json(),
 //			})
 //			if err != nil {
@@ -155,7 +155,7 @@ import (
 //						CustomCname:      pulumi.String("crl.example.com"),
 //						Enabled:          pulumi.Bool(true),
 //						ExpirationInDays: pulumi.Int(7),
-//						S3BucketName:     example.ID().ToIDOutput().ToStringOutput(),
+//						S3BucketName:     example.ID(),
 //						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
 //					},
 //				},

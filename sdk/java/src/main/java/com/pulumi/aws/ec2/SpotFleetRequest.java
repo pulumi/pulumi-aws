@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                     .ami("ami-1234")
  *                     .spotPrice("2.793")
  *                     .placementTenancy("dedicated")
- *                     .iamInstanceProfileArn(example.arn())
+ *                     .iamInstanceProfileArn(example.get("arn"))
  *                     .build(),
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
  *                     .rootBlockDevices(SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs.builder()
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                     .ami("ami-5678")
  *                     .keyName("my-key")
  *                     .spotPrice("1.117")
- *                     .iamInstanceProfileArn(example.arn())
+ *                     .iamInstanceProfileArn(example.get("arn"))
  *                     .availabilityZone("us-west-1a")
  *                     .subnetId("subnet-1234")
  *                     .weightedCapacity("35")

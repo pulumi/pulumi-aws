@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserProfile("example", UserProfileArgs.builder()
- *             .userIdentifier(exampleAwsIamUser.arn())
- *             .domainIdentifier(exampleAwsDatazoneDomain.id())
+ *             .userIdentifier(exampleAwsIamUser.get("arn"))
+ *             .domainIdentifier(exampleAwsDatazoneDomain.get("id"))
  *             .userType("IAM_USER")
  *             .build());
  * 

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new GuardrailVersion("example", GuardrailVersionArgs.builder()
  *             .description("example")
- *             .guardrailArn(exampleAwsBedrockGuardrail.guardrailArn())
+ *             .guardrailArn(exampleAwsBedrockGuardrail.get("guardrailArn"))
  *             .skipDestroy(true)
  *             .build());
  * 

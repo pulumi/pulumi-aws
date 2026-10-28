@@ -35,14 +35,14 @@ import (
 //				return err
 //			}
 //			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      example.ID().ToIDOutput().ToStringOutput(),
+//				AppId:      example.ID(),
 //				BranchName: pulumi.String("master"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = amplify.NewWebhook(ctx, "master", &amplify.WebhookArgs{
-//				AppId:       example.ID().ToIDOutput().ToStringOutput(),
+//				AppId:       example.ID(),
 //				BranchName:  master.BranchName,
 //				Description: pulumi.String("triggermaster"),
 //			})

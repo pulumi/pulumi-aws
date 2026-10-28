@@ -123,9 +123,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server("example", ServerArgs.builder()
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .addressAllocationIds(exampleAwsEip.id())
- *                 .subnetIds(exampleAwsSubnet.id())
- *                 .vpcId(exampleAwsVpc.id())
+ *                 .addressAllocationIds(exampleAwsEip.get("id"))
+ *                 .subnetIds(exampleAwsSubnet.get("id"))
+ *                 .vpcId(exampleAwsVpc.get("id"))
  *                 .build())
  *             .endpointType("VPC")
  *             .build());
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server("example", ServerArgs.builder()
  *             .identityProviderType("AWS_DIRECTORY_SERVICE")
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.get("id"))
  *             .build());
  * 
  *     }
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server("example", ServerArgs.builder()
  *             .identityProviderType("AWS_LAMBDA")
- *             .function(exampleAwsLambdaFunction.arn())
+ *             .function(exampleAwsLambdaFunction.get("arn"))
  *             .build());
  * 
  *     }
@@ -230,16 +230,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server("example", ServerArgs.builder()
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.id())
- *                 .vpcId(exampleAwsVpc.id())
+ *                 .subnetIds(exampleAwsSubnet.get("id"))
+ *                 .vpcId(exampleAwsVpc.get("id"))
  *                 .build())
  *             .endpointType("VPC")
  *             .protocols(            
  *                 "FTP",
  *                 "FTPS")
- *             .certificate(exampleAwsAcmCertificate.arn())
+ *             .certificate(exampleAwsAcmCertificate.get("arn"))
  *             .identityProviderType("API_GATEWAY")
- *             .url(String.format("%s%s", exampleAwsApiGatewayDeployment.invokeUrl(),exampleAwsApiGatewayResource.path()))
+ *             .url(String.format("%s%s", exampleAwsApiGatewayDeployment.get("invokeUrl"),exampleAwsApiGatewayResource.get("path")))
  *             .build());
  * 
  *     }

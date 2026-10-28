@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ServiceQuotas
     ///     {
     ///         QuotaCode = "L-F678F1CE",
     ///         ServiceCode = "vpc",
-    ///         Value = 75,
+    ///         Value = 75.0,
     ///     });
     /// 
     /// });

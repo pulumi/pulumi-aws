@@ -137,7 +137,7 @@ namespace Pulumi.Aws.CloudFront
     ///         ServerTimingHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs
     ///         {
     ///             Enabled = true,
-    ///             SamplingRate = 50,
+    ///             SamplingRate = 50.0,
     ///         },
     ///         Name = "example-headers-policy",
     ///     });

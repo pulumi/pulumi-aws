@@ -655,7 +655,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(exampleAwsBackupPlan.id())
+     *             .planId(exampleAwsBackupPlan.get("id"))
      *             .selectionId("selection-id-example")
      *             .build());
      * 
@@ -696,7 +696,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(exampleAwsBackupPlan.id())
+     *             .planId(exampleAwsBackupPlan.get("id"))
      *             .selectionId("selection-id-example")
      *             .build());
      * 
@@ -737,7 +737,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(exampleAwsBackupPlan.id())
+     *             .planId(exampleAwsBackupPlan.get("id"))
      *             .selectionId("selection-id-example")
      *             .build());
      * 
@@ -778,7 +778,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(exampleAwsBackupPlan.id())
+     *             .planId(exampleAwsBackupPlan.get("id"))
      *             .selectionId("selection-id-example")
      *             .build());
      * 
@@ -819,7 +819,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
-     *             .planId(exampleAwsBackupPlan.id())
+     *             .planId(exampleAwsBackupPlan.get("id"))
      *             .selectionId("selection-id-example")
      *             .build());
      * 

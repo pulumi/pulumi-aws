@@ -46,9 +46,9 @@ import javax.annotation.Nullable;
  *         var test = new VpcConnection("test", VpcConnectionArgs.builder()
  *             .authentication("SASL_IAM")
  *             .targetClusterArn("aws_msk_cluster.arn")
- *             .vpcId(testAwsVpc.id())
- *             .clientSubnets(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *             .securityGroups(testAwsSecurityGroup.id())
+ *             .vpcId(testAwsVpc.get("id"))
+ *             .clientSubnets(testAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
+ *             .securityGroups(testAwsSecurityGroup.get("id"))
  *             .build());
  * 
  *     }

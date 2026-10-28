@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const available = aws.getAvailabilityZones({
  *     state: "available",
  * });
@@ -156,7 +156,7 @@ export interface GetAvailabilityZonesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Declare the data source
+ * // Declare the function
  * const available = aws.getAvailabilityZones({
  *     state: "available",
  * });

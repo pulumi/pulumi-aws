@@ -150,7 +150,7 @@ import (
 // return err
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
-// GlobalNetworkId: exampleGlobalNetwork.ID().ToIDOutput().ToStringOutput(),
+// GlobalNetworkId: exampleGlobalNetwork.ID(),
 // BasePolicyDocument: pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
@@ -162,7 +162,7 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
 // VpcArn: pulumi.Any(exampleAwsVpc.Arn),
 // })
@@ -191,7 +191,7 @@ import (
 // pulumi.String("0.0.0.0/0"),
 // },
 // Destinations: pulumi.StringArray{
-// exampleVpcAttachment.ID().ToIDOutput().ToStringOutput(),
+// exampleVpcAttachment.ID(),
 // },
 // },
 // },
@@ -202,7 +202,7 @@ import (
 // },
 // }, nil);
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: example.Json(),
 // })
 // if err != nil {
@@ -238,7 +238,7 @@ import (
 // return err
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
-// GlobalNetworkId: exampleGlobalNetwork.ID().ToIDOutput().ToStringOutput(),
+// GlobalNetworkId: exampleGlobalNetwork.ID(),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
 // if err != nil {
@@ -249,7 +249,7 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
 // VpcArn: pulumi.Any(exampleAwsVpc.Arn),
 // })
@@ -277,7 +277,7 @@ import (
 // pulumi.String("0.0.0.0/0"),
 // },
 // Destinations: pulumi.StringArray{
-// exampleVpcAttachment.ID().ToIDOutput().ToStringOutput(),
+// exampleVpcAttachment.ID(),
 // },
 // },
 // },
@@ -288,7 +288,7 @@ import (
 // },
 // }, nil);
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: example.Json(),
 // })
 // if err != nil {
@@ -358,7 +358,7 @@ import (
 // return err
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
-// GlobalNetworkId: exampleGlobalNetwork.ID().ToIDOutput().ToStringOutput(),
+// GlobalNetworkId: exampleGlobalNetwork.ID(),
 // BasePolicyDocument: pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
@@ -370,7 +370,7 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "example_us_west_2", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
 // VpcArn: pulumi.Any(exampleUsWest2AwsVpc.Arn),
 // })
@@ -382,7 +382,7 @@ import (
 // splat1 = append(splat1, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "example_us_east_1", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat1),
 // VpcArn: pulumi.Any(exampleUsEast1AwsVpc.Arn),
 // })
@@ -415,7 +415,7 @@ import (
 // pulumi.String("10.0.0.0/16"),
 // },
 // Destinations: pulumi.StringArray{
-// exampleUsWest2.ID().ToIDOutput().ToStringOutput(),
+// exampleUsWest2.ID(),
 // },
 // },
 // &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
@@ -425,7 +425,7 @@ import (
 // pulumi.String("10.1.0.0/16"),
 // },
 // Destinations: pulumi.StringArray{
-// exampleUsEast1.ID().ToIDOutput().ToStringOutput(),
+// exampleUsEast1.ID(),
 // },
 // },
 // },
@@ -439,7 +439,7 @@ import (
 // },
 // }, nil);
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: example.Json(),
 // })
 // if err != nil {
@@ -475,7 +475,7 @@ import (
 // return err
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
-// GlobalNetworkId: exampleGlobalNetwork.ID().ToIDOutput().ToStringOutput(),
+// GlobalNetworkId: exampleGlobalNetwork.ID(),
 // BasePolicyRegions: pulumi.StringArray{
 // pulumi.String("us-west-2"),
 // pulumi.String("us-east-1"),
@@ -490,7 +490,7 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "example_us_west_2", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat0),
 // VpcArn: pulumi.Any(exampleUsWest2AwsVpc.Arn),
 // })
@@ -502,7 +502,7 @@ import (
 // splat1 = append(splat1, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "example_us_east_1", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // SubnetArns: toPulumiArray(splat1),
 // VpcArn: pulumi.Any(exampleUsEast1AwsVpc.Arn),
 // })
@@ -533,7 +533,7 @@ import (
 // pulumi.String("10.0.0.0/16"),
 // },
 // Destinations: pulumi.StringArray{
-// exampleUsWest2.ID().ToIDOutput().ToStringOutput(),
+// exampleUsWest2.ID(),
 // },
 // },
 // &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
@@ -543,7 +543,7 @@ import (
 // pulumi.String("10.1.0.0/16"),
 // },
 // Destinations: pulumi.StringArray{
-// exampleUsEast1.ID().ToIDOutput().ToStringOutput(),
+// exampleUsEast1.ID(),
 // },
 // },
 // },
@@ -557,7 +557,7 @@ import (
 // },
 // }, nil);
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID().ToIDOutput().ToStringOutput(),
+// CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: example.Json(),
 // })
 // if err != nil {

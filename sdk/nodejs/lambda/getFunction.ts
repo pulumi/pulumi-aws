@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
  *     handler: reference.then(reference => reference.handler),
- *     runtime: aws.lambda.Runtime[reference.then(reference => reference.runtime)],
+ *     runtime: reference.then(reference => reference.runtime),
  *     memorySize: reference.then(reference => reference.memorySize),
  *     timeout: reference.then(reference => reference.timeout),
  *     architectures: reference.then(reference => reference.architectures),
@@ -121,9 +121,9 @@ import * as utilities from "../utilities";
  *     functionName: "my-durable-function",
  * });
  * export const durableSettings = {
- *     hasDurableConfig: durableFunction.then(durableFunction => durableFunction.durableConfigs).length.apply(length => length > 0),
- *     executionTimeout: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.executionTimeout : null),
- *     retentionPeriod: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.retentionPeriod : null),
+ *     hasDurableConfig: durableFunction.then(durableFunction => durableFunction.durableConfigs.length).then(length => length > 0),
+ *     executionTimeout: Promise.all([durableFunction.then(durableFunction => durableFunction.durableConfigs.length), durableFunction]).then(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.executionTimeout : null),
+ *     retentionPeriod: Promise.all([durableFunction.then(durableFunction => durableFunction.durableConfigs.length), durableFunction]).then(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.retentionPeriod : null),
  * };
  * ```
  */
@@ -393,7 +393,7 @@ export interface GetFunctionResult {
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
  *     handler: reference.then(reference => reference.handler),
- *     runtime: aws.lambda.Runtime[reference.then(reference => reference.runtime)],
+ *     runtime: reference.then(reference => reference.runtime),
  *     memorySize: reference.then(reference => reference.memorySize),
  *     timeout: reference.then(reference => reference.timeout),
  *     architectures: reference.then(reference => reference.architectures),
@@ -433,9 +433,9 @@ export interface GetFunctionResult {
  *     functionName: "my-durable-function",
  * });
  * export const durableSettings = {
- *     hasDurableConfig: durableFunction.then(durableFunction => durableFunction.durableConfigs).length.apply(length => length > 0),
- *     executionTimeout: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.executionTimeout : null),
- *     retentionPeriod: pulumi.all([durableFunction.then(durableFunction => durableFunction.durableConfigs).length, durableFunction]).apply(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.retentionPeriod : null),
+ *     hasDurableConfig: durableFunction.then(durableFunction => durableFunction.durableConfigs.length).then(length => length > 0),
+ *     executionTimeout: Promise.all([durableFunction.then(durableFunction => durableFunction.durableConfigs.length), durableFunction]).then(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.executionTimeout : null),
+ *     retentionPeriod: Promise.all([durableFunction.then(durableFunction => durableFunction.durableConfigs.length), durableFunction]).then(([length, durableFunction]) => length > 0 ? durableFunction.durableConfigs?.[0]?.retentionPeriod : null),
  * };
  * ```
  */

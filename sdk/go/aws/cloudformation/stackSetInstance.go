@@ -67,7 +67,7 @@ import (
 //					{
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
-//								Identifiers: pulumi.StringArray{
+//								Identifiers: []string{
 //									aWSCloudFormationStackSetAdministrationRole.Arn,
 //								},
 //								Type: "AWS",

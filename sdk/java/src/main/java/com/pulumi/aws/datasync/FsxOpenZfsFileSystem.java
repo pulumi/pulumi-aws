@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .fsxFilesystemArn(exampleAwsFsxOpenzfsFileSystem.arn())
- *             .securityGroupArns(exampleAwsSecurityGroup.arn())
+ *             .fsxFilesystemArn(exampleAwsFsxOpenzfsFileSystem.get("arn"))
+ *             .securityGroupArns(exampleAwsSecurityGroup.get("arn"))
  *             .build());
  * 
  *     }

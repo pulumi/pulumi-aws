@@ -43,9 +43,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FolderMembership("example", FolderMembershipArgs.builder()
- *             .folderId(exampleAwsQuicksightFolder.folderId())
+ *             .folderId(exampleAwsQuicksightFolder.get("folderId"))
  *             .memberType("DATASET")
- *             .memberId(exampleAwsQuicksightDataSet.dataSetId())
+ *             .memberId(exampleAwsQuicksightDataSet.get("dataSetId"))
  *             .build());
  * 
  *     }

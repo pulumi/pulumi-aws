@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()
- *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
- *             .networkInterfaceId(exampleAwsInstance.privateIp())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.get("gatewayArn"))
+ *             .networkInterfaceId(exampleAwsInstance.get("privateIp"))
  *             .targetName("example")
  *             .volumeSizeInBytes(5368709120)
  *             .build());
@@ -89,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()
- *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
- *             .networkInterfaceId(exampleAwsInstance.privateIp())
- *             .snapshotId(exampleAwsEbsSnapshot.id())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.get("gatewayArn"))
+ *             .networkInterfaceId(exampleAwsInstance.get("privateIp"))
+ *             .snapshotId(exampleAwsEbsSnapshot.get("id"))
  *             .targetName("example")
- *             .volumeSizeInBytes(exampleAwsEbsSnapshot.volumeSize() * 1024 * 1024 * 1024)
+ *             .volumeSizeInBytes(((Number) exampleAwsEbsSnapshot.get("volumeSize")).doubleValue() * 1024 * 1024 * 1024)
  *             .build());
  * 
  *     }
@@ -126,11 +126,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()
- *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
- *             .networkInterfaceId(exampleAwsInstance.privateIp())
- *             .sourceVolumeArn(existing.arn())
+ *             .gatewayArn(exampleAwsStoragegatewayCache.get("gatewayArn"))
+ *             .networkInterfaceId(exampleAwsInstance.get("privateIp"))
+ *             .sourceVolumeArn(existing.get("arn"))
  *             .targetName("example")
- *             .volumeSizeInBytes(existing.volumeSizeInBytes())
+ *             .volumeSizeInBytes(existing.get("volumeSizeInBytes"))
  *             .build());
  * 
  *     }

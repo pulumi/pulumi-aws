@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Snapshot("example", SnapshotArgs.builder()
- *             .namespaceName(exampleAwsRedshiftserverlessWorkgroup.namespaceName())
+ *             .namespaceName(exampleAwsRedshiftserverlessWorkgroup.get("namespaceName"))
  *             .snapshotName("example")
  *             .build());
  * 

@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
- *                             .functionArn(exampleAwsLambdaFunction.arn())
+ *                             .functionArn(exampleAwsLambdaFunction.get("arn"))
  *                             .build())
  *                         .build())
  *                     .actions("GetObject")

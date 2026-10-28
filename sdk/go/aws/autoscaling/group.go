@@ -144,7 +144,7 @@ import (
 //				HealthCheckType:        pulumi.String("ELB"),
 //				DesiredCapacity:        pulumi.Int(4),
 //				ForceDelete:            pulumi.Bool(true),
-//				PlacementGroup:         test.ID().ToIDOutput().ToStringOutput(),
+//				PlacementGroup:         test.ID(),
 //				LaunchConfiguration:    pulumi.Any(foobar.Name),
 //				VpcZoneIdentifiers: pulumi.StringArray{
 //					example1.Id,
@@ -185,7 +185,7 @@ import (
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
 //				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
-//					Id:      foobar.ID().ToIDOutput().ToStringOutput(),
+//					Id:      foobar.ID(),
 //					Version: pulumi.String("$Latest"),
 //				},
 //				AvailabilityZones: pulumi.StringArray{
@@ -231,7 +231,7 @@ import (
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
+//							LaunchTemplateId: example.ID(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -293,7 +293,7 @@ import (
 //					},
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
+//							LaunchTemplateId: example.ID(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -361,7 +361,7 @@ import (
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
+//							LaunchTemplateId: example.ID(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -370,7 +370,7 @@ import (
 //							},
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
 //								LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{
-//									LaunchTemplateId: example2.ID().ToIDOutput().ToStringOutput(),
+//									LaunchTemplateId: example2.ID(),
 //								},
 //								InstanceType:     pulumi.String("c6g.large"),
 //								WeightedCapacity: pulumi.String("2"),
@@ -423,7 +423,7 @@ import (
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
+//							LaunchTemplateId: example.ID(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -472,7 +472,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			extraTags := []map[string]interface{}{
+//			extraTags := []interface{}{
 //				map[string]interface{}{
 //					"key":               "Foo",
 //					"propagateAtLaunch": true,
@@ -559,7 +559,7 @@ import (
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
 //				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
-//					Id:      exampleLaunchTemplate.ID().ToIDOutput().ToStringOutput(),
+//					Id:      exampleLaunchTemplate.ID(),
 //					Version: exampleLaunchTemplate.LatestVersion,
 //				},
 //				InstanceRefresh: &autoscaling.GroupInstanceRefreshArgs{

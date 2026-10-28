@@ -73,8 +73,8 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 MinMemoryRequiredInMb = 2048,
     ///                 MaxMemoryRequiredInMb = 4096,
-    ///                 NumberOfCpuCoresRequired = 2,
-    ///                 NumberOfAcceleratorDevicesRequired = 1,
+    ///                 NumberOfCpuCoresRequired = 2.0,
+    ///                 NumberOfAcceleratorDevicesRequired = 1.0,
     ///             },
     ///             StartupParameters = new Aws.Sagemaker.Inputs.InferenceComponentSpecificationStartupParametersArgs
     ///             {

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .junctionPath("/test")
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
+ *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.get("id"))
  *             .build());
  * 
  *     }
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .junctionPath("/test")
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
- *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
+ *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.get("id"))
  *             .build());
  * 
  *     }

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .device(DeviceDeviceArgs.builder()
  *                 .deviceName("example")
  *                 .build())
- *             .deviceFleetName(exampleAwsSagemakerDeviceFleet.deviceFleetName())
+ *             .deviceFleetName(exampleAwsSagemakerDeviceFleet.get("deviceFleetName"))
  *             .build());
  * 
  *     }

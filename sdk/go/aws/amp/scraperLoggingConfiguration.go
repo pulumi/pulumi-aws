@@ -72,7 +72,7 @@ import (
 // }).(pulumi.StringOutput),
 // },
 // },
-// ScraperId: example.ID().ToIDOutput().ToStringOutput(),
+// ScraperId: example.ID(),
 // })
 // if err != nil {
 // return err

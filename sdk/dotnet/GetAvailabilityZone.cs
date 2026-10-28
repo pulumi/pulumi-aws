@@ -39,22 +39,22 @@ namespace Pulumi.Aws
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     var config = new Config();
-        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? 
+        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "ap-northeast-1", 5 },
-        ///         { "eu-central-1", 4 },
-        ///         { "us-east-1", 1 },
-        ///         { "us-west-1", 2 },
-        ///         { "us-west-2", 3 },
+        ///         ["ap-northeast-1"] = 5,
+        ///         ["eu-central-1"] = 4,
+        ///         ["us-east-1"] = 1,
+        ///         ["us-west-1"] = 2,
+        ///         ["us-west-2"] = 3,
         ///     };
-        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? 
+        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "a", 1 },
-        ///         { "b", 2 },
-        ///         { "c", 3 },
-        ///         { "d", 4 },
-        ///         { "e", 5 },
-        ///         { "f", 6 },
+        ///         ["a"] = 1,
+        ///         ["b"] = 2,
+        ///         ["c"] = 3,
+        ///         ["d"] = 4,
+        ///         ["e"] = 5,
+        ///         ["f"] = 6,
         ///     };
         ///     // Retrieve the AZ where we want to create network resources
         ///     // This must be in the region selected on the AWS provider.
@@ -120,22 +120,22 @@ namespace Pulumi.Aws
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     var config = new Config();
-        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? 
+        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "ap-northeast-1", 5 },
-        ///         { "eu-central-1", 4 },
-        ///         { "us-east-1", 1 },
-        ///         { "us-west-1", 2 },
-        ///         { "us-west-2", 3 },
+        ///         ["ap-northeast-1"] = 5,
+        ///         ["eu-central-1"] = 4,
+        ///         ["us-east-1"] = 1,
+        ///         ["us-west-1"] = 2,
+        ///         ["us-west-2"] = 3,
         ///     };
-        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? 
+        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "a", 1 },
-        ///         { "b", 2 },
-        ///         { "c", 3 },
-        ///         { "d", 4 },
-        ///         { "e", 5 },
-        ///         { "f", 6 },
+        ///         ["a"] = 1,
+        ///         ["b"] = 2,
+        ///         ["c"] = 3,
+        ///         ["d"] = 4,
+        ///         ["e"] = 5,
+        ///         ["f"] = 6,
         ///     };
         ///     // Retrieve the AZ where we want to create network resources
         ///     // This must be in the region selected on the AWS provider.
@@ -201,22 +201,22 @@ namespace Pulumi.Aws
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     var config = new Config();
-        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? 
+        ///     var regionNumber = config.GetObject&lt;dynamic&gt;("regionNumber") ?? new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "ap-northeast-1", 5 },
-        ///         { "eu-central-1", 4 },
-        ///         { "us-east-1", 1 },
-        ///         { "us-west-1", 2 },
-        ///         { "us-west-2", 3 },
+        ///         ["ap-northeast-1"] = 5,
+        ///         ["eu-central-1"] = 4,
+        ///         ["us-east-1"] = 1,
+        ///         ["us-west-1"] = 2,
+        ///         ["us-west-2"] = 3,
         ///     };
-        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? 
+        ///     var azNumber = config.GetObject&lt;dynamic&gt;("azNumber") ?? new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "a", 1 },
-        ///         { "b", 2 },
-        ///         { "c", 3 },
-        ///         { "d", 4 },
-        ///         { "e", 5 },
-        ///         { "f", 6 },
+        ///         ["a"] = 1,
+        ///         ["b"] = 2,
+        ///         ["c"] = 3,
+        ///         ["d"] = 4,
+        ///         ["e"] = 5,
+        ///         ["f"] = 6,
         ///     };
         ///     // Retrieve the AZ where we want to create network resources
         ///     // This must be in the region selected on the AWS provider.

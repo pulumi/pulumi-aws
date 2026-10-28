@@ -1202,10 +1202,10 @@ public final class S3Functions {
      *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
      *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
      *                 .id("my-team-rule")
-     *                 .lambdaFunctionArn(mine.arn())
+     *                 .lambdaFunctionArn(mine.get("arn"))
      *                 .events("s3:ObjectRemoved:*")
      *                 .build())
-     *             .bucket(exampleAwsS3Bucket.id())
+     *             .bucket(exampleAwsS3Bucket.get("id"))
      *             .build());
      * 
      *     }
@@ -1348,10 +1348,10 @@ public final class S3Functions {
      *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
      *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
      *                 .id("my-team-rule")
-     *                 .lambdaFunctionArn(mine.arn())
+     *                 .lambdaFunctionArn(mine.get("arn"))
      *                 .events("s3:ObjectRemoved:*")
      *                 .build())
-     *             .bucket(exampleAwsS3Bucket.id())
+     *             .bucket(exampleAwsS3Bucket.get("id"))
      *             .build());
      * 
      *     }
@@ -1494,10 +1494,10 @@ public final class S3Functions {
      *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
      *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
      *                 .id("my-team-rule")
-     *                 .lambdaFunctionArn(mine.arn())
+     *                 .lambdaFunctionArn(mine.get("arn"))
      *                 .events("s3:ObjectRemoved:*")
      *                 .build())
-     *             .bucket(exampleAwsS3Bucket.id())
+     *             .bucket(exampleAwsS3Bucket.get("id"))
      *             .build());
      * 
      *     }
@@ -1640,10 +1640,10 @@ public final class S3Functions {
      *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
      *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
      *                 .id("my-team-rule")
-     *                 .lambdaFunctionArn(mine.arn())
+     *                 .lambdaFunctionArn(mine.get("arn"))
      *                 .events("s3:ObjectRemoved:*")
      *                 .build())
-     *             .bucket(exampleAwsS3Bucket.id())
+     *             .bucket(exampleAwsS3Bucket.get("id"))
      *             .build());
      * 
      *     }
@@ -1786,10 +1786,10 @@ public final class S3Functions {
      *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
      *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
      *                 .id("my-team-rule")
-     *                 .lambdaFunctionArn(mine.arn())
+     *                 .lambdaFunctionArn(mine.get("arn"))
      *                 .events("s3:ObjectRemoved:*")
      *                 .build())
-     *             .bucket(exampleAwsS3Bucket.id())
+     *             .bucket(exampleAwsS3Bucket.get("id"))
      *             .build());
      * 
      *     }
@@ -1909,7 +1909,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -2028,7 +2028,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -2147,7 +2147,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -2266,7 +2266,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -2385,7 +2385,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -5158,7 +5158,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -5276,7 +5276,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -5394,7 +5394,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -5512,7 +5512,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 
@@ -5630,7 +5630,7 @@ public final class S3Functions {
      *             .s3Key(lambda.key())
      *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
-     *             .role(iamForLambda.arn())
+     *             .role(iamForLambda.get("arn"))
      *             .handler("exports.test")
      *             .build());
      * 

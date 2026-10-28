@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .emails(UserEmailsArgs.builder()
  *                 .value("john}{@literal @}{@code example.com")
  *                 .build())
- *             .identityStoreId(exampleAwsSsoadminInstances.identityStoreIds()[0])
+ *             .identityStoreId(exampleAwsSsoadminInstances.get("identityStoreIds")[0])
  *             .displayName("John Doe")
  *             .userName("johndoe")
  *             .build());

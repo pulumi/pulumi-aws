@@ -67,13 +67,13 @@ import (
 //				Definition: map[string][]map[string]interface{}{
 //					"dataSetConfigurations": []map[string]interface{}{
 //						map[string]interface{}{
-//							"dataSetSchema": map[string][]map[string]string{
-//								"columnSchemaLists": []map[string]string{
-//									{
+//							"dataSetSchema": map[string][]interface{}{
+//								"columnSchemaLists": []interface{}{
+//									map[string]string{
 //										"name":     "Column1",
 //										"dataType": "STRING",
 //									},
-//									{
+//									map[string]string{
 //										"name":     "Column2",
 //										"dataType": "INTEGER",
 //									},

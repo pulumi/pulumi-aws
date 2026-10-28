@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SharedDirectory("example", SharedDirectoryArgs.builder()
  *             .target(SharedDirectoryTargetArgs.builder()
- *                 .id(receiver.accountId())
+ *                 .id(receiver.get("accountId"))
  *                 .build())
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.get("id"))
  *             .notes("example")
  *             .build());
  * 

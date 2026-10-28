@@ -116,7 +116,7 @@ import * as utilities from "../utilities";
  *         name: range.value.name,
  *         records: [range.value.record],
  *         ttl: 60,
- *         type: aws.route53.RecordType[range.value.type],
+ *         type: range.value.type,
  *         zoneId: exampleAwsRoute53Zone.zoneId,
  *     });
  * }

@@ -21,6 +21,56 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iot.RoleAlias;
+ * import com.pulumi.aws.iot.RoleAliasArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .principals(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("type", "Service"),
+ *                 Map.entry("identifiers", Arrays.asList("credentials.iot.amazonaws.com"))
+ *             )))
+ *             .effect("Allow")
+ *             .actions(Arrays.asList("sts:AssumeRole"))
+ *             .build());
+ * 
+ *         var role = new Role("role", RoleArgs.builder()
+ *             .name("dynamodb-access-role")
+ *             .assumeRolePolicy(assumeRole.json())
+ *             .build());
+ * 
+ *         var alias = new RoleAlias("alias", RoleAliasArgs.builder()
+ *             .alias("Thermostat-dynamodb-access-role-alias")
+ *             .roleArn(role.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Role Alias using the alias. For example:
