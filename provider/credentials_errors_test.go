@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	escHint = "You can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run " +
+	escHint = "\nYou can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run " +
 		"`pulumi env setup aws`.\nLearn more: https://www.pulumi.com/registry/packages/aws/" +
 		"installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
 	docsHint = "Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more " +
