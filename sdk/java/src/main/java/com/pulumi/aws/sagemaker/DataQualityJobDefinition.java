@@ -61,17 +61,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new DataQualityJobDefinition("test", DataQualityJobDefinitionArgs.builder()
  *             .dataQualityAppSpecification(DataQualityJobDefinitionDataQualityAppSpecificationArgs.builder()
- *                 .imageUri(monitor.registryPath())
+ *                 .imageUri(monitor.get("registryPath"))
  *                 .build())
  *             .dataQualityJobInput(DataQualityJobDefinitionDataQualityJobInputArgs.builder()
  *                 .endpointInput(DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.builder()
- *                     .endpointName(myEndpoint.name())
+ *                     .endpointName(myEndpoint.get("name"))
  *                     .build())
  *                 .build())
  *             .dataQualityJobOutputConfig(DataQualityJobDefinitionDataQualityJobOutputConfigArgs.builder()
  *                 .monitoringOutputs(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs.builder()
  *                     .s3Output(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.builder()
- *                         .s3Uri(String.format("https://%s/output", myBucket.bucketRegionalDomainName()))
+ *                         .s3Uri(String.format("https://%s/output", myBucket.get("bucketRegionalDomainName")))
  *                         .build())
  *                     .build())
  *                 .build())
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("my-data-quality-job-definition")
- *             .roleArn(myRole.arn())
+ *             .roleArn(myRole.get("arn"))
  *             .build());
  * 
  *     }

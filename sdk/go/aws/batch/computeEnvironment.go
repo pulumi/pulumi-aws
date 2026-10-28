@@ -138,7 +138,7 @@ import (
 //				return err
 //			}
 //			sampleSubnet, err := ec2.NewSubnet(ctx, "sample", &ec2.SubnetArgs{
-//				VpcId:     sampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:     sampleVpc.ID(),
 //				CidrBlock: pulumi.String("10.1.1.0/24"),
 //			})
 //			if err != nil {
@@ -161,10 +161,10 @@ import (
 //					MinVcpus:       pulumi.Int(0),
 //					PlacementGroup: samplePlacementGroup.Name,
 //					SecurityGroupIds: pulumi.StringArray{
-//						sample.ID().ToIDOutput().ToStringOutput(),
+//						sample.ID(),
 //					},
 //					Subnets: pulumi.StringArray{
-//						sampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						sampleSubnet.ID(),
 //					},
 //					Type: pulumi.String("EC2"),
 //				},

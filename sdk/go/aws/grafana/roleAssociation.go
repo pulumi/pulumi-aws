@@ -74,7 +74,7 @@ import (
 //					pulumi.String("USER_ID_1"),
 //					pulumi.String("USER_ID_2"),
 //				},
-//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: exampleWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -43,8 +43,8 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(testAwsVolumeAttachment.deviceName())
-     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+     *             .diskPath(testAwsVolumeAttachment.get("deviceName"))
+     *             .gatewayArn(testAwsStoragegatewayGateway.get("arn"))
      *             .build());
      * 
      *     }
@@ -84,8 +84,8 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(testAwsVolumeAttachment.deviceName())
-     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+     *             .diskPath(testAwsVolumeAttachment.get("deviceName"))
+     *             .gatewayArn(testAwsStoragegatewayGateway.get("arn"))
      *             .build());
      * 
      *     }
@@ -125,8 +125,8 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(testAwsVolumeAttachment.deviceName())
-     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+     *             .diskPath(testAwsVolumeAttachment.get("deviceName"))
+     *             .gatewayArn(testAwsStoragegatewayGateway.get("arn"))
      *             .build());
      * 
      *     }
@@ -166,8 +166,8 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(testAwsVolumeAttachment.deviceName())
-     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+     *             .diskPath(testAwsVolumeAttachment.get("deviceName"))
+     *             .gatewayArn(testAwsStoragegatewayGateway.get("arn"))
      *             .build());
      * 
      *     }
@@ -207,8 +207,8 @@ public final class StoragegatewayFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(testAwsVolumeAttachment.deviceName())
-     *             .gatewayArn(testAwsStoragegatewayGateway.arn())
+     *             .diskPath(testAwsVolumeAttachment.get("deviceName"))
+     *             .gatewayArn(testAwsStoragegatewayGateway.get("arn"))
      *             .build());
      * 
      *     }

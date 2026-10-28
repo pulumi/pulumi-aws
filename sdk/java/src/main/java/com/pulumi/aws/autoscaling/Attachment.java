@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new load balancer attachment
  *         var example = new Attachment("example", AttachmentArgs.builder()
- *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
- *             .elb(exampleAwsElb.id())
+ *             .autoscalingGroupName(exampleAwsAutoscalingGroup.get("id"))
+ *             .elb(exampleAwsElb.get("id"))
  *             .build());
  * 
  *     }
@@ -78,8 +78,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new ALB Target Group attachment
  *         var example = new Attachment("example", AttachmentArgs.builder()
- *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
- *             .lbTargetGroupArn(exampleAwsLbTargetGroup.arn())
+ *             .autoscalingGroupName(exampleAwsAutoscalingGroup.get("id"))
+ *             .lbTargetGroupArn(exampleAwsLbTargetGroup.get("arn"))
  *             .build());
  * 
  *     }

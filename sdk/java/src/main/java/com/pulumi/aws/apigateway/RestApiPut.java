@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                     ))
  *                 )))
  *             .failOnWarnings(true)
- *             .restApiId(exampleAwsApiGatewayRestApi.id())
+ *             .restApiId(exampleAwsApiGatewayRestApi.get("id"))
  *             .build());
  * 
  *     }

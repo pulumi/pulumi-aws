@@ -46,7 +46,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
      *             .build());
      * 
      *     }
@@ -86,7 +86,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
      *             .build());
      * 
      *     }
@@ -126,7 +126,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
      *             .build());
      * 
      *     }
@@ -166,7 +166,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
      *             .build());
      * 
      *     }
@@ -206,7 +206,7 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
      *             .build());
      * 
      *     }
@@ -246,8 +246,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
-     *             .repository(testAwsCodeartifactRepository.repository())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
+     *             .repository(testAwsCodeartifactRepository.get("repository"))
      *             .format("npm")
      *             .build());
      * 
@@ -288,8 +288,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
-     *             .repository(testAwsCodeartifactRepository.repository())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
+     *             .repository(testAwsCodeartifactRepository.get("repository"))
      *             .format("npm")
      *             .build());
      * 
@@ -330,8 +330,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
-     *             .repository(testAwsCodeartifactRepository.repository())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
+     *             .repository(testAwsCodeartifactRepository.get("repository"))
      *             .format("npm")
      *             .build());
      * 
@@ -372,8 +372,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
-     *             .repository(testAwsCodeartifactRepository.repository())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
+     *             .repository(testAwsCodeartifactRepository.get("repository"))
      *             .format("npm")
      *             .build());
      * 
@@ -414,8 +414,8 @@ public final class CodeartifactFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(testAwsCodeartifactDomain.domain())
-     *             .repository(testAwsCodeartifactRepository.repository())
+     *             .domain(testAwsCodeartifactDomain.get("domain"))
+     *             .repository(testAwsCodeartifactRepository.get("repository"))
      *             .format("npm")
      *             .build());
      * 

@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_ = ec2.LookupDedicatedHostOutput(ctx, ec2.GetDedicatedHostOutputArgs{
-//				HostId: testDedicatedHost.ID().ToIDOutput().ToStringOutput(),
+//				HostId: testDedicatedHost.ID(),
 //			}, nil)
 //			return nil
 //		})

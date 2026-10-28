@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  *         var example = new SubnetGroup("example", SubnetGroupArgs.builder()
  *             .name("example")
  *             .subnetIds(            
- *                 example1.id(),
- *                 example2.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
  *             .build());
  * 
  *     }

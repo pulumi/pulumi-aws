@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new LogDeliverySource("example", LogDeliverySourceArgs.builder()
  *             .name("example")
  *             .logType("APPLICATION_LOGS")
- *             .resourceArn(exampleAwsBedrockagentKnowledgeBase.arn())
+ *             .resourceArn(exampleAwsBedrockagentKnowledgeBase.get("arn"))
  *             .build());
  * 
  *     }

@@ -58,8 +58,8 @@ import (
 //			}
 //			// Requester's side of the connection.
 //			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peer", &ec2.VpcPeeringConnectionArgs{
-//				VpcId:       main.ID().ToIDOutput().ToStringOutput(),
-//				PeerVpcId:   peerVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:       main.ID(),
+//				PeerVpcId:   peerVpc.ID(),
 //				PeerOwnerId: pulumi.String(peer.AccountId),
 //				PeerRegion:  pulumi.String("us-west-2"),
 //				AutoAccept:  pulumi.Bool(false),
@@ -72,7 +72,7 @@ import (
 //			}
 //			// Accepter's side of the connection.
 //			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peer", &ec2.VpcPeeringConnectionAccepterArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID().ToIDOutput().ToStringOutput(),
+//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
 //				AutoAccept:             pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
@@ -116,8 +116,8 @@ import (
 //			}
 //			// Requester's side of the connection.
 //			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peer", &ec2.VpcPeeringConnectionArgs{
-//				VpcId:      main.ID().ToIDOutput().ToStringOutput(),
-//				PeerVpcId:  peer.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:      main.ID(),
+//				PeerVpcId:  peer.ID(),
 //				PeerRegion: pulumi.String("us-west-2"),
 //				AutoAccept: pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
@@ -130,7 +130,7 @@ import (
 //			// Accepter's side of the connection.
 //			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peer", &ec2.VpcPeeringConnectionAccepterArgs{
 //				Region:                 pulumi.String("us-west-2"),
-//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID().ToIDOutput().ToStringOutput(),
+//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
 //				AutoAccept:             pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),

@@ -39,7 +39,7 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
+//					"Rules": []interface{}{
 //						map[string]interface{}{
 //							"ResourceType": "index",
 //							"Resource": []string{
@@ -169,7 +169,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
+//					"Rules": []interface{}{
 //						map[string]interface{}{
 //							"ResourceType": "index",
 //							"Resource": []string{

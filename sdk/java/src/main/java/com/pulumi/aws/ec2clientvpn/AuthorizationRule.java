@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AuthorizationRule("example", AuthorizationRuleArgs.builder()
- *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.id())
- *             .targetNetworkCidr(exampleAwsSubnet.cidrBlock())
+ *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.get("id"))
+ *             .targetNetworkCidr(exampleAwsSubnet.get("cidrBlock"))
  *             .authorizeAllGroups(true)
  *             .build());
  * 

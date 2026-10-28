@@ -50,7 +50,7 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var rules = InspectorFunctions.getRulesPackages(GetRulesPackagesArgs.builder()
      *             .build());
      * 
@@ -115,7 +115,7 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var rules = InspectorFunctions.getRulesPackages(GetRulesPackagesArgs.builder()
      *             .build());
      * 
@@ -180,7 +180,7 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var rules = InspectorFunctions.getRulesPackages(GetRulesPackagesArgs.builder()
      *             .build());
      * 
@@ -245,7 +245,7 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var rules = InspectorFunctions.getRulesPackages(GetRulesPackagesArgs.builder()
      *             .build());
      * 
@@ -310,7 +310,7 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var rules = InspectorFunctions.getRulesPackages(GetRulesPackagesArgs.builder()
      *             .build());
      * 
@@ -375,7 +375,7 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var rules = InspectorFunctions.getRulesPackages(GetRulesPackagesArgs.builder()
      *             .build());
      * 
@@ -440,7 +440,7 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var rules = InspectorFunctions.getRulesPackages(GetRulesPackagesArgs.builder()
      *             .build());
      * 

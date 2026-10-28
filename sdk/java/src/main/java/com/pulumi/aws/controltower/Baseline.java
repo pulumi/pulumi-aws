@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .baselineIdentifier("arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2")
  *             .baselineVersion("4.0")
- *             .targetIdentifier(test.arn())
+ *             .targetIdentifier(test.get("arn"))
  *             .build());
  * 
  *     }

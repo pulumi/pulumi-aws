@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Group("example", GroupArgs.builder()
  *             .namePrefix("example")
- *             .launchConfiguration(exampleAwsLaunchConfiguration.name())
+ *             .launchConfiguration(exampleAwsLaunchConfiguration.get("name"))
  *             .availabilityZones(available.names()[0])
  *             .minSize(0)
  *             .maxSize(3)
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Group("example", GroupArgs.builder()
  *             .namePrefix("example")
- *             .launchConfiguration(exampleAwsLaunchConfiguration.name())
+ *             .launchConfiguration(exampleAwsLaunchConfiguration.get("name"))
  *             .availabilityZones(available.names()[0])
  *             .minSize(0)
  *             .maxSize(3)

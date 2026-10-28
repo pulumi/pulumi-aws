@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = redshift.NewCluster(ctx, "test", &redshift.ClusterArgs{
 //				SnapshotCopy: []map[string]interface{}{
-//					map[string]interface{}{
+//					map[string]string{
 //						"destinationRegion": "us-east-2",
 //						"grantName":         test.SnapshotCopyGrantName,
 //					},

@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewResolverDnsSecConfig(ctx, "example", &route53.ResolverDnsSecConfigArgs{
-//				ResourceId: example.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

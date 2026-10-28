@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  *         var example = new ManagedPrefixList("example", ManagedPrefixListArgs.builder()
  *             .entries(            
  *                 ManagedPrefixListEntryArgs.builder()
- *                     .cidr(exampleAwsVpc.cidrBlock())
+ *                     .cidr(exampleAwsVpc.get("cidrBlock"))
  *                     .description("Primary")
  *                     .build(),
  *                 ManagedPrefixListEntryArgs.builder()
- *                     .cidr(exampleAwsVpcIpv4CidrBlockAssociation.cidrBlock())
+ *                     .cidr(exampleAwsVpcIpv4CidrBlockAssociation.get("cidrBlock"))
  *                     .description("Secondary")
  *                     .build())
  *             .name("All VPC CIDR-s")

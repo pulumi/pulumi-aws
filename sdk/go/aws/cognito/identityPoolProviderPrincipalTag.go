@@ -48,8 +48,8 @@ import (
 //			}
 //			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
 //				Name:                       pulumi.String("client"),
-//				UserPoolId:                 example.ID().ToIDOutput().ToStringOutput(),
-//				SupportedIdentityProviders: pulumi.StringArray(invokeCompact.Result),
+//				UserPoolId:                 example.ID(),
+//				SupportedIdentityProviders: pulumi.ToStringArray(invokeCompact.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -57,7 +57,7 @@ import (
 //			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "example", &cognito.IdentityPoolArgs{
 //				CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
 //					&cognito.IdentityPoolCognitoIdentityProviderArgs{
-//						ClientId:             exampleUserPoolClient.ID().ToIDOutput().ToStringOutput(),
+//						ClientId:             exampleUserPoolClient.ID(),
 //						ProviderName:         example.Endpoint,
 //						ServerSideTokenCheck: pulumi.Bool(false),
 //					},
@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewIdentityPoolProviderPrincipalTag(ctx, "example", &cognito.IdentityPoolProviderPrincipalTagArgs{
-//				IdentityPoolId:       exampleIdentityPool.ID().ToIDOutput().ToStringOutput(),
+//				IdentityPoolId:       exampleIdentityPool.ID(),
 //				IdentityProviderName: example.Endpoint,
 //				UseDefaults:          pulumi.Bool(false),
 //				PrincipalTags: pulumi.StringMap{

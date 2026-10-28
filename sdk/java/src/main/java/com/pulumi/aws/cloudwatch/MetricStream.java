@@ -222,8 +222,8 @@ import javax.annotation.Nullable;
  *                     .additionalStatistics("TS(50.5:)")
  *                     .build())
  *             .name("my-metric-stream")
- *             .roleArn(metricStreamToFirehose.arn())
- *             .firehoseArn(s3Stream.arn())
+ *             .roleArn(metricStreamToFirehose.get("arn"))
+ *             .firehoseArn(s3Stream.get("arn"))
  *             .outputFormat("json")
  *             .build());
  * 

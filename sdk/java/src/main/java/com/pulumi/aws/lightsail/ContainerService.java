@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRepositoryPolicy = new RepositoryPolicy("exampleRepositoryPolicy", RepositoryPolicyArgs.builder()
- *             .repository(exampleAwsEcrRepository.name())
+ *             .repository(exampleAwsEcrRepository.get("name"))
  *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 

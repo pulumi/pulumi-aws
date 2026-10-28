@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CodeSigningConfig("example", CodeSigningConfigArgs.builder()
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
- *                 .signingProfileVersionArns(dev.versionArn())
+ *                 .signingProfileVersionArns(dev.get("versionArn"))
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Warn")
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *         // Production signing configuration
  *         var prod = new CodeSigningConfig("prod", CodeSigningConfigArgs.builder()
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
- *                 .signingProfileVersionArns(prodAwsSignerSigningProfile.versionArn())
+ *                 .signingProfileVersionArns(prodAwsSignerSigningProfile.get("versionArn"))
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Enforce")
@@ -177,8 +177,8 @@ import javax.annotation.Nullable;
  *         var dev = new CodeSigningConfig("dev", CodeSigningConfigArgs.builder()
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(                
- *                     devAwsSignerSigningProfile.versionArn(),
- *                     test.versionArn())
+ *                     devAwsSignerSigningProfile.get("versionArn"),
+ *                     test.get("versionArn"))
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Warn")

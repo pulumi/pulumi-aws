@@ -44,7 +44,7 @@ import (
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-primary-cluster"),
-//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				GlobalClusterIdentifier: example.ID(),
 //				NeptuneSubnetGroupName:  pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //				Engine:                 example.Engine,
 //				EngineVersion:          example.EngineVersion,
 //				Identifier:             pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier:      primary.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier:      primary.ID(),
 //				InstanceClass:          pulumi.String("db.r5.large"),
 //				NeptuneSubnetGroupName: pulumi.String("default"),
 //			})
@@ -65,7 +65,7 @@ import (
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
-//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
+//				GlobalClusterIdentifier: example.ID(),
 //				NeptuneSubnetGroupName:  pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -75,7 +75,7 @@ import (
 //				Engine:                 example.Engine,
 //				EngineVersion:          example.EngineVersion,
 //				Identifier:             pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier:      secondary.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier:      secondary.ID(),
 //				InstanceClass:          pulumi.String("db.r5.large"),
 //				NeptuneSubnetGroupName: pulumi.String("default"),
 //			}, pulumi.DependsOn([]pulumi.Resource{

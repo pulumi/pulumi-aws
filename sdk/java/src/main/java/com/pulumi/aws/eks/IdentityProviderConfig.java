@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *                 .identityProviderConfigName("example")
  *                 .issuerUrl("your issuer_url")
  *                 .build())
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .build());
  * 
  *     }

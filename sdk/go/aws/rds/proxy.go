@@ -124,7 +124,7 @@ import (
 //						Netnum:  pulumi.Int(val0),
 //					}, nil).Result(),
 //					AvailabilityZone: pulumi.String(available.Names[val0]),
-//					VpcId:            example.ID().ToIDOutput().ToStringOutput(),
+//					VpcId:            example.ID(),
 //				})
 //				if err != nil {
 //					return err

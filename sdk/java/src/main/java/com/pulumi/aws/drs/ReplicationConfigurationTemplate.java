@@ -83,8 +83,8 @@ import javax.annotation.Nullable;
  *             .ebsEncryption("DEFAULT")
  *             .ebsEncryptionKeyArn("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
  *             .replicationServerInstanceType("t3.small")
- *             .replicationServersSecurityGroupsIds(exampleAwsSecurityGroup.stream().map(element -> element.id()).collect(toList()))
- *             .stagingAreaSubnetId(exampleAwsSubnet.id())
+ *             .replicationServersSecurityGroupsIds(exampleAwsSecurityGroup.stream().map(element -> element.get("id")).collect(toList()))
+ *             .stagingAreaSubnetId(exampleAwsSubnet.get("id"))
  *             .useDedicatedReplicationServer(false)
  *             .build());
  * 

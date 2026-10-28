@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
  *             .kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs.builder()
- *                 .kmsKeyId(test.arn())
+ *                 .kmsKeyId(test.get("arn"))
  *                 .optInStatus("ENABLED")
  *                 .type("CUSTOMER_MANAGED_KEY")
  *                 .build())

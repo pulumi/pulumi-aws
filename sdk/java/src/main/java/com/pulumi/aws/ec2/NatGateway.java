@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway("example", NatGatewayArgs.builder()
- *             .allocationId(exampleAwsEip.id())
- *             .subnetId(exampleAwsSubnet.id())
+ *             .allocationId(exampleAwsEip.get("id"))
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .tags(Map.of("Name", "gw NAT"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsInternetGateway)
@@ -89,9 +89,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway("example", NatGatewayArgs.builder()
- *             .allocationId(exampleAwsEip.id())
- *             .subnetId(exampleAwsSubnet.id())
- *             .secondaryAllocationIds(secondary.id())
+ *             .allocationId(exampleAwsEip.get("id"))
+ *             .subnetId(exampleAwsSubnet.get("id"))
+ *             .secondaryAllocationIds(secondary.get("id"))
  *             .secondaryPrivateIpAddresses("10.0.1.5")
  *             .build());
  * 
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway("example", NatGatewayArgs.builder()
  *             .connectivityType("private")
- *             .subnetId(exampleAwsSubnet.id())
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NatGateway("example", NatGatewayArgs.builder()
  *             .connectivityType("private")
- *             .subnetId(exampleAwsSubnet.id())
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .secondaryPrivateIpAddressCount(7)
  *             .build());
  * 
@@ -275,13 +275,13 @@ import javax.annotation.Nullable;
  *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
  *             .availabilityZoneAddresses(            
  *                 NatGatewayAvailabilityZoneAddressArgs.builder()
- *                     .allocationIds(exampleEip[0].id())
+ *                     .allocationIds(exampleEip.get(0).id())
  *                     .availabilityZone(available.names()[0])
  *                     .build(),
  *                 NatGatewayAvailabilityZoneAddressArgs.builder()
  *                     .allocationIds(                    
- *                         exampleEip[1].id(),
- *                         exampleEip[2].id())
+ *                         exampleEip.get(1).id(),
+ *                         exampleEip.get(2).id())
  *                     .availabilityZone(available.names()[1])
  *                     .build())
  *             .vpcId(example.id())

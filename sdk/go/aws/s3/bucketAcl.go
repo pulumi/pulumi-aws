@@ -44,13 +44,13 @@ import (
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketOwnershipControls,
@@ -91,13 +91,13 @@ import (
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleBucketPublicAccessBlock, err := s3.NewBucketPublicAccessBlock(ctx, "example", &s3.BucketPublicAccessBlockArgs{
-//				Bucket:                example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket:                example.ID(),
 //				BlockPublicAcls:       pulumi.Bool(false),
 //				BlockPublicPolicy:     pulumi.Bool(false),
 //				IgnorePublicAcls:      pulumi.Bool(false),
@@ -107,7 +107,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Acl:    pulumi.String("public-read"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketOwnershipControls,
@@ -150,7 +150,7 @@ import (
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -177,7 +177,7 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketOwnershipControls,
 //			}))

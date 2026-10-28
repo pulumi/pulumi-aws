@@ -51,10 +51,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ModelCardExportJob("example", ModelCardExportJobArgs.builder()
  *             .outputConfig(ModelCardExportJobOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format("s3://%s/", test.example()))
+ *                 .s3OutputPath(String.format("s3://%s/", test.get("example")))
  *                 .build())
  *             .modelCardExportJobName("my-model-card-export-job")
- *             .modelCardName(exampleAwsSagemakerModelCard.modelCardName())
+ *             .modelCardName(exampleAwsSagemakerModelCard.get("modelCardName"))
  *             .build());
  * 
  *     }

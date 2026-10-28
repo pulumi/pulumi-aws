@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         values: [__value],
  *     }],
  * }) }), {}));
- * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [String(s.id)]: s.availabilityZone }), {}));
+ * export const availabilityZoneToVolumeId = Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [String(s.id)]: s.availabilityZone }), {});
  * ```
  */
 export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetEbsVolumesResult> {
@@ -107,7 +107,7 @@ export interface GetEbsVolumesResult {
  *         values: [__value],
  *     }],
  * }) }), {}));
- * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [String(s.id)]: s.availabilityZone }), {}));
+ * export const availabilityZoneToVolumeId = Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [String(s.id)]: s.availabilityZone }), {});
  * ```
  */
 export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEbsVolumesResult> {

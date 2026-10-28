@@ -416,7 +416,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testSecretRotation = new SecretRotation("testSecretRotation", SecretRotationArgs.builder()
- *             .secretId(test.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets[0].secretArn()))
+ *             .secretId(test.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets.get(0).secretArn()))
  *             .rotationEnabled(false)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testClusterInstance)

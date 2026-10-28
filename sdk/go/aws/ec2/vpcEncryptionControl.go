@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcEncryptionControl(ctx, "example", &ec2.VpcEncryptionControlArgs{
-//				VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: exampleVpc.ID(),
 //				Mode:  pulumi.String("monitor"),
 //			})
 //			if err != nil {

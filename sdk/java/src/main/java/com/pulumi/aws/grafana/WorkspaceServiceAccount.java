@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var example = new WorkspaceServiceAccount("example", WorkspaceServiceAccountArgs.builder()
  *             .name("example-admin")
  *             .grafanaRole("ADMIN")
- *             .workspaceId(exampleAwsGrafanaWorkspace.id())
+ *             .workspaceId(exampleAwsGrafanaWorkspace.get("id"))
  *             .build());
  * 
  *     }

@@ -56,11 +56,11 @@ import * as utilities from "../utilities";
  * })).then(invoke => invoke.result);
  * // Use dynamic configuration
  * const example = new aws.elasticache.Cluster("example", {
- *     clusterId: config?.cache?.clusterId,
- *     engine: config?.cache?.engine,
- *     nodeType: config?.cache?.nodeType,
+ *     clusterId: String(config?.cache?.clusterId),
+ *     engine: String(config?.cache?.engine),
+ *     nodeType: String(config?.cache?.nodeType),
  *     numCacheNodes: Number(config?.cache?.nodes),
- *     parameterGroupName: config?.cache?.parameterGroup,
+ *     parameterGroupName: String(config?.cache?.parameterGroup),
  *     tags: config?.tags,
  * });
  * ```
@@ -174,11 +174,11 @@ export interface GetInvocationResult {
  * })).then(invoke => invoke.result);
  * // Use dynamic configuration
  * const example = new aws.elasticache.Cluster("example", {
- *     clusterId: config?.cache?.clusterId,
- *     engine: config?.cache?.engine,
- *     nodeType: config?.cache?.nodeType,
+ *     clusterId: String(config?.cache?.clusterId),
+ *     engine: String(config?.cache?.engine),
+ *     nodeType: String(config?.cache?.nodeType),
  *     numCacheNodes: Number(config?.cache?.nodes),
- *     parameterGroupName: config?.cache?.parameterGroup,
+ *     parameterGroupName: String(config?.cache?.parameterGroup),
  *     tags: config?.tags,
  * });
  * ```

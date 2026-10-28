@@ -86,7 +86,7 @@ import (
 //				Filters: []ec2.GetNetworkInterfacesFilter{
 //					{
 //						Name: "subnet-id",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							test.Id,
 //						},
 //					},

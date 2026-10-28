@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *                 .sqsNotificationConfiguration(SubscriberNotificationConfigurationSqsNotificationConfigurationArgs.builder()
  *                     .build())
  *                 .build())
- *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
+ *             .subscriberId(exampleAwsSecuritylakeSubscriber.get("id"))
  *             .build());
  * 
  *     }
@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .httpsNotificationConfiguration(SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.builder()
- *                     .endpoint(test.apiEndpoint())
- *                     .targetRoleArn(eventBridge.arn())
+ *                     .endpoint(test.get("apiEndpoint"))
+ *                     .targetRoleArn(eventBridge.get("arn"))
  *                     .build())
  *                 .build())
- *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
+ *             .subscriberId(exampleAwsSecuritylakeSubscriber.get("id"))
  *             .build());
  * 
  *     }

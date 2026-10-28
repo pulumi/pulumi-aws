@@ -122,16 +122,16 @@ import javax.annotation.Nullable;
  *         var example = new MultiRegionAccessPointRoutes("example", MultiRegionAccessPointRoutesArgs.builder()
  *             .routes(            
  *                 MultiRegionAccessPointRoutesRouteArgs.builder()
- *                     .bucket(primary.bucket())
- *                     .region(primary.bucketRegion())
+ *                     .bucket(primary.get("bucket"))
+ *                     .region(primary.get("bucketRegion"))
  *                     .trafficDialPercentage(0)
  *                     .build(),
  *                 MultiRegionAccessPointRoutesRouteArgs.builder()
- *                     .bucket(secondary.bucket())
- *                     .region(secondary.bucketRegion())
+ *                     .bucket(secondary.get("bucket"))
+ *                     .region(secondary.get("bucketRegion"))
  *                     .trafficDialPercentage(100)
  *                     .build())
- *             .mrap(exampleAwsS3controlMultiRegionAccessPoint.arn())
+ *             .mrap(exampleAwsS3controlMultiRegionAccessPoint.get("arn"))
  *             .build());
  * 
  *     }

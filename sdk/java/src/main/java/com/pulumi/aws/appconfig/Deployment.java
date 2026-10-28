@@ -44,13 +44,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Deployment("example", DeploymentArgs.builder()
- *             .applicationId(exampleAwsAppconfigApplication.id())
- *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
- *             .configurationVersion(exampleAwsAppconfigHostedConfigurationVersion.versionNumber())
- *             .deploymentStrategyId(exampleAwsAppconfigDeploymentStrategy.id())
+ *             .applicationId(exampleAwsAppconfigApplication.get("id"))
+ *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.get("configurationProfileId"))
+ *             .configurationVersion(exampleAwsAppconfigHostedConfigurationVersion.get("versionNumber"))
+ *             .deploymentStrategyId(exampleAwsAppconfigDeploymentStrategy.get("id"))
  *             .description("My example deployment")
- *             .environmentId(exampleAwsAppconfigEnvironment.environmentId())
- *             .kmsKeyIdentifier(exampleAwsKmsKey.arn())
+ *             .environmentId(exampleAwsAppconfigEnvironment.get("environmentId"))
+ *             .kmsKeyIdentifier(exampleAwsKmsKey.get("arn"))
  *             .tags(Map.of("Type", "AppConfig Deployment"))
  *             .build());
  * 

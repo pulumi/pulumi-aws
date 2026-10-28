@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .id("temp")
  *                     .build())
- *             .bucket(exampleAwsS3controlBucket.arn())
+ *             .bucket(exampleAwsS3controlBucket.get("arn"))
  *             .build());
  * 
  *     }

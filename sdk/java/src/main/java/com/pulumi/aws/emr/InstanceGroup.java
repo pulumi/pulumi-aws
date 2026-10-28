@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
- *             .clusterId(tf_test_cluster.id())
+ *             .clusterId(tf_test_cluster.get("id"))
  *             .instanceCount(1)
  *             .instanceType("m5.xlarge")
  *             .name("my little instance group")

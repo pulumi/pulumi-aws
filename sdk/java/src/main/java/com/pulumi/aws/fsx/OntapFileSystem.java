@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *         var test = new OntapFileSystem("test", OntapFileSystemArgs.builder()
  *             .storageCapacity(1024)
  *             .subnetIds(            
- *                 test1.id(),
- *                 test2.id())
+ *                 test1.get("id"),
+ *                 test2.get("id"))
  *             .deploymentType("MULTI_AZ_1")
  *             .throughputCapacity(512)
- *             .preferredSubnetId(test1.id())
+ *             .preferredSubnetId(test1.get("id"))
  *             .build());
  * 
  *     }
@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testhapairs = new OntapFileSystem("testhapairs", OntapFileSystemArgs.builder()
  *             .storageCapacity(2048)
- *             .subnetIds(test1.id())
+ *             .subnetIds(test1.get("id"))
  *             .deploymentType("SINGLE_AZ_1")
  *             .haPairs(2)
  *             .throughputCapacityPerHaPair(128)
- *             .preferredSubnetId(test1.id())
+ *             .preferredSubnetId(test1.get("id"))
  *             .build());
  * 
  *     }
@@ -122,11 +122,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testsingleazgen2 = new OntapFileSystem("testsingleazgen2", OntapFileSystemArgs.builder()
  *             .storageCapacity(4096)
- *             .subnetIds(test1.id())
+ *             .subnetIds(test1.get("id"))
  *             .deploymentType("SINGLE_AZ_2")
  *             .haPairs(4)
  *             .throughputCapacityPerHaPair(384)
- *             .preferredSubnetId(test1.id())
+ *             .preferredSubnetId(test1.get("id"))
  *             .build());
  * 
  *     }
@@ -159,12 +159,12 @@ import javax.annotation.Nullable;
  *         var testmultiazgen2 = new OntapFileSystem("testmultiazgen2", OntapFileSystemArgs.builder()
  *             .storageCapacity(1024)
  *             .subnetIds(            
- *                 test1.id(),
- *                 test2.id())
+ *                 test1.get("id"),
+ *                 test2.get("id"))
  *             .deploymentType("MULTI_AZ_2")
  *             .haPairs(1)
  *             .throughputCapacityPerHaPair(384)
- *             .preferredSubnetId(test1.id())
+ *             .preferredSubnetId(test1.get("id"))
  *             .build());
  * 
  *     }
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OntapFileSystem("example", OntapFileSystemArgs.builder()
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("securityGroupIds")
  *                 .build());

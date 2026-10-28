@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {

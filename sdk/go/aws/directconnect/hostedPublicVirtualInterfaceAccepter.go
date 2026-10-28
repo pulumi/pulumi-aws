@@ -54,7 +54,7 @@ import (
 //			}
 //			// Accepter's side of the VIF.
 //			_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
-//				VirtualInterfaceId: creator.ID().ToIDOutput().ToStringOutput(),
+//				VirtualInterfaceId: creator.ID(),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},

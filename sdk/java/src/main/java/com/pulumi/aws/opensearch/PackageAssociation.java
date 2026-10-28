@@ -58,8 +58,8 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Package("example", PackageArgs.builder()
  *             .packageSource(PackagePackageSourceArgs.builder()
- *                 .s3BucketName(myOpensearchPackages.bucket())
- *                 .s3Key(exampleAwsS3Object.key())
+ *                 .s3BucketName(myOpensearchPackages.get("bucket"))
+ *                 .s3Key(exampleAwsS3Object.get("key"))
  *                 .build())
  *             .packageName("example-txt")
  *             .packageType("TXT-DICTIONARY")

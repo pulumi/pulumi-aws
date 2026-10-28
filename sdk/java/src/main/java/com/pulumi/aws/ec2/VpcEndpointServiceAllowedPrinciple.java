@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var allowMeToFoo = new VpcEndpointServiceAllowedPrinciple("allowMeToFoo", VpcEndpointServiceAllowedPrincipleArgs.builder()
- *             .vpcEndpointServiceId(foo.id())
+ *             .vpcEndpointServiceId(foo.get("id"))
  *             .principalArn(current.arn())
  *             .build());
  * 

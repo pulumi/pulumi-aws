@@ -220,10 +220,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .active(true)
  *                 .build())
- *             .botId(test.id())
- *             .botVersion(testAwsLexv2modelsBotLocale.botVersion())
+ *             .botId(test.get("id"))
+ *             .botVersion(testAwsLexv2modelsBotLocale.get("botVersion"))
  *             .name("botens_namn")
- *             .localeId(testAwsLexv2modelsBotLocale.localeId())
+ *             .localeId(testAwsLexv2modelsBotLocale.get("localeId"))
  *             .build());
  * 
  *     }
@@ -263,7 +263,7 @@ import javax.annotation.Nullable;
  *             .qnaIntentConfiguration(V2modelsIntentQnaIntentConfigurationArgs.builder()
  *                 .dataSourceConfiguration(V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs.builder()
  *                     .kendraConfiguration(V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgs.builder()
- *                         .kendraIndex(example.arn())
+ *                         .kendraIndex(example.get("arn"))
  *                         .exactResponse(true)
  *                         .queryFilterStringEnabled(false)
  *                         .build())
@@ -272,10 +272,10 @@ import javax.annotation.Nullable;
  *             .sampleUtterances(V2modelsIntentSampleUtteranceArgs.builder()
  *                 .utterance("What is the answer?")
  *                 .build())
- *             .botId(test.id())
- *             .botVersion(testAwsLexv2modelsBotLocale.botVersion())
+ *             .botId(test.get("id"))
+ *             .botVersion(testAwsLexv2modelsBotLocale.get("botVersion"))
  *             .name("qna_intent")
- *             .localeId(testAwsLexv2modelsBotLocale.localeId())
+ *             .localeId(testAwsLexv2modelsBotLocale.get("localeId"))
  *             .parentIntentSignature("AMAZON.QnAIntent")
  *             .build());
  * 

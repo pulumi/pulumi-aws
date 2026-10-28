@@ -53,10 +53,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VpcEndpointAssociation("example", VpcEndpointAssociationArgs.builder()
  *             .subnetMapping(VpcEndpointAssociationSubnetMappingArgs.builder()
- *                 .subnetId(exampleAwsSubnet.id())
+ *                 .subnetId(exampleAwsSubnet.get("id"))
  *                 .build())
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
- *             .vpcId(exampleAwsVpc.id())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.get("arn"))
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .tags(Map.of("Name", "example endpoint"))
  *             .build());
  * 

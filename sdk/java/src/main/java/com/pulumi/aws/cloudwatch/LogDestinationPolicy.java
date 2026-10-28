@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testDestination = new LogDestination("testDestination", LogDestinationArgs.builder()
  *             .name("test_destination")
- *             .roleArn(iamForCloudwatch.arn())
- *             .targetArn(kinesisForCloudwatch.arn())
+ *             .roleArn(iamForCloudwatch.get("arn"))
+ *             .targetArn(kinesisForCloudwatch.get("arn"))
  *             .build());
  * 
  *         final var testDestinationPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

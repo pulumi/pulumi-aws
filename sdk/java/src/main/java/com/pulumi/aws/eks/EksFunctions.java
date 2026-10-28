@@ -70,8 +70,8 @@ public final class EksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(exampleAwsEksCluster.name())
-     *             .principalArn(exampleAwsIamRole.arn())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
+     *             .principalArn(exampleAwsIamRole.get("arn"))
      *             .build());
      * 
      *         ctx.export("eksAccessEntryOutputs", exampleAwsEksAccessEntry);
@@ -112,8 +112,8 @@ public final class EksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(exampleAwsEksCluster.name())
-     *             .principalArn(exampleAwsIamRole.arn())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
+     *             .principalArn(exampleAwsIamRole.get("arn"))
      *             .build());
      * 
      *         ctx.export("eksAccessEntryOutputs", exampleAwsEksAccessEntry);
@@ -154,8 +154,8 @@ public final class EksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(exampleAwsEksCluster.name())
-     *             .principalArn(exampleAwsIamRole.arn())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
+     *             .principalArn(exampleAwsIamRole.get("arn"))
      *             .build());
      * 
      *         ctx.export("eksAccessEntryOutputs", exampleAwsEksAccessEntry);
@@ -196,8 +196,8 @@ public final class EksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(exampleAwsEksCluster.name())
-     *             .principalArn(exampleAwsIamRole.arn())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
+     *             .principalArn(exampleAwsIamRole.get("arn"))
      *             .build());
      * 
      *         ctx.export("eksAccessEntryOutputs", exampleAwsEksAccessEntry);
@@ -238,8 +238,8 @@ public final class EksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(exampleAwsEksCluster.name())
-     *             .principalArn(exampleAwsIamRole.arn())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
+     *             .principalArn(exampleAwsIamRole.get("arn"))
      *             .build());
      * 
      *         ctx.export("eksAccessEntryOutputs", exampleAwsEksAccessEntry);
@@ -358,7 +358,7 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName("vpc-cni")
-     *             .clusterName(exampleAwsEksCluster.name())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
      *             .build());
      * 
      *         ctx.export("eksAddonOutputs", exampleAwsEksAddon);
@@ -400,7 +400,7 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName("vpc-cni")
-     *             .clusterName(exampleAwsEksCluster.name())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
      *             .build());
      * 
      *         ctx.export("eksAddonOutputs", exampleAwsEksAddon);
@@ -442,7 +442,7 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName("vpc-cni")
-     *             .clusterName(exampleAwsEksCluster.name())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
      *             .build());
      * 
      *         ctx.export("eksAddonOutputs", exampleAwsEksAddon);
@@ -484,7 +484,7 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName("vpc-cni")
-     *             .clusterName(exampleAwsEksCluster.name())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
      *             .build());
      * 
      *         ctx.export("eksAddonOutputs", exampleAwsEksAddon);
@@ -526,7 +526,7 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName("vpc-cni")
-     *             .clusterName(exampleAwsEksCluster.name())
+     *             .clusterName(exampleAwsEksCluster.get("name"))
      *             .build());
      * 
      *         ctx.export("eksAddonOutputs", exampleAwsEksAddon);
@@ -570,17 +570,17 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var default = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .build());
      * 
      *         final var latest = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .mostRecent(true)
      *             .build());
      * 
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
-     *             .clusterName(example.name())
+     *             .clusterName(example.get("name"))
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.version())
      *             .build());
@@ -627,17 +627,17 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var default = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .build());
      * 
      *         final var latest = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .mostRecent(true)
      *             .build());
      * 
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
-     *             .clusterName(example.name())
+     *             .clusterName(example.get("name"))
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.version())
      *             .build());
@@ -684,17 +684,17 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var default = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .build());
      * 
      *         final var latest = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .mostRecent(true)
      *             .build());
      * 
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
-     *             .clusterName(example.name())
+     *             .clusterName(example.get("name"))
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.version())
      *             .build());
@@ -741,17 +741,17 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var default = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .build());
      * 
      *         final var latest = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .mostRecent(true)
      *             .build());
      * 
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
-     *             .clusterName(example.name())
+     *             .clusterName(example.get("name"))
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.version())
      *             .build());
@@ -798,17 +798,17 @@ public final class EksFunctions {
      *     public static void stack(Context ctx) {
      *         final var default = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .build());
      * 
      *         final var latest = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName("vpc-cni")
-     *             .kubernetesVersion(example.version())
+     *             .kubernetesVersion(example.get("version"))
      *             .mostRecent(true)
      *             .build());
      * 
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
-     *             .clusterName(example.name())
+     *             .clusterName(example.get("name"))
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.version())
      *             .build());

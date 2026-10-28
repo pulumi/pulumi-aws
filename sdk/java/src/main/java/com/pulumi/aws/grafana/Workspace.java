@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .accountAccessType("CURRENT_ACCOUNT")
  *             .authenticationProviders("SAML")
  *             .permissionType("SERVICE_MANAGED")
- *             .roleArn(assume.arn())
+ *             .roleArn(assume.get("arn"))
  *             .configuration(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("plugins", jsonObject(

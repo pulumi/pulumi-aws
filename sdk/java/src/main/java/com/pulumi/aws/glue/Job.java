@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *         var etlJob = new Job("etlJob", JobArgs.builder()
  *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format("s3://%s/jobs/etl_job.py", glueScripts.bucket()))
+ *                 .scriptLocation(String.format("s3://%s/jobs/etl_job.py", glueScripts.get("bucket")))
  *                 .name("glueetl")
  *                 .pythonVersion("3")
  *                 .build())
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .timeout(2880)
  *             .numberOfWorkers(2)
  *             .workerType("G.1X")
- *             .connections(example.name())
+ *             .connections(example.get("name"))
  *             .executionClass("STANDARD")
  *             .defaultArguments(Map.ofEntries(
  *                 Map.entry("--job-language", "python"),
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var glueEtlScript = new BucketObjectv2("glueEtlScript", BucketObjectv2Args.builder()
- *             .bucket(glueScripts.id())
+ *             .bucket(glueScripts.get("id"))
  *             .key("jobs/etl_job.py")
  *             .source(new FileAsset("jobs/etl_job.py"))
  *             .build());
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  * 
  *         var pythonShellJob = new Job("pythonShellJob", JobArgs.builder()
  *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format("s3://%s/jobs/shell_job.py", glueScripts.bucket()))
+ *                 .scriptLocation(String.format("s3://%s/jobs/shell_job.py", glueScripts.get("bucket")))
  *                 .name("pythonshell")
  *                 .pythonVersion("3.9")
  *                 .build())
@@ -186,7 +186,7 @@ import javax.annotation.Nullable;
  *             .maxCapacity(0.0625)
  *             .maxRetries(0)
  *             .timeout(2880)
- *             .connections(example.name())
+ *             .connections(example.get("name"))
  *             .defaultArguments(Map.ofEntries(
  *                 Map.entry("--job-language", "python"),
  *                 Map.entry("--continuous-log-logGroup", "/aws-glue/jobs"),
@@ -197,7 +197,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var pythonShellScript = new BucketObjectv2("pythonShellScript", BucketObjectv2Args.builder()
- *             .bucket(glueScripts.id())
+ *             .bucket(glueScripts.get("id"))
  *             .key("jobs/shell_job.py")
  *             .source(new FileAsset("jobs/shell_job.py"))
  *             .build());
@@ -237,10 +237,10 @@ import javax.annotation.Nullable;
  *                 .name("glueray")
  *                 .pythonVersion("3.9")
  *                 .runtime("Ray2.4")
- *                 .scriptLocation(String.format("s3://%s/example.py", exampleAwsS3Bucket.bucket()))
+ *                 .scriptLocation(String.format("s3://%s/example.py", exampleAwsS3Bucket.get("bucket")))
  *                 .build())
  *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .glueVersion("4.0")
  *             .workerType("Z.2X")
  *             .build());
@@ -277,10 +277,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Job("example", JobArgs.builder()
  *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format("s3://%s/example.scala", exampleAwsS3Bucket.bucket()))
+ *                 .scriptLocation(String.format("s3://%s/example.scala", exampleAwsS3Bucket.get("bucket")))
  *                 .build())
  *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .defaultArguments(Map.of("--job-language", "scala"))
  *             .build());
  * 
@@ -317,10 +317,10 @@ import javax.annotation.Nullable;
  *         var example = new Job("example", JobArgs.builder()
  *             .command(JobCommandArgs.builder()
  *                 .name("gluestreaming")
- *                 .scriptLocation(String.format("s3://%s/example.script", exampleAwsS3Bucket.bucket()))
+ *                 .scriptLocation(String.format("s3://%s/example.script", exampleAwsS3Bucket.get("bucket")))
  *                 .build())
  *             .name("example streaming job")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

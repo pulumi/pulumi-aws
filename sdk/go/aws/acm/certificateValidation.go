@@ -74,7 +74,7 @@ import (
 // pulumi.String(val0),
 // },
 // Ttl: pulumi.Int(60),
-// Type: route53.RecordType(val0),
+// Type: pulumi.String(val0),
 // ZoneId: pulumi.String(example.ZoneId),
 // })
 // if err != nil {
@@ -174,7 +174,7 @@ import (
 // pulumi.String(val0),
 // },
 // Ttl: pulumi.Int(60),
-// Type: route53.RecordType(val0),
+// Type: pulumi.String(val0),
 // ZoneId: pulumi.String(val0),
 // })
 // if err != nil {

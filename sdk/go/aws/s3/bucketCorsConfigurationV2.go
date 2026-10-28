@@ -65,7 +65,7 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err

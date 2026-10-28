@@ -112,20 +112,20 @@ namespace Pulumi.Aws.Sns
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
-    ///     var sns = config.GetObject&lt;dynamic&gt;("sns") ?? 
+    ///     var sns = config.GetObject&lt;dynamic&gt;("sns") ?? new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         { "account-id", "111111111111" },
-    ///         { "displayName", "example" },
-    ///         { "name", "example-sns-topic" },
-    ///         { "region", "us-west-1" },
-    ///         { "role-name", "service/service" },
+    ///         ["account-id"] = "111111111111",
+    ///         ["displayName"] = "example",
+    ///         ["name"] = "example-sns-topic",
+    ///         ["region"] = "us-west-1",
+    ///         ["role-name"] = "service/service",
     ///     };
-    ///     var sqs = config.GetObject&lt;dynamic&gt;("sqs") ?? 
+    ///     var sqs = config.GetObject&lt;dynamic&gt;("sqs") ?? new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         { "account-id", "222222222222" },
-    ///         { "name", "example-sqs-queue" },
-    ///         { "region", "us-east-1" },
-    ///         { "role-name", "service/service" },
+    ///         ["account-id"] = "222222222222",
+    ///         ["name"] = "example-sqs-queue",
+    ///         ["region"] = "us-east-1",
+    ///         ["role-name"] = "service/service",
     ///     };
     ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {

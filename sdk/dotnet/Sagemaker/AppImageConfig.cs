@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
     ///     {
-    ///         CodeEditorAppImageConfig = null,
+    ///         CodeEditorAppImageConfig = new() { },
     ///         AppImageConfigName = "example",
     ///     });
     /// 

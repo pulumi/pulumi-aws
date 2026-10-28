@@ -89,7 +89,7 @@ import (
 //				Filters: []ec2.GetNetworkAclsFilter{
 //					{
 //						Name: "association.subnet-id",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							test.Id,
 //						},
 //					},

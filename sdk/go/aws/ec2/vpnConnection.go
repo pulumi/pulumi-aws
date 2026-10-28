@@ -48,8 +48,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID().ToIDOutput().ToStringOutput(),
-//				TransitGatewayId:  example.ID().ToIDOutput().ToStringOutput(),
+//				CustomerGatewayId: exampleCustomerGateway.ID(),
+//				TransitGatewayId:  example.ID(),
 //				Type:              exampleCustomerGateway.Type,
 //			})
 //			if err != nil {
@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpn_gateway", &ec2.VpnGatewayArgs{
-//				VpcId: vpc.ID().ToIDOutput().ToStringOutput(),
+//				VpcId: vpc.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -96,8 +96,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-//				VpnGatewayId:      vpnGateway.ID().ToIDOutput().ToStringOutput(),
-//				CustomerGatewayId: customerGateway.ID().ToIDOutput().ToStringOutput(),
+//				VpnGatewayId:      vpnGateway.ID(),
+//				CustomerGatewayId: customerGateway.ID(),
 //				Type:              pulumi.String("ipsec.1"),
 //				StaticRoutesOnly:  pulumi.Bool(true),
 //			})
@@ -155,8 +155,8 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         exampleGateway.ID().ToIDOutput().ToStringOutput(),
-//				AssociatedGatewayId: exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
+//				DxGatewayId:         exampleGateway.ID(),
+//				AssociatedGatewayId: exampleTransitGateway.ID(),
 //				AllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/8"),
 //				},
@@ -165,13 +165,13 @@ import (
 //				return err
 //			}
 //			example := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
-//				TransitGatewayId: exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
-//				DxGatewayId:      exampleGateway.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayId: exampleTransitGateway.ID(),
+//				DxGatewayId:      exampleGateway.ID(),
 //			}, nil)
 //			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId:                   exampleCustomerGateway.ID().ToIDOutput().ToStringOutput(),
+//				CustomerGatewayId:                   exampleCustomerGateway.ID(),
 //				OutsideIpAddressType:                pulumi.String("PrivateIpv4"),
-//				TransitGatewayId:                    exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayId:                    exampleTransitGateway.ID(),
 //				TransportTransitGatewayAttachmentId: example.Id(),
 //				Type:                                pulumi.String("ipsec.1"),
 //				Tags: pulumi.StringMap{

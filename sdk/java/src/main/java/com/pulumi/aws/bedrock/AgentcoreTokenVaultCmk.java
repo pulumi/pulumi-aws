@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new AgentcoreTokenVaultCmk("example", AgentcoreTokenVaultCmkArgs.builder()
  *             .kmsConfiguration(AgentcoreTokenVaultCmkKmsConfigurationArgs.builder()
  *                 .keyType("CustomerManagedKey")
- *                 .kmsKeyArn(exampleAwsKmsKey.arn())
+ *                 .kmsKeyArn(exampleAwsKmsKey.get("arn"))
  *                 .build())
  *             .build());
  * 

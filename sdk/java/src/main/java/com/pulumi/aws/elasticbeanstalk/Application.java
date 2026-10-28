@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var tftest = new Application("tftest", ApplicationArgs.builder()
  *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()
- *                 .serviceRole(beanstalkService.arn())
+ *                 .serviceRole(beanstalkService.get("arn"))
  *                 .maxCount(128)
  *                 .deleteSourceFromS3(true)
  *                 .build())

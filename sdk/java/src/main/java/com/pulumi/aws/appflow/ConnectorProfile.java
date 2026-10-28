@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example_role")
- *             .managedPolicyArns(test.arn())
+ *             .managedPolicyArns(test.get("arn"))
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),

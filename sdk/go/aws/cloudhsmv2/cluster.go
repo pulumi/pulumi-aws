@@ -61,10 +61,10 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("cloudhsm_v2_subnets-%v", key0), &ec2.SubnetArgs{
-//					VpcId:               cloudhsmV2Vpc.ID().ToIDOutput().ToStringOutput(),
-//					CidrBlock:           subnets[val0],
+//					VpcId:               cloudhsmV2Vpc.ID(),
+//					CidrBlock:           subnets[val0].(pulumi.String),
 //					MapPublicIpOnLaunch: pulumi.Bool(false),
-//					AvailabilityZone:    available.Names[val0],
+//					AvailabilityZone:    available.Names[val0].(pulumi.String),
 //					Tags: pulumi.StringMap{
 //						"Name": pulumi.String("example-aws_cloudhsm_v2_cluster"),
 //					},

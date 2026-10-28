@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Declare the data source
+//			// Declare the function
 //			pc, err := ec2.LookupVpcPeeringConnection(ctx, &ec2.LookupVpcPeeringConnectionArgs{
 //				VpcId:         pulumi.StringRef(foo.Id),
 //				PeerCidrBlock: pulumi.StringRef("10.0.1.0/22"),
@@ -47,7 +47,7 @@ import (
 //			}
 //			// Create a route
 //			_, err = ec2.NewRoute(ctx, "r", &ec2.RouteArgs{
-//				RouteTableId:           rt.ID().ToIDOutput().ToStringOutput(),
+//				RouteTableId:           rt.ID(),
 //				DestinationCidrBlock:   pulumi.String(pc.PeerCidrBlock),
 //				VpcPeeringConnectionId: pulumi.String(pc.Id),
 //			})

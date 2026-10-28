@@ -284,7 +284,7 @@ import javax.annotation.Nullable;
  *             .arn(String.format("arn:aws:ssm:%s::document/AWS-RunShellScript", awsRegion))
  *             .input("{\"commands\":[\"halt\"]}")
  *             .rule(stopInstances.name())
- *             .roleArn(ssmLifecycle.arn())
+ *             .roleArn(ssmLifecycle.get("arn"))
  *             .build());
  * 
  *     }
@@ -355,7 +355,7 @@ import javax.annotation.Nullable;
  *                     .effect("Allow")
  *                     .actions("ecs:RunTask")
  *                     .resources(StdFunctions.replace(ReplaceArgs.builder()
- *                         .text(taskName.arn())
+ *                         .text(taskName.get("arn"))
  *                         .search("/:\\d+$/")
  *                         .replace(":*")
  *                         .build()).result())
@@ -371,11 +371,11 @@ import javax.annotation.Nullable;
  *         var ecsScheduledTask = new EventTarget("ecsScheduledTask", EventTargetArgs.builder()
  *             .ecsTarget(EventTargetEcsTargetArgs.builder()
  *                 .taskCount(1)
- *                 .taskDefinitionArn(taskName.arn())
+ *                 .taskDefinitionArn(taskName.get("arn"))
  *                 .build())
  *             .targetId("run-scheduled-task-every-hour")
- *             .arn(clusterName.arn())
- *             .rule(everyHour.name())
+ *             .arn(clusterName.get("arn"))
+ *             .rule(everyHour.get("name"))
  *             .roleArn(ecsEvents.arn())
  *             .input(serializeJson(
  *                 jsonObject(
@@ -427,11 +427,11 @@ import javax.annotation.Nullable;
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
- *             .restApi(exampleAwsApiGatewayRestApi.id())
+ *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
  *             .build());
  * 
  *         var exampleStage = new Stage("exampleStage", StageArgs.builder()
- *             .restApi(exampleAwsApiGatewayRestApi.id())
+ *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
  *             .deployment(exampleDeployment.id())
  *             .build());
  * 
@@ -578,7 +578,7 @@ import javax.annotation.Nullable;
  * }
  *                 """)
  *                 .build())
- *             .arn(exampleAwsLambdaFunction.arn())
+ *             .arn(exampleAwsLambdaFunction.get("arn"))
  *             .rule(exampleEventRule.name())
  *             .build());
  * 
@@ -623,7 +623,7 @@ import javax.annotation.Nullable;
  *                 ))
  *                 .inputTemplate("\"<instance> is in state <status>\"")
  *                 .build())
- *             .arn(exampleAwsLambdaFunction.arn())
+ *             .arn(exampleAwsLambdaFunction.get("arn"))
  *             .rule(exampleEventRule.name())
  *             .build());
  * 

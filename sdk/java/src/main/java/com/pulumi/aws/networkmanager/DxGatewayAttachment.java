@@ -50,9 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new DxGatewayAttachment("test", DxGatewayAttachmentArgs.builder()
- *             .coreNetworkId(testAwsNetworkmanagerCoreNetworkPolicyAttachment.coreNetworkId())
- *             .directConnectGatewayArn(String.format("arn:aws:directconnect::%s:dx-gateway/%s", current.accountId(),testAwsDxGateway.id()))
- *             .edgeLocations(currentAwsRegion.region())
+ *             .coreNetworkId(testAwsNetworkmanagerCoreNetworkPolicyAttachment.get("coreNetworkId"))
+ *             .directConnectGatewayArn(String.format("arn:aws:directconnect::%s:dx-gateway/%s", current.get("accountId"),testAwsDxGateway.get("id")))
+ *             .edgeLocations(currentAwsRegion.get("region"))
  *             .build());
  * 
  *     }

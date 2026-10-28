@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example-flink-application")
  *             .runtimeEnvironment("FLINK-1_8")
- *             .serviceExecutionRole(exampleAwsIamRole.arn())
+ *             .serviceExecutionRole(exampleAwsIamRole.get("arn"))
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
@@ -230,7 +230,7 @@ import javax.annotation.Nullable;
  *                             .recordEncoding("UTF-8")
  *                             .build())
  *                         .kinesisStreamsInput(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs.builder()
- *                             .resourceArn(exampleAwsKinesisStream.arn())
+ *                             .resourceArn(exampleAwsKinesisStream.get("arn"))
  *                             .build())
  *                         .namePrefix("PREFIX_1")
  *                         .build())
@@ -250,7 +250,7 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .build())
  *                         .s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.builder()
- *                             .bucketArn(exampleAwsS3Bucket.arn())
+ *                             .bucketArn(exampleAwsS3Bucket.get("arn"))
  *                             .fileKey("KEY-1")
  *                             .build())
  *                         .tableName("TABLE-1")
@@ -261,7 +261,7 @@ import javax.annotation.Nullable;
  *                                 .recordFormatType("JSON")
  *                                 .build())
  *                             .lambdaOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs.builder()
- *                                 .resourceArn(exampleAwsLambdaFunction.arn())
+ *                                 .resourceArn(exampleAwsLambdaFunction.get("arn"))
  *                                 .build())
  *                             .name("OUTPUT_1")
  *                             .build(),
@@ -270,7 +270,7 @@ import javax.annotation.Nullable;
  *                                 .recordFormatType("CSV")
  *                                 .build())
  *                             .kinesisFirehoseOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs.builder()
- *                                 .resourceArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *                                 .resourceArn(exampleAwsKinesisFirehoseDeliveryStream.get("arn"))
  *                                 .build())
  *                             .name("OUTPUT_2")
  *                             .build())
@@ -281,7 +281,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example-sql-application")
  *             .runtimeEnvironment("SQL-1_0")
- *             .serviceExecutionRole(exampleAwsIamRole.arn())
+ *             .serviceExecutionRole(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -346,14 +346,14 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .vpcConfiguration(ApplicationApplicationConfigurationVpcConfigurationArgs.builder()
  *                     .securityGroupIds(                    
- *                         exampleAwsSecurityGroup[0].id(),
- *                         exampleAwsSecurityGroup[1].id())
- *                     .subnetIds(exampleAwsSubnet.id())
+ *                         exampleAwsSecurityGroup[0].get("id"),
+ *                         exampleAwsSecurityGroup[1].get("id"))
+ *                     .subnetIds(exampleAwsSubnet.get("id"))
  *                     .build())
  *                 .build())
  *             .name("example-flink-application")
  *             .runtimeEnvironment("FLINK-1_8")
- *             .serviceExecutionRole(exampleAwsIamRole.arn())
+ *             .serviceExecutionRole(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

@@ -50,7 +50,7 @@ import (
 //			}
 //			// Example Subnet 1
 //			example1, err := ec2.NewSubnet(ctx, "example1", &ec2.SubnetArgs{
-//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            example.ID(),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //				AvailabilityZone: pulumi.Sprintf("%va", current.Region),
 //				Tags: pulumi.StringMap{
@@ -62,7 +62,7 @@ import (
 //			}
 //			// Example Subnet 2
 //			example2, err := ec2.NewSubnet(ctx, "example2", &ec2.SubnetArgs{
-//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            example.ID(),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
 //				AvailabilityZone: pulumi.Sprintf("%vb", current.Region),
 //				Tags: pulumi.StringMap{
@@ -86,7 +86,7 @@ import (
 //				},
 //				NamePrefix:  pulumi.String("neptune-graph-sg"),
 //				Description: pulumi.String("Security group for Neptune Graph"),
-//				VpcId:       example.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:       example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("neptune-graph-sg"),
 //				},
@@ -104,14 +104,14 @@ import (
 //			}
 //			// Private Graph Endpoint
 //			_, err = neptunegraph.NewPrivateGraphEndpoint(ctx, "example", &neptunegraph.PrivateGraphEndpointArgs{
-//				GraphIdentifier: exampleGraph.ID().ToIDOutput().ToStringOutput(),
-//				VpcId:           example.ID().ToIDOutput().ToStringOutput(),
+//				GraphIdentifier: exampleGraph.ID(),
+//				VpcId:           example.ID(),
 //				SubnetIds: pulumi.StringArray{
-//					example1.ID().ToIDOutput().ToStringOutput(),
-//					example2.ID().ToIDOutput().ToStringOutput(),
+//					example1.ID(),
+//					example2.ID(),
 //				},
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					exampleSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//					exampleSecurityGroup.ID(),
 //				},
 //			})
 //			if err != nil {

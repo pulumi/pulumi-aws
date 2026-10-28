@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .triggers(TriggerTriggerArgs.builder()
  *                 .name("all")
  *                 .events("all")
- *                 .destinationArn(testAwsSnsTopic.arn())
+ *                 .destinationArn(testAwsSnsTopic.get("arn"))
  *                 .build())
  *             .repositoryName(test.repositoryName())
  *             .build());

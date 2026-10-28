@@ -92,8 +92,8 @@ namespace Pulumi.Aws.Ec2
     ///     var example = new Aws.Ec2.VpcSecurityGroupRulesExclusive("example", new()
     ///     {
     ///         SecurityGroupId = exampleAwsSecurityGroup.Id,
-    ///         IngressRuleIds = new[] {},
-    ///         EgressRuleIds = new[] {},
+    ///         IngressRuleIds = new() {},
+    ///         EgressRuleIds = new() {},
     ///     });
     /// 
     /// });

@@ -62,6 +62,64 @@ import * as utilities from "../utilities";
  *
  * ### Amazon Data Firehose logging
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["firehose.amazonaws.com"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "firehose_test_role",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
+ * });
+ * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("example", {
+ *     extendedS3Configuration: {
+ *         roleArn: exampleRole.arn,
+ *         bucketArn: exampleBucket.arn,
+ *     },
+ *     name: "kinesis_firehose_test",
+ *     destination: "extended_s3",
+ *     tags: {
+ *         LogDeliveryEnabled: "true",
+ *     },
+ * });
+ * const exampleFlowLog = new aws.ec2.FlowLog("example", {
+ *     logDestination: exampleFirehoseDeliveryStream.arn,
+ *     logDestinationType: "kinesis-data-firehose",
+ *     trafficType: "ALL",
+ *     vpcId: exampleAwsVpc.id,
+ * });
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
+ *     bucket: exampleBucket.id,
+ *     acl: "private",
+ * });
+ * const example = aws.iam.getPolicyDocument({
+ *     effect: "Allow",
+ *     actions: [
+ *         "logs:CreateLogDelivery",
+ *         "logs:DeleteLogDelivery",
+ *         "logs:ListLogDeliveries",
+ *         "logs:GetLogDelivery",
+ *         "firehose:TagDeliveryStream",
+ *     ],
+ *     resources: ["*"],
+ * });
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     name: "test",
+ *     role: exampleRole.id,
+ *     policy: example.then(example => example.json),
+ * });
+ * ```
+ *
  * ### S3 Logging
  *
  * ```typescript

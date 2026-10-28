@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Group("example", GroupArgs.builder()
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.get("id"))
  *             .build());
  * 
  *     }
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .sseConfiguration(GroupSseConfigurationArgs.builder()
  *                 .kmsKeyArn(testKey.arn())
  *                 .build())
- *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
+ *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.get("verifiedaccessInstanceId"))
  *             .build());
  * 
  *     }

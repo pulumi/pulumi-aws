@@ -63,7 +63,7 @@ import (
 //			}
 //			_, err = ecs.NewService(ctx, "mongo", &ecs.ServiceArgs{
 //				Name:           pulumi.String("mongo"),
-//				Cluster:        foo.ID().ToIDOutput().ToStringOutput(),
+//				Cluster:        foo.ID(),
 //				DesiredCount:   pulumi.Int(2),
 //				TaskDefinition: mongo.Arn(),
 //			})

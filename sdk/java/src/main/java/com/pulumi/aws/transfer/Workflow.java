@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *                     .customStepDetails(WorkflowStepCustomStepDetailsArgs.builder()
  *                         .name("example")
  *                         .sourceFileLocation("${original.file}")
- *                         .target(exampleAwsLambdaFunction.arn())
+ *                         .target(exampleAwsLambdaFunction.get("arn"))
  *                         .timeoutSeconds(60)
  *                         .build())
  *                     .type("CUSTOM")

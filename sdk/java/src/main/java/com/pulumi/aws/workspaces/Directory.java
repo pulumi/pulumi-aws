@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *                 .deviceTypeZeroclient("DENY")
  *                 .build())
  *             .workspaceCreationProperties(DirectoryWorkspaceCreationPropertiesArgs.builder()
- *                 .customSecurityGroupId(exampleAwsSecurityGroup.id())
+ *                 .customSecurityGroupId(exampleAwsSecurityGroup.get("id"))
  *                 .defaultOu("OU=AWS,DC=Workgroup,DC=Example,DC=com")
  *                 .enableInternetAccess(true)
  *                 .enableMaintenanceMode(true)
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *         var example = new Directory("example", DirectoryArgs.builder()
  *             .activeDirectoryConfig(DirectoryActiveDirectoryConfigArgs.builder()
  *                 .domainName("example.internal")
- *                 .serviceAccountSecretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .serviceAccountSecretArn(exampleAwsSecretsmanagerSecret.get("arn"))
  *                 .build())
  *             .workspaceAccessProperties(DirectoryWorkspaceAccessPropertiesArgs.builder()
  *                 .deviceTypeAndroid("ALLOW")
@@ -226,7 +226,7 @@ import javax.annotation.Nullable;
  *                 .deviceTypeZeroclient("DENY")
  *                 .build())
  *             .workspaceCreationProperties(DirectoryWorkspaceCreationPropertiesArgs.builder()
- *                 .customSecurityGroupId(exampleAwsSecurityGroup.id())
+ *                 .customSecurityGroupId(exampleAwsSecurityGroup.get("id"))
  *                 .defaultOu("OU=AWS,DC=Workgroup,DC=Example,DC=com")
  *                 .enableInternetAccess(true)
  *                 .build())
@@ -236,8 +236,8 @@ import javax.annotation.Nullable;
  *                 .status("ENABLED")
  *                 .build())
  *             .subnetIds(            
- *                 exampleC.id(),
- *                 exampleD.id())
+ *                 exampleC.get("id"),
+ *                 exampleD.get("id"))
  *             .workspaceType("POOLS")
  *             .workspaceDirectoryName("Pool directory")
  *             .workspaceDirectoryDescription("WorkSpaces Pools directory")
@@ -280,7 +280,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Directory("example", DirectoryArgs.builder()
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.get("id"))
  *             .ipGroupIds(exampleIpGroup.id())
  *             .build());
  * 
@@ -326,19 +326,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var workspacesStreaming = new SecurityGroup("workspacesStreaming", SecurityGroupArgs.builder()
  *             .name("workspaces-streaming-endpoint")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
  *         var workspaces = new VpcEndpoint("workspaces", VpcEndpointArgs.builder()
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .serviceName(String.format("com.amazonaws.%s.highlander", current.region()))
  *             .vpcEndpointType("Interface")
  *             .subnetIds(            
- *                 exampleA.id(),
- *                 exampleB.id())
+ *                 exampleA.get("id"),
+ *                 exampleB.get("id"))
  *             .securityGroupIds(workspacesStreaming.id())
  *             .privateDnsEnabled(true)
  *             .build());
@@ -354,12 +354,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .deviceTypeWindows("ALLOW")
  *                 .build())
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.get("id"))
  *             .build());
  * 
  *         var workspacesStreamingTcp443 = new SecurityGroupIngressRule("workspacesStreamingTcp443", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(workspacesStreaming.id())
- *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .cidrIpv4(exampleAwsVpc.get("cidrBlock"))
  *             .fromPort(443)
  *             .toPort(443)
  *             .ipProtocol("tcp")
@@ -367,7 +367,7 @@ import javax.annotation.Nullable;
  * 
  *         var workspacesStreamingTcp4195 = new SecurityGroupIngressRule("workspacesStreamingTcp4195", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(workspacesStreaming.id())
- *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .cidrIpv4(exampleAwsVpc.get("cidrBlock"))
  *             .fromPort(4195)
  *             .toPort(4195)
  *             .ipProtocol("tcp")
@@ -375,7 +375,7 @@ import javax.annotation.Nullable;
  * 
  *         var workspacesStreamingUdp443 = new SecurityGroupIngressRule("workspacesStreamingUdp443", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(workspacesStreaming.id())
- *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .cidrIpv4(exampleAwsVpc.get("cidrBlock"))
  *             .fromPort(443)
  *             .toPort(443)
  *             .ipProtocol("udp")
@@ -383,7 +383,7 @@ import javax.annotation.Nullable;
  * 
  *         var workspacesStreamingUdp4195 = new SecurityGroupIngressRule("workspacesStreamingUdp4195", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(workspacesStreaming.id())
- *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .cidrIpv4(exampleAwsVpc.get("cidrBlock"))
  *             .fromPort(4195)
  *             .toPort(4195)
  *             .ipProtocol("udp")

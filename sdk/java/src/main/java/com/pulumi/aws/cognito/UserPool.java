@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
  *                 .externalId("example")
- *                 .snsCallerArn(exampleAwsIamRole.arn())
+ *                 .snsCallerArn(exampleAwsIamRole.get("arn"))
  *                 .snsRegion("us-east-1")
  *                 .build())
  *             .softwareTokenMfaConfiguration(UserPoolSoftwareTokenMfaConfigurationArgs.builder()

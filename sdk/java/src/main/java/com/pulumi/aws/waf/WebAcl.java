@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *                             .type("HEADER")
  *                             .build())
  *                     .build())
- *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.get("arn"))
  *                 .build())
  *             .build());
  * 

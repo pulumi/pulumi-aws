@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stage("example", StageArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .apiId(exampleAwsApigatewayv2Api.get("id"))
  *             .name("example-stage")
  *             .build());
  * 

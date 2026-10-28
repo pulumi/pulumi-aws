@@ -178,7 +178,7 @@ import (
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
 //					"Description": "Public access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
+//					"Rules": []interface{}{
 //						map[string]interface{}{
 //							"ResourceType": "collection",
 //							"Resource": []string{
@@ -233,7 +233,7 @@ import (
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
 //					"Description": "VPC access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
+//					"Rules": []interface{}{
 //						map[string]interface{}{
 //							"ResourceType": "collection",
 //							"Resource": []string{
@@ -291,7 +291,7 @@ import (
 //			tmpJSON0, err := json.Marshal([]interface{}{
 //				map[string]interface{}{
 //					"Description": "Marketing access",
-//					"Rules": []map[string]interface{}{
+//					"Rules": []interface{}{
 //						map[string]interface{}{
 //							"ResourceType": "collection",
 //							"Resource": []string{

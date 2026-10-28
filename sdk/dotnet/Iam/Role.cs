@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         Name = "yak_role",
     ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
-    ///         ManagedPolicyArns = new[] {},
+    ///         ManagedPolicyArns = new() {},
     ///     });
     /// 
     /// });

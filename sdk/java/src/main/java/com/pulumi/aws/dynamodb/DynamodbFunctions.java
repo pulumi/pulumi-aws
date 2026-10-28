@@ -548,7 +548,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(example.name())
+     *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
@@ -597,7 +597,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(example.name())
+     *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
@@ -646,7 +646,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(example.name())
+     *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
@@ -695,7 +695,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(example.name())
+     *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""
@@ -744,7 +744,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(example.name())
+     *             .tableName(example.get("name"))
      *             .expressionAttributeNames(Map.of("#P", "Percentile"))
      *             .projectionExpression("#P")
      *             .key("""

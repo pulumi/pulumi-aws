@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TemplateAlias("example", TemplateAliasArgs.builder()
  *             .aliasName("example-alias")
- *             .templateId(test.templateId())
- *             .templateVersionNumber(test.versionNumber())
+ *             .templateId(test.get("templateId"))
+ *             .templateVersionNumber(test.get("versionNumber"))
  *             .build());
  * 
  *     }

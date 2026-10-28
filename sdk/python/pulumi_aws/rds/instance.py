@@ -2733,7 +2733,7 @@ class Instance(pulumi.CustomResource):
             engine=custom_oracle.engine,
             engine_version=custom_oracle.engine_version,
             identifier="ee-instance-demo",
-            instance_class=aws.rds.InstanceType(custom_oracle.instance_class),
+            instance_class=custom_oracle.instance_class,
             kms_key_id=by_id.arn,
             license_model=custom_oracle.license_model,
             multi_az=False,
@@ -2748,7 +2748,7 @@ class Instance(pulumi.CustomResource):
             custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
             backup_retention_period=7,
             identifier="ee-instance-replica",
-            instance_class=aws.rds.InstanceType(custom_oracle.instance_class),
+            instance_class=custom_oracle.instance_class,
             kms_key_id=by_id.arn,
             multi_az=False,
             skip_final_snapshot=True,
@@ -2782,7 +2782,7 @@ class Instance(pulumi.CustomResource):
             engine=custom_sqlserver.engine,
             engine_version=custom_sqlserver.engine_version,
             identifier="sql-instance-demo",
-            instance_class=aws.rds.InstanceType(custom_sqlserver.instance_class),
+            instance_class=custom_sqlserver.instance_class,
             kms_key_id=by_id.arn,
             multi_az=False,
             password="avoid-plaintext-passwords",
@@ -2825,7 +2825,7 @@ class Instance(pulumi.CustomResource):
             ],
             name="db-db2-params",
             family=default.parameter_group_family)
-        # Create the RDS Db2 instance, use the data sources defined to set attributes
+        # Create the RDS Db2 instance, use the functions defined to set attributes
         example_instance = aws.rds.Instance("example",
             allocated_storage=100,
             backup_retention_period=7,
@@ -2833,7 +2833,7 @@ class Instance(pulumi.CustomResource):
             engine=example.engine,
             engine_version=example.engine_version,
             identifier="db2-instance-demo",
-            instance_class=aws.rds.InstanceType(example.instance_class),
+            instance_class=example.instance_class,
             parameter_group_name=example_parameter_group.name,
             password="avoid-plaintext-passwords",
             username="test")
@@ -3113,7 +3113,7 @@ class Instance(pulumi.CustomResource):
             engine=custom_oracle.engine,
             engine_version=custom_oracle.engine_version,
             identifier="ee-instance-demo",
-            instance_class=aws.rds.InstanceType(custom_oracle.instance_class),
+            instance_class=custom_oracle.instance_class,
             kms_key_id=by_id.arn,
             license_model=custom_oracle.license_model,
             multi_az=False,
@@ -3128,7 +3128,7 @@ class Instance(pulumi.CustomResource):
             custom_iam_instance_profile="AWSRDSCustomInstanceProfile",
             backup_retention_period=7,
             identifier="ee-instance-replica",
-            instance_class=aws.rds.InstanceType(custom_oracle.instance_class),
+            instance_class=custom_oracle.instance_class,
             kms_key_id=by_id.arn,
             multi_az=False,
             skip_final_snapshot=True,
@@ -3162,7 +3162,7 @@ class Instance(pulumi.CustomResource):
             engine=custom_sqlserver.engine,
             engine_version=custom_sqlserver.engine_version,
             identifier="sql-instance-demo",
-            instance_class=aws.rds.InstanceType(custom_sqlserver.instance_class),
+            instance_class=custom_sqlserver.instance_class,
             kms_key_id=by_id.arn,
             multi_az=False,
             password="avoid-plaintext-passwords",
@@ -3205,7 +3205,7 @@ class Instance(pulumi.CustomResource):
             ],
             name="db-db2-params",
             family=default.parameter_group_family)
-        # Create the RDS Db2 instance, use the data sources defined to set attributes
+        # Create the RDS Db2 instance, use the functions defined to set attributes
         example_instance = aws.rds.Instance("example",
             allocated_storage=100,
             backup_retention_period=7,
@@ -3213,7 +3213,7 @@ class Instance(pulumi.CustomResource):
             engine=example.engine,
             engine_version=example.engine_version,
             identifier="db2-instance-demo",
-            instance_class=aws.rds.InstanceType(example.instance_class),
+            instance_class=example.instance_class,
             parameter_group_name=example_parameter_group.name,
             password="avoid-plaintext-passwords",
             username="test")

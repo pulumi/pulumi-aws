@@ -51,9 +51,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()
  *             .authentication("ActiveDirectory")
- *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
- *             .locationArn(exampleAwsS3Bucket.arn())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.get("arn"))
+ *             .locationArn(exampleAwsS3Bucket.get("arn"))
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -89,9 +89,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()
  *             .authentication("GuestAccess")
- *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
- *             .locationArn(exampleAwsS3Bucket.arn())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .gatewayArn(exampleAwsStoragegatewayGateway.get("arn"))
+ *             .locationArn(exampleAwsS3Bucket.get("arn"))
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

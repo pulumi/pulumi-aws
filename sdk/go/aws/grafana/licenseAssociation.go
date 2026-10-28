@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = grafana.NewLicenseAssociation(ctx, "example", &grafana.LicenseAssociationArgs{
 //				LicenseType: pulumi.String("ENTERPRISE_FREE_TRIAL"),
-//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: exampleWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err

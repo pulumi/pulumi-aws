@@ -66,10 +66,10 @@ import javax.annotation.Nullable;
  *             .engine("memcached")
  *             .name("example")
  *             .description("Test Server")
- *             .kmsKeyId(test.arn())
+ *             .kmsKeyId(test.get("arn"))
  *             .majorEngineVersion("1.6")
- *             .securityGroupIds(testAwsSecurityGroup.id())
- *             .subnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .securityGroupIds(testAwsSecurityGroup.get("id"))
+ *             .subnetIds(testAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build());
  * 
  *     }
@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .dailySnapshotTime("09:00")
  *             .description("Test Server")
- *             .kmsKeyId(test.arn())
+ *             .kmsKeyId(test.get("arn"))
  *             .majorEngineVersion("7")
  *             .snapshotRetentionLimit(1)
- *             .securityGroupIds(testAwsSecurityGroup.id())
- *             .subnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .securityGroupIds(testAwsSecurityGroup.get("id"))
+ *             .subnetIds(testAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build());
  * 
  *     }
@@ -171,11 +171,11 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .dailySnapshotTime("09:00")
  *             .description("Test Server")
- *             .kmsKeyId(test.arn())
+ *             .kmsKeyId(test.get("arn"))
  *             .majorEngineVersion("7")
  *             .snapshotRetentionLimit(1)
- *             .securityGroupIds(testAwsSecurityGroup.id())
- *             .subnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .securityGroupIds(testAwsSecurityGroup.get("id"))
+ *             .subnetIds(testAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build());
  * 
  *     }

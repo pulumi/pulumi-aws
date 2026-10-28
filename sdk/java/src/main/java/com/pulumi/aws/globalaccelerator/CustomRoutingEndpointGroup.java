@@ -53,9 +53,9 @@ import javax.annotation.Nullable;
  *                 .protocols("TCP")
  *                 .build())
  *             .endpointConfigurations(CustomRoutingEndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(exampleAwsSubnet.id())
+ *                 .endpointId(exampleAwsSubnet.get("id"))
  *                 .build())
- *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.arn())
+ *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.get("arn"))
  *             .build());
  * 
  *     }

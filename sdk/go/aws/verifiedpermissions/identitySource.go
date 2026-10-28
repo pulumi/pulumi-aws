@@ -47,7 +47,7 @@ import (
 //			}
 //			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("example"),
-//				UserPoolId: exampleUserPool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: exampleUserPool.ID(),
 //				ExplicitAuthFlows: pulumi.StringArray{
 //					pulumi.String("ADMIN_NO_SRP_AUTH"),
 //				},
@@ -60,11 +60,11 @@ import (
 //					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{
 //						UserPoolArn: exampleUserPool.Arn,
 //						ClientIds: pulumi.StringArray{
-//							exampleUserPoolClient.ID().ToIDOutput().ToStringOutput(),
+//							exampleUserPoolClient.ID(),
 //						},
 //					},
 //				},
-//				PolicyStoreId: example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyStoreId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -116,7 +116,7 @@ import (
 //						EntityIdPrefix: pulumi.String("MyOIDCProvider"),
 //					},
 //				},
-//				PolicyStoreId:       example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyStoreId:       example.ID(),
 //				PrincipalEntityType: pulumi.String("MyCorp::User"),
 //			})
 //			if err != nil {

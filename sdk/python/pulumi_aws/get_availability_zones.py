@@ -166,7 +166,7 @@ def get_availability_zones(all_availability_zones: Optional[_builtins.bool] = No
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     available = aws.get_availability_zones(state="available")
     # e.g., Create subnets in the first two available availability zones
     primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])
@@ -257,7 +257,7 @@ def get_availability_zones_output(all_availability_zones: pulumi.Input[Optional[
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     available = aws.get_availability_zones(state="available")
     # e.g., Create subnets in the first two available availability zones
     primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])

@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *         var example = new Workteam("example", WorkteamArgs.builder()
  *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
  *                 .cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs.builder()
- *                     .clientId(exampleAwsCognitoUserPoolClient.id())
- *                     .userPool(exampleAwsCognitoUserPoolDomain.userPoolId())
- *                     .userGroup(exampleAwsCognitoUserGroup.name())
+ *                     .clientId(exampleAwsCognitoUserPoolClient.get("id"))
+ *                     .userPool(exampleAwsCognitoUserPoolDomain.get("userPoolId"))
+ *                     .userGroup(exampleAwsCognitoUserGroup.get("name"))
  *                     .build())
  *                 .build())
  *             .workteamName("example")
- *             .workforceName(exampleAwsSagemakerWorkforce.id())
+ *             .workforceName(exampleAwsSagemakerWorkforce.get("id"))
  *             .description("example")
  *             .build());
  * 
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .workteamName("example")
- *             .workforceName(exampleAwsSagemakerWorkforce.id())
+ *             .workforceName(exampleAwsSagemakerWorkforce.get("id"))
  *             .description("example")
  *             .build());
  * 

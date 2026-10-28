@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = organizations.NewTag(ctx, "example", &organizations.TagArgs{
-//				ResourceId: exampleOrganizationalUnit.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId: exampleOrganizationalUnit.ID(),
 //				Key:        pulumi.String("ExampleKey"),
 //				Value:      pulumi.String("ExampleValue"),
 //			})

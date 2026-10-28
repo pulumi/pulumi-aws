@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new PortfolioShare("example", PortfolioShareArgs.builder()
  *             .principalId("012128675309")
- *             .portfolioId(exampleAwsServicecatalogPortfolio.id())
+ *             .portfolioId(exampleAwsServicecatalogPortfolio.get("id"))
  *             .type("ACCOUNT")
  *             .build());
  * 

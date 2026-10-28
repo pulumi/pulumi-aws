@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AccessPoint("test", AccessPointArgs.builder()
- *             .fileSystemId(foo.id())
+ *             .fileSystemId(foo.get("id"))
  *             .build());
  * 
  *     }

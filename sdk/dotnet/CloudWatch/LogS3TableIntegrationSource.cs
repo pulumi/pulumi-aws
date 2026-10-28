@@ -52,7 +52,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Tag the log group to declare it as a custom data source.
+    ///     // Tag the log group to declare it as a custom function.
     ///     // Log stream messages are written to the "myapp__events" table
     ///     // in the aws-cloudwatch table bucket.
     ///     var example = new Aws.CloudWatch.LogGroup("example", new()

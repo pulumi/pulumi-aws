@@ -172,7 +172,7 @@ import (
 //				return err
 //			}
 //			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-//				QueueUrl: testQueue.ID().ToIDOutput().ToStringOutput(),
+//				QueueUrl: testQueue.ID(),
 //				Policy: pulumi.All(testQueue.Arn, testTopic.Arn).ApplyT(func(_args []interface{}) (string, error) {
 //					testQueueArn := _args[0].(string)
 //					testTopicArn := _args[1].(string)
@@ -257,7 +257,7 @@ import (
 //			json2 := string(tmpJSON2)
 //			_, err = iam.NewRolePolicy(ctx, "test", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
-//				Role:   testRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   testRole.ID(),
 //				Policy: pulumi.String(json2),
 //			})
 //			if err != nil {

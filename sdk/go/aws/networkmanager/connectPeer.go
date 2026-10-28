@@ -48,7 +48,7 @@ import (
 // Protocol: pulumi.String("GRE"),
 // },
 // CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+// TransportAttachmentId: example.ID(),
 // EdgeLocation: example.EdgeLocation,
 // })
 // if err != nil {
@@ -58,7 +58,7 @@ import (
 // BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
 // PeerAsn: pulumi.String("65000"),
 // },
-// ConnectAttachmentId: exampleConnectAttachment.ID().ToIDOutput().ToStringOutput(),
+// ConnectAttachmentId: exampleConnectAttachment.ID(),
 // PeerAddress: pulumi.String("127.0.0.1"),
 // InsideCidrBlocks: pulumi.StringArray{
 // pulumi.String("172.16.0.0/16"),
@@ -105,7 +105,7 @@ import (
 // return err
 // }
 // exampleAttachmentAccepter, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+// AttachmentId: example.ID(),
 // AttachmentType: example.AttachmentType,
 // })
 // if err != nil {
@@ -116,7 +116,7 @@ import (
 // Protocol: pulumi.String("GRE"),
 // },
 // CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+// TransportAttachmentId: example.ID(),
 // EdgeLocation: example.EdgeLocation,
 // }, pulumi.DependsOn([]pulumi.Resource{
 // exampleAttachmentAccepter,
@@ -125,7 +125,7 @@ import (
 // return err
 // }
 // example2, err := networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: exampleConnectAttachment.ID().ToIDOutput().ToStringOutput(),
+// AttachmentId: exampleConnectAttachment.ID(),
 // AttachmentType: exampleConnectAttachment.AttachmentType,
 // })
 // if err != nil {
@@ -135,7 +135,7 @@ import (
 // BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
 // PeerAsn: pulumi.String("65500"),
 // },
-// ConnectAttachmentId: exampleConnectAttachment.ID().ToIDOutput().ToStringOutput(),
+// ConnectAttachmentId: exampleConnectAttachment.ID(),
 // PeerAddress: pulumi.String("127.0.0.1"),
 // InsideCidrBlocks: pulumi.StringArray{
 // pulumi.String("172.16.0.0/16"),
@@ -188,7 +188,7 @@ import (
 // Protocol: pulumi.String("NO_ENCAP"),
 // },
 // CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID().ToIDOutput().ToStringOutput(),
+// TransportAttachmentId: example.ID(),
 // EdgeLocation: example.EdgeLocation,
 // })
 // if err != nil {
@@ -198,7 +198,7 @@ import (
 // BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
 // PeerAsn: pulumi.String("65000"),
 // },
-// ConnectAttachmentId: exampleConnectAttachment.ID().ToIDOutput().ToStringOutput(),
+// ConnectAttachmentId: exampleConnectAttachment.ID(),
 // PeerAddress: pulumi.String("127.0.0.1"),
 // SubnetArn: pulumi.Any(example2.Arn),
 // })

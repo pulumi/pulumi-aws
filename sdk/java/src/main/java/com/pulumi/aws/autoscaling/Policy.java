@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .healthCheckGracePeriod(300)
  *             .healthCheckType("ELB")
  *             .forceDelete(true)
- *             .launchConfiguration(foo.name())
+ *             .launchConfiguration(foo.get("name"))
  *             .build());
  * 
  *         var bat = new Policy("bat", PolicyArgs.builder()

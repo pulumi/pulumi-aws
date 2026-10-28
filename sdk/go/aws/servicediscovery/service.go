@@ -39,7 +39,7 @@ import (
 //			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
 //				Name:        pulumi.String("example.mydomain.local"),
 //				Description: pulumi.String("example"),
-//				Vpc:         example.ID().ToIDOutput().ToStringOutput(),
+//				Vpc:         example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -52,7 +52,7 @@ import (
 //							Type: pulumi.String("A"),
 //						},
 //					},
-//					NamespaceId:   examplePrivateDnsNamespace.ID().ToIDOutput().ToStringOutput(),
+//					NamespaceId:   examplePrivateDnsNamespace.ID(),
 //					RoutingPolicy: pulumi.String("MULTIVALUE"),
 //				},
 //				HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
@@ -96,7 +96,7 @@ import (
 //							Type: pulumi.String("A"),
 //						},
 //					},
-//					NamespaceId: example.ID().ToIDOutput().ToStringOutput(),
+//					NamespaceId: example.ID(),
 //				},
 //				HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
 //					FailureThreshold: pulumi.Int(10),

@@ -692,6 +692,55 @@ class FlowLog(pulumi.CustomResource):
 
         ### Amazon Data Firehose logging
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["firehose.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+        }])
+        example_role = aws.iam.Role("example",
+            name="firehose_test_role",
+            assume_role_policy=assume_role.json)
+        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
+            extended_s3_configuration={
+                "role_arn": example_role.arn,
+                "bucket_arn": example_bucket.arn,
+            },
+            name="kinesis_firehose_test",
+            destination="extended_s3",
+            tags={
+                "LogDeliveryEnabled": "true",
+            })
+        example_flow_log = aws.ec2.FlowLog("example",
+            log_destination=example_firehose_delivery_stream.arn,
+            log_destination_type="kinesis-data-firehose",
+            traffic_type="ALL",
+            vpc_id=example_aws_vpc["id"])
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
+            acl="private")
+        example = aws.iam.get_policy_document(effect="Allow",
+            actions=[
+                "logs:CreateLogDelivery",
+                "logs:DeleteLogDelivery",
+                "logs:ListLogDeliveries",
+                "logs:GetLogDelivery",
+                "firehose:TagDeliveryStream",
+            ],
+            resources=["*"])
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="test",
+            role=example_role.id,
+            policy=example.json)
+        ```
+
         ### S3 Logging
 
         ```python
@@ -915,6 +964,55 @@ class FlowLog(pulumi.CustomResource):
         ```
 
         ### Amazon Data Firehose logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["firehose.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+        }])
+        example_role = aws.iam.Role("example",
+            name="firehose_test_role",
+            assume_role_policy=assume_role.json)
+        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
+            extended_s3_configuration={
+                "role_arn": example_role.arn,
+                "bucket_arn": example_bucket.arn,
+            },
+            name="kinesis_firehose_test",
+            destination="extended_s3",
+            tags={
+                "LogDeliveryEnabled": "true",
+            })
+        example_flow_log = aws.ec2.FlowLog("example",
+            log_destination=example_firehose_delivery_stream.arn,
+            log_destination_type="kinesis-data-firehose",
+            traffic_type="ALL",
+            vpc_id=example_aws_vpc["id"])
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
+            acl="private")
+        example = aws.iam.get_policy_document(effect="Allow",
+            actions=[
+                "logs:CreateLogDelivery",
+                "logs:DeleteLogDelivery",
+                "logs:ListLogDeliveries",
+                "logs:GetLogDelivery",
+                "firehose:TagDeliveryStream",
+            ],
+            resources=["*"])
+        example_role_policy = aws.iam.RolePolicy("example",
+            name="test",
+            role=example_role.id,
+            policy=example.json)
+        ```
 
         ### S3 Logging
 

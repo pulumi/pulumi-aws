@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Database("example", DatabaseArgs.builder()
  *             .databaseName("database-example")
- *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .kmsKeyId(exampleAwsKmsKey.get("arn"))
  *             .tags(Map.of("Name", "value"))
  *             .build());
  * 

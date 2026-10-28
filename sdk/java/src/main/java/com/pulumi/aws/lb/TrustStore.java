@@ -60,10 +60,10 @@ import javax.annotation.Nullable;
  *                 .trustStoreArn(test.arn())
  *                 .build())
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(exampleAwsLbTargetGroup.id())
+ *                 .targetGroupArn(exampleAwsLbTargetGroup.get("id"))
  *                 .type("forward")
  *                 .build())
- *             .loadBalancerArn(exampleAwsLb.id())
+ *             .loadBalancerArn(exampleAwsLb.get("id"))
  *             .build());
  * 
  *     }

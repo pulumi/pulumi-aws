@@ -81,15 +81,15 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .build())
  *                         .accountId(current.accountId())
- *                         .arn(target.arn())
+ *                         .arn(target.get("arn"))
  *                         .format("CSV")
  *                         .outputSchemaVersion("V_1")
  *                         .build())
  *                     .build())
  *                 .exclude(StorageLensConfigurationStorageLensConfigurationExcludeArgs.builder()
  *                     .buckets(                    
- *                         b1.arn(),
- *                         b2.arn())
+ *                         b1.get("arn"),
+ *                         b2.get("arn"))
  *                     .regions("us-east-2")
  *                     .build())
  *                 .enabled(true)

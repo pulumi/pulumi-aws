@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .port(8086)
  *             .organization("organization")
  *             .vpcSubnetIds(exampleid)
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .name("example-db-instance")
  *             .build());
  * 
@@ -201,8 +201,8 @@ import javax.annotation.Nullable;
  *             .username("admin")
  *             .password("example-password")
  *             .organization("organization")
- *             .vpcSubnetIds(exampleAwsSubnet.id())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *             .vpcSubnetIds(exampleAwsSubnet.get("id"))
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .name("example-db-instance")
  *             .build());
  * 
@@ -240,13 +240,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example1 = new Subnet("example1", SubnetArgs.builder()
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .cidrBlock("10.0.1.0/24")
  *             .availabilityZone("us-west-2a")
  *             .build());
  * 
  *         var example2 = new Subnet("example2", SubnetArgs.builder()
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .cidrBlock("10.0.2.0/24")
  *             .availabilityZone("us-west-2b")
  *             .build());
@@ -262,7 +262,7 @@ import javax.annotation.Nullable;
  *             .vpcSubnetIds(            
  *                 example1.id(),
  *                 example2.id())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .name("example-db-instance")
  *             .build());
  * 

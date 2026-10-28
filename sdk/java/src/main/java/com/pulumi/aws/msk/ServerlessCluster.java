@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .vpcConfigs(ServerlessClusterVpcConfigArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *                 .build())
  *             .clusterName("Example")
  *             .build());

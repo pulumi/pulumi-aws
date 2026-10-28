@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
+ *             .resourceArn(exampleAwsNetworkfirewallFirewallPolicy.get("arn"))
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                             "network-firewall:AssociateFirewallPolicy"
  *                         )),
  *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", exampleAwsNetworkfirewallFirewallPolicy.arn()),
+ *                         jsonProperty("Resource", exampleAwsNetworkfirewallFirewallPolicy.get("arn")),
  *                         jsonProperty("Principal", jsonObject(
  *                             jsonProperty("AWS", "arn:aws:iam::123456789012:root")
  *                         ))
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
+ *             .resourceArn(exampleAwsNetworkfirewallRuleGroup.get("arn"))
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                             "network-firewall:UpdateFirewallPolicy"
  *                         )),
  *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", exampleAwsNetworkfirewallRuleGroup.arn()),
+ *                         jsonProperty("Resource", exampleAwsNetworkfirewallRuleGroup.get("arn")),
  *                         jsonProperty("Principal", jsonObject(
  *                             jsonProperty("AWS", "arn:aws:iam::123456789012:root")
  *                         ))

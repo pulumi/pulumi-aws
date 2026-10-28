@@ -36,7 +36,7 @@ namespace Pulumi.Aws.S3
     ///             new Aws.S3.Inputs.FilesSynchronizationConfigurationImportDataRuleArgs
     ///             {
     ///                 Prefix = "",
-    ///                 SizeLessThan = 52673613135872,
+    ///                 SizeLessThan = (int)52673613135872,
     ///                 Trigger = "ON_FILE_ACCESS",
     ///             },
     ///         },

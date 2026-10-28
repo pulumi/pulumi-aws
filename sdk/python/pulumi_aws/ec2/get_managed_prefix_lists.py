@@ -108,7 +108,7 @@ def get_managed_prefix_lists(filters: Optional[Sequence[Union['GetManagedPrefixL
     test_env = aws.ec2.get_managed_prefix_lists(tags={
         "Env": "test",
     })
-    test_env_get_managed_prefix_list = [aws.ec2.get_managed_prefix_list(id=test_env.ids[__index]) for __index in len(test_env.ids).apply(lambda length: range(length))]
+    test_env_get_managed_prefix_list = range(len(test_env.ids)).apply(lambda range: [aws.ec2.get_managed_prefix_list(id=test_env.ids[__index]) for __index in range])
     ```
 
 
@@ -151,7 +151,7 @@ def get_managed_prefix_lists_output(filters: pulumi.Input[Optional[Optional[Sequ
     test_env = aws.ec2.get_managed_prefix_lists(tags={
         "Env": "test",
     })
-    test_env_get_managed_prefix_list = [aws.ec2.get_managed_prefix_list(id=test_env.ids[__index]) for __index in len(test_env.ids).apply(lambda length: range(length))]
+    test_env_get_managed_prefix_list = range(len(test_env.ids)).apply(lambda range: [aws.ec2.get_managed_prefix_list(id=test_env.ids[__index]) for __index in range])
     ```
 
 

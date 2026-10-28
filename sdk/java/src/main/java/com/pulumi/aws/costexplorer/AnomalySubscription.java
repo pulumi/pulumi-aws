@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("AWSServiceMonitor")
  *             .frequency("DAILY")
- *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
+ *             .monitorArnLists(testAwsCeAnomalyMonitor.get("arn"))
  *             .build());
  * 
  *     }}{@code
@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("AWSServiceMonitor")
  *             .frequency("DAILY")
- *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
+ *             .monitorArnLists(testAwsCeAnomalyMonitor.get("arn"))
  *             .build());
  * 
  *     }}{@code

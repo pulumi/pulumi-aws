@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleSecretRotation = new aws.secretsmanager.SecretRotation("example", {
  *     rotationRules: {
- *         automaticallyAfterDays: Number(rotationDays),
+ *         automaticallyAfterDays: rotationDays,
  *     },
  *     externalSecretRotationMetadatas: [
  *         {

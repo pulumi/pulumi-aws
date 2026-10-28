@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             SamplingConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs
     ///             {
-    ///                 SamplingPercentage = 10,
+    ///                 SamplingPercentage = 10.0,
     ///             },
     ///         },
     ///         Evaluators = new[]
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             SamplingConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs
     ///             {
-    ///                 SamplingPercentage = 50,
+    ///                 SamplingPercentage = 50.0,
     ///             },
     ///             SessionConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs
     ///             {

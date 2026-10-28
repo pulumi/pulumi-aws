@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Tag the log group to declare it as a custom data source.
+ * // Tag the log group to declare it as a custom function.
  * // Log stream messages are written to the "myapp__events" table
  * // in the aws-cloudwatch table bucket.
  * const example = new aws.cloudwatch.LogGroup("example", {

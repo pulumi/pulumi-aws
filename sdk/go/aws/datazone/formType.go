@@ -55,7 +55,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
 //				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"Statement": []interface{}{
 //					map[string]interface{}{
 //						"Action": []string{
 //							"sts:AssumeRole",
@@ -109,7 +109,7 @@ import (
 //				return err
 //			}
 //			testProject, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainIdentifier: test.ID().ToIDOutput().ToStringOutput(),
+//				DomainIdentifier: test.ID(),
 //				GlossaryTerms: pulumi.StringArray{
 //					pulumi.String("2N8w6XJCwZf"),
 //				},
@@ -139,8 +139,8 @@ import (
 //				},
 //				Description:             pulumi.String("desc"),
 //				Name:                    pulumi.String("SageMakerModelFormType"),
-//				DomainIdentifier:        test.ID().ToIDOutput().ToStringOutput(),
-//				OwningProjectIdentifier: testProject.ID().ToIDOutput().ToStringOutput(),
+//				DomainIdentifier:        test.ID(),
+//				OwningProjectIdentifier: testProject.ID(),
 //				Status:                  pulumi.String("DISABLED"),
 //			})
 //			if err != nil {

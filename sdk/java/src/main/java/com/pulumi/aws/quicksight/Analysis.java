@@ -56,10 +56,10 @@ import javax.annotation.Nullable;
  *             .sourceEntity(AnalysisSourceEntityArgs.builder()
  *                 .sourceTemplate(AnalysisSourceEntitySourceTemplateArgs.builder()
  *                     .dataSetReferences(AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(dataset.arn())
+ *                         .dataSetArn(dataset.get("arn"))
  *                         .dataSetPlaceholder("1")
  *                         .build())
- *                     .arn(source.arn())
+ *                     .arn(source.get("arn"))
  *                     .build())
  *                 .build())
  *             .analysisId("example-id")
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *         var example = new Analysis("example", AnalysisArgs.builder()
  *             .definition(Map.ofEntries(
  *                 Map.entry("dataSetIdentifiersDeclarations", Arrays.asList(Map.ofEntries(
- *                     Map.entry("dataSetArn", dataset.arn()),
+ *                     Map.entry("dataSetArn", dataset.get("arn")),
  *                     Map.entry("identifier", "1")
  *                 ))),
  *                 Map.entry("sheets", Arrays.asList(Map.ofEntries(

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2
         ///         VpcId = vpcId,
         ///     });
         /// 
-        ///     var ngw = ;
+        ///     var ngw = _arg1_;
         /// 
         /// });
         /// ```
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Ec2
         ///         VpcId = vpcId,
         ///     });
         /// 
-        ///     var ngw = ;
+        ///     var ngw = _arg1_;
         /// 
         /// });
         /// ```
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         ///         VpcId = vpcId,
         ///     });
         /// 
-        ///     var ngw = ;
+        ///     var ngw = _arg1_;
         /// 
         /// });
         /// ```

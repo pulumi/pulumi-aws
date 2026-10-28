@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ClusterPolicy("example", ClusterPolicyArgs.builder()
- *             .clusterArn(exampleAwsMskCluster.arn())
+ *             .clusterArn(exampleAwsMskCluster.get("arn"))
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                             "kafka:CreateVpcConnection", 
  *                             "kafka:GetBootstrapBrokers"
  *                         )),
- *                         jsonProperty("Resource", exampleAwsMskCluster.arn())
+ *                         jsonProperty("Resource", exampleAwsMskCluster.get("arn"))
  *                     )))
  *                 )))
  *             .build());

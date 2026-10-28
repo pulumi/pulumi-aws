@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connect("example", ConnectArgs.builder()
- *             .transportAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
+ *             .transportAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.get("id"))
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.get("id"))
  *             .build());
  * 
  *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()

@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Budgets
     ///         ActionThreshold = new Aws.Budgets.Inputs.BudgetActionActionThresholdArgs
     ///         {
     ///             ActionThresholdType = "ABSOLUTE_VALUE",
-    ///             ActionThresholdValue = 100,
+    ///             ActionThresholdValue = 100.0,
     ///         },
     ///         Definition = new Aws.Budgets.Inputs.BudgetActionDefinitionArgs
     ///         {

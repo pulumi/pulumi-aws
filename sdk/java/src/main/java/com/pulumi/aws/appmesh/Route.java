@@ -59,19 +59,19 @@ import javax.annotation.Nullable;
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(                        
  *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(serviceb1.name())
+ *                                 .virtualNode(serviceb1.get("name"))
  *                                 .weight(90)
  *                                 .build(),
  *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(serviceb2.name())
+ *                                 .virtualNode(serviceb2.get("name"))
  *                                 .weight(10)
  *                                 .build())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
+ *             .meshName(simple.get("id"))
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.get("name"))
  *             .build());
  * 
  *     }
@@ -126,15 +126,15 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(servicebAwsAppmeshVirtualNode.name())
+ *                             .virtualNode(servicebAwsAppmeshVirtualNode.get("name"))
  *                             .weight(100)
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
+ *             .meshName(simple.get("id"))
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.get("name"))
  *             .build());
  * 
  *     }
@@ -189,15 +189,15 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(servicebAwsAppmeshVirtualNode.name())
+ *                             .virtualNode(servicebAwsAppmeshVirtualNode.get("name"))
  *                             .weight(100)
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
+ *             .meshName(simple.get("id"))
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.get("name"))
  *             .build());
  * 
  *     }
@@ -238,15 +238,15 @@ import javax.annotation.Nullable;
  *                 .tcpRoute(RouteSpecTcpRouteArgs.builder()
  *                     .action(RouteSpecTcpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecTcpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(serviceb1.name())
+ *                             .virtualNode(serviceb1.get("name"))
  *                             .weight(100)
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
+ *             .meshName(simple.get("id"))
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.get("name"))
  *             .build());
  * 
  *     }

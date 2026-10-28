@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2ServiceFunction("example", V2ServiceFunctionArgs.builder()
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.get("arn"))
  *             .name("example-function")
  *             .criticality("PRIMARY")
  *             .build());
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2ServiceFunction("example", V2ServiceFunctionArgs.builder()
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.get("arn"))
  *             .name("payment-processing")
  *             .description("Handles payment transaction processing")
  *             .criticality("PRIMARY")

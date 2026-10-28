@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ecs
     ///                 },
     ///                 Enable = true,
     ///             },
-    ///             DrainPercent = 50,
+    ///             DrainPercent = 50.0,
     ///             BakeTimeInMinutes = 10,
     ///         },
     ///         Name = "example-daemon",

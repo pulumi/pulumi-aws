@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				InstanceType: example.InstanceType.ApplyT(func(x *string) ec2.InstanceType { return ec2.InstanceType(*x) }).(ec2.InstanceTypeOutput),
+//				InstanceType: pulumi.String(example.InstanceType),
 //			})
 //			if err != nil {
 //				return err

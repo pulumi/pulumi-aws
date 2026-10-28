@@ -95,7 +95,7 @@ import (
 //							{
 //								Test:     "StringEquals",
 //								Variable: "aws:PrincipalOrgID",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									example.Id,
 //								},
 //							},
@@ -179,7 +179,7 @@ import (
 //							{
 //								Test:     "StringEquals",
 //								Variable: "aws:PrincipalOrgID",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									example.Id,
 //								},
 //							},

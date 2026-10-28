@@ -56,7 +56,7 @@ import (
 //						},
 //					},
 //				},
-//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

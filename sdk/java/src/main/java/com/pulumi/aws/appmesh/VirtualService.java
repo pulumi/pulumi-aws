@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualNode(VirtualServiceSpecProviderVirtualNodeArgs.builder()
- *                         .virtualNodeName(serviceb1.name())
+ *                         .virtualNodeName(serviceb1.get("name"))
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("servicea.simpleapp.local")
- *             .meshName(simple.id())
+ *             .meshName(simple.get("id"))
  *             .build());
  * 
  *     }
@@ -96,12 +96,12 @@ import javax.annotation.Nullable;
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualRouter(VirtualServiceSpecProviderVirtualRouterArgs.builder()
- *                         .virtualRouterName(serviceb.name())
+ *                         .virtualRouterName(serviceb.get("name"))
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("servicea.simpleapp.local")
- *             .meshName(simple.id())
+ *             .meshName(simple.get("id"))
  *             .build());
  * 
  *     }

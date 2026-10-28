@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResolverRuleAssociation("example", ResolverRuleAssociationArgs.builder()
- *             .resolverRuleId(sys.id())
- *             .vpcId(foo.id())
+ *             .resolverRuleId(sys.get("id"))
+ *             .vpcId(foo.get("id"))
  *             .build());
  * 
  *     }

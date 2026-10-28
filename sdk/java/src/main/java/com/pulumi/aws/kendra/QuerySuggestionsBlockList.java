@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new QuerySuggestionsBlockList("example", QuerySuggestionsBlockListArgs.builder()
  *             .sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
+ *                 .bucket(exampleAwsS3Bucket.get("id"))
  *                 .key("example/suggestions.txt")
  *                 .build())
- *             .indexId(exampleAwsKendraIndex.id())
+ *             .indexId(exampleAwsKendraIndex.get("id"))
  *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .tags(Map.of("Name", "Example Kendra Index"))
  *             .build());
  * 

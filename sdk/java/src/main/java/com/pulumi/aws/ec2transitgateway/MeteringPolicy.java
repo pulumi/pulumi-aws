@@ -87,8 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MeteringPolicy("example", MeteringPolicyArgs.builder()
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
- *             .middleboxAttachmentIds(exampleAwsEc2TransitGatewayVpcAttachment.id())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.get("id"))
+ *             .middleboxAttachmentIds(exampleAwsEc2TransitGatewayVpcAttachment.get("id"))
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 

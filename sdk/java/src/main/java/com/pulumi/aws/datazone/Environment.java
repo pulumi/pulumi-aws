@@ -64,10 +64,10 @@ import javax.annotation.Nullable;
  *                     .value("workgroup")
  *                     .build())
  *             .name("example")
- *             .blueprintIdentifier(test.environmentBlueprintId())
- *             .profileIdentifier(testAwsDatazoneEnvironmentProfile.id())
- *             .projectIdentifier(testAwsDatazoneProject.id())
- *             .domainIdentifier(testAwsDatazoneDomain.id())
+ *             .blueprintIdentifier(test.get("environmentBlueprintId"))
+ *             .profileIdentifier(testAwsDatazoneEnvironmentProfile.get("id"))
+ *             .projectIdentifier(testAwsDatazoneProject.get("id"))
+ *             .domainIdentifier(testAwsDatazoneDomain.get("id"))
  *             .build());
  * 
  *     }

@@ -89,7 +89,7 @@ import (
 //				SubnetArns: pulumi.StringArray{
 //					exampleAwsSubnet.Arn,
 //				},
-//				VpcEndpointId:       exampleVpcEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				VpcEndpointId:       exampleVpcEndpoint.ID(),
 //				PrivateLinkEndpoint: example.PrivateIp(),
 //				Name:                pulumi.String("example"),
 //			})

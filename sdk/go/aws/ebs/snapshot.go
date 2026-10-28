@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = ebs.NewSnapshot(ctx, "example_snapshot", &ebs.SnapshotArgs{
-//				VolumeId: example.ID().ToIDOutput().ToStringOutput(),
+//				VolumeId: example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld_snap"),
 //				},

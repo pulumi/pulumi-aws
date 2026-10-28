@@ -130,7 +130,7 @@ namespace Pulumi.Aws.AutoScaling
     ///                     },
     ///                 },
     ///             },
-    ///             TargetValue = 100,
+    ///             TargetValue = 100.0,
     ///         },
     ///         AutoscalingGroupName = "my-test-asg",
     ///         Name = "foo",
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.AutoScaling
     ///                         },
     ///                     },
     ///                 },
-    ///                 TargetValue = 10,
+    ///                 TargetValue = 10.0,
     ///             },
     ///         },
     ///         AutoscalingGroupName = "my-test-asg",
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.AutoScaling
     ///                         },
     ///                     },
     ///                 },
-    ///                 TargetValue = 10,
+    ///                 TargetValue = 10.0,
     ///             },
     ///         },
     ///         AutoscalingGroupName = "my-test-asg",
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.AutoScaling
         ///             {
         ///                 PredefinedMetricType = "ASGAverageCPUUtilization",
         ///             },
-        ///             TargetValue = 40,
+        ///             TargetValue = 40.0,
         ///         },
         ///     });
         /// 
@@ -636,7 +636,7 @@ namespace Pulumi.Aws.AutoScaling
         ///             {
         ///                 PredefinedMetricType = "ASGAverageCPUUtilization",
         ///             },
-        ///             TargetValue = 40,
+        ///             TargetValue = 40.0,
         ///         },
         ///     });
         /// 
@@ -804,7 +804,7 @@ namespace Pulumi.Aws.AutoScaling
         ///             {
         ///                 PredefinedMetricType = "ASGAverageCPUUtilization",
         ///             },
-        ///             TargetValue = 40,
+        ///             TargetValue = 40.0,
         ///         },
         ///     });
         /// 

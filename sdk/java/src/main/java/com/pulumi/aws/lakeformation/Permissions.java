@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("abelt")
- *             .databaseName(test.name())
+ *             .databaseName(test.get("name"))
  *             .build());
  * 
  *         var examplePermissions = new Permissions("examplePermissions", PermissionsArgs.builder()
@@ -194,8 +194,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Permissions("example", PermissionsArgs.builder()
  *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
- *                 .databaseName(exampleAwsGlueCatalogTable.databaseName())
- *                 .name(exampleAwsGlueCatalogTable.name())
+ *                 .databaseName(exampleAwsGlueCatalogTable.get("databaseName"))
+ *                 .name(exampleAwsGlueCatalogTable.get("name"))
  *                 .columnNames("event")
  *                 .build())
  *             .permissions("SELECT")
@@ -242,9 +242,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Permissions("example", PermissionsArgs.builder()
  *             .dataLocation(PermissionsDataLocationArgs.builder()
- *                 .arn(exampleAwsLakeformationResource.arn())
+ *                 .arn(exampleAwsLakeformationResource.get("arn"))
  *                 .build())
- *             .principal(workflowRole.arn())
+ *             .principal(workflowRole.get("arn"))
  *             .permissions("DATA_LOCATION_ACCESS")
  *             .build());
  * 
@@ -280,10 +280,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Permissions("example", PermissionsArgs.builder()
  *             .database(PermissionsDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
+ *                 .name(exampleAwsGlueCatalogDatabase.get("name"))
  *                 .catalogId("110376042874")
  *                 .build())
- *             .principal(workflowRole.arn())
+ *             .principal(workflowRole.get("arn"))
  *             .permissions(            
  *                 "CREATE_TABLE",
  *                 "ALTER",
@@ -336,7 +336,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .resourceType("DATABASE")
  *                 .build())
- *             .principal(salesRole.arn())
+ *             .principal(salesRole.get("arn"))
  *             .permissions(            
  *                 "CREATE_TABLE",
  *                 "ALTER",

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type("password")
- *                 .passwords(example.result())
+ *                 .passwords(example.get("result"))
  *                 .build())
  *             .userName("my-user")
  *             .accessString("on ~* &* +}{@literal @}{@code all")

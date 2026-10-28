@@ -53,7 +53,7 @@ import (
 //					},
 //				},
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
+//				VoiceConnectorId: _default.ID(),
 //			})
 //			if err != nil {
 //				return err

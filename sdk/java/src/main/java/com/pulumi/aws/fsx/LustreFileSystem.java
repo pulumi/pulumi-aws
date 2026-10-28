@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LustreFileSystem("example", LustreFileSystemArgs.builder()
- *             .importPath(String.format("s3://%s", exampleAwsS3Bucket.bucket()))
+ *             .importPath(String.format("s3://%s", exampleAwsS3Bucket.get("bucket")))
  *             .storageCapacity(1200)
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LustreFileSystem("example", LustreFileSystemArgs.builder()
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
+ *             .securityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .build(), CustomResourceOptions.builder()
  *                 .ignoreChanges("securityGroupIds")
  *                 .build());

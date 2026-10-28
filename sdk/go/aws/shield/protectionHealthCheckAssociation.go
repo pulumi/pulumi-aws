@@ -84,7 +84,7 @@ import (
 //			}
 //			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "example", &shield.ProtectionHealthCheckAssociationArgs{
 //				HealthCheckArn:     exampleHealthCheck.Arn,
-//				ShieldProtectionId: exampleProtection.ID().ToIDOutput().ToStringOutput(),
+//				ShieldProtectionId: exampleProtection.ID(),
 //			})
 //			if err != nil {
 //				return err

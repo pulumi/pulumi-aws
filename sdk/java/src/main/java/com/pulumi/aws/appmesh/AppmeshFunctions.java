@@ -877,6 +877,44 @@ public final class AppmeshFunctions {
      * }
      * </pre>
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.appmesh.AppmeshFunctions;
+     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
+     * 
+     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.accountId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetVirtualGatewayResult> getVirtualGateway(GetVirtualGatewayArgs args) {
         return getVirtualGateway(args, InvokeOptions.Empty);
@@ -913,6 +951,44 @@ public final class AppmeshFunctions {
      *         final var example = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
      *             .meshName("mesh-gateway")
      *             .name("example-mesh")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.appmesh.AppmeshFunctions;
+     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
+     * 
+     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -963,6 +1039,44 @@ public final class AppmeshFunctions {
      * }
      * </pre>
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.appmesh.AppmeshFunctions;
+     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
+     * 
+     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.accountId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetVirtualGatewayResult> getVirtualGateway(GetVirtualGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:appmesh/getVirtualGateway:getVirtualGateway", TypeShape.of(GetVirtualGatewayResult.class), args, Utilities.withVersion(options));
@@ -1006,6 +1120,44 @@ public final class AppmeshFunctions {
      * }
      * </pre>
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.appmesh.AppmeshFunctions;
+     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
+     * 
+     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.accountId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetVirtualGatewayResult> getVirtualGateway(GetVirtualGatewayArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appmesh/getVirtualGateway:getVirtualGateway", TypeShape.of(GetVirtualGatewayResult.class), args, Utilities.withVersion(options));
@@ -1042,6 +1194,44 @@ public final class AppmeshFunctions {
      *         final var example = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
      *             .meshName("mesh-gateway")
      *             .name("example-mesh")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.appmesh.AppmeshFunctions;
+     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
+     * 
+     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }

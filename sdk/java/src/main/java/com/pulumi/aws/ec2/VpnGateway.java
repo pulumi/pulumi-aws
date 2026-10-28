@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var vpnGw = new VpnGateway("vpnGw", VpnGatewayArgs.builder()
- *             .vpcId(main.id())
+ *             .vpcId(main.get("id"))
  *             .tags(Map.of("Name", "main"))
  *             .build());
  * 

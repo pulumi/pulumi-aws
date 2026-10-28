@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceNetworkResourceAssociation("example", ServiceNetworkResourceAssociationArgs.builder()
- *             .resourceConfigurationIdentifier(exampleAwsVpclatticeResourceConfiguration.id())
- *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
+ *             .resourceConfigurationIdentifier(exampleAwsVpclatticeResourceConfiguration.get("id"))
+ *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.get("id"))
  *             .tags(Map.of("Name", "Example"))
  *             .build());
  * 

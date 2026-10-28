@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
- *             .organizationId(exampleAwsWorkmailOrganization.id())
+ *             .organizationId(exampleAwsWorkmailOrganization.get("id"))
  *             .domainName("example.com")
  *             .build());
  * 

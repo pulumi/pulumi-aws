@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
- *                             .functionArn(exampleAwsLambdaFunction.arn())
+ *                             .functionArn(exampleAwsLambdaFunction.get("arn"))
  *                             .build())
  *                         .build())
  *                     .actions("GetObject")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Action", "s3-object-lambda:GetObject"),
  *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", current.accountId())
+ *                             jsonProperty("AWS", current.get("accountId"))
  *                         )),
  *                         jsonProperty("Resource", _arn)
  *                     )))

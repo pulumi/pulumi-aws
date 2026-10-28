@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
- *                         .identifiers(current.accountId())
+ *                         .identifiers(current.get("accountId"))
  *                         .build())
  *                     .sid("1")
  *                     .effect("Allow")
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                         "acm-pca:GetCertificateAuthorityCertificate",
  *                         "acm-pca:ListPermissions",
  *                         "acm-pca:ListTags")
- *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
+ *                     .resources(exampleAwsAcmpcaCertificateAuthority.get("arn"))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
@@ -72,17 +72,17 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
- *                         .identifiers(current.accountId())
+ *                         .identifiers(current.get("accountId"))
  *                         .build())
  *                     .sid("2")
  *                     .effect(allow)
  *                     .actions("acm-pca:IssueCertificate")
- *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
+ *                     .resources(exampleAwsAcmpcaCertificateAuthority.get("arn"))
  *                     .build())
  *             .build());
  * 
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
- *             .resourceArn(exampleAwsAcmpcaCertificateAuthority.arn())
+ *             .resourceArn(exampleAwsAcmpcaCertificateAuthority.get("arn"))
  *             .policy(example.json())
  *             .build());
  * 

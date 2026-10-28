@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGateway("example", ResourceGatewayArgs.builder()
  *             .name("Example")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .tags(Map.of("Environment", "Example"))
  *             .build());
  * 
@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGateway("example", ResourceGatewayArgs.builder()
  *             .name("Example")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .ipAddressType("DUALSTACK")
  *             .tags(Map.of("Environment", "Example"))
  *             .build());
@@ -122,9 +122,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGateway("example", ResourceGatewayArgs.builder()
  *             .name("Example")
- *             .vpcId(exampleAwsVpc.id())
- *             .securityGroupIds(test.id())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
+ *             .securityGroupIds(test.get("id"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }

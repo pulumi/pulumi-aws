@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
         ///         VpcId = foo.Id,
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
         ///         VpcId = foo.Id,
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
         ///         VpcId = foo.Id,

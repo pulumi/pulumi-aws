@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .dbWorkload("OLTP")
  *             .displayName("pulumi-adbs-example")
  *             .licenseModel("LICENSE_INCLUDED")
- *             .odbNetworkId(exampleAwsOdbNetwork.id())
+ *             .odbNetworkId(exampleAwsOdbNetwork.get("id"))
  *             .source("NONE")
  *             .tags(Map.of("Environment", "example"))
  *             .build());
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
- *             .id(exampleAwsOdbAutonomousDatabase.id())
+ *             .id(exampleAwsOdbAutonomousDatabase.get("id"))
  *             .build());
  * 
  *     }

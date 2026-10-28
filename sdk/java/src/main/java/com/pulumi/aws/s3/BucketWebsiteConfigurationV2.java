@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                     .replaceKeyPrefixWith("documents/")
  *                     .build())
  *                 .build())
- *             .bucket(exampleAwsS3Bucket.id())
+ *             .bucket(exampleAwsS3Bucket.get("id"))
  *             .build());
  * 
  *     }
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .errorDocument(BucketWebsiteConfigurationErrorDocumentArgs.builder()
  *                 .key("error.html")
  *                 .build())
- *             .bucket(exampleAwsS3Bucket.id())
+ *             .bucket(exampleAwsS3Bucket.get("id"))
  *             .routingRuleDetails("""
  * [{
  *     \"Condition\": {

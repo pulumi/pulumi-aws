@@ -66,7 +66,7 @@ import (
 //					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),
 //				},
 //				ProgramName: pulumi.String("example_program"),
-//				MultiplexId: example.ID().ToIDOutput().ToStringOutput(),
+//				MultiplexId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()
  *             .accountId("123456789012")
  *             .stackSetInstanceRegion("us-east-1")
- *             .stackSetName(exampleAwsCloudformationStackSet.name())
+ *             .stackSetName(exampleAwsCloudformationStackSet.get("name"))
  *             .build());
  * 
  *     }
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *         final var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(aWSCloudFormationStackSetAdministrationRole.arn())
+ *                     .identifiers(aWSCloudFormationStackSetAdministrationRole.get("arn"))
  *                     .type("AWS")
  *                     .build())
  *                 .actions("sts:AssumeRole")
@@ -161,10 +161,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()
  *             .deploymentTargets(StackSetInstanceDeploymentTargetsArgs.builder()
- *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.roots()[0].id())
+ *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.get("roots")[0].get("id"))
  *                 .build())
  *             .stackSetInstanceRegion("us-east-1")
- *             .stackSetName(exampleAwsCloudformationStackSet.name())
+ *             .stackSetName(exampleAwsCloudformationStackSet.get("name"))
  *             .build());
  * 
  *     }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
         ///         VpcId = foo.Id,
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
         ///         VpcId = foo.Id,
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Declare the data source
+        ///     // Declare the function
         ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
         ///         VpcId = foo.Id,

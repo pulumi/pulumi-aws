@@ -58,7 +58,10 @@ namespace Pulumi.Aws.SecurityHub
         ///         {
         ///             var example = values.Item1;
         ///             var invoke = values.Item2;
-        ///             return ;
+        ///             return .Where(d =&gt; invoke.Result).Select(d =&gt; 
+        ///             {
+        ///                 return d;
+        ///             }).ToList();
         ///         }),
         ///     };
         /// });
@@ -114,7 +117,10 @@ namespace Pulumi.Aws.SecurityHub
         ///         {
         ///             var example = values.Item1;
         ///             var invoke = values.Item2;
-        ///             return ;
+        ///             return .Where(d =&gt; invoke.Result).Select(d =&gt; 
+        ///             {
+        ///                 return d;
+        ///             }).ToList();
         ///         }),
         ///     };
         /// });
@@ -170,7 +176,10 @@ namespace Pulumi.Aws.SecurityHub
         ///         {
         ///             var example = values.Item1;
         ///             var invoke = values.Item2;
-        ///             return ;
+        ///             return .Where(d =&gt; invoke.Result).Select(d =&gt; 
+        ///             {
+        ///                 return d;
+        ///             }).ToList();
         ///         }),
         ///     };
         /// });

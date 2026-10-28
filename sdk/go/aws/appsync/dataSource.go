@@ -88,7 +88,7 @@ import (
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
-//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   exampleRole.ID(),
 //				Policy: example.Json(),
 //			})
 //			if err != nil {
@@ -105,7 +105,7 @@ import (
 //				DynamodbConfig: &appsync.DataSourceDynamodbConfigArgs{
 //					TableName: exampleTable.Name,
 //				},
-//				ApiId:          exampleGraphQLApi.ID().ToIDOutput().ToStringOutput(),
+//				ApiId:          exampleGraphQLApi.ID(),
 //				Name:           pulumi.String("my_appsync_example"),
 //				ServiceRoleArn: exampleRole.Arn,
 //				Type:           pulumi.String("AMAZON_DYNAMODB"),

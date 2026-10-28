@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()
  *             .sns(NotificationChannelSnsArgs.builder()
- *                 .topicArn(exampleAwsSnsTopic.arn())
+ *                 .topicArn(exampleAwsSnsTopic.get("arn"))
  *                 .build())
  *             .build());
  * 
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()
  *             .sns(NotificationChannelSnsArgs.builder()
- *                 .topicArn(exampleAwsSnsTopic.arn())
+ *                 .topicArn(exampleAwsSnsTopic.get("arn"))
  *                 .build())
  *             .filters(NotificationChannelFiltersArgs.builder()
  *                 .messageTypes("NEW_INSIGHT")

@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *         var parent = new HealthCheck("parent", HealthCheckArgs.builder()
  *             .type("CALCULATED")
  *             .childHealthThreshold(1)
- *             .childHealthchecks(child.id())
+ *             .childHealthchecks(child.get("id"))
  *             .tags(Map.of("Name", "tf-test-calculated-health-check"))
  *             .build());
  * 

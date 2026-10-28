@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *             .computeEnvironmentOrders(            
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
  *                     .order(1)
- *                     .computeEnvironment(testEnvironment1.arn())
+ *                     .computeEnvironment(testEnvironment1.get("arn"))
  *                     .build(),
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
  *                     .order(2)
- *                     .computeEnvironment(testEnvironment2.arn())
+ *                     .computeEnvironment(testEnvironment2.get("arn"))
  *                     .build())
  *             .name("tf-test-batch-job-queue")
  *             .state("ENABLED")
@@ -115,11 +115,11 @@ import javax.annotation.Nullable;
  *             .computeEnvironmentOrders(            
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
  *                     .order(1)
- *                     .computeEnvironment(testEnvironment1.arn())
+ *                     .computeEnvironment(testEnvironment1.get("arn"))
  *                     .build(),
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
  *                     .order(2)
- *                     .computeEnvironment(testEnvironment2.arn())
+ *                     .computeEnvironment(testEnvironment2.get("arn"))
  *                     .build())
  *             .name("tf-test-batch-job-queue")
  *             .schedulingPolicyArn(example.arn())

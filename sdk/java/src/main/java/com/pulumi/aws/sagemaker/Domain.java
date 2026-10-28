@@ -78,8 +78,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .domainName("example")
  *             .authMode("IAM")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Image("example", ImageArgs.builder()
  *             .imageName("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *         var exampleAppImageConfig = new AppImageConfig("exampleAppImageConfig", AppImageConfigArgs.builder()
@@ -149,12 +149,12 @@ import javax.annotation.Nullable;
  *                         .imageName(exampleImageVersion.imageName())
  *                         .build())
  *                     .build())
- *                 .executionRole(exampleAwsIamRole.arn())
+ *                 .executionRole(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .domainName("example")
  *             .authMode("IAM")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .build());
  * 
  *     }

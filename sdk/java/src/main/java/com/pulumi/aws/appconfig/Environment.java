@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .monitors(EnvironmentMonitorArgs.builder()
- *                 .alarmArn(exampleAwsCloudwatchMetricAlarm.arn())
- *                 .alarmRoleArn(exampleAwsIamRole.arn())
+ *                 .alarmArn(exampleAwsCloudwatchMetricAlarm.get("arn"))
+ *                 .alarmRoleArn(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .name("example-environment-tf")
  *             .description("Example AppConfig Environment")

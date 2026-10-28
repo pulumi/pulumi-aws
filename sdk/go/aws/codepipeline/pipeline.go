@@ -164,7 +164,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketPublicAccessBlock(ctx, "codepipeline_bucket_pab", &s3.BucketPublicAccessBlockArgs{
-//				Bucket:                codepipelineBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket:                codepipelineBucket.ID(),
 //				BlockPublicAcls:       pulumi.Bool(true),
 //				BlockPublicPolicy:     pulumi.Bool(true),
 //				IgnorePublicAcls:      pulumi.Bool(true),
@@ -214,7 +214,7 @@ import (
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "codepipeline_policy", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("codepipeline_policy"),
-//				Role:   codepipelineRole.ID().ToIDOutput().ToStringOutput(),
+//				Role:   codepipelineRole.ID(),
 //				Policy: codepipelinePolicy.Json(),
 //			})
 //			if err != nil {

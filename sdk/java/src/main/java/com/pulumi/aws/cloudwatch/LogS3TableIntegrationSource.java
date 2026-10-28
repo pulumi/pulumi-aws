@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 .name("*")
  *                 .type("*")
  *                 .build())
- *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.arn())
+ *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.get("arn"))
  *             .build());
  * 
  *     }
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Tag the log group to declare it as a custom data source.
+ *         // Tag the log group to declare it as a custom function.
  *         // Log stream messages are written to the "myapp__events" table
  *         // in the aws-cloudwatch table bucket.
  *         var example = new LogGroup("example", LogGroupArgs.builder()
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *                 .name("myapp")
  *                 .type("events")
  *                 .build())
- *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.arn())
+ *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.get("arn"))
  *             .build());
  * 
  *     }

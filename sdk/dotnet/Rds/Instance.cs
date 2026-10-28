@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine)),
     ///         EngineVersion = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion)),
     ///         Identifier = "ee-instance-demo",
-    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)),
     ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
     ///         LicenseModel = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.LicenseModel)),
     ///         MultiAz = false,
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Rds
     ///         CustomIamInstanceProfile = "AWSRDSCustomInstanceProfile",
     ///         BackupRetentionPeriod = 7,
     ///         Identifier = "ee-instance-replica",
-    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         InstanceClass = custom_oracle.Apply(custom_oracle =&gt; custom_oracle.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)),
     ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
     ///         MultiAz = false,
     ///         SkipFinalSnapshot = true,
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine)),
     ///         EngineVersion = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion)),
     ///         Identifier = "sql-instance-demo",
-    ///         InstanceClass = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         InstanceClass = custom_sqlserver.Apply(custom_sqlserver =&gt; custom_sqlserver.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass)),
     ///         KmsKeyId = byId.Apply(getKeyResult =&gt; getKeyResult.Arn),
     ///         MultiAz = false,
     ///         Password = "avoid-plaintext-passwords",
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Rds
     ///         Family = @default.Apply(@default =&gt; @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.ParameterGroupFamily)),
     ///     });
     /// 
-    ///     // Create the RDS Db2 instance, use the data sources defined to set attributes
+    ///     // Create the RDS Db2 instance, use the functions defined to set attributes
     ///     var exampleInstance = new Aws.Rds.Instance("example", new()
     ///     {
     ///         AllocatedStorage = 100,
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine),
     ///         EngineVersion = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion),
     ///         Identifier = "db2-instance-demo",
-    ///         InstanceClass = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType&gt;),
+    ///         InstanceClass = example.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass),
     ///         ParameterGroupName = exampleParameterGroup.Name,
     ///         Password = "avoid-plaintext-passwords",
     ///         Username = "test",

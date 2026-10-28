@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 .type("OPENSEARCH_SERVERLESS")
  *                 .build())
  *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *                 .type("KENDRA")
  *                 .build())
  *             .name("example-kendra-kb")
- *             .roleArn(example.arn())
+ *             .roleArn(example.get("arn"))
  *             .build());
  * 
  *     }
@@ -163,15 +163,15 @@ import javax.annotation.Nullable;
  *                             .provisionedConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs.builder()
  *                                 .authConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs.builder()
  *                                     .type("USERNAME")
- *                                     .databaseUser(exampleAwsRedshiftCluster.masterUsername())
+ *                                     .databaseUser(exampleAwsRedshiftCluster.get("masterUsername"))
  *                                     .build())
- *                                 .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
+ *                                 .clusterIdentifier(exampleAwsRedshiftCluster.get("clusterIdentifier"))
  *                                 .build())
  *                             .type("PROVISIONED")
  *                             .build())
  *                         .storageConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs.builder()
  *                             .redshiftConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs.builder()
- *                                 .databaseName(exampleAwsRedshiftCluster.databaseName())
+ *                                 .databaseName(exampleAwsRedshiftCluster.get("databaseName"))
  *                                 .build())
  *                             .type("REDSHIFT")
  *                             .build())
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *                 .type("SQL")
  *                 .build())
  *             .name("example-kb")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -239,7 +239,7 @@ import javax.annotation.Nullable;
  *                 .type("OPENSEARCH_MANAGED_CLUSTER")
  *                 .build())
  *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -325,7 +325,7 @@ import javax.annotation.Nullable;
  *                 .type("OPENSEARCH_SERVERLESS")
  *                 .build())
  *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -399,7 +399,7 @@ import javax.annotation.Nullable;
  *                 .type("S3_VECTORS")
  *                 .build())
  *             .name("example-s3vectors-kb")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -441,7 +441,7 @@ import javax.annotation.Nullable;
  *                 .type("MANAGED")
  *                 .build())
  *             .name("example-managed-kb")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }
@@ -491,7 +491,7 @@ import javax.annotation.Nullable;
  *                 .type("MANAGED")
  *                 .build())
  *             .name("example-managed-multilingual-kb")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

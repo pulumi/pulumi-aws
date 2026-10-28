@@ -50,9 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Image("example", ImageArgs.builder()
- *             .distributionConfigurationArn(exampleAwsImagebuilderDistributionConfiguration.arn())
- *             .imageRecipeArn(exampleAwsImagebuilderImageRecipe.arn())
- *             .infrastructureConfigurationArn(exampleAwsImagebuilderInfrastructureConfiguration.arn())
+ *             .distributionConfigurationArn(exampleAwsImagebuilderDistributionConfiguration.get("arn"))
+ *             .imageRecipeArn(exampleAwsImagebuilderImageRecipe.get("arn"))
+ *             .infrastructureConfigurationArn(exampleAwsImagebuilderInfrastructureConfiguration.get("arn"))
  *             .build());
  * 
  *     }

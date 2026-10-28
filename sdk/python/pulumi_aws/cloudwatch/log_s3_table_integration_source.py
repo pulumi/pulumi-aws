@@ -195,7 +195,7 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # Tag the log group to declare it as a custom data source.
+        # Tag the log group to declare it as a custom function.
         # Log stream messages are written to the "myapp__events" table
         # in the aws-cloudwatch table bucket.
         example = aws.cloudwatch.LogGroup("example",
@@ -275,7 +275,7 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # Tag the log group to declare it as a custom data source.
+        # Tag the log group to declare it as a custom function.
         # Log stream messages are written to the "myapp__events" table
         # in the aws-cloudwatch table bucket.
         example = aws.cloudwatch.LogGroup("example",

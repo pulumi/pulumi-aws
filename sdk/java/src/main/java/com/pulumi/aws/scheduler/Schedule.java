@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  *                 .mode("OFF")
  *                 .build())
  *             .target(ScheduleTargetArgs.builder()
- *                 .arn(exampleAwsSqsQueue.arn())
- *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .arn(exampleAwsSqsQueue.get("arn"))
+ *                 .roleArn(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .name("my-schedule")
  *             .groupName("default")
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn("arn:aws:scheduler:::aws-sdk:sqs:sendMessage")
- *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .roleArn(exampleAwsIamRole.get("arn"))
  *                 .input(example.url().applyValue(_url -> serializeJson(
  *                     jsonObject(
  *                         jsonProperty("MessageBody", "Greetings, programs!"),

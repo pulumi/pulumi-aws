@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         // Create DNS TXT record for domain verification
  *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
- *             .zoneId(exampleAwsRoute53Zone.zoneId())
+ *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
  *             .name(example.txtRecordName())
  *             .type("TXT")
  *             .ttl(300)

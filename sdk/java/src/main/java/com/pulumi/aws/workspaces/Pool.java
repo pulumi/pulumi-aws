@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()
  *             .subnetIds(            
- *                 exampleC.id(),
- *                 exampleD.id())
+ *                 exampleC.get("id"),
+ *                 exampleD.get("id"))
  *             .workspaceType("POOLS")
  *             .workspaceDirectoryName("example-directory")
  *             .workspaceDirectoryDescription("Example WorkSpaces Directory for Pools")
@@ -116,10 +116,10 @@ import javax.annotation.Nullable;
  *             .capacity(PoolCapacityArgs.builder()
  *                 .desiredUserSessions(10)
  *                 .build())
- *             .bundleId(exampleAwsWorkspacesBundle.id())
+ *             .bundleId(exampleAwsWorkspacesBundle.get("id"))
  *             .poolName("example-pool")
  *             .description("Example WorkSpaces Pool with Application Settings")
- *             .directoryId(exampleAwsWorkspacesDirectory.directoryId())
+ *             .directoryId(exampleAwsWorkspacesDirectory.get("directoryId"))
  *             .runningMode("AUTO_STOP")
  *             .applicationSettings(PoolApplicationSettingArgs.builder()
  *                 .status("ENABLED")
@@ -162,10 +162,10 @@ import javax.annotation.Nullable;
  *             .capacity(PoolCapacityArgs.builder()
  *                 .desiredUserSessions(10)
  *                 .build())
- *             .bundleId(exampleAwsWorkspacesBundle.id())
+ *             .bundleId(exampleAwsWorkspacesBundle.get("id"))
  *             .poolName("example-pool")
  *             .description("Example WorkSpaces Pool with Timeout Settings")
- *             .directoryId(exampleAwsWorkspacesDirectory.directoryId())
+ *             .directoryId(exampleAwsWorkspacesDirectory.get("directoryId"))
  *             .runningMode("AUTO_STOP")
  *             .timeoutSettings(PoolTimeoutSettingArgs.builder()
  *                 .disconnectTimeoutInSeconds(900)

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VectorsVectorBucketPolicy("example", VectorsVectorBucketPolicyArgs.builder()
- *             .vectorBucketArn(exampleAwsS3vectorsVectorBucket.arn())
+ *             .vectorBucketArn(exampleAwsS3vectorsVectorBucket.get("arn"))
  *             .policy("""
  * {
  *   \"Version\": \"2012-10-17\",

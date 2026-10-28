@@ -45,7 +45,7 @@ import (
 //							{
 //								Test:     "StringEquals",
 //								Variable: "aws:SourceAccount",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									current.AccountId,
 //								},
 //							},
@@ -63,7 +63,7 @@ import (
 //						Actions: []string{
 //							"lambda:InvokeFunction",
 //						},
-//						Resources: pulumi.StringArray{
+//						Resources: []string{
 //							exampleAwsLambdaFunction.Arn,
 //						},
 //					},
@@ -117,7 +117,7 @@ import (
 //						Actions: []string{
 //							"lambda:InvokeFunction",
 //						},
-//						Resources: pulumi.StringArray{
+//						Resources: []string{
 //							exampleAwsLambdaFunction.Arn,
 //						},
 //					},
@@ -144,7 +144,7 @@ import (
 //						Actions: []string{
 //							"lambda:InvokeFunction",
 //						},
-//						Resources: pulumi.StringArray{
+//						Resources: []string{
 //							exampleAwsLambdaFunction.Arn,
 //						},
 //					},

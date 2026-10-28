@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .type("POSIX")
  *                     .build())
- *                 .volumeId(exampleAwsFsxOpenzfsVolume.id())
+ *                 .volumeId(exampleAwsFsxOpenzfsVolume.get("id"))
  *                 .build())
  *             .name("example-attachment")
  *             .type("OPENZFS")

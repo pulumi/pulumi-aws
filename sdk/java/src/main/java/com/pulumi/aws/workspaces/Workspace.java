@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .runningMode("AUTO_STOP")
  *                 .runningModeAutoStopTimeoutInMinutes(60)
  *                 .build())
- *             .directoryId(exampleAwsWorkspacesDirectory.id())
+ *             .directoryId(exampleAwsWorkspacesDirectory.get("id"))
  *             .bundleId(valueWindows10.id())
  *             .userName("john.doe")
  *             .rootVolumeEncryptionEnabled(true)

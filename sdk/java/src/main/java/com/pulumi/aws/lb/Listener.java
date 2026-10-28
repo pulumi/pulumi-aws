@@ -166,9 +166,9 @@ import javax.annotation.Nullable;
  *         var frontEnd = new Listener("frontEnd", ListenerArgs.builder()
  *             .defaultActions(ListenerDefaultActionArgs.builder()
  *                 .type("forward")
- *                 .targetGroupArn(frontEndAwsLbTargetGroup.arn())
+ *                 .targetGroupArn(frontEndAwsLbTargetGroup.get("arn"))
  *                 .build())
- *             .loadBalancerArn(frontEndAwsLb.arn())
+ *             .loadBalancerArn(frontEndAwsLb.get("arn"))
  *             .port(443)
  *             .protocol("TLS")
  *             .sslPolicy("ELBSecurityPolicy-2016-08")
@@ -451,14 +451,14 @@ import javax.annotation.Nullable;
  *                     .type("jwt-validation")
  *                     .build(),
  *                 ListenerDefaultActionArgs.builder()
- *                     .targetGroupArn(testAwsLbTargetGroup.id())
+ *                     .targetGroupArn(testAwsLbTargetGroup.get("id"))
  *                     .type("forward")
  *                     .build())
- *             .loadBalancerArn(testAwsLb.id())
+ *             .loadBalancerArn(testAwsLb.get("id"))
  *             .protocol("HTTPS")
  *             .port(443)
  *             .sslPolicy("ELBSecurityPolicy-2016-08")
- *             .certificateArn(testAwsIamServerCertificate.arn())
+ *             .certificateArn(testAwsIamServerCertificate.get("arn"))
  *             .build());
  * 
  *     }
@@ -499,7 +499,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
- *                 .subnetId(exampleAwsSubnet.id())
+ *                 .subnetId(exampleAwsSubnet.get("id"))
  *                 .build())
  *             .loadBalancerType("gateway")
  *             .name("example")
@@ -513,7 +513,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .port(6081)
  *             .protocol("GENEVE")
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()

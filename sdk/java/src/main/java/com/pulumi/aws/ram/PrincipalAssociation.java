@@ -93,8 +93,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PrincipalAssociation("example", PrincipalAssociationArgs.builder()
- *             .principal(exampleAwsOrganizationsOrganization.arn())
- *             .resourceShareArn(exampleAwsRamResourceShare.arn())
+ *             .principal(exampleAwsOrganizationsOrganization.get("arn"))
+ *             .resourceShareArn(exampleAwsRamResourceShare.get("arn"))
  *             .build());
  * 
  *     }

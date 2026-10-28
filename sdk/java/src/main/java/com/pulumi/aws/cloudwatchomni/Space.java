@@ -112,9 +112,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Space("example", SpaceArgs.builder()
  *             .name("example")
- *             .domainId(exampleAwsCloudwatchomniDomain.domainId())
- *             .dataAccessRoleArn(dataAccess.arn())
- *             .agentCoreEvaluationRoleArn(agentCore.arn())
+ *             .domainId(exampleAwsCloudwatchomniDomain.get("domainId"))
+ *             .dataAccessRoleArn(dataAccess.get("arn"))
+ *             .agentCoreEvaluationRoleArn(agentCore.get("arn"))
  *             .build());
  * 
  *     }
@@ -197,8 +197,8 @@ import javax.annotation.Nullable;
  *                 .kmsKeyArn(example.arn())
  *                 .build())
  *             .name("example")
- *             .domainId(exampleAwsCloudwatchomniDomain.domainId())
- *             .dataAccessRoleArn(exampleAwsIamRole.arn())
+ *             .domainId(exampleAwsCloudwatchomniDomain.get("domainId"))
+ *             .dataAccessRoleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

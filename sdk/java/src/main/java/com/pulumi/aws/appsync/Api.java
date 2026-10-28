@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  *             .eventConfig(ApiEventConfigArgs.builder()
  *                 .authProviders(ApiEventConfigAuthProviderArgs.builder()
  *                     .lambdaAuthorizerConfig(ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs.builder()
- *                         .authorizerUri(exampleAwsLambdaFunction.arn())
+ *                         .authorizerUri(exampleAwsLambdaFunction.get("arn"))
  *                         .authorizerResultTtlInSeconds(300)
  *                         .build())
  *                     .authType("AWS_LAMBDA")

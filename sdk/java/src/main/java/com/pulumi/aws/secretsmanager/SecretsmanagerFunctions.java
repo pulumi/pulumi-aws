@@ -872,7 +872,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(exampleAwsSecretsmanagerSecret.id())
+     *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
      *             .build());
      * 
      *     }
@@ -914,7 +914,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(exampleAwsSecretsmanagerSecret.id())
+     *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
      *             .build());
      * 
      *     }
@@ -956,7 +956,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(exampleAwsSecretsmanagerSecret.id())
+     *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
      *             .build());
      * 
      *     }
@@ -998,7 +998,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(exampleAwsSecretsmanagerSecret.id())
+     *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
      *             .build());
      * 
      *     }
@@ -1040,7 +1040,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(exampleAwsSecretsmanagerSecret.id())
+     *             .secretId(exampleAwsSecretsmanagerSecret.get("id"))
      *             .build());
      * 
      *     }
@@ -1084,7 +1084,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1117,7 +1117,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1153,7 +1153,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1196,7 +1196,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1229,7 +1229,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1265,7 +1265,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1308,7 +1308,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1341,7 +1341,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1377,7 +1377,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1420,7 +1420,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1453,7 +1453,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1489,7 +1489,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1532,7 +1532,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1565,7 +1565,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1601,7 +1601,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1644,7 +1644,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-versions = SecretsmanagerFunctions.getSecretVersions(GetSecretVersionsArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1677,7 +1677,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1713,7 +1713,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1756,7 +1756,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-versions = SecretsmanagerFunctions.getSecretVersions(GetSecretVersionsArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1789,7 +1789,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1825,7 +1825,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1868,7 +1868,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-versions = SecretsmanagerFunctions.getSecretVersions(GetSecretVersionsArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -1901,7 +1901,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -1937,7 +1937,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -1980,7 +1980,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-versions = SecretsmanagerFunctions.getSecretVersions(GetSecretVersionsArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -2013,7 +2013,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -2049,7 +2049,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }
@@ -2092,7 +2092,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var secret-versions = SecretsmanagerFunctions.getSecretVersions(GetSecretVersionsArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .build());
      * 
      *     }
@@ -2125,7 +2125,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(example.id())
+     *             .secretId(example.get("id"))
      *             .versionStage("example")
      *             .build());
      * 
@@ -2161,7 +2161,7 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
-     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .input(exampleAwsSecretsmanagerSecretVersion.get("secretString"))
      *             .build()).result().key1());
      *     }
      * }

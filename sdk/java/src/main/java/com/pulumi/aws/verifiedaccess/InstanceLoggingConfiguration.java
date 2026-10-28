@@ -51,10 +51,10 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
- *                     .logGroup(exampleAwsCloudwatchLogGroup.id())
+ *                     .logGroup(exampleAwsCloudwatchLogGroup.get("id"))
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.get("id"))
  *             .build());
  * 
  *     }
@@ -91,11 +91,11 @@ import javax.annotation.Nullable;
  *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
- *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.name())
+ *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.get("name"))
  *                     .enabled(true)
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.get("id"))
  *             .build());
  * 
  *     }
@@ -132,12 +132,12 @@ import javax.annotation.Nullable;
  *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
- *                     .bucketName(exampleAwsS3Bucket.id())
+ *                     .bucketName(exampleAwsS3Bucket.get("id"))
  *                     .enabled(true)
  *                     .prefix("example")
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.get("id"))
  *             .build());
  * 
  *     }
@@ -177,18 +177,18 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
- *                     .logGroup(exampleAwsCloudwatchLogGroup.id())
+ *                     .logGroup(exampleAwsCloudwatchLogGroup.get("id"))
  *                     .build())
  *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
- *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.name())
+ *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.get("name"))
  *                     .enabled(true)
  *                     .build())
  *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
- *                     .bucketName(exampleAwsS3Bucket.id())
+ *                     .bucketName(exampleAwsS3Bucket.get("id"))
  *                     .enabled(true)
  *                     .build())
  *                 .build())
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.get("id"))
  *             .build());
  * 
  *     }
@@ -225,7 +225,7 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .includeTrustContext(true)
  *                 .build())
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.get("id"))
  *             .build());
  * 
  *     }
@@ -262,7 +262,7 @@ import javax.annotation.Nullable;
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .logVersion("ocsf-1.0.0-rc.2")
  *                 .build())
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
+ *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.get("id"))
  *             .build());
  * 
  *     }

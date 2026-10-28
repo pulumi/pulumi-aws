@@ -255,7 +255,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .name("sigv4-target")
- *             .gatewayIdentifier(example.gatewayId())
+ *             .gatewayIdentifier(example.get("gatewayId"))
  *             .build());
  * 
  *     }
@@ -344,12 +344,12 @@ import javax.annotation.Nullable;
  *                                 .description("Tool with complex nested schema")
  *                                 .build())
  *                             .build())
- *                         .lambdaArn(example.arn())
+ *                         .lambdaArn(example.get("arn"))
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("complex-target")
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.get("gatewayId"))
  *             .build());
  * 
  *     }
@@ -401,7 +401,7 @@ import javax.annotation.Nullable;
  *                 .allowedQueryParameters("version")
  *                 .build())
  *             .name("mcp-target-with-headers")
- *             .gatewayIdentifier(example.gatewayId())
+ *             .gatewayIdentifier(example.get("gatewayId"))
  *             .description("MCP server target with header propagation")
  *             .build());
  * 
@@ -449,13 +449,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .privateEndpoint(AgentcoreGatewayTargetPrivateEndpointArgs.builder()
  *                 .managedVpcResource(AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs.builder()
- *                     .vpcIdentifier(exampleAwsVpc.id())
- *                     .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                     .vpcIdentifier(exampleAwsVpc.get("id"))
+ *                     .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *                     .endpointIpAddressType("IPV4")
- *                     .securityGroupIds(mcpLattice.id())
+ *                     .securityGroupIds(mcpLattice.get("id"))
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.get("gatewayId"))
  *             .name("my-private-mcp-target")
  *             .build());
  * 
@@ -505,13 +505,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .privateEndpoint(AgentcoreGatewayTargetPrivateEndpointArgs.builder()
  *                 .managedVpcResource(AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs.builder()
- *                     .vpcIdentifier(exampleAwsVpc.id())
- *                     .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                     .vpcIdentifier(exampleAwsVpc.get("id"))
+ *                     .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *                     .endpointIpAddressType("IPV4")
- *                     .routingDomain(mcpAlb.dnsName())
+ *                     .routingDomain(mcpAlb.get("dnsName"))
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.get("gatewayId"))
  *             .name("my-private-mcp-via-alb")
  *             .build());
  * 
@@ -559,10 +559,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .privateEndpoint(AgentcoreGatewayTargetPrivateEndpointArgs.builder()
  *                 .selfManagedLatticeResource(AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs.builder()
- *                     .resourceConfigurationIdentifier(mcp.arn())
+ *                     .resourceConfigurationIdentifier(mcp.get("arn"))
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.get("gatewayId"))
  *             .name("my-private-mcp-self-managed")
  *             .build());
  * 

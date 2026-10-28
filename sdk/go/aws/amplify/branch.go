@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      example.ID().ToIDOutput().ToStringOutput(),
+//				AppId:      example.ID(),
 //				BranchName: pulumi.String("master"),
 //				Framework:  pulumi.String("React"),
 //				Stage:      pulumi.String("PRODUCTION"),
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:                example.ID().ToIDOutput().ToStringOutput(),
+//				AppId:                example.ID(),
 //				BranchName:           pulumi.String("master"),
 //				EnableBasicAuth:      pulumi.Bool(true),
 //				BasicAuthCredentials: pulumi.String(invokeBase64encode.Result),
@@ -123,7 +123,7 @@ import (
 //				return err
 //			}
 //			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:              example.ID().ToIDOutput().ToStringOutput(),
+//				AppId:              example.ID(),
 //				BranchName:         pulumi.String("master"),
 //				EnableNotification: pulumi.Bool(true),
 //			})

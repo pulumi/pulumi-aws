@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsRedshiftserverlessSnapshot.arn())
+ *             .resourceArn(exampleAwsRedshiftserverlessSnapshot.get("arn"))
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),

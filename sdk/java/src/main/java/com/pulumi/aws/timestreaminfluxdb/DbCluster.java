@@ -62,9 +62,9 @@ import javax.annotation.Nullable;
  *             .port(8086)
  *             .organization("organization")
  *             .vpcSubnetIds(            
- *                 example1.id(),
- *                 example2.id())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .name("example-db-cluster")
  *             .build());
  * 
@@ -214,9 +214,9 @@ import javax.annotation.Nullable;
  *             .password("example-password")
  *             .organization("organization")
  *             .vpcSubnetIds(            
- *                 example1.id(),
- *                 example2.id())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .name("example-db-cluster")
  *             .build());
  * 
@@ -261,9 +261,9 @@ import javax.annotation.Nullable;
  *             .dbInstanceType("db.influx.large")
  *             .dbParameterGroupIdentifier("InfluxDBV3Core")
  *             .vpcSubnetIds(            
- *                 example1.id(),
- *                 example2.id())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *                 example1.get("id"),
+ *                 example2.get("id"))
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.get("id"))
  *             .build());
  * 
  *     }

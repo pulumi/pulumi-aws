@@ -116,8 +116,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeySigningKey = new KeySigningKey("exampleKeySigningKey", KeySigningKeyArgs.builder()
- *             .hostedZoneId(test.id())
- *             .keyManagementServiceArn(testAwsKmsKey.arn())
+ *             .hostedZoneId(test.get("id"))
+ *             .keyManagementServiceArn(testAwsKmsKey.get("arn"))
  *             .name("example")
  *             .build());
  * 

@@ -45,7 +45,7 @@ public final class MedialiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MedialiveFunctions.getInput(GetInputArgs.builder()
-     *             .id(exampleAwsMedialiveInput.id())
+     *             .id(exampleAwsMedialiveInput.get("id"))
      *             .build());
      * 
      *     }
@@ -87,7 +87,7 @@ public final class MedialiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MedialiveFunctions.getInput(GetInputArgs.builder()
-     *             .id(exampleAwsMedialiveInput.id())
+     *             .id(exampleAwsMedialiveInput.get("id"))
      *             .build());
      * 
      *     }
@@ -129,7 +129,7 @@ public final class MedialiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MedialiveFunctions.getInput(GetInputArgs.builder()
-     *             .id(exampleAwsMedialiveInput.id())
+     *             .id(exampleAwsMedialiveInput.get("id"))
      *             .build());
      * 
      *     }
@@ -171,7 +171,7 @@ public final class MedialiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MedialiveFunctions.getInput(GetInputArgs.builder()
-     *             .id(exampleAwsMedialiveInput.id())
+     *             .id(exampleAwsMedialiveInput.get("id"))
      *             .build());
      * 
      *     }
@@ -213,7 +213,7 @@ public final class MedialiveFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MedialiveFunctions.getInput(GetInputArgs.builder()
-     *             .id(exampleAwsMedialiveInput.id())
+     *             .id(exampleAwsMedialiveInput.get("id"))
      *             .build());
      * 
      *     }

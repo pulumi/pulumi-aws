@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *                     .instanceType("m4.2xlarge")
  *                     .weightedCapacity(2)
  *                     .build())
- *             .clusterId(cluster.id())
+ *             .clusterId(cluster.get("id"))
  *             .name("task fleet")
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)

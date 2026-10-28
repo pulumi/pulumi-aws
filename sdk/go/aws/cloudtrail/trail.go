@@ -129,7 +129,7 @@ import (
 //				},
 //			}, nil)
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //				Policy: example.Json(),
 //			})
 //			if err != nil {
@@ -137,7 +137,7 @@ import (
 //			}
 //			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
 //				Name:                       pulumi.String("example"),
-//				S3BucketName:               exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				S3BucketName:               exampleBucket.ID(),
 //				S3KeyPrefix:                pulumi.String("prefix"),
 //				IncludeGlobalServiceEvents: pulumi.Bool(false),
 //			}, pulumi.DependsOn([]pulumi.Resource{

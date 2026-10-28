@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CoreNetwork("example", CoreNetworkArgs.builder()
- *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.get("id"))
  *             .build());
  * 
  *     }
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CoreNetwork("example", CoreNetworkArgs.builder()
- *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.get("id"))
  *             .description("example")
  *             .build());
  * 
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CoreNetwork("example", CoreNetworkArgs.builder()
- *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.get("id"))
  *             .tags(Map.of("hello", "world"))
  *             .build());
  * 
@@ -194,8 +194,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .vpcArn(exampleAwsVpc.arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .vpcArn(exampleAwsVpc.get("arn"))
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
@@ -271,8 +271,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .vpcArn(exampleAwsVpc.arn())
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .vpcArn(exampleAwsVpc.get("arn"))
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
@@ -373,14 +373,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUsWest2 = new VpcAttachment("exampleUsWest2", VpcAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .vpcArn(exampleUsWest2AwsVpc.arn())
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .vpcArn(exampleUsWest2AwsVpc.get("arn"))
  *             .build());
  * 
  *         var exampleUsEast1 = new VpcAttachment("exampleUsEast1", VpcAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .vpcArn(exampleUsEast1AwsVpc.arn())
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .vpcArn(exampleUsEast1AwsVpc.get("arn"))
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
@@ -475,14 +475,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUsWest2 = new VpcAttachment("exampleUsWest2", VpcAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .vpcArn(exampleUsWest2AwsVpc.arn())
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .vpcArn(exampleUsWest2AwsVpc.get("arn"))
  *             .build());
  * 
  *         var exampleUsEast1 = new VpcAttachment("exampleUsEast1", VpcAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .vpcArn(exampleUsEast1AwsVpc.arn())
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -> element.get("arn")).collect(toList()))
+ *             .vpcArn(exampleUsEast1AwsVpc.get("arn"))
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()

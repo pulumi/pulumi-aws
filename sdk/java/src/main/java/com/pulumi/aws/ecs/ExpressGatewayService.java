@@ -58,8 +58,8 @@ import javax.annotation.Nullable;
  *             .primaryContainer(ExpressGatewayServicePrimaryContainerArgs.builder()
  *                 .image("nginx:latest")
  *                 .build())
- *             .executionRoleArn(execution.arn())
- *             .infrastructureRoleArn(infrastructure.arn())
+ *             .executionRoleArn(execution.get("arn"))
+ *             .infrastructureRoleArn(infrastructure.get("arn"))
  *             .build());
  * 
  *     }
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *         var example = new ExpressGatewayService("example", ExpressGatewayServiceArgs.builder()
  *             .primaryContainer(ExpressGatewayServicePrimaryContainerArgs.builder()
  *                 .awsLogsConfigurations(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs.builder()
- *                     .logGroup(app.name())
+ *                     .logGroup(app.get("name"))
  *                     .build())
  *                 .environments(                
  *                     ExpressGatewayServicePrimaryContainerEnvironmentArgs.builder()
@@ -111,14 +111,14 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .secrets(ExpressGatewayServicePrimaryContainerSecretArgs.builder()
  *                     .name("DB_PASSWORD")
- *                     .valueFrom(dbPassword.arn())
+ *                     .valueFrom(dbPassword.get("arn"))
  *                     .build())
  *                 .image("my-app:latest")
  *                 .containerPort(8080)
  *                 .commands("./start.sh")
  *                 .build())
- *             .executionRoleArn(execution.arn())
- *             .infrastructureRoleArn(infrastructure.arn())
+ *             .executionRoleArn(execution.get("arn"))
+ *             .infrastructureRoleArn(infrastructure.get("arn"))
  *             .healthCheckPath("/health")
  *             .build());
  * 
@@ -160,14 +160,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .networkConfigurations(ExpressGatewayServiceNetworkConfigurationArgs.builder()
  *                 .subnets(                
- *                     privateA.id(),
- *                     privateB.id())
- *                 .securityGroups(app.id())
+ *                     privateA.get("id"),
+ *                     privateB.get("id"))
+ *                 .securityGroups(app.get("id"))
  *                 .build())
  *             .serviceName("my-express-service")
- *             .cluster(main.name())
- *             .executionRoleArn(execution.arn())
- *             .infrastructureRoleArn(infrastructure.arn())
+ *             .cluster(main.get("name"))
+ *             .executionRoleArn(execution.get("arn"))
+ *             .infrastructureRoleArn(infrastructure.get("arn"))
  *             .cpu("256")
  *             .memory("512")
  *             .build());

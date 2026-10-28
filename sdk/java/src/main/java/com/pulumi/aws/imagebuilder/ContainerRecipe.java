@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContainerRecipe("example", ContainerRecipeArgs.builder()
  *             .targetRepository(ContainerRecipeTargetRepositoryArgs.builder()
- *                 .repositoryName(exampleAwsEcrRepository.name())
+ *                 .repositoryName(exampleAwsEcrRepository.get("name"))
  *                 .service("ECR")
  *                 .build())
  *             .components(ContainerRecipeComponentArgs.builder()
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                         .name("Parameter2")
  *                         .value("Value2")
  *                         .build())
- *                 .componentArn(exampleAwsImagebuilderComponent.arn())
+ *                 .componentArn(exampleAwsImagebuilderComponent.get("arn"))
  *                 .build())
  *             .name("example")
  *             .version("1.0.0")

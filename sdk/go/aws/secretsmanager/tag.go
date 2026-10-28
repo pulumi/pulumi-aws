@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewTag(ctx, "test", &secretsmanager.TagArgs{
-//				SecretId: test.ID().ToIDOutput().ToStringOutput(),
+//				SecretId: test.ID(),
 //				Key:      pulumi.String("ExampleKey"),
 //				Value:    pulumi.String("ExampleValue"),
 //			})

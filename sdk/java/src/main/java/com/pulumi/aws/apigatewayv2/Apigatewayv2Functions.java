@@ -532,7 +532,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(testAwsApigatewayv2Route.apiId())
+     *             .apiId(testAwsApigatewayv2Route.get("apiId"))
      *             .specification("OAS30")
      *             .outputType("JSON")
      *             .build());
@@ -574,7 +574,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(testAwsApigatewayv2Route.apiId())
+     *             .apiId(testAwsApigatewayv2Route.get("apiId"))
      *             .specification("OAS30")
      *             .outputType("JSON")
      *             .build());
@@ -616,7 +616,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(testAwsApigatewayv2Route.apiId())
+     *             .apiId(testAwsApigatewayv2Route.get("apiId"))
      *             .specification("OAS30")
      *             .outputType("JSON")
      *             .build());
@@ -658,7 +658,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(testAwsApigatewayv2Route.apiId())
+     *             .apiId(testAwsApigatewayv2Route.get("apiId"))
      *             .specification("OAS30")
      *             .outputType("JSON")
      *             .build());
@@ -700,7 +700,7 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
-     *             .apiId(testAwsApigatewayv2Route.apiId())
+     *             .apiId(testAwsApigatewayv2Route.get("apiId"))
      *             .specification("OAS30")
      *             .outputType("JSON")
      *             .build());

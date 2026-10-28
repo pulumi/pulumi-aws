@@ -40,7 +40,7 @@ import (
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err

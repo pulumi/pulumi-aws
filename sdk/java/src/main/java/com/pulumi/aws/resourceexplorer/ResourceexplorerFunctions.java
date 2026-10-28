@@ -46,7 +46,7 @@ public final class ResourceexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
      *             .queryString("region:us-west-2")
-     *             .viewArn(test.arn())
+     *             .viewArn(test.get("arn"))
      *             .build());
      * 
      *     }
@@ -89,7 +89,7 @@ public final class ResourceexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
      *             .queryString("region:us-west-2")
-     *             .viewArn(test.arn())
+     *             .viewArn(test.get("arn"))
      *             .build());
      * 
      *     }
@@ -132,7 +132,7 @@ public final class ResourceexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
      *             .queryString("region:us-west-2")
-     *             .viewArn(test.arn())
+     *             .viewArn(test.get("arn"))
      *             .build());
      * 
      *     }
@@ -175,7 +175,7 @@ public final class ResourceexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
      *             .queryString("region:us-west-2")
-     *             .viewArn(test.arn())
+     *             .viewArn(test.get("arn"))
      *             .build());
      * 
      *     }
@@ -218,7 +218,7 @@ public final class ResourceexplorerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
      *             .queryString("region:us-west-2")
-     *             .viewArn(test.arn())
+     *             .viewArn(test.get("arn"))
      *             .build());
      * 
      *     }

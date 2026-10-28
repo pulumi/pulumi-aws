@@ -441,17 +441,17 @@ namespace Pulumi.Aws.AutoScaling
     ///     var config = new Config();
     ///     var extraTags = config.GetObject&lt;dynamic&gt;("extraTags") ?? new[]
     ///     {
-    ///         
+    ///         new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "key", "Foo" },
-    ///             { "propagateAtLaunch", true },
-    ///             { "value", "Bar" },
+    ///             ["key"] = "Foo",
+    ///             ["propagateAtLaunch"] = true,
+    ///             ["value"] = "Bar",
     ///         },
-    ///         
+    ///         new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "key", "Baz" },
-    ///             { "propagateAtLaunch", true },
-    ///             { "value", "Bam" },
+    ///             ["key"] = "Baz",
+    ///             ["propagateAtLaunch"] = true,
+    ///             ["value"] = "Bam",
     ///         },
     ///     };
     ///     var test = new Aws.AutoScaling.Group("test", new()
@@ -526,7 +526,7 @@ namespace Pulumi.Aws.AutoScaling
     ///         LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
     ///         {
     ///             Id = exampleLaunchTemplate.Id,
-    ///             Version = exampleLaunchTemplate.LatestVersion,
+    ///             Version = exampleLaunchTemplate.LatestVersion.Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
     ///         },
     ///         InstanceRefresh = new Aws.AutoScaling.Inputs.GroupInstanceRefreshArgs
     ///         {

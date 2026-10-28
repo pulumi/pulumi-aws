@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .routingConfig(EventEndpointRoutingConfigArgs.builder()
  *                 .failoverConfig(EventEndpointRoutingConfigFailoverConfigArgs.builder()
  *                     .primary(EventEndpointRoutingConfigFailoverConfigPrimaryArgs.builder()
- *                         .healthCheck(primaryAwsRoute53HealthCheck.arn())
+ *                         .healthCheck(primaryAwsRoute53HealthCheck.get("arn"))
  *                         .build())
  *                     .secondary(EventEndpointRoutingConfigFailoverConfigSecondaryArgs.builder()
  *                         .route("us-east-2")
@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .eventBuses(            
  *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(primary.arn())
+ *                     .eventBusArn(primary.get("arn"))
  *                     .build(),
  *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(secondary.arn())
+ *                     .eventBusArn(secondary.get("arn"))
  *                     .build())
  *             .name("global-endpoint")
- *             .roleArn(replication.arn())
+ *             .roleArn(replication.get("arn"))
  *             .build());
  * 
  *     }

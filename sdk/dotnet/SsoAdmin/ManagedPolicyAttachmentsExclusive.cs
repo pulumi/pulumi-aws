@@ -69,7 +69,7 @@ namespace Pulumi.Aws.SsoAdmin
     ///     {
     ///         InstanceArn = exampleAwsSsoadminInstances.Arns[0],
     ///         PermissionSetArn = exampleAwsSsoadminPermissionSet.Arn,
-    ///         ManagedPolicyArns = new[] {},
+    ///         ManagedPolicyArns = new() {},
     ///     });
     /// 
     /// });

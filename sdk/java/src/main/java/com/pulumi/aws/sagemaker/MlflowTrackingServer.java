@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new MlflowTrackingServer("example", MlflowTrackingServerArgs.builder()
  *             .trackingServerName("example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .artifactStoreUri(String.format("s3://%s/path", exampleAwsS3Bucket.bucket()))
+ *             .roleArn(exampleAwsIamRole.get("arn"))
+ *             .artifactStoreUri(String.format("s3://%s/path", exampleAwsS3Bucket.get("bucket")))
  *             .build());
  * 
  *     }

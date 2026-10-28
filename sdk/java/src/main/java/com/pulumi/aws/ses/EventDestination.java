@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                 .valueSource("emailHeader")
  *                 .build())
  *             .name("event-destination-cloudwatch")
- *             .configurationSetName(example.name())
+ *             .configurationSetName(example.get("name"))
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
@@ -95,11 +95,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var kinesis = new EventDestination("kinesis", EventDestinationArgs.builder()
  *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
- *                 .streamArn(example.arn())
- *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .streamArn(example.get("arn"))
+ *                 .roleArn(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .name("event-destination-kinesis")
- *             .configurationSetName(exampleAwsSesConfigurationSet.name())
+ *             .configurationSetName(exampleAwsSesConfigurationSet.get("name"))
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
@@ -138,10 +138,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sns = new EventDestination("sns", EventDestinationArgs.builder()
  *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
- *                 .topicArn(example.arn())
+ *                 .topicArn(example.get("arn"))
  *                 .build())
  *             .name("event-destination-sns")
- *             .configurationSetName(exampleAwsSesConfigurationSet.name())
+ *             .configurationSetName(exampleAwsSesConfigurationSet.get("name"))
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",

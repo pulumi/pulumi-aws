@@ -1114,7 +1114,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(mainAwsCognitoUserPool.id())
+     *             .userPoolId(mainAwsCognitoUserPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1154,7 +1154,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(mainAwsCognitoUserPool.id())
+     *             .userPoolId(mainAwsCognitoUserPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1194,7 +1194,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(mainAwsCognitoUserPool.id())
+     *             .userPoolId(mainAwsCognitoUserPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1234,7 +1234,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(mainAwsCognitoUserPool.id())
+     *             .userPoolId(mainAwsCognitoUserPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1274,7 +1274,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
-     *             .userPoolId(mainAwsCognitoUserPool.id())
+     *             .userPoolId(mainAwsCognitoUserPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1314,7 +1314,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(myPool.id())
+     *             .userPoolId(myPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1354,7 +1354,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(myPool.id())
+     *             .userPoolId(myPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1394,7 +1394,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(myPool.id())
+     *             .userPoolId(myPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1434,7 +1434,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(myPool.id())
+     *             .userPoolId(myPool.get("id"))
      *             .build());
      * 
      *     }
@@ -1474,7 +1474,7 @@ public final class CognitoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
-     *             .userPoolId(myPool.id())
+     *             .userPoolId(myPool.get("id"))
      *             .build());
      * 
      *     }

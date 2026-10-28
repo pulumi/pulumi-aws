@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example")
  *             .idleSessionTtlInSeconds(60)
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *         var exampleV2modelsBotLocale = new V2modelsBotLocale("exampleV2modelsBotLocale", V2modelsBotLocaleArgs.builder()
@@ -130,10 +130,10 @@ import javax.annotation.Nullable;
  *                     .value("exampleValue")
  *                     .build())
  *                 .build())
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion(exampleAwsLexv2modelsBotLocale.botVersion())
+ *             .botId(exampleAwsLexv2modelsBot.get("id"))
+ *             .botVersion(exampleAwsLexv2modelsBotLocale.get("botVersion"))
  *             .name("example")
- *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
+ *             .localeId(exampleAwsLexv2modelsBotLocale.get("localeId"))
  *             .build());
  * 
  *     }

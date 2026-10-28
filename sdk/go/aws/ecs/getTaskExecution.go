@@ -32,8 +32,8 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := ecs.GetTaskExecution(ctx, &ecs.GetTaskExecutionArgs{
 // NetworkConfiguration: ecs.GetTaskExecutionNetworkConfiguration{
-// Subnets: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:2,22-44)),
-// SecurityGroups: pulumi.StringArray{
+// Subnets: []string(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:2,22-44)),
+// SecurityGroups: []string{
 // exampleAwsSecurityGroup.Id,
 // },
 // AssignPublicIp: pulumi.BoolRef(false),

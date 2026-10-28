@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewClusterInstance(ctx, "aurora", &rds.ClusterInstanceArgs{
-//				ClusterIdentifier: aurora.ID().ToIDOutput().ToStringOutput(),
+//				ClusterIdentifier: aurora.ID(),
 //				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				DbSubnetGroupName: pulumi.String("my_db_subnet_group"),
 //			})

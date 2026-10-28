@@ -74,7 +74,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -182,7 +182,7 @@ import (
 //			_, err = rds.NewExportTask(ctx, "example", &rds.ExportTaskArgs{
 //				ExportTaskIdentifier: pulumi.String("example"),
 //				SourceArn:            exampleSnapshot.DbSnapshotArn,
-//				S3BucketName:         exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				S3BucketName:         exampleBucket.ID(),
 //				IamRoleArn:           exampleRole.Arn,
 //				KmsKeyId:             exampleKey.Arn,
 //				ExportOnlies: pulumi.StringArray{

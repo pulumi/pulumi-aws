@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *                     PlanStageTargetArgs.builder()
  *                         .channelTargetInfo(PlanStageTargetChannelTargetInfoArgs.builder()
  *                             .retryIntervalInMinutes(2)
- *                             .contactChannelId(channel.arn())
+ *                             .contactChannelId(channel.get("arn"))
  *                             .build())
  *                         .build())
  *                 .durationInMinutes(0)

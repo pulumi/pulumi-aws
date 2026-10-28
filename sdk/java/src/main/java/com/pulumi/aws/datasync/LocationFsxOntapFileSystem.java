@@ -57,9 +57,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.arn())
- *             .securityGroupArns(testAwsSecurityGroup.arn())
- *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.arn())
+ *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.get("arn"))
+ *             .securityGroupArns(testAwsSecurityGroup.get("arn"))
+ *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.get("arn"))
  *             .build());
  * 
  *     }

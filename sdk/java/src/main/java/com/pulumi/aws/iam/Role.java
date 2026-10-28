@@ -185,7 +185,7 @@ import javax.annotation.Nullable;
  *                     .policy(inlinePolicy.json())
  *                     .build())
  *             .name("yak_role")
- *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.get("json"))
  *             .build());
  * 
  *     }
@@ -226,7 +226,7 @@ import javax.annotation.Nullable;
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
  *                 .build())
  *             .name("yak_role")
- *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.get("json"))
  *             .build());
  * 
  *     }
@@ -297,7 +297,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Role("example", RoleArgs.builder()
  *             .name("yak_role")
- *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.get("json"))
  *             .managedPolicyArns(            
  *                 policyOne.arn(),
  *                 policyTwo.arn())
@@ -338,7 +338,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Role("example", RoleArgs.builder()
  *             .name("yak_role")
- *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.get("json"))
  *             .managedPolicyArns()
  *             .build());
  * 

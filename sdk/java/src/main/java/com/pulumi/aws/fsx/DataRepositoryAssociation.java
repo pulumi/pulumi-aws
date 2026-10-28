@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()
  *             .storageCapacity(1200)
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .deploymentType("PERSISTENT_2")
  *             .perUnitStorageThroughput(125)
  *             .build());

@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "example", &route53.KeySigningKeyArgs{
-//				HostedZoneId:            exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				HostedZoneId:            exampleZone.ID(),
 //				KeyManagementServiceArn: example.Arn,
 //				Name:                    pulumi.String("example"),
 //			})

@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .labelTemplate("$AccountName")
  *             .resourceTypes("AWS::Logs::LogGroup")
- *             .sinkIdentifier(exampleAwsOamSink.arn())
+ *             .sinkIdentifier(exampleAwsOamSink.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsOamSinkPolicy)
  *                 .build());
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .labelTemplate("$AccountName")
  *             .resourceTypes("AWS::CloudWatch::Metric")
- *             .sinkIdentifier(exampleAwsOamSink.arn())
+ *             .sinkIdentifier(exampleAwsOamSink.get("arn"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsOamSinkPolicy)
  *                 .build());

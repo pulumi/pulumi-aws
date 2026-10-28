@@ -33,7 +33,7 @@ import (
 //				return err
 //			}
 //			_, err = networkmanager.NewSite(ctx, "example", &networkmanager.SiteArgs{
-//				GlobalNetworkId: example.ID().ToIDOutput().ToStringOutput(),
+//				GlobalNetworkId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

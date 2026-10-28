@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 .type("SSD_250")
  *                 .build())
  *             .name("my-tf-kx-volume")
- *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
+ *             .environmentId(exampleAwsFinspaceKxEnvironment.get("id"))
  *             .availabilityZones("use1-az2")
  *             .azMode("SINGLE")
  *             .type("NAS_1")

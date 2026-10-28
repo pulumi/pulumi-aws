@@ -82,7 +82,7 @@ import (
 //			}
 //			_, err = finspace.NewKxEnvironment(ctx, "example_env", &finspace.KxEnvironmentArgs{
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
-//					TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
+//					TransitGatewayId:  exampleTransitGateway.ID(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
 //				},
 //				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{
@@ -151,7 +151,7 @@ import (
 //							CidrBlock:  pulumi.String("0.0.0.0/0"),
 //						},
 //					},
-//					TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
+//					TransitGatewayId:  exampleTransitGateway.ID(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
 //				},
 //				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{

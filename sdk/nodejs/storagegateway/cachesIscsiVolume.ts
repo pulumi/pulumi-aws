@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: exampleAwsInstance.privateIp,
  *     sourceVolumeArn: existing.arn,
  *     targetName: "example",
- *     volumeSizeInBytes: Number(existing.volumeSizeInBytes),
+ *     volumeSizeInBytes: existing.volumeSizeInBytes,
  * });
  * ```
  *

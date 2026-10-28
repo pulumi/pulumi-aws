@@ -43,9 +43,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainNameAccessAssociation("example", DomainNameAccessAssociationArgs.builder()
- *             .accessAssociationSource(exampleAwsVpcEndpoint.id())
+ *             .accessAssociationSource(exampleAwsVpcEndpoint.get("id"))
  *             .accessAssociationSourceType("VPCE")
- *             .domainNameArn(exampleAwsApiGatewayDomainName.arn())
+ *             .domainNameArn(exampleAwsApiGatewayDomainName.get("arn"))
  *             .build());
  * 
  *     }

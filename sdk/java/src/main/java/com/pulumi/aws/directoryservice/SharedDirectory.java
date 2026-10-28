@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Directory("example", DirectoryArgs.builder()
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
- *                 .vpcId(exampleAwsVpc.id())
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                 .vpcId(exampleAwsVpc.get("id"))
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *                 .build())
  *             .name("tf-example")
  *             .password("SuperSecretPassw0rd")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSharedDirectory = new SharedDirectory("exampleSharedDirectory", SharedDirectoryArgs.builder()
  *             .target(SharedDirectoryTargetArgs.builder()
- *                 .id(receiver.accountId())
+ *                 .id(receiver.get("accountId"))
  *                 .build())
  *             .directoryId(example.id())
  *             .notes("You wanna have a catch?")

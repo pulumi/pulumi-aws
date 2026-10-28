@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *                 .allSupported(false)
  *                 .build())
  *             .name("example")
- *             .roleArn(r.arn())
+ *             .roleArn(r.get("arn"))
  *             .build());
  * 
  *     }
@@ -168,7 +168,7 @@ import javax.annotation.Nullable;
  *                 .recordingFrequency("CONTINUOUS")
  *                 .build())
  *             .name("example")
- *             .roleArn(r.arn())
+ *             .roleArn(r.get("arn"))
  *             .build());
  * 
  *     }

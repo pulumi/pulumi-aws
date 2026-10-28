@@ -164,7 +164,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
-//				KeyId:  example.ID().ToIDOutput().ToStringOutput(),
+//				KeyId:  example.ID(),
 //				Policy: json0,
 //			})
 //			if err != nil {

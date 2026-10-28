@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Agreement("example", AgreementArgs.builder()
- *             .accessRole(test.arn())
+ *             .accessRole(test.get("arn"))
  *             .baseDirectory("/DOC-EXAMPLE-BUCKET/home/mydirectory")
  *             .description("example")
- *             .localProfileId(local.profileId())
- *             .partnerProfileId(partner.profileId())
- *             .serverId(testAwsTransferServer.id())
+ *             .localProfileId(local.get("profileId"))
+ *             .partnerProfileId(partner.get("profileId"))
+ *             .serverId(testAwsTransferServer.get("id"))
  *             .build());
  * 
  *     }

@@ -408,7 +408,7 @@ import javax.annotation.Nullable;
  *                 .referenceSets(RuleGroupRuleGroupReferenceSetsArgs.builder()
  *                     .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs.builder()
  *                         .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs.builder()
- *                             .referenceArn(this_.arn())
+ *                             .referenceArn(this_.get("arn"))
  *                             .build())
  *                         .key("example")
  *                         .build())
@@ -462,7 +462,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var suricataRules = S3Functions.getObject(GetObjectArgs.builder()
- *             .bucket(suricataRulesAwsS3Bucket.id())
+ *             .bucket(suricataRulesAwsS3Bucket.get("id"))
  *             .key("rules/custom.rules")
  *             .build());
  * 

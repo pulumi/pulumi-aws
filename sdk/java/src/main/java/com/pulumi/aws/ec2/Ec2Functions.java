@@ -1953,6 +1953,39 @@ public final class Ec2Functions {
      * 
      * The following example returns a specific CoIP pool ID
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var coipPoolId = config.requireObject("coipPoolId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *             .id(coipPoolId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool() {
         return getCoipPool(GetCoipPoolArgs.Empty, InvokeOptions.Empty);
@@ -1967,6 +2000,39 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific CoIP pool ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var coipPoolId = config.requireObject("coipPoolId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *             .id(coipPoolId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain() {
@@ -1983,6 +2049,39 @@ public final class Ec2Functions {
      * 
      * The following example returns a specific CoIP pool ID
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var coipPoolId = config.requireObject("coipPoolId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *             .id(coipPoolId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args) {
         return getCoipPool(args, InvokeOptions.Empty);
@@ -1997,6 +2096,39 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific CoIP pool ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var coipPoolId = config.requireObject("coipPoolId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *             .id(coipPoolId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args) {
@@ -2013,6 +2145,39 @@ public final class Ec2Functions {
      * 
      * The following example returns a specific CoIP pool ID
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var coipPoolId = config.requireObject("coipPoolId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *             .id(coipPoolId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCoipPool:getCoipPool", TypeShape.of(GetCoipPoolResult.class), args, Utilities.withVersion(options));
@@ -2028,6 +2193,39 @@ public final class Ec2Functions {
      * 
      * The following example returns a specific CoIP pool ID
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var coipPoolId = config.requireObject("coipPoolId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *             .id(coipPoolId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCoipPool:getCoipPool", TypeShape.of(GetCoipPoolResult.class), args, Utilities.withVersion(options));
@@ -2042,6 +2240,39 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific CoIP pool ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var coipPoolId = config.requireObject("coipPoolId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *             .id(coipPoolId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args, InvokeOptions options) {
@@ -2381,7 +2612,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
-     *             .vpcId(mainAwsVpc.id())
+     *             .vpcId(mainAwsVpc.get("id"))
      *             .amazonSideAsn("7224")
      *             .build());
      * 
@@ -2441,7 +2672,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
-     *             .vpcId(mainAwsVpc.id())
+     *             .vpcId(mainAwsVpc.get("id"))
      *             .amazonSideAsn("7224")
      *             .build());
      * 
@@ -2501,7 +2732,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
-     *             .vpcId(mainAwsVpc.id())
+     *             .vpcId(mainAwsVpc.get("id"))
      *             .amazonSideAsn("7224")
      *             .build());
      * 
@@ -2561,7 +2792,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
-     *             .vpcId(mainAwsVpc.id())
+     *             .vpcId(mainAwsVpc.get("id"))
      *             .amazonSideAsn("7224")
      *             .build());
      * 
@@ -2621,7 +2852,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
-     *             .vpcId(mainAwsVpc.id())
+     *             .vpcId(mainAwsVpc.get("id"))
      *             .amazonSideAsn("7224")
      *             .build());
      * 
@@ -2681,7 +2912,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
-     *             .vpcId(mainAwsVpc.id())
+     *             .vpcId(mainAwsVpc.get("id"))
      *             .amazonSideAsn("7224")
      *             .build());
      * 
@@ -2741,7 +2972,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
-     *             .vpcId(mainAwsVpc.id())
+     *             .vpcId(mainAwsVpc.get("id"))
      *             .amazonSideAsn("7224")
      *             .build());
      * 
@@ -4751,7 +4982,7 @@ public final class Ec2Functions {
      *                 .name("state")
      *                 .values("available")
      *                 .build())
-     *             .outpostArn(example.arn())
+     *             .outpostArn(example.get("arn"))
      *             .build());
      * 
      *     }
@@ -4842,7 +5073,7 @@ public final class Ec2Functions {
      *                 .name("state")
      *                 .values("available")
      *                 .build())
-     *             .outpostArn(example.arn())
+     *             .outpostArn(example.get("arn"))
      *             .build());
      * 
      *     }
@@ -4933,7 +5164,7 @@ public final class Ec2Functions {
      *                 .name("state")
      *                 .values("available")
      *                 .build())
-     *             .outpostArn(example.arn())
+     *             .outpostArn(example.get("arn"))
      *             .build());
      * 
      *     }
@@ -5024,7 +5255,7 @@ public final class Ec2Functions {
      *                 .name("state")
      *                 .values("available")
      *                 .build())
-     *             .outpostArn(example.arn())
+     *             .outpostArn(example.get("arn"))
      *             .build());
      * 
      *     }
@@ -5115,7 +5346,7 @@ public final class Ec2Functions {
      *                 .name("state")
      *                 .values("available")
      *                 .build())
-     *             .outpostArn(example.arn())
+     *             .outpostArn(example.get("arn"))
      *             .build());
      * 
      *     }
@@ -5206,7 +5437,7 @@ public final class Ec2Functions {
      *                 .name("state")
      *                 .values("available")
      *                 .build())
-     *             .outpostArn(example.arn())
+     *             .outpostArn(example.get("arn"))
      *             .build());
      * 
      *     }
@@ -5297,7 +5528,7 @@ public final class Ec2Functions {
      *                 .name("state")
      *                 .values("available")
      *                 .build())
-     *             .outpostArn(example.arn())
+     *             .outpostArn(example.get("arn"))
      *             .build());
      * 
      *     }
@@ -7456,7 +7687,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7502,7 +7733,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7548,7 +7779,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7594,7 +7825,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7640,7 +7871,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7686,7 +7917,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7732,7 +7963,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7784,12 +8015,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .netmaskLength(28)
      *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .cidr(test.cidr())
      *             .build(), CustomResourceOptions.builder()
      *                 .ignoreChanges("cidr")
@@ -7839,12 +8070,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .netmaskLength(28)
      *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .cidr(test.cidr())
      *             .build(), CustomResourceOptions.builder()
      *                 .ignoreChanges("cidr")
@@ -7894,12 +8125,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .netmaskLength(28)
      *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .cidr(test.cidr())
      *             .build(), CustomResourceOptions.builder()
      *                 .ignoreChanges("cidr")
@@ -7949,12 +8180,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .netmaskLength(28)
      *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .cidr(test.cidr())
      *             .build(), CustomResourceOptions.builder()
      *                 .ignoreChanges("cidr")
@@ -8004,12 +8235,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .netmaskLength(28)
      *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
-     *             .ipamPoolId(testAwsVpcIpamPool.id())
+     *             .ipamPoolId(testAwsVpcIpamPool.get("id"))
      *             .cidr(test.cidr())
      *             .build(), CustomResourceOptions.builder()
      *                 .ignoreChanges("cidr")
@@ -9150,7 +9381,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.require("localGatewayId");
+     *         final var localGatewayId = config.requireObject("localGatewayId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -9194,7 +9425,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.require("localGatewayId");
+     *         final var localGatewayId = config.requireObject("localGatewayId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -9238,7 +9469,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.require("localGatewayId");
+     *         final var localGatewayId = config.requireObject("localGatewayId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -9282,7 +9513,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.require("localGatewayId");
+     *         final var localGatewayId = config.requireObject("localGatewayId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -9326,7 +9557,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.require("localGatewayId");
+     *         final var localGatewayId = config.requireObject("localGatewayId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -9370,7 +9601,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.require("localGatewayId");
+     *         final var localGatewayId = config.requireObject("localGatewayId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -9414,7 +9645,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.require("localGatewayId");
+     *         final var localGatewayId = config.requireObject("localGatewayId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -9461,7 +9692,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -9508,7 +9739,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -9555,7 +9786,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -9602,7 +9833,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -9649,7 +9880,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -9696,7 +9927,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -9743,7 +9974,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -10142,7 +10373,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(exampleAwsEc2LocalGateway.id())
+     *             .localGatewayId(exampleAwsEc2LocalGateway.get("id"))
      *             .build());
      * 
      *     }
@@ -10182,7 +10413,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(exampleAwsEc2LocalGateway.id())
+     *             .localGatewayId(exampleAwsEc2LocalGateway.get("id"))
      *             .build());
      * 
      *     }
@@ -10222,7 +10453,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(exampleAwsEc2LocalGateway.id())
+     *             .localGatewayId(exampleAwsEc2LocalGateway.get("id"))
      *             .build());
      * 
      *     }
@@ -10262,7 +10493,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(exampleAwsEc2LocalGateway.id())
+     *             .localGatewayId(exampleAwsEc2LocalGateway.get("id"))
      *             .build());
      * 
      *     }
@@ -10302,7 +10533,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(exampleAwsEc2LocalGateway.id())
+     *             .localGatewayId(exampleAwsEc2LocalGateway.get("id"))
      *             .build());
      * 
      *     }
@@ -10342,7 +10573,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(exampleAwsEc2LocalGateway.id())
+     *             .localGatewayId(exampleAwsEc2LocalGateway.get("id"))
      *             .build());
      * 
      *     }
@@ -10382,7 +10613,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(exampleAwsEc2LocalGateway.id())
+     *             .localGatewayId(exampleAwsEc2LocalGateway.get("id"))
      *             .build());
      * 
      *     }
@@ -11668,7 +11899,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .build());
      * 
      *     }
@@ -11701,7 +11932,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
@@ -11742,7 +11973,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .build());
      * 
      *     }
@@ -11775,7 +12006,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
@@ -11816,7 +12047,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .build());
      * 
      *     }
@@ -11849,7 +12080,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
@@ -11890,7 +12121,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .build());
      * 
      *     }
@@ -11923,7 +12154,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
@@ -11964,7 +12195,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .build());
      * 
      *     }
@@ -11997,7 +12228,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
@@ -12038,7 +12269,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .build());
      * 
      *     }
@@ -12071,7 +12302,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
@@ -12112,7 +12343,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .build());
      * 
      *     }
@@ -12145,7 +12376,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(public_.id())
+     *             .subnetId(public_.get("id"))
      *             .tags(Map.of("Name", "gw NAT"))
      *             .build());
      * 
@@ -12336,7 +12567,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .vpcId(vpcId)
      *             .build());
@@ -12451,7 +12682,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .vpcId(vpcId)
      *             .build());
@@ -12566,7 +12797,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .vpcId(vpcId)
      *             .build());
@@ -12681,7 +12912,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .vpcId(vpcId)
      *             .build());
@@ -12796,7 +13027,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .vpcId(vpcId)
      *             .build());
@@ -12911,7 +13142,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .vpcId(vpcId)
      *             .build());
@@ -13026,7 +13257,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .vpcId(vpcId)
      *             .build());
@@ -13068,7 +13299,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.id())
+     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.get("id"))
      *             .build());
      * 
      *     }
@@ -13108,7 +13339,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.id())
+     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.get("id"))
      *             .build());
      * 
      *     }
@@ -13148,7 +13379,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.id())
+     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.get("id"))
      *             .build());
      * 
      *     }
@@ -13188,7 +13419,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.id())
+     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.get("id"))
      *             .build());
      * 
      *     }
@@ -13228,7 +13459,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.id())
+     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.get("id"))
      *             .build());
      * 
      *     }
@@ -13268,7 +13499,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.id())
+     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.get("id"))
      *             .build());
      * 
      *     }
@@ -13308,7 +13539,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.id())
+     *             .networkInsightsAnalysisId(exampleAwsEc2NetworkInsightsAnalysis.get("id"))
      *             .build());
      * 
      *     }
@@ -13348,7 +13579,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.id())
+     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.get("id"))
      *             .build());
      * 
      *     }
@@ -13388,7 +13619,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.id())
+     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.get("id"))
      *             .build());
      * 
      *     }
@@ -13428,7 +13659,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.id())
+     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.get("id"))
      *             .build());
      * 
      *     }
@@ -13468,7 +13699,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.id())
+     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.get("id"))
      *             .build());
      * 
      *     }
@@ -13508,7 +13739,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.id())
+     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.get("id"))
      *             .build());
      * 
      *     }
@@ -13548,7 +13779,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.id())
+     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.get("id"))
      *             .build());
      * 
      *     }
@@ -13588,7 +13819,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.id())
+     *             .networkInsightsPathId(exampleAwsEc2NetworkInsightsPath.get("id"))
      *             .build());
      * 
      *     }
@@ -13979,7 +14210,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name("subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -14092,7 +14323,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name("subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -14205,7 +14436,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name("subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -14318,7 +14549,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name("subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -14431,7 +14662,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name("subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -14544,7 +14775,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name("subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -14657,7 +14888,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name("subnet-id")
-     *                 .values(test.id())
+     *                 .values(test.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -14713,7 +14944,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
@@ -14722,7 +14953,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
@@ -14731,7 +14962,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks().get(0)))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -14824,7 +15055,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
@@ -14833,7 +15064,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
@@ -14842,7 +15073,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks().get(0)))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -14935,7 +15166,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
@@ -14944,7 +15175,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
@@ -14953,7 +15184,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks().get(0)))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -15046,7 +15277,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
@@ -15055,7 +15286,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
@@ -15064,7 +15295,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks().get(0)))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -15157,7 +15388,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
@@ -15166,7 +15397,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
@@ -15175,7 +15406,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks().get(0)))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -15268,7 +15499,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
@@ -15277,7 +15508,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
@@ -15286,7 +15517,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks().get(0)))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -15379,7 +15610,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
@@ -15388,7 +15619,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
@@ -15397,7 +15628,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks().get(0)))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -16245,13 +16476,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(selectedAwsRouteTable.id())
+     *             .routeTableId(selectedAwsRouteTable.get("id"))
      *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16302,13 +16533,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(selectedAwsRouteTable.id())
+     *             .routeTableId(selectedAwsRouteTable.get("id"))
      *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16359,13 +16590,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(selectedAwsRouteTable.id())
+     *             .routeTableId(selectedAwsRouteTable.get("id"))
      *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16416,13 +16647,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(selectedAwsRouteTable.id())
+     *             .routeTableId(selectedAwsRouteTable.get("id"))
      *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16473,13 +16704,13 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
      * 
      *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(selectedAwsRouteTable.id())
+     *             .routeTableId(selectedAwsRouteTable.get("id"))
      *             .destinationCidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16530,7 +16761,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -16584,7 +16815,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -16638,7 +16869,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -16692,7 +16923,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -16746,7 +16977,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -16800,7 +17031,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -16854,7 +17085,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -17338,7 +17569,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.require("securityGroupId");
+     *         final var securityGroupId = config.requireObject("securityGroupId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -17394,7 +17625,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.require("securityGroupId");
+     *         final var securityGroupId = config.requireObject("securityGroupId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -17450,7 +17681,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.require("securityGroupId");
+     *         final var securityGroupId = config.requireObject("securityGroupId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -17506,7 +17737,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.require("securityGroupId");
+     *         final var securityGroupId = config.requireObject("securityGroupId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -17562,7 +17793,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.require("securityGroupId");
+     *         final var securityGroupId = config.requireObject("securityGroupId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -17618,7 +17849,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.require("securityGroupId");
+     *         final var securityGroupId = config.requireObject("securityGroupId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -17674,7 +17905,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.require("securityGroupId");
+     *         final var securityGroupId = config.requireObject("securityGroupId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -18858,7 +19089,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
      *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
      *                 .name("outpost-arn")
-     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .values(exampleAwsOutpostsOutpost.get("arn"))
      *                 .build())
      *             .build());
      * 
@@ -18902,7 +19133,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
      *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
      *                 .name("outpost-arn")
-     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .values(exampleAwsOutpostsOutpost.get("arn"))
      *                 .build())
      *             .build());
      * 
@@ -18946,7 +19177,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
      *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
      *                 .name("outpost-arn")
-     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .values(exampleAwsOutpostsOutpost.get("arn"))
      *                 .build())
      *             .build());
      * 
@@ -18990,7 +19221,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
      *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
      *                 .name("outpost-arn")
-     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .values(exampleAwsOutpostsOutpost.get("arn"))
      *                 .build())
      *             .build());
      * 
@@ -19034,7 +19265,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
      *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
      *                 .name("outpost-arn")
-     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .values(exampleAwsOutpostsOutpost.get("arn"))
      *                 .build())
      *             .build());
      * 
@@ -19078,7 +19309,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
      *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
      *                 .name("outpost-arn")
-     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .values(exampleAwsOutpostsOutpost.get("arn"))
      *                 .build())
      *             .build());
      * 
@@ -19122,7 +19353,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
      *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
      *                 .name("outpost-arn")
-     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .values(exampleAwsOutpostsOutpost.get("arn"))
      *                 .build())
      *             .build());
      * 
@@ -19779,7 +20010,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -19877,7 +20108,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -19975,7 +20206,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -20073,7 +20304,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -20171,7 +20402,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -20269,7 +20500,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -20367,7 +20598,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.require("subnetId");
+     *         final var subnetId = config.requireObject("subnetId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -20869,7 +21100,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -20933,7 +21164,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -20997,7 +21228,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -21061,7 +21292,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -21125,7 +21356,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -21189,7 +21420,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -21253,7 +21484,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.require("vpcId");
+     *         final var vpcId = config.requireObject("vpcId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -21895,15 +22126,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.id())
-     *             .routeTableId(private_.id())
+     *             .routeTableId(private_.get("id"))
      *             .build());
      * 
      *     }
@@ -21945,15 +22176,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.id())
-     *             .routeTableId(private_.id())
+     *             .routeTableId(private_.get("id"))
      *             .build());
      * 
      *     }
@@ -21995,15 +22226,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.id())
-     *             .routeTableId(private_.id())
+     *             .routeTableId(private_.get("id"))
      *             .build());
      * 
      *     }
@@ -22045,15 +22276,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.id())
-     *             .routeTableId(private_.id())
+     *             .routeTableId(private_.get("id"))
      *             .build());
      * 
      *     }
@@ -22095,15 +22326,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.id())
-     *             .routeTableId(private_.id())
+     *             .routeTableId(private_.get("id"))
      *             .build());
      * 
      *     }
@@ -22145,15 +22376,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.id())
-     *             .routeTableId(private_.id())
+     *             .routeTableId(private_.get("id"))
      *             .build());
      * 
      *     }
@@ -22195,15 +22426,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.id())
-     *             .routeTableId(private_.id())
+     *             .routeTableId(private_.get("id"))
      *             .build());
      * 
      *     }
@@ -22249,7 +22480,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service("s3")
      *             .serviceType("Gateway")
@@ -22379,7 +22610,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service("s3")
      *             .serviceType("Gateway")
@@ -22509,7 +22740,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service("s3")
      *             .serviceType("Gateway")
@@ -22639,7 +22870,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service("s3")
      *             .serviceType("Gateway")
@@ -22769,7 +23000,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service("s3")
      *             .serviceType("Gateway")
@@ -22899,7 +23130,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service("s3")
      *             .serviceType("Gateway")
@@ -23029,7 +23260,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service("s3")
      *             .serviceType("Gateway")
@@ -25300,15 +25531,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
      *         var rt = new RouteTable("rt", RouteTableArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         // Create a route
@@ -25361,15 +25592,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
      *         var rt = new RouteTable("rt", RouteTableArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         // Create a route
@@ -25422,15 +25653,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
      *         var rt = new RouteTable("rt", RouteTableArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         // Create a route
@@ -25483,15 +25714,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
      *         var rt = new RouteTable("rt", RouteTableArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         // Create a route
@@ -25544,15 +25775,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
      *         var rt = new RouteTable("rt", RouteTableArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         // Create a route
@@ -25605,15 +25836,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
      *         var rt = new RouteTable("rt", RouteTableArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         // Create a route
@@ -25666,15 +25897,15 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Declare the data source
+     *         // Declare the function
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .peerCidrBlock("10.0.1.0/22")
      *             .build());
      * 
      *         // Create a route table
      *         var rt = new RouteTable("rt", RouteTableArgs.builder()
-     *             .vpcId(foo.id())
+     *             .vpcId(foo.get("id"))
      *             .build());
      * 
      *         // Create a route

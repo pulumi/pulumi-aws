@@ -40,21 +40,21 @@ import (
 //			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
 //				Name:           pulumi.String("example"),
 //				GenerateSecret: pulumi.Bool(true),
-//				UserPoolId:     exampleUserPool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId:     exampleUserPool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "example", &cognito.UserPoolDomainArgs{
 //				Domain:     pulumi.String("example"),
-//				UserPoolId: exampleUserPool.ID().ToIDOutput().ToStringOutput(),
+//				UserPoolId: exampleUserPool.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
 //				CognitoConfig: &sagemaker.WorkforceCognitoConfigArgs{
-//					ClientId: exampleUserPoolClient.ID().ToIDOutput().ToStringOutput(),
+//					ClientId: exampleUserPoolClient.ID(),
 //					UserPool: exampleUserPoolDomain.UserPoolId,
 //				},
 //				WorkforceName: pulumi.String("example"),

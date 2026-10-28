@@ -51,11 +51,11 @@ public final class ApprunnerFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.get("dnsTarget"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -105,11 +105,11 @@ public final class ApprunnerFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.get("dnsTarget"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -159,11 +159,11 @@ public final class ApprunnerFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.get("dnsTarget"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -213,11 +213,11 @@ public final class ApprunnerFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.get("dnsTarget"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -267,11 +267,11 @@ public final class ApprunnerFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.get("dnsTarget"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -321,11 +321,11 @@ public final class ApprunnerFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.get("dnsTarget"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());
@@ -375,11 +375,11 @@ public final class ApprunnerFunctions {
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.get("dnsTarget"))
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
-     *             .zoneId(primary.zoneId())
+     *             .zoneId(primary.get("zoneId"))
      *             .name("example.com")
      *             .type("A")
      *             .build());

@@ -51,9 +51,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()
- *             .subnetIds(exampleAwsSubnet.id())
+ *             .subnetIds(exampleAwsSubnet.get("id"))
  *             .transitGatewayId(example.id())
- *             .vpcId(exampleAwsVpc.id())
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *         var exampleMulticastDomain = new MulticastDomain("exampleMulticastDomain", MulticastDomainArgs.builder()
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMulticastDomainAssociation = new MulticastDomainAssociation("exampleMulticastDomainAssociation", MulticastDomainAssociationArgs.builder()
- *             .subnetId(exampleAwsSubnet.id())
+ *             .subnetId(exampleAwsSubnet.get("id"))
  *             .transitGatewayAttachmentId(exampleVpcAttachment.id())
  *             .transitGatewayMulticastDomainId(exampleMulticastDomain.id())
  *             .build());

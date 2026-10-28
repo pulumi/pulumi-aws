@@ -44,7 +44,7 @@ import (
 // Target: &directoryservice.SharedDirectoryTargetArgs{
 // Id: pulumi.Any(receiver.AccountId),
 // },
-// DirectoryId: example.ID().ToIDOutput().ToStringOutput(),
+// DirectoryId: example.ID(),
 // Notes: pulumi.String("You wanna have a catch?"),
 // })
 // if err != nil {

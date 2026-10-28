@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Authorizer("example", AuthorizerArgs.builder()
  *             .name("example")
- *             .authorizerFunctionArn(exampleAwsLambdaFunction.arn())
+ *             .authorizerFunctionArn(exampleAwsLambdaFunction.get("arn"))
  *             .signingDisabled(false)
  *             .status("ACTIVE")
  *             .tokenKeyName("Token-Header")

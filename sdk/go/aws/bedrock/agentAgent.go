@@ -52,7 +52,7 @@ import (
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
-//								Values: pulumi.StringArray{
+//								Values: []string{
 //									current.AccountId,
 //								},
 //								Variable: "aws:SourceAccount",
@@ -106,7 +106,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Policy: pulumi.String(exampleAgentPermissions.Json),
-//				Role:   example.ID().ToIDOutput().ToStringOutput(),
+//				Role:   example.ID(),
 //			})
 //			if err != nil {
 //				return err

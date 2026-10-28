@@ -92,7 +92,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * 
      *     public static void stack(Context ctx) {
      *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
-     *             .vpcId(main.id())
+     *             .vpcId(main.get("id"))
      *             .build());
      * 
      *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
@@ -139,7 +139,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * 
      *     public static void stack(Context ctx) {
      *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
-     *             .vpcId(main.id())
+     *             .vpcId(main.get("id"))
      *             .build());
      * 
      *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
@@ -309,7 +309,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * 
          *     public static void stack(Context ctx) {
          *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
-         *             .vpcId(main.id())
+         *             .vpcId(main.get("id"))
          *             .build());
          * 
          *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
@@ -360,7 +360,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * 
          *     public static void stack(Context ctx) {
          *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
-         *             .vpcId(main.id())
+         *             .vpcId(main.get("id"))
          *             .build());
          * 
          *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()

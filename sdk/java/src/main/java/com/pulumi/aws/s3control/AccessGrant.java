@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *         var example = new AccessGrantsInstance("example");
  * 
  *         var exampleAccessGrantsLocation = new AccessGrantsLocation("exampleAccessGrantsLocation", AccessGrantsLocationArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .locationScope(String.format("s3://%s/prefixA*", exampleAwsS3Bucket.bucket()))
+ *             .iamRoleArn(exampleAwsIamRole.get("arn"))
+ *             .locationScope(String.format("s3://%s/prefixA*", exampleAwsS3Bucket.get("bucket")))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .grantee(AccessGrantGranteeArgs.builder()
  *                 .granteeType("IAM")
- *                 .granteeIdentifier(exampleAwsIamUser.arn())
+ *                 .granteeIdentifier(exampleAwsIamUser.get("arn"))
  *                 .build())
  *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
  *             .permission("READ")

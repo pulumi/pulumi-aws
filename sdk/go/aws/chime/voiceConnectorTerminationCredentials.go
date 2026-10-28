@@ -47,7 +47,7 @@ import (
 //					pulumi.String("US"),
 //					pulumi.String("CA"),
 //				},
-//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
+//				VoiceConnectorId: _default.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //						Password: pulumi.String("test!"),
 //					},
 //				},
-//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
+//				VoiceConnectorId: _default.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				defaultVoiceConnectorTermination,
 //			}))

@@ -44,7 +44,7 @@ import (
 //					Skip: pulumi.Bool(true),
 //				},
 //				Alias:       pulumi.String("example"),
-//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -91,7 +91,7 @@ import (
 //					MarkAsAnomaly: pulumi.Bool(true),
 //				},
 //				Alias:                       pulumi.String("example"),
-//				WorkspaceId:                 example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:                 example.ID(),
 //				EvaluationIntervalInSeconds: pulumi.Int(120),
 //				Labels: pulumi.StringMap{
 //					"env":  pulumi.String("production"),

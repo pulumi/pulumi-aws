@@ -61,7 +61,7 @@ import (
 //				return err
 //			}
 //			_, err = notifications.NewOrganizationalUnitAssociation(ctx, "example", &notifications.OrganizationalUnitAssociationArgs{
-//				OrganizationalUnitId:         exampleOrganizationalUnit.ID().ToIDOutput().ToStringOutput(),
+//				OrganizationalUnitId:         exampleOrganizationalUnit.ID(),
 //				NotificationConfigurationArn: exampleNotificationConfiguration.Arn,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				wait,

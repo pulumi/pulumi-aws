@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreApiKeyCredentialProvider("example", AgentcoreApiKeyCredentialProviderArgs.builder()
  *             .apiKeySecretConfig(AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs.builder()
- *                 .secretId(exampleAwsSecretsmanagerSecret.id())
+ *                 .secretId(exampleAwsSecretsmanagerSecret.get("id"))
  *                 .jsonKey("apiKey")
  *                 .build())
  *             .name("example-api-key-provider")

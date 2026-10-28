@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new AuthorizeVpcEndpointAccess("test", AuthorizeVpcEndpointAccessArgs.builder()
- *             .domainName(testAwsOpensearchDomain.domainName())
+ *             .domainName(testAwsOpensearchDomain.get("domainName"))
  *             .account(current.accountId())
  *             .build());
  * 

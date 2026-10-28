@@ -68,7 +68,7 @@ import (
 //	    val0 := index
 //
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-// VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+// VpcId: exampleVpc.ID(),
 // AvailabilityZone: pulumi.String(available.Names[val0]),
 // CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 // Input: exampleVpc.CidrBlock,
@@ -86,7 +86,7 @@ import (
 // }
 // exampleDirectory, err := directoryservice.NewDirectory(ctx, "example", &directoryservice.DirectoryArgs{
 // VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+// VpcId: exampleVpc.ID(),
 // SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:41,17-36)),
 // },
 // Name: pulumi.String("example.com"),
@@ -126,7 +126,7 @@ import (
 //	    val0 := index
 //
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-secondary-%v", key0), &ec2.SubnetArgs{
-// VpcId: example_secondary.ID().ToIDOutput().ToStringOutput(),
+// VpcId: example_secondary.ID(),
 // AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
 // CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 // Input: example_secondary.CidrBlock,
@@ -144,10 +144,10 @@ import (
 // }
 // _, err = directoryservice.NewServiceRegion(ctx, "example", &directoryservice.ServiceRegionArgs{
 // VpcSettings: &directoryservice.ServiceRegionVpcSettingsArgs{
-// VpcId: example_secondary.ID().ToIDOutput().ToStringOutput(),
+// VpcId: example_secondary.ID(),
 // SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:85,17-46)),
 // },
-// DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
+// DirectoryId: exampleDirectory.ID(),
 // RegionName: pulumi.String(example.Region),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),

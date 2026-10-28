@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * 
  *         var main = new UserPoolDomain("main", UserPoolDomainArgs.builder()
  *             .domain("auth.example.com")
- *             .certificateArn(cert.arn())
+ *             .certificateArn(cert.get("arn"))
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 

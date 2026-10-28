@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewPatchGroup(ctx, "example", &ssm.PatchGroupArgs{
-//				BaselineId: example.ID().ToIDOutput().ToStringOutput(),
+//				BaselineId: example.ID(),
 //				PatchGroup: pulumi.String("patch-group-name"),
 //			})
 //			if err != nil {

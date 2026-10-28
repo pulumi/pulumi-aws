@@ -55,10 +55,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PodIdentityAssociation("example", PodIdentityAssociationArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .namespace("example")
  *             .serviceAccount("example-sa")
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(exampleAwsIamRole.get("arn"))
  *             .disableSessionTags(true)
  *             .policy(serializeJson(
  *                 jsonObject(
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePodIdentityAssociation = new PodIdentityAssociation("examplePodIdentityAssociation", PodIdentityAssociationArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .namespace("example")
  *             .serviceAccount("example-sa")
  *             .roleArn(example.arn())

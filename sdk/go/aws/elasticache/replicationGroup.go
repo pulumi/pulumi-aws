@@ -116,7 +116,7 @@ import (
 //				val0 := index
 //				__res, err := elasticache.NewCluster(ctx, fmt.Sprintf("replica-%v", key0), &elasticache.ClusterArgs{
 //					ClusterId:          pulumi.Sprintf("tf-rep-group-1-%v", val0),
-//					ReplicationGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//					ReplicationGroupId: example.ID(),
 //				})
 //				if err != nil {
 //					return err
@@ -300,7 +300,7 @@ import (
 //			}
 //			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
 //				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-//				PrimaryReplicationGroupId:      primary.ID().ToIDOutput().ToStringOutput(),
+//				PrimaryReplicationGroupId:      primary.ID(),
 //			})
 //			if err != nil {
 //				return err

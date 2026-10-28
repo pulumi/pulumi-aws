@@ -104,10 +104,10 @@ import javax.annotation.Nullable;
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
  *                 .notificationTargets(                
  *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
- *                         .snsTopicArn(example1.arn())
+ *                         .snsTopicArn(example1.get("arn"))
  *                         .build(),
  *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
- *                         .snsTopicArn(example2.arn())
+ *                         .snsTopicArn(example2.get("arn"))
  *                         .build())
  *                 .title("title")
  *                 .impact(3)
@@ -128,8 +128,8 @@ import javax.annotation.Nullable;
  *                             .name("foo")
  *                             .values("bar")
  *                             .build())
- *                     .documentName(document1.name())
- *                     .roleArn(role1.arn())
+ *                     .documentName(document1.get("name"))
+ *                     .roleArn(role1.get("arn"))
  *                     .documentVersion("version1")
  *                     .targetAccount("RESPONSE_PLAN_OWNER_ACCOUNT")
  *                     .dynamicParameters(Map.ofEntries(
@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("name")
  *             .displayName("display name")
- *             .chatChannels(topic.arn())
+ *             .chatChannels(topic.get("arn"))
  *             .engagements("arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1")
  *             .tags(Map.of("key", "value"))
  *             .build(), CustomResourceOptions.builder()

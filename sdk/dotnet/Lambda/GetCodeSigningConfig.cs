@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["configDetails"] = 
+        ///         ["configDetails"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "configId", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId) },
-        ///             { "description", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description) },
-        ///             { "policy", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment) },
+        ///             ["configId"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId),
+        ///             ["description"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description),
+        ///             ["policy"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment),
         ///         },
         ///     };
         /// });
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     // Conditional resource creation based on signing profile validation
         ///     var conditional = new List&lt;Aws.Lambda.Function&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; profileAllowed ? 1 : 0; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; (profileAllowed ? 1 : 0); rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         conditional.Add(new Aws.Lambda.Function($"conditional-{range.Value}", new()
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.Lambda
         ///     }
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["deploymentStatus"] = 
+        ///         ["deploymentStatus"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "profileAllowed", profileAllowed },
-        ///             { "functionCreated", profileAllowed },
-        ///             { "message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed" },
+        ///             ["profileAllowed"] = profileAllowed,
+        ///             ["functionCreated"] = profileAllowed,
+        ///             ["message"] = profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed",
         ///         },
         ///     };
         /// });
@@ -160,16 +160,16 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     var devPolicy = dev.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
         /// 
-        ///     var configComparison = 
+        ///     var configComparison = new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "prodEnforcement", prodPolicy },
-        ///         { "devEnforcement", devPolicy },
-        ///         { "policiesMatch", Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
+        ///         ["prodEnforcement"] = prodPolicy,
+        ///         ["devEnforcement"] = devPolicy,
+        ///         ["policiesMatch"] = Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
         ///         {
         ///             var prodPolicy = values.Item1;
         ///             var devPolicy = values.Item2;
         ///             return prodPolicy == devPolicy;
-        ///         }) },
+        ///         }),
         ///     };
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -206,11 +206,11 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["configDetails"] = 
+        ///         ["configDetails"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "configId", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId) },
-        ///             { "description", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description) },
-        ///             { "policy", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment) },
+        ///             ["configId"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId),
+        ///             ["description"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description),
+        ///             ["policy"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment),
         ///         },
         ///     };
         /// });
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     // Conditional resource creation based on signing profile validation
         ///     var conditional = new List&lt;Aws.Lambda.Function&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; profileAllowed ? 1 : 0; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; (profileAllowed ? 1 : 0); rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         conditional.Add(new Aws.Lambda.Function($"conditional-{range.Value}", new()
@@ -295,11 +295,11 @@ namespace Pulumi.Aws.Lambda
         ///     }
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["deploymentStatus"] = 
+        ///         ["deploymentStatus"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "profileAllowed", profileAllowed },
-        ///             { "functionCreated", profileAllowed },
-        ///             { "message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed" },
+        ///             ["profileAllowed"] = profileAllowed,
+        ///             ["functionCreated"] = profileAllowed,
+        ///             ["message"] = profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed",
         ///         },
         ///     };
         /// });
@@ -331,16 +331,16 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     var devPolicy = dev.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
         /// 
-        ///     var configComparison = 
+        ///     var configComparison = new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "prodEnforcement", prodPolicy },
-        ///         { "devEnforcement", devPolicy },
-        ///         { "policiesMatch", Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
+        ///         ["prodEnforcement"] = prodPolicy,
+        ///         ["devEnforcement"] = devPolicy,
+        ///         ["policiesMatch"] = Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
         ///         {
         ///             var prodPolicy = values.Item1;
         ///             var devPolicy = values.Item2;
         ///             return prodPolicy == devPolicy;
-        ///         }) },
+        ///         }),
         ///     };
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -377,11 +377,11 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["configDetails"] = 
+        ///         ["configDetails"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "configId", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId) },
-        ///             { "description", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description) },
-        ///             { "policy", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment) },
+        ///             ["configId"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId),
+        ///             ["description"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description),
+        ///             ["policy"] = example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment),
         ///         },
         ///     };
         /// });
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     // Conditional resource creation based on signing profile validation
         ///     var conditional = new List&lt;Aws.Lambda.Function&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; profileAllowed ? 1 : 0; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; (profileAllowed ? 1 : 0); rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         conditional.Add(new Aws.Lambda.Function($"conditional-{range.Value}", new()
@@ -466,11 +466,11 @@ namespace Pulumi.Aws.Lambda
         ///     }
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["deploymentStatus"] = 
+        ///         ["deploymentStatus"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "profileAllowed", profileAllowed },
-        ///             { "functionCreated", profileAllowed },
-        ///             { "message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed" },
+        ///             ["profileAllowed"] = profileAllowed,
+        ///             ["functionCreated"] = profileAllowed,
+        ///             ["message"] = profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed",
         ///         },
         ///     };
         /// });
@@ -502,16 +502,16 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     var devPolicy = dev.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
         /// 
-        ///     var configComparison = 
+        ///     var configComparison = new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         { "prodEnforcement", prodPolicy },
-        ///         { "devEnforcement", devPolicy },
-        ///         { "policiesMatch", Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
+        ///         ["prodEnforcement"] = prodPolicy,
+        ///         ["devEnforcement"] = devPolicy,
+        ///         ["policiesMatch"] = Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
         ///         {
         ///             var prodPolicy = values.Item1;
         ///             var devPolicy = values.Item2;
         ///             return prodPolicy == devPolicy;
-        ///         }) },
+        ///         }),
         ///     };
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *         var example = new TableBucketReplication("example", TableBucketReplicationArgs.builder()
  *             .rule(TableBucketReplicationRuleArgs.builder()
  *                 .destinations(TableBucketReplicationRuleDestinationArgs.builder()
- *                     .destinationTableBucketArn(target.arn())
+ *                     .destinationTableBucketArn(target.get("arn"))
  *                     .build())
  *                 .build())
- *             .tableBucketArn(source.arn())
- *             .role(exampleAwsIamRole.arn())
+ *             .tableBucketArn(source.get("arn"))
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

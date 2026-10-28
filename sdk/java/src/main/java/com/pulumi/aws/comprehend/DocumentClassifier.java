@@ -54,10 +54,10 @@ import javax.annotation.Nullable;
  * 
  *         var example = new DocumentClassifier("example", DocumentClassifierArgs.builder()
  *             .inputDataConfig(DocumentClassifierInputDataConfigArgs.builder()
- *                 .s3Uri(documents.key().applyValue(_key -> String.format("s3://%s/%s", test.bucket(),_key)))
+ *                 .s3Uri(documents.key().applyValue(_key -> String.format("s3://%s/%s", test.get("bucket"),_key)))
  *                 .build())
  *             .name("example")
- *             .dataAccessRoleArn(exampleAwsIamRole.arn())
+ *             .dataAccessRoleArn(exampleAwsIamRole.get("arn"))
  *             .languageCode("en")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)

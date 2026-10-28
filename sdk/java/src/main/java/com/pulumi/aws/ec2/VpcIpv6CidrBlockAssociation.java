@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testVpcIpv6CidrBlockAssociation = new VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", VpcIpv6CidrBlockAssociationArgs.builder()
- *             .ipv6IpamPoolId(testAwsVpcIpamPool.id())
+ *             .ipv6IpamPoolId(testAwsVpcIpamPool.get("id"))
  *             .vpcId(test.id())
  *             .build());
  * 

@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NatGatewayEipAssociation("example", NatGatewayEipAssociationArgs.builder()
- *             .allocationId(exampleAwsEip.id())
- *             .natGatewayId(exampleAwsNatGateway.id())
+ *             .allocationId(exampleAwsEip.get("id"))
+ *             .natGatewayId(exampleAwsNatGateway.get("id"))
  *             .build());
  * 
  *     }

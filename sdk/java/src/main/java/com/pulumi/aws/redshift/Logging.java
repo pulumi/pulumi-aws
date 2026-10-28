@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Logging("example", LoggingArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.get("id"))
  *             .logDestinationType("cloudwatch")
  *             .logExports(            
  *                 "connectionlog",
@@ -82,9 +82,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Logging("example", LoggingArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
+ *             .clusterIdentifier(exampleAwsRedshiftCluster.get("id"))
  *             .logDestinationType("s3")
- *             .bucketName(exampleAwsS3Bucket.id())
+ *             .bucketName(exampleAwsS3Bucket.get("id"))
  *             .s3KeyPrefix("example-prefix/")
  *             .build());
  * 

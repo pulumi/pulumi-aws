@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var ni = new NotebookInstance("ni", NotebookInstanceArgs.builder()
  *             .name("my-notebook-instance")
- *             .roleArn(role.arn())
+ *             .roleArn(role.get("arn"))
  *             .instanceType("ml.t2.medium")
  *             .tags(Map.of("Name", "foo"))
  *             .build());
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *         var ni = new NotebookInstance("ni", NotebookInstanceArgs.builder()
  *             .name("my-notebook-instance")
- *             .roleArn(role.arn())
+ *             .roleArn(role.get("arn"))
  *             .instanceType("ml.t2.medium")
  *             .defaultCodeRepository(example.codeRepositoryName())
  *             .tags(Map.of("Name", "foo"))

@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcSecurityGroupRulesExclusive("example", VpcSecurityGroupRulesExclusiveArgs.builder()
- *             .securityGroupId(exampleAwsSecurityGroup.id())
+ *             .securityGroupId(exampleAwsSecurityGroup.get("id"))
  *             .ingressRuleIds()
  *             .egressRuleIds()
  *             .build());

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConditionalForwarder("example", ConditionalForwarderArgs.builder()
- *             .directoryId(ad.id())
+ *             .directoryId(ad.get("id"))
  *             .remoteDomainName("example.com")
  *             .dnsIps(            
  *                 "8.8.8.8",

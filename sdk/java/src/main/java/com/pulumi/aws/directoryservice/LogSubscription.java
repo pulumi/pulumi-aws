@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LogGroup("example", LogGroupArgs.builder()
- *             .name(String.format("/aws/directoryservice/%s", exampleAwsDirectoryServiceDirectory.id()))
+ *             .name(String.format("/aws/directoryservice/%s", exampleAwsDirectoryServiceDirectory.get("id")))
  *             .retentionInDays(14)
  *             .build());
  * 
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogSubscription = new LogSubscription("exampleLogSubscription", LogSubscriptionArgs.builder()
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.get("id"))
  *             .logGroupName(example.name())
  *             .build());
  * 

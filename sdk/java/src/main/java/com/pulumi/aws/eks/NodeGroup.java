@@ -65,10 +65,10 @@ import javax.annotation.Nullable;
  *             .updateConfig(NodeGroupUpdateConfigArgs.builder()
  *                 .maxUnavailable(1)
  *                 .build())
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .nodeGroupName("example")
- *             .nodeRoleArn(exampleAwsIamRole.arn())
- *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .nodeRoleArn(exampleAwsIamRole.get("arn"))
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     example_AmazonEKSWorkerNodePolicy,
@@ -151,16 +151,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var eksAmiReleaseVersion = SsmFunctions.getParameter(GetParameterArgs.builder()
- *             .name(String.format("/aws/service/eks/optimized-ami/%s/amazon-linux-2023/x86_64/standard/recommended/release_version", exampleAwsEksCluster.version()))
+ *             .name(String.format("/aws/service/eks/optimized-ami/%s/amazon-linux-2023/x86_64/standard/recommended/release_version", exampleAwsEksCluster.get("version")))
  *             .build());
  * 
  *         var example = new NodeGroup("example", NodeGroupArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .nodeGroupName("example")
- *             .version(exampleAwsEksCluster.version())
+ *             .version(exampleAwsEksCluster.get("version"))
  *             .releaseVersion(eksAmiReleaseVersion.value().asPlaintext())
- *             .nodeRoleArn(exampleAwsIamRole.arn())
- *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .nodeRoleArn(exampleAwsIamRole.get("arn"))
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.get("id")).collect(toList()))
  *             .build());
  * 
  *     }
@@ -267,11 +267,11 @@ import javax.annotation.Nullable;
  *             new Subnet("example-" + i, SubnetArgs.builder()
  *                 .availabilityZone(available.names()[range.value()])
  *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
- *                     .input(exampleAwsVpc.cidrBlock())
+ *                     .input(exampleAwsVpc.get("cidrBlock"))
  *                     .newbits(8)
  *                     .netnum(range.value())
  *                     .build()).result())
- *                 .vpcId(exampleAwsVpc.id())
+ *                 .vpcId(exampleAwsVpc.get("id"))
  *                 .build());
  * 
  *         

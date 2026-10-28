@@ -21,6 +21,24 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// 
         /// The following example returns a specific CoIP pool ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var coipPoolId = config.RequireObject&lt;dynamic&gt;("coipPoolId");
+        ///     var selected = Aws.Ec2.GetCoipPool.Invoke(new()
+        ///     {
+        ///         Id = coipPoolId,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetCoipPoolResult> InvokeAsync(GetCoipPoolArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolArgs(), options.WithDefaults());
@@ -35,6 +53,24 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// 
         /// The following example returns a specific CoIP pool ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var coipPoolId = config.RequireObject&lt;dynamic&gt;("coipPoolId");
+        ///     var selected = Aws.Ec2.GetCoipPool.Invoke(new()
+        ///     {
+        ///         Id = coipPoolId,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCoipPoolResult> Invoke(GetCoipPoolInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolInvokeArgs(), options.WithDefaults());
@@ -49,6 +85,24 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// 
         /// The following example returns a specific CoIP pool ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var coipPoolId = config.RequireObject&lt;dynamic&gt;("coipPoolId");
+        ///     var selected = Aws.Ec2.GetCoipPool.Invoke(new()
+        ///     {
+        ///         Id = coipPoolId,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCoipPoolResult> Invoke(GetCoipPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolInvokeArgs(), options.WithDefaults());

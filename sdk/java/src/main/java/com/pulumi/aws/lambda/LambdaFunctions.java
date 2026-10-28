@@ -107,9 +107,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         var example = new Integration("example", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(apiHandler.invokeArn())
@@ -122,7 +122,7 @@ public final class LambdaFunctions {
      *             .function(apiHandler.functionName())
      *             .principal("apigateway.amazonaws.com")
      *             .qualifier(apiHandler.name())
-     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.get("executionArn")))
      *             .build());
      * 
      *     }}{@code
@@ -323,9 +323,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         var example = new Integration("example", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(apiHandler.invokeArn())
@@ -338,7 +338,7 @@ public final class LambdaFunctions {
      *             .function(apiHandler.functionName())
      *             .principal("apigateway.amazonaws.com")
      *             .qualifier(apiHandler.name())
-     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.get("executionArn")))
      *             .build());
      * 
      *     }}{@code
@@ -539,9 +539,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         var example = new Integration("example", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(apiHandler.invokeArn())
@@ -554,7 +554,7 @@ public final class LambdaFunctions {
      *             .function(apiHandler.functionName())
      *             .principal("apigateway.amazonaws.com")
      *             .qualifier(apiHandler.name())
-     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.get("executionArn")))
      *             .build());
      * 
      *     }}{@code
@@ -755,9 +755,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         var example = new Integration("example", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(apiHandler.invokeArn())
@@ -770,7 +770,7 @@ public final class LambdaFunctions {
      *             .function(apiHandler.functionName())
      *             .principal("apigateway.amazonaws.com")
      *             .qualifier(apiHandler.name())
-     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.get("executionArn")))
      *             .build());
      * 
      *     }}{@code
@@ -971,9 +971,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         var example = new Integration("example", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(apiHandler.invokeArn())
@@ -986,7 +986,7 @@ public final class LambdaFunctions {
      *             .function(apiHandler.functionName())
      *             .principal("apigateway.amazonaws.com")
      *             .qualifier(apiHandler.name())
-     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.get("executionArn")))
      *             .build());
      * 
      *     }}{@code
@@ -1194,7 +1194,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("secure-function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
@@ -1257,7 +1257,7 @@ public final class LambdaFunctions {
      *             new Function("conditional-" + i, FunctionArgs.builder()
      *                 .code(new FileArchive("function.zip"))
      *                 .name("conditional-function")
-     *                 .role(lambdaRole.arn())
+     *                 .role(lambdaRole.get("arn"))
      *                 .handler("index.handler")
      *                 .runtime("python3.12")
      *                 .codeSigningConfigArn(example.arn())
@@ -1410,7 +1410,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("secure-function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
@@ -1473,7 +1473,7 @@ public final class LambdaFunctions {
      *             new Function("conditional-" + i, FunctionArgs.builder()
      *                 .code(new FileArchive("function.zip"))
      *                 .name("conditional-function")
-     *                 .role(lambdaRole.arn())
+     *                 .role(lambdaRole.get("arn"))
      *                 .handler("index.handler")
      *                 .runtime("python3.12")
      *                 .codeSigningConfigArn(example.arn())
@@ -1626,7 +1626,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("secure-function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
@@ -1689,7 +1689,7 @@ public final class LambdaFunctions {
      *             new Function("conditional-" + i, FunctionArgs.builder()
      *                 .code(new FileArchive("function.zip"))
      *                 .name("conditional-function")
-     *                 .role(lambdaRole.arn())
+     *                 .role(lambdaRole.get("arn"))
      *                 .handler("index.handler")
      *                 .runtime("python3.12")
      *                 .codeSigningConfigArn(example.arn())
@@ -1842,7 +1842,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("secure-function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
@@ -1905,7 +1905,7 @@ public final class LambdaFunctions {
      *             new Function("conditional-" + i, FunctionArgs.builder()
      *                 .code(new FileArchive("function.zip"))
      *                 .name("conditional-function")
-     *                 .role(lambdaRole.arn())
+     *                 .role(lambdaRole.get("arn"))
      *                 .handler("index.handler")
      *                 .runtime("python3.12")
      *                 .codeSigningConfigArn(example.arn())
@@ -2058,7 +2058,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("secure-function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
@@ -2121,7 +2121,7 @@ public final class LambdaFunctions {
      *             new Function("conditional-" + i, FunctionArgs.builder()
      *                 .code(new FileArchive("function.zip"))
      *                 .name("conditional-function")
-     *                 .role(lambdaRole.arn())
+     *                 .role(lambdaRole.get("arn"))
      *                 .handler("index.handler")
      *                 .runtime("python3.12")
      *                 .codeSigningConfigArn(example.arn())
@@ -2267,9 +2267,9 @@ public final class LambdaFunctions {
      * 
      *         // Use in API Gateway integration
      *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(example.invokeArn())
@@ -2357,9 +2357,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size() > 0),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null)
      *         ));
      *     }
      * }
@@ -2444,9 +2444,9 @@ public final class LambdaFunctions {
      * 
      *         // Use in API Gateway integration
      *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(example.invokeArn())
@@ -2534,9 +2534,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size() > 0),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null)
      *         ));
      *     }
      * }
@@ -2621,9 +2621,9 @@ public final class LambdaFunctions {
      * 
      *         // Use in API Gateway integration
      *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(example.invokeArn())
@@ -2711,9 +2711,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size() > 0),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null)
      *         ));
      *     }
      * }
@@ -2798,9 +2798,9 @@ public final class LambdaFunctions {
      * 
      *         // Use in API Gateway integration
      *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(example.invokeArn())
@@ -2888,9 +2888,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size() > 0),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null)
      *         ));
      *     }
      * }
@@ -2975,9 +2975,9 @@ public final class LambdaFunctions {
      * 
      *         // Use in API Gateway integration
      *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
-     *             .restApi(exampleAwsApiGatewayRestApi.id())
-     *             .resourceId(exampleAwsApiGatewayResource.id())
-     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .restApi(exampleAwsApiGatewayRestApi.get("id"))
+     *             .resourceId(exampleAwsApiGatewayResource.get("id"))
+     *             .httpMethod(exampleAwsApiGatewayMethod.get("httpMethod"))
      *             .integrationHttpMethod("POST")
      *             .type("AWS_PROXY")
      *             .uri(example.invokeArn())
@@ -3065,9 +3065,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size() > 0),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size() > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null)
      *         ));
      *     }
      * }
@@ -3146,13 +3146,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .qualifier("production")
      *             .build());
      * 
      *         // Use the URL in other resources
      *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
-     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
      *             .name("api.example.com")
      *             .type("CNAME")
      *             .ttl(300)
@@ -3196,9 +3196,9 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size() > 0 ? example.cors()[0] : null;
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
+     *         final var allowedOrigins = corsConfig.applyValue(_corsConfig -> _corsConfig != null ? _corsConfig.allowOrigins() : Arrays.asList());
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3278,13 +3278,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .qualifier("production")
      *             .build());
      * 
      *         // Use the URL in other resources
      *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
-     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
      *             .name("api.example.com")
      *             .type("CNAME")
      *             .ttl(300)
@@ -3328,9 +3328,9 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size() > 0 ? example.cors()[0] : null;
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
+     *         final var allowedOrigins = corsConfig.applyValue(_corsConfig -> _corsConfig != null ? _corsConfig.allowOrigins() : Arrays.asList());
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3410,13 +3410,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .qualifier("production")
      *             .build());
      * 
      *         // Use the URL in other resources
      *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
-     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
      *             .name("api.example.com")
      *             .type("CNAME")
      *             .ttl(300)
@@ -3460,9 +3460,9 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size() > 0 ? example.cors()[0] : null;
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
+     *         final var allowedOrigins = corsConfig.applyValue(_corsConfig -> _corsConfig != null ? _corsConfig.allowOrigins() : Arrays.asList());
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3542,13 +3542,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .qualifier("production")
      *             .build());
      * 
      *         // Use the URL in other resources
      *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
-     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
      *             .name("api.example.com")
      *             .type("CNAME")
      *             .ttl(300)
@@ -3592,9 +3592,9 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size() > 0 ? example.cors()[0] : null;
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
+     *         final var allowedOrigins = corsConfig.applyValue(_corsConfig -> _corsConfig != null ? _corsConfig.allowOrigins() : Arrays.asList());
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3674,13 +3674,13 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .qualifier("production")
      *             .build());
      * 
      *         // Use the URL in other resources
      *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
-     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
      *             .name("api.example.com")
      *             .type("CNAME")
      *             .ttl(300)
@@ -3724,9 +3724,9 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size() > 0 ? example.cors()[0] : null;
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
+     *         final var allowedOrigins = corsConfig.applyValue(_corsConfig -> _corsConfig != null ? _corsConfig.allowOrigins() : Arrays.asList());
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -4505,7 +4505,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("operation", "getStatus"),
@@ -4557,7 +4557,7 @@ public final class LambdaFunctions {
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("environment", environment),
-     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("region", current.get("region")),
      *                     jsonProperty("service", "api")
      *                 )))
      *             .build());
@@ -4568,11 +4568,11 @@ public final class LambdaFunctions {
      * 
      *         // Use dynamic configuration
      *         var example = new Cluster("example", ClusterArgs.builder()
-     *             .clusterId(config.cache().clusterId())
-     *             .engine(config.cache().engine())
-     *             .nodeType(config.cache().nodeType())
-     *             .numCacheNodes(config.cache().nodes())
-     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .clusterId(((String) config.cache().clusterId()))
+     *             .engine(((String) config.cache().engine()))
+     *             .nodeType(((String) config.cache().nodeType()))
+     *             .numCacheNodes(((Number) config.cache().nodes()).intValue())
+     *             .parameterGroupName(((String) config.cache().parameterGroup()))
      *             .tags(config.tags())
      *             .build());
      * 
@@ -4624,7 +4624,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("operation", "getStatus"),
@@ -4676,7 +4676,7 @@ public final class LambdaFunctions {
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("environment", environment),
-     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("region", current.get("region")),
      *                     jsonProperty("service", "api")
      *                 )))
      *             .build());
@@ -4687,11 +4687,11 @@ public final class LambdaFunctions {
      * 
      *         // Use dynamic configuration
      *         var example = new Cluster("example", ClusterArgs.builder()
-     *             .clusterId(config.cache().clusterId())
-     *             .engine(config.cache().engine())
-     *             .nodeType(config.cache().nodeType())
-     *             .numCacheNodes(config.cache().nodes())
-     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .clusterId(((String) config.cache().clusterId()))
+     *             .engine(((String) config.cache().engine()))
+     *             .nodeType(((String) config.cache().nodeType()))
+     *             .numCacheNodes(((Number) config.cache().nodes()).intValue())
+     *             .parameterGroupName(((String) config.cache().parameterGroup()))
      *             .tags(config.tags())
      *             .build());
      * 
@@ -4743,7 +4743,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("operation", "getStatus"),
@@ -4795,7 +4795,7 @@ public final class LambdaFunctions {
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("environment", environment),
-     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("region", current.get("region")),
      *                     jsonProperty("service", "api")
      *                 )))
      *             .build());
@@ -4806,11 +4806,11 @@ public final class LambdaFunctions {
      * 
      *         // Use dynamic configuration
      *         var example = new Cluster("example", ClusterArgs.builder()
-     *             .clusterId(config.cache().clusterId())
-     *             .engine(config.cache().engine())
-     *             .nodeType(config.cache().nodeType())
-     *             .numCacheNodes(config.cache().nodes())
-     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .clusterId(((String) config.cache().clusterId()))
+     *             .engine(((String) config.cache().engine()))
+     *             .nodeType(((String) config.cache().nodeType()))
+     *             .numCacheNodes(((Number) config.cache().nodes()).intValue())
+     *             .parameterGroupName(((String) config.cache().parameterGroup()))
      *             .tags(config.tags())
      *             .build());
      * 
@@ -4862,7 +4862,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("operation", "getStatus"),
@@ -4914,7 +4914,7 @@ public final class LambdaFunctions {
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("environment", environment),
-     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("region", current.get("region")),
      *                     jsonProperty("service", "api")
      *                 )))
      *             .build());
@@ -4925,11 +4925,11 @@ public final class LambdaFunctions {
      * 
      *         // Use dynamic configuration
      *         var example = new Cluster("example", ClusterArgs.builder()
-     *             .clusterId(config.cache().clusterId())
-     *             .engine(config.cache().engine())
-     *             .nodeType(config.cache().nodeType())
-     *             .numCacheNodes(config.cache().nodes())
-     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .clusterId(((String) config.cache().clusterId()))
+     *             .engine(((String) config.cache().engine()))
+     *             .nodeType(((String) config.cache().nodeType()))
+     *             .numCacheNodes(((Number) config.cache().nodes()).intValue())
+     *             .parameterGroupName(((String) config.cache().parameterGroup()))
      *             .tags(config.tags())
      *             .build());
      * 
@@ -4981,7 +4981,7 @@ public final class LambdaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
-     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .functionName(exampleAwsLambdaFunction.get("functionName"))
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("operation", "getStatus"),
@@ -5033,7 +5033,7 @@ public final class LambdaFunctions {
      *             .input(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("environment", environment),
-     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("region", current.get("region")),
      *                     jsonProperty("service", "api")
      *                 )))
      *             .build());
@@ -5044,11 +5044,11 @@ public final class LambdaFunctions {
      * 
      *         // Use dynamic configuration
      *         var example = new Cluster("example", ClusterArgs.builder()
-     *             .clusterId(config.cache().clusterId())
-     *             .engine(config.cache().engine())
-     *             .nodeType(config.cache().nodeType())
-     *             .numCacheNodes(config.cache().nodes())
-     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .clusterId(((String) config.cache().clusterId()))
+     *             .engine(((String) config.cache().engine()))
+     *             .nodeType(((String) config.cache().nodeType()))
+     *             .numCacheNodes(((Number) config.cache().nodes()).intValue())
+     *             .parameterGroupName(((String) config.cache().parameterGroup()))
      *             .tags(config.tags())
      *             .build());
      * 
@@ -5101,7 +5101,7 @@ public final class LambdaFunctions {
      *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("example_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(example.arn())
@@ -5194,7 +5194,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("multi_layer_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("app.handler")
      *             .runtime("python3.12")
      *             .architectures("arm64")
@@ -5289,7 +5289,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("cross_account_example")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
@@ -5376,7 +5376,7 @@ public final class LambdaFunctions {
      *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("example_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(example.arn())
@@ -5469,7 +5469,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("multi_layer_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("app.handler")
      *             .runtime("python3.12")
      *             .architectures("arm64")
@@ -5564,7 +5564,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("cross_account_example")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
@@ -5651,7 +5651,7 @@ public final class LambdaFunctions {
      *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("example_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(example.arn())
@@ -5744,7 +5744,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("multi_layer_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("app.handler")
      *             .runtime("python3.12")
      *             .architectures("arm64")
@@ -5839,7 +5839,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("cross_account_example")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
@@ -5926,7 +5926,7 @@ public final class LambdaFunctions {
      *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("example_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(example.arn())
@@ -6019,7 +6019,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("multi_layer_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("app.handler")
      *             .runtime("python3.12")
      *             .architectures("arm64")
@@ -6114,7 +6114,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("cross_account_example")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
@@ -6201,7 +6201,7 @@ public final class LambdaFunctions {
      *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("example_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(example.arn())
@@ -6294,7 +6294,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("multi_layer_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("app.handler")
      *             .runtime("python3.12")
      *             .architectures("arm64")
@@ -6389,7 +6389,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("cross_account_example")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
@@ -6476,7 +6476,7 @@ public final class LambdaFunctions {
      *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("example_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(example.arn())
@@ -6569,7 +6569,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("multi_layer_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("app.handler")
      *             .runtime("python3.12")
      *             .architectures("arm64")
@@ -6664,7 +6664,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("cross_account_example")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
@@ -6751,7 +6751,7 @@ public final class LambdaFunctions {
      *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("example_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(example.arn())
@@ -6844,7 +6844,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("multi_layer_function")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("app.handler")
      *             .runtime("python3.12")
      *             .architectures("arm64")
@@ -6939,7 +6939,7 @@ public final class LambdaFunctions {
      *         var example = new Function("example", FunctionArgs.builder()
      *             .code(new FileArchive("function.zip"))
      *             .name("cross_account_example")
-     *             .role(lambdaRole.arn())
+     *             .role(lambdaRole.get("arn"))
      *             .handler("index.handler")
      *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())

@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RecordsExclusive("example", RecordsExclusiveArgs.builder()
- *             .zoneId(exampleAwsRoute53Zone.zoneId())
+ *             .zoneId(exampleAwsRoute53Zone.get("zoneId"))
  *             .build());
  * 
  *     }

@@ -103,7 +103,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //				Policy: exampleBucket.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -139,7 +139,7 @@ import (
 //			}
 //			_, err = customerprofiles.NewDomain(ctx, "test", &customerprofiles.DomainArgs{
 //				DomainName:            example,
-//				DeadLetterQueueUrl:    example.ID().ToIDOutput().ToStringOutput(),
+//				DeadLetterQueueUrl:    example.ID(),
 //				DefaultEncryptionKey:  exampleKey.Arn,
 //				DefaultExpirationDays: pulumi.Int(365),
 //			})

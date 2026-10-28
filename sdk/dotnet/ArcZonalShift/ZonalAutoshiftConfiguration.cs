@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ArcZonalShift
     ///         Namespace = "AWS/ApplicationELB",
     ///         Period = 60,
     ///         Statistic = "Average",
-    ///         Threshold = 1,
+    ///         Threshold = 1.0,
     ///         AlarmDescription = "Outcome alarm for zonal autoshift practice run",
     ///         Dimensions = 
     ///         {

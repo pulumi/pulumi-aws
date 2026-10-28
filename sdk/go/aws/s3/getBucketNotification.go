@@ -89,7 +89,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			var tmp0 int
-//			if pulumi.Bool(shared.Eventbridge) {
+//			if shared.Eventbridge {
 //				tmp0 = 1
 //			} else {
 //				tmp0 = 0

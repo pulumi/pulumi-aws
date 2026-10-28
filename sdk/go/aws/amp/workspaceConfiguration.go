@@ -53,7 +53,7 @@ import (
 //						},
 //					},
 //				},
-//				WorkspaceId:           example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:           example.ID(),
 //				RetentionPeriodInDays: pulumi.Int(60),
 //			})
 //			if err != nil {
@@ -96,7 +96,7 @@ import (
 //						LabelSet: pulumi.StringMap{},
 //					},
 //				},
-//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -126,7 +126,7 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId:                   example.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:                   example.ID(),
 //				RetentionPeriodInDays:         pulumi.Int(30),
 //				OutOfOrderTimeWindowInSeconds: pulumi.Int(120),
 //				RuleQueryOffsetInSeconds:      pulumi.Int(300),

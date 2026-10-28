@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .regions(            
  *                 "us-east-1",
  *                 "us-west-2")
- *             .stackSetName(exampleAwsCloudformationStackSet.name())
+ *             .stackSetName(exampleAwsCloudformationStackSet.get("name"))
  *             .build());
  * 
  *     }
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *         final var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(aWSCloudFormationStackSetAdministrationRole.arn())
+ *                     .identifiers(aWSCloudFormationStackSetAdministrationRole.get("arn"))
  *                     .type("AWS")
  *                     .build())
  *                 .actions("sts:AssumeRole")
@@ -167,12 +167,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new StackInstances("example", StackInstancesArgs.builder()
  *             .deploymentTargets(StackInstancesDeploymentTargetsArgs.builder()
- *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.roots()[0].id())
+ *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.get("roots")[0].get("id"))
  *                 .build())
  *             .regions(            
  *                 "us-west-2",
  *                 "us-east-1")
- *             .stackSetName(exampleAwsCloudformationStackSet.name())
+ *             .stackSetName(exampleAwsCloudformationStackSet.get("name"))
  *             .build());
  * 
  *     }

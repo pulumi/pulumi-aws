@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *         var myusageplan = new UsagePlan("myusageplan", UsagePlanArgs.builder()
  *             .apiStages(UsagePlanApiStageArgs.builder()
  *                 .apiId(test.id())
- *                 .stage(foo.stageName())
+ *                 .stage(foo.get("stageName"))
  *                 .build())
  *             .name("my_usage_plan")
  *             .build());

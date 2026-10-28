@@ -41,8 +41,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SingleScramSecretAssociation("example", SingleScramSecretAssociationArgs.builder()
- *             .clusterArn(exampleAwsMskCluster.arn())
- *             .secretArn(exampleAwsSecretsmanagerSecret.arn())
+ *             .clusterArn(exampleAwsMskCluster.get("arn"))
+ *             .secretArn(exampleAwsSecretsmanagerSecret.get("arn"))
  *             .build());
  * 
  *     }

@@ -46,9 +46,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Script("example", ScriptArgs.builder()
  *             .storageLocation(ScriptStorageLocationArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
- *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .bucket(exampleAwsS3Bucket.get("id"))
+ *                 .key(exampleAwsS3Object.get("key"))
+ *                 .roleArn(exampleAwsIamRole.get("arn"))
  *                 .build())
  *             .name("example-script")
  *             .build());

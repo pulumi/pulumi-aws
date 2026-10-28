@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///         },
         ///     });
         /// 
-        ///     var unit = ;
+        ///     var unit = _arg1_;
         /// 
         /// });
         /// ```
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///         },
         ///     });
         /// 
-        ///     var unit = ;
+        ///     var unit = _arg1_;
         /// 
         /// });
         /// ```
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///         },
         ///     });
         /// 
-        ///     var unit = ;
+        ///     var unit = _arg1_;
         /// 
         /// });
         /// ```

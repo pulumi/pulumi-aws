@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                 .fromPort(80)
  *                 .toPort(80)
  *                 .build())
- *             .vpcId(mainAwsVpc.id())
+ *             .vpcId(mainAwsVpc.get("id"))
  *             .tags(Map.of("Name", "main"))
  *             .build());
  * 

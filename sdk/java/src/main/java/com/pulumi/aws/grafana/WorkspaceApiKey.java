@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .keyName("test-key")
  *             .keyRole("VIEWER")
  *             .secondsToLive(3600)
- *             .workspaceId(test.id())
+ *             .workspaceId(test.get("id"))
  *             .build());
  * 
  *     }

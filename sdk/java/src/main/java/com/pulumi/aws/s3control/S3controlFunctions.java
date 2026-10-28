@@ -83,7 +83,7 @@ public final class S3controlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3controlFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .bucket(exampleAwsS3Bucket.bucket())
+     *             .bucket(exampleAwsS3Bucket.get("bucket"))
      *             .build());
      * 
      *     }
@@ -157,7 +157,7 @@ public final class S3controlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3controlFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .bucket(exampleAwsS3Bucket.bucket())
+     *             .bucket(exampleAwsS3Bucket.get("bucket"))
      *             .build());
      * 
      *     }
@@ -231,7 +231,7 @@ public final class S3controlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3controlFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .bucket(exampleAwsS3Bucket.bucket())
+     *             .bucket(exampleAwsS3Bucket.get("bucket"))
      *             .build());
      * 
      *     }
@@ -305,7 +305,7 @@ public final class S3controlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3controlFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .bucket(exampleAwsS3Bucket.bucket())
+     *             .bucket(exampleAwsS3Bucket.get("bucket"))
      *             .build());
      * 
      *     }
@@ -379,7 +379,7 @@ public final class S3controlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3controlFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .bucket(exampleAwsS3Bucket.bucket())
+     *             .bucket(exampleAwsS3Bucket.get("bucket"))
      *             .build());
      * 
      *     }
@@ -453,7 +453,7 @@ public final class S3controlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3controlFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .bucket(exampleAwsS3Bucket.bucket())
+     *             .bucket(exampleAwsS3Bucket.get("bucket"))
      *             .build());
      * 
      *     }
@@ -527,7 +527,7 @@ public final class S3controlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = S3controlFunctions.getAccessPoints(GetAccessPointsArgs.builder()
-     *             .bucket(exampleAwsS3Bucket.bucket())
+     *             .bucket(exampleAwsS3Bucket.get("bucket"))
      *             .build());
      * 
      *     }

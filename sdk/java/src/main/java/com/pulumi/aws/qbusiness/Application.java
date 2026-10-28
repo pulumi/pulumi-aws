@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  *                 .attachmentsControlMode("ENABLED")
  *                 .build())
  *             .displayName("example-app")
- *             .iamServiceRoleArn(exampleAwsIamRole.arn())
- *             .identityCenterInstanceArn(exampleAwsSsoadminInstances.arns()[0])
+ *             .iamServiceRoleArn(exampleAwsIamRole.get("arn"))
+ *             .identityCenterInstanceArn(exampleAwsSsoadminInstances.get("arns")[0])
  *             .build());
  * 
  *     }

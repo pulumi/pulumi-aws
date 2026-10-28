@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  *                 .uploadSpeed(10)
  *                 .downloadSpeed(50)
  *                 .build())
- *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
- *             .siteId(exampleAwsNetworkmanagerSite.id())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.get("id"))
+ *             .siteId(exampleAwsNetworkmanagerSite.get("id"))
  *             .providerName("MegaCorp")
  *             .build());
  * 

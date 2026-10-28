@@ -35,7 +35,7 @@ namespace Pulumi.Aws.StorageGateway
     ///         GatewayArn = exampleAwsStoragegatewayCache.GatewayArn,
     ///         NetworkInterfaceId = exampleAwsInstance.PrivateIp,
     ///         TargetName = "example",
-    ///         VolumeSizeInBytes = 5368709120,
+    ///         VolumeSizeInBytes = (int)5368709120,
     ///     });
     /// 
     /// });
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.StorageGateway
     ///         NetworkInterfaceId = exampleAwsInstance.PrivateIp,
     ///         SnapshotId = exampleAwsEbsSnapshot.Id,
     ///         TargetName = "example",
-    ///         VolumeSizeInBytes = exampleAwsEbsSnapshot.VolumeSize * 1024 * 1024 * 1024,
+    ///         VolumeSizeInBytes = (int)(double.Parse(exampleAwsEbsSnapshot.VolumeSize, System.Globalization.CultureInfo.InvariantCulture) * 1024.0 * 1024.0 * 1024.0),
     ///     });
     /// 
     /// });

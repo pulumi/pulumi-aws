@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  *                 .computeResourceRequirements(InferenceComponentSpecificationComputeResourceRequirementsArgs.builder()
  *                     .minMemoryRequiredInMb(1024)
  *                     .build())
- *                 .modelName(exampleAwsSagemakerModel.name())
+ *                 .modelName(exampleAwsSagemakerModel.get("name"))
  *                 .build())
  *             .runtimeConfig(InferenceComponentRuntimeConfigArgs.builder()
  *                 .copyCount(1)
  *                 .build())
  *             .name("my-inference-component")
- *             .endpointName(exampleAwsSagemakerEndpoint.name())
+ *             .endpointName(exampleAwsSagemakerEndpoint.get("name"))
  *             .variantName("variant-1")
  *             .build());
  * 
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *                 .copyCount(2)
  *                 .build())
  *             .name("my-inference-component")
- *             .endpointName(exampleAwsSagemakerEndpoint.name())
+ *             .endpointName(exampleAwsSagemakerEndpoint.get("name"))
  *             .variantName("variant-1")
  *             .build());
  * 
@@ -171,7 +171,7 @@ import javax.annotation.Nullable;
  *                 .computeResourceRequirements(InferenceComponentSpecificationComputeResourceRequirementsArgs.builder()
  *                     .minMemoryRequiredInMb(1024)
  *                     .build())
- *                 .modelName(exampleAwsSagemakerModel.name())
+ *                 .modelName(exampleAwsSagemakerModel.get("name"))
  *                 .build())
  *             .runtimeConfig(InferenceComponentRuntimeConfigArgs.builder()
  *                 .copyCount(4)
@@ -186,12 +186,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .autoRollbackConfiguration(InferenceComponentDeploymentConfigAutoRollbackConfigurationArgs.builder()
  *                     .alarms(InferenceComponentDeploymentConfigAutoRollbackConfigurationAlarmArgs.builder()
- *                         .alarmName(exampleAwsCloudwatchMetricAlarm.alarmName())
+ *                         .alarmName(exampleAwsCloudwatchMetricAlarm.get("alarmName"))
  *                         .build())
  *                     .build())
  *                 .build())
  *             .name("my-inference-component")
- *             .endpointName(exampleAwsSagemakerEndpoint.name())
+ *             .endpointName(exampleAwsSagemakerEndpoint.get("name"))
  *             .variantName("variant-1")
  *             .build());
  * 

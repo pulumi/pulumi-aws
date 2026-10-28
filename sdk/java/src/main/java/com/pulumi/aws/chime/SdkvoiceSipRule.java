@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *         var example = new SdkvoiceSipRule("example", SdkvoiceSipRuleArgs.builder()
  *             .targetApplications(SdkvoiceSipRuleTargetApplicationArgs.builder()
  *                 .priority(1)
- *                 .sipMediaApplicationId(example_sma.id())
+ *                 .sipMediaApplicationId(example_sma.get("id"))
  *                 .awsRegion("us-east-1")
  *                 .build())
  *             .name("example-sip-rule")
  *             .triggerType("RequestUriHostname")
- *             .triggerValue(example_voice_connector.outboundHostName())
+ *             .triggerValue(example_voice_connector.get("outboundHostName"))
  *             .build());
  * 
  *     }

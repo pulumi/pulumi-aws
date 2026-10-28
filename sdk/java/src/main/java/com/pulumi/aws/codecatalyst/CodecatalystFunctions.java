@@ -47,7 +47,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName("myspace")
      *             .projectName("myproject")
-     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.get("id"))
      *             .build());
      * 
      *     }
@@ -91,7 +91,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName("myspace")
      *             .projectName("myproject")
-     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.get("id"))
      *             .build());
      * 
      *     }
@@ -135,7 +135,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName("myspace")
      *             .projectName("myproject")
-     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.get("id"))
      *             .build());
      * 
      *     }
@@ -179,7 +179,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName("myspace")
      *             .projectName("myproject")
-     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.get("id"))
      *             .build());
      * 
      *     }
@@ -223,7 +223,7 @@ public final class CodecatalystFunctions {
      *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
      *             .spaceName("myspace")
      *             .projectName("myproject")
-     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
+     *             .envId(exampleAwsCodecatalystDevEnvironment.get("id"))
      *             .build());
      * 
      *     }

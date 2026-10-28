@@ -52,10 +52,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceLfTag("example", ResourceLfTagArgs.builder()
  *             .database(ResourceLfTagDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
+ *                 .name(exampleAwsGlueCatalogDatabase.get("name"))
  *                 .build())
  *             .lfTag(ResourceLfTagLfTagArgs.builder()
- *                 .key(exampleAwsLakeformationLfTag.key())
+ *                 .key(exampleAwsLakeformationLfTag.get("key"))
  *                 .value("stowe")
  *                 .build())
  *             .build());

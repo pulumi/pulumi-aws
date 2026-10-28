@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
- *             .zoneId(main.zoneId())
+ *             .zoneId(main.get("zoneId"))
  *             .name("reverse")
  *             .type("A")
  *             .records(example.publicIp())

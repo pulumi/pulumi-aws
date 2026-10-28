@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *         var test = new TeamsChannelConfiguration("test", TeamsChannelConfigurationArgs.builder()
  *             .channelId("C07EZ1ABC23")
  *             .configurationName("mitt-lags-kanal")
- *             .iamRoleArn(testAwsIamRole.arn())
+ *             .iamRoleArn(testAwsIamRole.get("arn"))
  *             .teamId("74361522-da01-538d-aa2e-ac7918c6bb92")
  *             .tenantId("1234")
  *             .tags(Map.of("Name", "mitt-lags-kanal"))

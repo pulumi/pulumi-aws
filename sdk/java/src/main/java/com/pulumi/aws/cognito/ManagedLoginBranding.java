@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var client = new ManagedLoginBranding("client", ManagedLoginBrandingArgs.builder()
- *             .clientId(example.id())
- *             .userPoolId(exampleAwsCognitoUserPool.id())
+ *             .clientId(example.get("id"))
+ *             .userPoolId(exampleAwsCognitoUserPool.get("id"))
  *             .useCognitoProvidedValues(true)
  *             .build());
  * 
@@ -94,8 +94,8 @@ import javax.annotation.Nullable;
  *                 .colorMode("DARK")
  *                 .extension("SVG")
  *                 .build())
- *             .clientId(example.id())
- *             .userPoolId(exampleAwsCognitoUserPool.id())
+ *             .clientId(example.get("id"))
+ *             .userPoolId(exampleAwsCognitoUserPool.get("id"))
  *             .settings(serializeJson(
  *                 jsonObject(
  * 

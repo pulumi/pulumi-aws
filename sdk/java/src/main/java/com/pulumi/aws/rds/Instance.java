@@ -322,7 +322,7 @@ import javax.annotation.Nullable;
  *             .family(default_.parameterGroupFamily())
  *             .build());
  * 
- *         // Create the RDS Db2 instance, use the data sources defined to set attributes
+ *         // Create the RDS Db2 instance, use the functions defined to set attributes
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .allocatedStorage(100)
  *             .backupRetentionPeriod(7)
@@ -514,7 +514,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultSecretRotation = new SecretRotation("defaultSecretRotation", SecretRotationArgs.builder()
- *             .secretId(default_.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets[0].secretArn()))
+ *             .secretId(default_.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets.get(0).secretArn()))
  *             .rotationEnabled(false)
  *             .build());
  * 

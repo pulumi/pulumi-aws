@@ -4938,7 +4938,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(testAwsConnectInstance.id())
+     *             .instanceId(testAwsConnectInstance.get("id"))
      *             .build());
      * 
      *     }
@@ -4978,7 +4978,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(testAwsConnectInstance.id())
+     *             .instanceId(testAwsConnectInstance.get("id"))
      *             .build());
      * 
      *     }
@@ -5018,7 +5018,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(testAwsConnectInstance.id())
+     *             .instanceId(testAwsConnectInstance.get("id"))
      *             .build());
      * 
      *     }
@@ -5058,7 +5058,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(testAwsConnectInstance.id())
+     *             .instanceId(testAwsConnectInstance.get("id"))
      *             .build());
      * 
      *     }
@@ -5098,7 +5098,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
-     *             .instanceId(testAwsConnectInstance.id())
+     *             .instanceId(testAwsConnectInstance.get("id"))
      *             .build());
      * 
      *     }

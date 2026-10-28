@@ -281,7 +281,7 @@ import (
 //						WeightedCapacity:                    pulumi.Int(2),
 //					},
 //				},
-//				ClusterId:              example.ID().ToIDOutput().ToStringOutput(),
+//				ClusterId:              example.ID(),
 //				Name:                   pulumi.String("task fleet"),
 //				TargetOnDemandCapacity: pulumi.Int(1),
 //				TargetSpotCapacity:     pulumi.Int(1),
@@ -364,7 +364,7 @@ import (
 //			}
 //			_, err = emr.NewCluster(ctx, "example", &emr.ClusterArgs{
 //				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//					SubnetId: example.ID().ToIDOutput().ToStringOutput(),
+//					SubnetId: example.ID(),
 //				},
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceCount: pulumi.Int(3),

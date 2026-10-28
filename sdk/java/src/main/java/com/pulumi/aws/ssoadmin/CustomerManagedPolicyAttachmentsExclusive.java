@@ -125,8 +125,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomerManagedPolicyAttachmentsExclusive("example", CustomerManagedPolicyAttachmentsExclusiveArgs.builder()
- *             .instanceArn(exampleAwsSsoadminInstances.arns()[0])
- *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
+ *             .instanceArn(exampleAwsSsoadminInstances.get("arns")[0])
+ *             .permissionSetArn(exampleAwsSsoadminPermissionSet.get("arn"))
  *             .build());
  * 
  *     }

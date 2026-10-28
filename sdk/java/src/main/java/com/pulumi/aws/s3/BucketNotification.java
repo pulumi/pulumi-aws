@@ -532,7 +532,7 @@ import javax.annotation.Nullable;
  * 
  *         var teamAEventTarget = new EventTarget("teamAEventTarget", EventTargetArgs.builder()
  *             .rule(teamA.name())
- *             .arn(teamAProcessor.arn())
+ *             .arn(teamAProcessor.get("arn"))
  *             .build());
  * 
  *         // Team B: archive deletions under archive/, declared in a separate
@@ -558,7 +558,7 @@ import javax.annotation.Nullable;
  * 
  *         var teamBEventTarget = new EventTarget("teamBEventTarget", EventTargetArgs.builder()
  *             .rule(teamB.name())
- *             .arn(teamBArchive.arn())
+ *             .arn(teamBArchive.get("arn"))
  *             .build());
  * 
  *     }

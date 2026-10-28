@@ -110,8 +110,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VaultLock("example", VaultLockArgs.builder()
  *             .completeLock(true)
- *             .policy(exampleAwsIamPolicyDocument.json())
- *             .vaultName(exampleAwsGlacierVault.name())
+ *             .policy(exampleAwsIamPolicyDocument.get("json"))
+ *             .vaultName(exampleAwsGlacierVault.get("name"))
  *             .build());
  * 
  *     }

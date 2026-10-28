@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                     .jobBookmarksEncryptionMode("DISABLED")
  *                     .build())
  *                 .s3Encryption(SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.builder()
- *                     .kmsKeyArn(exampleAwsKmsKey.arn())
+ *                     .kmsKeyArn(exampleAwsKmsKey.get("arn"))
  *                     .s3EncryptionMode("SSE-KMS")
  *                     .build())
  *                 .build())

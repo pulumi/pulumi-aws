@@ -477,7 +477,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name("example-consumer")
-     *             .streamArn(exampleAwsKinesisStream.arn())
+     *             .streamArn(exampleAwsKinesisStream.get("arn"))
      *             .build());
      * 
      *     }
@@ -520,7 +520,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name("example-consumer")
-     *             .streamArn(exampleAwsKinesisStream.arn())
+     *             .streamArn(exampleAwsKinesisStream.get("arn"))
      *             .build());
      * 
      *     }
@@ -563,7 +563,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name("example-consumer")
-     *             .streamArn(exampleAwsKinesisStream.arn())
+     *             .streamArn(exampleAwsKinesisStream.get("arn"))
      *             .build());
      * 
      *     }
@@ -606,7 +606,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name("example-consumer")
-     *             .streamArn(exampleAwsKinesisStream.arn())
+     *             .streamArn(exampleAwsKinesisStream.get("arn"))
      *             .build());
      * 
      *     }
@@ -649,7 +649,7 @@ public final class KinesisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
      *             .name("example-consumer")
-     *             .streamArn(exampleAwsKinesisStream.arn())
+     *             .streamArn(exampleAwsKinesisStream.get("arn"))
      *             .build());
      * 
      *     }

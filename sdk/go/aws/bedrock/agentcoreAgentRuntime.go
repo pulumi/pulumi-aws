@@ -69,7 +69,7 @@ import (
 //							"ecr:GetDownloadUrlForLayer",
 //						},
 //						Effect: pulumi.StringRef("Allow"),
-//						Resources: pulumi.StringArray{
+//						Resources: []string{
 //							exampleAwsEcrRepository.Arn,
 //						},
 //					},
@@ -86,7 +86,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-//				Role:   example.ID().ToIDOutput().ToStringOutput(),
+//				Role:   example.ID(),
 //				Policy: pulumi.String(ecrPermissions.Json),
 //			})
 //			if err != nil {

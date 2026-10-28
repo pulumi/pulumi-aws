@@ -88,7 +88,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "allow_cloudtrail_logging", &s3.BucketPolicyArgs{
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: bucket.ID(),
 //				Policy: allowCloudtrailLogging.Json(),
 //			})
 //			if err != nil {

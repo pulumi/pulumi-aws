@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApplicationSnapshot("example", ApplicationSnapshotArgs.builder()
- *             .applicationName(exampleAwsKinesisanalyticsv2Application.name())
+ *             .applicationName(exampleAwsKinesisanalyticsv2Application.get("name"))
  *             .snapshotName("example-snapshot")
  *             .build());
  * 

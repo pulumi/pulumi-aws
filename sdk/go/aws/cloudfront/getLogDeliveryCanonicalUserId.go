@@ -47,7 +47,7 @@ import (
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -67,7 +67,7 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketOwnershipControls,
 //			}))

@@ -44,7 +44,7 @@ import (
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -56,7 +56,7 @@ import (
 //						Days: pulumi.Int(5),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err

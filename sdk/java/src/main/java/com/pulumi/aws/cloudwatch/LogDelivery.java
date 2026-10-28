@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LogDelivery("example", LogDeliveryArgs.builder()
- *             .deliverySourceName(exampleAwsCloudwatchLogDeliverySource.name())
- *             .deliveryDestinationArn(exampleAwsCloudwatchLogDeliveryDestination.arn())
+ *             .deliverySourceName(exampleAwsCloudwatchLogDeliverySource.get("name"))
+ *             .deliveryDestinationArn(exampleAwsCloudwatchLogDeliveryDestination.get("arn"))
  *             .fieldDelimiter(",")
  *             .recordFields(            
  *                 "event_timestamp",
@@ -94,12 +94,12 @@ import javax.annotation.Nullable;
  *         var example = new LogDeliverySource("example", LogDeliverySourceArgs.builder()
  *             .name("cloudfront-access-logs")
  *             .logType("ACCESS_LOGS")
- *             .resourceArn(exampleAwsCloudfrontDistribution.arn())
+ *             .resourceArn(exampleAwsCloudfrontDistribution.get("arn"))
  *             .build());
  * 
  *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
- *                 .destinationResourceArn(exampleAwsCloudwatchLogGroup.arn())
+ *                 .destinationResourceArn(exampleAwsCloudwatchLogGroup.get("arn"))
  *                 .build())
  *             .name("cloudfront-access-logs")
  *             .outputFormat("json")

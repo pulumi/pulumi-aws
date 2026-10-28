@@ -56,23 +56,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Assessment("test", AssessmentArgs.builder()
  *             .assessmentReportsDestination(AssessmentAssessmentReportsDestinationArgs.builder()
- *                 .destination(String.format("s3://%s", testAwsS3Bucket.id()))
+ *                 .destination(String.format("s3://%s", testAwsS3Bucket.get("id")))
  *                 .destinationType("S3")
  *                 .build())
  *             .scope(AssessmentScopeArgs.builder()
  *                 .awsAccounts(AssessmentScopeAwsAccountArgs.builder()
- *                     .id(current.accountId())
+ *                     .id(current.get("accountId"))
  *                     .build())
  *                 .awsServices(AssessmentScopeAwsServiceArgs.builder()
  *                     .serviceName("S3")
  *                     .build())
  *                 .build())
  *             .roles(AssessmentRoleArgs.builder()
- *                 .roleArn(testAwsIamRole.arn())
+ *                 .roleArn(testAwsIamRole.get("arn"))
  *                 .roleType("PROCESS_OWNER")
  *                 .build())
  *             .name("example")
- *             .frameworkId(testAwsAuditmanagerFramework.id())
+ *             .frameworkId(testAwsAuditmanagerFramework.get("id"))
  *             .build());
  * 
  *     }

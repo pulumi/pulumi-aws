@@ -64,7 +64,7 @@ import (
 //					},
 //					{
 //						Name: "vpc-id",
-//						Values: pulumi.StringArray{
+//						Values: []string{
 //							vpcId,
 //						},
 //					},

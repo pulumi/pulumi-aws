@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                         .pattern("master")
  *                         .build())
  *                 .build())
- *             .projectName(exampleAwsCodebuildProject.name())
+ *             .projectName(exampleAwsCodebuildProject.get("name"))
  *             .buildType("BUILD")
  *             .build());
  * 
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Webhook("example", WebhookArgs.builder()
- *             .projectName(exampleAwsCodebuildProject.name())
+ *             .projectName(exampleAwsCodebuildProject.get("name"))
  *             .build());
  * 
  *         var exampleRepositoryWebhook = new RepositoryWebhook("exampleRepositoryWebhook", RepositoryWebhookArgs.builder()
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *             .active(true)
  *             .events("push")
  *             .name("example")
- *             .repository(exampleGithubRepository.name())
+ *             .repository(exampleGithubRepository.get("name"))
  *             .build());
  * 
  *     }
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *                     .pattern("WORKFLOW_JOB_QUEUED")
  *                     .build())
  *                 .build())
- *             .projectName(exampleAwsCodebuildProject.name())
+ *             .projectName(exampleAwsCodebuildProject.get("name"))
  *             .buildType("BUILD")
  *             .build());
  * 

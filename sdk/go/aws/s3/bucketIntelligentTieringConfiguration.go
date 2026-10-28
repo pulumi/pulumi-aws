@@ -49,7 +49,7 @@ import (
 //						Days:       pulumi.Int(125),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Name:   pulumi.String("EntireBucket"),
 //			})
 //			if err != nil {
@@ -95,7 +95,7 @@ import (
 //						Days:       pulumi.Int(125),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: example.ID(),
 //				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Status: pulumi.String("Disabled"),
 //			})

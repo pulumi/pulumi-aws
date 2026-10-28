@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EndpointGroup("example", EndpointGroupArgs.builder()
  *             .endpointConfigurations(EndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(exampleAwsLb.arn())
+ *                 .endpointId(exampleAwsLb.get("arn"))
  *                 .weight(100)
  *                 .build())
- *             .listenerArn(exampleAwsGlobalacceleratorListener.arn())
+ *             .listenerArn(exampleAwsGlobalacceleratorListener.get("arn"))
  *             .build());
  * 
  *     }

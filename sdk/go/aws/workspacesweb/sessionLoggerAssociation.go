@@ -71,7 +71,7 @@ import (
 //				},
 //			}, nil)
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Bucket: exampleBucket.ID(),
 //				Policy: example.Json(),
 //			})
 //			if err != nil {
@@ -79,11 +79,11 @@ import (
 //			}
 //			exampleSessionLogger, err := workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
 //				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
-//					All: map[string]interface{}{}[0],
+//					All: map[string]interface{}{}[0].(workspacesweb.SessionLoggerEventFilterAllArgs),
 //				},
 //				LogConfiguration: &workspacesweb.SessionLoggerLogConfigurationArgs{
 //					S3: &workspacesweb.SessionLoggerLogConfigurationS3Args{
-//						Bucket:          exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//						Bucket:          exampleBucket.ID(),
 //						FolderStructure: pulumi.String("Flat"),
 //						LogFileFormat:   pulumi.String("Json"),
 //					},

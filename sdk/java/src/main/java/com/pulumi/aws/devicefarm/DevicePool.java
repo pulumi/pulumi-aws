@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *                 .value("\"AVAILABLE\"")
  *                 .build())
  *             .name("example")
- *             .projectArn(exampleAwsDevicefarmProject.arn())
+ *             .projectArn(exampleAwsDevicefarmProject.get("arn"))
  *             .build());
  * 
  *     }

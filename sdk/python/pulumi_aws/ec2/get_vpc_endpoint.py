@@ -308,7 +308,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     s3 = aws.ec2.get_vpc_endpoint(vpc_id=foo["id"],
         service_name="com.amazonaws.us-west-2.s3")
     private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("private_s3",
@@ -384,7 +384,7 @@ def get_vpc_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     import pulumi
     import pulumi_aws as aws
 
-    # Declare the data source
+    # Declare the function
     s3 = aws.ec2.get_vpc_endpoint(vpc_id=foo["id"],
         service_name="com.amazonaws.us-west-2.s3")
     private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("private_s3",

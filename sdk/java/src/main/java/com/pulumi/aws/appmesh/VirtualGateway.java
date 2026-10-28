@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                     .tls(VirtualGatewaySpecListenerTlsArgs.builder()
  *                         .certificate(VirtualGatewaySpecListenerTlsCertificateArgs.builder()
  *                             .acm(VirtualGatewaySpecListenerTlsCertificateAcmArgs.builder()
- *                                 .certificateArn(exampleAwsAcmCertificate.arn())
+ *                                 .certificateArn(exampleAwsAcmCertificate.get("arn"))
  *                                 .build())
  *                             .build())
  *                         .mode("STRICT")

@@ -106,7 +106,7 @@ import (
 // json1 := string(tmpJSON1)
 // _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 // Name: pulumi.String("example-network-connector-operator"),
-// Role: exampleRole.ID().ToIDOutput().ToStringOutput(),
+// Role: exampleRole.ID(),
 // Policy: pulumi.String(json1),
 // })
 // if err != nil {

@@ -59,7 +59,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "example", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: exampleVpcIpamPool.ID().ToIDOutput().ToStringOutput(),
+//				IpamPoolId: exampleVpcIpamPool.ID(),
 //				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
@@ -113,7 +113,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "ipv6_test_public", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId:    ipv6TestPublic.ID().ToIDOutput().ToStringOutput(),
+//				IpamPoolId:    ipv6TestPublic.ID(),
 //				NetmaskLength: pulumi.Int(52),
 //			})
 //			if err != nil {

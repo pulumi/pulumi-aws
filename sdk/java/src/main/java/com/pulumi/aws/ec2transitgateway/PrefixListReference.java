@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()
- *             .prefixListId(exampleAwsEc2ManagedPrefixList.id())
- *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
- *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
+ *             .prefixListId(exampleAwsEc2ManagedPrefixList.get("id"))
+ *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.get("id"))
+ *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.get("associationDefaultRouteTableId"))
  *             .build());
  * 
  *     }
@@ -81,8 +81,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()
  *             .blackhole(true)
- *             .prefixListId(exampleAwsEc2ManagedPrefixList.id())
- *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
+ *             .prefixListId(exampleAwsEc2ManagedPrefixList.get("id"))
+ *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.get("associationDefaultRouteTableId"))
  *             .build());
  * 
  *     }

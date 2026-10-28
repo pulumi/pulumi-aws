@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Vpc
     /// {
     ///     var test = new Aws.Vpc.RouteServer("test", new()
     ///     {
-    ///         AmazonSideAsn = 4294967294,
+    ///         AmazonSideAsn = (int)4294967294,
     ///         Tags = 
     ///         {
     ///             { "Name", "Test" },

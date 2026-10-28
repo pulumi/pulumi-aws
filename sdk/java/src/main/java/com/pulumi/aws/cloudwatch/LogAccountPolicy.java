@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .policyType("SUBSCRIPTION_FILTER_POLICY")
  *             .policyDocument(serializeJson(
  *                 jsonObject(
- *                     jsonProperty("DestinationArn", test.arn()),
+ *                     jsonProperty("DestinationArn", test.get("arn")),
  *                     jsonProperty("FilterPattern", "test")
  *                 )))
  *             .selectionCriteria("LogGroupName NOT IN [\"excluded_log_group_name\"]")

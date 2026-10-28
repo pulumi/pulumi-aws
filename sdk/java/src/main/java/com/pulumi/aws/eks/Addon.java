@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Addon("example", AddonArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .addonName("vpc-cni")
  *             .build());
  * 
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Addon("example", AddonArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
+ *             .clusterName(exampleAwsEksCluster.get("name"))
  *             .addonName("coredns")
  *             .addonVersion("v1.10.1-eksbuild.1")
  *             .resolveConflictsOnUpdate("PRESERVE")

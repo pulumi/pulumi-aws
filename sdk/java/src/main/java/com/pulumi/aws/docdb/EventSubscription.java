@@ -51,9 +51,9 @@ import javax.annotation.Nullable;
  *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterIdentifier("example")
  *             .availabilityZones(            
- *                 available.names()[0],
- *                 available.names()[1],
- *                 available.names()[2])
+ *                 available.get("names")[0],
+ *                 available.get("names")[1],
+ *                 available.get("names")[2])
  *             .masterUsername("foo")
  *             .masterPassword("mustbeeightcharaters")
  *             .skipFinalSnapshot(true)

@@ -29,16 +29,17 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
+        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// return await Deployment.RunAsync(async() =&gt; 
         /// {
-        ///     var test = Aws.Ec2.GetInstances.Invoke(new()
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetInstancesFilterArgs
         ///             {
         ///                 Name = "instance.group-id",
         ///                 Values = new[]
@@ -59,14 +60,14 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length().Apply(rangeBody =&gt;
+        ///     test.Ids.Length.Apply(rangeBody =&gt;
         ///     {
         ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
         ///             var range = new { Value = rangeIndex };
         ///             testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///             {
-        ///                 Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
+        ///                 Instance = test.Ids[range.Value],
         ///             }));
         ///         }
         ///         return 0;
@@ -95,16 +96,17 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
+        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// return await Deployment.RunAsync(async() =&gt; 
         /// {
-        ///     var test = Aws.Ec2.GetInstances.Invoke(new()
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetInstancesFilterArgs
         ///             {
         ///                 Name = "instance.group-id",
         ///                 Values = new[]
@@ -125,14 +127,14 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length().Apply(rangeBody =&gt;
+        ///     test.Ids.Length.Apply(rangeBody =&gt;
         ///     {
         ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
         ///             var range = new { Value = rangeIndex };
         ///             testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///             {
-        ///                 Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
+        ///                 Instance = test.Ids[range.Value],
         ///             }));
         ///         }
         ///         return 0;
@@ -161,16 +163,17 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
+        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// return await Deployment.RunAsync(async() =&gt; 
         /// {
-        ///     var test = Aws.Ec2.GetInstances.Invoke(new()
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetInstancesFilterArgs
         ///             {
         ///                 Name = "instance.group-id",
         ///                 Values = new[]
@@ -191,14 +194,14 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length().Apply(rangeBody =&gt;
+        ///     test.Ids.Length.Apply(rangeBody =&gt;
         ///     {
         ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
         ///             var range = new { Value = rangeIndex };
         ///             testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///             {
-        ///                 Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
+        ///                 Instance = test.Ids[range.Value],
         ///             }));
         ///         }
         ///         return 0;

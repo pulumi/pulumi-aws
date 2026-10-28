@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AppAuthorizationConnection("example", AppAuthorizationConnectionArgs.builder()
- *             .appAuthorizationArn(test.arn())
+ *             .appAuthorizationArn(test.get("arn"))
  *             .appBundleArn(arn)
  *             .build());
  * 

@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *         var example = new TableReplication("example", TableReplicationArgs.builder()
  *             .rule(TableReplicationRuleArgs.builder()
  *                 .destinations(TableReplicationRuleDestinationArgs.builder()
- *                     .destinationTableBucketArn(target.arn())
+ *                     .destinationTableBucketArn(target.get("arn"))
  *                     .build())
  *                 .build())
- *             .tableArn(exampleAwsS3tablesTable.arn())
- *             .role(exampleAwsIamRole.arn())
+ *             .tableArn(exampleAwsS3tablesTable.get("arn"))
+ *             .role(exampleAwsIamRole.get("arn"))
  *             .build());
  * 
  *     }

@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  *         var exampleNetworkSettings = new NetworkSettings("exampleNetworkSettings", NetworkSettingsArgs.builder()
  *             .vpcId(example.id())
  *             .subnetIds(            
- *                 exampleSubnet[0].id(),
- *                 exampleSubnet[1].id())
+ *                 exampleSubnet.get(0).id(),
+ *                 exampleSubnet.get(1).id())
  *             .securityGroupIds(            
- *                 exampleSecurityGroup[0].id(),
- *                 exampleSecurityGroup[1].id())
+ *                 exampleSecurityGroup.get(0).id(),
+ *                 exampleSecurityGroup.get(1).id())
  *             .build());
  * 
  *         var exampleNetworkSettingsAssociation = new NetworkSettingsAssociation("exampleNetworkSettingsAssociation", NetworkSettingsAssociationArgs.builder()

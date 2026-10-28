@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewMeteringPolicy(ctx, "example", &ec2transitgateway.MeteringPolicyArgs{
-//				TransitGatewayId: example.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayId: example.ID(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},

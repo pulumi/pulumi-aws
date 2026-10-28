@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new MonitoringSchedule("test", MonitoringScheduleArgs.builder()
  *             .monitoringScheduleConfig(MonitoringScheduleMonitoringScheduleConfigArgs.builder()
- *                 .monitoringJobDefinitionName(testAwsSagemakerDataQualityJobDefinition.name())
+ *                 .monitoringJobDefinitionName(testAwsSagemakerDataQualityJobDefinition.get("name"))
  *                 .monitoringType("DataQuality")
  *                 .build())
  *             .name("my-monitoring-schedule")

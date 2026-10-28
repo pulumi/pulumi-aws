@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *                     .name("Deploy")
  *                     .build())
  *             .name("tf-test-pipeline")
- *             .roleArn(codepipelineRole.arn())
+ *             .roleArn(codepipelineRole.get("arn"))
  *             .build());
  * 
  *     }

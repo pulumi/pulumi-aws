@@ -640,6 +640,37 @@ public final class GlueFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *             .id("123456789123")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args) {
         return getDataCatalogEncryptionSettings(args, InvokeOptions.Empty);
@@ -648,6 +679,37 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *             .id("123456789123")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsPlain(GetDataCatalogEncryptionSettingsPlainArgs args) {
@@ -658,6 +720,37 @@ public final class GlueFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *             .id("123456789123")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", TypeShape.of(GetDataCatalogEncryptionSettingsResult.class), args, Utilities.withVersion(options));
@@ -667,6 +760,37 @@ public final class GlueFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *             .id("123456789123")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", TypeShape.of(GetDataCatalogEncryptionSettingsResult.class), args, Utilities.withVersion(options));
@@ -675,6 +799,37 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *             .id("123456789123")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsPlain(GetDataCatalogEncryptionSettingsPlainArgs args, InvokeOptions options) {
@@ -945,11 +1100,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -978,11 +1133,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -991,11 +1146,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1059,11 +1214,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1092,11 +1247,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1105,11 +1260,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1182,11 +1337,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1215,11 +1370,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1228,11 +1383,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1296,11 +1451,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1329,11 +1484,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1342,11 +1497,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1419,11 +1574,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1452,11 +1607,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1465,11 +1620,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1533,11 +1688,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1566,11 +1721,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1579,11 +1734,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1656,11 +1811,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1689,11 +1844,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1702,11 +1857,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1770,11 +1925,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1803,11 +1958,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1816,11 +1971,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -1893,11 +2048,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -1926,11 +2081,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -1939,11 +2094,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")
@@ -2007,11 +2162,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .value(String.format("\"%s\"", source.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasource0")
      *                     .nodeType("DataSource")
@@ -2040,11 +2195,11 @@ public final class GlueFunctions {
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("resolvechoice3")
      *                     .nodeType("ResolveChoice")
@@ -2053,11 +2208,11 @@ public final class GlueFunctions {
      *                     .args(                    
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("database")
-     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .value(String.format("\"%s\"", destination.get("name")))
      *                             .build(),
      *                         GetScriptDagNodeArgArgs.builder()
      *                             .name("table_name")
-     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.get("name")))
      *                             .build())
      *                     .id("datasink4")
      *                     .nodeType("DataSink")

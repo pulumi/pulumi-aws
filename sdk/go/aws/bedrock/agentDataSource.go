@@ -287,7 +287,7 @@ import (
 //						Type: pulumi.String("BEDROCK_FOUNDATION_MODEL"),
 //					},
 //				},
-//				KnowledgeBaseId: example.ID().ToIDOutput().ToStringOutput(),
+//				KnowledgeBaseId: example.ID(),
 //				Name:            pulumi.String("graphrag-example"),
 //			})
 //			if err != nil {

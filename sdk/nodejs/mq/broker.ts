@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * const example = new aws.mq.Broker("example", {
  *     configuration: {
  *         id: test.id,
- *         revision: Number(test.latestRevision),
+ *         revision: test.latestRevision,
  *     },
  *     users: [{
  *         username: "example_user",
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * const example = new aws.mq.Broker("example", {
  *     configuration: {
  *         id: test.id,
- *         revision: Number(test.latestRevision),
+ *         revision: test.latestRevision,
  *     },
  *     users: [{
  *         username: "example_user",

@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  * }
  *         var exampleResourceShareAssociationsExclusive = new ResourceShareAssociationsExclusive("exampleResourceShareAssociationsExclusive", ResourceShareAssociationsExclusiveArgs.builder()
  *             .resourceShareArn(example.arn())
- *             .principals(exampleAwsOrganizationsOrganization.arn())
+ *             .principals(exampleAwsOrganizationsOrganization.get("arn"))
  *             .resourceArns(exampleSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .build());
  * 
@@ -240,7 +240,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceShareAssociationsExclusive("example", ResourceShareAssociationsExclusiveArgs.builder()
- *             .resourceShareArn(exampleAwsRamResourceShare.arn())
+ *             .resourceShareArn(exampleAwsRamResourceShare.get("arn"))
  *             .build());
  * 
  *     }

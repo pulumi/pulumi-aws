@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var peer = new BgpPeer("peer", BgpPeerArgs.builder()
- *             .virtualInterfaceId(foo.id())
+ *             .virtualInterfaceId(foo.get("id"))
  *             .addressFamily("ipv6")
  *             .bgpAsn(65351)
  *             .build());

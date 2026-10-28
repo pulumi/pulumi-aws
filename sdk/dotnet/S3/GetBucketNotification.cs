@@ -56,7 +56,7 @@ namespace Pulumi.Aws.S3
         ///     });
         /// 
         ///     var s3ObjectCreated = new List&lt;Aws.CloudWatch.EventRule&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; shared.Eventbridge ? 1 : 0; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; (shared.Eventbridge ? 1 : 0); rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         s3ObjectCreated.Add(new Aws.CloudWatch.EventRule($"s3_object_created-{range.Value}", new()
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.S3
         ///     });
         /// 
         ///     var s3ObjectCreated = new List&lt;Aws.CloudWatch.EventRule&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; shared.Eventbridge ? 1 : 0; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; (shared.Eventbridge ? 1 : 0); rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         s3ObjectCreated.Add(new Aws.CloudWatch.EventRule($"s3_object_created-{range.Value}", new()
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.S3
         ///     });
         /// 
         ///     var s3ObjectCreated = new List&lt;Aws.CloudWatch.EventRule&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; shared.Eventbridge ? 1 : 0; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; (shared.Eventbridge ? 1 : 0); rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         s3ObjectCreated.Add(new Aws.CloudWatch.EventRule($"s3_object_created-{range.Value}", new()

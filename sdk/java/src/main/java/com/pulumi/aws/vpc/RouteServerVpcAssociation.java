@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteServerVpcAssociation("example", RouteServerVpcAssociationArgs.builder()
- *             .routeServerId(exampleAwsVpcRouteServer.routeServerId())
- *             .vpcId(exampleAwsVpc.id())
+ *             .routeServerId(exampleAwsVpcRouteServer.get("routeServerId"))
+ *             .vpcId(exampleAwsVpc.get("id"))
  *             .build());
  * 
  *     }
