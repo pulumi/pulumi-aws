@@ -78,9 +78,11 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
         with:
-          version: 2026.3.7
+          version: 2026.10.21
           github_token: ${{ secrets.GITHUB_TOKEN }}
           cache_save: false
+      - name: Install project dependencies
+        run: mise deps install
       - name: Setup Go Cache
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:

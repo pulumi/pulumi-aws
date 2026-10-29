@@ -53,10 +53,12 @@ jobs:
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
-          version: 2026.3.7
+          version: 2026.10.21
           github_token: ${{ steps.app-auth.outputs.token }}
           # only saving the cache in the prerequisites job
           cache_save: false
+      - name: Install project dependencies
+        run: mise deps install
       - run: make prepare_local_workspace
         continue-on-error: true
         env:
