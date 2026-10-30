@@ -288,6 +288,8 @@ class PlanRule(dict):
             suggest = "enable_continuous_backup"
         elif key == "recoveryPointTags":
             suggest = "recovery_point_tags"
+        elif key == "ruleId":
+            suggest = "rule_id"
         elif key == "scanActions":
             suggest = "scan_actions"
         elif key == "scheduleExpressionTimezone":
@@ -316,6 +318,7 @@ class PlanRule(dict):
                  enable_continuous_backup: Optional[_builtins.bool] = None,
                  lifecycle: Optional['outputs.PlanRuleLifecycle'] = None,
                  recovery_point_tags: Optional[Mapping[str, _builtins.str]] = None,
+                 rule_id: Optional[_builtins.str] = None,
                  scan_actions: Optional[Sequence['outputs.PlanRuleScanAction']] = None,
                  schedule: Optional[_builtins.str] = None,
                  schedule_expression_timezone: Optional[_builtins.str] = None,
@@ -329,6 +332,7 @@ class PlanRule(dict):
         :param _builtins.bool enable_continuous_backup: Enable continuous backups for supported resources.
         :param 'PlanRuleLifecycleArgs' lifecycle: Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
         :param Mapping[str, _builtins.str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
+        :param _builtins.str rule_id: Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
         :param Sequence['PlanRuleScanActionArgs'] scan_actions: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param _builtins.str schedule: CRON expression specifying when AWS Backup initiates a backup job.
         :param _builtins.str schedule_expression_timezone: Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
@@ -347,6 +351,8 @@ class PlanRule(dict):
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
         if scan_actions is not None:
             pulumi.set(__self__, "scan_actions", scan_actions)
         if schedule is not None:
@@ -413,6 +419,14 @@ class PlanRule(dict):
         Metadata that you can assign to help organize the resources that you create.
         """
         return pulumi.get(self, "recovery_point_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> Optional[_builtins.str]:
+        """
+        Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+        """
+        return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="scanActions")
@@ -1446,6 +1460,7 @@ class GetPlanRuleResult(dict):
                  copy_actions: Sequence['outputs.GetPlanRuleCopyActionResult'],
                  enable_continuous_backup: _builtins.bool,
                  lifecycles: Sequence['outputs.GetPlanRuleLifecycleResult'],
+                 rule_id: _builtins.str,
                  rule_name: _builtins.str,
                  scan_actions: Sequence['outputs.GetPlanRuleScanActionResult'],
                  schedule: _builtins.str,
@@ -1459,6 +1474,7 @@ class GetPlanRuleResult(dict):
         :param Sequence['GetPlanRuleCopyActionArgs'] copy_actions: Configuration block(s) with copy operation settings. See below.
         :param _builtins.bool enable_continuous_backup: Whether AWS Backup creates continuous backups.
         :param Sequence['GetPlanRuleLifecycleArgs'] lifecycles: Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+        :param _builtins.str rule_id: Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
         :param _builtins.str rule_name: Display name of a backup rule.
         :param Sequence['GetPlanRuleScanActionArgs'] scan_actions: Configuration block(s) with malware scanning settings. See below.
         :param _builtins.str schedule: CRON expression specifying when AWS Backup initiates a backup job.
@@ -1472,6 +1488,7 @@ class GetPlanRuleResult(dict):
         pulumi.set(__self__, "copy_actions", copy_actions)
         pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
         pulumi.set(__self__, "lifecycles", lifecycles)
+        pulumi.set(__self__, "rule_id", rule_id)
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "scan_actions", scan_actions)
         pulumi.set(__self__, "schedule", schedule)
@@ -1513,6 +1530,14 @@ class GetPlanRuleResult(dict):
         Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
         """
         return pulumi.get(self, "lifecycles")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> _builtins.str:
+        """
+        Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+        """
+        return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")

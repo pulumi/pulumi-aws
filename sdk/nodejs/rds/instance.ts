@@ -582,6 +582,10 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly multiAz: pulumi.Output<boolean>;
     /**
+     * Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+     */
+    declare public readonly multiTenant: pulumi.Output<boolean>;
+    /**
      * National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      */
     declare public readonly ncharCharacterSetName: pulumi.Output<string>;
@@ -781,6 +785,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["monitoringInterval"] = state?.monitoringInterval;
             resourceInputs["monitoringRoleArn"] = state?.monitoringRoleArn;
             resourceInputs["multiAz"] = state?.multiAz;
+            resourceInputs["multiTenant"] = state?.multiTenant;
             resourceInputs["ncharCharacterSetName"] = state?.ncharCharacterSetName;
             resourceInputs["networkType"] = state?.networkType;
             resourceInputs["optionGroupName"] = state?.optionGroupName;
@@ -864,6 +869,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["monitoringInterval"] = args?.monitoringInterval;
             resourceInputs["monitoringRoleArn"] = args?.monitoringRoleArn;
             resourceInputs["multiAz"] = args?.multiAz;
+            resourceInputs["multiTenant"] = args?.multiTenant;
             resourceInputs["ncharCharacterSetName"] = args?.ncharCharacterSetName;
             resourceInputs["networkType"] = args?.networkType;
             resourceInputs["optionGroupName"] = args?.optionGroupName;
@@ -1129,6 +1135,10 @@ export interface InstanceState {
      * Whether the RDS instance is multi-AZ.
      */
     multiAz?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+     */
+    multiTenant?: pulumi.Input<boolean | undefined>;
     /**
      * National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      */
@@ -1448,6 +1458,10 @@ export interface InstanceArgs {
      * Whether the RDS instance is multi-AZ.
      */
     multiAz?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+     */
+    multiTenant?: pulumi.Input<boolean | undefined>;
     /**
      * National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      */

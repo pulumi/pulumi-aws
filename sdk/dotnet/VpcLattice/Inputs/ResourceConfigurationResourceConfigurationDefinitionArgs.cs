@@ -19,6 +19,12 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         public Input<Inputs.ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs>? ArnResource { get; set; }
 
         /// <summary>
+        /// Resource CIDR configuration. Only valid when `Type` is `CIDR`. See `CidrResource` Block for details.
+        /// </summary>
+        [Input("cidrResource")]
+        public Input<Inputs.ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs>? CidrResource { get; set; }
+
+        /// <summary>
         /// Resource DNS Configuration. See `DnsResource` Block for details.
         /// </summary>
         [Input("dnsResource")]

@@ -129,6 +129,55 @@ import (
 //
 // ```
 //
+// ### Policy with Route 53 Resolved IP Validation
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := route53.NewResolverFirewallRuleGroup(ctx, "example", &route53.ResolverFirewallRuleGroupArgs{
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					Route53ResolvedIpValidation: &networkfirewall.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{
+//						Action:                   pulumi.String("DROP"),
+//						DnsExpiryExceptionPolicy: pulumi.String("CONTINUE"),
+//						DnsFirewallRuleGroupId:   example.ID(),
+//						SourceIpRanges: pulumi.StringArray{
+//							pulumi.String("10.0.0.0/16"),
+//						},
+//					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:forward_to_sfe"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:forward_to_sfe"),
+//					},
+//				},
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Policy with a Custom Action for Stateless Inspection
 //
 // ```go

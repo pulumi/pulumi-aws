@@ -13,10 +13,10 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Single statement to negate. Exactly one statement must be specified.
+        /// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `ManagedRuleGroupStatement`, `RateBasedStatement` and `RuleGroupReferenceStatement`.
         /// </summary>
-        [Input("statement")]
-        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGetArgs>? Statement { get; set; }
+        [Input("statement", required: true)]
+        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGetArgs> Statement { get; set; } = null!;
 
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementGetArgs()
         {

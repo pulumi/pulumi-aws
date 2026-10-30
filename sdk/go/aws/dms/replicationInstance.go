@@ -34,9 +34,9 @@ import (
 //			// Database Migration Service requires the below IAM Roles to be created before
 //			// replication instances can be created. See the DMS Documentation for
 //			// additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
-//			//   - dms-vpc-role
-//			//   - dms-cloudwatch-logs-role
-//			//   - dms-access-for-endpoint
+//			//  * dms-vpc-role
+//			//  * dms-cloudwatch-logs-role
+//			//  * dms-access-for-endpoint
 //			dmsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{

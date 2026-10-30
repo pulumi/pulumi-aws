@@ -15,6 +15,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     {
         public readonly bool EnableTlsSessionHolding;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult> PolicyVariables;
+        public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationResult> Route53ResolvedIpValidations;
         public readonly ImmutableArray<string> StatefulDefaultActions;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult> StatefulEngineOptions;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult> StatefulRuleGroupReferences;
@@ -29,6 +30,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
             bool enableTlsSessionHolding,
 
             ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult> policyVariables,
+
+            ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationResult> route53ResolvedIpValidations,
 
             ImmutableArray<string> statefulDefaultActions,
 
@@ -48,6 +51,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         {
             EnableTlsSessionHolding = enableTlsSessionHolding;
             PolicyVariables = policyVariables;
+            Route53ResolvedIpValidations = route53ResolvedIpValidations;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;
             StatefulRuleGroupReferences = statefulRuleGroupReferences;

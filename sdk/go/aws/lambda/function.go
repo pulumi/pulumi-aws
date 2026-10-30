@@ -819,6 +819,94 @@ import (
 //
 // ```
 //
+// ### Function with Durable Configuration and Customer Managed KMS Key
+//
+// Durable execution state can be encrypted with a customer managed KMS key via `durable_config.kms_key_arn`. The key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Sid":    "EnableIAMUserPermissions",
+//						"Effect": "Allow",
+//						"Principal": map[string]string{
+//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
+//						},
+//						"Action":   "kms:*",
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "AllowLambdaDurableService",
+//						"Effect": "Allow",
+//						"Principal": map[string]string{
+//							"Service": "lambda.amazonaws.com",
+//						},
+//						"Action": []string{
+//							"kms:Decrypt",
+//							"kms:GenerateDataKey",
+//							"kms:DescribeKey",
+//						},
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description: pulumi.String("Durable function execution state encryption"),
+//				Policy:      json0,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				DurableConfig: &lambda.FunctionDurableConfigArgs{
+//					ExecutionTimeout: pulumi.Int(3600),
+//					RetentionPeriod:  pulumi.Int(7),
+//					KmsKeyArn:        example.Arn,
+//				},
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				Name:    pulumi.String("example_durable_function"),
+//				Role:    pulumi.Any(exampleAwsIamRole.Arn),
+//				Handler: pulumi.String("index.handler"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Delete: "60m"}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Capacity Provider Configuration
 //
 // ```go

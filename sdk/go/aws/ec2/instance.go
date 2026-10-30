@@ -424,11 +424,11 @@ type Instance struct {
 	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData pulumi.StringOutput `pulumi:"passwordData"`
-	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
-	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
-	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementPartitionNumber pulumi.IntOutput `pulumi:"placementPartitionNumber"`
 	// The primary network interface. See Primary Network Interface below.
 	PrimaryNetworkInterface InstancePrimaryNetworkInterfaceOutput `pulumi:"primaryNetworkInterface"`
@@ -586,11 +586,11 @@ type instanceState struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData *string `pulumi:"passwordData"`
-	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroup *string `pulumi:"placementGroup"`
-	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroupId *string `pulumi:"placementGroupId"`
-	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// The primary network interface. See Primary Network Interface below.
 	PrimaryNetworkInterface *InstancePrimaryNetworkInterface `pulumi:"primaryNetworkInterface"`
@@ -719,11 +719,11 @@ type InstanceState struct {
 	OutpostArn pulumi.StringPtrInput
 	// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData pulumi.StringPtrInput
-	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroup pulumi.StringPtrInput
-	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroupId pulumi.StringPtrInput
-	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementPartitionNumber pulumi.IntPtrInput
 	// The primary network interface. See Primary Network Interface below.
 	PrimaryNetworkInterface InstancePrimaryNetworkInterfacePtrInput
@@ -846,11 +846,11 @@ type instanceArgs struct {
 	//
 	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
-	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroup *string `pulumi:"placementGroup"`
-	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroupId *string `pulumi:"placementGroupId"`
-	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// The primary network interface. See Primary Network Interface below.
 	PrimaryNetworkInterface *InstancePrimaryNetworkInterface `pulumi:"primaryNetworkInterface"`
@@ -958,11 +958,11 @@ type InstanceArgs struct {
 	//
 	// Deprecated: network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
-	// Placement Group to start the instance in. Conflicts with `placementGroupId`.
+	// Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroup pulumi.StringPtrInput
-	// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+	// Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementGroupId pulumi.StringPtrInput
-	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 	PlacementPartitionNumber pulumi.IntPtrInput
 	// The primary network interface. See Primary Network Interface below.
 	PrimaryNetworkInterface InstancePrimaryNetworkInterfacePtrInput
@@ -1272,17 +1272,17 @@ func (o InstanceOutput) PasswordData() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PasswordData }).(pulumi.StringOutput)
 }
 
-// Placement Group to start the instance in. Conflicts with `placementGroupId`.
+// Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 func (o InstanceOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PlacementGroup }).(pulumi.StringOutput)
 }
 
-// Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+// Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 func (o InstanceOutput) PlacementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PlacementGroupId }).(pulumi.StringOutput)
 }
 
-// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+// Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
 func (o InstanceOutput) PlacementPartitionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.PlacementPartitionNumber }).(pulumi.IntOutput)
 }

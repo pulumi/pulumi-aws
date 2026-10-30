@@ -127,6 +127,50 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
+    /// ### Policy with Route 53 Resolved IP Validation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Route53.ResolverFirewallRuleGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleFirewallPolicy = new Aws.NetworkFirewall.FirewallPolicy("example", new()
+    ///     {
+    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///         {
+    ///             Route53ResolvedIpValidation = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs
+    ///             {
+    ///                 Action = "DROP",
+    ///                 DnsExpiryExceptionPolicy = "CONTINUE",
+    ///                 DnsFirewallRuleGroupId = example.Id,
+    ///                 SourceIpRanges = new[]
+    ///                 {
+    ///                     "10.0.0.0/16",
+    ///                 },
+    ///             },
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:forward_to_sfe",
+    ///             },
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:forward_to_sfe",
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Policy with a Custom Action for Stateless Inspection
     /// 
     /// ```csharp

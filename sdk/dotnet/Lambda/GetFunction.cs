@@ -726,7 +726,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string InvokeArn;
         /// <summary>
-        /// ARN for the KMS encryption key.
+        /// ARN of the KMS key used to encrypt the durable function's execution state.
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>

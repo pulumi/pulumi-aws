@@ -741,6 +741,12 @@ namespace Pulumi.Aws.Rds
         public Output<bool> MultiAz { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `False` to `True` converts the instance in place and requires `ApplyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `True` to `False` forces a new resource. After conversion, RDS rejects changes to `Password`, `PasswordWo`, and `ManageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+        /// </summary>
+        [Output("multiTenant")]
+        public Output<bool> MultiTenant { get; private set; } = null!;
+
+        /// <summary>
         /// National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         /// </summary>
         [Output("ncharCharacterSetName")]
@@ -1271,6 +1277,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
+
+        /// <summary>
+        /// Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `False` to `True` converts the instance in place and requires `ApplyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `True` to `False` forces a new resource. After conversion, RDS rejects changes to `Password`, `PasswordWo`, and `ManageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+        /// </summary>
+        [Input("multiTenant")]
+        public Input<bool>? MultiTenant { get; set; }
 
         /// <summary>
         /// National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1828,6 +1840,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
+
+        /// <summary>
+        /// Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `False` to `True` converts the instance in place and requires `ApplyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `True` to `False` forces a new resource. After conversion, RDS rejects changes to `Password`, `PasswordWo`, and `ManageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+        /// </summary>
+        [Input("multiTenant")]
+        public Input<bool>? MultiTenant { get; set; }
 
         /// <summary>
         /// National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).

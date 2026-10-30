@@ -175,6 +175,60 @@ import (
 //
 // ```
 //
+// ### CIDR Example
+//
+// A `CIDR` resource configuration must use a resource gateway with `resourceConfigDnsResolution` set to `IN_VPC`. It cannot be associated with a service network or a resource endpoint and is consumed by a VPC endpoint of type `Tunnel`. See [Access CIDR ranges using AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-cidr-ranges.html) for details.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := vpclattice.NewResourceGateway(ctx, "example", &vpclattice.ResourceGatewayArgs{
+//				Name:  pulumi.String("example"),
+//				VpcId: pulumi.Any(exampleAwsVpc.Id),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				ResourceConfigDnsResolution: pulumi.String("IN_VPC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
+//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
+//					CidrResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs{
+//						CidrRanges: pulumi.StringArray{
+//							pulumi.String("10.0.0.0/16"),
+//							pulumi.String("192.168.0.0/24"),
+//						},
+//					},
+//				},
+//				Name:                      pulumi.String("example"),
+//				ResourceGatewayIdentifier: example.ID(),
+//				Type:                      pulumi.String("CIDR"),
+//				Protocol:                  pulumi.String("TCP_UDP"),
+//				PortRanges: pulumi.StringArray{
+//					pulumi.String("53"),
+//					pulumi.String("443"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
@@ -199,9 +253,9 @@ type ResourceConfiguration struct {
 	DomainVerificationStatus pulumi.StringOutput `pulumi:"domainVerificationStatus"`
 	// Name for the Resource Configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
+	// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
 	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+	// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -218,7 +272,7 @@ type ResourceConfiguration struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 	Timeouts ResourceConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -266,9 +320,9 @@ type resourceConfigurationState struct {
 	DomainVerificationStatus *string `pulumi:"domainVerificationStatus"`
 	// Name for the Resource Configuration.
 	Name *string `pulumi:"name"`
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
+	// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
 	PortRanges []string `pulumi:"portRanges"`
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+	// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -285,7 +339,7 @@ type resourceConfigurationState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string              `pulumi:"tagsAll"`
 	Timeouts *ResourceConfigurationTimeouts `pulumi:"timeouts"`
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
 	Type *string `pulumi:"type"`
 }
 
@@ -304,9 +358,9 @@ type ResourceConfigurationState struct {
 	DomainVerificationStatus pulumi.StringPtrInput
 	// Name for the Resource Configuration.
 	Name pulumi.StringPtrInput
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
+	// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
 	PortRanges pulumi.StringArrayInput
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+	// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -323,7 +377,7 @@ type ResourceConfigurationState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ResourceConfigurationTimeoutsPtrInput
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
 	Type pulumi.StringPtrInput
 }
 
@@ -340,9 +394,9 @@ type resourceConfigurationArgs struct {
 	DomainVerificationId *string `pulumi:"domainVerificationId"`
 	// Name for the Resource Configuration.
 	Name *string `pulumi:"name"`
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
+	// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
 	PortRanges []string `pulumi:"portRanges"`
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+	// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -357,7 +411,7 @@ type resourceConfigurationArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string              `pulumi:"tags"`
 	Timeouts *ResourceConfigurationTimeouts `pulumi:"timeouts"`
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
 	Type *string `pulumi:"type"`
 }
 
@@ -371,9 +425,9 @@ type ResourceConfigurationArgs struct {
 	DomainVerificationId pulumi.StringPtrInput
 	// Name for the Resource Configuration.
 	Name pulumi.StringPtrInput
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
+	// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
 	PortRanges pulumi.StringArrayInput
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+	// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -388,7 +442,7 @@ type ResourceConfigurationArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ResourceConfigurationTimeoutsPtrInput
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
 	Type pulumi.StringPtrInput
 }
 
@@ -514,12 +568,12 @@ func (o ResourceConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Port ranges to access the Resource either single port `80` or range `80-81` range.
+// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
 func (o ResourceConfigurationOutput) PortRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringArrayOutput { return v.PortRanges }).(pulumi.StringArrayOutput)
 }
 
-// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
 func (o ResourceConfigurationOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -562,7 +616,7 @@ func (o ResourceConfigurationOutput) Timeouts() ResourceConfigurationTimeoutsPtr
 	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationTimeoutsPtrOutput { return v.Timeouts }).(ResourceConfigurationTimeoutsPtrOutput)
 }
 
-// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
 func (o ResourceConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

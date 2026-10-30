@@ -71,6 +71,28 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Policy with Route 53 Resolved IP Validation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.route53.ResolverFirewallRuleGroup("example", {name: "example"});
+ * const exampleFirewallPolicy = new aws.networkfirewall.FirewallPolicy("example", {
+ *     firewallPolicy: {
+ *         route53ResolvedIpValidation: {
+ *             action: "DROP",
+ *             dnsExpiryExceptionPolicy: "CONTINUE",
+ *             dnsFirewallRuleGroupId: example.id,
+ *             sourceIpRanges: ["10.0.0.0/16"],
+ *         },
+ *         statelessDefaultActions: ["aws:forward_to_sfe"],
+ *         statelessFragmentDefaultActions: ["aws:forward_to_sfe"],
+ *     },
+ *     name: "example",
+ * });
+ * ```
+ *
  * ### Policy with a Custom Action for Stateless Inspection
  *
  * ```typescript

@@ -540,6 +540,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    bedrockdataautomation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     bedrockruntime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1512,6 +1516,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    securityir: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     securitylake: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1734,6 +1742,7 @@ class ProviderEndpointArgs:
                  bedrock: pulumi.Input[Optional[_builtins.str]] = None,
                  bedrockagent: pulumi.Input[Optional[_builtins.str]] = None,
                  bedrockagentcore: pulumi.Input[Optional[_builtins.str]] = None,
+                 bedrockdataautomation: pulumi.Input[Optional[_builtins.str]] = None,
                  bedrockruntime: pulumi.Input[Optional[_builtins.str]] = None,
                  billing: pulumi.Input[Optional[_builtins.str]] = None,
                  budgets: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1977,6 +1986,7 @@ class ProviderEndpointArgs:
                  schemas: pulumi.Input[Optional[_builtins.str]] = None,
                  secretsmanager: pulumi.Input[Optional[_builtins.str]] = None,
                  securityhub: pulumi.Input[Optional[_builtins.str]] = None,
+                 securityir: pulumi.Input[Optional[_builtins.str]] = None,
                  securitylake: pulumi.Input[Optional[_builtins.str]] = None,
                  serverlessapplicationrepository: pulumi.Input[Optional[_builtins.str]] = None,
                  serverlessapprepo: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2061,6 +2071,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] bedrock: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] bedrockagent: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] bedrockagentcore: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] bedrockdataautomation: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] bedrockruntime: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] billing: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] budgets: Use this to override the default service endpoint URL
@@ -2304,6 +2315,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] schemas: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] secretsmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] securityhub: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] securityir: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] securitylake: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] serverlessapplicationrepository: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] serverlessapprepo: Use this to override the default service endpoint URL
@@ -2426,6 +2438,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "bedrockagent", bedrockagent)
         if bedrockagentcore is not None:
             pulumi.set(__self__, "bedrockagentcore", bedrockagentcore)
+        if bedrockdataautomation is not None:
+            pulumi.set(__self__, "bedrockdataautomation", bedrockdataautomation)
         if bedrockruntime is not None:
             pulumi.set(__self__, "bedrockruntime", bedrockruntime)
         if billing is not None:
@@ -2912,6 +2926,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "secretsmanager", secretsmanager)
         if securityhub is not None:
             pulumi.set(__self__, "securityhub", securityhub)
+        if securityir is not None:
+            pulumi.set(__self__, "securityir", securityir)
         if securitylake is not None:
             pulumi.set(__self__, "securitylake", securitylake)
         if serverlessapplicationrepository is not None:
@@ -3458,6 +3474,18 @@ class ProviderEndpointArgs:
     @bedrockagentcore.setter
     def bedrockagentcore(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bedrockagentcore", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bedrockdataautomation(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockdataautomation")
+
+    @bedrockdataautomation.setter
+    def bedrockdataautomation(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bedrockdataautomation", value)
 
     @_builtins.property
     @pulumi.getter
@@ -6374,6 +6402,18 @@ class ProviderEndpointArgs:
     @securityhub.setter
     def securityhub(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "securityhub", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def securityir(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "securityir")
+
+    @securityir.setter
+    def securityir(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "securityir", value)
 
     @_builtins.property
     @pulumi.getter

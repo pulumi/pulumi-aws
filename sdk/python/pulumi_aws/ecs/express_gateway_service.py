@@ -26,6 +26,7 @@ class ExpressGatewayServiceArgs:
                  primary_container: pulumi.Input['ExpressGatewayServicePrimaryContainerArgs'],
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_architecture: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
                  network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]]] = None,
@@ -45,6 +46,7 @@ class ExpressGatewayServiceArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
+        :param pulumi.Input[_builtins.str] cpu_architecture: CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
         :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
@@ -62,6 +64,8 @@ class ExpressGatewayServiceArgs:
             pulumi.set(__self__, "cluster", cluster)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
         if health_check_path is not None:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if memory is not None:
@@ -141,6 +145,18 @@ class ExpressGatewayServiceArgs:
     @cpu.setter
     def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+        """
+        return pulumi.get(self, "cpu_architecture")
+
+    @cpu_architecture.setter
+    def cpu_architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cpu_architecture", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
@@ -265,6 +281,7 @@ class _ExpressGatewayServiceState:
     def __init__(__self__, *,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_architecture: pulumi.Input[Optional[_builtins.str]] = None,
                  current_deployment: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
@@ -288,6 +305,7 @@ class _ExpressGatewayServiceState:
 
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
+        :param pulumi.Input[_builtins.str] cpu_architecture: CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
         :param pulumi.Input[_builtins.str] current_deployment: (**Deprecated**) ARN of the current deployment.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
         :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
@@ -311,6 +329,8 @@ class _ExpressGatewayServiceState:
             pulumi.set(__self__, "cluster", cluster)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
         if current_deployment is not None:
             warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
             pulumi.log.warn("""current_deployment is deprecated: This attribute will be removed in a future verion of the provider.""")
@@ -374,6 +394,18 @@ class _ExpressGatewayServiceState:
     @cpu.setter
     def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+        """
+        return pulumi.get(self, "cpu_architecture")
+
+    @cpu_architecture.setter
+    def cpu_architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cpu_architecture", value)
 
     @_builtins.property
     @pulumi.getter(name="currentDeployment")
@@ -597,6 +629,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_architecture: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -715,6 +748,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
+        :param pulumi.Input[_builtins.str] cpu_architecture: CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
         :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
@@ -852,6 +886,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_architecture: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -876,6 +911,7 @@ class ExpressGatewayService(pulumi.CustomResource):
 
             __props__.__dict__["cluster"] = cluster
             __props__.__dict__["cpu"] = cpu
+            __props__.__dict__["cpu_architecture"] = cpu_architecture
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
@@ -912,6 +948,7 @@ class ExpressGatewayService(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster: pulumi.Input[Optional[_builtins.str]] = None,
             cpu: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_architecture: pulumi.Input[Optional[_builtins.str]] = None,
             current_deployment: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
@@ -939,6 +976,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
+        :param pulumi.Input[_builtins.str] cpu_architecture: CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
         :param pulumi.Input[_builtins.str] current_deployment: (**Deprecated**) ARN of the current deployment.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
         :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
@@ -964,6 +1002,7 @@ class ExpressGatewayService(pulumi.CustomResource):
 
         __props__.__dict__["cluster"] = cluster
         __props__.__dict__["cpu"] = cpu
+        __props__.__dict__["cpu_architecture"] = cpu_architecture
         __props__.__dict__["current_deployment"] = current_deployment
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["health_check_path"] = health_check_path
@@ -999,6 +1038,14 @@ class ExpressGatewayService(pulumi.CustomResource):
         Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         """
         return pulumi.get(self, "cpu")
+
+    @_builtins.property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> pulumi.Output[_builtins.str]:
+        """
+        CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+        """
+        return pulumi.get(self, "cpu_architecture")
 
     @_builtins.property
     @pulumi.getter(name="currentDeployment")

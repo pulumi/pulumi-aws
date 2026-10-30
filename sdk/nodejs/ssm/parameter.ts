@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     storageType: aws.rds.StorageType.GP2,
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
- *     instanceClass: aws.rds.InstanceType.T2_Micro,
+ *     instanceClass: aws.rds.InstanceType.T4G_Micro,
  *     dbName: "mydb",
  *     username: "foo",
  *     password: databaseMasterPassword,

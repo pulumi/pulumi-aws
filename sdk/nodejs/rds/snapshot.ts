@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.21",
- *     instanceClass: aws.rds.InstanceType.T2_Micro,
+ *     instanceClass: aws.rds.InstanceType.T4G_Micro,
  *     dbName: "baz",
  *     password: "barbarbarbar",
  *     username: "foo",

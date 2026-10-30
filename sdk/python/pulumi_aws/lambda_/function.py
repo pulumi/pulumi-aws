@@ -2040,6 +2040,60 @@ class Function(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="60m")))
         ```
 
+        ### Function with Durable Configuration and Customer Managed KMS Key
+
+        Durable execution state can be encrypted with a customer managed KMS key via `durable_config.kms_key_arn`. The key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        example = aws.kms.Key("example",
+            description="Durable function execution state encryption",
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "EnableIAMUserPermissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "AllowLambdaDurableService",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com",
+                        },
+                        "Action": [
+                            "kms:Decrypt",
+                            "kms:GenerateDataKey",
+                            "kms:DescribeKey",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        example_function = aws.lambda_.Function("example",
+            durable_config={
+                "execution_timeout": 3600,
+                "retention_period": 7,
+                "kms_key_arn": example.arn,
+            },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_durable_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="60m")))
+        ```
+
         ### Capacity Provider Configuration
 
         ```python
@@ -2606,6 +2660,60 @@ class Function(pulumi.CustomResource):
                 "Environment": "production",
                 "Type": "durable",
             },
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="60m")))
+        ```
+
+        ### Function with Durable Configuration and Customer Managed KMS Key
+
+        Durable execution state can be encrypted with a customer managed KMS key via `durable_config.kms_key_arn`. The key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        example = aws.kms.Key("example",
+            description="Durable function execution state encryption",
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "EnableIAMUserPermissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "AllowLambdaDurableService",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "lambda.amazonaws.com",
+                        },
+                        "Action": [
+                            "kms:Decrypt",
+                            "kms:GenerateDataKey",
+                            "kms:DescribeKey",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        example_function = aws.lambda_.Function("example",
+            durable_config={
+                "execution_timeout": 3600,
+                "retention_period": 7,
+                "kms_key_arn": example.arn,
+            },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_durable_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="60m")))
         ```
 

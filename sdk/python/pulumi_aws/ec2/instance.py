@@ -105,9 +105,9 @@ class InstanceArgs:
         :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         :param pulumi.Input['InstancePrimaryNetworkInterfaceArgs'] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input['InstancePrivateDnsNameOptionsArgs'] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
@@ -602,7 +602,7 @@ class InstanceArgs:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_group")
 
@@ -614,7 +614,7 @@ class InstanceArgs:
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        Placement Group ID to start the instance in. Conflicts with `placement_group`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_group_id")
 
@@ -626,7 +626,7 @@ class InstanceArgs:
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_partition_number")
 
@@ -946,9 +946,9 @@ class _InstanceState:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost the instance is assigned to.
         :param pulumi.Input[_builtins.str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         :param pulumi.Input['InstancePrimaryNetworkInterfaceArgs'] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] primary_network_interface_id: ID of the instance's primary network interface.
         :param pulumi.Input[_builtins.str] private_dns: Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -1531,7 +1531,7 @@ class _InstanceState:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_group")
 
@@ -1543,7 +1543,7 @@ class _InstanceState:
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        Placement Group ID to start the instance in. Conflicts with `placement_group`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_group_id")
 
@@ -1555,7 +1555,7 @@ class _InstanceState:
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_partition_number")
 
@@ -2124,9 +2124,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union['InstanceMetadataOptionsArgs', 'InstanceMetadataOptionsArgsDict', 'outputs.InstanceMetadataOptions']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict', 'outputs.InstanceNetworkInterface']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         :param pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict', 'outputs.InstancePrimaryNetworkInterface']] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict', 'outputs.InstancePrivateDnsNameOptions']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
@@ -2593,9 +2593,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict', 'outputs.InstanceNetworkInterface']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost the instance is assigned to.
         :param pulumi.Input[_builtins.str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
+        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         :param pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict', 'outputs.InstancePrimaryNetworkInterface']] primary_network_interface: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] primary_network_interface_id: ID of the instance's primary network interface.
         :param pulumi.Input[_builtins.str] private_dns: Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -2976,7 +2976,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> pulumi.Output[_builtins.str]:
         """
-        Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        Placement Group to start the instance in. Conflicts with `placement_group_id`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_group")
 
@@ -2984,7 +2984,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        Placement Group ID to start the instance in. Conflicts with `placement_group`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_group_id")
 
@@ -2992,7 +2992,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> pulumi.Output[_builtins.int]:
         """
-        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disable_api_stop` and `force_destroy` enabled, which are replaced.
         """
         return pulumi.get(self, "placement_partition_number")
 

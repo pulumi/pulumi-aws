@@ -25018,7 +25018,7 @@ class WebAclRuleStatementArgsDict(TypedDict):
     """
     Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
 
-    > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
+    > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource. As in AWS WAF, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
     """
 
 @pulumi.input_type
@@ -25058,7 +25058,7 @@ class WebAclRuleStatementArgs:
         :param pulumi.Input['WebAclRuleStatementSqliMatchStatementArgs'] sqli_match_statement: Match requests that appear to contain SQL injection attacks. See SQL Injection Match Statement below.
         :param pulumi.Input['WebAclRuleStatementXssMatchStatementArgs'] xss_match_statement: Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
                
-               > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
+               > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource. As in AWS WAF, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -25279,7 +25279,7 @@ class WebAclRuleStatementArgs:
         """
         Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
 
-        > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
+        > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 3 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource. As in AWS WAF, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
         """
         return pulumi.get(self, "xss_match_statement")
 
@@ -25289,31 +25289,30 @@ class WebAclRuleStatementArgs:
 
 
 class WebAclRuleStatementAndStatementArgsDict(TypedDict):
-    statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgsDict']]]]]
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgsDict']]]
     """
-    List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+    List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementAndStatementArgs:
     def __init__(__self__, *,
-                 statements: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]] = None):
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]] statements: List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]] statements: List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statements is not None:
-            pulumi.set(__self__, "statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @_builtins.property
     @pulumi.getter
-    def statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]]:
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]:
         """
-        List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statements")
 
     @statements.setter
-    def statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]]):
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]):
         pulumi.set(self, "statements", value)
 
 
@@ -28800,7 +28799,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict(Typ
     """
     Match requests that appear to contain cross-site scripting attacks.
 
-    > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) within a scope down statement wrap the leaf statement types listed above.
+    > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
     """
 
 @pulumi.input_type
@@ -28834,7 +28833,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs'] sqli_match_statement: Match requests that appear to contain SQL injection attacks.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs'] xss_match_statement: Match requests that appear to contain cross-site scripting attacks.
                
-               > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) within a scope down statement wrap the leaf statement types listed above.
+               > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -29013,7 +29012,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
         """
         Match requests that appear to contain cross-site scripting attacks.
 
-        > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) within a scope down statement wrap the leaf statement types listed above.
+        > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
         """
         return pulumi.get(self, "xss_match_statement")
 
@@ -29023,31 +29022,30 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
 
 
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgsDict(TypedDict):
-    statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict']]]]]
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict']]]
     """
-    List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+    List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs:
     def __init__(__self__, *,
-                 statements: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]] = None):
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statements is not None:
-            pulumi.set(__self__, "statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @_builtins.property
     @pulumi.getter
-    def statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]]:
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]:
         """
-        List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statements")
 
     @statements.setter
-    def statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]]):
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]):
         pulumi.set(self, "statements", value)
 
 
@@ -30475,60 +30473,58 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchSt
 
 
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgsDict(TypedDict):
-    statement: NotRequired[pulumi.Input[Optional['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict']]]
+    statement: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict']
     """
-    Single statement to negate. Exactly one statement must be specified.
+    Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs:
     def __init__(__self__, *,
-                 statement: pulumi.Input[Optional['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']] = None):
+                 statement: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']):
         """
-        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs'] statement: Single statement to negate. Exactly one statement must be specified.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs'] statement: Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+        pulumi.set(__self__, "statement", statement)
 
     @_builtins.property
     @pulumi.getter
-    def statement(self) -> pulumi.Input[Optional['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]:
+    def statement(self) -> pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']:
         """
-        Single statement to negate. Exactly one statement must be specified.
+        Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: pulumi.Input[Optional['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]):
+    def statement(self, value: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']):
         pulumi.set(self, "statement", value)
 
 
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgsDict(TypedDict):
-    statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict']]]]]
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict']]]
     """
-    List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+    List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs:
     def __init__(__self__, *,
-                 statements: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]] = None):
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statements is not None:
-            pulumi.set(__self__, "statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @_builtins.property
     @pulumi.getter
-    def statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]]:
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]:
         """
-        List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statements")
 
     @statements.setter
-    def statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]]):
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs']]]):
         pulumi.set(self, "statements", value)
 
 
@@ -35769,60 +35765,58 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 class WebAclRuleStatementNotStatementArgsDict(TypedDict):
-    statement: NotRequired[pulumi.Input[Optional['WebAclRuleStatementArgsDict']]]
+    statement: pulumi.Input['WebAclRuleStatementArgsDict']
     """
-    Single statement to negate. Exactly one statement must be specified.
+    Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementNotStatementArgs:
     def __init__(__self__, *,
-                 statement: pulumi.Input[Optional['WebAclRuleStatementArgs']] = None):
+                 statement: pulumi.Input['WebAclRuleStatementArgs']):
         """
-        :param pulumi.Input['WebAclRuleStatementArgs'] statement: Single statement to negate. Exactly one statement must be specified.
+        :param pulumi.Input['WebAclRuleStatementArgs'] statement: Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+        pulumi.set(__self__, "statement", statement)
 
     @_builtins.property
     @pulumi.getter
-    def statement(self) -> pulumi.Input[Optional['WebAclRuleStatementArgs']]:
+    def statement(self) -> pulumi.Input['WebAclRuleStatementArgs']:
         """
-        Single statement to negate. Exactly one statement must be specified.
+        Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: pulumi.Input[Optional['WebAclRuleStatementArgs']]):
+    def statement(self, value: pulumi.Input['WebAclRuleStatementArgs']):
         pulumi.set(self, "statement", value)
 
 
 class WebAclRuleStatementOrStatementArgsDict(TypedDict):
-    statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgsDict']]]]]
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgsDict']]]
     """
-    List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+    List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementOrStatementArgs:
     def __init__(__self__, *,
-                 statements: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]] = None):
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]] statements: List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]] statements: List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statements is not None:
-            pulumi.set(__self__, "statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @_builtins.property
     @pulumi.getter
-    def statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]]:
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]:
         """
-        List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statements")
 
     @statements.setter
-    def statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]]):
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]):
         pulumi.set(self, "statements", value)
 
 
@@ -36813,7 +36807,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict(TypedDict)
     """
     Match requests that appear to contain cross-site scripting attacks.
 
-    > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) within a scope down statement wrap the leaf statement types listed above.
+    > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
     """
 
 @pulumi.input_type
@@ -36847,7 +36841,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs'] sqli_match_statement: Match requests that appear to contain SQL injection attacks.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs'] xss_match_statement: Match requests that appear to contain cross-site scripting attacks.
                
-               > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) within a scope down statement wrap the leaf statement types listed above.
+               > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -37026,7 +37020,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
         """
         Match requests that appear to contain cross-site scripting attacks.
 
-        > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) within a scope down statement wrap the leaf statement types listed above.
+        > **NOTE:** Logical statements (`and_statement`, `not_statement`, `or_statement`) can be nested up to 2 levels deep. This matches the nesting limit of the `wafv2.WebAcl` resource.
         """
         return pulumi.get(self, "xss_match_statement")
 
@@ -37036,31 +37030,30 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
 
 
 class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgsDict(TypedDict):
-    statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict']]]]]
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict']]]
     """
-    List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+    List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs:
     def __init__(__self__, *,
-                 statements: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]] = None):
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statements is not None:
-            pulumi.set(__self__, "statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @_builtins.property
     @pulumi.getter
-    def statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]]:
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]:
         """
-        List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `and_statement`, `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statements")
 
     @statements.setter
-    def statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]]):
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]):
         pulumi.set(self, "statements", value)
 
 
@@ -38488,60 +38481,58 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement
 
 
 class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgsDict(TypedDict):
-    statement: NotRequired[pulumi.Input[Optional['WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict']]]
+    statement: pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict']
     """
-    Single statement to negate. Exactly one statement must be specified.
+    Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs:
     def __init__(__self__, *,
-                 statement: pulumi.Input[Optional['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']] = None):
+                 statement: pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']):
         """
-        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs'] statement: Single statement to negate. Exactly one statement must be specified.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs'] statement: Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+        pulumi.set(__self__, "statement", statement)
 
     @_builtins.property
     @pulumi.getter
-    def statement(self) -> pulumi.Input[Optional['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]:
+    def statement(self) -> pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']:
         """
-        Single statement to negate. Exactly one statement must be specified.
+        Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managed_rule_group_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: pulumi.Input[Optional['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]):
+    def statement(self, value: pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']):
         pulumi.set(self, "statement", value)
 
 
 class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgsDict(TypedDict):
-    statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict']]]]]
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict']]]
     """
-    List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+    List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
     """
 
 @pulumi.input_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs:
     def __init__(__self__, *,
-                 statements: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]] = None):
+                 statements: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]] statements: List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
-        if statements is not None:
-            pulumi.set(__self__, "statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @_builtins.property
     @pulumi.getter
-    def statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]]:
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]:
         """
-        List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+        List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managed_rule_group_statement`, `or_statement`, `rate_based_statement` and `rule_group_reference_statement`.
         """
         return pulumi.get(self, "statements")
 
     @statements.setter
-    def statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]]):
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]]):
         pulumi.set(self, "statements", value)
 
 

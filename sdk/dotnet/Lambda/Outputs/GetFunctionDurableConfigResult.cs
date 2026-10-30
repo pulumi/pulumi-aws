@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// </summary>
         public readonly int ExecutionTimeout;
         /// <summary>
+        /// ARN of the KMS key used to encrypt the durable function's execution state.
+        /// </summary>
+        public readonly string KmsKeyArn;
+        /// <summary>
         /// Number of days to retain the function's execution state.
         /// </summary>
         public readonly int RetentionPeriod;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Lambda.Outputs
         private GetFunctionDurableConfigResult(
             int executionTimeout,
 
+            string kmsKeyArn,
+
             int retentionPeriod)
         {
             ExecutionTimeout = executionTimeout;
+            KmsKeyArn = kmsKeyArn;
             RetentionPeriod = retentionPeriod;
         }
     }

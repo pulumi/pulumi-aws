@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Rds
         ///         AllocatedStorage = 10,
         ///         Engine = "mysql",
         ///         EngineVersion = "5.6.17",
-        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
         ///         DbName = "mydb",
         ///         Username = "foo",
         ///         Password = "bar",
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Rds
         ///     // Use the latest production snapshot to create a dev instance.
         ///     var dev = new Aws.Rds.Instance("dev", new()
         ///     {
-        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
         ///     }, new CustomResourceOptions
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Rds
         ///         AllocatedStorage = 10,
         ///         Engine = "mysql",
         ///         EngineVersion = "5.6.17",
-        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
         ///         DbName = "mydb",
         ///         Username = "foo",
         ///         Password = "bar",
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Rds
         ///     // Use the latest production snapshot to create a dev instance.
         ///     var dev = new Aws.Rds.Instance("dev", new()
         ///     {
-        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
         ///     }, new CustomResourceOptions
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Rds
         ///         AllocatedStorage = 10,
         ///         Engine = "mysql",
         ///         EngineVersion = "5.6.17",
-        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
         ///         DbName = "mydb",
         ///         Username = "foo",
         ///         Password = "bar",
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Rds
         ///     // Use the latest production snapshot to create a dev instance.
         ///     var dev = new Aws.Rds.Instance("dev", new()
         ///     {
-        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
         ///     }, new CustomResourceOptions

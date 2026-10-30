@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization":
 		r = &CentralizationRuleForOrganization{}
+	case "aws:observabilityadmin/datasetIntegration:DatasetIntegration":
+		r = &DatasetIntegration{}
 	case "aws:observabilityadmin/s3TableIntegration:S3TableIntegration":
 		r = &S3TableIntegration{}
 	case "aws:observabilityadmin/telemetryEnrichment:TelemetryEnrichment":
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"observabilityadmin/centralizationRuleForOrganization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"observabilityadmin/datasetIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

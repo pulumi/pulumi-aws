@@ -10857,6 +10857,7 @@ func (o LogTransformerTransformerConfigParseRoute53PtrOutput) Source() pulumi.St
 }
 
 type LogTransformerTransformerConfigParseToOcsf struct {
+	// Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
 	EventSource string `pulumi:"eventSource"`
 	// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
 	OcsfVersion string `pulumi:"ocsfVersion"`
@@ -10876,6 +10877,7 @@ type LogTransformerTransformerConfigParseToOcsfInput interface {
 }
 
 type LogTransformerTransformerConfigParseToOcsfArgs struct {
+	// Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
 	EventSource pulumi.StringInput `pulumi:"eventSource"`
 	// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
 	OcsfVersion pulumi.StringInput `pulumi:"ocsfVersion"`
@@ -10960,6 +10962,7 @@ func (o LogTransformerTransformerConfigParseToOcsfOutput) ToLogTransformerTransf
 	}).(LogTransformerTransformerConfigParseToOcsfPtrOutput)
 }
 
+// Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
 func (o LogTransformerTransformerConfigParseToOcsfOutput) EventSource() pulumi.StringOutput {
 	return o.ApplyT(func(v LogTransformerTransformerConfigParseToOcsf) string { return v.EventSource }).(pulumi.StringOutput)
 }
@@ -10998,6 +11001,7 @@ func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) Elem() LogTransform
 	}).(LogTransformerTransformerConfigParseToOcsfOutput)
 }
 
+// Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
 func (o LogTransformerTransformerConfigParseToOcsfPtrOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogTransformerTransformerConfigParseToOcsf) *string {
 		if v == nil {

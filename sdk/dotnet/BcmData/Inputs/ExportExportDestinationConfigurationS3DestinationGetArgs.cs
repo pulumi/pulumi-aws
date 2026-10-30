@@ -18,6 +18,12 @@ namespace Pulumi.Aws.BcmData.Inputs
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+        /// </summary>
+        [Input("s3BucketOwner")]
+        public Input<string>? S3BucketOwner { get; set; }
+
         [Input("s3OutputConfigurations")]
         private InputList<Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationGetArgs>? _s3OutputConfigurations;
 

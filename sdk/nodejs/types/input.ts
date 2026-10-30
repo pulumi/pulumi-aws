@@ -301,6 +301,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    bedrockdataautomation?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     bedrockruntime?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
@@ -1270,6 +1274,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     securityhub?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    securityir?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -12551,6 +12559,10 @@ export namespace backup {
          */
         recoveryPointTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
         /**
+         * Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+         */
+        ruleId?: pulumi.Input<string | undefined>;
+        /**
          * Display name for a backup rule.
          */
         ruleName: pulumi.Input<string>;
@@ -13419,6 +13431,10 @@ export namespace bcmdata {
          * Name of the Amazon S3 bucket used as the destination of a data export file.
          */
         s3Bucket: pulumi.Input<string>;
+        /**
+         * AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+         */
+        s3BucketOwner?: pulumi.Input<string | undefined>;
         /**
          * Output configuration for the data export. See the `s3OutputConfigurations` block below.
          */
@@ -27307,6 +27323,9 @@ export namespace cloudwatch {
     }
 
     export interface LogTransformerTransformerConfigParseToOcsf {
+        /**
+         * Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+         */
         eventSource: pulumi.Input<string>;
         /**
          * Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
@@ -27731,6 +27750,20 @@ export namespace cloudwatchomni {
     }
 
     export interface DomainIdentityProviderConfigurationIdentityCenterConfiguration {
+        /**
+         * ARN of the IAM Identity Center instance.
+         */
+        identityCenterInstanceArn: pulumi.Input<string>;
+    }
+
+    export interface OrganizationDomainIdentityProviderConfiguration {
+        /**
+         * IAM Identity Center configuration. See below.
+         */
+        identityCenterConfiguration: pulumi.Input<inputs.cloudwatchomni.OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration>;
+    }
+
+    export interface OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration {
         /**
          * ARN of the IAM Identity Center instance.
          */
@@ -34299,6 +34332,63 @@ export namespace devicefarm {
          * The ID of the Amazon VPC.
          */
         vpcId: pulumi.Input<string>;
+    }
+}
+
+export namespace devopsagent {
+    export interface AssetContent {
+        /**
+         * Single file to add or replace. See `file` Block below.
+         */
+        file?: pulumi.Input<inputs.devopsagent.AssetContentFile | undefined>;
+        /**
+         * Source URL to import. See `sourceUrl` Block below.
+         */
+        sourceUrl?: pulumi.Input<inputs.devopsagent.AssetContentSourceUrl | undefined>;
+        /**
+         * ZIP archive containing asset files. See `zip` Block below.
+         */
+        zip?: pulumi.Input<inputs.devopsagent.AssetContentZip | undefined>;
+    }
+
+    export interface AssetContentFile {
+        /**
+         * File content. See `body` Block below.
+         */
+        body: pulumi.Input<inputs.devopsagent.AssetContentFileBody>;
+        /**
+         * JSON metadata for the file.
+         */
+        metadata?: pulumi.Input<string | undefined>;
+        /**
+         * Path of the file within the asset.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    export interface AssetContentFileBody {
+        /**
+         * Base64-encoded binary file content.
+         */
+        bytes?: pulumi.Input<string | undefined>;
+        /**
+         * Text file content.
+         */
+        text?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AssetContentSourceUrl {
+        /**
+         * Source URL from which to import asset content.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface AssetContentZip {
+        /**
+         * Base64-encoded ZIP archive. Use `filebase64()` to load a local ZIP file.
+         */
+        zipFile: pulumi.Input<string>;
     }
 }
 
@@ -60748,7 +60838,13 @@ export namespace lambda {
          */
         executionTimeout: pulumi.Input<number>;
         /**
+         * ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+         */
+        kmsKeyArn?: pulumi.Input<string | undefined>;
+        /**
          * Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+         *
+         * > **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
          */
         retentionPeriod?: pulumi.Input<number | undefined>;
     }
@@ -77452,6 +77548,10 @@ export namespace medialive {
          */
         outputGroups: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroup>[]>;
         /**
+         * Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+         */
+        thumbnailConfiguration?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsThumbnailConfiguration | undefined>;
+        /**
          * Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
          */
         timecodeConfig: pulumi.Input<inputs.medialive.ChannelEncoderSettingsTimecodeConfig>;
@@ -79733,6 +79833,13 @@ export namespace medialive {
          * Width of the FEC protection matrix.
          */
         rowLength?: pulumi.Input<number | undefined>;
+    }
+
+    export interface ChannelEncoderSettingsThumbnailConfiguration {
+        /**
+         * Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+         */
+        state: pulumi.Input<string>;
     }
 
     export interface ChannelEncoderSettingsTimecodeConfig {
@@ -82559,6 +82666,10 @@ export namespace networkfirewall {
          */
         policyVariables?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariables | undefined>;
         /**
+         * Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+         */
+        route53ResolvedIpValidation?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation | undefined>;
+        /**
          * Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
          */
         statefulDefaultActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -82614,6 +82725,33 @@ export namespace networkfirewall {
          * Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
          */
         definitions: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+        /**
+         * Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+         */
+        bypassDestinationValidationIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+         */
+        dnsExpiryExceptionPolicy: pulumi.Input<string>;
+        /**
+         * ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+         */
+        dnsFirewallRuleGroupId: pulumi.Input<string>;
+        /**
+         * Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `awsRoute53ResolvedDomain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+         *
+         * > **Note:** An empty list can't be set for `sourceIpRanges` or `bypassDestinationValidationIpRanges`. The AWS API treats an empty `sourceIpRanges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+         *
+         * > **Note:** Removing the `route53ResolvedIpValidation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+         */
+        sourceIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface FirewallPolicyFirewallPolicyStatefulEngineOptions {
@@ -82877,7 +83015,7 @@ export namespace networkfirewall {
          */
         generatedRulesType: pulumi.Input<string>;
         /**
-         * Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+         * Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
          */
         targetTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -100133,6 +100271,10 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: pulumi.Input<inputs.sagemaker.ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig | undefined>;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig | undefined>;
@@ -100144,6 +100286,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: pulumi.Input<string>;
+    }
+
+    export interface ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: pulumi.Input<string>;
     }
 
     export interface ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
@@ -100184,6 +100333,10 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: pulumi.Input<inputs.sagemaker.ModelContainerModelDataSourceS3DataSourceHubAccessConfig | undefined>;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelContainerModelDataSourceS3DataSourceModelAccessConfig | undefined>;
@@ -100195,6 +100348,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: pulumi.Input<string>;
+    }
+
+    export interface ModelContainerModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: pulumi.Input<string>;
     }
 
     export interface ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
@@ -100280,6 +100440,10 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig | undefined>;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig | undefined>;
@@ -100291,6 +100455,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: pulumi.Input<string>;
+    }
+
+    export interface ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: pulumi.Input<string>;
     }
 
     export interface ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
@@ -100331,6 +100502,10 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig | undefined>;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig | undefined>;
@@ -100342,6 +100517,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: pulumi.Input<string>;
+    }
+
+    export interface ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: pulumi.Input<string>;
     }
 
     export interface ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
@@ -109016,6 +109198,10 @@ export namespace vpclattice {
          */
         arnResource?: pulumi.Input<inputs.vpclattice.ResourceConfigurationResourceConfigurationDefinitionArnResource | undefined>;
         /**
+         * Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+         */
+        cidrResource?: pulumi.Input<inputs.vpclattice.ResourceConfigurationResourceConfigurationDefinitionCidrResource | undefined>;
+        /**
          * Resource DNS Configuration. See `dnsResource` Block for details.
          */
         dnsResource?: pulumi.Input<inputs.vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResource | undefined>;
@@ -109030,6 +109216,13 @@ export namespace vpclattice {
          * ARN of the Resource for this configuration.
          */
         arn: pulumi.Input<string>;
+    }
+
+    export interface ResourceConfigurationResourceConfigurationDefinitionCidrResource {
+        /**
+         * Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+         */
+        cidrRanges: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ResourceConfigurationResourceConfigurationDefinitionDnsResource {
@@ -115124,16 +115317,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
          */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatement | undefined>;
     }
 
     export interface WebAclRuleStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[] | undefined>;
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
     }
 
     export interface WebAclRuleStatementAsnMatchStatement {
@@ -115886,16 +116079,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement | undefined>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement>[] | undefined>;
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement>[]>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement {
@@ -116221,16 +116414,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement | undefined>;
+        statement: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement>[] | undefined>;
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement>[]>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement {
@@ -117403,16 +117596,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: pulumi.Input<inputs.wafv2.WebAclRuleStatement | undefined>;
+        statement: pulumi.Input<inputs.wafv2.WebAclRuleStatement>;
     }
 
     export interface WebAclRuleStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[] | undefined>;
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
     }
 
     export interface WebAclRuleStatementRateBasedStatement {
@@ -117673,16 +117866,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement | undefined>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>[] | undefined>;
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>[]>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement {
@@ -118008,16 +118201,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement | undefined>;
+        statement: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>[] | undefined>;
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>[]>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {

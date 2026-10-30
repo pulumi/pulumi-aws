@@ -449,6 +449,8 @@ func (o ExportExportDestinationConfigurationArrayOutput) Index(i pulumi.IntInput
 type ExportExportDestinationConfigurationS3Destination struct {
 	// Name of the Amazon S3 bucket used as the destination of a data export file.
 	S3Bucket string `pulumi:"s3Bucket"`
+	// AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+	S3BucketOwner *string `pulumi:"s3BucketOwner"`
 	// Output configuration for the data export. See the `s3OutputConfigurations` block below.
 	S3OutputConfigurations []ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration `pulumi:"s3OutputConfigurations"`
 	// S3 path prefix you want prepended to the name of your data export.
@@ -471,6 +473,8 @@ type ExportExportDestinationConfigurationS3DestinationInput interface {
 type ExportExportDestinationConfigurationS3DestinationArgs struct {
 	// Name of the Amazon S3 bucket used as the destination of a data export file.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+	S3BucketOwner pulumi.StringPtrInput `pulumi:"s3BucketOwner"`
 	// Output configuration for the data export. See the `s3OutputConfigurations` block below.
 	S3OutputConfigurations ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArrayInput `pulumi:"s3OutputConfigurations"`
 	// S3 path prefix you want prepended to the name of your data export.
@@ -533,6 +537,11 @@ func (o ExportExportDestinationConfigurationS3DestinationOutput) ToExportExportD
 // Name of the Amazon S3 bucket used as the destination of a data export file.
 func (o ExportExportDestinationConfigurationS3DestinationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3Destination) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+func (o ExportExportDestinationConfigurationS3DestinationOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExportDestinationConfigurationS3Destination) *string { return v.S3BucketOwner }).(pulumi.StringPtrOutput)
 }
 
 // Output configuration for the data export. See the `s3OutputConfigurations` block below.

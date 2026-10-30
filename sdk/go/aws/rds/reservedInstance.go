@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := rds.GetReservedInstanceOffering(ctx, &rds.GetReservedInstanceOfferingArgs{
-//				DbInstanceClass:    "db.t2.micro",
+//				DbInstanceClass:    "db.t4g.micro",
 //				Duration:           31536000,
 //				MultiAz:            false,
 //				OfferingType:       "All Upfront",

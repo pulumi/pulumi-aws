@@ -663,6 +663,8 @@ type PlanRule struct {
 	Lifecycle *PlanRuleLifecycle `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
+	// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+	RuleId *string `pulumi:"ruleId"`
 	// Display name for a backup rule.
 	RuleName string `pulumi:"ruleName"`
 	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
@@ -701,6 +703,8 @@ type PlanRuleArgs struct {
 	Lifecycle PlanRuleLifecyclePtrInput `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
+	// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+	RuleId pulumi.StringPtrInput `pulumi:"ruleId"`
 	// Display name for a backup rule.
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
@@ -791,6 +795,11 @@ func (o PlanRuleOutput) Lifecycle() PlanRuleLifecyclePtrOutput {
 // Metadata that you can assign to help organize the resources that you create.
 func (o PlanRuleOutput) RecoveryPointTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PlanRule) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
+}
+
+// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+func (o PlanRuleOutput) RuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRule) *string { return v.RuleId }).(pulumi.StringPtrOutput)
 }
 
 // Display name for a backup rule.
@@ -3527,6 +3536,8 @@ type GetPlanRule struct {
 	Lifecycles []GetPlanRuleLifecycle `pulumi:"lifecycles"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
+	// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+	RuleId string `pulumi:"ruleId"`
 	// Display name of a backup rule.
 	RuleName string `pulumi:"ruleName"`
 	// Configuration block(s) with malware scanning settings. See below.
@@ -3565,6 +3576,8 @@ type GetPlanRuleArgs struct {
 	Lifecycles GetPlanRuleLifecycleArrayInput `pulumi:"lifecycles"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
+	// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
 	// Display name of a backup rule.
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 	// Configuration block(s) with malware scanning settings. See below.
@@ -3655,6 +3668,11 @@ func (o GetPlanRuleOutput) Lifecycles() GetPlanRuleLifecycleArrayOutput {
 // Metadata that you can assign to help organize the resources that you create.
 func (o GetPlanRuleOutput) RecoveryPointTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetPlanRule) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
+}
+
+// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+func (o GetPlanRuleOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
 // Display name of a backup rule.

@@ -412,6 +412,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Bedrockagentcore *string `pulumi:"bedrockagentcore"`
 	// Use this to override the default service endpoint URL
+	Bedrockdataautomation *string `pulumi:"bedrockdataautomation"`
+	// Use this to override the default service endpoint URL
 	Bedrockruntime *string `pulumi:"bedrockruntime"`
 	// Use this to override the default service endpoint URL
 	Billing *string `pulumi:"billing"`
@@ -898,6 +900,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Securityhub *string `pulumi:"securityhub"`
 	// Use this to override the default service endpoint URL
+	Securityir *string `pulumi:"securityir"`
+	// Use this to override the default service endpoint URL
 	Securitylake *string `pulumi:"securitylake"`
 	// Use this to override the default service endpoint URL
 	Serverlessapplicationrepository *string `pulumi:"serverlessapplicationrepository"`
@@ -1077,6 +1081,8 @@ type EndpointsArgs struct {
 	Bedrockagent pulumi.StringPtrInput `pulumi:"bedrockagent"`
 	// Use this to override the default service endpoint URL
 	Bedrockagentcore pulumi.StringPtrInput `pulumi:"bedrockagentcore"`
+	// Use this to override the default service endpoint URL
+	Bedrockdataautomation pulumi.StringPtrInput `pulumi:"bedrockdataautomation"`
 	// Use this to override the default service endpoint URL
 	Bedrockruntime pulumi.StringPtrInput `pulumi:"bedrockruntime"`
 	// Use this to override the default service endpoint URL
@@ -1564,6 +1570,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Securityhub pulumi.StringPtrInput `pulumi:"securityhub"`
 	// Use this to override the default service endpoint URL
+	Securityir pulumi.StringPtrInput `pulumi:"securityir"`
+	// Use this to override the default service endpoint URL
 	Securitylake pulumi.StringPtrInput `pulumi:"securitylake"`
 	// Use this to override the default service endpoint URL
 	Serverlessapplicationrepository pulumi.StringPtrInput `pulumi:"serverlessapplicationrepository"`
@@ -1894,6 +1902,11 @@ func (o EndpointsOutput) Bedrockagent() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Bedrockagentcore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Bedrockagentcore }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Bedrockdataautomation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Bedrockdataautomation }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -3109,6 +3122,11 @@ func (o EndpointsOutput) Secretsmanager() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Securityhub() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Securityhub }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Securityir() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Securityir }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

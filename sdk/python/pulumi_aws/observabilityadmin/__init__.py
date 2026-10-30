@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .centralization_rule_for_organization import *
+from .dataset_integration import *
+from .get_dataset_integration import *
 from .s3_table_integration import *
 from .telemetry_enrichment import *
 from .telemetry_evaluation import *

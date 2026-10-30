@@ -154,6 +154,26 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### VPC Lattice Tunnel Endpoint Type
+ *
+ * A `Tunnel` endpoint connects to exactly one `CIDR` type `aws.vpclattice.ResourceConfiguration`, and consumers must send GENEVE-encapsulated traffic (UDP port 6081) to it. See [Access a network segment through a tunnel VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/use-cidr-endpoint.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.VpcEndpoint("example", {
+ *     resourceConfigurationArn: exampleAwsVpclatticeResourceConfiguration.arn,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     subnetIds: [
+ *         example1.id,
+ *         example2.id,
+ *     ],
+ *     vpcEndpointType: "Tunnel",
+ *     vpcId: exampleAwsVpc.id,
+ * });
+ * ```
+ *
  * ### Non-AWS Service
  *
  * ```typescript
@@ -284,7 +304,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly requesterManaged: pulumi.Output<boolean>;
     /**
-     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required. Applicable for endpoints of type `Resource` and `Tunnel`. For `Tunnel` endpoints, the resource configuration must be of type `CIDR`.
      */
     declare public readonly resourceConfigurationArn: pulumi.Output<string | undefined>;
     /**
@@ -292,7 +312,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     declare public readonly routeTableIds: pulumi.Output<string[]>;
     /**
-     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`, `Resource`, `ServiceNetwork`, and `Tunnel`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
@@ -316,7 +336,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     declare public readonly subnetConfigurations: pulumi.Output<outputs.ec2.VpcEndpointSubnetConfiguration[]>;
     /**
-     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer`, `Interface`, `Resource`, `ServiceNetwork`, and `Tunnel`. Interface type endpoints cannot function without being assigned to a subnet. For `Tunnel` endpoints, the subnets must be in the Availability Zones of the resource gateway associated with the resource configuration.
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
@@ -328,7 +348,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, `Interface`, `Resource`, `ServiceNetwork` or `Tunnel`. Defaults to `Gateway`.
      */
     declare public readonly vpcEndpointType: pulumi.Output<string | undefined>;
     /**
@@ -469,7 +489,7 @@ export interface VpcEndpointState {
      */
     requesterManaged?: pulumi.Input<boolean | undefined>;
     /**
-     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required. Applicable for endpoints of type `Resource` and `Tunnel`. For `Tunnel` endpoints, the resource configuration must be of type `CIDR`.
      */
     resourceConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -477,7 +497,7 @@ export interface VpcEndpointState {
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`, `Resource`, `ServiceNetwork`, and `Tunnel`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -501,7 +521,7 @@ export interface VpcEndpointState {
      */
     subnetConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointSubnetConfiguration>[] | undefined>;
     /**
-     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer`, `Interface`, `Resource`, `ServiceNetwork`, and `Tunnel`. Interface type endpoints cannot function without being assigned to a subnet. For `Tunnel` endpoints, the subnets must be in the Availability Zones of the resource gateway associated with the resource configuration.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -513,7 +533,7 @@ export interface VpcEndpointState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, `Interface`, `Resource`, `ServiceNetwork` or `Tunnel`. Defaults to `Gateway`.
      */
     vpcEndpointType?: pulumi.Input<string | undefined>;
     /**
@@ -551,7 +571,7 @@ export interface VpcEndpointArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required. Applicable for endpoints of type `Resource` and `Tunnel`. For `Tunnel` endpoints, the resource configuration must be of type `CIDR`.
      */
     resourceConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -559,7 +579,7 @@ export interface VpcEndpointArgs {
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`, `Resource`, `ServiceNetwork`, and `Tunnel`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -579,7 +599,7 @@ export interface VpcEndpointArgs {
      */
     subnetConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointSubnetConfiguration>[] | undefined>;
     /**
-     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer`, `Interface`, `Resource`, `ServiceNetwork`, and `Tunnel`. Interface type endpoints cannot function without being assigned to a subnet. For `Tunnel` endpoints, the subnets must be in the Availability Zones of the resource gateway associated with the resource configuration.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -587,7 +607,7 @@ export interface VpcEndpointArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, `Interface`, `Resource`, `ServiceNetwork` or `Tunnel`. Defaults to `Gateway`.
      */
     vpcEndpointType?: pulumi.Input<string | undefined>;
     /**

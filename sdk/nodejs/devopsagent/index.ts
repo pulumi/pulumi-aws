@@ -10,6 +10,11 @@ export type AgentSpace = import("./agentSpace").AgentSpace;
 export const AgentSpace: typeof import("./agentSpace").AgentSpace = null as any;
 utilities.lazyLoad(exports, ["AgentSpace"], () => require("./agentSpace"));
 
+export { AssetArgs, AssetState } from "./asset";
+export type Asset = import("./asset").Asset;
+export const Asset: typeof import("./asset").Asset = null as any;
+utilities.lazyLoad(exports, ["Asset"], () => require("./asset"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:devopsagent/agentSpace:AgentSpace":
                 return new AgentSpace(name, <any>undefined, { urn })
+            case "aws:devopsagent/asset:Asset":
+                return new Asset(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "devopsagent/agentSpace", _module)
+pulumi.runtime.registerResourceModule("aws", "devopsagent/asset", _module)

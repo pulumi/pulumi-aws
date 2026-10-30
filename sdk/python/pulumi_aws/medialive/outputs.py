@@ -126,6 +126,7 @@ __all__ = [
     'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings',
     'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination',
     'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings',
+    'ChannelEncoderSettingsThumbnailConfiguration',
     'ChannelEncoderSettingsTimecodeConfig',
     'ChannelEncoderSettingsVideoDescription',
     'ChannelEncoderSettingsVideoDescriptionCodecSettings',
@@ -463,6 +464,8 @@ class ChannelEncoderSettings(dict):
             suggest = "motion_graphics_configuration"
         elif key == "nielsenConfiguration":
             suggest = "nielsen_configuration"
+        elif key == "thumbnailConfiguration":
+            suggest = "thumbnail_configuration"
         elif key == "videoDescriptions":
             suggest = "video_descriptions"
 
@@ -486,6 +489,7 @@ class ChannelEncoderSettings(dict):
                  global_configuration: Optional['outputs.ChannelEncoderSettingsGlobalConfiguration'] = None,
                  motion_graphics_configuration: Optional['outputs.ChannelEncoderSettingsMotionGraphicsConfiguration'] = None,
                  nielsen_configuration: Optional['outputs.ChannelEncoderSettingsNielsenConfiguration'] = None,
+                 thumbnail_configuration: Optional['outputs.ChannelEncoderSettingsThumbnailConfiguration'] = None,
                  video_descriptions: Optional[Sequence['outputs.ChannelEncoderSettingsVideoDescription']] = None):
         """
         :param Sequence['ChannelEncoderSettingsOutputGroupArgs'] output_groups: Output groups for the channel. See `output_groups` Block for details.
@@ -496,6 +500,7 @@ class ChannelEncoderSettings(dict):
         :param 'ChannelEncoderSettingsGlobalConfigurationArgs' global_configuration: Configuration settings that apply to the event as a whole. See `global_configuration` Block for details.
         :param 'ChannelEncoderSettingsMotionGraphicsConfigurationArgs' motion_graphics_configuration: Settings for motion graphics. See `motion_graphics_configuration` Block for details.
         :param 'ChannelEncoderSettingsNielsenConfigurationArgs' nielsen_configuration: Nielsen configuration settings. See `nielsen_configuration` Block for details.
+        :param 'ChannelEncoderSettingsThumbnailConfigurationArgs' thumbnail_configuration: Thumbnail configuration settings. See `thumbnail_configuration` Block for details.
         :param Sequence['ChannelEncoderSettingsVideoDescriptionArgs'] video_descriptions: Video descriptions for the channel. See `video_descriptions` Block for details.
         """
         pulumi.set(__self__, "output_groups", output_groups)
@@ -512,6 +517,8 @@ class ChannelEncoderSettings(dict):
             pulumi.set(__self__, "motion_graphics_configuration", motion_graphics_configuration)
         if nielsen_configuration is not None:
             pulumi.set(__self__, "nielsen_configuration", nielsen_configuration)
+        if thumbnail_configuration is not None:
+            pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
         if video_descriptions is not None:
             pulumi.set(__self__, "video_descriptions", video_descriptions)
 
@@ -578,6 +585,14 @@ class ChannelEncoderSettings(dict):
         Nielsen configuration settings. See `nielsen_configuration` Block for details.
         """
         return pulumi.get(self, "nielsen_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="thumbnailConfiguration")
+    def thumbnail_configuration(self) -> Optional['outputs.ChannelEncoderSettingsThumbnailConfiguration']:
+        """
+        Thumbnail configuration settings. See `thumbnail_configuration` Block for details.
+        """
+        return pulumi.get(self, "thumbnail_configuration")
 
     @_builtins.property
     @pulumi.getter(name="videoDescriptions")
@@ -9331,6 +9346,24 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
         Width of the FEC protection matrix.
         """
         return pulumi.get(self, "row_length")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsThumbnailConfiguration(dict):
+    def __init__(__self__, *,
+                 state: _builtins.str):
+        """
+        :param _builtins.str state: Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

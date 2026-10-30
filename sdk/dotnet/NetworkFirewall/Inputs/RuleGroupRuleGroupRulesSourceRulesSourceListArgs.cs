@@ -22,7 +22,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         private InputList<string>? _targetTypes;
 
         /// <summary>
-        /// Set of types of domain specifications that are provided in the `Targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+        /// Set of types of domain specifications that are provided in the `Targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `Route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
         /// </summary>
         public InputList<string> TargetTypes
         {

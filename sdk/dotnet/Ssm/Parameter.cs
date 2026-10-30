@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ssm
     ///         StorageType = Aws.Rds.StorageType.GP2,
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7.16",
-    ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+    ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
     ///         DbName = "mydb",
     ///         Username = "foo",
     ///         Password = databaseMasterPassword,

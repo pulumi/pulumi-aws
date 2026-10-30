@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigParseToOcsf
     {
+        /// <summary>
+        /// Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+        /// </summary>
         public readonly string EventSource;
         /// <summary>
         /// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.

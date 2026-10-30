@@ -350,6 +350,27 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
+        ### Policy with Route 53 Resolved IP Validation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
+        example_firewall_policy = aws.networkfirewall.FirewallPolicy("example",
+            firewall_policy={
+                "route53_resolved_ip_validation": {
+                    "action": "DROP",
+                    "dns_expiry_exception_policy": "CONTINUE",
+                    "dns_firewall_rule_group_id": example.id,
+                    "source_ip_ranges": ["10.0.0.0/16"],
+                },
+                "stateless_default_actions": ["aws:forward_to_sfe"],
+                "stateless_fragment_default_actions": ["aws:forward_to_sfe"],
+            },
+            name="example")
+        ```
+
         ### Policy with a Custom Action for Stateless Inspection
 
         ```python
@@ -505,6 +526,27 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag1": "Value1",
                 "Tag2": "Value2",
             })
+        ```
+
+        ### Policy with Route 53 Resolved IP Validation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
+        example_firewall_policy = aws.networkfirewall.FirewallPolicy("example",
+            firewall_policy={
+                "route53_resolved_ip_validation": {
+                    "action": "DROP",
+                    "dns_expiry_exception_policy": "CONTINUE",
+                    "dns_firewall_rule_group_id": example.id,
+                    "source_ip_ranges": ["10.0.0.0/16"],
+                },
+                "stateless_default_actions": ["aws:forward_to_sfe"],
+                "stateless_fragment_default_actions": ["aws:forward_to_sfe"],
+            },
+            name="example")
         ```
 
         ### Policy with a Custom Action for Stateless Inspection

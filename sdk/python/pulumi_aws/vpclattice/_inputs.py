@@ -47,6 +47,8 @@ __all__ = [
     'ResourceConfigurationResourceConfigurationDefinitionArgsDict',
     'ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs',
     'ResourceConfigurationResourceConfigurationDefinitionArnResourceArgsDict',
+    'ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs',
+    'ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgsDict',
     'ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs',
     'ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict',
     'ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs',
@@ -724,6 +726,10 @@ class ResourceConfigurationResourceConfigurationDefinitionArgsDict(TypedDict):
     """
     Resource DNS Configuration. See `arn_resource` Block for details.
     """
+    cidr_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgsDict']]]
+    """
+    Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidr_resource` Block for details.
+    """
     dns_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict']]]
     """
     Resource DNS Configuration. See `dns_resource` Block for details.
@@ -737,15 +743,19 @@ class ResourceConfigurationResourceConfigurationDefinitionArgsDict(TypedDict):
 class ResourceConfigurationResourceConfigurationDefinitionArgs:
     def __init__(__self__, *,
                  arn_resource: pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs']] = None,
+                 cidr_resource: pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs']] = None,
                  dns_resource: pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs']] = None,
                  ip_resource: pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs']] = None):
         """
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs'] arn_resource: Resource DNS Configuration. See `arn_resource` Block for details.
+        :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs'] cidr_resource: Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidr_resource` Block for details.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs'] dns_resource: Resource DNS Configuration. See `dns_resource` Block for details.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs'] ip_resource: Resource DNS Configuration. See `ip_resource` Block for details.
         """
         if arn_resource is not None:
             pulumi.set(__self__, "arn_resource", arn_resource)
+        if cidr_resource is not None:
+            pulumi.set(__self__, "cidr_resource", cidr_resource)
         if dns_resource is not None:
             pulumi.set(__self__, "dns_resource", dns_resource)
         if ip_resource is not None:
@@ -762,6 +772,18 @@ class ResourceConfigurationResourceConfigurationDefinitionArgs:
     @arn_resource.setter
     def arn_resource(self, value: pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs']]):
         pulumi.set(self, "arn_resource", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrResource")
+    def cidr_resource(self) -> pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs']]:
+        """
+        Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidr_resource` Block for details.
+        """
+        return pulumi.get(self, "cidr_resource")
+
+    @cidr_resource.setter
+    def cidr_resource(self, value: pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs']]):
+        pulumi.set(self, "cidr_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsResource")
@@ -814,6 +836,34 @@ class ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "arn", value)
+
+
+class ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgsDict(TypedDict):
+    cidr_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+    """
+
+@pulumi.input_type
+class ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs:
+    def __init__(__self__, *,
+                 cidr_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_ranges: Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+        """
+        pulumi.set(__self__, "cidr_ranges", cidr_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRanges")
+    def cidr_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+        """
+        return pulumi.get(self, "cidr_ranges")
+
+    @cidr_ranges.setter
+    def cidr_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "cidr_ranges", value)
 
 
 class ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict(TypedDict):

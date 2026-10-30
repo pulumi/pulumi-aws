@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Rds
     ///         AllocatedStorage = 10,
     ///         Engine = "mysql",
     ///         EngineVersion = "5.6.21",
-    ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+    ///         InstanceClass = Aws.Rds.InstanceType.T4G_Micro,
     ///         DbName = "baz",
     ///         Password = "barbarbarbar",
     ///         Username = "foo",

@@ -3372,10 +3372,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatchomni/dashboard",
+  "fqn": "pulumi_aws.cloudwatchomni",
+  "classes": {
+   "aws:cloudwatchomni/dashboard:Dashboard": "Dashboard"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatchomni/domain",
   "fqn": "pulumi_aws.cloudwatchomni",
   "classes": {
    "aws:cloudwatchomni/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatchomni/organizationDomain",
+  "fqn": "pulumi_aws.cloudwatchomni",
+  "classes": {
+   "aws:cloudwatchomni/organizationDomain:OrganizationDomain": "OrganizationDomain"
   }
  },
  {
@@ -4384,6 +4400,14 @@ _utilities.register(
   "fqn": "pulumi_aws.devopsagent",
   "classes": {
    "aws:devopsagent/agentSpace:AgentSpace": "AgentSpace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devopsagent/asset",
+  "fqn": "pulumi_aws.devopsagent",
+  "classes": {
+   "aws:devopsagent/asset:Asset": "Asset"
   }
  },
  {
@@ -9792,6 +9816,14 @@ _utilities.register(
   "fqn": "pulumi_aws.observabilityadmin",
   "classes": {
    "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization": "CentralizationRuleForOrganization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "observabilityadmin/datasetIntegration",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/datasetIntegration:DatasetIntegration": "DatasetIntegration"
   }
  },
  {

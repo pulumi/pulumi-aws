@@ -4705,7 +4705,11 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 type FunctionDurableConfig struct {
 	// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
 	ExecutionTimeout int `pulumi:"executionTimeout"`
+	// ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+	//
+	// > **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 }
 
@@ -4723,7 +4727,11 @@ type FunctionDurableConfigInput interface {
 type FunctionDurableConfigArgs struct {
 	// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
 	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
+	// ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+	//
+	// > **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
 	RetentionPeriod pulumi.IntPtrInput `pulumi:"retentionPeriod"`
 }
 
@@ -4809,7 +4817,14 @@ func (o FunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
 }
 
+// ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+func (o FunctionDurableConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionDurableConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+//
+// > **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
 func (o FunctionDurableConfigOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
@@ -4848,7 +4863,19 @@ func (o FunctionDurableConfigPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+func (o FunctionDurableConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+//
+// > **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
 func (o FunctionDurableConfigPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionDurableConfig) *int {
 		if v == nil {
@@ -8156,6 +8183,8 @@ func (o GetFunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
 type GetFunctionDurableConfig struct {
 	// Maximum execution time in seconds for the durable function.
 	ExecutionTimeout int `pulumi:"executionTimeout"`
+	// ARN of the KMS key used to encrypt the durable function's execution state.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Number of days to retain the function's execution state.
 	RetentionPeriod int `pulumi:"retentionPeriod"`
 }
@@ -8174,6 +8203,8 @@ type GetFunctionDurableConfigInput interface {
 type GetFunctionDurableConfigArgs struct {
 	// Maximum execution time in seconds for the durable function.
 	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
+	// ARN of the KMS key used to encrypt the durable function's execution state.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Number of days to retain the function's execution state.
 	RetentionPeriod pulumi.IntInput `pulumi:"retentionPeriod"`
 }
@@ -8232,6 +8263,11 @@ func (o GetFunctionDurableConfigOutput) ToGetFunctionDurableConfigOutputWithCont
 // Maximum execution time in seconds for the durable function.
 func (o GetFunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
+}
+
+// ARN of the KMS key used to encrypt the durable function's execution state.
+func (o GetFunctionDurableConfigOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionDurableConfig) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
 // Number of days to retain the function's execution state.

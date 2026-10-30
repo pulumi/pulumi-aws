@@ -271,6 +271,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool MultiAz;
         /// <summary>
+        /// Whether the DB instance uses the multi-tenant configuration of the Oracle CDB architecture.
+        /// </summary>
+        public readonly bool MultiTenant;
+        /// <summary>
         /// Network type of the DB instance.
         /// </summary>
         public readonly string NetworkType;
@@ -391,6 +395,8 @@ namespace Pulumi.Aws.Rds
 
             bool multiAz,
 
+            bool multiTenant,
+
             string networkType,
 
             ImmutableArray<string> optionGroupMemberships,
@@ -453,6 +459,7 @@ namespace Pulumi.Aws.Rds
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;
             MultiAz = multiAz;
+            MultiTenant = multiTenant;
             NetworkType = networkType;
             OptionGroupMemberships = optionGroupMemberships;
             Port = port;

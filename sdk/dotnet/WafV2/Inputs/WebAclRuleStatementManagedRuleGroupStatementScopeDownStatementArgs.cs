@@ -87,7 +87,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         /// <summary>
         /// Match requests that appear to contain cross-site scripting attacks.
         /// 
-        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) within a scope down statement wrap the leaf statement types listed above.
+        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
         /// </summary>
         [Input("xssMatchStatement")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs>? XssMatchStatement { get; set; }

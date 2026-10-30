@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var test = Aws.Rds.GetReservedInstanceOffering.Invoke(new()
     ///     {
-    ///         DbInstanceClass = "db.t2.micro",
+    ///         DbInstanceClass = "db.t4g.micro",
     ///         Duration = 31536000,
     ///         MultiAz = false,
     ///         OfferingType = "All Upfront",

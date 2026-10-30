@@ -538,19 +538,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PasswordData { get; private set; } = null!;
 
         /// <summary>
-        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`.
+        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Output("placementGroup")]
         public Output<string> PlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`.
+        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Output("placementGroupId")]
         public Output<string> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`.
+        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Output("placementPartitionNumber")]
         public Output<int> PlacementPartitionNumber { get; private set; } = null!;
@@ -949,19 +949,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`.
+        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
-        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`.
+        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Input("placementGroupId")]
         public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
-        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`.
+        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Input("placementPartitionNumber")]
         public Input<int>? PlacementPartitionNumber { get; set; }
@@ -1353,19 +1353,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PasswordData { get; set; }
 
         /// <summary>
-        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`.
+        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
-        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`.
+        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Input("placementGroupId")]
         public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
-        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`.
+        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `DisableApiStop` and `ForceDestroy` enabled, which are replaced.
         /// </summary>
         [Input("placementPartitionNumber")]
         public Input<int>? PlacementPartitionNumber { get; set; }

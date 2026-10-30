@@ -73,6 +73,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
         }
 
         /// <summary>
+        /// Thumbnail configuration settings. See `ThumbnailConfiguration` Block for details.
+        /// </summary>
+        [Input("thumbnailConfiguration")]
+        public Input<Inputs.ChannelEncoderSettingsThumbnailConfigurationArgs>? ThumbnailConfiguration { get; set; }
+
+        /// <summary>
         /// Settings used to acquire and adjust timecode information from inputs. See `TimecodeConfig` Block for details.
         /// </summary>
         [Input("timecodeConfig", required: true)]

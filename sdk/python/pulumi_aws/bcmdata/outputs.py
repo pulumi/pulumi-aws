@@ -218,6 +218,8 @@ class ExportExportDestinationConfigurationS3Destination(dict):
             suggest = "s3_prefix"
         elif key == "s3Region":
             suggest = "s3_region"
+        elif key == "s3BucketOwner":
+            suggest = "s3_bucket_owner"
         elif key == "s3OutputConfigurations":
             suggest = "s3_output_configurations"
 
@@ -236,16 +238,20 @@ class ExportExportDestinationConfigurationS3Destination(dict):
                  s3_bucket: _builtins.str,
                  s3_prefix: _builtins.str,
                  s3_region: _builtins.str,
+                 s3_bucket_owner: Optional[_builtins.str] = None,
                  s3_output_configurations: Optional[Sequence['outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration']] = None):
         """
         :param _builtins.str s3_bucket: Name of the Amazon S3 bucket used as the destination of a data export file.
         :param _builtins.str s3_prefix: S3 path prefix you want prepended to the name of your data export.
         :param _builtins.str s3_region: S3 bucket region.
+        :param _builtins.str s3_bucket_owner: AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
         :param Sequence['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs'] s3_output_configurations: Output configuration for the data export. See the `s3_output_configurations` block below.
         """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_prefix", s3_prefix)
         pulumi.set(__self__, "s3_region", s3_region)
+        if s3_bucket_owner is not None:
+            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
         if s3_output_configurations is not None:
             pulumi.set(__self__, "s3_output_configurations", s3_output_configurations)
 
@@ -272,6 +278,14 @@ class ExportExportDestinationConfigurationS3Destination(dict):
         S3 bucket region.
         """
         return pulumi.get(self, "s3_region")
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketOwner")
+    def s3_bucket_owner(self) -> Optional[_builtins.str]:
+        """
+        AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+        """
+        return pulumi.get(self, "s3_bucket_owner")
 
     @_builtins.property
     @pulumi.getter(name="s3OutputConfigurations")

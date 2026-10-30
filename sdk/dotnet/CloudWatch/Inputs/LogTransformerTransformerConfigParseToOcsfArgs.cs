@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogTransformerTransformerConfigParseToOcsfArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+        /// </summary>
         [Input("eventSource", required: true)]
         public Input<string> EventSource { get; set; } = null!;
 
