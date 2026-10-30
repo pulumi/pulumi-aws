@@ -109,7 +109,7 @@ index f4ed0e340472..1ed695c652ca 100644
  				names.AttrName: {
  					Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index 47565fad00e4..b9e816b42c6e 100644
+index 4373fde0f16a..61539e2accac 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
 @@ -53,7 +53,7 @@ func ResourceChannel() *schema.Resource {

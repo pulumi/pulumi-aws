@@ -1164,9 +1164,19 @@
     "hasInputName": true,
     "hasUsableRegion": true
   },
+  "aws_cloudwatchomni_dashboard": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_cloudwatchomni_domain": {
     "hasInputName": true,
     "hasUsableRegion": true
+  },
+  "aws_cloudwatchomni_organization_domain": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_cloudwatchomni_space": {
     "hasInputName": true,
@@ -1779,6 +1789,9 @@
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_devopsagent_asset": {
+    "hasUsableRegion": true
   },
   "aws_devopsguru_event_sources_config": {
     "hasUsableRegion": true
@@ -4013,6 +4026,10 @@
     "hasUsableRegion": true
   },
   "aws_observabilityadmin_centralization_rule_for_organization": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_observabilityadmin_dataset_integration": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
