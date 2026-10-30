@@ -125,6 +125,8 @@ type HubContentReference struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput               `pulumi:"tagsAll"`
 	Timeouts HubContentReferenceTimeoutsPtrOutput `pulumi:"timeouts"`
+	// ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
+	VersionedHubContentArn pulumi.StringOutput `pulumi:"versionedHubContentArn"`
 }
 
 // NewHubContentReference registers a new resource with the given unique name, arguments, and options.
@@ -189,6 +191,8 @@ type hubContentReferenceState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string            `pulumi:"tagsAll"`
 	Timeouts *HubContentReferenceTimeouts `pulumi:"timeouts"`
+	// ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
+	VersionedHubContentArn *string `pulumi:"versionedHubContentArn"`
 }
 
 type HubContentReferenceState struct {
@@ -215,6 +219,8 @@ type HubContentReferenceState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts HubContentReferenceTimeoutsPtrInput
+	// ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
+	VersionedHubContentArn pulumi.StringPtrInput
 }
 
 func (HubContentReferenceState) ElementType() reflect.Type {
@@ -398,6 +404,11 @@ func (o HubContentReferenceOutput) TagsAll() pulumi.StringMapOutput {
 
 func (o HubContentReferenceOutput) Timeouts() HubContentReferenceTimeoutsPtrOutput {
 	return o.ApplyT(func(v *HubContentReference) HubContentReferenceTimeoutsPtrOutput { return v.Timeouts }).(HubContentReferenceTimeoutsPtrOutput)
+}
+
+// ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
+func (o HubContentReferenceOutput) VersionedHubContentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *HubContentReference) pulumi.StringOutput { return v.VersionedHubContentArn }).(pulumi.StringOutput)
 }
 
 type HubContentReferenceArrayOutput struct{ *pulumi.OutputState }

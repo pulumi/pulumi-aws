@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.inputs;
 
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs;
+import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionArgs;
@@ -51,6 +52,21 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
      */
     public Optional<Output<FirewallPolicyFirewallPolicyPolicyVariablesArgs>> policyVariables() {
         return Optional.ofNullable(this.policyVariables);
+    }
+
+    /**
+     * Resolved IP validation settings, which check that a connection&#39;s destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+     * 
+     */
+    @Import(name="route53ResolvedIpValidation")
+    private @Nullable Output<FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs> route53ResolvedIpValidation;
+
+    /**
+     * @return Resolved IP validation settings, which check that a connection&#39;s destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+     * 
+     */
+    public Optional<Output<FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs>> route53ResolvedIpValidation() {
+        return Optional.ofNullable(this.route53ResolvedIpValidation);
     }
 
     /**
@@ -182,6 +198,7 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
     private FirewallPolicyFirewallPolicyArgs(FirewallPolicyFirewallPolicyArgs $) {
         this.enableTlsSessionHolding = $.enableTlsSessionHolding;
         this.policyVariables = $.policyVariables;
+        this.route53ResolvedIpValidation = $.route53ResolvedIpValidation;
         this.statefulDefaultActions = $.statefulDefaultActions;
         this.statefulEngineOptions = $.statefulEngineOptions;
         this.statefulRuleGroupReferences = $.statefulRuleGroupReferences;
@@ -250,6 +267,27 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
          */
         public Builder policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs policyVariables) {
             return policyVariables(Output.of(policyVariables));
+        }
+
+        /**
+         * @param route53ResolvedIpValidation Resolved IP validation settings, which check that a connection&#39;s destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder route53ResolvedIpValidation(@Nullable Output<FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs> route53ResolvedIpValidation) {
+            $.route53ResolvedIpValidation = route53ResolvedIpValidation;
+            return this;
+        }
+
+        /**
+         * @param route53ResolvedIpValidation Resolved IP validation settings, which check that a connection&#39;s destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder route53ResolvedIpValidation(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs route53ResolvedIpValidation) {
+            return route53ResolvedIpValidation(Output.of(route53ResolvedIpValidation));
         }
 
         /**

@@ -10,6 +10,7 @@ import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsGlobalConfiguration
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsMotionGraphicsConfigurationArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsNielsenConfigurationArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsThumbnailConfigurationArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsTimecodeConfigArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionArgs;
 import com.pulumi.core.Output;
@@ -131,6 +132,21 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+     * 
+     */
+    @Import(name="thumbnailConfiguration")
+    private @Nullable Output<ChannelEncoderSettingsThumbnailConfigurationArgs> thumbnailConfiguration;
+
+    /**
+     * @return Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+     * 
+     */
+    public Optional<Output<ChannelEncoderSettingsThumbnailConfigurationArgs>> thumbnailConfiguration() {
+        return Optional.ofNullable(this.thumbnailConfiguration);
+    }
+
+    /**
      * Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
      * 
      */
@@ -170,6 +186,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         this.motionGraphicsConfiguration = $.motionGraphicsConfiguration;
         this.nielsenConfiguration = $.nielsenConfiguration;
         this.outputGroups = $.outputGroups;
+        this.thumbnailConfiguration = $.thumbnailConfiguration;
         this.timecodeConfig = $.timecodeConfig;
         this.videoDescriptions = $.videoDescriptions;
     }
@@ -367,6 +384,27 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
          */
         public Builder outputGroups(ChannelEncoderSettingsOutputGroupArgs... outputGroups) {
             return outputGroups(List.of(outputGroups));
+        }
+
+        /**
+         * @param thumbnailConfiguration Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thumbnailConfiguration(@Nullable Output<ChannelEncoderSettingsThumbnailConfigurationArgs> thumbnailConfiguration) {
+            $.thumbnailConfiguration = thumbnailConfiguration;
+            return this;
+        }
+
+        /**
+         * @param thumbnailConfiguration Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thumbnailConfiguration(ChannelEncoderSettingsThumbnailConfigurationArgs thumbnailConfiguration) {
+            return thumbnailConfiguration(Output.of(thumbnailConfiguration));
         }
 
         /**

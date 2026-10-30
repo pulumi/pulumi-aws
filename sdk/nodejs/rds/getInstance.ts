@@ -171,6 +171,10 @@ export interface GetInstanceResult {
      */
     readonly multiAz: boolean;
     /**
+     * Whether the DB instance uses the multi-tenant configuration of the Oracle CDB architecture.
+     */
+    readonly multiTenant: boolean;
+    /**
      * Network type of the DB instance.
      */
     readonly networkType: string;

@@ -243,6 +243,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("bedrockdataautomation")]
+        public Input<string>? Bedrockdataautomation { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("bedrockruntime")]
         public Input<string>? Bedrockruntime { get; set; }
 
@@ -1697,6 +1703,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("securityhub")]
         public Input<string>? Securityhub { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("securityir")]
+        public Input<string>? Securityir { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

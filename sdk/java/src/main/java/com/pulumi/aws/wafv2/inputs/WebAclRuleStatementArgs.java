@@ -258,7 +258,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     /**
      * Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule&#39;s `statement`, not inside a logical statement.
      * 
      */
     @Import(name="xssMatchStatement")
@@ -267,7 +267,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     /**
      * @return Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule&#39;s `statement`, not inside a logical statement.
      * 
      */
     public Optional<Output<WebAclRuleStatementXssMatchStatementArgs>> xssMatchStatement() {
@@ -631,7 +631,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
          * 
-         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule&#39;s `statement`, not inside a logical statement.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
          * 
-         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule&#39;s `statement`, not inside a logical statement.
          * 
          * @return builder
          * 

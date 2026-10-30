@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:devopsagent/agentSpace:AgentSpace":
 		r = &AgentSpace{}
+	case "aws:devopsagent/asset:Asset":
+		r = &Asset{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"devopsagent/agentSpace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"devopsagent/asset",
 		&module{version},
 	)
 }

@@ -13759,6 +13759,10 @@ export namespace backup {
          */
         recoveryPointTags?: {[key: string]: string};
         /**
+         * Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+         */
+        ruleId: string;
+        /**
          * Display name of a backup rule.
          */
         ruleName: string;
@@ -13936,6 +13940,10 @@ export namespace backup {
          * Metadata that you can assign to help organize the resources that you create.
          */
         recoveryPointTags?: {[key: string]: string};
+        /**
+         * Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+         */
+        ruleId: string;
         /**
          * Display name for a backup rule.
          */
@@ -15568,6 +15576,10 @@ export namespace bcmdata {
          * Name of the Amazon S3 bucket used as the destination of a data export file.
          */
         s3Bucket: string;
+        /**
+         * AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+         */
+        s3BucketOwner?: string;
         /**
          * Output configuration for the data export. See the `s3OutputConfigurations` block below.
          */
@@ -30212,6 +30224,9 @@ export namespace cloudwatch {
     }
 
     export interface LogTransformerTransformerConfigParseToOcsf {
+        /**
+         * Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+         */
         eventSource: string;
         /**
          * Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
@@ -30628,6 +30643,20 @@ export namespace cloudwatchomni {
     }
 
     export interface DomainIdentityProviderConfigurationIdentityCenterConfiguration {
+        /**
+         * ARN of the IAM Identity Center instance.
+         */
+        identityCenterInstanceArn: string;
+    }
+
+    export interface OrganizationDomainIdentityProviderConfiguration {
+        /**
+         * IAM Identity Center configuration. See below.
+         */
+        identityCenterConfiguration: outputs.cloudwatchomni.OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration;
+    }
+
+    export interface OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration {
         /**
          * ARN of the IAM Identity Center instance.
          */
@@ -34264,6 +34293,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        bedrockdataautomation?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         bedrockruntime?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -35233,6 +35266,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         securityhub?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        securityir?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -40138,6 +40175,64 @@ export namespace devicefarm {
          * The ID of the Amazon VPC.
          */
         vpcId: string;
+    }
+
+}
+
+export namespace devopsagent {
+    export interface AssetContent {
+        /**
+         * Single file to add or replace. See `file` Block below.
+         */
+        file?: outputs.devopsagent.AssetContentFile;
+        /**
+         * Source URL to import. See `sourceUrl` Block below.
+         */
+        sourceUrl?: outputs.devopsagent.AssetContentSourceUrl;
+        /**
+         * ZIP archive containing asset files. See `zip` Block below.
+         */
+        zip?: outputs.devopsagent.AssetContentZip;
+    }
+
+    export interface AssetContentFile {
+        /**
+         * File content. See `body` Block below.
+         */
+        body: outputs.devopsagent.AssetContentFileBody;
+        /**
+         * JSON metadata for the file.
+         */
+        metadata?: string;
+        /**
+         * Path of the file within the asset.
+         */
+        path: string;
+    }
+
+    export interface AssetContentFileBody {
+        /**
+         * Base64-encoded binary file content.
+         */
+        bytes?: string;
+        /**
+         * Text file content.
+         */
+        text?: string;
+    }
+
+    export interface AssetContentSourceUrl {
+        /**
+         * Source URL from which to import asset content.
+         */
+        url: string;
+    }
+
+    export interface AssetContentZip {
+        /**
+         * Base64-encoded ZIP archive. Use `filebase64()` to load a local ZIP file.
+         */
+        zipFile: string;
     }
 
 }
@@ -71679,7 +71774,13 @@ export namespace lambda {
          */
         executionTimeout: number;
         /**
+         * ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+         */
+        kmsKeyArn: string;
+        /**
          * Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+         *
+         * > **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
          */
         retentionPeriod?: number;
     }
@@ -71913,6 +72014,10 @@ export namespace lambda {
          * Maximum execution time in seconds for the durable function.
          */
         executionTimeout: number;
+        /**
+         * ARN of the KMS key used to encrypt the durable function's execution state.
+         */
+        kmsKeyArn: string;
         /**
          * Number of days to retain the function's execution state.
          */
@@ -88499,6 +88604,10 @@ export namespace medialive {
          */
         outputGroups: outputs.medialive.ChannelEncoderSettingsOutputGroup[];
         /**
+         * Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+         */
+        thumbnailConfiguration?: outputs.medialive.ChannelEncoderSettingsThumbnailConfiguration;
+        /**
          * Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
          */
         timecodeConfig: outputs.medialive.ChannelEncoderSettingsTimecodeConfig;
@@ -90780,6 +90889,13 @@ export namespace medialive {
          * Width of the FEC protection matrix.
          */
         rowLength: number;
+    }
+
+    export interface ChannelEncoderSettingsThumbnailConfiguration {
+        /**
+         * Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+         */
+        state: string;
     }
 
     export interface ChannelEncoderSettingsTimecodeConfig {
@@ -94145,6 +94261,10 @@ export namespace networkfirewall {
          */
         policyVariables?: outputs.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariables;
         /**
+         * Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+         */
+        route53ResolvedIpValidation?: outputs.networkfirewall.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation;
+        /**
          * Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
          */
         statefulDefaultActions?: string[];
@@ -94200,6 +94320,33 @@ export namespace networkfirewall {
          * Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
          */
         definitions: string[];
+    }
+
+    export interface FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+        /**
+         * Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+         */
+        action: string;
+        /**
+         * Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+         */
+        bypassDestinationValidationIpRanges?: string[];
+        /**
+         * Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+         */
+        dnsExpiryExceptionPolicy: string;
+        /**
+         * ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+         */
+        dnsFirewallRuleGroupId: string;
+        /**
+         * Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `awsRoute53ResolvedDomain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+         *
+         * > **Note:** An empty list can't be set for `sourceIpRanges` or `bypassDestinationValidationIpRanges`. The AWS API treats an empty `sourceIpRanges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+         *
+         * > **Note:** Removing the `route53ResolvedIpValidation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+         */
+        sourceIpRanges?: string[];
     }
 
     export interface FirewallPolicyFirewallPolicyStatefulEngineOptions {
@@ -94435,6 +94582,7 @@ export namespace networkfirewall {
     export interface GetFirewallPolicyFirewallPolicy {
         enableTlsSessionHolding: boolean;
         policyVariables: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyPolicyVariable[];
+        route53ResolvedIpValidations: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation[];
         statefulDefaultActions: string[];
         statefulEngineOptions: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatefulEngineOption[];
         statefulRuleGroupReferences: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference[];
@@ -94456,6 +94604,14 @@ export namespace networkfirewall {
 
     export interface GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet {
         definitions: string[];
+    }
+
+    export interface GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+        action: string;
+        bypassDestinationValidationIpRanges: string[];
+        dnsExpiryExceptionPolicy: string;
+        dnsFirewallRuleGroupId: string;
+        sourceIpRanges: string[];
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatefulEngineOption {
@@ -94654,7 +94810,7 @@ export namespace networkfirewall {
          */
         generatedRulesType: string;
         /**
-         * Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+         * Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
          */
         targetTypes: string[];
         /**
@@ -112919,6 +113075,17 @@ export namespace sagemaker {
         s3OutputPath: string;
     }
 
+    export interface GetHubContentHubContentDependency {
+        /**
+         * Hub content dependency copy path.
+         */
+        dependencyCopyPath: string;
+        /**
+         * Hub content dependency origin path.
+         */
+        dependencyOriginPath: string;
+    }
+
     export interface HubContentReferenceTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -114245,6 +114412,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: outputs.sagemaker.ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig;
@@ -114256,6 +114427,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: string;
     }
 
     export interface ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
@@ -114296,6 +114474,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: outputs.sagemaker.ModelContainerModelDataSourceS3DataSourceHubAccessConfig;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelContainerModelDataSourceS3DataSourceModelAccessConfig;
@@ -114307,6 +114489,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelContainerModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: string;
     }
 
     export interface ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
@@ -114392,6 +114581,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: outputs.sagemaker.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig;
@@ -114403,6 +114596,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: string;
     }
 
     export interface ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
@@ -114443,6 +114643,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         */
+        hubAccessConfig?: outputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig;
+        /**
          * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig;
@@ -114454,6 +114658,13 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig {
+        /**
+         * Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `aws.sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+         */
+        hubContentArn: string;
     }
 
     export interface ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
@@ -124312,6 +124523,10 @@ export namespace vpclattice {
          */
         arnResource?: outputs.vpclattice.ResourceConfigurationResourceConfigurationDefinitionArnResource;
         /**
+         * Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+         */
+        cidrResource?: outputs.vpclattice.ResourceConfigurationResourceConfigurationDefinitionCidrResource;
+        /**
          * Resource DNS Configuration. See `dnsResource` Block for details.
          */
         dnsResource?: outputs.vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResource;
@@ -124326,6 +124541,13 @@ export namespace vpclattice {
          * ARN of the Resource for this configuration.
          */
         arn: string;
+    }
+
+    export interface ResourceConfigurationResourceConfigurationDefinitionCidrResource {
+        /**
+         * Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+         */
+        cidrRanges: string[];
     }
 
     export interface ResourceConfigurationResourceConfigurationDefinitionDnsResource {
@@ -130638,16 +130860,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource. As in AWS WAF, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement` can only be used at the top level of a rule's `statement`, not inside a logical statement.
          */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementXssMatchStatement;
     }
 
     export interface WebAclRuleStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatement[];
+        statements: outputs.wafv2.WebAclRuleStatement[];
     }
 
     export interface WebAclRuleStatementAsnMatchStatement {
@@ -131400,16 +131622,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement {
@@ -131735,16 +131957,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
+        statement: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement {
@@ -132917,16 +133139,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: outputs.wafv2.WebAclRuleStatement;
+        statement: outputs.wafv2.WebAclRuleStatement;
     }
 
     export interface WebAclRuleStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatement[];
+        statements: outputs.wafv2.WebAclRuleStatement[];
     }
 
     export interface WebAclRuleStatementRateBasedStatement {
@@ -133187,16 +133409,16 @@ export namespace wafv2 {
         /**
          * Match requests that appear to contain cross-site scripting attacks.
          *
-         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * > **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          */
         xssMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `andStatement`, `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement {
@@ -133522,16 +133744,16 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
         /**
-         * Single statement to negate. Exactly one statement must be specified.
+         * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement;
+        statement: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement {
         /**
-         * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+         * List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          */
-        statements?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
+        statements: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement[];
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {

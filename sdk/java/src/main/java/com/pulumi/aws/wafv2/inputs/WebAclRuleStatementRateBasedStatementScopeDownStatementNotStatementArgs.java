@@ -6,9 +6,8 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,18 +15,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs();
 
     /**
-     * Single statement to negate. Exactly one statement must be specified.
+     * Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    @Import(name="statement")
-    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> statement;
+    @Import(name="statement", required=true)
+    private Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> statement;
 
     /**
-     * @return Single statement to negate. Exactly one statement must be specified.
+     * @return Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs>> statement() {
-        return Optional.ofNullable(this.statement);
+    public Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> statement() {
+        return this.statement;
     }
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs() {}
@@ -55,18 +54,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         /**
-         * @param statement Single statement to negate. Exactly one statement must be specified.
+         * @param statement Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
          */
-        public Builder statement(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> statement) {
+        public Builder statement(Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> statement) {
             $.statement = statement;
             return this;
         }
 
         /**
-         * @param statement Single statement to negate. Exactly one statement must be specified.
+         * @param statement Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `managedRuleGroupStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
          * 
          * @return builder
          * 
@@ -76,6 +75,9 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs build() {
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs", "statement");
+            }
             return $;
         }
     }

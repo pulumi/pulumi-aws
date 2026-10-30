@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> CompressionType { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+        /// </summary>
+        [Input("hubAccessConfig")]
+        public Input<Inputs.ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigGetArgs>? HubAccessConfig { get; set; }
+
+        /// <summary>
         /// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig` configuration block. See Model Access Config.
         /// </summary>
         [Input("modelAccessConfig")]

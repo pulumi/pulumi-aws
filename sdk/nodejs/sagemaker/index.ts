@@ -65,6 +65,11 @@ export type FlowDefinition = import("./flowDefinition").FlowDefinition;
 export const FlowDefinition: typeof import("./flowDefinition").FlowDefinition = null as any;
 utilities.lazyLoad(exports, ["FlowDefinition"], () => require("./flowDefinition"));
 
+export { GetHubContentArgs, GetHubContentResult, GetHubContentOutputArgs } from "./getHubContent";
+export const getHubContent: typeof import("./getHubContent").getHubContent = null as any;
+export const getHubContentOutput: typeof import("./getHubContent").getHubContentOutput = null as any;
+utilities.lazyLoad(exports, ["getHubContent","getHubContentOutput"], () => require("./getHubContent"));
+
 export { GetPrebuiltEcrImageArgs, GetPrebuiltEcrImageResult, GetPrebuiltEcrImageOutputArgs } from "./getPrebuiltEcrImage";
 export const getPrebuiltEcrImage: typeof import("./getPrebuiltEcrImage").getPrebuiltEcrImage = null as any;
 export const getPrebuiltEcrImageOutput: typeof import("./getPrebuiltEcrImage").getPrebuiltEcrImageOutput = null as any;

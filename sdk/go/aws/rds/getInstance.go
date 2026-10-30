@@ -119,6 +119,8 @@ type LookupInstanceResult struct {
 	MonitoringRoleArn string `pulumi:"monitoringRoleArn"`
 	// If the DB instance is a Multi-AZ deployment.
 	MultiAz bool `pulumi:"multiAz"`
+	// Whether the DB instance uses the multi-tenant configuration of the Oracle CDB architecture.
+	MultiTenant bool `pulumi:"multiTenant"`
 	// Network type of the DB instance.
 	NetworkType string `pulumi:"networkType"`
 	// Provides the list of option group memberships for this DB instance.
@@ -332,6 +334,11 @@ func (o LookupInstanceResultOutput) MonitoringRoleArn() pulumi.StringOutput {
 // If the DB instance is a Multi-AZ deployment.
 func (o LookupInstanceResultOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInstanceResult) bool { return v.MultiAz }).(pulumi.BoolOutput)
+}
+
+// Whether the DB instance uses the multi-tenant configuration of the Oracle CDB architecture.
+func (o LookupInstanceResultOutput) MultiTenant() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupInstanceResult) bool { return v.MultiTenant }).(pulumi.BoolOutput)
 }
 
 // Network type of the DB instance.

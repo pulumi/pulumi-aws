@@ -173,6 +173,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Cpu { get; private set; } = null!;
 
         /// <summary>
+        /// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+        /// </summary>
+        [Output("cpuArchitecture")]
+        public Output<string> CpuArchitecture { get; private set; } = null!;
+
+        /// <summary>
         /// (**Deprecated**) ARN of the current deployment.
         /// </summary>
         [Output("currentDeployment")]
@@ -335,6 +341,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
+        /// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+        /// </summary>
+        [Input("cpuArchitecture")]
+        public Input<string>? CpuArchitecture { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
         /// </summary>
         [Input("executionRoleArn", required: true)]
@@ -445,6 +457,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
+
+        /// <summary>
+        /// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+        /// </summary>
+        [Input("cpuArchitecture")]
+        public Input<string>? CpuArchitecture { get; set; }
 
         /// <summary>
         /// (**Deprecated**) ARN of the current deployment.

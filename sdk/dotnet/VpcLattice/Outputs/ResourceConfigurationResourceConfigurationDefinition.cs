@@ -18,6 +18,10 @@ namespace Pulumi.Aws.VpcLattice.Outputs
         /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource? ArnResource;
         /// <summary>
+        /// Resource CIDR configuration. Only valid when `Type` is `CIDR`. See `CidrResource` Block for details.
+        /// </summary>
+        public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionCidrResource? CidrResource;
+        /// <summary>
         /// Resource DNS Configuration. See `DnsResource` Block for details.
         /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource? DnsResource;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.VpcLattice.Outputs
         private ResourceConfigurationResourceConfigurationDefinition(
             Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource? arnResource,
 
+            Outputs.ResourceConfigurationResourceConfigurationDefinitionCidrResource? cidrResource,
+
             Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource? dnsResource,
 
             Outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource? ipResource)
         {
             ArnResource = arnResource;
+            CidrResource = cidrResource;
             DnsResource = dnsResource;
             IpResource = ipResource;
         }

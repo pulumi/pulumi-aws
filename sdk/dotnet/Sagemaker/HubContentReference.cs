@@ -153,6 +153,12 @@ namespace Pulumi.Aws.Sagemaker
         [Output("timeouts")]
         public Output<Outputs.HubContentReferenceTimeouts?> Timeouts { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+        /// </summary>
+        [Output("versionedHubContentArn")]
+        public Output<string> VersionedHubContentArn { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a HubContentReference resource with the given unique name, arguments, and options.
@@ -332,6 +338,12 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("timeouts")]
         public Input<Inputs.HubContentReferenceTimeoutsGetArgs>? Timeouts { get; set; }
+
+        /// <summary>
+        /// ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+        /// </summary>
+        [Input("versionedHubContentArn")]
+        public Input<string>? VersionedHubContentArn { get; set; }
 
         public HubContentReferenceState()
         {

@@ -146,7 +146,8 @@ class _HubContentReferenceState:
                  sagemaker_public_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional['HubContentReferenceTimeoutsArgs']] = None):
+                 timeouts: pulumi.Input[Optional['HubContentReferenceTimeoutsArgs']] = None,
+                 versioned_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HubContentReference resources.
 
@@ -161,6 +162,7 @@ class _HubContentReferenceState:
         :param pulumi.Input[_builtins.str] sagemaker_public_hub_content_arn: ARN of the public SageMaker JumpStart hub content to reference. The ARN must not include a version suffix.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] versioned_hub_content_arn: ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
         """
         if hub_arn is not None:
             pulumi.set(__self__, "hub_arn", hub_arn)
@@ -186,6 +188,8 @@ class _HubContentReferenceState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+        if versioned_hub_content_arn is not None:
+            pulumi.set(__self__, "versioned_hub_content_arn", versioned_hub_content_arn)
 
     @_builtins.property
     @pulumi.getter(name="hubArn")
@@ -327,6 +331,18 @@ class _HubContentReferenceState:
     @timeouts.setter
     def timeouts(self, value: pulumi.Input[Optional['HubContentReferenceTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionedHubContentArn")
+    def versioned_hub_content_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
+        """
+        return pulumi.get(self, "versioned_hub_content_arn")
+
+    @versioned_hub_content_arn.setter
+    def versioned_hub_content_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "versioned_hub_content_arn", value)
 
 
 @pulumi.type_token("aws:sagemaker/hubContentReference:HubContentReference")
@@ -515,6 +531,7 @@ class HubContentReference(pulumi.CustomResource):
             __props__.__dict__["hub_content_status"] = None
             __props__.__dict__["hub_content_version"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["versioned_hub_content_arn"] = None
         super(HubContentReference, __self__).__init__(
             'aws:sagemaker/hubContentReference:HubContentReference',
             resource_name,
@@ -536,7 +553,8 @@ class HubContentReference(pulumi.CustomResource):
             sagemaker_public_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict', 'outputs.HubContentReferenceTimeouts']]] = None) -> 'HubContentReference':
+            timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict', 'outputs.HubContentReferenceTimeouts']]] = None,
+            versioned_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'HubContentReference':
         """
         Get an existing HubContentReference resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -555,6 +573,7 @@ class HubContentReference(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sagemaker_public_hub_content_arn: ARN of the public SageMaker JumpStart hub content to reference. The ARN must not include a version suffix.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] versioned_hub_content_arn: ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -572,6 +591,7 @@ class HubContentReference(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
+        __props__.__dict__["versioned_hub_content_arn"] = versioned_hub_content_arn
         return HubContentReference(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -666,4 +686,12 @@ class HubContentReference(pulumi.CustomResource):
     @pulumi.getter
     def timeouts(self) -> pulumi.Output[Optional['outputs.HubContentReferenceTimeouts']]:
         return pulumi.get(self, "timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="versionedHubContentArn")
+    def versioned_hub_content_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `sagemaker.Model`.
+        """
+        return pulumi.get(self, "versioned_hub_content_arn")
 

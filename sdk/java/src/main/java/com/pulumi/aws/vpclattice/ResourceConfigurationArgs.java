@@ -81,14 +81,14 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Port ranges to access the Resource either single port `80` or range `80-81` range.
+     * Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
      * 
      */
     @Import(name="portRanges")
     private @Nullable Output<List<String>> portRanges;
 
     /**
-     * @return Port ranges to access the Resource either single port `80` or range `80-81` range.
+     * @return Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
      * 
      */
     public Optional<Output<List<String>>> portRanges() {
@@ -96,14 +96,14 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+     * Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+     * @return Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -197,14 +197,14 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+     * @return Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
      * 
      */
     public Optional<Output<String>> type() {
@@ -332,7 +332,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param portRanges Port ranges to access the Resource either single port `80` or range `80-81` range.
+         * @param portRanges Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param portRanges Port ranges to access the Resource either single port `80` or range `80-81` range.
+         * @param portRanges Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param portRanges Port ranges to access the Resource either single port `80` or range `80-81` range.
+         * @param portRanges Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param protocol Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+         * @param protocol Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param protocol Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+         * @param protocol Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+         * @param type Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+         * @param type Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
          * 
          * @return builder
          * 

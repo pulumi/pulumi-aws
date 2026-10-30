@@ -282,6 +282,20 @@ public class HubContentReference extends com.pulumi.resources.CustomResource {
     public Output<Optional<HubContentReferenceTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
+    /**
+     * ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+     * 
+     */
+    @Export(name="versionedHubContentArn", refs={String.class}, tree="[0]")
+    private Output<String> versionedHubContentArn;
+
+    /**
+     * @return ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+     * 
+     */
+    public Output<String> versionedHubContentArn() {
+        return this.versionedHubContentArn;
+    }
 
     /**
      *

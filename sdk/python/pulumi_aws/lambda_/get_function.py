@@ -278,7 +278,7 @@ class GetFunctionResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
         """
-        ARN for the KMS encryption key.
+        ARN of the KMS key used to encrypt the durable function's execution state.
         """
         return pulumi.get(self, "kms_key_arn")
 

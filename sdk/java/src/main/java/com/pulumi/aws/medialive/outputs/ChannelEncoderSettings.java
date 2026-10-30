@@ -10,6 +10,7 @@ import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsGlobalConfiguratio
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsMotionGraphicsConfiguration;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsNielsenConfiguration;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroup;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsThumbnailConfiguration;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsTimecodeConfig;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescription;
 import com.pulumi.core.annotations.CustomType;
@@ -56,6 +57,11 @@ public final class ChannelEncoderSettings {
      * 
      */
     private List<ChannelEncoderSettingsOutputGroup> outputGroups;
+    /**
+     * @return Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+     * 
+     */
+    private @Nullable ChannelEncoderSettingsThumbnailConfiguration thumbnailConfiguration;
     /**
      * @return Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
      * 
@@ -118,6 +124,13 @@ public final class ChannelEncoderSettings {
         return this.outputGroups;
     }
     /**
+     * @return Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+     * 
+     */
+    public Optional<ChannelEncoderSettingsThumbnailConfiguration> thumbnailConfiguration() {
+        return Optional.ofNullable(this.thumbnailConfiguration);
+    }
+    /**
      * @return Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
      * 
      */
@@ -148,6 +161,7 @@ public final class ChannelEncoderSettings {
         private @Nullable ChannelEncoderSettingsMotionGraphicsConfiguration motionGraphicsConfiguration;
         private @Nullable ChannelEncoderSettingsNielsenConfiguration nielsenConfiguration;
         private List<ChannelEncoderSettingsOutputGroup> outputGroups;
+        private @Nullable ChannelEncoderSettingsThumbnailConfiguration thumbnailConfiguration;
         private ChannelEncoderSettingsTimecodeConfig timecodeConfig;
         private @Nullable List<ChannelEncoderSettingsVideoDescription> videoDescriptions;
         public Builder() {}
@@ -160,6 +174,7 @@ public final class ChannelEncoderSettings {
     	      this.motionGraphicsConfiguration = defaults.motionGraphicsConfiguration;
     	      this.nielsenConfiguration = defaults.nielsenConfiguration;
     	      this.outputGroups = defaults.outputGroups;
+    	      this.thumbnailConfiguration = defaults.thumbnailConfiguration;
     	      this.timecodeConfig = defaults.timecodeConfig;
     	      this.videoDescriptions = defaults.videoDescriptions;
         }
@@ -218,6 +233,12 @@ public final class ChannelEncoderSettings {
             return outputGroups(List.of(outputGroups));
         }
         @CustomType.Setter
+        public Builder thumbnailConfiguration(@Nullable ChannelEncoderSettingsThumbnailConfiguration thumbnailConfiguration) {
+
+            this.thumbnailConfiguration = thumbnailConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timecodeConfig(ChannelEncoderSettingsTimecodeConfig timecodeConfig) {
             if (timecodeConfig == null) {
               throw new MissingRequiredPropertyException("ChannelEncoderSettings", "timecodeConfig");
@@ -243,6 +264,7 @@ public final class ChannelEncoderSettings {
             _resultValue.motionGraphicsConfiguration = motionGraphicsConfiguration;
             _resultValue.nielsenConfiguration = nielsenConfiguration;
             _resultValue.outputGroups = outputGroups;
+            _resultValue.thumbnailConfiguration = thumbnailConfiguration;
             _resultValue.timecodeConfig = timecodeConfig;
             _resultValue.videoDescriptions = videoDescriptions;
             return _resultValue;

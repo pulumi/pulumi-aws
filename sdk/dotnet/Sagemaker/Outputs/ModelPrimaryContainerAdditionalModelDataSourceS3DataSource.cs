@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string CompressionType;
         /// <summary>
+        /// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+        /// </summary>
+        public readonly Outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig? HubAccessConfig;
+        /// <summary>
         /// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig` configuration block. See Model Access Config.
         /// </summary>
         public readonly Outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig? ModelAccessConfig;
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private ModelPrimaryContainerAdditionalModelDataSourceS3DataSource(
             string compressionType,
 
+            Outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig? hubAccessConfig,
+
             Outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig? modelAccessConfig,
 
             string s3DataType,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             string s3Uri)
         {
             CompressionType = compressionType;
+            HubAccessConfig = hubAccessConfig;
             ModelAccessConfig = modelAccessConfig;
             S3DataType = s3DataType;
             S3Uri = s3Uri;

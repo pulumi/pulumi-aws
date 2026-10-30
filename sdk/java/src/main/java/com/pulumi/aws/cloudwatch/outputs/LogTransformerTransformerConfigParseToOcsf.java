@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigParseToOcsf {
+    /**
+     * @return Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+     * 
+     */
     private String eventSource;
     /**
      * @return Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
@@ -25,6 +29,10 @@ public final class LogTransformerTransformerConfigParseToOcsf {
     private @Nullable String source;
 
     private LogTransformerTransformerConfigParseToOcsf() {}
+    /**
+     * @return Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+     * 
+     */
     public String eventSource() {
         return this.eventSource;
     }

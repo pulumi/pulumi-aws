@@ -34,6 +34,21 @@ public final class ExportExportDestinationConfigurationS3DestinationArgs extends
     }
 
     /**
+     * AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+     * 
+     */
+    @Import(name="s3BucketOwner")
+    private @Nullable Output<String> s3BucketOwner;
+
+    /**
+     * @return AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+     * 
+     */
+    public Optional<Output<String>> s3BucketOwner() {
+        return Optional.ofNullable(this.s3BucketOwner);
+    }
+
+    /**
      * Output configuration for the data export. See the `s3OutputConfigurations` block below.
      * 
      */
@@ -82,6 +97,7 @@ public final class ExportExportDestinationConfigurationS3DestinationArgs extends
 
     private ExportExportDestinationConfigurationS3DestinationArgs(ExportExportDestinationConfigurationS3DestinationArgs $) {
         this.s3Bucket = $.s3Bucket;
+        this.s3BucketOwner = $.s3BucketOwner;
         this.s3OutputConfigurations = $.s3OutputConfigurations;
         this.s3Prefix = $.s3Prefix;
         this.s3Region = $.s3Region;
@@ -124,6 +140,27 @@ public final class ExportExportDestinationConfigurationS3DestinationArgs extends
          */
         public Builder s3Bucket(String s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
+        }
+
+        /**
+         * @param s3BucketOwner AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3BucketOwner(@Nullable Output<String> s3BucketOwner) {
+            $.s3BucketOwner = s3BucketOwner;
+            return this;
+        }
+
+        /**
+         * @param s3BucketOwner AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3BucketOwner(String s3BucketOwner) {
+            return s3BucketOwner(Output.of(s3BucketOwner));
         }
 
         /**

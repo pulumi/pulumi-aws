@@ -174,6 +174,8 @@ type ExpressGatewayService struct {
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu pulumi.StringOutput `pulumi:"cpu"`
+	// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+	CpuArchitecture pulumi.StringOutput `pulumi:"cpuArchitecture"`
 	// (**Deprecated**) ARN of the current deployment.
 	//
 	// Deprecated: This attribute will be removed in a future verion of the provider.
@@ -257,6 +259,8 @@ type expressGatewayServiceState struct {
 	Cluster *string `pulumi:"cluster"`
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu *string `pulumi:"cpu"`
+	// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+	CpuArchitecture *string `pulumi:"cpuArchitecture"`
 	// (**Deprecated**) ARN of the current deployment.
 	//
 	// Deprecated: This attribute will be removed in a future verion of the provider.
@@ -302,6 +306,8 @@ type ExpressGatewayServiceState struct {
 	Cluster pulumi.StringPtrInput
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu pulumi.StringPtrInput
+	// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+	CpuArchitecture pulumi.StringPtrInput
 	// (**Deprecated**) ARN of the current deployment.
 	//
 	// Deprecated: This attribute will be removed in a future verion of the provider.
@@ -351,6 +357,8 @@ type expressGatewayServiceArgs struct {
 	Cluster *string `pulumi:"cluster"`
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu *string `pulumi:"cpu"`
+	// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+	CpuArchitecture *string `pulumi:"cpuArchitecture"`
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Path for health check requests. Defaults to `/`.
@@ -385,6 +393,8 @@ type ExpressGatewayServiceArgs struct {
 	Cluster pulumi.StringPtrInput
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu pulumi.StringPtrInput
+	// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+	CpuArchitecture pulumi.StringPtrInput
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn pulumi.StringInput
 	// Path for health check requests. Defaults to `/`.
@@ -508,6 +518,11 @@ func (o ExpressGatewayServiceOutput) Cluster() pulumi.StringOutput {
 // Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 func (o ExpressGatewayServiceOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Cpu }).(pulumi.StringOutput)
+}
+
+// CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+func (o ExpressGatewayServiceOutput) CpuArchitecture() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.CpuArchitecture }).(pulumi.StringOutput)
 }
 
 // (**Deprecated**) ARN of the current deployment.

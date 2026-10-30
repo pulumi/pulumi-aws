@@ -5,25 +5,25 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement {
     /**
-     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * @return List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
-    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements;
+    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement() {}
     /**
-     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
+     * @return List of statements to combine. At least two statements are required. Each nested statement supports the statement types listed above except `managedRuleGroupStatement`, `orStatement`, `rateBasedStatement` and `ruleGroupReferenceStatement`.
      * 
      */
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements() {
-        return this.statements == null ? List.of() : this.statements;
+        return this.statements;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements;
+        private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         @CustomType.Setter
-        public Builder statements(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements) {
-
+        public Builder statements(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements) {
+            if (statements == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement", "statements");
+            }
             this.statements = statements;
             return this;
         }

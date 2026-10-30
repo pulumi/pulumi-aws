@@ -141,6 +141,57 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Policy with Route 53 Resolved IP Validation
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleGroup;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.FirewallPolicy;
+ * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResolverFirewallRuleGroup("example", ResolverFirewallRuleGroupArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleFirewallPolicy = new FirewallPolicy("exampleFirewallPolicy", FirewallPolicyArgs.builder()
+ *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
+ *                 .route53ResolvedIpValidation(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs.builder()
+ *                     .action("DROP")
+ *                     .dnsExpiryExceptionPolicy("CONTINUE")
+ *                     .dnsFirewallRuleGroupId(example.id())
+ *                     .sourceIpRanges("10.0.0.0/16")
+ *                     .build())
+ *                 .statelessDefaultActions("aws:forward_to_sfe")
+ *                 .statelessFragmentDefaultActions("aws:forward_to_sfe")
+ *                 .build())
+ *             .name("example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Policy with a Custom Action for Stateless Inspection
  * 
  * <pre>

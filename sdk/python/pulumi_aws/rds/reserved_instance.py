@@ -452,7 +452,7 @@ class ReservedInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
+        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t4g.micro",
             duration=31536000,
             multi_az=False,
             offering_type="All Upfront",
@@ -501,7 +501,7 @@ class ReservedInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
+        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t4g.micro",
             duration=31536000,
             multi_az=False,
             offering_type="All Upfront",

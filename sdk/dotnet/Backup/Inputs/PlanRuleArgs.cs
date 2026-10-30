@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
+        /// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+        /// </summary>
+        [Input("ruleId")]
+        public Input<string>? RuleId { get; set; }
+
+        /// <summary>
         /// Display name for a backup rule.
         /// </summary>
         [Input("ruleName", required: true)]

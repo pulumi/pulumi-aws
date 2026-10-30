@@ -33,6 +33,10 @@ __all__ = [
     'DomainIdentityProviderConfigurationArgsDict',
     'DomainIdentityProviderConfigurationIdentityCenterConfigurationArgs',
     'DomainIdentityProviderConfigurationIdentityCenterConfigurationArgsDict',
+    'OrganizationDomainIdentityProviderConfigurationArgs',
+    'OrganizationDomainIdentityProviderConfigurationArgsDict',
+    'OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs',
+    'OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgsDict',
     'SpaceEncryptionConfigurationArgs',
     'SpaceEncryptionConfigurationArgsDict',
 ]
@@ -467,6 +471,62 @@ class DomainIdentityProviderConfigurationIdentityCenterConfigurationArgsDict(Typ
 
 @pulumi.input_type
 class DomainIdentityProviderConfigurationIdentityCenterConfigurationArgs:
+    def __init__(__self__, *,
+                 identity_center_instance_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance.
+        """
+        pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @identity_center_instance_arn.setter
+    def identity_center_instance_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identity_center_instance_arn", value)
+
+
+class OrganizationDomainIdentityProviderConfigurationArgsDict(TypedDict):
+    identity_center_configuration: pulumi.Input['OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgsDict']
+    """
+    IAM Identity Center configuration. See below.
+    """
+
+@pulumi.input_type
+class OrganizationDomainIdentityProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 identity_center_configuration: pulumi.Input['OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs']):
+        """
+        :param pulumi.Input['OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs'] identity_center_configuration: IAM Identity Center configuration. See below.
+        """
+        pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> pulumi.Input['OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs']:
+        """
+        IAM Identity Center configuration. See below.
+        """
+        return pulumi.get(self, "identity_center_configuration")
+
+    @identity_center_configuration.setter
+    def identity_center_configuration(self, value: pulumi.Input['OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs']):
+        pulumi.set(self, "identity_center_configuration", value)
+
+
+class OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgsDict(TypedDict):
+    identity_center_instance_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM Identity Center instance.
+    """
+
+@pulumi.input_type
+class OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs:
     def __init__(__self__, *,
                  identity_center_instance_arn: pulumi.Input[_builtins.str]):
         """

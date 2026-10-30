@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.rds.getReservedInstanceOffering({
- *     dbInstanceClass: "db.t2.micro",
+ *     dbInstanceClass: "db.t4g.micro",
  *     duration: 31536000,
  *     multiAz: false,
  *     offeringType: "All Upfront",
@@ -101,7 +101,7 @@ export interface GetReservedInstanceOfferingResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.rds.getReservedInstanceOffering({
- *     dbInstanceClass: "db.t2.micro",
+ *     dbInstanceClass: "db.t4g.micro",
  *     duration: 31536000,
  *     multiAz: false,
  *     offeringType: "All Upfront",

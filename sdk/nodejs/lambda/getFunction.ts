@@ -227,7 +227,7 @@ export interface GetFunctionResult {
      */
     readonly invokeArn: string;
     /**
-     * ARN for the KMS encryption key.
+     * ARN of the KMS key used to encrypt the durable function's execution state.
      */
     readonly kmsKeyArn: string;
     /**

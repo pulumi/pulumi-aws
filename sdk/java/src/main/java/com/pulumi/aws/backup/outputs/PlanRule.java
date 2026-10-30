@@ -45,6 +45,11 @@ public final class PlanRule {
      */
     private @Nullable Map<String,String> recoveryPointTags;
     /**
+     * @return Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+     * 
+     */
+    private @Nullable String ruleId;
+    /**
      * @return Display name for a backup rule.
      * 
      */
@@ -117,6 +122,13 @@ public final class PlanRule {
         return this.recoveryPointTags == null ? Map.of() : this.recoveryPointTags;
     }
     /**
+     * @return Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+     * 
+     */
+    public Optional<String> ruleId() {
+        return Optional.ofNullable(this.ruleId);
+    }
+    /**
      * @return Display name for a backup rule.
      * 
      */
@@ -180,6 +192,7 @@ public final class PlanRule {
         private @Nullable Boolean enableContinuousBackup;
         private @Nullable PlanRuleLifecycle lifecycle;
         private @Nullable Map<String,String> recoveryPointTags;
+        private @Nullable String ruleId;
         private String ruleName;
         private @Nullable List<PlanRuleScanAction> scanActions;
         private @Nullable String schedule;
@@ -195,6 +208,7 @@ public final class PlanRule {
     	      this.enableContinuousBackup = defaults.enableContinuousBackup;
     	      this.lifecycle = defaults.lifecycle;
     	      this.recoveryPointTags = defaults.recoveryPointTags;
+    	      this.ruleId = defaults.ruleId;
     	      this.ruleName = defaults.ruleName;
     	      this.scanActions = defaults.scanActions;
     	      this.schedule = defaults.schedule;
@@ -235,6 +249,12 @@ public final class PlanRule {
         public Builder recoveryPointTags(@Nullable Map<String,String> recoveryPointTags) {
 
             this.recoveryPointTags = recoveryPointTags;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ruleId(@Nullable String ruleId) {
+
+            this.ruleId = ruleId;
             return this;
         }
         @CustomType.Setter
@@ -293,6 +313,7 @@ public final class PlanRule {
             _resultValue.enableContinuousBackup = enableContinuousBackup;
             _resultValue.lifecycle = lifecycle;
             _resultValue.recoveryPointTags = recoveryPointTags;
+            _resultValue.ruleId = ruleId;
             _resultValue.ruleName = ruleName;
             _resultValue.scanActions = scanActions;
             _resultValue.schedule = schedule;

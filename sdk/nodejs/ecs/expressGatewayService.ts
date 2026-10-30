@@ -146,6 +146,10 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      */
     declare public readonly cpu: pulumi.Output<string>;
     /**
+     * CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+     */
+    declare public readonly cpuArchitecture: pulumi.Output<string>;
+    /**
      * (**Deprecated**) ARN of the current deployment.
      *
      * @deprecated This attribute will be removed in a future verion of the provider.
@@ -231,6 +235,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             const state = argsOrState as ExpressGatewayServiceState | undefined;
             resourceInputs["cluster"] = state?.cluster;
             resourceInputs["cpu"] = state?.cpu;
+            resourceInputs["cpuArchitecture"] = state?.cpuArchitecture;
             resourceInputs["currentDeployment"] = state?.currentDeployment;
             resourceInputs["executionRoleArn"] = state?.executionRoleArn;
             resourceInputs["healthCheckPath"] = state?.healthCheckPath;
@@ -262,6 +267,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             }
             resourceInputs["cluster"] = args?.cluster;
             resourceInputs["cpu"] = args?.cpu;
+            resourceInputs["cpuArchitecture"] = args?.cpuArchitecture;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["healthCheckPath"] = args?.healthCheckPath;
             resourceInputs["infrastructureRoleArn"] = args?.infrastructureRoleArn;
@@ -298,6 +304,10 @@ export interface ExpressGatewayServiceState {
      * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
      */
     cpu?: pulumi.Input<string | undefined>;
+    /**
+     * CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+     */
+    cpuArchitecture?: pulumi.Input<string | undefined>;
     /**
      * (**Deprecated**) ARN of the current deployment.
      *
@@ -382,6 +392,10 @@ export interface ExpressGatewayServiceArgs {
      * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
      */
     cpu?: pulumi.Input<string | undefined>;
+    /**
+     * CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+     */
+    cpuArchitecture?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
      */

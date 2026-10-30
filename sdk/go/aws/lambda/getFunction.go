@@ -226,7 +226,7 @@ type LookupFunctionResult struct {
 	ImageUri string `pulumi:"imageUri"`
 	// ARN to be used for invoking Lambda Function from API Gateway. **Note:** Starting with `v4.51.0` of the provider, this will not include the qualifier.
 	InvokeArn string `pulumi:"invokeArn"`
-	// ARN for the KMS encryption key.
+	// ARN of the KMS key used to encrypt the durable function's execution state.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
 	LastModified string `pulumi:"lastModified"`
@@ -393,7 +393,7 @@ func (o LookupFunctionResultOutput) InvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.InvokeArn }).(pulumi.StringOutput)
 }
 
-// ARN for the KMS encryption key.
+// ARN of the KMS key used to encrypt the durable function's execution state.
 func (o LookupFunctionResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }

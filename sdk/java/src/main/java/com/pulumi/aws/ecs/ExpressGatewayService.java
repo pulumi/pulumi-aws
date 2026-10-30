@@ -227,6 +227,20 @@ public class ExpressGatewayService extends com.pulumi.resources.CustomResource {
         return this.cpu;
     }
     /**
+     * CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+     * 
+     */
+    @Export(name="cpuArchitecture", refs={String.class}, tree="[0]")
+    private Output<String> cpuArchitecture;
+
+    /**
+     * @return CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+     * 
+     */
+    public Output<String> cpuArchitecture() {
+        return this.cpuArchitecture;
+    }
+    /**
      * (**Deprecated**) ARN of the current deployment.
      * 
      * @deprecated

@@ -4,6 +4,7 @@
 package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource;
+import com.pulumi.aws.vpclattice.outputs.ResourceConfigurationResourceConfigurationDefinitionCidrResource;
 import com.pulumi.aws.vpclattice.outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource;
 import com.pulumi.aws.vpclattice.outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource;
 import com.pulumi.core.annotations.CustomType;
@@ -18,6 +19,11 @@ public final class ResourceConfigurationResourceConfigurationDefinition {
      * 
      */
     private @Nullable ResourceConfigurationResourceConfigurationDefinitionArnResource arnResource;
+    /**
+     * @return Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+     * 
+     */
+    private @Nullable ResourceConfigurationResourceConfigurationDefinitionCidrResource cidrResource;
     /**
      * @return Resource DNS Configuration. See `dnsResource` Block for details.
      * 
@@ -36,6 +42,13 @@ public final class ResourceConfigurationResourceConfigurationDefinition {
      */
     public Optional<ResourceConfigurationResourceConfigurationDefinitionArnResource> arnResource() {
         return Optional.ofNullable(this.arnResource);
+    }
+    /**
+     * @return Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+     * 
+     */
+    public Optional<ResourceConfigurationResourceConfigurationDefinitionCidrResource> cidrResource() {
+        return Optional.ofNullable(this.cidrResource);
     }
     /**
      * @return Resource DNS Configuration. See `dnsResource` Block for details.
@@ -62,12 +75,14 @@ public final class ResourceConfigurationResourceConfigurationDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ResourceConfigurationResourceConfigurationDefinitionArnResource arnResource;
+        private @Nullable ResourceConfigurationResourceConfigurationDefinitionCidrResource cidrResource;
         private @Nullable ResourceConfigurationResourceConfigurationDefinitionDnsResource dnsResource;
         private @Nullable ResourceConfigurationResourceConfigurationDefinitionIpResource ipResource;
         public Builder() {}
         public Builder(ResourceConfigurationResourceConfigurationDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arnResource = defaults.arnResource;
+    	      this.cidrResource = defaults.cidrResource;
     	      this.dnsResource = defaults.dnsResource;
     	      this.ipResource = defaults.ipResource;
         }
@@ -76,6 +91,12 @@ public final class ResourceConfigurationResourceConfigurationDefinition {
         public Builder arnResource(@Nullable ResourceConfigurationResourceConfigurationDefinitionArnResource arnResource) {
 
             this.arnResource = arnResource;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cidrResource(@Nullable ResourceConfigurationResourceConfigurationDefinitionCidrResource cidrResource) {
+
+            this.cidrResource = cidrResource;
             return this;
         }
         @CustomType.Setter
@@ -93,6 +114,7 @@ public final class ResourceConfigurationResourceConfigurationDefinition {
         public ResourceConfigurationResourceConfigurationDefinition build() {
             final var _resultValue = new ResourceConfigurationResourceConfigurationDefinition();
             _resultValue.arnResource = arnResource;
+            _resultValue.cidrResource = cidrResource;
             _resultValue.dnsResource = dnsResource;
             _resultValue.ipResource = ipResource;
             return _resultValue;

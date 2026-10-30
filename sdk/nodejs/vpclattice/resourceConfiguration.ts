@@ -101,6 +101,40 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### CIDR Example
+ *
+ * A `CIDR` resource configuration must use a resource gateway with `resourceConfigDnsResolution` set to `IN_VPC`. It cannot be associated with a service network or a resource endpoint and is consumed by a VPC endpoint of type `Tunnel`. See [Access CIDR ranges using AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-cidr-ranges.html) for details.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.vpclattice.ResourceGateway("example", {
+ *     name: "example",
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     resourceConfigDnsResolution: "IN_VPC",
+ * });
+ * const exampleResourceConfiguration = new aws.vpclattice.ResourceConfiguration("example", {
+ *     resourceConfigurationDefinition: {
+ *         cidrResource: {
+ *             cidrRanges: [
+ *                 "10.0.0.0/16",
+ *                 "192.168.0.0/24",
+ *             ],
+ *         },
+ *     },
+ *     name: "example",
+ *     resourceGatewayIdentifier: example.id,
+ *     type: "CIDR",
+ *     protocol: "TCP_UDP",
+ *     portRanges: [
+ *         "53",
+ *         "443",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
@@ -166,11 +200,11 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Port ranges to access the Resource either single port `80` or range `80-81` range.
+     * Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
      */
     declare public readonly portRanges: pulumi.Output<string[]>;
     /**
-     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+     * Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
      */
     declare public readonly protocol: pulumi.Output<string>;
     /**
@@ -201,7 +235,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
     /**
-     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -293,11 +327,11 @@ export interface ResourceConfigurationState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Port ranges to access the Resource either single port `80` or range `80-81` range.
+     * Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
      */
     portRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+     * Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
      */
     protocol?: pulumi.Input<string | undefined>;
     /**
@@ -328,7 +362,7 @@ export interface ResourceConfigurationState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
     /**
-     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -354,11 +388,11 @@ export interface ResourceConfigurationArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Port ranges to access the Resource either single port `80` or range `80-81` range.
+     * Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
      */
     portRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+     * Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
      */
     protocol?: pulumi.Input<string | undefined>;
     /**
@@ -385,7 +419,7 @@ export interface ResourceConfigurationArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
     /**
-     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
      */
     type?: pulumi.Input<string | undefined>;
 }

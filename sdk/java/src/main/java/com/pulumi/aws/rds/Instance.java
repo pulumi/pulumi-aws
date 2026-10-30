@@ -1334,6 +1334,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.multiAz;
     }
     /**
+     * Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+     * 
+     */
+    @Export(name="multiTenant", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> multiTenant;
+
+    /**
+     * @return Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+     * 
+     */
+    public Output<Boolean> multiTenant() {
+        return this.multiTenant;
+    }
+    /**
      * National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
      */

@@ -565,6 +565,8 @@ __all__ = [
     'ModelContainerAdditionalModelDataSourceArgsDict',
     'ModelContainerAdditionalModelDataSourceS3DataSourceArgs',
     'ModelContainerAdditionalModelDataSourceS3DataSourceArgsDict',
+    'ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs',
+    'ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgsDict',
     'ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs',
     'ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict',
     'ModelContainerImageConfigArgs',
@@ -575,6 +577,8 @@ __all__ = [
     'ModelContainerModelDataSourceArgsDict',
     'ModelContainerModelDataSourceS3DataSourceArgs',
     'ModelContainerModelDataSourceS3DataSourceArgsDict',
+    'ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs',
+    'ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgsDict',
     'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs',
     'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict',
     'ModelContainerMultiModelConfigArgs',
@@ -587,6 +591,8 @@ __all__ = [
     'ModelPrimaryContainerAdditionalModelDataSourceArgsDict',
     'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs',
     'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgsDict',
+    'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs',
+    'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgsDict',
     'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs',
     'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict',
     'ModelPrimaryContainerImageConfigArgs',
@@ -597,6 +603,8 @@ __all__ = [
     'ModelPrimaryContainerModelDataSourceArgsDict',
     'ModelPrimaryContainerModelDataSourceS3DataSourceArgs',
     'ModelPrimaryContainerModelDataSourceS3DataSourceArgsDict',
+    'ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs',
+    'ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgsDict',
     'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs',
     'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict',
     'ModelPrimaryContainerMultiModelConfigArgs',
@@ -19875,6 +19883,10 @@ class ModelContainerAdditionalModelDataSourceS3DataSourceArgsDict(TypedDict):
     """
     The S3 path of model data to deploy.
     """
+    hub_access_config: NotRequired[pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgsDict']]]
+    """
+    Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+    """
     model_access_config: NotRequired[pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
@@ -19886,16 +19898,20 @@ class ModelContainerAdditionalModelDataSourceS3DataSourceArgs:
                  compression_type: pulumi.Input[_builtins.str],
                  s3_data_type: pulumi.Input[_builtins.str],
                  s3_uri: pulumi.Input[_builtins.str],
+                 hub_access_config: pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs']] = None,
                  model_access_config: pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param pulumi.Input[_builtins.str] s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param pulumi.Input[_builtins.str] s3_uri: The S3 path of model data to deploy.
+        :param pulumi.Input['ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs'] hub_access_config: Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
         :param pulumi.Input['ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs'] model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
         if model_access_config is not None:
             pulumi.set(__self__, "model_access_config", model_access_config)
 
@@ -19936,6 +19952,18 @@ class ModelContainerAdditionalModelDataSourceS3DataSourceArgs:
         pulumi.set(self, "s3_uri", value)
 
     @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs']]:
+        """
+        Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @hub_access_config.setter
+    def hub_access_config(self, value: pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs']]):
+        pulumi.set(self, "hub_access_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']]:
         """
@@ -19946,6 +19974,34 @@ class ModelContainerAdditionalModelDataSourceS3DataSourceArgs:
     @model_access_config.setter
     def model_access_config(self, value: pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']]):
         pulumi.set(self, "model_access_config", value)
+
+
+class ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgsDict(TypedDict):
+    hub_content_arn: pulumi.Input[_builtins.str]
+    """
+    Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+    """
+
+@pulumi.input_type
+class ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs:
+    def __init__(__self__, *,
+                 hub_content_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] hub_content_arn: Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+    @hub_content_arn.setter
+    def hub_content_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hub_content_arn", value)
 
 
 class ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict(TypedDict):
@@ -20093,6 +20149,10 @@ class ModelContainerModelDataSourceS3DataSourceArgsDict(TypedDict):
     """
     The S3 path of model data to deploy.
     """
+    hub_access_config: NotRequired[pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgsDict']]]
+    """
+    Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+    """
     model_access_config: NotRequired[pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
@@ -20104,16 +20164,20 @@ class ModelContainerModelDataSourceS3DataSourceArgs:
                  compression_type: pulumi.Input[_builtins.str],
                  s3_data_type: pulumi.Input[_builtins.str],
                  s3_uri: pulumi.Input[_builtins.str],
+                 hub_access_config: pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs']] = None,
                  model_access_config: pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param pulumi.Input[_builtins.str] s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param pulumi.Input[_builtins.str] s3_uri: The S3 path of model data to deploy.
+        :param pulumi.Input['ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs'] hub_access_config: Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
         :param pulumi.Input['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs'] model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
         if model_access_config is not None:
             pulumi.set(__self__, "model_access_config", model_access_config)
 
@@ -20154,6 +20218,18 @@ class ModelContainerModelDataSourceS3DataSourceArgs:
         pulumi.set(self, "s3_uri", value)
 
     @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs']]:
+        """
+        Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @hub_access_config.setter
+    def hub_access_config(self, value: pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs']]):
+        pulumi.set(self, "hub_access_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]:
         """
@@ -20164,6 +20240,34 @@ class ModelContainerModelDataSourceS3DataSourceArgs:
     @model_access_config.setter
     def model_access_config(self, value: pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]):
         pulumi.set(self, "model_access_config", value)
+
+
+class ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgsDict(TypedDict):
+    hub_content_arn: pulumi.Input[_builtins.str]
+    """
+    Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+    """
+
+@pulumi.input_type
+class ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs:
+    def __init__(__self__, *,
+                 hub_content_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] hub_content_arn: Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+    @hub_content_arn.setter
+    def hub_content_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hub_content_arn", value)
 
 
 class ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict(TypedDict):
@@ -20536,6 +20640,10 @@ class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgsDict(TypedDi
     """
     The S3 path of model data to deploy.
     """
+    hub_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgsDict']]]
+    """
+    Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+    """
     model_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
@@ -20547,16 +20655,20 @@ class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs:
                  compression_type: pulumi.Input[_builtins.str],
                  s3_data_type: pulumi.Input[_builtins.str],
                  s3_uri: pulumi.Input[_builtins.str],
+                 hub_access_config: pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs']] = None,
                  model_access_config: pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param pulumi.Input[_builtins.str] s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param pulumi.Input[_builtins.str] s3_uri: The S3 path of model data to deploy.
+        :param pulumi.Input['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs'] hub_access_config: Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
         :param pulumi.Input['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs'] model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
         if model_access_config is not None:
             pulumi.set(__self__, "model_access_config", model_access_config)
 
@@ -20597,6 +20709,18 @@ class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs:
         pulumi.set(self, "s3_uri", value)
 
     @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs']]:
+        """
+        Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @hub_access_config.setter
+    def hub_access_config(self, value: pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs']]):
+        pulumi.set(self, "hub_access_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']]:
         """
@@ -20607,6 +20731,34 @@ class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs:
     @model_access_config.setter
     def model_access_config(self, value: pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']]):
         pulumi.set(self, "model_access_config", value)
+
+
+class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgsDict(TypedDict):
+    hub_content_arn: pulumi.Input[_builtins.str]
+    """
+    Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+    """
+
+@pulumi.input_type
+class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs:
+    def __init__(__self__, *,
+                 hub_content_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] hub_content_arn: Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+    @hub_content_arn.setter
+    def hub_content_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hub_content_arn", value)
 
 
 class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict(TypedDict):
@@ -20754,6 +20906,10 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceArgsDict(TypedDict):
     """
     The S3 path of model data to deploy.
     """
+    hub_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgsDict']]]
+    """
+    Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+    """
     model_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
@@ -20765,16 +20921,20 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceArgs:
                  compression_type: pulumi.Input[_builtins.str],
                  s3_data_type: pulumi.Input[_builtins.str],
                  s3_uri: pulumi.Input[_builtins.str],
+                 hub_access_config: pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs']] = None,
                  model_access_config: pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param pulumi.Input[_builtins.str] s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param pulumi.Input[_builtins.str] s3_uri: The S3 path of model data to deploy.
+        :param pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs'] hub_access_config: Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
         :param pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs'] model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
         if model_access_config is not None:
             pulumi.set(__self__, "model_access_config", model_access_config)
 
@@ -20815,6 +20975,18 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceArgs:
         pulumi.set(self, "s3_uri", value)
 
     @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs']]:
+        """
+        Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @hub_access_config.setter
+    def hub_access_config(self, value: pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs']]):
+        pulumi.set(self, "hub_access_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]:
         """
@@ -20825,6 +20997,34 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceArgs:
     @model_access_config.setter
     def model_access_config(self, value: pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]):
         pulumi.set(self, "model_access_config", value)
+
+
+class ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgsDict(TypedDict):
+    hub_content_arn: pulumi.Input[_builtins.str]
+    """
+    Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+    """
+
+@pulumi.input_type
+class ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs:
+    def __init__(__self__, *,
+                 hub_content_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] hub_content_arn: Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Versioned ARN of the private hub content to deploy, such as the `versioned_hub_content_arn` of an `sagemaker.HubContentReference`. `s3_uri` must match the hub content's hosting artifact URI.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+    @hub_content_arn.setter
+    def hub_content_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hub_content_arn", value)
 
 
 class ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict(TypedDict):

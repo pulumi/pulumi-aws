@@ -16,9 +16,17 @@ public final class LogTransformerTransformerConfigParseToOcsfArgs extends com.pu
 
     public static final LogTransformerTransformerConfigParseToOcsfArgs Empty = new LogTransformerTransformerConfigParseToOcsfArgs();
 
+    /**
+     * Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+     * 
+     */
     @Import(name="eventSource", required=true)
     private Output<String> eventSource;
 
+    /**
+     * @return Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+     * 
+     */
     public Output<String> eventSource() {
         return this.eventSource;
     }
@@ -79,11 +87,23 @@ public final class LogTransformerTransformerConfigParseToOcsfArgs extends com.pu
             $ = new LogTransformerTransformerConfigParseToOcsfArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param eventSource Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventSource(Output<String> eventSource) {
             $.eventSource = eventSource;
             return this;
         }
 
+        /**
+         * @param eventSource Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventSource(String eventSource) {
             return eventSource(Output.of(eventSource));
         }

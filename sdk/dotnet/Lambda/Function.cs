@@ -768,6 +768,85 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// ### Function with Durable Configuration and Customer Managed KMS Key
+    /// 
+    /// Durable execution state can be encrypted with a customer managed KMS key via `durable_config.kms_key_arn`. The key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "Durable function execution state encryption",
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "EnableIAMUserPermissions",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
+    ///                         {
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
+    ///                     },
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "AllowLambdaDurableService",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "lambda.amazonaws.com",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:Decrypt",
+    ///                         "kms:GenerateDataKey",
+    ///                         "kms:DescribeKey",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleFunction = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         DurableConfig = new Aws.Lambda.Inputs.FunctionDurableConfigArgs
+    ///         {
+    ///             ExecutionTimeout = 3600,
+    ///             RetentionPeriod = 7,
+    ///             KmsKeyArn = example.Arn,
+    ///         },
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_durable_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Capacity Provider Configuration
     /// 
     /// ```csharp

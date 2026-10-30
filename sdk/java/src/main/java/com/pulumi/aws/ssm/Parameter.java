@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .storageType("gp2")
  *             .engine("mysql")
  *             .engineVersion("5.7.16")
- *             .instanceClass("db.t2.micro")
+ *             .instanceClass("db.t4g.micro")
  *             .dbName("mydb")
  *             .username("foo")
  *             .password(databaseMasterPassword)

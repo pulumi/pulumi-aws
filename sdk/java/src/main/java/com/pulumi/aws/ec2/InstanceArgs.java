@@ -496,14 +496,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
      * 
      */
     @Import(name="placementGroup")
     private @Nullable Output<String> placementGroup;
 
     /**
-     * @return Placement Group to start the instance in. Conflicts with `placementGroupId`.
+     * @return Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
      * 
      */
     public Optional<Output<String>> placementGroup() {
@@ -511,14 +511,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
      * 
      */
     @Import(name="placementGroupId")
     private @Nullable Output<String> placementGroupId;
 
     /**
-     * @return Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+     * @return Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
      * 
      */
     public Optional<Output<String>> placementGroupId() {
@@ -526,14 +526,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
      * 
      */
     @Import(name="placementPartitionNumber")
     private @Nullable Output<Integer> placementPartitionNumber;
 
     /**
-     * @return Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * @return Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
      * 
      */
     public Optional<Output<Integer>> placementPartitionNumber() {
@@ -1587,7 +1587,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroup Placement Group to start the instance in. Conflicts with `placementGroupId`.
+         * @param placementGroup Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
          * 
          * @return builder
          * 
@@ -1598,7 +1598,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroup Placement Group to start the instance in. Conflicts with `placementGroupId`.
+         * @param placementGroup Placement Group to start the instance in. Conflicts with `placementGroupId`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
          * 
          * @return builder
          * 
@@ -1608,7 +1608,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroupId Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+         * @param placementGroupId Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
          * 
          * @return builder
          * 
@@ -1619,7 +1619,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroupId Placement Group ID to start the instance in. Conflicts with `placementGroup`.
+         * @param placementGroupId Placement Group ID to start the instance in. Conflicts with `placementGroup`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
          * 
          * @return builder
          * 
@@ -1629,7 +1629,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
          * 
          * @return builder
          * 
@@ -1640,7 +1640,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`. Updating this argument stops and restarts the EC2 instance, except for Spot Instances and instances with `disableApiStop` and `forceDestroy` enabled, which are replaced.
          * 
          * @return builder
          * 

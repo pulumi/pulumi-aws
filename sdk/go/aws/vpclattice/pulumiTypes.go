@@ -1867,6 +1867,8 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Prefix() pulumi.Strin
 type ResourceConfigurationResourceConfigurationDefinition struct {
 	// Resource DNS Configuration. See `arnResource` Block for details.
 	ArnResource *ResourceConfigurationResourceConfigurationDefinitionArnResource `pulumi:"arnResource"`
+	// Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+	CidrResource *ResourceConfigurationResourceConfigurationDefinitionCidrResource `pulumi:"cidrResource"`
 	// Resource DNS Configuration. See `dnsResource` Block for details.
 	DnsResource *ResourceConfigurationResourceConfigurationDefinitionDnsResource `pulumi:"dnsResource"`
 	// Resource DNS Configuration. See `ipResource` Block for details.
@@ -1887,6 +1889,8 @@ type ResourceConfigurationResourceConfigurationDefinitionInput interface {
 type ResourceConfigurationResourceConfigurationDefinitionArgs struct {
 	// Resource DNS Configuration. See `arnResource` Block for details.
 	ArnResource ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput `pulumi:"arnResource"`
+	// Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+	CidrResource ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrInput `pulumi:"cidrResource"`
 	// Resource DNS Configuration. See `dnsResource` Block for details.
 	DnsResource ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput `pulumi:"dnsResource"`
 	// Resource DNS Configuration. See `ipResource` Block for details.
@@ -1977,6 +1981,13 @@ func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ArnResource(
 	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
 }
 
+// Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) CidrResource() ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionCidrResource {
+		return v.CidrResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput)
+}
+
 // Resource DNS Configuration. See `dnsResource` Block for details.
 func (o ResourceConfigurationResourceConfigurationDefinitionOutput) DnsResource() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionDnsResource {
@@ -2023,6 +2034,16 @@ func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) ArnResour
 		}
 		return v.ArnResource
 	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
+}
+
+// Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) CidrResource() ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionCidrResource {
+		if v == nil {
+			return nil
+		}
+		return v.CidrResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput)
 }
 
 // Resource DNS Configuration. See `dnsResource` Block for details.
@@ -2180,6 +2201,143 @@ func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput
 		}
 		return &v.Arn
 	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionCidrResource struct {
+	// Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+	CidrRanges []string `pulumi:"cidrRanges"`
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionCidrResourceInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs and ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionCidrResourceInput` via:
+//
+//	ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs{...}
+type ResourceConfigurationResourceConfigurationDefinitionCidrResourceInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput
+	ToResourceConfigurationResourceConfigurationDefinitionCidrResourceOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs struct {
+	// Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+	CidrRanges pulumi.StringArrayInput `pulumi:"cidrRanges"`
+}
+
+func (ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionCidrResource)(nil)).Elem()
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionCidrResourceOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionCidrResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput)
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput).ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs, ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtr and ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrInput` via:
+//
+//	        ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput
+	ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput
+}
+
+type resourceConfigurationResourceConfigurationDefinitionCidrResourcePtrType ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs
+
+func ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtr(v *ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs) ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrInput {
+	return (*resourceConfigurationResourceConfigurationDefinitionCidrResourcePtrType)(v)
+}
+
+func (*resourceConfigurationResourceConfigurationDefinitionCidrResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionCidrResource)(nil)).Elem()
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionCidrResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionCidrResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionCidrResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionCidrResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return o.ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationResourceConfigurationDefinitionCidrResource) *ResourceConfigurationResourceConfigurationDefinitionCidrResource {
+		return &v
+	}).(ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput)
+}
+
+// Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput) CidrRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionCidrResource) []string { return v.CidrRanges }).(pulumi.StringArrayOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionCidrResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput) Elem() ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionCidrResource) ResourceConfigurationResourceConfigurationDefinitionCidrResource {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationResourceConfigurationDefinitionCidrResource
+		return ret
+	}).(ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput)
+}
+
+// Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example `10.0.0.0/16`. `0.0.0.0/0` and `::/0` are only allowed as the sole range. Reserved ranges such as `169.254.0.0/16`, `100.64.0.0/10`, `224.0.0.0/4`, `fe80::/10` and `ff00::/8` are rejected by AWS.
+func (o ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput) CidrRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionCidrResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CidrRanges
+	}).(pulumi.StringArrayOutput)
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionDnsResource struct {
@@ -5166,6 +5324,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionPtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionArnResourceInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionCidrResourceInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionDnsResourceInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionIpResourceInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{})
@@ -5237,6 +5397,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionCidrResourceOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionCidrResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput{})

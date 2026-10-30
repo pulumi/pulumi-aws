@@ -25,6 +25,8 @@ __all__ = [
     'AccessProfileTimeouts',
     'DomainIdentityProviderConfiguration',
     'DomainIdentityProviderConfigurationIdentityCenterConfiguration',
+    'OrganizationDomainIdentityProviderConfiguration',
+    'OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration',
     'SpaceEncryptionConfiguration',
 ]
 
@@ -385,6 +387,76 @@ class DomainIdentityProviderConfigurationIdentityCenterConfiguration(dict):
 
     def get(self, key: str, default = None) -> Any:
         DomainIdentityProviderConfigurationIdentityCenterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_instance_arn: _builtins.str):
+        """
+        :param _builtins.str identity_center_instance_arn: ARN of the IAM Identity Center instance.
+        """
+        pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+
+@pulumi.output_type
+class OrganizationDomainIdentityProviderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterConfiguration":
+            suggest = "identity_center_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationDomainIdentityProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationDomainIdentityProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationDomainIdentityProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_configuration: 'outputs.OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration'):
+        """
+        :param 'OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs' identity_center_configuration: IAM Identity Center configuration. See below.
+        """
+        pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> 'outputs.OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration':
+        """
+        IAM Identity Center configuration. See below.
+        """
+        return pulumi.get(self, "identity_center_configuration")
+
+
+@pulumi.output_type
+class OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

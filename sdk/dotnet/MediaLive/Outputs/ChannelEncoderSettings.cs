@@ -42,6 +42,10 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> OutputGroups;
         /// <summary>
+        /// Thumbnail configuration settings. See `ThumbnailConfiguration` Block for details.
+        /// </summary>
+        public readonly Outputs.ChannelEncoderSettingsThumbnailConfiguration? ThumbnailConfiguration;
+        /// <summary>
         /// Settings used to acquire and adjust timecode information from inputs. See `TimecodeConfig` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsTimecodeConfig TimecodeConfig;
@@ -66,6 +70,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> outputGroups,
 
+            Outputs.ChannelEncoderSettingsThumbnailConfiguration? thumbnailConfiguration,
+
             Outputs.ChannelEncoderSettingsTimecodeConfig timecodeConfig,
 
             ImmutableArray<Outputs.ChannelEncoderSettingsVideoDescription> videoDescriptions)
@@ -77,6 +83,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
             MotionGraphicsConfiguration = motionGraphicsConfiguration;
             NielsenConfiguration = nielsenConfiguration;
             OutputGroups = outputGroups;
+            ThumbnailConfiguration = thumbnailConfiguration;
             TimecodeConfig = timecodeConfig;
             VideoDescriptions = videoDescriptions;
         }

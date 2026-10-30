@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
- *             .dbInstanceClass("db.t2.micro")
+ *             .dbInstanceClass("db.t4g.micro")
  *             .duration(31536000)
  *             .multiAz(false)
  *             .offeringType("All Upfront")

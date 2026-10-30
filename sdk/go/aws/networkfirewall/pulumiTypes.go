@@ -1235,6 +1235,8 @@ type FirewallPolicyFirewallPolicy struct {
 	EnableTlsSessionHolding *bool `pulumi:"enableTlsSessionHolding"`
 	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
 	PolicyVariables *FirewallPolicyFirewallPolicyPolicyVariables `pulumi:"policyVariables"`
+	// Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+	Route53ResolvedIpValidation *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation `pulumi:"route53ResolvedIpValidation"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
 	StatefulDefaultActions []string `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
@@ -1271,6 +1273,8 @@ type FirewallPolicyFirewallPolicyArgs struct {
 	EnableTlsSessionHolding pulumi.BoolPtrInput `pulumi:"enableTlsSessionHolding"`
 	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
 	PolicyVariables FirewallPolicyFirewallPolicyPolicyVariablesPtrInput `pulumi:"policyVariables"`
+	// Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+	Route53ResolvedIpValidation FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrInput `pulumi:"route53ResolvedIpValidation"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
 	StatefulDefaultActions pulumi.StringArrayInput `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
@@ -1380,6 +1384,13 @@ func (o FirewallPolicyFirewallPolicyOutput) PolicyVariables() FirewallPolicyFire
 	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
 }
 
+// Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+func (o FirewallPolicyFirewallPolicyOutput) Route53ResolvedIpValidation() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+		return v.Route53ResolvedIpValidation
+	}).(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput)
+}
+
 // Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
 func (o FirewallPolicyFirewallPolicyOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []string { return v.StatefulDefaultActions }).(pulumi.StringArrayOutput)
@@ -1472,6 +1483,16 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) PolicyVariables() FirewallPolicyF
 		}
 		return v.PolicyVariables
 	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
+}
+
+// Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+func (o FirewallPolicyFirewallPolicyPtrOutput) Route53ResolvedIpValidation() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Route53ResolvedIpValidation
+	}).(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput)
 }
 
 // Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
@@ -1849,6 +1870,241 @@ func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ToFi
 // Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
 func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) Definitions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet) []string { return v.Definitions }).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation struct {
+	// Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+	Action string `pulumi:"action"`
+	// Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+	BypassDestinationValidationIpRanges []string `pulumi:"bypassDestinationValidationIpRanges"`
+	// Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+	DnsExpiryExceptionPolicy string `pulumi:"dnsExpiryExceptionPolicy"`
+	// ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+	DnsFirewallRuleGroupId string `pulumi:"dnsFirewallRuleGroupId"`
+	// Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `awsRoute53ResolvedDomain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+	//
+	// > **Note:** An empty list can't be set for `sourceIpRanges` or `bypassDestinationValidationIpRanges`. The AWS API treats an empty `sourceIpRanges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+	//
+	// > **Note:** Removing the `route53ResolvedIpValidation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+	SourceIpRanges []string `pulumi:"sourceIpRanges"`
+}
+
+// FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput is an input type that accepts FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs and FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput` via:
+//
+//	FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{...}
+type FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput
+	ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput
+}
+
+type FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs struct {
+	// Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+	BypassDestinationValidationIpRanges pulumi.StringArrayInput `pulumi:"bypassDestinationValidationIpRanges"`
+	// Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+	DnsExpiryExceptionPolicy pulumi.StringInput `pulumi:"dnsExpiryExceptionPolicy"`
+	// ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+	DnsFirewallRuleGroupId pulumi.StringInput `pulumi:"dnsFirewallRuleGroupId"`
+	// Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `awsRoute53ResolvedDomain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+	//
+	// > **Note:** An empty list can't be set for `sourceIpRanges` or `bypassDestinationValidationIpRanges`. The AWS API treats an empty `sourceIpRanges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+	//
+	// > **Note:** Removing the `route53ResolvedIpValidation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+	SourceIpRanges pulumi.StringArrayInput `pulumi:"sourceIpRanges"`
+}
+
+func (FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return i.ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput).ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrInput is an input type that accepts FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs, FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtr and FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrInput` via:
+//
+//	        FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput
+	ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput
+}
+
+type firewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrType FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs
+
+func FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtr(v *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrInput {
+	return (*firewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrType)(v)
+}
+
+func (*firewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (i *firewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrType) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrType) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput)
+}
+
+type FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+		return &v
+	}).(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput)
+}
+
+// Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) BypassDestinationValidationIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) []string {
+		return v.BypassDestinationValidationIpRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) DnsExpiryExceptionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) string {
+		return v.DnsExpiryExceptionPolicy
+	}).(pulumi.StringOutput)
+}
+
+// ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) DnsFirewallRuleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) string {
+		return v.DnsFirewallRuleGroupId
+	}).(pulumi.StringOutput)
+}
+
+// Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `awsRoute53ResolvedDomain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+//
+// > **Note:** An empty list can't be set for `sourceIpRanges` or `bypassDestinationValidationIpRanges`. The AWS API treats an empty `sourceIpRanges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+//
+// > **Note:** Removing the `route53ResolvedIpValidation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) SourceIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) []string { return v.SourceIpRanges }).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) ToFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) Elem() FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation
+		return ret
+	}).(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput)
+}
+
+// Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) BypassDestinationValidationIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BypassDestinationValidationIpRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) DnsExpiryExceptionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsExpiryExceptionPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) DnsFirewallRuleGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsFirewallRuleGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `awsRoute53ResolvedDomain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+//
+// > **Note:** An empty list can't be set for `sourceIpRanges` or `bypassDestinationValidationIpRanges`. The AWS API treats an empty `sourceIpRanges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+//
+// > **Note:** Removing the `route53ResolvedIpValidation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+func (o FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput) SourceIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIpRanges
+	}).(pulumi.StringArrayOutput)
 }
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptions struct {
@@ -4750,7 +5006,7 @@ func (o RuleGroupRuleGroupRulesSourcePtrOutput) StatelessRulesAndCustomActions()
 type RuleGroupRuleGroupRulesSourceRulesSourceList struct {
 	// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
 	GeneratedRulesType string `pulumi:"generatedRulesType"`
-	// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+	// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
 	TargetTypes []string `pulumi:"targetTypes"`
 	// Set of domains that you want to inspect for in your traffic flows.
 	Targets []string `pulumi:"targets"`
@@ -4770,7 +5026,7 @@ type RuleGroupRuleGroupRulesSourceRulesSourceListInput interface {
 type RuleGroupRuleGroupRulesSourceRulesSourceListArgs struct {
 	// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
 	GeneratedRulesType pulumi.StringInput `pulumi:"generatedRulesType"`
-	// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+	// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
 	TargetTypes pulumi.StringArrayInput `pulumi:"targetTypes"`
 	// Set of domains that you want to inspect for in your traffic flows.
 	Targets pulumi.StringArrayInput `pulumi:"targets"`
@@ -4858,7 +5114,7 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) GeneratedRulesType()
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceRulesSourceList) string { return v.GeneratedRulesType }).(pulumi.StringOutput)
 }
 
-// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) TargetTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceRulesSourceList) []string { return v.TargetTypes }).(pulumi.StringArrayOutput)
 }
@@ -4902,7 +5158,7 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) GeneratedRulesTyp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53ResolvedIpValidation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) TargetTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroupRulesSourceRulesSourceList) []string {
 		if v == nil {
@@ -10015,6 +10271,7 @@ func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) I
 type GetFirewallPolicyFirewallPolicy struct {
 	EnableTlsSessionHolding         bool                                                         `pulumi:"enableTlsSessionHolding"`
 	PolicyVariables                 []GetFirewallPolicyFirewallPolicyPolicyVariable              `pulumi:"policyVariables"`
+	Route53ResolvedIpValidations    []GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation `pulumi:"route53ResolvedIpValidations"`
 	StatefulDefaultActions          []string                                                     `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           []GetFirewallPolicyFirewallPolicyStatefulEngineOption        `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
@@ -10039,6 +10296,7 @@ type GetFirewallPolicyFirewallPolicyInput interface {
 type GetFirewallPolicyFirewallPolicyArgs struct {
 	EnableTlsSessionHolding         pulumi.BoolInput                                                     `pulumi:"enableTlsSessionHolding"`
 	PolicyVariables                 GetFirewallPolicyFirewallPolicyPolicyVariableArrayInput              `pulumi:"policyVariables"`
+	Route53ResolvedIpValidations    GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayInput `pulumi:"route53ResolvedIpValidations"`
 	StatefulDefaultActions          pulumi.StringArrayInput                                              `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput        `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
@@ -10108,6 +10366,12 @@ func (o GetFirewallPolicyFirewallPolicyOutput) PolicyVariables() GetFirewallPoli
 	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyPolicyVariable {
 		return v.PolicyVariables
 	}).(GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) Route53ResolvedIpValidations() GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+		return v.Route53ResolvedIpValidations
+	}).(GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput)
 }
 
 func (o GetFirewallPolicyFirewallPolicyOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
@@ -10460,6 +10724,130 @@ func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet {
 		return vs[0].([]GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet)[vs[1].(int)]
 	}).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation struct {
+	Action                              string   `pulumi:"action"`
+	BypassDestinationValidationIpRanges []string `pulumi:"bypassDestinationValidationIpRanges"`
+	DnsExpiryExceptionPolicy            string   `pulumi:"dnsExpiryExceptionPolicy"`
+	DnsFirewallRuleGroupId              string   `pulumi:"dnsFirewallRuleGroupId"`
+	SourceIpRanges                      []string `pulumi:"sourceIpRanges"`
+}
+
+// GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput is an input type that accepts GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs and GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{...}
+type GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput() GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput
+	ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput
+}
+
+type GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs struct {
+	Action                              pulumi.StringInput      `pulumi:"action"`
+	BypassDestinationValidationIpRanges pulumi.StringArrayInput `pulumi:"bypassDestinationValidationIpRanges"`
+	DnsExpiryExceptionPolicy            pulumi.StringInput      `pulumi:"dnsExpiryExceptionPolicy"`
+	DnsFirewallRuleGroupId              pulumi.StringInput      `pulumi:"dnsFirewallRuleGroupId"`
+	SourceIpRanges                      pulumi.StringArrayInput `pulumi:"sourceIpRanges"`
+}
+
+func (GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput() GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArray and GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArray{ GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{...} }
+type GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput() GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput
+	ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArray []GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput
+
+func (GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArray) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput() GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArray) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput() GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) BypassDestinationValidationIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) []string {
+		return v.BypassDestinationValidationIpRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) DnsExpiryExceptionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) string {
+		return v.DnsExpiryExceptionPolicy
+	}).(pulumi.StringOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) DnsFirewallRuleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) string {
+		return v.DnsFirewallRuleGroupId
+	}).(pulumi.StringOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput) SourceIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation) []string { return v.SourceIpRanges }).(pulumi.StringArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput() GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput) ToGetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOption struct {
@@ -11491,6 +11879,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput)(nil)).Elem(), FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs{})
@@ -11628,6 +12018,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutArgs{})
@@ -11675,6 +12067,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput{})
@@ -11812,6 +12206,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionFlowTimeoutOutput{})

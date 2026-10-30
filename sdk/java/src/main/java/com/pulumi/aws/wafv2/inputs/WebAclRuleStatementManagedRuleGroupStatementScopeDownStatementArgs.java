@@ -210,7 +210,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     /**
      * Match requests that appear to contain cross-site scripting attacks.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
      * 
      */
     @Import(name="xssMatchStatement")
@@ -219,7 +219,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs>> xssMatchStatement() {
@@ -517,7 +517,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks.
          * 
-         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks.
          * 
-         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
          * 
          * @return builder
          * 

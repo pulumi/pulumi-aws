@@ -15,10 +15,20 @@ export type AccessProfile = import("./accessProfile").AccessProfile;
 export const AccessProfile: typeof import("./accessProfile").AccessProfile = null as any;
 utilities.lazyLoad(exports, ["AccessProfile"], () => require("./accessProfile"));
 
+export { DashboardArgs, DashboardState } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+
+export { OrganizationDomainArgs, OrganizationDomainState } from "./organizationDomain";
+export type OrganizationDomain = import("./organizationDomain").OrganizationDomain;
+export const OrganizationDomain: typeof import("./organizationDomain").OrganizationDomain = null as any;
+utilities.lazyLoad(exports, ["OrganizationDomain"], () => require("./organizationDomain"));
 
 export { SpaceArgs, SpaceState } from "./space";
 export type Space = import("./space").Space;
@@ -39,8 +49,12 @@ const _module = {
                 return new AccessGrant(name, <any>undefined, { urn })
             case "aws:cloudwatchomni/accessProfile:AccessProfile":
                 return new AccessProfile(name, <any>undefined, { urn })
+            case "aws:cloudwatchomni/dashboard:Dashboard":
+                return new Dashboard(name, <any>undefined, { urn })
             case "aws:cloudwatchomni/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws:cloudwatchomni/organizationDomain:OrganizationDomain":
+                return new OrganizationDomain(name, <any>undefined, { urn })
             case "aws:cloudwatchomni/space:Space":
                 return new Space(name, <any>undefined, { urn })
             case "aws:cloudwatchomni/view:View":
@@ -52,6 +66,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cloudwatchomni/accessGrant", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatchomni/accessProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatchomni/dashboard", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatchomni/domain", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatchomni/organizationDomain", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatchomni/space", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatchomni/view", _module)

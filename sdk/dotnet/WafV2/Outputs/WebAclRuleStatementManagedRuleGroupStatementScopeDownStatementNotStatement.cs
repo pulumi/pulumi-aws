@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement
     {
         /// <summary>
-        /// Single statement to negate. Exactly one statement must be specified.
+        /// Single statement to negate. Exactly one statement must be specified. The nested statement supports the statement types listed above except `ManagedRuleGroupStatement`, `RateBasedStatement` and `RuleGroupReferenceStatement`.
         /// </summary>
-        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? Statement;
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement Statement;
 
         [OutputConstructor]
-        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement(Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? statement)
+        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement(Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement)
         {
             Statement = statement;
         }

@@ -868,6 +868,102 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Function with Durable Configuration and Customer Managed KMS Key
+ * 
+ * Durable execution state can be encrypted with a customer managed KMS key via `durable_config.kms_key_arn`. The key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionDurableConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.resources.CustomTimeouts;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("Durable function execution state encryption")
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "EnableIAMUserPermissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "AllowLambdaDurableService"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "lambda.amazonaws.com")
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:Decrypt", 
+ *                                 "kms:GenerateDataKey", 
+ *                                 "kms:DescribeKey"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         )
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+ *             .durableConfig(FunctionDurableConfigArgs.builder()
+ *                 .executionTimeout(3600)
+ *                 .retentionPeriod(7)
+ *                 .kmsKeyArn(example.arn())
+ *                 .build())
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_durable_function")
+ *             .role(exampleAwsIamRole.get("arn"))
+ *             .handler("index.handler")
+ *             .runtime("nodejs24.x")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .customTimeouts(CustomTimeouts.builder()
+ *                     .delete(CustomTimeouts.parseTimeoutString("60m"))
+ *                 .build())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Capacity Provider Configuration
  * 
  * <pre>

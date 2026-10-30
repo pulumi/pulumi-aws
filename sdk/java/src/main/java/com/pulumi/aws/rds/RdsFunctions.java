@@ -4781,7 +4781,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
-     *             .dbInstanceClass("db.t2.micro")
+     *             .dbInstanceClass("db.t4g.micro")
      *             .duration(31536000)
      *             .multiAz(false)
      *             .offeringType("All Upfront")
@@ -4825,7 +4825,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
-     *             .dbInstanceClass("db.t2.micro")
+     *             .dbInstanceClass("db.t4g.micro")
      *             .duration(31536000)
      *             .multiAz(false)
      *             .offeringType("All Upfront")
@@ -4869,7 +4869,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
-     *             .dbInstanceClass("db.t2.micro")
+     *             .dbInstanceClass("db.t4g.micro")
      *             .duration(31536000)
      *             .multiAz(false)
      *             .offeringType("All Upfront")
@@ -4913,7 +4913,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
-     *             .dbInstanceClass("db.t2.micro")
+     *             .dbInstanceClass("db.t4g.micro")
      *             .duration(31536000)
      *             .multiAz(false)
      *             .offeringType("All Upfront")
@@ -4957,7 +4957,7 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
-     *             .dbInstanceClass("db.t2.micro")
+     *             .dbInstanceClass("db.t4g.micro")
      *             .duration(31536000)
      *             .multiAz(false)
      *             .offeringType("All Upfront")
@@ -5010,7 +5010,7 @@ public final class RdsFunctions {
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydb")
      *             .username("foo")
      *             .password("bar")
@@ -5025,7 +5025,7 @@ public final class RdsFunctions {
      * 
      *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance("dev", InstanceArgs.builder()
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build(), CustomResourceOptions.builder()
@@ -5078,7 +5078,7 @@ public final class RdsFunctions {
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydb")
      *             .username("foo")
      *             .password("bar")
@@ -5093,7 +5093,7 @@ public final class RdsFunctions {
      * 
      *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance("dev", InstanceArgs.builder()
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build(), CustomResourceOptions.builder()
@@ -5146,7 +5146,7 @@ public final class RdsFunctions {
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydb")
      *             .username("foo")
      *             .password("bar")
@@ -5161,7 +5161,7 @@ public final class RdsFunctions {
      * 
      *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance("dev", InstanceArgs.builder()
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build(), CustomResourceOptions.builder()
@@ -5214,7 +5214,7 @@ public final class RdsFunctions {
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydb")
      *             .username("foo")
      *             .password("bar")
@@ -5229,7 +5229,7 @@ public final class RdsFunctions {
      * 
      *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance("dev", InstanceArgs.builder()
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build(), CustomResourceOptions.builder()
@@ -5282,7 +5282,7 @@ public final class RdsFunctions {
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydb")
      *             .username("foo")
      *             .password("bar")
@@ -5297,7 +5297,7 @@ public final class RdsFunctions {
      * 
      *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance("dev", InstanceArgs.builder()
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build(), CustomResourceOptions.builder()
@@ -5350,7 +5350,7 @@ public final class RdsFunctions {
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydb")
      *             .username("foo")
      *             .password("bar")
@@ -5365,7 +5365,7 @@ public final class RdsFunctions {
      * 
      *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance("dev", InstanceArgs.builder()
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build(), CustomResourceOptions.builder()
@@ -5418,7 +5418,7 @@ public final class RdsFunctions {
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydb")
      *             .username("foo")
      *             .password("bar")
@@ -5433,7 +5433,7 @@ public final class RdsFunctions {
      * 
      *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance("dev", InstanceArgs.builder()
-     *             .instanceClass("db.t2.micro")
+     *             .instanceClass("db.t4g.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build(), CustomResourceOptions.builder()

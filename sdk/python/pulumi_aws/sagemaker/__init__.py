@@ -18,6 +18,7 @@ from .endpoint import *
 from .endpoint_configuration import *
 from .feature_group import *
 from .flow_definition import *
+from .get_hub_content import *
 from .get_prebuilt_ecr_image import *
 from .hub import *
 from .hub_content_reference import *

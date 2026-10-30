@@ -99,6 +99,21 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+     * 
+     */
+    @Import(name="ruleId")
+    private @Nullable Output<String> ruleId;
+
+    /**
+     * @return Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+     * 
+     */
+    public Optional<Output<String>> ruleId() {
+        return Optional.ofNullable(this.ruleId);
+    }
+
+    /**
      * Display name for a backup rule.
      * 
      */
@@ -211,6 +226,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.enableContinuousBackup = $.enableContinuousBackup;
         this.lifecycle = $.lifecycle;
         this.recoveryPointTags = $.recoveryPointTags;
+        this.ruleId = $.ruleId;
         this.ruleName = $.ruleName;
         this.scanActions = $.scanActions;
         this.schedule = $.schedule;
@@ -351,6 +367,27 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder recoveryPointTags(Map<String,String> recoveryPointTags) {
             return recoveryPointTags(Output.of(recoveryPointTags));
+        }
+
+        /**
+         * @param ruleId Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleId(@Nullable Output<String> ruleId) {
+            $.ruleId = ruleId;
+            return this;
+        }
+
+        /**
+         * @param ruleId Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleId(String ruleId) {
+            return ruleId(Output.of(ruleId));
         }
 
         /**

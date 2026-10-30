@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, `ServiceNetwork`, and `Tunnel`.
         /// </summary>
         [Input("vpcEndpointType")]
         public string? VpcEndpointType { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, `ServiceNetwork`, and `Tunnel`.
         /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }

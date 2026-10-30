@@ -54,6 +54,21 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
     }
 
     /**
+     * CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+     * 
+     */
+    @Import(name="cpuArchitecture")
+    private @Nullable Output<String> cpuArchitecture;
+
+    /**
+     * @return CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+     * 
+     */
+    public Optional<Output<String>> cpuArchitecture() {
+        return Optional.ofNullable(this.cpuArchitecture);
+    }
+
+    /**
      * (**Deprecated**) ARN of the current deployment.
      * 
      * @deprecated
@@ -324,6 +339,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
     private ExpressGatewayServiceState(ExpressGatewayServiceState $) {
         this.cluster = $.cluster;
         this.cpu = $.cpu;
+        this.cpuArchitecture = $.cpuArchitecture;
         this.currentDeployment = $.currentDeployment;
         this.executionRoleArn = $.executionRoleArn;
         this.healthCheckPath = $.healthCheckPath;
@@ -402,6 +418,27 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
          */
         public Builder cpu(String cpu) {
             return cpu(Output.of(cpu));
+        }
+
+        /**
+         * @param cpuArchitecture CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuArchitecture(@Nullable Output<String> cpuArchitecture) {
+            $.cpuArchitecture = cpuArchitecture;
+            return this;
+        }
+
+        /**
+         * @param cpuArchitecture CPU architecture of the tasks. Valid values are `X86_64` and `ARM64`. Defaults to `X86_64`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuArchitecture(String cpuArchitecture) {
+            return cpuArchitecture(Output.of(cpuArchitecture));
         }
 
         /**

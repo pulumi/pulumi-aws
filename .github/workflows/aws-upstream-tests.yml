@@ -82,14 +82,14 @@ jobs:
         id: esc-secrets
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-      - name: make upstream
-        run: make upstream
       - name: Install Go
         uses: actions/setup-go@v5
         with:
           go-version-file: upstream/go.mod
           cache-dependency-path: |
             upstream/go.sum
+      - name: make upstream
+        run: make upstream GO_VER=go
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:

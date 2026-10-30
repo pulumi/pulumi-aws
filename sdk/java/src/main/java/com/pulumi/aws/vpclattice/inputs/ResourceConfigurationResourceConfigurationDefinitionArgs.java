@@ -4,6 +4,7 @@
 package com.pulumi.aws.vpclattice.inputs;
 
 import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs;
+import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs;
 import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs;
 import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs;
 import com.pulumi.core.Output;
@@ -30,6 +31,21 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArgs exte
      */
     public Optional<Output<ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs>> arnResource() {
         return Optional.ofNullable(this.arnResource);
+    }
+
+    /**
+     * Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+     * 
+     */
+    @Import(name="cidrResource")
+    private @Nullable Output<ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs> cidrResource;
+
+    /**
+     * @return Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+     * 
+     */
+    public Optional<Output<ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs>> cidrResource() {
+        return Optional.ofNullable(this.cidrResource);
     }
 
     /**
@@ -66,6 +82,7 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArgs exte
 
     private ResourceConfigurationResourceConfigurationDefinitionArgs(ResourceConfigurationResourceConfigurationDefinitionArgs $) {
         this.arnResource = $.arnResource;
+        this.cidrResource = $.cidrResource;
         this.dnsResource = $.dnsResource;
         this.ipResource = $.ipResource;
     }
@@ -107,6 +124,27 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArgs exte
          */
         public Builder arnResource(ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs arnResource) {
             return arnResource(Output.of(arnResource));
+        }
+
+        /**
+         * @param cidrResource Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrResource(@Nullable Output<ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs> cidrResource) {
+            $.cidrResource = cidrResource;
+            return this;
+        }
+
+        /**
+         * @param cidrResource Resource CIDR configuration. Only valid when `type` is `CIDR`. See `cidrResource` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrResource(ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs cidrResource) {
+            return cidrResource(Output.of(cidrResource));
         }
 
         /**

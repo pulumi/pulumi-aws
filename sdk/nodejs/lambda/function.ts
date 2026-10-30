@@ -507,6 +507,64 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Function with Durable Configuration and Customer Managed KMS Key
+ *
+ * Durable execution state can be encrypted with a customer managed KMS key via `durable_config.kms_key_arn`. The key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.kms.Key("example", {
+ *     description: "Durable function execution state encryption",
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [
+ *             {
+ *                 Sid: "EnableIAMUserPermissions",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
+ *                 },
+ *                 Action: "kms:*",
+ *                 Resource: "*",
+ *             },
+ *             {
+ *                 Sid: "AllowLambdaDurableService",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "lambda.amazonaws.com",
+ *                 },
+ *                 Action: [
+ *                     "kms:Decrypt",
+ *                     "kms:GenerateDataKey",
+ *                     "kms:DescribeKey",
+ *                 ],
+ *                 Resource: "*",
+ *             },
+ *         ],
+ *     }),
+ * });
+ * const exampleFunction = new aws.lambda.Function("example", {
+ *     durableConfig: {
+ *         executionTimeout: 3600,
+ *         retentionPeriod: 7,
+ *         kmsKeyArn: example.arn,
+ *     },
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_durable_function",
+ *     role: exampleAwsIamRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
+ * }, {
+ *     customTimeouts: {
+ *         "delete": "60m",
+ *     },
+ * });
+ * ```
+ *
  * ### Capacity Provider Configuration
  *
  * ```typescript

@@ -25,8 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessGrant{}
 	case "aws:cloudwatchomni/accessProfile:AccessProfile":
 		r = &AccessProfile{}
+	case "aws:cloudwatchomni/dashboard:Dashboard":
+		r = &Dashboard{}
 	case "aws:cloudwatchomni/domain:Domain":
 		r = &Domain{}
+	case "aws:cloudwatchomni/organizationDomain:OrganizationDomain":
+		r = &OrganizationDomain{}
 	case "aws:cloudwatchomni/space:Space":
 		r = &Space{}
 	case "aws:cloudwatchomni/view:View":
@@ -56,7 +60,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"cloudwatchomni/dashboard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"cloudwatchomni/domain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatchomni/organizationDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

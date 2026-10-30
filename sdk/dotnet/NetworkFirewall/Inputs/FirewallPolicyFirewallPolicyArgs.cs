@@ -24,6 +24,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         [Input("policyVariables")]
         public Input<Inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs>? PolicyVariables { get; set; }
 
+        /// <summary>
+        /// Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+        /// </summary>
+        [Input("route53ResolvedIpValidation")]
+        public Input<Inputs.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs>? Route53ResolvedIpValidation { get; set; }
+
         [Input("statefulDefaultActions")]
         private InputList<string>? _statefulDefaultActions;
 

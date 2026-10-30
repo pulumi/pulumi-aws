@@ -666,6 +666,8 @@ type ChannelEncoderSettings struct {
 	NielsenConfiguration *ChannelEncoderSettingsNielsenConfiguration `pulumi:"nielsenConfiguration"`
 	// Output groups for the channel. See `outputGroups` Block for details.
 	OutputGroups []ChannelEncoderSettingsOutputGroup `pulumi:"outputGroups"`
+	// Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+	ThumbnailConfiguration *ChannelEncoderSettingsThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
 	// Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
 	TimecodeConfig ChannelEncoderSettingsTimecodeConfig `pulumi:"timecodeConfig"`
 	// Video descriptions for the channel. See `videoDescriptions` Block for details.
@@ -698,6 +700,8 @@ type ChannelEncoderSettingsArgs struct {
 	NielsenConfiguration ChannelEncoderSettingsNielsenConfigurationPtrInput `pulumi:"nielsenConfiguration"`
 	// Output groups for the channel. See `outputGroups` Block for details.
 	OutputGroups ChannelEncoderSettingsOutputGroupArrayInput `pulumi:"outputGroups"`
+	// Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+	ThumbnailConfiguration ChannelEncoderSettingsThumbnailConfigurationPtrInput `pulumi:"thumbnailConfiguration"`
 	// Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
 	TimecodeConfig ChannelEncoderSettingsTimecodeConfigInput `pulumi:"timecodeConfig"`
 	// Video descriptions for the channel. See `videoDescriptions` Block for details.
@@ -824,6 +828,13 @@ func (o ChannelEncoderSettingsOutput) OutputGroups() ChannelEncoderSettingsOutpu
 	return o.ApplyT(func(v ChannelEncoderSettings) []ChannelEncoderSettingsOutputGroup { return v.OutputGroups }).(ChannelEncoderSettingsOutputGroupArrayOutput)
 }
 
+// Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+func (o ChannelEncoderSettingsOutput) ThumbnailConfiguration() ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelEncoderSettingsThumbnailConfiguration {
+		return v.ThumbnailConfiguration
+	}).(ChannelEncoderSettingsThumbnailConfigurationPtrOutput)
+}
+
 // Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
 func (o ChannelEncoderSettingsOutput) TimecodeConfig() ChannelEncoderSettingsTimecodeConfigOutput {
 	return o.ApplyT(func(v ChannelEncoderSettings) ChannelEncoderSettingsTimecodeConfig { return v.TimecodeConfig }).(ChannelEncoderSettingsTimecodeConfigOutput)
@@ -926,6 +937,16 @@ func (o ChannelEncoderSettingsPtrOutput) OutputGroups() ChannelEncoderSettingsOu
 		}
 		return v.OutputGroups
 	}).(ChannelEncoderSettingsOutputGroupArrayOutput)
+}
+
+// Thumbnail configuration settings. See `thumbnailConfiguration` Block for details.
+func (o ChannelEncoderSettingsPtrOutput) ThumbnailConfiguration() ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettings) *ChannelEncoderSettingsThumbnailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ThumbnailConfiguration
+	}).(ChannelEncoderSettingsThumbnailConfigurationPtrOutput)
 }
 
 // Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
@@ -22241,6 +22262,143 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFe
 	}).(pulumi.IntPtrOutput)
 }
 
+type ChannelEncoderSettingsThumbnailConfiguration struct {
+	// Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+	State string `pulumi:"state"`
+}
+
+// ChannelEncoderSettingsThumbnailConfigurationInput is an input type that accepts ChannelEncoderSettingsThumbnailConfigurationArgs and ChannelEncoderSettingsThumbnailConfigurationOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsThumbnailConfigurationInput` via:
+//
+//	ChannelEncoderSettingsThumbnailConfigurationArgs{...}
+type ChannelEncoderSettingsThumbnailConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsThumbnailConfigurationOutput() ChannelEncoderSettingsThumbnailConfigurationOutput
+	ToChannelEncoderSettingsThumbnailConfigurationOutputWithContext(context.Context) ChannelEncoderSettingsThumbnailConfigurationOutput
+}
+
+type ChannelEncoderSettingsThumbnailConfigurationArgs struct {
+	// Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (ChannelEncoderSettingsThumbnailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsThumbnailConfigurationArgs) ToChannelEncoderSettingsThumbnailConfigurationOutput() ChannelEncoderSettingsThumbnailConfigurationOutput {
+	return i.ToChannelEncoderSettingsThumbnailConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsThumbnailConfigurationArgs) ToChannelEncoderSettingsThumbnailConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsThumbnailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsThumbnailConfigurationOutput)
+}
+
+func (i ChannelEncoderSettingsThumbnailConfigurationArgs) ToChannelEncoderSettingsThumbnailConfigurationPtrOutput() ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsThumbnailConfigurationArgs) ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsThumbnailConfigurationOutput).ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsThumbnailConfigurationPtrInput is an input type that accepts ChannelEncoderSettingsThumbnailConfigurationArgs, ChannelEncoderSettingsThumbnailConfigurationPtr and ChannelEncoderSettingsThumbnailConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsThumbnailConfigurationPtrInput` via:
+//
+//	        ChannelEncoderSettingsThumbnailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsThumbnailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsThumbnailConfigurationPtrOutput() ChannelEncoderSettingsThumbnailConfigurationPtrOutput
+	ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(context.Context) ChannelEncoderSettingsThumbnailConfigurationPtrOutput
+}
+
+type channelEncoderSettingsThumbnailConfigurationPtrType ChannelEncoderSettingsThumbnailConfigurationArgs
+
+func ChannelEncoderSettingsThumbnailConfigurationPtr(v *ChannelEncoderSettingsThumbnailConfigurationArgs) ChannelEncoderSettingsThumbnailConfigurationPtrInput {
+	return (*channelEncoderSettingsThumbnailConfigurationPtrType)(v)
+}
+
+func (*channelEncoderSettingsThumbnailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsThumbnailConfigurationPtrType) ToChannelEncoderSettingsThumbnailConfigurationPtrOutput() ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsThumbnailConfigurationPtrType) ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsThumbnailConfigurationPtrOutput)
+}
+
+type ChannelEncoderSettingsThumbnailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsThumbnailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsThumbnailConfigurationOutput) ToChannelEncoderSettingsThumbnailConfigurationOutput() ChannelEncoderSettingsThumbnailConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsThumbnailConfigurationOutput) ToChannelEncoderSettingsThumbnailConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsThumbnailConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsThumbnailConfigurationOutput) ToChannelEncoderSettingsThumbnailConfigurationPtrOutput() ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return o.ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsThumbnailConfigurationOutput) ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsThumbnailConfiguration) *ChannelEncoderSettingsThumbnailConfiguration {
+		return &v
+	}).(ChannelEncoderSettingsThumbnailConfigurationPtrOutput)
+}
+
+// Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+func (o ChannelEncoderSettingsThumbnailConfigurationOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsThumbnailConfiguration) string { return v.State }).(pulumi.StringOutput)
+}
+
+type ChannelEncoderSettingsThumbnailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsThumbnailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsThumbnailConfigurationPtrOutput) ToChannelEncoderSettingsThumbnailConfigurationPtrOutput() ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsThumbnailConfigurationPtrOutput) ToChannelEncoderSettingsThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsThumbnailConfigurationPtrOutput) Elem() ChannelEncoderSettingsThumbnailConfigurationOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsThumbnailConfiguration) ChannelEncoderSettingsThumbnailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsThumbnailConfiguration
+		return ret
+	}).(ChannelEncoderSettingsThumbnailConfigurationOutput)
+}
+
+// Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+func (o ChannelEncoderSettingsThumbnailConfigurationPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsThumbnailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 type ChannelEncoderSettingsTimecodeConfig struct {
 	// Source for the timecode associated with the event outputs.
 	Source string `pulumi:"source"`
@@ -34022,6 +34180,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationPtrInput)(nil)).Elem(), ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsInput)(nil)).Elem(), ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsThumbnailConfigurationInput)(nil)).Elem(), ChannelEncoderSettingsThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsThumbnailConfigurationPtrInput)(nil)).Elem(), ChannelEncoderSettingsThumbnailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsTimecodeConfigInput)(nil)).Elem(), ChannelEncoderSettingsTimecodeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsTimecodeConfigPtrInput)(nil)).Elem(), ChannelEncoderSettingsTimecodeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionArgs{})
@@ -34371,6 +34531,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsThumbnailConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsThumbnailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsTimecodeConfigOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsTimecodeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionOutput{})

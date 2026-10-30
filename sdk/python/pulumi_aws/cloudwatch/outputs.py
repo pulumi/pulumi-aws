@@ -3965,6 +3965,7 @@ class LogTransformerTransformerConfigParseToOcsf(dict):
                  ocsf_version: _builtins.str,
                  source: Optional[_builtins.str] = None):
         """
+        :param _builtins.str event_source: Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
         :param _builtins.str ocsf_version: Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
         :param _builtins.str source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
         """
@@ -3976,6 +3977,9 @@ class LogTransformerTransformerConfigParseToOcsf(dict):
     @_builtins.property
     @pulumi.getter(name="eventSource")
     def event_source(self) -> _builtins.str:
+        """
+        Specifies the service or process that produces the log events. Allowed values are: `CloudTrail`, `Route53Resolver`, `VPCFlow`, `EKSAudit`, and `AWSWAF`.
+        """
         return pulumi.get(self, "event_source")
 
     @_builtins.property

@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyPolicyVariables;
+import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatelessCustomAction;
@@ -29,6 +30,11 @@ public final class FirewallPolicyFirewallPolicy {
      * 
      */
     private @Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables;
+    /**
+     * @return Resolved IP validation settings, which check that a connection&#39;s destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+     * 
+     */
+    private @Nullable FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation route53ResolvedIpValidation;
     /**
      * @return Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
      * 
@@ -86,6 +92,13 @@ public final class FirewallPolicyFirewallPolicy {
      */
     public Optional<FirewallPolicyFirewallPolicyPolicyVariables> policyVariables() {
         return Optional.ofNullable(this.policyVariables);
+    }
+    /**
+     * @return Resolved IP validation settings, which check that a connection&#39;s destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+     * 
+     */
+    public Optional<FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation> route53ResolvedIpValidation() {
+        return Optional.ofNullable(this.route53ResolvedIpValidation);
     }
     /**
      * @return Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
@@ -157,6 +170,7 @@ public final class FirewallPolicyFirewallPolicy {
     public static final class Builder {
         private @Nullable Boolean enableTlsSessionHolding;
         private @Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables;
+        private @Nullable FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation route53ResolvedIpValidation;
         private @Nullable List<String> statefulDefaultActions;
         private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptions statefulEngineOptions;
         private @Nullable List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences;
@@ -170,6 +184,7 @@ public final class FirewallPolicyFirewallPolicy {
     	      Objects.requireNonNull(defaults);
     	      this.enableTlsSessionHolding = defaults.enableTlsSessionHolding;
     	      this.policyVariables = defaults.policyVariables;
+    	      this.route53ResolvedIpValidation = defaults.route53ResolvedIpValidation;
     	      this.statefulDefaultActions = defaults.statefulDefaultActions;
     	      this.statefulEngineOptions = defaults.statefulEngineOptions;
     	      this.statefulRuleGroupReferences = defaults.statefulRuleGroupReferences;
@@ -190,6 +205,12 @@ public final class FirewallPolicyFirewallPolicy {
         public Builder policyVariables(@Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables) {
 
             this.policyVariables = policyVariables;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder route53ResolvedIpValidation(@Nullable FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation route53ResolvedIpValidation) {
+
+            this.route53ResolvedIpValidation = route53ResolvedIpValidation;
             return this;
         }
         @CustomType.Setter
@@ -266,6 +287,7 @@ public final class FirewallPolicyFirewallPolicy {
             final var _resultValue = new FirewallPolicyFirewallPolicy();
             _resultValue.enableTlsSessionHolding = enableTlsSessionHolding;
             _resultValue.policyVariables = policyVariables;
+            _resultValue.route53ResolvedIpValidation = route53ResolvedIpValidation;
             _resultValue.statefulDefaultActions = statefulDefaultActions;
             _resultValue.statefulEngineOptions = statefulEngineOptions;
             _resultValue.statefulRuleGroupReferences = statefulRuleGroupReferences;

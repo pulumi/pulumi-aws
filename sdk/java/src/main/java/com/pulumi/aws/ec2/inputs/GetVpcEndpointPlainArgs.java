@@ -123,14 +123,14 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, `ServiceNetwork`, and `Tunnel`.
      * 
      */
     @Import(name="vpcEndpointType")
     private @Nullable String vpcEndpointType;
 
     /**
-     * @return VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     * @return VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, `ServiceNetwork`, and `Tunnel`.
      * 
      */
     public Optional<String> vpcEndpointType() {
@@ -272,7 +272,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param vpcEndpointType VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+         * @param vpcEndpointType VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, `ServiceNetwork`, and `Tunnel`.
          * 
          * @return builder
          * 

@@ -4,8 +4,11 @@
 package com.pulumi.aws.sagemaker;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+import com.pulumi.aws.sagemaker.inputs.GetHubContentPlainArgs;
 import com.pulumi.aws.sagemaker.inputs.GetPrebuiltEcrImageArgs;
 import com.pulumi.aws.sagemaker.inputs.GetPrebuiltEcrImagePlainArgs;
+import com.pulumi.aws.sagemaker.outputs.GetHubContentResult;
 import com.pulumi.aws.sagemaker.outputs.GetPrebuiltEcrImageResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -15,6 +18,431 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SagemakerFunctions {
+    /**
+     * Provides details about an AWS SageMaker AI Hub Content, such as a model in the SageMaker JumpStart public hub or a model reference in a private hub.
+     * 
+     * ## Example Usage
+     * 
+     * ### Public Hub Model
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName("SageMakerPublicHub")
+     *             .hubContentName("meta-textgeneration-llama-2-13b-f")
+     *             .hubContentType("Model")
+     *             .build());
+     * 
+     *         final var hostingArtifactUri = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.hubContentDocument())
+     *             .build()).result().HostingArtifactUri();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Private Hub Model Reference
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName(exampleAwsSagemakerHubContentReference.get("hubName"))
+     *             .hubContentName(exampleAwsSagemakerHubContentReference.get("hubContentName"))
+     *             .hubContentType("ModelReference")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHubContentResult> getHubContent(GetHubContentArgs args) {
+        return getHubContent(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS SageMaker AI Hub Content, such as a model in the SageMaker JumpStart public hub or a model reference in a private hub.
+     * 
+     * ## Example Usage
+     * 
+     * ### Public Hub Model
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName("SageMakerPublicHub")
+     *             .hubContentName("meta-textgeneration-llama-2-13b-f")
+     *             .hubContentType("Model")
+     *             .build());
+     * 
+     *         final var hostingArtifactUri = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.hubContentDocument())
+     *             .build()).result().HostingArtifactUri();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Private Hub Model Reference
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName(exampleAwsSagemakerHubContentReference.get("hubName"))
+     *             .hubContentName(exampleAwsSagemakerHubContentReference.get("hubContentName"))
+     *             .hubContentType("ModelReference")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHubContentResult> getHubContentPlain(GetHubContentPlainArgs args) {
+        return getHubContentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS SageMaker AI Hub Content, such as a model in the SageMaker JumpStart public hub or a model reference in a private hub.
+     * 
+     * ## Example Usage
+     * 
+     * ### Public Hub Model
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName("SageMakerPublicHub")
+     *             .hubContentName("meta-textgeneration-llama-2-13b-f")
+     *             .hubContentType("Model")
+     *             .build());
+     * 
+     *         final var hostingArtifactUri = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.hubContentDocument())
+     *             .build()).result().HostingArtifactUri();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Private Hub Model Reference
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName(exampleAwsSagemakerHubContentReference.get("hubName"))
+     *             .hubContentName(exampleAwsSagemakerHubContentReference.get("hubContentName"))
+     *             .hubContentType("ModelReference")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHubContentResult> getHubContent(GetHubContentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:sagemaker/getHubContent:getHubContent", TypeShape.of(GetHubContentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS SageMaker AI Hub Content, such as a model in the SageMaker JumpStart public hub or a model reference in a private hub.
+     * 
+     * ## Example Usage
+     * 
+     * ### Public Hub Model
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName("SageMakerPublicHub")
+     *             .hubContentName("meta-textgeneration-llama-2-13b-f")
+     *             .hubContentType("Model")
+     *             .build());
+     * 
+     *         final var hostingArtifactUri = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.hubContentDocument())
+     *             .build()).result().HostingArtifactUri();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Private Hub Model Reference
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName(exampleAwsSagemakerHubContentReference.get("hubName"))
+     *             .hubContentName(exampleAwsSagemakerHubContentReference.get("hubContentName"))
+     *             .hubContentType("ModelReference")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHubContentResult> getHubContent(GetHubContentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:sagemaker/getHubContent:getHubContent", TypeShape.of(GetHubContentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS SageMaker AI Hub Content, such as a model in the SageMaker JumpStart public hub or a model reference in a private hub.
+     * 
+     * ## Example Usage
+     * 
+     * ### Public Hub Model
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName("SageMakerPublicHub")
+     *             .hubContentName("meta-textgeneration-llama-2-13b-f")
+     *             .hubContentType("Model")
+     *             .build());
+     * 
+     *         final var hostingArtifactUri = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.hubContentDocument())
+     *             .build()).result().HostingArtifactUri();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Private Hub Model Reference
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+     * import com.pulumi.aws.sagemaker.inputs.GetHubContentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SagemakerFunctions.getHubContent(GetHubContentArgs.builder()
+     *             .hubName(exampleAwsSagemakerHubContentReference.get("hubName"))
+     *             .hubContentName(exampleAwsSagemakerHubContentReference.get("hubContentName"))
+     *             .hubContentType("ModelReference")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHubContentResult> getHubContentPlain(GetHubContentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:sagemaker/getHubContent:getHubContent", TypeShape.of(GetHubContentResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Get information about prebuilt Amazon SageMaker AI  Docker images.
      * 

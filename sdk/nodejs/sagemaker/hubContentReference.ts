@@ -136,6 +136,10 @@ export class HubContentReference extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.sagemaker.HubContentReferenceTimeouts | undefined>;
+    /**
+     * ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+     */
+    declare public /*out*/ readonly versionedHubContentArn: pulumi.Output<string>;
 
     /**
      * Create a HubContentReference resource with the given unique name, arguments, and options.
@@ -162,6 +166,7 @@ export class HubContentReference extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["versionedHubContentArn"] = state?.versionedHubContentArn;
         } else {
             const args = argsOrState as HubContentReferenceArgs | undefined;
             if (args?.hubContentName === undefined && !opts.urn) {
@@ -185,6 +190,7 @@ export class HubContentReference extends pulumi.CustomResource {
             resourceInputs["hubContentStatus"] = undefined /*out*/;
             resourceInputs["hubContentVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["versionedHubContentArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HubContentReference.__pulumiType, name, resourceInputs, opts);
@@ -240,6 +246,10 @@ export interface HubContentReferenceState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.sagemaker.HubContentReferenceTimeouts | undefined>;
+    /**
+     * ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+     */
+    versionedHubContentArn?: pulumi.Input<string | undefined>;
 }
 
 /**

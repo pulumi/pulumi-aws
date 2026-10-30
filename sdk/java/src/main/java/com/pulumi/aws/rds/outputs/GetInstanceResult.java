@@ -162,6 +162,11 @@ public final class GetInstanceResult {
      */
     private Boolean multiAz;
     /**
+     * @return Whether the DB instance uses the multi-tenant configuration of the Oracle CDB architecture.
+     * 
+     */
+    private Boolean multiTenant;
+    /**
      * @return Network type of the DB instance.
      * 
      */
@@ -442,6 +447,13 @@ public final class GetInstanceResult {
         return this.multiAz;
     }
     /**
+     * @return Whether the DB instance uses the multi-tenant configuration of the Oracle CDB architecture.
+     * 
+     */
+    public Boolean multiTenant() {
+        return this.multiTenant;
+    }
+    /**
      * @return Network type of the DB instance.
      * 
      */
@@ -585,6 +597,7 @@ public final class GetInstanceResult {
         private Integer monitoringInterval;
         private String monitoringRoleArn;
         private Boolean multiAz;
+        private Boolean multiTenant;
         private String networkType;
         private List<String> optionGroupMemberships;
         private Integer port;
@@ -634,6 +647,7 @@ public final class GetInstanceResult {
     	      this.monitoringInterval = defaults.monitoringInterval;
     	      this.monitoringRoleArn = defaults.monitoringRoleArn;
     	      this.multiAz = defaults.multiAz;
+    	      this.multiTenant = defaults.multiTenant;
     	      this.networkType = defaults.networkType;
     	      this.optionGroupMemberships = defaults.optionGroupMemberships;
     	      this.port = defaults.port;
@@ -902,6 +916,14 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder multiTenant(Boolean multiTenant) {
+            if (multiTenant == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "multiTenant");
+            }
+            this.multiTenant = multiTenant;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkType(String networkType) {
             if (networkType == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "networkType");
@@ -1067,6 +1089,7 @@ public final class GetInstanceResult {
             _resultValue.monitoringInterval = monitoringInterval;
             _resultValue.monitoringRoleArn = monitoringRoleArn;
             _resultValue.multiAz = multiAz;
+            _resultValue.multiTenant = multiTenant;
             _resultValue.networkType = networkType;
             _resultValue.optionGroupMemberships = optionGroupMemberships;
             _resultValue.port = port;

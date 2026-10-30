@@ -702,6 +702,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+     * 
+     */
+    @Import(name="multiTenant")
+    private @Nullable Output<Boolean> multiTenant;
+
+    /**
+     * @return Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+     * 
+     */
+    public Optional<Output<Boolean>> multiTenant() {
+        return Optional.ofNullable(this.multiTenant);
+    }
+
+    /**
      * National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
      */
@@ -1171,6 +1186,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.monitoringInterval = $.monitoringInterval;
         this.monitoringRoleArn = $.monitoringRoleArn;
         this.multiAz = $.multiAz;
+        this.multiTenant = $.multiTenant;
         this.ncharCharacterSetName = $.ncharCharacterSetName;
         this.networkType = $.networkType;
         this.optionGroupName = $.optionGroupName;
@@ -2202,6 +2218,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder multiAz(Boolean multiAz) {
             return multiAz(Output.of(multiAz));
+        }
+
+        /**
+         * @param multiTenant Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiTenant(@Nullable Output<Boolean> multiTenant) {
+            $.multiTenant = multiTenant;
+            return this;
+        }
+
+        /**
+         * @param multiTenant Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `applyImmediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `passwordWo`, and `manageMasterUserPassword` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiTenant(Boolean multiTenant) {
+            return multiTenant(Output.of(multiTenant));
         }
 
         /**

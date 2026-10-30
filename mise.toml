@@ -5,7 +5,7 @@ experimental = true
 postinstall = "mise deps install agent-skills"
 
 [tools]
-"pipx:apm-cli" = "0.26.0"
+"pipx:apm-cli" = "0.35.0"
 golangci-lint = "2.7.0"
 # AGENTS.md tells contributors and agents to search with `rg`; ship it so that
 # instruction holds in a fresh checkout.

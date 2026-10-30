@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-07-21T17:27:37.823918+00:00'
-apm_version: 0.26.0
+generated_at: '2026-10-30T11:02:45.193419+00:00'
+apm_version: 0.35.0
 dependencies:
 - repo_url: pulumi-labs/provider-agent-skills
   name: pulumi-bridged-provider
@@ -125,9 +125,9 @@ dependencies:
 - repo_url: pulumi/agent-skills
   name: pulumi-package-maintenance
   host: github.com
-  resolved_commit: b001eb8e25fc3277b2fb14a75c4159b19167a1a5
+  resolved_commit: 2517e28e4bc029424e9c9ee48016394296be0f6a
   resolved_ref: main
-  version: 1.0.3
+  version: 1.0.4
   virtual_path: package-maintenance
   is_virtual: true
   depth: 2
@@ -155,19 +155,19 @@ dependencies:
   deployed_file_hashes:
     .agents/skills/pulumi-upgrade-provider/SKILL.md: sha256:7dfc873f30ff4d4f7bb6f537e9b59e0b47403392e5567e6912fa536cdc34f4a3
     .agents/skills/pulumi-upgrade-provider/agents/openai.yaml: sha256:3c396aa642f8d1048d90106e47758a28fe3dca9e78f7d477e47ed4642e9e0bde
-    .agents/skills/pulumi-upgrade-provider/references/upgrade-provider-errors.md: sha256:22d054a72a3c4a7e7d2b1b3e37caf30e42efb7ea982ed2e1233e3859d91005bb
-    .agents/skills/pulumi-upgrade-provider/use_cases.yaml: sha256:9eddb85af2d3b9b789becf70c2698eac4d5ae1a2a30f86a5cd7e6c24241bdfc9
+    .agents/skills/pulumi-upgrade-provider/references/upgrade-provider-errors.md: sha256:bfb377e1b95263bff4e428a7c7202cb04be87bdb139f8a90a9ba6c3a0896197c
+    .agents/skills/pulumi-upgrade-provider/use_cases.yaml: sha256:1ef52b6c4d51c26c53b6fee802627a1bf498613dabda215ec0aa86231f6b6dc4
     .agents/skills/upstream-patches/SKILL.md: sha256:56a593f44d1bcc05413354204da3c73488d8cb9239f043fea4cc103fad7054b1
     .agents/skills/upstream-patches/agents/openai.yaml: sha256:2fb000ec013660c8c5db2566c9e92aa125e339f89d66e8c4b5b4165311f48c2a
     .agents/skills/upstream-patches/use_cases.yaml: sha256:6ca7fd1178a7c3287e0af7dea901004201c6052b3f22af36d4ad469892500698
     .claude/skills/pulumi-upgrade-provider/SKILL.md: sha256:7dfc873f30ff4d4f7bb6f537e9b59e0b47403392e5567e6912fa536cdc34f4a3
     .claude/skills/pulumi-upgrade-provider/agents/openai.yaml: sha256:3c396aa642f8d1048d90106e47758a28fe3dca9e78f7d477e47ed4642e9e0bde
-    .claude/skills/pulumi-upgrade-provider/references/upgrade-provider-errors.md: sha256:22d054a72a3c4a7e7d2b1b3e37caf30e42efb7ea982ed2e1233e3859d91005bb
-    .claude/skills/pulumi-upgrade-provider/use_cases.yaml: sha256:9eddb85af2d3b9b789becf70c2698eac4d5ae1a2a30f86a5cd7e6c24241bdfc9
+    .claude/skills/pulumi-upgrade-provider/references/upgrade-provider-errors.md: sha256:bfb377e1b95263bff4e428a7c7202cb04be87bdb139f8a90a9ba6c3a0896197c
+    .claude/skills/pulumi-upgrade-provider/use_cases.yaml: sha256:1ef52b6c4d51c26c53b6fee802627a1bf498613dabda215ec0aa86231f6b6dc4
     .claude/skills/upstream-patches/SKILL.md: sha256:56a593f44d1bcc05413354204da3c73488d8cb9239f043fea4cc103fad7054b1
     .claude/skills/upstream-patches/agents/openai.yaml: sha256:2fb000ec013660c8c5db2566c9e92aa125e339f89d66e8c4b5b4165311f48c2a
     .claude/skills/upstream-patches/use_cases.yaml: sha256:6ca7fd1178a7c3287e0af7dea901004201c6052b3f22af36d4ad469892500698
-  content_hash: sha256:7b41d2fdbe38a9b3bfe5cdd02486a382faf17550f4a31f75db91c87faf1b7728
+  content_hash: sha256:320419e9efe5f320bbd1ef773802f82839f9238d2365c505fc6bf6d01ac08ae6
   declared_license: Apache-2.0
 deployments:
 - kind: project-relative
@@ -295,7 +295,7 @@ deployments:
   owners:
   - pulumi/agent-skills/package-maintenance
   active_owner: pulumi/agent-skills/package-maintenance
-  content_hash: sha256:22d054a72a3c4a7e7d2b1b3e37caf30e42efb7ea982ed2e1233e3859d91005bb
+  content_hash: sha256:bfb377e1b95263bff4e428a7c7202cb04be87bdb139f8a90a9ba6c3a0896197c
 - kind: project-relative
   target: claude
   value: .claude/skills/pulumi-upgrade-provider/use_cases.yaml
@@ -304,7 +304,7 @@ deployments:
   owners:
   - pulumi/agent-skills/package-maintenance
   active_owner: pulumi/agent-skills/package-maintenance
-  content_hash: sha256:9eddb85af2d3b9b789becf70c2698eac4d5ae1a2a30f86a5cd7e6c24241bdfc9
+  content_hash: sha256:1ef52b6c4d51c26c53b6fee802627a1bf498613dabda215ec0aa86231f6b6dc4
 - kind: project-relative
   target: claude
   value: .claude/skills/stage-pulumi-provider-repro
@@ -610,7 +610,7 @@ deployments:
   owners:
   - pulumi/agent-skills/package-maintenance
   active_owner: pulumi/agent-skills/package-maintenance
-  content_hash: sha256:22d054a72a3c4a7e7d2b1b3e37caf30e42efb7ea982ed2e1233e3859d91005bb
+  content_hash: sha256:bfb377e1b95263bff4e428a7c7202cb04be87bdb139f8a90a9ba6c3a0896197c
 - kind: project-relative
   target: codex
   value: .agents/skills/pulumi-upgrade-provider/use_cases.yaml
@@ -619,7 +619,7 @@ deployments:
   owners:
   - pulumi/agent-skills/package-maintenance
   active_owner: pulumi/agent-skills/package-maintenance
-  content_hash: sha256:9eddb85af2d3b9b789becf70c2698eac4d5ae1a2a30f86a5cd7e6c24241bdfc9
+  content_hash: sha256:1ef52b6c4d51c26c53b6fee802627a1bf498613dabda215ec0aa86231f6b6dc4
 - kind: project-relative
   target: codex
   value: .agents/skills/stage-pulumi-provider-repro

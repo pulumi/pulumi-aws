@@ -189,6 +189,21 @@ public final class HubContentReferenceState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.timeouts);
     }
 
+    /**
+     * ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+     * 
+     */
+    @Import(name="versionedHubContentArn")
+    private @Nullable Output<String> versionedHubContentArn;
+
+    /**
+     * @return ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+     * 
+     */
+    public Optional<Output<String>> versionedHubContentArn() {
+        return Optional.ofNullable(this.versionedHubContentArn);
+    }
+
     private HubContentReferenceState() {}
 
     private HubContentReferenceState(HubContentReferenceState $) {
@@ -204,6 +219,7 @@ public final class HubContentReferenceState extends com.pulumi.resources.Resourc
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
+        this.versionedHubContentArn = $.versionedHubContentArn;
     }
 
     public static Builder builder() {
@@ -462,6 +478,27 @@ public final class HubContentReferenceState extends com.pulumi.resources.Resourc
 
         public Builder timeouts(HubContentReferenceTimeoutsArgs timeouts) {
             return timeouts(Output.of(timeouts));
+        }
+
+        /**
+         * @param versionedHubContentArn ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionedHubContentArn(@Nullable Output<String> versionedHubContentArn) {
+            $.versionedHubContentArn = versionedHubContentArn;
+            return this;
+        }
+
+        /**
+         * @param versionedHubContentArn ARN of the hub content reference, including the version suffix. Use this for `hub_access_config.hub_content_arn` in `aws.sagemaker.Model`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionedHubContentArn(String versionedHubContentArn) {
+            return versionedHubContentArn(Output.of(versionedHubContentArn));
         }
 
         public HubContentReferenceState build() {

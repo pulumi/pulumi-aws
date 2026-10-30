@@ -155,6 +155,56 @@ namespace Pulumi.Aws.VpcLattice
     /// });
     /// ```
     /// 
+    /// ### CIDR Example
+    /// 
+    /// A `CIDR` resource configuration must use a resource gateway with `ResourceConfigDnsResolution` set to `IN_VPC`. It cannot be associated with a service network or a resource endpoint and is consumed by a VPC endpoint of type `Tunnel`. See [Access CIDR ranges using AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-cidr-ranges.html) for details.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VpcLattice.ResourceGateway("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         ResourceConfigDnsResolution = "IN_VPC",
+    ///     });
+    /// 
+    ///     var exampleResourceConfiguration = new Aws.VpcLattice.ResourceConfiguration("example", new()
+    ///     {
+    ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
+    ///         {
+    ///             CidrResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs
+    ///             {
+    ///                 CidrRanges = new[]
+    ///                 {
+    ///                     "10.0.0.0/16",
+    ///                     "192.168.0.0/24",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         ResourceGatewayIdentifier = example.Id,
+    ///         Type = "CIDR",
+    ///         Protocol = "TCP_UDP",
+    ///         PortRanges = new[]
+    ///         {
+    ///             "53",
+    ///             "443",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Resource Configuration using the `Id`. For example:
@@ -209,13 +259,13 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Port ranges to access the Resource either single port `80` or range `80-81` range.
+        /// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
         /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<string>> PortRanges { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `ResourceConfigurationGroupId` is not.
+        /// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `Type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `ResourceConfigurationGroupId` is not.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -262,7 +312,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<Outputs.ResourceConfigurationTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `CidrResource` block.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -341,7 +391,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputList<string>? _portRanges;
 
         /// <summary>
-        /// Port ranges to access the Resource either single port `80` or range `80-81` range.
+        /// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
         /// </summary>
         public InputList<string> PortRanges
         {
@@ -350,7 +400,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `ResourceConfigurationGroupId` is not.
+        /// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `Type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `ResourceConfigurationGroupId` is not.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -397,7 +447,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<Inputs.ResourceConfigurationTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `CidrResource` block.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -456,7 +506,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputList<string>? _portRanges;
 
         /// <summary>
-        /// Port ranges to access the Resource either single port `80` or range `80-81` range.
+        /// Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
         /// </summary>
         public InputList<string> PortRanges
         {
@@ -465,7 +515,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `ResourceConfigurationGroupId` is not.
+        /// Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `Type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `ResourceConfigurationGroupId` is not.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -524,7 +574,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<Inputs.ResourceConfigurationTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `CidrResource` block.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

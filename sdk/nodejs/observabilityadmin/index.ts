@@ -10,6 +10,16 @@ export type CentralizationRuleForOrganization = import("./centralizationRuleForO
 export const CentralizationRuleForOrganization: typeof import("./centralizationRuleForOrganization").CentralizationRuleForOrganization = null as any;
 utilities.lazyLoad(exports, ["CentralizationRuleForOrganization"], () => require("./centralizationRuleForOrganization"));
 
+export { DatasetIntegrationArgs, DatasetIntegrationState } from "./datasetIntegration";
+export type DatasetIntegration = import("./datasetIntegration").DatasetIntegration;
+export const DatasetIntegration: typeof import("./datasetIntegration").DatasetIntegration = null as any;
+utilities.lazyLoad(exports, ["DatasetIntegration"], () => require("./datasetIntegration"));
+
+export { GetDatasetIntegrationArgs, GetDatasetIntegrationResult, GetDatasetIntegrationOutputArgs } from "./getDatasetIntegration";
+export const getDatasetIntegration: typeof import("./getDatasetIntegration").getDatasetIntegration = null as any;
+export const getDatasetIntegrationOutput: typeof import("./getDatasetIntegration").getDatasetIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getDatasetIntegration","getDatasetIntegrationOutput"], () => require("./getDatasetIntegration"));
+
 export { S3TableIntegrationArgs, S3TableIntegrationState } from "./s3tableIntegration";
 export type S3TableIntegration = import("./s3tableIntegration").S3TableIntegration;
 export const S3TableIntegration: typeof import("./s3tableIntegration").S3TableIntegration = null as any;
@@ -52,6 +62,8 @@ const _module = {
         switch (type) {
             case "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization":
                 return new CentralizationRuleForOrganization(name, <any>undefined, { urn })
+            case "aws:observabilityadmin/datasetIntegration:DatasetIntegration":
+                return new DatasetIntegration(name, <any>undefined, { urn })
             case "aws:observabilityadmin/s3TableIntegration:S3TableIntegration":
                 return new S3TableIntegration(name, <any>undefined, { urn })
             case "aws:observabilityadmin/telemetryEnrichment:TelemetryEnrichment":
@@ -72,6 +84,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/centralizationRuleForOrganization", _module)
+pulumi.runtime.registerResourceModule("aws", "observabilityadmin/datasetIntegration", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/s3TableIntegration", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEnrichment", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEvaluation", _module)

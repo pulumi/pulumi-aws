@@ -77,7 +77,7 @@ export interface GetVpcEndpointArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, `ServiceNetwork`, and `Tunnel`.
      */
     vpcEndpointType?: string;
     /**
@@ -226,7 +226,7 @@ export interface GetVpcEndpointOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
+     * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, `ServiceNetwork`, and `Tunnel`.
      */
     vpcEndpointType?: pulumi.Input<string | undefined>;
     /**

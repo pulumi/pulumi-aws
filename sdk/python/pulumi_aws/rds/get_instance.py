@@ -27,7 +27,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, database_insights_mode=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, region=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, upgrade_rollout_order=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, database_insights_mode=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, multi_tenant=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, region=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, upgrade_rollout_order=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -118,6 +118,9 @@ class GetInstanceResult:
         if multi_az and not isinstance(multi_az, bool):
             raise TypeError("Expected argument 'multi_az' to be a bool")
         pulumi.set(__self__, "multi_az", multi_az)
+        if multi_tenant and not isinstance(multi_tenant, bool):
+            raise TypeError("Expected argument 'multi_tenant' to be a bool")
+        pulumi.set(__self__, "multi_tenant", multi_tenant)
         if network_type and not isinstance(network_type, str):
             raise TypeError("Expected argument 'network_type' to be a str")
         pulumi.set(__self__, "network_type", network_type)
@@ -405,6 +408,14 @@ class GetInstanceResult:
         return pulumi.get(self, "multi_az")
 
     @_builtins.property
+    @pulumi.getter(name="multiTenant")
+    def multi_tenant(self) -> _builtins.bool:
+        """
+        Whether the DB instance uses the multi-tenant configuration of the Oracle CDB architecture.
+        """
+        return pulumi.get(self, "multi_tenant")
+
+    @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> _builtins.str:
         """
@@ -563,6 +574,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
             multi_az=self.multi_az,
+            multi_tenant=self.multi_tenant,
             network_type=self.network_type,
             option_group_memberships=self.option_group_memberships,
             port=self.port,
@@ -640,6 +652,7 @@ def get_instance(db_instance_identifier: Optional[_builtins.str] = None,
         monitoring_interval=pulumi.get(__ret__, 'monitoring_interval'),
         monitoring_role_arn=pulumi.get(__ret__, 'monitoring_role_arn'),
         multi_az=pulumi.get(__ret__, 'multi_az'),
+        multi_tenant=pulumi.get(__ret__, 'multi_tenant'),
         network_type=pulumi.get(__ret__, 'network_type'),
         option_group_memberships=pulumi.get(__ret__, 'option_group_memberships'),
         port=pulumi.get(__ret__, 'port'),
@@ -714,6 +727,7 @@ def get_instance_output(db_instance_identifier: pulumi.Input[Optional[Optional[_
         monitoring_interval=pulumi.get(__response__, 'monitoring_interval'),
         monitoring_role_arn=pulumi.get(__response__, 'monitoring_role_arn'),
         multi_az=pulumi.get(__response__, 'multi_az'),
+        multi_tenant=pulumi.get(__response__, 'multi_tenant'),
         network_type=pulumi.get(__response__, 'network_type'),
         option_group_memberships=pulumi.get(__response__, 'option_group_memberships'),
         port=pulumi.get(__response__, 'port'),

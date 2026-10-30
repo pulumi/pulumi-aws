@@ -6,6 +6,7 @@ package com.pulumi.aws.lambda.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 
 @CustomType
@@ -15,6 +16,11 @@ public final class GetFunctionDurableConfig {
      * 
      */
     private Integer executionTimeout;
+    /**
+     * @return ARN of the KMS key used to encrypt the durable function&#39;s execution state.
+     * 
+     */
+    private String kmsKeyArn;
     /**
      * @return Number of days to retain the function&#39;s execution state.
      * 
@@ -28,6 +34,13 @@ public final class GetFunctionDurableConfig {
      */
     public Integer executionTimeout() {
         return this.executionTimeout;
+    }
+    /**
+     * @return ARN of the KMS key used to encrypt the durable function&#39;s execution state.
+     * 
+     */
+    public String kmsKeyArn() {
+        return this.kmsKeyArn;
     }
     /**
      * @return Number of days to retain the function&#39;s execution state.
@@ -47,11 +60,13 @@ public final class GetFunctionDurableConfig {
     @CustomType.Builder
     public static final class Builder {
         private Integer executionTimeout;
+        private String kmsKeyArn;
         private Integer retentionPeriod;
         public Builder() {}
         public Builder(GetFunctionDurableConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executionTimeout = defaults.executionTimeout;
+    	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.retentionPeriod = defaults.retentionPeriod;
         }
 
@@ -61,6 +76,14 @@ public final class GetFunctionDurableConfig {
               throw new MissingRequiredPropertyException("GetFunctionDurableConfig", "executionTimeout");
             }
             this.executionTimeout = executionTimeout;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionDurableConfig", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +97,7 @@ public final class GetFunctionDurableConfig {
         public GetFunctionDurableConfig build() {
             final var _resultValue = new GetFunctionDurableConfig();
             _resultValue.executionTimeout = executionTimeout;
+            _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.retentionPeriod = retentionPeriod;
             return _resultValue;
         }

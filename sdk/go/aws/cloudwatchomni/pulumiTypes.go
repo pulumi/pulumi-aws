@@ -1164,6 +1164,284 @@ func (o DomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrganizationDomainIdentityProviderConfiguration struct {
+	// IAM Identity Center configuration. See below.
+	IdentityCenterConfiguration OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
+}
+
+// OrganizationDomainIdentityProviderConfigurationInput is an input type that accepts OrganizationDomainIdentityProviderConfigurationArgs and OrganizationDomainIdentityProviderConfigurationOutput values.
+// You can construct a concrete instance of `OrganizationDomainIdentityProviderConfigurationInput` via:
+//
+//	OrganizationDomainIdentityProviderConfigurationArgs{...}
+type OrganizationDomainIdentityProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToOrganizationDomainIdentityProviderConfigurationOutput() OrganizationDomainIdentityProviderConfigurationOutput
+	ToOrganizationDomainIdentityProviderConfigurationOutputWithContext(context.Context) OrganizationDomainIdentityProviderConfigurationOutput
+}
+
+type OrganizationDomainIdentityProviderConfigurationArgs struct {
+	// IAM Identity Center configuration. See below.
+	IdentityCenterConfiguration OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationInput `pulumi:"identityCenterConfiguration"`
+}
+
+func (OrganizationDomainIdentityProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationDomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationOutput() OrganizationDomainIdentityProviderConfigurationOutput {
+	return i.ToOrganizationDomainIdentityProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationDomainIdentityProviderConfigurationOutput)
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return i.ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationDomainIdentityProviderConfigurationOutput).ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// OrganizationDomainIdentityProviderConfigurationPtrInput is an input type that accepts OrganizationDomainIdentityProviderConfigurationArgs, OrganizationDomainIdentityProviderConfigurationPtr and OrganizationDomainIdentityProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `OrganizationDomainIdentityProviderConfigurationPtrInput` via:
+//
+//	        OrganizationDomainIdentityProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationDomainIdentityProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationDomainIdentityProviderConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationPtrOutput
+	ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(context.Context) OrganizationDomainIdentityProviderConfigurationPtrOutput
+}
+
+type organizationDomainIdentityProviderConfigurationPtrType OrganizationDomainIdentityProviderConfigurationArgs
+
+func OrganizationDomainIdentityProviderConfigurationPtr(v *OrganizationDomainIdentityProviderConfigurationArgs) OrganizationDomainIdentityProviderConfigurationPtrInput {
+	return (*organizationDomainIdentityProviderConfigurationPtrType)(v)
+}
+
+func (*organizationDomainIdentityProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationDomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i *organizationDomainIdentityProviderConfigurationPtrType) ToOrganizationDomainIdentityProviderConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return i.ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationDomainIdentityProviderConfigurationPtrType) ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationDomainIdentityProviderConfigurationPtrOutput)
+}
+
+type OrganizationDomainIdentityProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrganizationDomainIdentityProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationDomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationOutput() OrganizationDomainIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return o.ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationDomainIdentityProviderConfiguration) *OrganizationDomainIdentityProviderConfiguration {
+		return &v
+	}).(OrganizationDomainIdentityProviderConfigurationPtrOutput)
+}
+
+// IAM Identity Center configuration. See below.
+func (o OrganizationDomainIdentityProviderConfigurationOutput) IdentityCenterConfiguration() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput {
+	return o.ApplyT(func(v OrganizationDomainIdentityProviderConfiguration) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration {
+		return v.IdentityCenterConfiguration
+	}).(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput)
+}
+
+type OrganizationDomainIdentityProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationDomainIdentityProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationDomainIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationPtrOutput) ToOrganizationDomainIdentityProviderConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationPtrOutput) ToOrganizationDomainIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationPtrOutput) Elem() OrganizationDomainIdentityProviderConfigurationOutput {
+	return o.ApplyT(func(v *OrganizationDomainIdentityProviderConfiguration) OrganizationDomainIdentityProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationDomainIdentityProviderConfiguration
+		return ret
+	}).(OrganizationDomainIdentityProviderConfigurationOutput)
+}
+
+// IAM Identity Center configuration. See below.
+func (o OrganizationDomainIdentityProviderConfigurationPtrOutput) IdentityCenterConfiguration() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v *OrganizationDomainIdentityProviderConfiguration) *OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityCenterConfiguration
+	}).(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+type OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration struct {
+	// ARN of the IAM Identity Center instance.
+	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
+}
+
+// OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationInput is an input type that accepts OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs and OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput values.
+// You can construct a concrete instance of `OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationInput` via:
+//
+//	OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{...}
+type OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationInput interface {
+	pulumi.Input
+
+	ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput
+	ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutputWithContext(context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput
+}
+
+type OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs struct {
+	// ARN of the IAM Identity Center instance.
+	IdentityCenterInstanceArn pulumi.StringInput `pulumi:"identityCenterInstanceArn"`
+}
+
+func (OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput {
+	return i.ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput)
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return i.ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput).ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx)
+}
+
+// OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrInput is an input type that accepts OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs, OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtr and OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput values.
+// You can construct a concrete instance of `OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrInput` via:
+//
+//	        OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput
+	ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput
+}
+
+type organizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrType OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs
+
+func OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtr(v *OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrInput {
+	return (*organizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrType)(v)
+}
+
+func (*organizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i *organizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrType) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return i.ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrType) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+type OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration) *OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration {
+		return &v
+	}).(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+// ARN of the IAM Identity Center instance.
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput) IdentityCenterInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration) string {
+		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringOutput)
+}
+
+type OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput) ToOrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput) Elem() OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput {
+	return o.ApplyT(func(v *OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration) OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration
+		return ret
+	}).(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput)
+}
+
+// ARN of the IAM Identity Center instance.
+func (o OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationDomainIdentityProviderConfigurationIdentityCenterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpaceEncryptionConfiguration struct {
 	// Encryption strategy. Valid values are `AWS_OWNED` and `CUSTOMER_MANAGED`.
 	EncryptionStrategy string `pulumi:"encryptionStrategy"`
@@ -1339,6 +1617,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationPtrInput)(nil)).Elem(), DomainIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationIdentityCenterConfigurationInput)(nil)).Elem(), DomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityProviderConfigurationIdentityCenterConfigurationPtrInput)(nil)).Elem(), DomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationDomainIdentityProviderConfigurationInput)(nil)).Elem(), OrganizationDomainIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationDomainIdentityProviderConfigurationPtrInput)(nil)).Elem(), OrganizationDomainIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationInput)(nil)).Elem(), OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrInput)(nil)).Elem(), OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationInput)(nil)).Elem(), SpaceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationPtrInput)(nil)).Elem(), SpaceEncryptionConfigurationArgs{})
 	pulumi.RegisterOutputType(AccessGrantPrincipalOutput{})
@@ -1359,6 +1641,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationIdentityCenterConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationDomainIdentityProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(OrganizationDomainIdentityProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationOutput{})
+	pulumi.RegisterOutputType(OrganizationDomainIdentityProviderConfigurationIdentityCenterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SpaceEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(SpaceEncryptionConfigurationPtrOutput{})
 }

@@ -102,7 +102,7 @@ public final class GetFunctionResult {
      */
     private String invokeArn;
     /**
-     * @return ARN for the KMS encryption key.
+     * @return ARN of the KMS key used to encrypt the durable function&#39;s execution state.
      * 
      */
     private String kmsKeyArn;
@@ -328,7 +328,7 @@ public final class GetFunctionResult {
         return this.invokeArn;
     }
     /**
-     * @return ARN for the KMS encryption key.
+     * @return ARN of the KMS key used to encrypt the durable function&#39;s execution state.
      * 
      */
     public String kmsKeyArn() {

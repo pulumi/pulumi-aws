@@ -45850,6 +45850,8 @@ func (o ModelContainerAdditionalModelDataSourceArrayOutput) Index(i pulumi.IntIn
 type ModelContainerAdditionalModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig *ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -45872,6 +45874,8 @@ type ModelContainerAdditionalModelDataSourceS3DataSourceInput interface {
 type ModelContainerAdditionalModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -45936,6 +45940,13 @@ func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) CompressionTy
 	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
+// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) HubAccessConfig() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) *ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+		return v.HubAccessConfig
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
 // Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
@@ -45971,6 +45982,145 @@ func (o ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput) Index(i 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainerAdditionalModelDataSourceS3DataSource {
 		return vs[0].([]ModelContainerAdditionalModelDataSourceS3DataSource)[vs[1].(int)]
 	}).(ModelContainerAdditionalModelDataSourceS3DataSourceOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn string `pulumi:"hubContentArn"`
+}
+
+// ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput is an input type that accepts ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs and ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput` via:
+//
+//	ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+type ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput
+	ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn pulumi.StringInput `pulumi:"hubContentArn"`
+}
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput).ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput is an input type that accepts ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs, ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtr and ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput` via:
+//
+//	        ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+	ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+}
+
+type modelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs
+
+func ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtr(v *ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput {
+	return (*modelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType)(v)
+}
+
+func (*modelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i *modelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) *ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+		return &v
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) HubContentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) string {
+		return v.HubContentArn
+	}).(pulumi.StringOutput)
+}
+
+type ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) Elem() ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o.ApplyT(func(v *ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig
+		return ret
+	}).(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HubContentArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig struct {
@@ -46549,6 +46699,8 @@ func (o ModelContainerModelDataSourcePtrOutput) S3DataSources() ModelContainerMo
 type ModelContainerModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig *ModelContainerModelDataSourceS3DataSourceHubAccessConfig `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelContainerModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -46571,6 +46723,8 @@ type ModelContainerModelDataSourceS3DataSourceInput interface {
 type ModelContainerModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -46635,6 +46789,13 @@ func (o ModelContainerModelDataSourceS3DataSourceOutput) CompressionType() pulum
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
+// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+func (o ModelContainerModelDataSourceS3DataSourceOutput) HubAccessConfig() ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) *ModelContainerModelDataSourceS3DataSourceHubAccessConfig {
+		return v.HubAccessConfig
+	}).(ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
 // Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelContainerModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) *ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
@@ -46670,6 +46831,143 @@ func (o ModelContainerModelDataSourceS3DataSourceArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainerModelDataSourceS3DataSource {
 		return vs[0].([]ModelContainerModelDataSourceS3DataSource)[vs[1].(int)]
 	}).(ModelContainerModelDataSourceS3DataSourceOutput)
+}
+
+type ModelContainerModelDataSourceS3DataSourceHubAccessConfig struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn string `pulumi:"hubContentArn"`
+}
+
+// ModelContainerModelDataSourceS3DataSourceHubAccessConfigInput is an input type that accepts ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs and ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput values.
+// You can construct a concrete instance of `ModelContainerModelDataSourceS3DataSourceHubAccessConfigInput` via:
+//
+//	ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+type ModelContainerModelDataSourceS3DataSourceHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput
+	ToModelContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput
+}
+
+type ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn pulumi.StringInput `pulumi:"hubContentArn"`
+}
+
+func (ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return i.ToModelContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput).ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput is an input type that accepts ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs, ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtr and ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput` via:
+//
+//	        ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+	ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+}
+
+type modelContainerModelDataSourceS3DataSourceHubAccessConfigPtrType ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs
+
+func ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtr(v *ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput {
+	return (*modelContainerModelDataSourceS3DataSourceHubAccessConfigPtrType)(v)
+}
+
+func (*modelContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i *modelContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+type ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerModelDataSourceS3DataSourceHubAccessConfig) *ModelContainerModelDataSourceS3DataSourceHubAccessConfig {
+		return &v
+	}).(ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput) HubContentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSourceHubAccessConfig) string { return v.HubContentArn }).(pulumi.StringOutput)
+}
+
+type ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) Elem() ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o.ApplyT(func(v *ModelContainerModelDataSourceS3DataSourceHubAccessConfig) ModelContainerModelDataSourceS3DataSourceHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerModelDataSourceS3DataSourceHubAccessConfig
+		return ret
+	}).(ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerModelDataSourceS3DataSourceHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HubContentArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ModelContainerModelDataSourceS3DataSourceModelAccessConfig struct {
@@ -47523,6 +47821,8 @@ func (o ModelPrimaryContainerAdditionalModelDataSourceArrayOutput) Index(i pulum
 type ModelPrimaryContainerAdditionalModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -47545,6 +47845,8 @@ type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput interface {
 type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -47609,6 +47911,13 @@ func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) Compre
 	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
+// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) HubAccessConfig() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+		return v.HubAccessConfig
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
 // Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
@@ -47644,6 +47953,145 @@ func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput) I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPrimaryContainerAdditionalModelDataSourceS3DataSource {
 		return vs[0].([]ModelPrimaryContainerAdditionalModelDataSourceS3DataSource)[vs[1].(int)]
 	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn string `pulumi:"hubContentArn"`
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs and ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput` via:
+//
+//	ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn pulumi.StringInput `pulumi:"hubContentArn"`
+}
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput).ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput is an input type that accepts ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs, ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtr and ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput` via:
+//
+//	        ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+	ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+}
+
+type modelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs
+
+func ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtr(v *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput {
+	return (*modelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType)(v)
+}
+
+func (*modelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i *modelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+		return &v
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput) HubContentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) string {
+		return v.HubContentArn
+	}).(pulumi.StringOutput)
+}
+
+type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) Elem() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig
+		return ret
+	}).(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HubContentArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig struct {
@@ -48224,6 +48672,8 @@ func (o ModelPrimaryContainerModelDataSourcePtrOutput) S3DataSources() ModelPrim
 type ModelPrimaryContainerModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig *ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -48246,6 +48696,8 @@ type ModelPrimaryContainerModelDataSourceS3DataSourceInput interface {
 type ModelPrimaryContainerModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+	HubAccessConfig ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
 	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -48310,6 +48762,13 @@ func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) CompressionType(
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
+// Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) HubAccessConfig() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) *ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig {
+		return v.HubAccessConfig
+	}).(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
 // Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) *ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
@@ -48345,6 +48804,143 @@ func (o ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPrimaryContainerModelDataSourceS3DataSource {
 		return vs[0].([]ModelPrimaryContainerModelDataSourceS3DataSource)[vs[1].(int)]
 	}).(ModelPrimaryContainerModelDataSourceS3DataSourceOutput)
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn string `pulumi:"hubContentArn"`
+}
+
+// ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigInput is an input type that accepts ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs and ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigInput` via:
+//
+//	ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+type ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput
+	ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs struct {
+	// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+	HubContentArn pulumi.StringInput `pulumi:"hubContentArn"`
+}
+
+func (ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return i.ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput).ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput is an input type that accepts ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs, ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtr and ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput` via:
+//
+//	        ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+	ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+}
+
+type modelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrType ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs
+
+func ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtr(v *ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput {
+	return (*modelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrType)(v)
+}
+
+func (*modelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i *modelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig) *ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig {
+		return &v
+	}).(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput) HubContentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig) string { return v.HubContentArn }).(pulumi.StringOutput)
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) Elem() ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig) ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig
+		return ret
+	}).(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+// Versioned ARN of the private hub content to deploy, such as the `versionedHubContentArn` of an `sagemaker.HubContentReference`. `s3Uri` must match the hub content's hosting artifact URI.
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HubContentArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig struct {
@@ -71275,6 +71871,112 @@ func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetHubContentHubContentDependency struct {
+	// Hub content dependency copy path.
+	DependencyCopyPath string `pulumi:"dependencyCopyPath"`
+	// Hub content dependency origin path.
+	DependencyOriginPath string `pulumi:"dependencyOriginPath"`
+}
+
+// GetHubContentHubContentDependencyInput is an input type that accepts GetHubContentHubContentDependencyArgs and GetHubContentHubContentDependencyOutput values.
+// You can construct a concrete instance of `GetHubContentHubContentDependencyInput` via:
+//
+//	GetHubContentHubContentDependencyArgs{...}
+type GetHubContentHubContentDependencyInput interface {
+	pulumi.Input
+
+	ToGetHubContentHubContentDependencyOutput() GetHubContentHubContentDependencyOutput
+	ToGetHubContentHubContentDependencyOutputWithContext(context.Context) GetHubContentHubContentDependencyOutput
+}
+
+type GetHubContentHubContentDependencyArgs struct {
+	// Hub content dependency copy path.
+	DependencyCopyPath pulumi.StringInput `pulumi:"dependencyCopyPath"`
+	// Hub content dependency origin path.
+	DependencyOriginPath pulumi.StringInput `pulumi:"dependencyOriginPath"`
+}
+
+func (GetHubContentHubContentDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHubContentHubContentDependency)(nil)).Elem()
+}
+
+func (i GetHubContentHubContentDependencyArgs) ToGetHubContentHubContentDependencyOutput() GetHubContentHubContentDependencyOutput {
+	return i.ToGetHubContentHubContentDependencyOutputWithContext(context.Background())
+}
+
+func (i GetHubContentHubContentDependencyArgs) ToGetHubContentHubContentDependencyOutputWithContext(ctx context.Context) GetHubContentHubContentDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHubContentHubContentDependencyOutput)
+}
+
+// GetHubContentHubContentDependencyArrayInput is an input type that accepts GetHubContentHubContentDependencyArray and GetHubContentHubContentDependencyArrayOutput values.
+// You can construct a concrete instance of `GetHubContentHubContentDependencyArrayInput` via:
+//
+//	GetHubContentHubContentDependencyArray{ GetHubContentHubContentDependencyArgs{...} }
+type GetHubContentHubContentDependencyArrayInput interface {
+	pulumi.Input
+
+	ToGetHubContentHubContentDependencyArrayOutput() GetHubContentHubContentDependencyArrayOutput
+	ToGetHubContentHubContentDependencyArrayOutputWithContext(context.Context) GetHubContentHubContentDependencyArrayOutput
+}
+
+type GetHubContentHubContentDependencyArray []GetHubContentHubContentDependencyInput
+
+func (GetHubContentHubContentDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHubContentHubContentDependency)(nil)).Elem()
+}
+
+func (i GetHubContentHubContentDependencyArray) ToGetHubContentHubContentDependencyArrayOutput() GetHubContentHubContentDependencyArrayOutput {
+	return i.ToGetHubContentHubContentDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i GetHubContentHubContentDependencyArray) ToGetHubContentHubContentDependencyArrayOutputWithContext(ctx context.Context) GetHubContentHubContentDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHubContentHubContentDependencyArrayOutput)
+}
+
+type GetHubContentHubContentDependencyOutput struct{ *pulumi.OutputState }
+
+func (GetHubContentHubContentDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHubContentHubContentDependency)(nil)).Elem()
+}
+
+func (o GetHubContentHubContentDependencyOutput) ToGetHubContentHubContentDependencyOutput() GetHubContentHubContentDependencyOutput {
+	return o
+}
+
+func (o GetHubContentHubContentDependencyOutput) ToGetHubContentHubContentDependencyOutputWithContext(ctx context.Context) GetHubContentHubContentDependencyOutput {
+	return o
+}
+
+// Hub content dependency copy path.
+func (o GetHubContentHubContentDependencyOutput) DependencyCopyPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHubContentHubContentDependency) string { return v.DependencyCopyPath }).(pulumi.StringOutput)
+}
+
+// Hub content dependency origin path.
+func (o GetHubContentHubContentDependencyOutput) DependencyOriginPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHubContentHubContentDependency) string { return v.DependencyOriginPath }).(pulumi.StringOutput)
+}
+
+type GetHubContentHubContentDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHubContentHubContentDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHubContentHubContentDependency)(nil)).Elem()
+}
+
+func (o GetHubContentHubContentDependencyArrayOutput) ToGetHubContentHubContentDependencyArrayOutput() GetHubContentHubContentDependencyArrayOutput {
+	return o
+}
+
+func (o GetHubContentHubContentDependencyArrayOutput) ToGetHubContentHubContentDependencyArrayOutputWithContext(ctx context.Context) GetHubContentHubContentDependencyArrayOutput {
+	return o
+}
+
+func (o GetHubContentHubContentDependencyArrayOutput) Index(i pulumi.IntInput) GetHubContentHubContentDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHubContentHubContentDependency {
+		return vs[0].([]GetHubContentHubContentDependency)[vs[1].(int)]
+	}).(GetHubContentHubContentDependencyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationInput)(nil)).Elem(), AlgorithmInferenceSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationPtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationArgs{})
@@ -71826,6 +72528,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceArrayInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigInput)(nil)).Elem(), ModelContainerImageConfigArgs{})
@@ -71836,6 +72540,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourcePtrInput)(nil)).Elem(), ModelContainerModelDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceHubAccessConfigInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceHubAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerMultiModelConfigInput)(nil)).Elem(), ModelContainerMultiModelConfigArgs{})
@@ -71848,6 +72554,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceArrayInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigInput)(nil)).Elem(), ModelPrimaryContainerImageConfigArgs{})
@@ -71858,6 +72566,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourcePtrInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerMultiModelConfigInput)(nil)).Elem(), ModelPrimaryContainerMultiModelConfigArgs{})
@@ -72131,6 +72841,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignPtrInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHubContentHubContentDependencyInput)(nil)).Elem(), GetHubContentHubContentDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHubContentHubContentDependencyArrayInput)(nil)).Elem(), GetHubContentHubContentDependencyArray{})
 	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationOutput{})
 	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerOutput{})
@@ -72681,6 +73393,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceOutput{})
 	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput{})
 	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})
@@ -72691,6 +73405,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerModelDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceOutput{})
 	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceModelAccessConfigOutput{})
 	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerMultiModelConfigOutput{})
@@ -72703,6 +73419,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceArrayOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigOutput{})
@@ -72713,6 +73431,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerMultiModelConfigOutput{})
@@ -72986,4 +73706,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationS3PresignPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput{})
 	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput{})
+	pulumi.RegisterOutputType(GetHubContentHubContentDependencyOutput{})
+	pulumi.RegisterOutputType(GetHubContentHubContentDependencyArrayOutput{})
 }

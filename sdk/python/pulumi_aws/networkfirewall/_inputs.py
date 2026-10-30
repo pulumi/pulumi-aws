@@ -43,6 +43,8 @@ __all__ = [
     'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgsDict',
     'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs',
     'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgsDict',
+    'FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs',
+    'FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgsDict',
     'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs',
     'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict',
     'FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs',
@@ -648,6 +650,10 @@ class FirewallPolicyFirewallPolicyArgsDict(TypedDict):
     """
     . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
     """
+    route53_resolved_ip_validation: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgsDict']]]
+    """
+    Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+    """
     stateful_default_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
@@ -680,6 +686,7 @@ class FirewallPolicyFirewallPolicyArgs:
                  stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  enable_tls_session_holding: pulumi.Input[Optional[_builtins.bool]] = None,
                  policy_variables: pulumi.Input[Optional['FirewallPolicyFirewallPolicyPolicyVariablesArgs']] = None,
+                 route53_resolved_ip_validation: pulumi.Input[Optional['FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs']] = None,
                  stateful_default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  stateful_engine_options: pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']] = None,
                  stateful_rule_group_references: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
@@ -693,6 +700,7 @@ class FirewallPolicyFirewallPolicyArgs:
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
         :param pulumi.Input[_builtins.bool] enable_tls_session_holding: Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tls_inspection_configuration_arn` is required. Default value: `false`.
         :param pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesArgs'] policy_variables: . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+        :param pulumi.Input['FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs'] route53_resolved_ip_validation: Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stateful_default_actions: Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
         :param pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs'] stateful_engine_options: A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]] stateful_rule_group_references: Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
@@ -706,6 +714,8 @@ class FirewallPolicyFirewallPolicyArgs:
             pulumi.set(__self__, "enable_tls_session_holding", enable_tls_session_holding)
         if policy_variables is not None:
             pulumi.set(__self__, "policy_variables", policy_variables)
+        if route53_resolved_ip_validation is not None:
+            pulumi.set(__self__, "route53_resolved_ip_validation", route53_resolved_ip_validation)
         if stateful_default_actions is not None:
             pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         if stateful_engine_options is not None:
@@ -768,6 +778,18 @@ class FirewallPolicyFirewallPolicyArgs:
     @policy_variables.setter
     def policy_variables(self, value: pulumi.Input[Optional['FirewallPolicyFirewallPolicyPolicyVariablesArgs']]):
         pulumi.set(self, "policy_variables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="route53ResolvedIpValidation")
+    def route53_resolved_ip_validation(self) -> pulumi.Input[Optional['FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs']]:
+        """
+        Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+        """
+        return pulumi.get(self, "route53_resolved_ip_validation")
+
+    @route53_resolved_ip_validation.setter
+    def route53_resolved_ip_validation(self, value: pulumi.Input[Optional['FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs']]):
+        pulumi.set(self, "route53_resolved_ip_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="statefulDefaultActions")
@@ -935,6 +957,124 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs:
     @definitions.setter
     def definitions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "definitions", value)
+
+
+class FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+    """
+    dns_expiry_exception_policy: pulumi.Input[_builtins.str]
+    """
+    Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+    """
+    dns_firewall_rule_group_id: pulumi.Input[_builtins.str]
+    """
+    ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+    """
+    bypass_destination_validation_ip_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+    """
+    source_ip_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `aws_route_53_resolved_domain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+
+    > **Note:** An empty list can't be set for `source_ip_ranges` or `bypass_destination_validation_ip_ranges`. The AWS API treats an empty `source_ip_ranges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+
+    > **Note:** Removing the `route53_resolved_ip_validation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+    """
+
+@pulumi.input_type
+class FirewallPolicyFirewallPolicyRoute53ResolvedIpValidationArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[_builtins.str],
+                 dns_expiry_exception_policy: pulumi.Input[_builtins.str],
+                 dns_firewall_rule_group_id: pulumi.Input[_builtins.str],
+                 bypass_destination_validation_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] action: Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+        :param pulumi.Input[_builtins.str] dns_expiry_exception_policy: Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+        :param pulumi.Input[_builtins.str] dns_firewall_rule_group_id: ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypass_destination_validation_ip_ranges: Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ip_ranges: Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `aws_route_53_resolved_domain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+               
+               > **Note:** An empty list can't be set for `source_ip_ranges` or `bypass_destination_validation_ip_ranges`. The AWS API treats an empty `source_ip_ranges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+               
+               > **Note:** Removing the `route53_resolved_ip_validation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "dns_expiry_exception_policy", dns_expiry_exception_policy)
+        pulumi.set(__self__, "dns_firewall_rule_group_id", dns_firewall_rule_group_id)
+        if bypass_destination_validation_ip_ranges is not None:
+            pulumi.set(__self__, "bypass_destination_validation_ip_ranges", bypass_destination_validation_ip_ranges)
+        if source_ip_ranges is not None:
+            pulumi.set(__self__, "source_ip_ranges", source_ip_ranges)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take on connections that fail validation. Allowed values are: `ALERT`, `DROP`, and `REJECT`. `ALERT` requires firewall logging. `REJECT` sends a TCP reset; Network Firewall drops non-TCP traffic.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsExpiryExceptionPolicy")
+    def dns_expiry_exception_policy(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the recorded DNS resolution has expired from the resolved IP cache but traffic continues. Allowed values are: `CONTINUE`, `DROP`, and `REJECT`. `CONTINUE` treats the expired resolution as valid.
+        """
+        return pulumi.get(self, "dns_expiry_exception_policy")
+
+    @dns_expiry_exception_policy.setter
+    def dns_expiry_exception_policy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dns_expiry_exception_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsFirewallRuleGroupId")
+    def dns_firewall_rule_group_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the Route 53 Resolver DNS Firewall rule group, such as `aws_route53_resolver_firewall_rule_group.example.id`. DNS responses from the Route 53 Resolver in VPCs associated with this rule group are used for validation. Changing this value swaps the managed association asynchronously; the provider waits for the policy to return to `ACTIVE`.
+        """
+        return pulumi.get(self, "dns_firewall_rule_group_id")
+
+    @dns_firewall_rule_group_id.setter
+    def dns_firewall_rule_group_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dns_firewall_rule_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bypassDestinationValidationIpRanges")
+    def bypass_destination_validation_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination IPv4 or IPv6 CIDR blocks that are exempt from the policy-level check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. Doesn't affect rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type.
+        """
+        return pulumi.get(self, "bypass_destination_validation_ip_ranges")
+
+    @bypass_destination_validation_ip_ranges.setter
+    def bypass_destination_validation_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "bypass_destination_validation_ip_ranges", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIpRanges")
+    def source_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of client source IPv4 or IPv6 CIDR blocks whose connections are subject to the policy-level validation check. Use `/32` or `/128` for a single address. Valid number of entries is between `1` and `100`. If omitted, validation applies to the CIDR ranges of the firewall's VPC and of any additional VPCs attached to the firewall. Doesn't affect stateful rules that use the `AWS_ROUTE_53_RESOLVED_DOMAIN` target type or `aws_route_53_resolved_domain` rule keyword; those rules still evaluate traffic regardless of these source ranges.
+
+        > **Note:** An empty list can't be set for `source_ip_ranges` or `bypass_destination_validation_ip_ranges`. The AWS API treats an empty `source_ip_ranges` list as "validate no source addresses", which this resource doesn't support. Omit the argument instead.
+
+        > **Note:** Removing the `route53_resolved_ip_validation` block turns off resolved IP validation and removes the managed DNS Firewall rule group association.
+        """
+        return pulumi.get(self, "source_ip_ranges")
+
+    @source_ip_ranges.setter
+    def source_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_ip_ranges", value)
 
 
 class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict(TypedDict):
@@ -2055,7 +2195,7 @@ class RuleGroupRuleGroupRulesSourceRulesSourceListArgsDict(TypedDict):
     """
     target_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+    Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53_resolved_ip_validation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
     """
     targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
@@ -2070,7 +2210,7 @@ class RuleGroupRuleGroupRulesSourceRulesSourceListArgs:
                  targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         :param pulumi.Input[_builtins.str] generated_rules_type: String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_types: Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_types: Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53_resolved_ip_validation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: Set of domains that you want to inspect for in your traffic flows.
         """
         pulumi.set(__self__, "generated_rules_type", generated_rules_type)
@@ -2093,7 +2233,7 @@ class RuleGroupRuleGroupRulesSourceRulesSourceListArgs:
     @pulumi.getter(name="targetTypes")
     def target_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+        Set of types of domain specifications that are provided in the `targets` argument. Valid values: `AWS_ROUTE_53_RESOLVED_DOMAIN`, `HTTP_HOST`, `TLS_SNI`. `AWS_ROUTE_53_RESOLVED_DOMAIN` takes effect only when the firewall policy that uses the rule group configures `route53_resolved_ip_validation`. For more information, see [Route 53 resolved IP validation rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/route53-resolved-ip-validation-rules.html) in the AWS Network Firewall Developer Guide.
         """
         return pulumi.get(self, "target_types")
 

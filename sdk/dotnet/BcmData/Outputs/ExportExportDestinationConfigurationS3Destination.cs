@@ -18,6 +18,10 @@ namespace Pulumi.Aws.BcmData.Outputs
         /// </summary>
         public readonly string S3Bucket;
         /// <summary>
+        /// AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+        /// </summary>
+        public readonly string? S3BucketOwner;
+        /// <summary>
         /// Output configuration for the data export. See the `S3OutputConfigurations` block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> S3OutputConfigurations;
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.BcmData.Outputs
         private ExportExportDestinationConfigurationS3Destination(
             string s3Bucket,
 
+            string? s3BucketOwner,
+
             ImmutableArray<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> s3OutputConfigurations,
 
             string s3Prefix,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.BcmData.Outputs
             string s3Region)
         {
             S3Bucket = s3Bucket;
+            S3BucketOwner = s3BucketOwner;
             S3OutputConfigurations = s3OutputConfigurations;
             S3Prefix = s3Prefix;
             S3Region = s3Region;

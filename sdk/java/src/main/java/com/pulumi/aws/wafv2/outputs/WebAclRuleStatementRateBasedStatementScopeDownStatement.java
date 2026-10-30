@@ -86,7 +86,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement xssMatchStatement;
@@ -179,7 +179,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
      * 
-     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) can be nested up to 2 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement> xssMatchStatement() {

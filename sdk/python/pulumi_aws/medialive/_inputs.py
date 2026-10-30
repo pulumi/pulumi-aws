@@ -235,6 +235,8 @@ __all__ = [
     'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgsDict',
     'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs',
     'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgsDict',
+    'ChannelEncoderSettingsThumbnailConfigurationArgs',
+    'ChannelEncoderSettingsThumbnailConfigurationArgsDict',
     'ChannelEncoderSettingsTimecodeConfigArgs',
     'ChannelEncoderSettingsTimecodeConfigArgsDict',
     'ChannelEncoderSettingsVideoDescriptionArgs',
@@ -672,6 +674,10 @@ class ChannelEncoderSettingsArgsDict(TypedDict):
     """
     Nielsen configuration settings. See `nielsen_configuration` Block for details.
     """
+    thumbnail_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsThumbnailConfigurationArgsDict']]]
+    """
+    Thumbnail configuration settings. See `thumbnail_configuration` Block for details.
+    """
     video_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgsDict']]]]]
     """
     Video descriptions for the channel. See `video_descriptions` Block for details.
@@ -688,6 +694,7 @@ class ChannelEncoderSettingsArgs:
                  global_configuration: pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationArgs']] = None,
                  motion_graphics_configuration: pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationArgs']] = None,
                  nielsen_configuration: pulumi.Input[Optional['ChannelEncoderSettingsNielsenConfigurationArgs']] = None,
+                 thumbnail_configuration: pulumi.Input[Optional['ChannelEncoderSettingsThumbnailConfigurationArgs']] = None,
                  video_descriptions: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]] output_groups: Output groups for the channel. See `output_groups` Block for details.
@@ -698,6 +705,7 @@ class ChannelEncoderSettingsArgs:
         :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArgs'] global_configuration: Configuration settings that apply to the event as a whole. See `global_configuration` Block for details.
         :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArgs'] motion_graphics_configuration: Settings for motion graphics. See `motion_graphics_configuration` Block for details.
         :param pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArgs'] nielsen_configuration: Nielsen configuration settings. See `nielsen_configuration` Block for details.
+        :param pulumi.Input['ChannelEncoderSettingsThumbnailConfigurationArgs'] thumbnail_configuration: Thumbnail configuration settings. See `thumbnail_configuration` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]] video_descriptions: Video descriptions for the channel. See `video_descriptions` Block for details.
         """
         pulumi.set(__self__, "output_groups", output_groups)
@@ -714,6 +722,8 @@ class ChannelEncoderSettingsArgs:
             pulumi.set(__self__, "motion_graphics_configuration", motion_graphics_configuration)
         if nielsen_configuration is not None:
             pulumi.set(__self__, "nielsen_configuration", nielsen_configuration)
+        if thumbnail_configuration is not None:
+            pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
         if video_descriptions is not None:
             pulumi.set(__self__, "video_descriptions", video_descriptions)
 
@@ -812,6 +822,18 @@ class ChannelEncoderSettingsArgs:
     @nielsen_configuration.setter
     def nielsen_configuration(self, value: pulumi.Input[Optional['ChannelEncoderSettingsNielsenConfigurationArgs']]):
         pulumi.set(self, "nielsen_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thumbnailConfiguration")
+    def thumbnail_configuration(self) -> pulumi.Input[Optional['ChannelEncoderSettingsThumbnailConfigurationArgs']]:
+        """
+        Thumbnail configuration settings. See `thumbnail_configuration` Block for details.
+        """
+        return pulumi.get(self, "thumbnail_configuration")
+
+    @thumbnail_configuration.setter
+    def thumbnail_configuration(self, value: pulumi.Input[Optional['ChannelEncoderSettingsThumbnailConfigurationArgs']]):
+        pulumi.set(self, "thumbnail_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="videoDescriptions")
@@ -11529,6 +11551,34 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
     @row_length.setter
     def row_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "row_length", value)
+
+
+class ChannelEncoderSettingsThumbnailConfigurationArgsDict(TypedDict):
+    state: pulumi.Input[_builtins.str]
+    """
+    Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+    """
+
+@pulumi.input_type
+class ChannelEncoderSettingsThumbnailConfigurationArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] state: Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        Enables the thumbnail feature, which generates thumbnails of the incoming video in each pipeline in the channel. Valid values are `AUTO` and `DISABLED`.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
 
 
 class ChannelEncoderSettingsTimecodeConfigArgsDict(TypedDict):

@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyPolicyVariable;
+import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOption;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatelessCustomAction;
@@ -19,6 +20,7 @@ import java.util.Objects;
 public final class GetFirewallPolicyFirewallPolicy {
     private Boolean enableTlsSessionHolding;
     private List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables;
+    private List<GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation> route53ResolvedIpValidations;
     private List<String> statefulDefaultActions;
     private List<GetFirewallPolicyFirewallPolicyStatefulEngineOption> statefulEngineOptions;
     private List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences;
@@ -34,6 +36,9 @@ public final class GetFirewallPolicyFirewallPolicy {
     }
     public List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables() {
         return this.policyVariables;
+    }
+    public List<GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation> route53ResolvedIpValidations() {
+        return this.route53ResolvedIpValidations;
     }
     public List<String> statefulDefaultActions() {
         return this.statefulDefaultActions;
@@ -71,6 +76,7 @@ public final class GetFirewallPolicyFirewallPolicy {
     public static final class Builder {
         private Boolean enableTlsSessionHolding;
         private List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables;
+        private List<GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation> route53ResolvedIpValidations;
         private List<String> statefulDefaultActions;
         private List<GetFirewallPolicyFirewallPolicyStatefulEngineOption> statefulEngineOptions;
         private List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences;
@@ -84,6 +90,7 @@ public final class GetFirewallPolicyFirewallPolicy {
     	      Objects.requireNonNull(defaults);
     	      this.enableTlsSessionHolding = defaults.enableTlsSessionHolding;
     	      this.policyVariables = defaults.policyVariables;
+    	      this.route53ResolvedIpValidations = defaults.route53ResolvedIpValidations;
     	      this.statefulDefaultActions = defaults.statefulDefaultActions;
     	      this.statefulEngineOptions = defaults.statefulEngineOptions;
     	      this.statefulRuleGroupReferences = defaults.statefulRuleGroupReferences;
@@ -112,6 +119,17 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         public Builder policyVariables(GetFirewallPolicyFirewallPolicyPolicyVariable... policyVariables) {
             return policyVariables(List.of(policyVariables));
+        }
+        @CustomType.Setter
+        public Builder route53ResolvedIpValidations(List<GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation> route53ResolvedIpValidations) {
+            if (route53ResolvedIpValidations == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "route53ResolvedIpValidations");
+            }
+            this.route53ResolvedIpValidations = route53ResolvedIpValidations;
+            return this;
+        }
+        public Builder route53ResolvedIpValidations(GetFirewallPolicyFirewallPolicyRoute53ResolvedIpValidation... route53ResolvedIpValidations) {
+            return route53ResolvedIpValidations(List.of(route53ResolvedIpValidations));
         }
         @CustomType.Setter
         public Builder statefulDefaultActions(List<String> statefulDefaultActions) {
@@ -202,6 +220,7 @@ public final class GetFirewallPolicyFirewallPolicy {
             final var _resultValue = new GetFirewallPolicyFirewallPolicy();
             _resultValue.enableTlsSessionHolding = enableTlsSessionHolding;
             _resultValue.policyVariables = policyVariables;
+            _resultValue.route53ResolvedIpValidations = route53ResolvedIpValidations;
             _resultValue.statefulDefaultActions = statefulDefaultActions;
             _resultValue.statefulEngineOptions = statefulEngineOptions;
             _resultValue.statefulRuleGroupReferences = statefulRuleGroupReferences;

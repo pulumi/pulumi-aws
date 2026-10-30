@@ -1627,21 +1627,33 @@ class FunctionDurableConfigArgsDict(TypedDict):
     """
     Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
     """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kms_key_arn` argument is not used for durable function state encryption.
+    """
     retention_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+
+    > **NOTE:** When `kms_key_arn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
     """
 
 @pulumi.input_type
 class FunctionDurableConfigArgs:
     def __init__(__self__, *,
                  execution_timeout: pulumi.Input[_builtins.int],
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] execution_timeout: Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kms_key_arn` argument is not used for durable function state encryption.
         :param pulumi.Input[_builtins.int] retention_period: Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+               
+               > **NOTE:** When `kms_key_arn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
         """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
 
@@ -1658,10 +1670,24 @@ class FunctionDurableConfigArgs:
         pulumi.set(self, "execution_timeout", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the KMS customer managed key used to encrypt the durable function's execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kms_key_arn` argument is not used for durable function state encryption.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
+
+        > **NOTE:** When `kms_key_arn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
         """
         return pulumi.get(self, "retention_period")
 

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .allocatedStorage(10)
  *             .engine("mysql")
  *             .engineVersion("5.6.21")
- *             .instanceClass("db.t2.micro")
+ *             .instanceClass("db.t4g.micro")
  *             .dbName("baz")
  *             .password("barbarbarbar")
  *             .username("foo")

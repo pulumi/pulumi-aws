@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,6 +19,11 @@ public final class ExportExportDestinationConfigurationS3Destination {
      * 
      */
     private String s3Bucket;
+    /**
+     * @return AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+     * 
+     */
+    private @Nullable String s3BucketOwner;
     /**
      * @return Output configuration for the data export. See the `s3OutputConfigurations` block below.
      * 
@@ -41,6 +47,13 @@ public final class ExportExportDestinationConfigurationS3Destination {
      */
     public String s3Bucket() {
         return this.s3Bucket;
+    }
+    /**
+     * @return AWS account ID of the bucket owner. Set this for cross-account S3 delivery.
+     * 
+     */
+    public Optional<String> s3BucketOwner() {
+        return Optional.ofNullable(this.s3BucketOwner);
     }
     /**
      * @return Output configuration for the data export. See the `s3OutputConfigurations` block below.
@@ -74,6 +87,7 @@ public final class ExportExportDestinationConfigurationS3Destination {
     @CustomType.Builder
     public static final class Builder {
         private String s3Bucket;
+        private @Nullable String s3BucketOwner;
         private @Nullable List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> s3OutputConfigurations;
         private String s3Prefix;
         private String s3Region;
@@ -81,6 +95,7 @@ public final class ExportExportDestinationConfigurationS3Destination {
         public Builder(ExportExportDestinationConfigurationS3Destination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Bucket = defaults.s3Bucket;
+    	      this.s3BucketOwner = defaults.s3BucketOwner;
     	      this.s3OutputConfigurations = defaults.s3OutputConfigurations;
     	      this.s3Prefix = defaults.s3Prefix;
     	      this.s3Region = defaults.s3Region;
@@ -92,6 +107,12 @@ public final class ExportExportDestinationConfigurationS3Destination {
               throw new MissingRequiredPropertyException("ExportExportDestinationConfigurationS3Destination", "s3Bucket");
             }
             this.s3Bucket = s3Bucket;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder s3BucketOwner(@Nullable String s3BucketOwner) {
+
+            this.s3BucketOwner = s3BucketOwner;
             return this;
         }
         @CustomType.Setter
@@ -122,6 +143,7 @@ public final class ExportExportDestinationConfigurationS3Destination {
         public ExportExportDestinationConfigurationS3Destination build() {
             final var _resultValue = new ExportExportDestinationConfigurationS3Destination();
             _resultValue.s3Bucket = s3Bucket;
+            _resultValue.s3BucketOwner = s3BucketOwner;
             _resultValue.s3OutputConfigurations = s3OutputConfigurations;
             _resultValue.s3Prefix = s3Prefix;
             _resultValue.s3Region = s3Region;

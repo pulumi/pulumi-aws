@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -30,6 +31,21 @@ public final class ModelContainerAdditionalModelDataSourceS3DataSourceArgs exten
      */
     public Output<String> compressionType() {
         return this.compressionType;
+    }
+
+    /**
+     * Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+     * 
+     */
+    @Import(name="hubAccessConfig")
+    private @Nullable Output<ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs> hubAccessConfig;
+
+    /**
+     * @return Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+     * 
+     */
+    public Optional<Output<ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs>> hubAccessConfig() {
+        return Optional.ofNullable(this.hubAccessConfig);
     }
 
     /**
@@ -81,6 +97,7 @@ public final class ModelContainerAdditionalModelDataSourceS3DataSourceArgs exten
 
     private ModelContainerAdditionalModelDataSourceS3DataSourceArgs(ModelContainerAdditionalModelDataSourceS3DataSourceArgs $) {
         this.compressionType = $.compressionType;
+        this.hubAccessConfig = $.hubAccessConfig;
         this.modelAccessConfig = $.modelAccessConfig;
         this.s3DataType = $.s3DataType;
         this.s3Uri = $.s3Uri;
@@ -123,6 +140,27 @@ public final class ModelContainerAdditionalModelDataSourceS3DataSourceArgs exten
          */
         public Builder compressionType(String compressionType) {
             return compressionType(Output.of(compressionType));
+        }
+
+        /**
+         * @param hubAccessConfig Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hubAccessConfig(@Nullable Output<ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs> hubAccessConfig) {
+            $.hubAccessConfig = hubAccessConfig;
+            return this;
+        }
+
+        /**
+         * @param hubAccessConfig Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hubAccessConfig(ModelContainerAdditionalModelDataSourceS3DataSourceHubAccessConfigArgs hubAccessConfig) {
+            return hubAccessConfig(Output.of(hubAccessConfig));
         }
 
         /**

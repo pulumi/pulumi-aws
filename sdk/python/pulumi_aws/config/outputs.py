@@ -280,6 +280,7 @@ class Endpoints(dict):
                  bedrock: Optional[_builtins.str] = None,
                  bedrockagent: Optional[_builtins.str] = None,
                  bedrockagentcore: Optional[_builtins.str] = None,
+                 bedrockdataautomation: Optional[_builtins.str] = None,
                  bedrockruntime: Optional[_builtins.str] = None,
                  billing: Optional[_builtins.str] = None,
                  budgets: Optional[_builtins.str] = None,
@@ -523,6 +524,7 @@ class Endpoints(dict):
                  schemas: Optional[_builtins.str] = None,
                  secretsmanager: Optional[_builtins.str] = None,
                  securityhub: Optional[_builtins.str] = None,
+                 securityir: Optional[_builtins.str] = None,
                  securitylake: Optional[_builtins.str] = None,
                  serverlessapplicationrepository: Optional[_builtins.str] = None,
                  serverlessapprepo: Optional[_builtins.str] = None,
@@ -607,6 +609,7 @@ class Endpoints(dict):
         :param _builtins.str bedrock: Use this to override the default service endpoint URL
         :param _builtins.str bedrockagent: Use this to override the default service endpoint URL
         :param _builtins.str bedrockagentcore: Use this to override the default service endpoint URL
+        :param _builtins.str bedrockdataautomation: Use this to override the default service endpoint URL
         :param _builtins.str bedrockruntime: Use this to override the default service endpoint URL
         :param _builtins.str billing: Use this to override the default service endpoint URL
         :param _builtins.str budgets: Use this to override the default service endpoint URL
@@ -850,6 +853,7 @@ class Endpoints(dict):
         :param _builtins.str schemas: Use this to override the default service endpoint URL
         :param _builtins.str secretsmanager: Use this to override the default service endpoint URL
         :param _builtins.str securityhub: Use this to override the default service endpoint URL
+        :param _builtins.str securityir: Use this to override the default service endpoint URL
         :param _builtins.str securitylake: Use this to override the default service endpoint URL
         :param _builtins.str serverlessapplicationrepository: Use this to override the default service endpoint URL
         :param _builtins.str serverlessapprepo: Use this to override the default service endpoint URL
@@ -972,6 +976,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "bedrockagent", bedrockagent)
         if bedrockagentcore is not None:
             pulumi.set(__self__, "bedrockagentcore", bedrockagentcore)
+        if bedrockdataautomation is not None:
+            pulumi.set(__self__, "bedrockdataautomation", bedrockdataautomation)
         if bedrockruntime is not None:
             pulumi.set(__self__, "bedrockruntime", bedrockruntime)
         if billing is not None:
@@ -1458,6 +1464,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "secretsmanager", secretsmanager)
         if securityhub is not None:
             pulumi.set(__self__, "securityhub", securityhub)
+        if securityir is not None:
+            pulumi.set(__self__, "securityir", securityir)
         if securitylake is not None:
             pulumi.set(__self__, "securitylake", securitylake)
         if serverlessapplicationrepository is not None:
@@ -1852,6 +1860,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "bedrockagentcore")
+
+    @_builtins.property
+    @pulumi.getter
+    def bedrockdataautomation(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockdataautomation")
 
     @_builtins.property
     @pulumi.getter
@@ -3796,6 +3812,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "securityhub")
+
+    @_builtins.property
+    @pulumi.getter
+    def securityir(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "securityir")
 
     @_builtins.property
     @pulumi.getter

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,7 +33,24 @@ public final class FunctionDurableConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * ARN of the KMS customer managed key used to encrypt the durable function&#39;s execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+     * 
+     */
+    @Import(name="kmsKeyArn")
+    private @Nullable Output<String> kmsKeyArn;
+
+    /**
+     * @return ARN of the KMS customer managed key used to encrypt the durable function&#39;s execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
+    }
+
+    /**
      * Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
+     * 
+     * &gt; **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
      * 
      */
     @Import(name="retentionPeriod")
@@ -40,6 +58,8 @@ public final class FunctionDurableConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * @return Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
+     * 
+     * &gt; **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
      * 
      */
     public Optional<Output<Integer>> retentionPeriod() {
@@ -50,6 +70,7 @@ public final class FunctionDurableConfigArgs extends com.pulumi.resources.Resour
 
     private FunctionDurableConfigArgs(FunctionDurableConfigArgs $) {
         this.executionTimeout = $.executionTimeout;
+        this.kmsKeyArn = $.kmsKeyArn;
         this.retentionPeriod = $.retentionPeriod;
     }
 
@@ -93,7 +114,30 @@ public final class FunctionDurableConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param kmsKeyArn ARN of the KMS customer managed key used to encrypt the durable function&#39;s execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
+            $.kmsKeyArn = kmsKeyArn;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyArn ARN of the KMS customer managed key used to encrypt the durable function&#39;s execution state (input, output, and error payloads). If not specified, the execution state is encrypted with an AWS managed key. Changing this value applies the new key to executions that start after the change; executions already in progress continue to use the key they started with. Note that the top-level `kmsKeyArn` argument is not used for durable function state encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            return kmsKeyArn(Output.of(kmsKeyArn));
+        }
+
+        /**
          * @param retentionPeriod Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
+         * 
+         * &gt; **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
          * 
          * @return builder
          * 
@@ -105,6 +149,8 @@ public final class FunctionDurableConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param retentionPeriod Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
+         * 
+         * &gt; **NOTE:** When `kmsKeyArn` is set, the KMS key policy must grant the Lambda service (`lambda.amazonaws.com`) permission to use the key (`kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey`); otherwise function creation fails with a KMS `AccessDeniedException`. The key must be a symmetric encryption key in the same region as the function. The key can be changed in place after creation: the new key applies only to executions that start after the change, while executions already in progress continue to use the key they started with.
          * 
          * @return builder
          * 

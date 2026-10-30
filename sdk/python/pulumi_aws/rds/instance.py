@@ -67,6 +67,7 @@ class InstanceArgs:
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multi_tenant: pulumi.Input[Optional[_builtins.bool]] = None,
                  nchar_character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -143,6 +144,7 @@ class InstanceArgs:
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[_builtins.bool] multi_az: Whether the RDS instance is multi-AZ.
+        :param pulumi.Input[_builtins.bool] multi_tenant: Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `apply_immediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `password_wo`, and `manage_master_user_password` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
         :param pulumi.Input[_builtins.str] nchar_character_set_name: National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[_builtins.str] network_type: Network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] option_group_name: Name of the DB option group to associate.
@@ -262,6 +264,8 @@ class InstanceArgs:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if multi_tenant is not None:
+            pulumi.set(__self__, "multi_tenant", multi_tenant)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if network_type is not None:
@@ -860,6 +864,18 @@ class InstanceArgs:
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
+    @pulumi.getter(name="multiTenant")
+    def multi_tenant(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `apply_immediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `password_wo`, and `manage_master_user_password` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+        """
+        return pulumi.get(self, "multi_tenant")
+
+    @multi_tenant.setter
+    def multi_tenant(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "multi_tenant", value)
+
+    @_builtins.property
     @pulumi.getter(name="ncharCharacterSetName")
     def nchar_character_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1253,6 +1269,7 @@ class _InstanceState:
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multi_tenant: pulumi.Input[Optional[_builtins.bool]] = None,
                  nchar_character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1342,6 +1359,7 @@ class _InstanceState:
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[_builtins.bool] multi_az: Whether the RDS instance is multi-AZ.
+        :param pulumi.Input[_builtins.bool] multi_tenant: Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `apply_immediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `password_wo`, and `manage_master_user_password` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
         :param pulumi.Input[_builtins.str] nchar_character_set_name: National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[_builtins.str] network_type: Network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] option_group_name: Name of the DB option group to associate.
@@ -1483,6 +1501,8 @@ class _InstanceState:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if multi_tenant is not None:
+            pulumi.set(__self__, "multi_tenant", multi_tenant)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if network_type is not None:
@@ -2187,6 +2207,18 @@ class _InstanceState:
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
+    @pulumi.getter(name="multiTenant")
+    def multi_tenant(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `apply_immediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `password_wo`, and `manage_master_user_password` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+        """
+        return pulumi.get(self, "multi_tenant")
+
+    @multi_tenant.setter
+    def multi_tenant(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "multi_tenant", value)
+
+    @_builtins.property
     @pulumi.getter(name="ncharCharacterSetName")
     def nchar_character_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -2635,6 +2667,7 @@ class Instance(pulumi.CustomResource):
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multi_tenant: pulumi.Input[Optional[_builtins.bool]] = None,
                  nchar_character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3008,6 +3041,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[_builtins.bool] multi_az: Whether the RDS instance is multi-AZ.
+        :param pulumi.Input[_builtins.bool] multi_tenant: Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `apply_immediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `password_wo`, and `manage_master_user_password` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
         :param pulumi.Input[_builtins.str] nchar_character_set_name: National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[_builtins.str] network_type: Network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] option_group_name: Name of the DB option group to associate.
@@ -3401,6 +3435,7 @@ class Instance(pulumi.CustomResource):
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multi_tenant: pulumi.Input[Optional[_builtins.bool]] = None,
                  nchar_character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3485,6 +3520,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["multi_az"] = multi_az
+            __props__.__dict__["multi_tenant"] = multi_tenant
             __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["option_group_name"] = option_group_name
@@ -3591,6 +3627,7 @@ class Instance(pulumi.CustomResource):
             monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
             monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+            multi_tenant: pulumi.Input[Optional[_builtins.bool]] = None,
             nchar_character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
             option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3684,6 +3721,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[_builtins.bool] multi_az: Whether the RDS instance is multi-AZ.
+        :param pulumi.Input[_builtins.bool] multi_tenant: Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `apply_immediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `password_wo`, and `manage_master_user_password` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
         :param pulumi.Input[_builtins.str] nchar_character_set_name: National character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[_builtins.str] network_type: Network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] option_group_name: Name of the DB option group to associate.
@@ -3776,6 +3814,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["monitoring_interval"] = monitoring_interval
         __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
         __props__.__dict__["multi_az"] = multi_az
+        __props__.__dict__["multi_tenant"] = multi_tenant
         __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
         __props__.__dict__["network_type"] = network_type
         __props__.__dict__["option_group_name"] = option_group_name
@@ -4234,6 +4273,14 @@ class Instance(pulumi.CustomResource):
         Whether the RDS instance is multi-AZ.
         """
         return pulumi.get(self, "multi_az")
+
+    @_builtins.property
+    @pulumi.getter(name="multiTenant")
+    def multi_tenant(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to use the multi-tenant configuration of the Oracle CDB architecture. Only valid for RDS for Oracle CDB engines (`oracle-ee-cdb` and `oracle-se2-cdb`). Changing from `false` to `true` converts the instance in place and requires `apply_immediately = true`; RDS also applies any pending modifications at that time. Restored instances and read replicas are converted after creation. Conversion is irreversible, so changing from `true` to `false` forces a new resource. After conversion, RDS rejects changes to `password`, `password_wo`, and `manage_master_user_password` on the instance; manage master user credentials on the tenant database instead. Additional tenant databases are managed outside this resource. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html) for details.
+        """
+        return pulumi.get(self, "multi_tenant")
 
     @_builtins.property
     @pulumi.getter(name="ncharCharacterSetName")

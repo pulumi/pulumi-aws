@@ -589,6 +589,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="bedrockdataautomation")
+    private @Nullable Output<String> bedrockdataautomation;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> bedrockdataautomation() {
+        return Optional.ofNullable(this.bedrockdataautomation);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="bedrockruntime")
     private @Nullable Output<String> bedrockruntime;
 
@@ -4234,6 +4249,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="securityir")
+    private @Nullable Output<String> securityir;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> securityir() {
+        return Optional.ofNullable(this.securityir);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="securitylake")
     private @Nullable Output<String> securitylake;
 
@@ -4946,6 +4976,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.bedrock = $.bedrock;
         this.bedrockagent = $.bedrockagent;
         this.bedrockagentcore = $.bedrockagentcore;
+        this.bedrockdataautomation = $.bedrockdataautomation;
         this.bedrockruntime = $.bedrockruntime;
         this.billing = $.billing;
         this.budgets = $.budgets;
@@ -5189,6 +5220,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.schemas = $.schemas;
         this.secretsmanager = $.secretsmanager;
         this.securityhub = $.securityhub;
+        this.securityir = $.securityir;
         this.securitylake = $.securitylake;
         this.serverlessapplicationrepository = $.serverlessapplicationrepository;
         this.serverlessapprepo = $.serverlessapprepo;
@@ -6050,6 +6082,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder bedrockagentcore(String bedrockagentcore) {
             return bedrockagentcore(Output.of(bedrockagentcore));
+        }
+
+        /**
+         * @param bedrockdataautomation Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockdataautomation(@Nullable Output<String> bedrockdataautomation) {
+            $.bedrockdataautomation = bedrockdataautomation;
+            return this;
+        }
+
+        /**
+         * @param bedrockdataautomation Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockdataautomation(String bedrockdataautomation) {
+            return bedrockdataautomation(Output.of(bedrockdataautomation));
         }
 
         /**
@@ -11153,6 +11206,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder securityhub(String securityhub) {
             return securityhub(Output.of(securityhub));
+        }
+
+        /**
+         * @param securityir Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityir(@Nullable Output<String> securityir) {
+            $.securityir = securityir;
+            return this;
+        }
+
+        /**
+         * @param securityir Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityir(String securityir) {
+            return securityir(Output.of(securityir));
         }
 
         /**

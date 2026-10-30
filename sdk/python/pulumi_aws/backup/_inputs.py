@@ -354,6 +354,10 @@ class PlanRuleArgsDict(TypedDict):
     """
     Metadata that you can assign to help organize the resources that you create.
     """
+    rule_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+    """
     scan_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleScanActionArgsDict']]]]]
     """
     Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
@@ -385,6 +389,7 @@ class PlanRuleArgs:
                  enable_continuous_backup: pulumi.Input[Optional[_builtins.bool]] = None,
                  lifecycle: pulumi.Input[Optional['PlanRuleLifecycleArgs']] = None,
                  recovery_point_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scan_actions: pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleScanActionArgs']]]] = None,
                  schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -398,6 +403,7 @@ class PlanRuleArgs:
         :param pulumi.Input[_builtins.bool] enable_continuous_backup: Enable continuous backups for supported resources.
         :param pulumi.Input['PlanRuleLifecycleArgs'] lifecycle: Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
+        :param pulumi.Input[_builtins.str] rule_id: Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
         :param pulumi.Input[Sequence[pulumi.Input['PlanRuleScanActionArgs']]] scan_actions: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[_builtins.str] schedule: CRON expression specifying when AWS Backup initiates a backup job.
         :param pulumi.Input[_builtins.str] schedule_expression_timezone: Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
@@ -416,6 +422,8 @@ class PlanRuleArgs:
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
         if scan_actions is not None:
             pulumi.set(__self__, "scan_actions", scan_actions)
         if schedule is not None:
@@ -510,6 +518,18 @@ class PlanRuleArgs:
     @recovery_point_tags.setter
     def recovery_point_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recovery_point_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scanActions")

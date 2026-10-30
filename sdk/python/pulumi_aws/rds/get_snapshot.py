@@ -362,7 +362,7 @@ def get_snapshot(db_instance_identifier: Optional[_builtins.str] = None,
         allocated_storage=10,
         engine="mysql",
         engine_version="5.6.17",
-        instance_class=aws.rds.InstanceType.T2_MICRO,
+        instance_class=aws.rds.InstanceType.T4_G_MICRO,
         db_name="mydb",
         username="foo",
         password="bar",
@@ -372,7 +372,7 @@ def get_snapshot(db_instance_identifier: Optional[_builtins.str] = None,
         most_recent=True)
     # Use the latest production snapshot to create a dev instance.
     dev = aws.rds.Instance("dev",
-        instance_class=aws.rds.InstanceType.T2_MICRO,
+        instance_class=aws.rds.InstanceType.T4_G_MICRO,
         db_name="mydbdev",
         snapshot_identifier=latest_prod_snapshot.id,
         opts = pulumi.ResourceOptions(ignore_changes=["snapshotIdentifier"]))
@@ -455,7 +455,7 @@ def get_snapshot_output(db_instance_identifier: pulumi.Input[Optional[Optional[_
         allocated_storage=10,
         engine="mysql",
         engine_version="5.6.17",
-        instance_class=aws.rds.InstanceType.T2_MICRO,
+        instance_class=aws.rds.InstanceType.T4_G_MICRO,
         db_name="mydb",
         username="foo",
         password="bar",
@@ -465,7 +465,7 @@ def get_snapshot_output(db_instance_identifier: pulumi.Input[Optional[Optional[_
         most_recent=True)
     # Use the latest production snapshot to create a dev instance.
     dev = aws.rds.Instance("dev",
-        instance_class=aws.rds.InstanceType.T2_MICRO,
+        instance_class=aws.rds.InstanceType.T4_G_MICRO,
         db_name="mydbdev",
         snapshot_identifier=latest_prod_snapshot.id,
         opts = pulumi.ResourceOptions(ignore_changes=["snapshotIdentifier"]))

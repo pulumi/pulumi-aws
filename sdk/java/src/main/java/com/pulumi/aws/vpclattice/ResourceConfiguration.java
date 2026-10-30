@@ -208,6 +208,65 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### CIDR Example
+ * 
+ * A `CIDR` resource configuration must use a resource gateway with `resourceConfigDnsResolution` set to `IN_VPC`. It cannot be associated with a service network or a resource endpoint and is consumed by a VPC endpoint of type `Tunnel`. See [Access CIDR ranges using AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-cidr-ranges.html) for details.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.vpclattice.ResourceGateway;
+ * import com.pulumi.aws.vpclattice.ResourceGatewayArgs;
+ * import com.pulumi.aws.vpclattice.ResourceConfiguration;
+ * import com.pulumi.aws.vpclattice.ResourceConfigurationArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGateway("example", ResourceGatewayArgs.builder()
+ *             .name("example")
+ *             .vpcId(exampleAwsVpc.get("id"))
+ *             .subnetIds(exampleAwsSubnet.get("id"))
+ *             .resourceConfigDnsResolution("IN_VPC")
+ *             .build());
+ * 
+ *         var exampleResourceConfiguration = new ResourceConfiguration("exampleResourceConfiguration", ResourceConfigurationArgs.builder()
+ *             .resourceConfigurationDefinition(ResourceConfigurationResourceConfigurationDefinitionArgs.builder()
+ *                 .cidrResource(ResourceConfigurationResourceConfigurationDefinitionCidrResourceArgs.builder()
+ *                     .cidrRanges(                    
+ *                         "10.0.0.0/16",
+ *                         "192.168.0.0/24")
+ *                     .build())
+ *                 .build())
+ *             .name("example")
+ *             .resourceGatewayIdentifier(example.id())
+ *             .type("CIDR")
+ *             .protocol("TCP_UDP")
+ *             .portRanges(            
+ *                 "53",
+ *                 "443")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
@@ -318,28 +377,28 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Port ranges to access the Resource either single port `80` or range `80-81` range.
+     * Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
      * 
      */
     @Export(name="portRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> portRanges;
 
     /**
-     * @return Port ranges to access the Resource either single port `80` or range `80-81` range.
+     * @return Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
      * 
      */
     public Output<List<String>> portRanges() {
         return this.portRanges;
     }
     /**
-     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+     * Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
+     * @return Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     public Output<String> protocol() {
@@ -440,14 +499,14 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+     * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+     * @return Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidrResource` block.
      * 
      */
     public Output<String> type() {

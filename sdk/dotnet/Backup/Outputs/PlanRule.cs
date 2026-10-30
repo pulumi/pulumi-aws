@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
         /// <summary>
+        /// Uniquely identifies a rule that is used to schedule the backup of a selection of resources.
+        /// </summary>
+        public readonly string? RuleId;
+        /// <summary>
         /// Display name for a backup rule.
         /// </summary>
         public readonly string RuleName;
@@ -74,6 +78,8 @@ namespace Pulumi.Aws.Backup.Outputs
 
             ImmutableDictionary<string, string>? recoveryPointTags,
 
+            string? ruleId,
+
             string ruleName,
 
             ImmutableArray<Outputs.PlanRuleScanAction> scanActions,
@@ -93,6 +99,7 @@ namespace Pulumi.Aws.Backup.Outputs
             EnableContinuousBackup = enableContinuousBackup;
             Lifecycle = lifecycle;
             RecoveryPointTags = recoveryPointTags;
+            RuleId = ruleId;
             RuleName = ruleName;
             ScanActions = scanActions;
             Schedule = schedule;

@@ -41,8 +41,8 @@ class ResourceConfigurationArgs:
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
         :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
@@ -50,7 +50,7 @@ class ResourceConfigurationArgs:
         :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.
         :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidr_resource` block.
         """
         if allow_association_to_shareable_service_network is not None:
             pulumi.set(__self__, "allow_association_to_shareable_service_network", allow_association_to_shareable_service_network)
@@ -131,7 +131,7 @@ class ResourceConfigurationArgs:
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Port ranges to access the Resource either single port `80` or range `80-81` range.
+        Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -143,7 +143,7 @@ class ResourceConfigurationArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resource_configuration_group_id` is not.
         """
         return pulumi.get(self, "protocol")
 
@@ -226,7 +226,7 @@ class ResourceConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidr_resource` block.
         """
         return pulumi.get(self, "type")
 
@@ -265,8 +265,8 @@ class _ResourceConfigurationState:
         :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] domain_verification_status: Domain verification status.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
@@ -275,7 +275,7 @@ class _ResourceConfigurationState:
         :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidr_resource` block.
         """
         if allow_association_to_shareable_service_network is not None:
             pulumi.set(__self__, "allow_association_to_shareable_service_network", allow_association_to_shareable_service_network)
@@ -400,7 +400,7 @@ class _ResourceConfigurationState:
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Port ranges to access the Resource either single port `80` or range `80-81` range.
+        Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -412,7 +412,7 @@ class _ResourceConfigurationState:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resource_configuration_group_id` is not.
         """
         return pulumi.get(self, "protocol")
 
@@ -507,7 +507,7 @@ class _ResourceConfigurationState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidr_resource` block.
         """
         return pulumi.get(self, "type")
 
@@ -626,6 +626,38 @@ class ResourceConfiguration(pulumi.CustomResource):
             type="ARN")
         ```
 
+        ### CIDR Example
+
+        A `CIDR` resource configuration must use a resource gateway with `resource_config_dns_resolution` set to `IN_VPC`. It cannot be associated with a service network or a resource endpoint and is consumed by a VPC endpoint of type `Tunnel`. See [Access CIDR ranges using AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-cidr-ranges.html) for details.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.vpclattice.ResourceGateway("example",
+            name="example",
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
+            resource_config_dns_resolution="IN_VPC")
+        example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
+            resource_configuration_definition={
+                "cidr_resource": {
+                    "cidr_ranges": [
+                        "10.0.0.0/16",
+                        "192.168.0.0/24",
+                    ],
+                },
+            },
+            name="example",
+            resource_gateway_identifier=example.id,
+            type="CIDR",
+            protocol="TCP_UDP",
+            port_ranges=[
+                "53",
+                "443",
+            ])
+        ```
+
         ## Import
 
         Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
@@ -641,8 +673,8 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
         :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
@@ -650,7 +682,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.
         :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidr_resource` block.
         """
         ...
     @overload
@@ -746,6 +778,38 @@ class ResourceConfiguration(pulumi.CustomResource):
             name="Example",
             resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
             type="ARN")
+        ```
+
+        ### CIDR Example
+
+        A `CIDR` resource configuration must use a resource gateway with `resource_config_dns_resolution` set to `IN_VPC`. It cannot be associated with a service network or a resource endpoint and is consumed by a VPC endpoint of type `Tunnel`. See [Access CIDR ranges using AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-cidr-ranges.html) for details.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.vpclattice.ResourceGateway("example",
+            name="example",
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
+            resource_config_dns_resolution="IN_VPC")
+        example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
+            resource_configuration_definition={
+                "cidr_resource": {
+                    "cidr_ranges": [
+                        "10.0.0.0/16",
+                        "192.168.0.0/24",
+                    ],
+                },
+            },
+            name="example",
+            resource_gateway_identifier=example.id,
+            type="CIDR",
+            protocol="TCP_UDP",
+            port_ranges=[
+                "53",
+                "443",
+            ])
         ```
 
         ## Import
@@ -852,8 +916,8 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] domain_verification_status: Domain verification status.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
+        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
@@ -862,7 +926,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidr_resource` block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -947,7 +1011,7 @@ class ResourceConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Port ranges to access the Resource either single port `80` or range `80-81` range.
+        Port ranges to access the Resource either single port `80` or range `80-81` range. For `CIDR` resource configurations, include port `53` to allow DNS.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -955,7 +1019,7 @@ class ResourceConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[_builtins.str]:
         """
-        Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        Protocol for the Resource. Valid values are `TCP` and `TCP_UDP`. `TCP_UDP` is only supported when `type` is `CIDR` (UDP is only supported for DNS). MUST be specified if `resource_configuration_group_id` is not.
         """
         return pulumi.get(self, "protocol")
 
@@ -1018,7 +1082,7 @@ class ResourceConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
+        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`, `CIDR`. Use `CIDR` with a `cidr_resource` block.
         """
         return pulumi.get(self, "type")
 

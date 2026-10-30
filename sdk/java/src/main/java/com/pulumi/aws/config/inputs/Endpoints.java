@@ -205,6 +205,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String bedrockdataautomation;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String bedrockruntime;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1420,6 +1425,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String securityir;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String securitylake;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1908,6 +1918,13 @@ public final class Endpoints {
      */
     public Optional<String> bedrockagentcore() {
         return Optional.ofNullable(this.bedrockagentcore);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> bedrockdataautomation() {
+        return Optional.ofNullable(this.bedrockdataautomation);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3614,6 +3631,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> securityir() {
+        return Optional.ofNullable(this.securityir);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> securitylake() {
         return Optional.ofNullable(this.securitylake);
     }
@@ -3973,6 +3997,7 @@ public final class Endpoints {
         private @Nullable String bedrock;
         private @Nullable String bedrockagent;
         private @Nullable String bedrockagentcore;
+        private @Nullable String bedrockdataautomation;
         private @Nullable String bedrockruntime;
         private @Nullable String billing;
         private @Nullable String budgets;
@@ -4216,6 +4241,7 @@ public final class Endpoints {
         private @Nullable String schemas;
         private @Nullable String secretsmanager;
         private @Nullable String securityhub;
+        private @Nullable String securityir;
         private @Nullable String securitylake;
         private @Nullable String serverlessapplicationrepository;
         private @Nullable String serverlessapprepo;
@@ -4302,6 +4328,7 @@ public final class Endpoints {
     	      this.bedrock = defaults.bedrock;
     	      this.bedrockagent = defaults.bedrockagent;
     	      this.bedrockagentcore = defaults.bedrockagentcore;
+    	      this.bedrockdataautomation = defaults.bedrockdataautomation;
     	      this.bedrockruntime = defaults.bedrockruntime;
     	      this.billing = defaults.billing;
     	      this.budgets = defaults.budgets;
@@ -4545,6 +4572,7 @@ public final class Endpoints {
     	      this.schemas = defaults.schemas;
     	      this.secretsmanager = defaults.secretsmanager;
     	      this.securityhub = defaults.securityhub;
+    	      this.securityir = defaults.securityir;
     	      this.securitylake = defaults.securitylake;
     	      this.serverlessapplicationrepository = defaults.serverlessapplicationrepository;
     	      this.serverlessapprepo = defaults.serverlessapprepo;
@@ -4818,6 +4846,12 @@ public final class Endpoints {
         public Builder bedrockagentcore(@Nullable String bedrockagentcore) {
 
             this.bedrockagentcore = bedrockagentcore;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bedrockdataautomation(@Nullable String bedrockdataautomation) {
+
+            this.bedrockdataautomation = bedrockdataautomation;
             return this;
         }
         @CustomType.Setter
@@ -6279,6 +6313,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder securityir(@Nullable String securityir) {
+
+            this.securityir = securityir;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securitylake(@Nullable String securitylake) {
 
             this.securitylake = securitylake;
@@ -6588,6 +6628,7 @@ public final class Endpoints {
             _resultValue.bedrock = bedrock;
             _resultValue.bedrockagent = bedrockagent;
             _resultValue.bedrockagentcore = bedrockagentcore;
+            _resultValue.bedrockdataautomation = bedrockdataautomation;
             _resultValue.bedrockruntime = bedrockruntime;
             _resultValue.billing = billing;
             _resultValue.budgets = budgets;
@@ -6831,6 +6872,7 @@ public final class Endpoints {
             _resultValue.schemas = schemas;
             _resultValue.secretsmanager = secretsmanager;
             _resultValue.securityhub = securityhub;
+            _resultValue.securityir = securityir;
             _resultValue.securitylake = securitylake;
             _resultValue.serverlessapplicationrepository = serverlessapplicationrepository;
             _resultValue.serverlessapprepo = serverlessapprepo;

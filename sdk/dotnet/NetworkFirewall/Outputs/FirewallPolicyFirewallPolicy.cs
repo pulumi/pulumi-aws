@@ -22,6 +22,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly Outputs.FirewallPolicyFirewallPolicyPolicyVariables? PolicyVariables;
         /// <summary>
+        /// Resolved IP validation settings, which check that a connection's destination IP address was returned by the Route 53 Resolver in a VPC associated with a DNS Firewall rule group. See Route 53 Resolved IP Validation below for details.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation? Route53ResolvedIpValidation;
+        /// <summary>
         /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `StatefulEngineOptions` block with a `RuleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, `aws:alert_established, `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
         /// </summary>
         public readonly ImmutableArray<string> StatefulDefaultActions;
@@ -62,6 +66,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             Outputs.FirewallPolicyFirewallPolicyPolicyVariables? policyVariables,
 
+            Outputs.FirewallPolicyFirewallPolicyRoute53ResolvedIpValidation? route53ResolvedIpValidation,
+
             ImmutableArray<string> statefulDefaultActions,
 
             Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions? statefulEngineOptions,
@@ -80,6 +86,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         {
             EnableTlsSessionHolding = enableTlsSessionHolding;
             PolicyVariables = policyVariables;
+            Route53ResolvedIpValidation = route53ResolvedIpValidation;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;
             StatefulRuleGroupReferences = statefulRuleGroupReferences;
