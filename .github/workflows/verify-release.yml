@@ -79,6 +79,7 @@ jobs:
         uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
         with:
           version: 2026.10.21
+          add_shims_to_path: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
           cache_save: false
       - name: Install project dependencies
