@@ -32,13 +32,8 @@ postinstall = "mise deps install"
 [deps.pulumi-java]
 # Let the selected CLI choose Java's version. With no sources or outputs this
 # also checks warm caches, without running before every mise exec or mise run.
-# Older CLIs bundle Java and reject installing it as a language plugin.
-run = '''
-version=$(pulumi version) || exit $?
-if printf '%s\n' "$version" | awk -F '[.-]' '{ sub(/^v/, "", $1); exit !($1 > 3 || ($1 == 3 && ($2 > 269 || ($2 == 269 && $3 >= 0)))) }'; then
-  pulumi plugin install language java
-fi
-'''
+# Explicit Bash also works on Windows, where mise defaults to cmd.exe.
+run = 'bash "{{config_root}}/.config/install-pulumi-java.sh"'
 
 [settings]
 experimental = true # Required for Go binaries (e.g. pulumictl).
