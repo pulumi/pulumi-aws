@@ -79,19 +79,15 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 			if propertyName == "statements" {
 				ts.Properties[propertyName] = schema.PropertySpec{
 					Description: property.Description,
-					TypeSpec: schema.TypeSpec{
-						Type: "array",
-						Items: &schema.TypeSpec{
-							Ref: ref,
-						},
+					Type:        "array",
+					Items: &schema.TypeSpec{
+						Ref: ref,
 					},
 				}
 			} else {
 				ts.Properties[propertyName] = schema.PropertySpec{
 					Description: property.Description,
-					TypeSpec: schema.TypeSpec{
-						Ref: ref,
-					},
+					Ref:         ref,
 				}
 			}
 		}
